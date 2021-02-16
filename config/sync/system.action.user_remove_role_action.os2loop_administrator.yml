@@ -1,0 +1,14 @@
+uuid: 81717d71-4785-4636-bf66-85e0b2f72ad2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.os2loop_administrator
+  module:
+    - user
+id: user_remove_role_action.os2loop_administrator
+label: 'Remove the Administrator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: os2loop_administrator

@@ -1,0 +1,14 @@
+uuid: 089ea272-feb7-4f6f-8c95-771cba2bb84a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.os2loop_administrator
+  module:
+    - user
+id: user_add_role_action.os2loop_administrator
+label: 'Add the Administrator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: os2loop_administrator

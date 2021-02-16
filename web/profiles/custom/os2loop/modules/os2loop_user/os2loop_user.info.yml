@@ -1,0 +1,5 @@
+name: 'OS2Loop Page'
+type: module
+description: 'OS2Loop Page'
+core_version_requirement: ^9
+package: 'OS2Loop'

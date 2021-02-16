@@ -1,0 +1,21 @@
+uuid: f15b271d-39d6-4a76-9eba-1d66c427b530
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_administrator
+label: Administrator
+weight: 2
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer blocks'
+  - 'administer nodes'
+  - 'administer permissions'
+  - 'administer users'
+  - 'create os2loop_page content'
+  - 'delete any os2loop_page content'
+  - 'delete own os2loop_page content'
+  - 'edit any os2loop_page content'
+  - 'edit own os2loop_page content'

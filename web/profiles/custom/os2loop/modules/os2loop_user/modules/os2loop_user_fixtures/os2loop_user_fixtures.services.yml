@@ -1,0 +1,5 @@
+services:
+  os2loop_user_fixtures.user_fixture:
+    class: Drupal\os2loop_user_fixtures\Fixture\UserFixture
+    tags:
+      - { name: content_fixture }
