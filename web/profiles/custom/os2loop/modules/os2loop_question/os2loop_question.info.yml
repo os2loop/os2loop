@@ -1,0 +1,9 @@
+name: 'OS2Loop Question'
+type: module
+description: 'OS2Loop Question'
+core_version_requirement: ^9
+package: 'OS2Loop'
+dependencies:
+  - better_formats
+  - image
+  - os2loop_taxonomy

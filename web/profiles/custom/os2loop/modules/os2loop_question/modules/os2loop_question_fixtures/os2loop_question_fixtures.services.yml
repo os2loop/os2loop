@@ -1,0 +1,5 @@
+services:
+  os2loop_question_fixtures.question_fixture:
+    class: Drupal\os2loop_question_fixtures\Fixture\QuestionFixture
+    tags:
+      - { name: content_fixture }

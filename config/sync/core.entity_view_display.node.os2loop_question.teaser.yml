@@ -1,0 +1,30 @@
+uuid: 55ffd7dc-5f68-48a4-aafa-344ee88a7cf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.os2loop_question.field_os2loop_question_content
+    - field.field.node.os2loop_question.field_os2loop_question_file
+    - field.field.node.os2loop_question.field_os2loop_question_professio
+    - field.field.node.os2loop_question.field_os2loop_question_subject
+    - field.field.node.os2loop_question.field_os2loop_question_tags
+    - node.type.os2loop_question
+  module:
+    - user
+id: node.os2loop_question.teaser
+targetEntityType: node
+bundle: os2loop_question
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_os2loop_question_content: true
+  field_os2loop_question_file: true
+  field_os2loop_question_professio: true
+  field_os2loop_question_subject: true
+  field_os2loop_question_tags: true

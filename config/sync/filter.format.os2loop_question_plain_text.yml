@@ -1,0 +1,8 @@
+uuid: 34673a53-fef7-4db0-8795-f4e1220f9dc5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Question (plain text)'
+format: os2loop_question_plain_text
+weight: 0
+filters: {  }

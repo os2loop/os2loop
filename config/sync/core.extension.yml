@@ -11,6 +11,7 @@ module:
   image: 0
   node: 0
   os2loop_page: 0
+  os2loop_question: 0
   os2loop_taxonomy: 0
   page_cache: 0
   path_alias: 0

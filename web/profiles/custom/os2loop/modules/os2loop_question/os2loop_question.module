@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains os2loop_question.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function os2loop_question_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the os2loop_question module.
+    case 'help.question.os2loop_question':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('OS2Loop question') . '</p>';
+      return $output;
+
+    default:
+  }
+}

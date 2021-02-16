@@ -1,0 +1,20 @@
+uuid: 89f82391-7865-408d-84d0-aaeb0d8a7f3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_os2loop_question_subject
+field_name: field_os2loop_question_subject
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

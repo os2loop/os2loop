@@ -11,3 +11,5 @@ is_admin: false
 permissions:
   - 'access content'
   - 'use text format os2loop_page'
+  - 'use text format os2loop_question_plain_text'
+  - 'use text format os2loop_question_rich_text'
