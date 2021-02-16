@@ -1,0 +1,36 @@
+uuid: c648743d-089a-487b-b30a-6326b1c5ea16
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.os2loop_question_answer
+    - field.field.comment.os2loop_question_answer.field_os2loop_question_answer
+  module:
+    - text
+id: comment.os2loop_question_answer.default
+targetEntityType: comment
+bundle: os2loop_question_answer
+mode: default
+content:
+  author:
+    weight: -2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_os2loop_question_answer:
+    weight: 12
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  subject:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

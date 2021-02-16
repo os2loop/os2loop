@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.os2loop_question.field_os2loop_question_answers
     - field.field.node.os2loop_question.field_os2loop_question_content
     - field.field.node.os2loop_question.field_os2loop_question_file
     - field.field.node.os2loop_question.field_os2loop_question_professio
@@ -10,6 +11,7 @@ dependencies:
     - field.field.node.os2loop_question.field_os2loop_question_tags
     - node.type.os2loop_question
   module:
+    - comment
     - file
     - text
 id: node.os2loop_question.default
@@ -23,6 +25,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_os2loop_question_answers:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_os2loop_question_content:
     weight: 6
     settings:

@@ -3,3 +3,8 @@ services:
     class: Drupal\os2loop_question_fixtures\Fixture\QuestionFixture
     tags:
       - { name: content_fixture }
+
+  os2loop_question_fixtures.answer_fixture:
+    class: Drupal\os2loop_question_fixtures\Fixture\AnswerFixture
+    tags:
+      - { name: content_fixture }

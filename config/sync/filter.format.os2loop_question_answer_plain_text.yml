@@ -1,0 +1,8 @@
+uuid: 675f5198-1d3d-4ca0-a776-77c8f4a30fae
+langcode: en
+status: true
+dependencies: {  }
+name: 'Answer (plain text)'
+format: os2loop_question_answer_plain_text
+weight: 0
+filters: {  }

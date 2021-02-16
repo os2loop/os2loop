@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.os2loop_question.field_os2loop_question_answers
     - field.field.node.os2loop_question.field_os2loop_question_content
     - field.field.node.os2loop_question.field_os2loop_question_file
     - field.field.node.os2loop_question.field_os2loop_question_professio
@@ -23,6 +24,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_os2loop_question_answers: true
   field_os2loop_question_content: true
   field_os2loop_question_file: true
   field_os2loop_question_professio: true

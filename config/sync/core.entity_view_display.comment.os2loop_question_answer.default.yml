@@ -1,0 +1,27 @@
+uuid: a01ab977-f95a-45dd-8c50-b57e183fb3c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.os2loop_question_answer
+    - field.field.comment.os2loop_question_answer.field_os2loop_question_answer
+  module:
+    - text
+id: comment.os2loop_question_answer.default
+targetEntityType: comment
+bundle: os2loop_question_answer
+mode: default
+content:
+  field_os2loop_question_answer:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }
