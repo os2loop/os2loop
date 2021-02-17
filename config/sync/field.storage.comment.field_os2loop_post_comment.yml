@@ -1,0 +1,19 @@
+uuid: 35f7550d-5766-48a9-992f-60fbc7118898
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - text
+id: comment.field_os2loop_post_comment
+field_name: field_os2loop_post_comment
+entity_type: comment
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

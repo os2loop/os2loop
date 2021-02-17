@@ -1,0 +1,17 @@
+uuid: 110aa407-a507-4c5b-8761-c12515287de8
+langcode: en
+status: true
+dependencies: {  }
+name: Post
+format: os2loop_post
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id>'
+      filter_html_help: true
+      filter_html_nofollow: false

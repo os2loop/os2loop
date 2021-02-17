@@ -1,0 +1,17 @@
+uuid: 649ea4bd-dd4a-4154-b5d8-2d7e1cbf2f68
+langcode: en
+status: true
+dependencies: {  }
+name: External
+format: os2loop_external
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id>'
+      filter_html_help: true
+      filter_html_nofollow: false

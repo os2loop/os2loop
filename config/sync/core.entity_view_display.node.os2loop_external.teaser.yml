@@ -1,0 +1,30 @@
+uuid: 6f11cf81-8270-4454-a684-e6fabbf69b35
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.os2loop_external.field_os2loop_external_descripti
+    - field.field.node.os2loop_external.field_os2loop_external_professio
+    - field.field.node.os2loop_external.field_os2loop_external_subject
+    - field.field.node.os2loop_external.field_os2loop_external_tags
+    - field.field.node.os2loop_external.field_os2loop_external_url
+    - node.type.os2loop_external
+  module:
+    - user
+id: node.os2loop_external.teaser
+targetEntityType: node
+bundle: os2loop_external
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_os2loop_external_descripti: true
+  field_os2loop_external_professio: true
+  field_os2loop_external_subject: true
+  field_os2loop_external_tags: true
+  field_os2loop_external_url: true

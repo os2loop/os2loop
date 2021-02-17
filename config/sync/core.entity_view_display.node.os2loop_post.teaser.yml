@@ -1,0 +1,32 @@
+uuid: 55ffd7dc-5f68-48a4-aafa-344ee88a7cf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.os2loop_post.field_os2loop_post_comments
+    - field.field.node.os2loop_post.field_os2loop_post_content
+    - field.field.node.os2loop_post.field_os2loop_post_file
+    - field.field.node.os2loop_post.field_os2loop_post_professio
+    - field.field.node.os2loop_post.field_os2loop_post_subject
+    - field.field.node.os2loop_post.field_os2loop_post_tags
+    - node.type.os2loop_post
+  module:
+    - user
+id: node.os2loop_post.teaser
+targetEntityType: node
+bundle: os2loop_post
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_os2loop_post_comments: true
+  field_os2loop_post_content: true
+  field_os2loop_post_file: true
+  field_os2loop_post_professio: true
+  field_os2loop_post_subject: true
+  field_os2loop_post_tags: true

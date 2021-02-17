@@ -1,0 +1,29 @@
+uuid: 4dd71c87-d03f-4101-aa97-4f1aefdfb06f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_os2loop_external_professio
+    - node.type.os2loop_external
+    - taxonomy.vocabulary.os2loop_profession
+id: node.os2loop_external.field_os2loop_external_professio
+field_name: field_os2loop_external_professio
+entity_type: node
+bundle: os2loop_external
+label: Profession
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      os2loop_profession: os2loop_profession
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

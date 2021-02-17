@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if ! composer check-coding-standards; then
+  cat >&2 << EOF
+Please fix any coding standards issues before commit'ing!
+EOF
+  exit 1
+fi
+
+exit 0

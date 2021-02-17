@@ -1,0 +1,29 @@
+uuid: 66a69ba0-7c5c-4282-882f-860972191bb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_os2loop_post_subject
+    - node.type.os2loop_post
+    - taxonomy.vocabulary.os2loop_subject
+id: node.os2loop_post.field_os2loop_post_subject
+field_name: field_os2loop_post_subject
+entity_type: node
+bundle: os2loop_post
+label: Subject
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      os2loop_subject: os2loop_subject
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

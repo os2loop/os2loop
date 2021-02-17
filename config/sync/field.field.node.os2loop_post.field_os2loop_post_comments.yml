@@ -1,0 +1,33 @@
+uuid: 24cf04da-1337-4bef-9e63-28d0c5ea870f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_os2loop_post_comments
+    - node.type.os2loop_post
+  module:
+    - comment
+id: node.os2loop_post.field_os2loop_post_comments
+field_name: field_os2loop_post_comments
+entity_type: node
+bundle: os2loop_post
+label: Comments
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 50
+  anonymous: 0
+  form_location: true
+  preview: 1
+field_type: comment

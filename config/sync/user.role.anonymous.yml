@@ -12,3 +12,6 @@ permissions:
   - 'access content'
   - 'use text format os2loop_question_answer_plain_text'
   - 'use text format os2loop_question_plain_text'
+  - 'use text format os2loop_post_comment_plain_text'
+  - 'use text format os2loop_post'
+  

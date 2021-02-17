@@ -771,7 +771,13 @@ $databases['default']['default'] = [
   'driver' => getenv('DATABASE_DRIVER') ?: 'mysql',
   'prefix' => '',
 ];
+
+$conf['memcache_servers'] = [
+  (getenv('MEMCACHED_HOST') ?: 'memcached').':'.(getenv('MEMCACHED_PORT') ?: 11211) => 'default',
+];
+
 $settings['config_sync_directory'] = '../config/sync';
+
 /**
  * Load local development override configuration, if available.
  *

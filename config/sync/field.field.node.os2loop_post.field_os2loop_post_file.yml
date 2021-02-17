@@ -1,0 +1,27 @@
+uuid: 53d58b98-214a-4f46-83c4-1cf1aa167cc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_os2loop_post_file
+    - node.type.os2loop_post
+  module:
+    - file
+id: node.os2loop_post.field_os2loop_post_file
+field_name: field_os2loop_post_file
+entity_type: node
+bundle: os2loop_post
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx jpg png gif'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

@@ -1,0 +1,10 @@
+name: 'OS2Loop Post'
+type: module
+description: 'OS2Loop Post'
+core_version_requirement: ^9
+package: 'OS2Loop'
+dependencies:
+  - better_formats
+  - comment
+  - image
+  - os2loop_taxonomy

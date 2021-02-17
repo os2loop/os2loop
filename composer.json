@@ -33,19 +33,22 @@
         "squizlabs/php_codesniffer": "^3.5"
     },
     "scripts": {
+        "post-install-cmd": [
+            "ln -sf ../../scripts/git/hooks/pre-commit .git/hooks/pre-commit"
+        ],
         "check-coding-standards/phpcs": [
-          "vendor/bin/phpcs --standard=phpcs.xml.dist"
+            "vendor/bin/phpcs --standard=phpcs.xml.dist"
         ],
         "check-coding-standards": [
-          "@check-coding-standards/phpcs"
+            "@check-coding-standards/phpcs"
         ],
         "apply-coding-standards/phpcs": [
-           "vendor/bin/phpcbf --standard=phpcs.xml.dist"
+            "vendor/bin/phpcbf --standard=phpcs.xml.dist"
         ],
         "apply-coding-standards": [
-           "@apply-coding-standards/phpcs"
+            "@apply-coding-standards/phpcs"
         ]
-      },
+    },
     "conflict": {
         "drupal/drupal": "*"
     },
@@ -112,6 +115,6 @@
         }
     },
     "require-dev": {
-        "os2loop/os2loop_fixtures": "dev-feature/LOOP-731-page"
+        "os2loop/os2loop_fixtures": "*"
     }
 }

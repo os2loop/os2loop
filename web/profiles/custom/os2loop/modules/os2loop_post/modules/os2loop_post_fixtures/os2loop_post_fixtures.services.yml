@@ -1,0 +1,10 @@
+services:
+  os2loop_post_fixtures.post_fixture:
+    class: Drupal\os2loop_post_fixtures\Fixture\PostFixture
+    tags:
+      - { name: content_fixture }
+
+  os2loop_post_fixtures.comment_fixture:
+    class: Drupal\os2loop_post_fixtures\Fixture\CommentFixture
+    tags:
+      - { name: content_fixture }

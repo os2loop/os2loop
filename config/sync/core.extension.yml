@@ -10,9 +10,12 @@ module:
   file: 0
   filter: 0
   image: 0
+  link: 0
   node: 0
+  os2loop_external: 0
   os2loop_page: 0
   os2loop_question: 0
+  os2loop_post: 0
   os2loop_taxonomy: 0
   page_cache: 0
   path_alias: 0

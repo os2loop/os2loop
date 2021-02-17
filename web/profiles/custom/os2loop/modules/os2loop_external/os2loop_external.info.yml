@@ -1,0 +1,9 @@
+name: 'OS2Loop External'
+type: module
+description: 'OS2Loop External'
+core_version_requirement: ^9
+package: 'OS2Loop'
+dependencies:
+  - better_formats
+  - link
+  - os2loop_taxonomy

@@ -1,0 +1,8 @@
+uuid: e3534c31-07f9-4a35-837b-36b621f65dc0
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_post_comment
+label: Comment
+target_entity_type_id: node
+description: 'A comment on a post'

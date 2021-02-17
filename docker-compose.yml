@@ -24,19 +24,20 @@ services:
       com.symfony.server.service-prefix: 'DATABASE'
 
   phpfpm:
-    image: itkdev/php7.2-fpm:latest
+    image: itkdev/php7.4-fpm:latest
     networks:
       - app
     environment:
-      - PHP_XDEBUG=${PHP_XDEBUG:-0}
-      - PHP_XDEBUG_REMOTE_AUTOSTART=${PHP_XDEBUG_REMOTE_AUTOSTART:-0}
-      - PHP_XDEBUG_REMOTE_CONNECT_BACK=${PHP_XDEBUG_REMOTE_CONNECT_BACK:-0}
+      - XDEBUG_MODE=${XDEBUG_MODE:-off}
+      - XDEBUG_SESSION=${XDEBUG_SESSION:-0}
       - PHP_MAX_EXECUTION_TIME=30
       - PHP_MEMORY_LIMIT=256M
       # - PHP_MAIL=1 # Uncomment to enable mailhog.
       - DOCKER_HOST_DOMAIN=${COMPOSE_DOMAIN}
+      - COMPOSER_VERSION=2
     depends_on:
       - mariadb
+      - memcached
     volumes:
       - .:/app:delegated
       - drush-cache:/root/.drush
@@ -48,7 +49,6 @@ services:
       - frontend
     depends_on:
       - phpfpm
-      - memcached
     ports:
       - '80'
     volumes:

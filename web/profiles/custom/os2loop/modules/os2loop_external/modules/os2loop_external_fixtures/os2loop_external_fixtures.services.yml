@@ -1,0 +1,5 @@
+services:
+  os2loop_external_fixtures.external_fixture:
+    class: Drupal\os2loop_external_fixtures\Fixture\ExternalFixture
+    tags:
+      - { name: content_fixture }

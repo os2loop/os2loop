@@ -1,0 +1,29 @@
+uuid: c8d460c6-4b0f-414d-89d2-a190691e7e61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_os2loop_post_professio
+    - node.type.os2loop_post
+    - taxonomy.vocabulary.os2loop_profession
+id: node.os2loop_post.field_os2loop_post_professio
+field_name: field_os2loop_post_professio
+entity_type: node
+bundle: os2loop_post
+label: Profession
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      os2loop_profession: os2loop_profession
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

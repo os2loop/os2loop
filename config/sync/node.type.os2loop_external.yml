@@ -1,0 +1,11 @@
+uuid: 26503446-6903-4ae1-8304-f79632d6e62b
+langcode: en
+status: true
+dependencies: {  }
+name: 'External content'
+type: os2loop_external
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true
