@@ -6,6 +6,8 @@ dependencies:
     - filter.format.os2loop_question_rich_text
   module:
     - ckeditor
+_core:
+  default_config_hash: rhes255IeGlb2RFrxsWCdPklb4iDkTBFW7_OxLRC6R0
 format: os2loop_question_rich_text
 editor: ckeditor
 settings:

@@ -2,6 +2,8 @@ uuid: d065bc0c-78df-4df6-8187-946b073a01e3
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: LI4jRARuBnng9VXknxRZJ2hkmtom0pVxpvA8iKmb2dg
 name: 'Question (rich text)'
 format: os2loop_question_rich_text
 weight: 0

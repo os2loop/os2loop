@@ -5,6 +5,8 @@ dependencies:
   module:
     - comment
     - text
+_core:
+  default_config_hash: l12Fvtv7yemsZ6ha_9SK_9zTMq6wp5x1S5U0Jkb13WQ
 id: comment.field_os2loop_question_answer
 field_name: field_os2loop_question_answer
 entity_type: comment

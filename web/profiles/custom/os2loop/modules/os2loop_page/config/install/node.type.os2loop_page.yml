@@ -1,7 +1,6 @@
 uuid: 61b3e6e0-d74c-437c-9e02-a25a218b99eb
 langcode: en
 status: true
-dependencies: {  }
 name: 'OS2Loop Page'
 type: os2loop_page
 description: 'A page'
@@ -9,3 +8,9 @@ help: ''
 new_revision: true
 preview_mode: 1
 display_submitted: true
+dependencies:
+  module:
+    - os2loop_page
+  enforced:
+    module:
+      - os2loop_page

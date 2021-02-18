@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - taxonomy
+_core:
+  default_config_hash: 54eTNDfbIFdlP0G0ctkavtd4M0XjtplZ2JT-AhQ8R_Y
 id: node.field_os2loop_shared_profession
 field_name: field_os2loop_shared_profession
 entity_type: node

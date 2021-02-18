@@ -25,7 +25,13 @@ EOF
 
 ```sh
 composer install --no-dev --optimize-autoloader
-vendor/bin/drush --yes site:install os2loop --existing-config
+vendor/bin/drush --yes site:install os2loop --site-name='OS2Loop'
+```
+
+Install the modules you need, e.g.:
+
+```
+vendor/bin/drush pm:enable os2loop_question --yes
 ```
 
 ### Development

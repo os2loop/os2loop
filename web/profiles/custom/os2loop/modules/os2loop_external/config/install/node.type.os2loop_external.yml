@@ -1,7 +1,10 @@
 uuid: 26503446-6903-4ae1-8304-f79632d6e62b
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - os2loop_external
 name: 'External content'
 type: os2loop_external
 description: ''

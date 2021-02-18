@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: XBD3q3tcl-5qS-2CjmsAZTYy21kRrGsViLd3_zbZfuA
+  default_config_hash: bA9FoMtU0s6oby6dOarn1CXhN5UfzxwQsifPEMpUNvc
 name: Subject
 vid: os2loop_taxonomy_subject
 description: ''

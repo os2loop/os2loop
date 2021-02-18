@@ -6,6 +6,8 @@ dependencies:
     - field.storage.node.field_os2loop_shared_subject
     - node.type.os2loop_question
     - taxonomy.vocabulary.os2loop_taxonomy_subject
+_core:
+  default_config_hash: W8NZf772ILIKMVmVSdxr0ZHw4hKbEplxBTUW3s-YT9Y
 id: node.os2loop_question.field_os2loop_shared_subject
 field_name: field_os2loop_shared_subject
 entity_type: node

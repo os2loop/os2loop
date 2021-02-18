@@ -6,6 +6,10 @@ dependencies:
     - file
     - image
     - node
+    - os2loop_page
+  enforced:
+    module:
+      - os2loop_page
 id: node.field_os2loop_page_image
 field_name: field_os2loop_page_image
 entity_type: node

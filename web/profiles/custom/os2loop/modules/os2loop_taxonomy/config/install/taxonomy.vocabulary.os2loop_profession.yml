@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: Profession
-vid: os2loop_profession
-description: ''
-weight: 0

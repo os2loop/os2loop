@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - taxonomy
+_core:
+  default_config_hash: SqgLZv5yiYGYrs49hUah6qwg5M1bZFwuJXmKUq5VPD0
 id: node.field_os2loop_shared_subject
 field_name: field_os2loop_shared_subject
 entity_type: node

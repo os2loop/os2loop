@@ -1,7 +1,12 @@
 uuid: 32e473e1-8cb9-47f7-91bd-e3e9a122c08b
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - os2loop_page
+  enforced:
+    module:
+      - os2loop_page
 name: 'OS2Loop Page'
 format: os2loop_page
 weight: 0

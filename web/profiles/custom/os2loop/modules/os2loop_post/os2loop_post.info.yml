@@ -7,5 +7,3 @@ dependencies:
   - better_formats
   - comment
   - image
-  - os2loop_shared
-  - os2loop_taxonomy

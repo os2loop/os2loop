@@ -5,6 +5,8 @@ dependencies:
   module:
     - comment
     - node
+_core:
+  default_config_hash: x6dVRqcbDQoD9-NTcbga2ehfDieXh4tR9aSFL8WlvEo
 id: node.field_os2loop_question_answers
 field_name: field_os2loop_question_answers
 entity_type: node

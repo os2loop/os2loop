@@ -6,6 +6,10 @@ dependencies:
     - filter.format.os2loop_page
   module:
     - ckeditor
+    - os2loop_page
+  enforced:
+    module:
+      - os2loop_page
 format: os2loop_page
 editor: ckeditor
 settings:

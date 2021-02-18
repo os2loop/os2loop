@@ -7,6 +7,8 @@ dependencies:
     - field.field.comment.os2loop_question_answer.field_os2loop_question_answer
   module:
     - text
+_core:
+  default_config_hash: VX7Qacpzkf0xEW73XwZwCIN9fBDNYceh4jyMmicBjB4
 id: comment.os2loop_question_answer.default
 targetEntityType: comment
 bundle: os2loop_question_answer

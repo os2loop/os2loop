@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: 3aYxfdCIAc6MYpHp8FnZxMm8DL4ul7SOUcIe4v26hJ8
 id: node.field_os2loop_question_content
 field_name: field_os2loop_question_content
 entity_type: node

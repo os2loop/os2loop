@@ -4,3 +4,7 @@ description: 'OS2Loop shared'
 core: 8.x
 core_version_requirement: ^8 || ^9
 package: 'OS2Loop'
+
+dependencies:
+  - datetime
+  - os2loop_taxonomy

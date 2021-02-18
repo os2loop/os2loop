@@ -6,6 +6,8 @@ dependencies:
     - field.storage.node.field_os2loop_shared_profession
     - node.type.os2loop_question
     - taxonomy.vocabulary.os2loop_taxonomy_profession
+_core:
+  default_config_hash: XZ8ZSH0NdWEkuKoO3UqFXp71ZXzZ4_RIi2bY675k7OY
 id: node.os2loop_question.field_os2loop_shared_profession
 field_name: field_os2loop_shared_profession
 entity_type: node

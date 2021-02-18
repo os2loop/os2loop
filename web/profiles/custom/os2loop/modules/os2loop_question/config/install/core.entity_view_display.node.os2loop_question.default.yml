@@ -18,6 +18,8 @@ dependencies:
     - file
     - text
     - user
+_core:
+  default_config_hash: fr4bSDPOSyGlVbRzlGEkG7lA9C2wFhx2JKj7NmW0-Uw
 id: node.os2loop_question.default
 targetEntityType: node
 bundle: os2loop_question

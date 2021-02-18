@@ -7,6 +7,8 @@ dependencies:
     - node.type.os2loop_question
   module:
     - file
+_core:
+  default_config_hash: MxSq3yvH05YlQFV0DwYioKAVP592tLYyII-qFtkiKlY
 id: node.os2loop_question.field_os2loop_question_file
 field_name: field_os2loop_question_file
 entity_type: node

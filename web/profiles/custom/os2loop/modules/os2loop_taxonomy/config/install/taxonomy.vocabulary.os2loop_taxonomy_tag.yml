@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: MsoWt3yaPNIP0NmsPs6ZOrsRs14TKW_3JTmxuj7nOF0
+  default_config_hash: iqeO8GPc_KwPS0I-Kb0tJJ79NjJ6EpnissRoyWmRJa0
 name: Tag
 vid: os2loop_taxonomy_tag
 description: ''

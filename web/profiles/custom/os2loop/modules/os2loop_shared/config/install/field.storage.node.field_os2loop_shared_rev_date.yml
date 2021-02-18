@@ -5,6 +5,8 @@ dependencies:
   module:
     - datetime
     - node
+_core:
+  default_config_hash: gDyUSE3Y3k00r4w9QB28_gUAlZFvceAMQfyVD67MFhw
 id: node.field_os2loop_shared_rev_date
 field_name: field_os2loop_shared_rev_date
 entity_type: node

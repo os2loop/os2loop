@@ -24,6 +24,8 @@ third_party_settings:
           weight: '0'
         os2loop_question_rich_text:
           weight: '0'
+_core:
+  default_config_hash: GeOyepU6yxAiSTzC4IB91j1QhgW6gMKBWoXfgHe90Pw
 id: node.os2loop_question.field_os2loop_question_content
 field_name: field_os2loop_question_content
 entity_type: node

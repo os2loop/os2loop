@@ -5,6 +5,10 @@ dependencies:
   module:
     - node
     - text
+    - os2loop_page
+  enforced:
+    module:
+      - os2loop_page
 id: node.field_os2loop_page_content
 field_name: field_os2loop_page_content
 entity_type: node
