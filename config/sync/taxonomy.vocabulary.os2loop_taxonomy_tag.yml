@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: MsoWt3yaPNIP0NmsPs6ZOrsRs14TKW_3JTmxuj7nOF0
 name: Tag
-vid: os2loop_tag
+vid: os2loop_taxonomy_tag
 description: ''
 weight: 0

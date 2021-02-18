@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_os2loop_shared_profession
     - node.type.os2loop_question
-    - taxonomy.vocabulary.os2loop_profession
+    - taxonomy.vocabulary.os2loop_taxonomy_profession
 id: node.os2loop_question.field_os2loop_shared_profession
 field_name: field_os2loop_shared_profession
 entity_type: node
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      os2loop_profession: os2loop_profession
+      os2loop_taxonomy_profession: os2loop_taxonomy_profession
     sort:
       field: name
       direction: asc

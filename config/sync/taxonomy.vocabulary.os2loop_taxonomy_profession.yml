@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: gNjXtszwmWiYsqA1YqWhp1OQ3tb1kcox4IL4biW1qr4
 name: Profession
-vid: os2loop_profession
+vid: os2loop_taxonomy_profession
 description: ''
 weight: 0

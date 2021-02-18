@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_os2loop_shared_subject
     - node.type.os2loop_question
-    - taxonomy.vocabulary.os2loop_subject
+    - taxonomy.vocabulary.os2loop_taxonomy_subject
 id: node.os2loop_question.field_os2loop_shared_subject
 field_name: field_os2loop_shared_subject
 entity_type: node
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      os2loop_subject: os2loop_subject
+      os2loop_taxonomy_subject: os2loop_taxonomy_subject
     sort:
       field: name
       direction: asc
