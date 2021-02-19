@@ -61,7 +61,7 @@ vendor/bin/drush --yes pm:uninstall os2loop_config
 procession the configuration (@todo explain why), e.g.
 
 ```sh
-for module in "$(ls web/profiles/custom/os2loop/modules/os2loop_*/os2loop_*.info.yml | xargs basename -s .info.yml | grep -v os2loop_shared)" "os2loop_shared"; do
+for module in $(ls web/profiles/custom/os2loop/modules/os2loop_*/os2loop_*.info.yml | xargs basename -s .info.yml | grep -v os2loop_shared) os2loop_shared; do
   vendor/bin/drush os2loop:config:add-module-config-dependencies --remove-uuid $module
   vendor/bin/drush os2loop:config:move-module-config $module
 done
@@ -70,10 +70,12 @@ done
 To process all OS2Loop modules in one go use:
 
 ```sh
-vendor/bin/drush  –yes config:export
+vendor/bin/drush --yes config:export
 vendor/bin/drush --yes pm:enable os2loop_config
-for module in "$(ls web/profiles/custom/os2loop/modules/os2loop_*/os2loop_*.info.yml | xargs basename -s .info.yml | grep -v os2loop_shared)" "os2loop_shared"; do
+for module in $(ls web/profiles/custom/os2loop/modules/os2loop_*/os2loop_*.info.yml | xargs basename -s .info.yml | grep -v os2loop_shared) os2loop_shared; do
   vendor/bin/drush os2loop:config:add-module-config-dependencies --remove-uuid $module
+done
+for module in $(ls web/profiles/custom/os2loop/modules/os2loop_*/os2loop_*.info.yml | xargs basename -s .info.yml | grep -v os2loop_shared) os2loop_shared; do
   vendor/bin/drush os2loop:config:move-module-config $module
 done
 vendor/bin/drush --yes pm:uninstall os2loop_config
