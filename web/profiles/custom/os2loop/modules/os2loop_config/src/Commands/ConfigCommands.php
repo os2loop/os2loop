@@ -56,7 +56,7 @@ class ConfigCommands extends DrushCommands {
    * @see https://www.drupal.org/node/2087879#s-example:~:text=The%20dependencies%20and%20enforced%20keys%20ensure,removed%20when%20the%20module%20is%20uninstalled
    *
    * @option remove-uuid
-   *   Remove uuid from config.
+   *   Remove uuid and _core from config.
    *
    * @command os2loop:config:add-module-config-dependencies
    * @usage os2loop:config:add-module-config-dependencies module another_module
@@ -103,6 +103,7 @@ class ConfigCommands extends DrushCommands {
 
         if ($options['remove-uuid']) {
           $config->clear('uuid');
+          $config->clear('_core');
         }
 
         $config->save();
@@ -115,11 +116,17 @@ class ConfigCommands extends DrushCommands {
    *
    * @param array $modules
    *   The module names.
+   * @param array $options
+   *   The options.
+   *
+   * @option source
+   *   Config source directory.
    *
    * @command os2loop:config:move-module-config
    * @usage os2loop:config:move-module-config module another_module
+   * @usage os2loop:config:move-module-config --source=sites/all/config module another_module
    */
-  public function moveModuleConfig(array $modules) {
+  public function moveModuleConfig(array $modules, array $options = ['source' => NULL]) {
     foreach ($modules as $module) {
       if (!$this->moduleHandler->moduleExists($module)) {
         throw new RuntimeException(sprintf('Invalid module: %s', $module));
@@ -131,7 +138,14 @@ class ConfigCommands extends DrushCommands {
         return preg_match('/[._]' . preg_quote($module, '/') . '/', $name);
       }));
 
-      $configPath = realpath(DRUPAL_ROOT . '/' . Settings::get('config_sync_directory'));
+      $source = $options['source'] ?? Settings::get('config_sync_directory');
+      if (NULL === $source) {
+        throw new RuntimeException('Config source not defined');
+      }
+      $configPath = DRUPAL_ROOT . '/' . $source;
+      if (!is_dir($configPath)) {
+        throw new RuntimeException(sprintf('Config directory %s does not exist', $configPath));
+      }
       $modulePath = $this->moduleHandler->getModule($module)->getPath();
       $moduleConfigPath = $modulePath . '/config/install';
       if (!is_dir($moduleConfigPath)) {

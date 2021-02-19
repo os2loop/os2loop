@@ -50,7 +50,7 @@ Here is an example on how to add module dependencies on the configuration of the
 # Enable the OS2Loop config module.
 vendor/bin/drush --yes pm:enable os2loop_config
 # Add module dependencies and remove uuid from the config files (cf. https://www.drupal.org/node/2087879).
-vendor/bin/drush os2loop:config:add-module-config-dependencies -remove-uuid os2loop_page
+vendor/bin/drush os2loop:config:add-module-config-dependencies --remove-uuid os2loop_page
 # Move the config into the module’s config/install folder.
 vendor/bin/drush os2loop:config:move-module-config os2loop_page
 # Disable the OS2Loop config module.
@@ -62,7 +62,7 @@ procession the configuration (@todo explain why), e.g.
 
 ```sh
 for module in "$(ls web/profiles/custom/os2loop/modules/os2loop_*/os2loop_*.info.yml | xargs basename -s .info.yml | grep -v os2loop_shared)" "os2loop_shared"; do
-  vendor/bin/drush os2loop:config:add-module-config-dependencies -remove-uuid $module
+  vendor/bin/drush os2loop:config:add-module-config-dependencies --remove-uuid $module
   vendor/bin/drush os2loop:config:move-module-config $module
 done
 ```
@@ -73,7 +73,7 @@ To process all OS2Loop modules in one go use:
 vendor/bin/drush  –yes config:export
 vendor/bin/drush --yes pm:enable os2loop_config
 for module in "$(ls web/profiles/custom/os2loop/modules/os2loop_*/os2loop_*.info.yml | xargs basename -s .info.yml | grep -v os2loop_shared)" "os2loop_shared"; do
-  vendor/bin/drush os2loop:config:add-module-config-dependencies -remove-uuid $module
+  vendor/bin/drush os2loop:config:add-module-config-dependencies --remove-uuid $module
   vendor/bin/drush os2loop:config:move-module-config $module
 done
 vendor/bin/drush --yes pm:uninstall os2loop_config
