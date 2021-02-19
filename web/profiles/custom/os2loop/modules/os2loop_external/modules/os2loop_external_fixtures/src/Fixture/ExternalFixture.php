@@ -34,14 +34,14 @@ BODY,
         'uri' => 'https://google.com/',
       ],
       'field_os2loop_shared_subject' => [
-        'target_id' => $this->getReference('os2loop_subject:Diverse')->id(),
+        'target_id' => $this->getReference('os2loop_taxonomy_subject:Diverse')->id(),
       ],
       'field_os2loop_shared_tags' => [
-        ['target_id' => $this->getReference('os2loop_tag:test')->id()],
-        ['target_id' => $this->getReference('os2loop_tag:Udredning')->id()],
+        ['target_id' => $this->getReference('os2loop_taxonomy_tag:test')->id()],
+        ['target_id' => $this->getReference('os2loop_taxonomy_tag:Udredning')->id()],
       ],
       'field_os2loop_shared_profession' => [
-        'target_id' => $this->getReference('os2loop_profession:Andet')->id(),
+        'target_id' => $this->getReference('os2loop_taxonomy_profession:Andet')->id(),
       ],
     ]);
     $external->save();
