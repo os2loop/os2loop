@@ -5,8 +5,10 @@ dependencies:
   enforced:
     module:
       - os2loop_taxonomy
+  module:
+    - os2loop_taxonomy
 _core:
-  default_config_hash: c9K0UmbpeDt_r7vBCufDTAZFT1JNWa1uFxzBhIozd6U
+  default_config_hash: maKj0FVw92Un3bO_X7AEERyh4d7UnjVc31P2QhcNnFQ
 name: Profession
 vid: os2loop_taxonomy_profession
 description: ''
