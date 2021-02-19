@@ -1,0 +1,9 @@
+services:
+  content_fixtures.commands:
+    class: \Drupal\os2loop_config\Commands\ConfigCommands
+    arguments:
+      - '@config.factory'
+      - '@module_handler'
+      - '@file_system'
+    tags:
+      - { name: drush.command }
