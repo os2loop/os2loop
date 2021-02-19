@@ -36,6 +36,8 @@ vendor/bin/drush pm:enable os2loop_question --yes
 
 ### Development
 
+See [docs/development](docs/development/README.md) for details on development.
+
 ```sh
 docker-compose up --detach
 docker-compose exec phpfpm composer install
