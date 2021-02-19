@@ -11,7 +11,7 @@ class TagFixture extends TaxonomyTermFixture {
   /**
    * {@inheritdoc}
    */
-  protected static $vocabularyId = 'os2loop_tag';
+  protected static $vocabularyId = 'os2loop_taxonomy_tag';
 
   /**
    * {@inheritdoc}

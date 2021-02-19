@@ -11,7 +11,7 @@ class ProfessionFixture extends TaxonomyTermFixture {
   /**
    * {@inheritdoc}
    */
-  protected static $vocabularyId = 'os2loop_profession';
+  protected static $vocabularyId = 'os2loop_taxonomy_profession';
 
   /**
    * {@inheritdoc}

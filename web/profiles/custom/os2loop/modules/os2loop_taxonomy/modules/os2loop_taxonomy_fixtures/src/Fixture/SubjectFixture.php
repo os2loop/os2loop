@@ -11,7 +11,7 @@ class SubjectFixture extends TaxonomyTermFixture {
   /**
    * {@inheritdoc}
    */
-  protected static $vocabularyId = 'os2loop_subject';
+  protected static $vocabularyId = 'os2loop_taxonomy_subject';
 
   /**
    * {@inheritdoc}
