@@ -1,4 +1,3 @@
-uuid: d79ff60c-4958-4ef0-921c-c5a8d2234950
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,10 @@ dependencies:
     - node.type.os2loop_question
   module:
     - comment
-_core:
-  default_config_hash: uLJGLvPrjCkNJ--LDldnzX2H_qkNwDdGnNhMlCG6ch4
+    - os2loop_question
+  enforced:
+    module:
+      - os2loop_question
 id: node.os2loop_question.field_os2loop_question_answers
 field_name: field_os2loop_question_answers
 entity_type: node

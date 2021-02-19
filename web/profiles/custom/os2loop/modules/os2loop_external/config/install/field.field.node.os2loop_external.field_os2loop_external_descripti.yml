@@ -1,4 +1,3 @@
-uuid: 5c02d9b5-572d-40ab-847d-9d2bf3534f72
 langcode: en
 status: true
 dependencies:
@@ -7,7 +6,11 @@ dependencies:
     - node.type.os2loop_external
   module:
     - better_formats
+    - os2loop_external
     - text
+  enforced:
+    module:
+      - os2loop_external
 third_party_settings:
   better_formats:
     allowed_formats_toggle: 1

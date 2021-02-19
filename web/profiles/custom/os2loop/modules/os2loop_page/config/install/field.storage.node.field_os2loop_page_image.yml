@@ -1,15 +1,14 @@
-uuid: f6b16705-4752-4a2d-8132-e10de3a2586a
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - os2loop_page
   module:
     - file
     - image
     - node
     - os2loop_page
-  enforced:
-    module:
-      - os2loop_page
 id: node.field_os2loop_page_image
 field_name: field_os2loop_page_image
 entity_type: node

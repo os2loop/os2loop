@@ -1,4 +1,3 @@
-uuid: c648743d-089a-487b-b30a-6326b1c5ea16
 langcode: en
 status: true
 dependencies:
@@ -6,7 +5,11 @@ dependencies:
     - comment.type.os2loop_post_comment
     - field.field.comment.os2loop_post_comment.field_os2loop_post_comment
   module:
+    - os2loop_post
     - text
+  enforced:
+    module:
+      - os2loop_post
 id: comment.os2loop_post_comment.default
 targetEntityType: comment
 bundle: os2loop_post_comment

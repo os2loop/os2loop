@@ -1,4 +1,3 @@
-uuid: 55ffd7dc-5f68-48a4-aafa-344ee88a7cf6
 langcode: en
 status: true
 dependencies:
@@ -13,7 +12,11 @@ dependencies:
     - field.field.node.os2loop_post.field_os2loop_shared_tags
     - node.type.os2loop_post
   module:
+    - os2loop_post
     - user
+  enforced:
+    module:
+      - os2loop_post
 id: node.os2loop_post.teaser
 targetEntityType: node
 bundle: os2loop_post

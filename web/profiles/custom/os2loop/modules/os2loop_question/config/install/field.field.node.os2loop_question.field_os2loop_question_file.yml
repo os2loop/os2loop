@@ -1,4 +1,3 @@
-uuid: 057afcfd-2f7e-4927-8e73-cd91db823182
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,10 @@ dependencies:
     - node.type.os2loop_question
   module:
     - file
-_core:
-  default_config_hash: MxSq3yvH05YlQFV0DwYioKAVP592tLYyII-qFtkiKlY
+    - os2loop_question
+  enforced:
+    module:
+      - os2loop_question
 id: node.os2loop_question.field_os2loop_question_file
 field_name: field_os2loop_question_file
 entity_type: node

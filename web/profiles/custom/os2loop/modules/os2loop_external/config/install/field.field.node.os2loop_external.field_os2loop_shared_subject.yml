@@ -1,4 +1,3 @@
-uuid: bbaed76f-b98d-4725-b3a1-e366ad7ab49f
 langcode: en
 status: true
 dependencies:
@@ -6,6 +5,13 @@ dependencies:
     - field.storage.node.field_os2loop_shared_subject
     - node.type.os2loop_external
     - taxonomy.vocabulary.os2loop_taxonomy_subject
+  module:
+    - os2loop_external
+    - os2loop_shared
+  enforced:
+    module:
+      - os2loop_external
+      - os2loop_shared
 id: node.os2loop_external.field_os2loop_shared_subject
 field_name: field_os2loop_shared_subject
 entity_type: node

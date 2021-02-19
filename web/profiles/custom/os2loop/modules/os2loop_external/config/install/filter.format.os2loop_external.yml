@@ -1,7 +1,11 @@
-uuid: 649ea4bd-dd4a-4154-b5d8-2d7e1cbf2f68
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - os2loop_external
+  enforced:
+    module:
+      - os2loop_external
 name: External
 format: os2loop_external
 weight: 0

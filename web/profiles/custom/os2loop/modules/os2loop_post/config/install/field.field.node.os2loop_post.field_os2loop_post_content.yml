@@ -1,4 +1,3 @@
-uuid: ee7c3024-37db-455a-a069-4dd2d9d8ca2b
 langcode: en
 status: true
 dependencies:
@@ -7,7 +6,11 @@ dependencies:
     - node.type.os2loop_post
   module:
     - better_formats
+    - os2loop_post
     - text
+  enforced:
+    module:
+      - os2loop_post
 third_party_settings:
   better_formats:
     allowed_formats_toggle: 1

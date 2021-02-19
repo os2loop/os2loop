@@ -1,9 +1,11 @@
-uuid: 915871b2-2eb3-438b-b2f1-f0dcb2a17b71
 langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: pihPU34hf7A-Dph_3JpcmI4gUWQV8b4RLqi9fH5sPSw
+dependencies:
+  module:
+    - os2loop_question
+  enforced:
+    module:
+      - os2loop_question
 name: 'Question (plain text)'
 format: os2loop_question_plain_text
 weight: 0

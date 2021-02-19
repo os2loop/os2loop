@@ -1,4 +1,3 @@
-uuid: 6f11cf81-8270-4454-a684-e6fabbf69b35
 langcode: en
 status: true
 dependencies:
@@ -12,7 +11,11 @@ dependencies:
     - field.field.node.os2loop_external.field_os2loop_shared_tags
     - node.type.os2loop_external
   module:
+    - os2loop_external
     - user
+  enforced:
+    module:
+      - os2loop_external
 id: node.os2loop_external.teaser
 targetEntityType: node
 bundle: os2loop_external

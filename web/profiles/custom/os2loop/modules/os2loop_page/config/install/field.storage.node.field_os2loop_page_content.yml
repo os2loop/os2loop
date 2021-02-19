@@ -1,14 +1,13 @@
-uuid: 5a263c29-ae12-4889-87c7-fe890b35d9cd
 langcode: en
 status: true
 dependencies:
-  module:
-    - node
-    - text
-    - os2loop_page
   enforced:
     module:
       - os2loop_page
+  module:
+    - node
+    - os2loop_page
+    - text
 id: node.field_os2loop_page_content
 field_name: field_os2loop_page_content
 entity_type: node

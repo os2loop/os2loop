@@ -1,10 +1,13 @@
-uuid: 72ef26db-bdac-47de-be92-96220594916b
 langcode: en
 status: true
 dependencies:
   module:
     - comment
     - node
+    - os2loop_post
+  enforced:
+    module:
+      - os2loop_post
 id: node.field_os2loop_post_comments
 field_name: field_os2loop_post_comments
 entity_type: node

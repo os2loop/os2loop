@@ -1,12 +1,13 @@
-uuid: 6fadbe0e-5aea-44b5-b62b-5982d388529d
 langcode: en
 status: true
 dependencies:
   module:
     - datetime
     - node
-_core:
-  default_config_hash: gDyUSE3Y3k00r4w9QB28_gUAlZFvceAMQfyVD67MFhw
+    - os2loop_shared
+  enforced:
+    module:
+      - os2loop_shared
 id: node.field_os2loop_shared_rev_date
 field_name: field_os2loop_shared_rev_date
 entity_type: node

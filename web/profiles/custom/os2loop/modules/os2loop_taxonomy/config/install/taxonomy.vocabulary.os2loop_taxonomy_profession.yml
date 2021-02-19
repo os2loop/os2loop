@@ -1,4 +1,3 @@
-uuid: e7b6f90f-a174-41f9-be95-c45b9caf0668
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,6 @@ dependencies:
       - os2loop_taxonomy
   module:
     - os2loop_taxonomy
-_core:
-  default_config_hash: maKj0FVw92Un3bO_X7AEERyh4d7UnjVc31P2QhcNnFQ
 name: Profession
 vid: os2loop_taxonomy_profession
 description: ''

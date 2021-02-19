@@ -1,15 +1,14 @@
-uuid: 393ee8ee-0122-4681-9989-f40507aacde3
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.os2loop_page
-  module:
-    - ckeditor
-    - os2loop_page
   enforced:
     module:
       - os2loop_page
+  module:
+    - ckeditor
+    - os2loop_page
 format: os2loop_page
 editor: ckeditor
 settings:

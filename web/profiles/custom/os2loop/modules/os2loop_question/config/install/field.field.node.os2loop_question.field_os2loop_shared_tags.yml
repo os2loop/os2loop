@@ -1,4 +1,3 @@
-uuid: 19b9ea6f-bf90-4bb1-a731-86b05e20b89b
 langcode: en
 status: true
 dependencies:
@@ -6,8 +5,13 @@ dependencies:
     - field.storage.node.field_os2loop_shared_tags
     - node.type.os2loop_question
     - taxonomy.vocabulary.os2loop_taxonomy_tag
-_core:
-  default_config_hash: VDg94Ip0czYLju-IEpYvghZ4qEwzkT-kwy1CgYV5Ang
+  module:
+    - os2loop_question
+    - os2loop_shared
+  enforced:
+    module:
+      - os2loop_question
+      - os2loop_shared
 id: node.os2loop_question.field_os2loop_shared_tags
 field_name: field_os2loop_shared_tags
 entity_type: node

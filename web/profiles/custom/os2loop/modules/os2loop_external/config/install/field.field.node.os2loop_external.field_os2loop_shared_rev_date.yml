@@ -1,4 +1,3 @@
-uuid: d3469132-b1f2-45e4-8e8e-0322670faf21
 langcode: en
 status: true
 dependencies:
@@ -7,6 +6,12 @@ dependencies:
     - node.type.os2loop_external
   module:
     - datetime
+    - os2loop_external
+    - os2loop_shared
+  enforced:
+    module:
+      - os2loop_external
+      - os2loop_shared
 id: node.os2loop_external.field_os2loop_shared_rev_date
 field_name: field_os2loop_shared_rev_date
 entity_type: node

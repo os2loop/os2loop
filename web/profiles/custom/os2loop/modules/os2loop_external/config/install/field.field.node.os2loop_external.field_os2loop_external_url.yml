@@ -1,4 +1,3 @@
-uuid: 4bca68e7-88d0-4be0-b684-a1ef382bd57b
 langcode: en
 status: true
 dependencies:
@@ -7,6 +6,10 @@ dependencies:
     - node.type.os2loop_external
   module:
     - link
+    - os2loop_external
+  enforced:
+    module:
+      - os2loop_external
 id: node.os2loop_external.field_os2loop_external_url
 field_name: field_os2loop_external_url
 entity_type: node

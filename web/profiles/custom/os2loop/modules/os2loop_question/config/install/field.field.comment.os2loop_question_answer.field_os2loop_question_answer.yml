@@ -1,4 +1,3 @@
-uuid: f2a15893-6af7-4586-82ac-2c9b68480f16
 langcode: en
 status: true
 dependencies:
@@ -7,7 +6,11 @@ dependencies:
     - field.storage.comment.field_os2loop_question_answer
   module:
     - better_formats
+    - os2loop_question
     - text
+  enforced:
+    module:
+      - os2loop_question
 third_party_settings:
   better_formats:
     allowed_formats_toggle: 1
@@ -30,8 +33,6 @@ third_party_settings:
           weight: '0'
         os2loop_question_rich_text:
           weight: '0'
-_core:
-  default_config_hash: 8-dvMcWcEXi-KSYr5va28nHmDKbTfIELTXT8vM8ny6I
 id: comment.os2loop_question_answer.field_os2loop_question_answer
 field_name: field_os2loop_question_answer
 entity_type: comment

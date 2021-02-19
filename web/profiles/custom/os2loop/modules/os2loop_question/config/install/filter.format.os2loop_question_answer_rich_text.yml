@@ -1,9 +1,11 @@
-uuid: 8fb12a78-fe5f-40bb-a6a6-7caa483e707d
 langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: eEJeAxKKtMYx2O4c9Dhm2Q_pQlUGqX0TWSatQcQhqEw
+dependencies:
+  module:
+    - os2loop_question
+  enforced:
+    module:
+      - os2loop_question
 name: 'Answer (rich text)'
 format: os2loop_question_answer_rich_text
 weight: 0

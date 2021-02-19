@@ -1,14 +1,11 @@
-uuid: 550912f4-08b4-4415-bbcd-55706145d0db
 langcode: en
 status: true
 dependencies:
-  module:
-    - os2loop_taxonomy
   enforced:
     module:
       - os2loop_taxonomy
-_core:
-  default_config_hash: 58NuFKRO2tISLj2ccIybbgosW8qCNVc436D5o7B2fkU
+  module:
+    - os2loop_taxonomy
 name: Subject
 vid: os2loop_taxonomy_subject
 description: ''

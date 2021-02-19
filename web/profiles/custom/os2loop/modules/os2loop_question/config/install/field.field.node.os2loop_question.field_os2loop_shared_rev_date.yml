@@ -1,4 +1,3 @@
-uuid: 9f144848-cd3c-477a-abb1-f5e8ce1b1b80
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,12 @@ dependencies:
     - node.type.os2loop_question
   module:
     - datetime
-_core:
-  default_config_hash: vf0op97fIvS-7XmSfrGp2uWt0X4KL8BimOPbGwFQJWQ
+    - os2loop_question
+    - os2loop_shared
+  enforced:
+    module:
+      - os2loop_question
+      - os2loop_shared
 id: node.os2loop_question.field_os2loop_shared_rev_date
 field_name: field_os2loop_shared_rev_date
 entity_type: node

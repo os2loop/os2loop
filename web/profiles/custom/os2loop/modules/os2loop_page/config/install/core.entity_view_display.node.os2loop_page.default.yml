@@ -1,4 +1,3 @@
-uuid: cd986ea4-0e96-42c8-8be5-2661d89dae37
 langcode: en
 status: true
 dependencies:
@@ -8,8 +7,12 @@ dependencies:
     - node.type.os2loop_page
   module:
     - image
+    - os2loop_page
     - text
     - user
+  enforced:
+    module:
+      - os2loop_page
 id: node.os2loop_page.default
 targetEntityType: node
 bundle: os2loop_page

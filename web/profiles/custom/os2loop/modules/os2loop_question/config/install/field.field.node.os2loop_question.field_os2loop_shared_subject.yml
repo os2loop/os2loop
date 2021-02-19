@@ -1,4 +1,3 @@
-uuid: 04f12450-d8ea-4c8d-a826-bee1a329f836
 langcode: en
 status: true
 dependencies:
@@ -6,8 +5,13 @@ dependencies:
     - field.storage.node.field_os2loop_shared_subject
     - node.type.os2loop_question
     - taxonomy.vocabulary.os2loop_taxonomy_subject
-_core:
-  default_config_hash: W8NZf772ILIKMVmVSdxr0ZHw4hKbEplxBTUW3s-YT9Y
+  module:
+    - os2loop_question
+    - os2loop_shared
+  enforced:
+    module:
+      - os2loop_question
+      - os2loop_shared
 id: node.os2loop_question.field_os2loop_shared_subject
 field_name: field_os2loop_shared_subject
 entity_type: node

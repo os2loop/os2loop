@@ -1,4 +1,3 @@
-uuid: 5351bd5a-64a2-49f2-aa1d-5af42f31c369
 langcode: en
 status: true
 dependencies:
@@ -6,9 +5,11 @@ dependencies:
     - comment.type.os2loop_question_answer
     - field.field.comment.os2loop_question_answer.field_os2loop_question_answer
   module:
+    - os2loop_question
     - text
-_core:
-  default_config_hash: f5BsvTNPfI_I5Q-zP4L29rirLF4x7JikZTOWhPYnLXo
+  enforced:
+    module:
+      - os2loop_question
 id: comment.os2loop_question_answer.default
 targetEntityType: comment
 bundle: os2loop_question_answer

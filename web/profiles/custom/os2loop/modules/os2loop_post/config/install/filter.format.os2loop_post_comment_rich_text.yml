@@ -1,7 +1,11 @@
-uuid: c28f7157-31ca-490a-ad27-1d5325257a1a
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - os2loop_post
+  enforced:
+    module:
+      - os2loop_post
 name: 'Comment (rich text)'
 format: os2loop_post_comment_rich_text
 weight: 0

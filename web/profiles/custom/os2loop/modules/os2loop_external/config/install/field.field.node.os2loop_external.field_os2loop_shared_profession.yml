@@ -1,4 +1,3 @@
-uuid: af4ab05c-a730-4a0a-bbe4-d21dfe05a5dd
 langcode: en
 status: true
 dependencies:
@@ -6,6 +5,13 @@ dependencies:
     - field.storage.node.field_os2loop_shared_profession
     - node.type.os2loop_external
     - taxonomy.vocabulary.os2loop_taxonomy_profession
+  module:
+    - os2loop_external
+    - os2loop_shared
+  enforced:
+    module:
+      - os2loop_external
+      - os2loop_shared
 id: node.os2loop_external.field_os2loop_shared_profession
 field_name: field_os2loop_shared_profession
 entity_type: node

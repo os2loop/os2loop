@@ -1,4 +1,3 @@
-uuid: 57eff808-4024-4971-9b4b-6f77ac9fb9f5
 langcode: en
 status: true
 dependencies:
@@ -16,8 +15,12 @@ dependencies:
     - comment
     - datetime
     - file
+    - os2loop_post
     - text
     - user
+  enforced:
+    module:
+      - os2loop_post
 id: node.os2loop_post.default
 targetEntityType: node
 bundle: os2loop_post

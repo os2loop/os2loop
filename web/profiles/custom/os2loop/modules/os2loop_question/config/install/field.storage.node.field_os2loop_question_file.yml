@@ -1,12 +1,13 @@
-uuid: 9145704e-47a4-4e89-ad04-d1c1e1fc4707
 langcode: en
 status: true
 dependencies:
   module:
     - file
     - node
-_core:
-  default_config_hash: H_k2BSYsMVY9ZKFts_u2kWIOEMbpzaXHIdoRumXgYvY
+    - os2loop_question
+  enforced:
+    module:
+      - os2loop_question
 id: node.field_os2loop_question_file
 field_name: field_os2loop_question_file
 entity_type: node

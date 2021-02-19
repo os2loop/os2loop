@@ -1,9 +1,11 @@
-uuid: dd109390-b6e8-4952-a0fe-d3ece66cea01
 langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: qs_vYESvUNLlXgsbev82D4auzLvsCcnC6Cjik1gOx0s
+dependencies:
+  module:
+    - os2loop_question
+  enforced:
+    module:
+      - os2loop_question
 id: os2loop_question_answer
 label: Answer
 target_entity_type_id: node

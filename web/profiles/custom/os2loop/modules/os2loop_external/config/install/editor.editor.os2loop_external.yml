@@ -1,4 +1,3 @@
-uuid: 1fdfb8da-9027-47e8-885a-6ad5cf0669c7
 langcode: en
 status: true
 dependencies:
@@ -6,6 +5,10 @@ dependencies:
     - filter.format.os2loop_external
   module:
     - ckeditor
+    - os2loop_external
+  enforced:
+    module:
+      - os2loop_external
 format: os2loop_external
 editor: ckeditor
 settings:

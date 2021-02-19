@@ -1,10 +1,13 @@
-uuid: 2d08d05a-b62b-41e5-9077-0295358c3c91
 langcode: en
 status: true
 dependencies:
   module:
     - node
+    - os2loop_post
     - text
+  enforced:
+    module:
+      - os2loop_post
 id: node.field_os2loop_post_content
 field_name: field_os2loop_post_content
 entity_type: node

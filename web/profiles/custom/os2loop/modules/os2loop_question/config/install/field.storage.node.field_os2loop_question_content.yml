@@ -1,12 +1,13 @@
-uuid: 683e3061-d393-4adb-8a0b-709316063389
 langcode: en
 status: true
 dependencies:
   module:
     - node
+    - os2loop_question
     - text
-_core:
-  default_config_hash: 3aYxfdCIAc6MYpHp8FnZxMm8DL4ul7SOUcIe4v26hJ8
+  enforced:
+    module:
+      - os2loop_question
 id: node.field_os2loop_question_content
 field_name: field_os2loop_question_content
 entity_type: node

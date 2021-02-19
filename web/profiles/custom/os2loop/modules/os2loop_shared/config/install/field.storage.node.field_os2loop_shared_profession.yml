@@ -1,12 +1,13 @@
-uuid: 98ada347-c359-4095-833d-c8d21dc15cbc
 langcode: en
 status: true
 dependencies:
   module:
     - node
+    - os2loop_shared
     - taxonomy
-_core:
-  default_config_hash: 54eTNDfbIFdlP0G0ctkavtd4M0XjtplZ2JT-AhQ8R_Y
+  enforced:
+    module:
+      - os2loop_shared
 id: node.field_os2loop_shared_profession
 field_name: field_os2loop_shared_profession
 entity_type: node
