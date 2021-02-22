@@ -1,0 +1,14 @@
+uuid: d94d21ce-ae2f-4573-bd29-775eab5a260f
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.os2loop_post_author
+  module:
+    - user
+id: user_add_role_action.os2loop_post_author
+label: 'Add the os2loop post author role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: os2loop_post_author

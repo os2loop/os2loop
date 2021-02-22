@@ -9,3 +9,4 @@ dependencies:
   - image
   - os2loop_shared
   - os2loop_taxonomy
+  - os2loop_user

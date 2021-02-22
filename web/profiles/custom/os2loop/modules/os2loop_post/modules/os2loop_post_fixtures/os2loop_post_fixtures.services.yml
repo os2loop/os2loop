@@ -1,4 +1,9 @@
 services:
+  os2loop_post_fixtures.user_fixture:
+    class: Drupal\os2loop_post_fixtures\Fixture\UserFixture
+    tags:
+      - { name: content_fixture }
+
   os2loop_post_fixtures.post_fixture:
     class: Drupal\os2loop_post_fixtures\Fixture\PostFixture
     tags:

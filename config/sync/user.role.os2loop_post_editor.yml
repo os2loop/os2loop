@@ -1,0 +1,20 @@
+uuid: a52db139-4888-40c2-a24c-64924015299c
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_post_editor
+label: 'Post editor'
+weight: 3
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create os2loop_post content'
+  - 'delete any os2loop_post content'
+  - 'delete os2loop_post revisions'
+  - 'delete own os2loop_post content'
+  - 'edit any os2loop_post content'
+  - 'edit own os2loop_post content'
+  - 'revert os2loop_post revisions'
+  - 'use text format os2loop_post'
+  - 'view os2loop_post revisions'

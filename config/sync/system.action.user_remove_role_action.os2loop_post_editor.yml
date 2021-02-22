@@ -1,0 +1,14 @@
+uuid: d8390347-bed3-4d87-9446-e6d7a33266fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.os2loop_post_editor
+  module:
+    - user
+id: user_remove_role_action.os2loop_post_editor
+label: 'Remove the os2loop post editor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: os2loop_post_editor

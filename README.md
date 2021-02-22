@@ -69,3 +69,8 @@ vendor/bin/drush --yes cache:rebuild
 composer check-coding-standards
 composer apply-coding-standards
 ```
+
+## Automated UI tests
+
+See
+[web/profiles/custom/os2loop/modules/os2loop_post/README.md#automated-ui-tests](web/profiles/custom/os2loop/modules/os2loop_post/README.md#automated-ui-tests).

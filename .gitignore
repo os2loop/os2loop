@@ -186,6 +186,7 @@
 # We want all custom site settings in settings.local.php
 /web/sites/*/settings.local.php
 !/web/sites/*/settings.php
+!/web/sites/*/testing.services.yml
 
 # Ignore PhpStorm
 .idea
@@ -195,3 +196,4 @@ private-files/
 
 # Ignore VS-code
 .vscode
+web/drupal-cypress-environment

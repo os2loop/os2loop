@@ -1,0 +1,11 @@
+name: 'OS2Loop Post tests'
+type: module
+description: 'OS2Loop Post tests'
+# Used only for development and testing.
+hidden: true
+core_version_requirement: ^9
+package: OS2Loop
+# version: VERSION
+dependencies:
+  - cypress
+  - os2loop_post_fixtures

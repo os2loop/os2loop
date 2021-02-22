@@ -1,0 +1,16 @@
+uuid: 68026ace-2af4-4b38-aab2-cdb9ce6ebf0c
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_post_author
+label: 'Post author'
+weight: 4
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create os2loop_post content'
+  - 'edit own os2loop_post content'
+  - 'revert os2loop_post revisions'
+  - 'use text format os2loop_post'
+  - 'view os2loop_post revisions'

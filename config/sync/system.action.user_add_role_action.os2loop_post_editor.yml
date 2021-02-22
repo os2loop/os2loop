@@ -1,0 +1,14 @@
+uuid: 1ac1b47e-077d-4abe-9f34-4fa30252e1c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.os2loop_post_editor
+  module:
+    - user
+id: user_add_role_action.os2loop_post_editor
+label: 'Add the os2loop post editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: os2loop_post_editor

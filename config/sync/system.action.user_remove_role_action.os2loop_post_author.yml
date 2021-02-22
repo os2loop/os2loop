@@ -1,0 +1,14 @@
+uuid: 5f14c641-55a6-4d6a-bca3-642d1b0facb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.os2loop_post_author
+  module:
+    - user
+id: user_remove_role_action.os2loop_post_author
+label: 'Remove the os2loop post author role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: os2loop_post_author
