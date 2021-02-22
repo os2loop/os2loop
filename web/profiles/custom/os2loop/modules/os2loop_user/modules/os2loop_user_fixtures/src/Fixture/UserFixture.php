@@ -22,10 +22,11 @@ class UserFixture extends AbstractFixture implements FixtureGroupInterface {
       'name' => 'administrator',
       'mail' => 'administrator@example.com',
       'pass' => 'administrator-password',
-      'status' => 1, // Active
+      // Active.
+      'status' => 1,
       'roles' => [
         'os2loop_administrator',
-      ]
+      ],
     ]);
     $user->save();
 
@@ -34,10 +35,11 @@ class UserFixture extends AbstractFixture implements FixtureGroupInterface {
       'name' => 'user',
       'mail' => 'user@example.com',
       'pass' => 'user-password',
-      'status' => 1, // Active
+      // Active.
+      'status' => 1,
       'roles' => [
         'authenticated',
-      ]
+      ],
     ]);
     $user->save();
   }
