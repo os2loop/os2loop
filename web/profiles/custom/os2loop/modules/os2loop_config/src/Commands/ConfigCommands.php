@@ -46,6 +46,68 @@ class ConfigCommands extends DrushCommands {
   }
 
   /**
+   * Drush command that renames config.
+   *
+   * @param string $search
+   *   The value being searched for.
+   * @param string $replace
+   *   The replacement value that replaces found search values.
+   * @param array $options
+   *   The options.
+   *
+   * @option regex
+   *   Use regex search and replace.
+   *
+   * @command os2loop:config:rename
+   * @usage os2loop:config:rename 'field_(.+)' '\1' --regex
+   */
+  public function rename(string $search, string $replace, array $options = ['regex' => FALSE]) {
+    if (!$options['regex']) {
+      $search = '/' . preg_quote($search, '/') . '/';
+    }
+
+    $names = $this->configFactory->listAll();
+
+    foreach ($names as $name) {
+      $config = $this->configFactory->getEditable($name);
+      $data = $this->replaceKeysAndValues($search, $replace, $config->get());
+      $config->setData($data);
+      $config->save();
+
+      if (preg_match($search, $name)) {
+        $this->output()->writeln(sprintf('%s -> %s', $name, preg_replace($search, $replace, $name)));
+        $newName = preg_replace($search, $replace, $name);
+        $this->configFactory->rename($name, $newName);
+      }
+    }
+  }
+
+  /**
+   * Replace in keys and values.
+   *
+   * @see https://stackoverflow.com/a/29619470
+   */
+  private function replaceKeysAndValues(string $search, string $replace, array $input) {
+    $return = [];
+    foreach ($input as $key => $value) {
+      if (preg_match($search, $key)) {
+        $key = preg_replace($search, $replace, $key);
+      }
+
+      if (is_array($value)) {
+        $value = $this->replaceKeysAndValues($search, $replace, $value);
+      }
+      elseif (is_string($value)) {
+        $value = preg_replace($search, $replace, $value);
+      }
+
+      $return[$key] = $value;
+    }
+
+    return $return;
+  }
+
+  /**
    * Drush command that adds module dependencies on config.
    *
    * @param array $modules
