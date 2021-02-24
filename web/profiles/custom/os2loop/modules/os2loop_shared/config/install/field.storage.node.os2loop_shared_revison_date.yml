@@ -8,8 +8,8 @@ dependencies:
     - datetime
     - node
     - os2loop_shared
-id: node.os2loop_shared_rev_date
-field_name: os2loop_shared_rev_date
+id: node.os2loop_shared_revison_date
+field_name: os2loop_shared_revison_date
 entity_type: node
 type: datetime
 settings:

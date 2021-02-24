@@ -2,24 +2,24 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.os2loop_shared_rev_date
-    - node.type.os2loop_post
+    - field.storage.node.os2loop_shared_revison_date
+    - node.type.os2loop_question
   enforced:
     module:
-      - os2loop_post
+      - os2loop_question
       - os2loop_shared
   module:
     - datetime
-    - os2loop_post
+    - os2loop_question
     - os2loop_shared
-id: node.os2loop_post.os2loop_shared_rev_date
-field_name: os2loop_shared_rev_date
+id: node.os2loop_question.os2loop_shared_revison_date
+field_name: os2loop_shared_revison_date
 entity_type: node
-bundle: os2loop_post
+bundle: os2loop_question
 label: 'Revision date'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

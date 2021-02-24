@@ -6,14 +6,7 @@ dependencies:
     - field.field.node.os2loop_post.os2loop_post_content
     - field.field.node.os2loop_post.os2loop_post_file
     - field.field.node.os2loop_post.os2loop_shared_profession
-    - field.field.node.os2loop_post.os2loop_shared_rev_date
-    - field.field.node.os2loop_post.os2loop_shared_subject
-    - field.field.node.os2loop_post.os2loop_shared_tags
-    - field.field.node.os2loop_post.os2loop_post_comments
-    - field.field.node.os2loop_post.os2loop_post_content
-    - field.field.node.os2loop_post.os2loop_post_file
-    - field.field.node.os2loop_post.os2loop_shared_profession
-    - field.field.node.os2loop_post.os2loop_shared_rev_date
+    - field.field.node.os2loop_post.os2loop_shared_revison_date
     - field.field.node.os2loop_post.os2loop_shared_subject
     - field.field.node.os2loop_post.os2loop_shared_tags
     - node.type.os2loop_post
@@ -69,7 +62,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  os2loop_shared_rev_date:
+  os2loop_shared_revison_date:
     weight: 26
     settings: {  }
     third_party_settings: {  }
@@ -145,6 +138,6 @@ hidden:
   os2loop_post_content: true
   os2loop_post_file: true
   os2loop_shared_profession: true
-  os2loop_shared_rev_date: true
+  os2loop_shared_revison_date: true
   os2loop_shared_subject: true
   os2loop_shared_tags: true

@@ -1,4 +1,3 @@
-uuid: 09a39c07-0afa-4daf-81f0-545353e8199d
 langcode: en
 status: true
 dependencies:
@@ -7,9 +6,8 @@ dependencies:
       - os2loop_external
   module:
     - node
+    - os2loop_external
     - text
-_core:
-  default_config_hash: Aa8Frvhwv34pyEfYkXpkRCqSlXKHBiibQaDscBWOLkw
 id: node.os2loop_external_description
 field_name: os2loop_external_description
 entity_type: node

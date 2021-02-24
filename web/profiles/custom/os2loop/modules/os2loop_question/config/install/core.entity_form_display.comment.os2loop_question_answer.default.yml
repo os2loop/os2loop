@@ -4,7 +4,6 @@ dependencies:
   config:
     - comment.type.os2loop_question_answer
     - field.field.comment.os2loop_question_answer.os2loop_question_answer
-    - field.field.comment.os2loop_question_answer.os2loop_question_answer
   enforced:
     module:
       - os2loop_question

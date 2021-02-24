@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.field.node.os2loop_page.os2loop_page_content
     - field.field.node.os2loop_page.os2loop_page_image
-    - field.field.node.os2loop_page.os2loop_page_content
-    - field.field.node.os2loop_page.os2loop_page_image
     - image.style.thumbnail
     - node.type.os2loop_page
   enforced:

@@ -1,4 +1,3 @@
-uuid: a5c8b536-7042-4fe9-929c-c3b8c3e65d91
 langcode: en
 status: true
 dependencies:
@@ -10,6 +9,7 @@ dependencies:
       - os2loop_external
   module:
     - better_formats
+    - os2loop_external
     - text
 third_party_settings:
   better_formats:
@@ -24,8 +24,6 @@ third_party_settings:
           weight: '0'
         os2loop_page:
           weight: '0'
-_core:
-  default_config_hash: Dc57SKJXJgyy7Q7Uc2tOSzF5CqQJvhrdduJx4HuyUqQ
 id: node.os2loop_external.os2loop_external_description
 field_name: os2loop_external_description
 entity_type: node

@@ -5,8 +5,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.os2loop_page.os2loop_page_content
     - field.field.node.os2loop_page.os2loop_page_image
-    - field.field.node.os2loop_page.os2loop_page_content
-    - field.field.node.os2loop_page.os2loop_page_image
     - node.type.os2loop_page
   enforced:
     module:
