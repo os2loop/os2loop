@@ -1,5 +1,5 @@
 services:
-  content_fixtures.commands:
+  os2loop_config.commands:
     class: \Drupal\os2loop_config\Commands\ConfigCommands
     arguments:
       - '@config.factory'
