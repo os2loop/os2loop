@@ -2,30 +2,37 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.os2loop_page.field_os2loop_page_content
-    - field.field.node.os2loop_page.field_os2loop_page_image
+    - field.field.node.os2loop_page.os2loop_page_content
+    - field.field.node.os2loop_page.os2loop_page_image
+    - field.field.node.os2loop_page.os2loop_page_content
+    - field.field.node.os2loop_page.os2loop_page_image
     - node.type.os2loop_page
+  enforced:
+    module:
+      - os2loop_page
   module:
     - image
     - os2loop_page
     - text
     - user
-  enforced:
-    module:
-      - os2loop_page
 id: node.os2loop_page.default
 targetEntityType: node
 bundle: os2loop_page
 mode: default
 content:
-  field_os2loop_page_content:
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  os2loop_page_content:
     weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  field_os2loop_page_image:
+  os2loop_page_image:
     weight: 2
     label: above
     settings:
@@ -34,9 +41,6 @@ content:
     third_party_settings: {  }
     type: image
     region: content
-  links:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  os2loop_page_content: true
+  os2loop_page_image: true

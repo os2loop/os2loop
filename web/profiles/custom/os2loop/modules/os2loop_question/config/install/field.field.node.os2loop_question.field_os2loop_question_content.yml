@@ -4,13 +4,13 @@ dependencies:
   config:
     - field.storage.node.field_os2loop_question_content
     - node.type.os2loop_question
+  enforced:
+    module:
+      - os2loop_question
   module:
     - better_formats
     - os2loop_question
     - text
-  enforced:
-    module:
-      - os2loop_question
 third_party_settings:
   better_formats:
     allowed_formats_toggle: 1

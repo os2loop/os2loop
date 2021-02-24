@@ -3,20 +3,27 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.os2loop_post.field_os2loop_post_comments
-    - field.field.node.os2loop_post.field_os2loop_post_content
-    - field.field.node.os2loop_post.field_os2loop_post_file
-    - field.field.node.os2loop_post.field_os2loop_shared_profession
-    - field.field.node.os2loop_post.field_os2loop_shared_rev_date
-    - field.field.node.os2loop_post.field_os2loop_shared_subject
-    - field.field.node.os2loop_post.field_os2loop_shared_tags
+    - field.field.node.os2loop_post.os2loop_post_comments
+    - field.field.node.os2loop_post.os2loop_post_content
+    - field.field.node.os2loop_post.os2loop_post_file
+    - field.field.node.os2loop_post.os2loop_shared_profession
+    - field.field.node.os2loop_post.os2loop_shared_rev_date
+    - field.field.node.os2loop_post.os2loop_shared_subject
+    - field.field.node.os2loop_post.os2loop_shared_tags
+    - field.field.node.os2loop_post.os2loop_post_comments
+    - field.field.node.os2loop_post.os2loop_post_content
+    - field.field.node.os2loop_post.os2loop_post_file
+    - field.field.node.os2loop_post.os2loop_shared_profession
+    - field.field.node.os2loop_post.os2loop_shared_rev_date
+    - field.field.node.os2loop_post.os2loop_shared_subject
+    - field.field.node.os2loop_post.os2loop_shared_tags
     - node.type.os2loop_post
-  module:
-    - os2loop_post
-    - user
   enforced:
     module:
       - os2loop_post
+  module:
+    - os2loop_post
+    - user
 id: node.os2loop_post.teaser
 targetEntityType: node
 bundle: os2loop_post
@@ -28,10 +35,10 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_os2loop_post_comments: true
-  field_os2loop_post_content: true
-  field_os2loop_post_file: true
-  field_os2loop_shared_profession: true
-  field_os2loop_shared_rev_date: true
-  field_os2loop_shared_subject: true
-  field_os2loop_shared_tags: true
+  os2loop_post_comments: true
+  os2loop_post_content: true
+  os2loop_post_file: true
+  os2loop_shared_profession: true
+  os2loop_shared_rev_date: true
+  os2loop_shared_subject: true
+  os2loop_shared_tags: true

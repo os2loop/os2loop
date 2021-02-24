@@ -3,19 +3,25 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.os2loop_external.field_os2loop_external_descripti
-    - field.field.node.os2loop_external.field_os2loop_external_url
-    - field.field.node.os2loop_external.field_os2loop_shared_profession
-    - field.field.node.os2loop_external.field_os2loop_shared_rev_date
-    - field.field.node.os2loop_external.field_os2loop_shared_subject
-    - field.field.node.os2loop_external.field_os2loop_shared_tags
+    - field.field.node.os2loop_external.os2loop_external_description
+    - field.field.node.os2loop_external.os2loop_external_url
+    - field.field.node.os2loop_external.os2loop_shared_profession
+    - field.field.node.os2loop_external.os2loop_shared_rev_date
+    - field.field.node.os2loop_external.os2loop_shared_subject
+    - field.field.node.os2loop_external.os2loop_shared_tags
+    - field.field.node.os2loop_external.os2loop_external_descriptionon
+    - field.field.node.os2loop_external.os2loop_external_url
+    - field.field.node.os2loop_external.os2loop_shared_profession
+    - field.field.node.os2loop_external.os2loop_shared_rev_date
+    - field.field.node.os2loop_external.os2loop_shared_subject
+    - field.field.node.os2loop_external.os2loop_shared_tags
     - node.type.os2loop_external
-  module:
-    - os2loop_external
-    - user
   enforced:
     module:
       - os2loop_external
+  module:
+    - os2loop_external
+    - user
 id: node.os2loop_external.teaser
 targetEntityType: node
 bundle: os2loop_external
@@ -27,9 +33,10 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_os2loop_external_descripti: true
-  field_os2loop_external_url: true
-  field_os2loop_shared_profession: true
-  field_os2loop_shared_rev_date: true
-  field_os2loop_shared_subject: true
-  field_os2loop_shared_tags: true
+  os2loop_external_description: true
+  os2loop_external_url: true
+  os2loop_shared_profession: true
+  os2loop_shared_rev_date: true
+  os2loop_shared_subject: true
+  os2loop_shared_tags: true
+  os2loop_external_descriptionon: true

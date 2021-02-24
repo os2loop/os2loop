@@ -1,13 +1,13 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - os2loop_post
   module:
     - node
     - os2loop_post
     - text
-  enforced:
-    module:
-      - os2loop_post
 id: node.field_os2loop_post_content
 field_name: field_os2loop_post_content
 entity_type: node

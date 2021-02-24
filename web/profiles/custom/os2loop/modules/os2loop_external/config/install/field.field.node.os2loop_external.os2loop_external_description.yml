@@ -1,0 +1,40 @@
+uuid: a5c8b536-7042-4fe9-929c-c3b8c3e65d91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_external_description
+    - node.type.os2loop_external
+  enforced:
+    module:
+      - os2loop_external
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 1
+    allowed_formats:
+      os2loop_external: os2loop_external
+      os2loop_page: 0
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        os2loop_external:
+          weight: '0'
+        os2loop_page:
+          weight: '0'
+_core:
+  default_config_hash: Dc57SKJXJgyy7Q7Uc2tOSzF5CqQJvhrdduJx4HuyUqQ
+id: node.os2loop_external.os2loop_external_description
+field_name: os2loop_external_description
+entity_type: node
+bundle: os2loop_external
+label: Description
+description: 'Description of the external resource.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

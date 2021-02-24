@@ -1,13 +1,13 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - os2loop_question
   module:
     - comment
     - os2loop_question
     - text
-  enforced:
-    module:
-      - os2loop_question
 id: comment.field_os2loop_question_answer
 field_name: field_os2loop_question_answer
 entity_type: comment

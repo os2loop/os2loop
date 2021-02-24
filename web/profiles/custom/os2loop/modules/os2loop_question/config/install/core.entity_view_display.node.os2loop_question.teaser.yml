@@ -3,20 +3,27 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.os2loop_question.field_os2loop_question_answers
-    - field.field.node.os2loop_question.field_os2loop_question_content
-    - field.field.node.os2loop_question.field_os2loop_question_file
-    - field.field.node.os2loop_question.field_os2loop_shared_profession
-    - field.field.node.os2loop_question.field_os2loop_shared_rev_date
-    - field.field.node.os2loop_question.field_os2loop_shared_subject
-    - field.field.node.os2loop_question.field_os2loop_shared_tags
+    - field.field.node.os2loop_question.os2loop_question_answers
+    - field.field.node.os2loop_question.os2loop_question_content
+    - field.field.node.os2loop_question.os2loop_question_file
+    - field.field.node.os2loop_question.os2loop_shared_profession
+    - field.field.node.os2loop_question.os2loop_shared_rev_date
+    - field.field.node.os2loop_question.os2loop_shared_subject
+    - field.field.node.os2loop_question.os2loop_shared_tags
+    - field.field.node.os2loop_question.os2loop_question_answers
+    - field.field.node.os2loop_question.os2loop_question_content
+    - field.field.node.os2loop_question.os2loop_question_file
+    - field.field.node.os2loop_question.os2loop_shared_profession
+    - field.field.node.os2loop_question.os2loop_shared_rev_date
+    - field.field.node.os2loop_question.os2loop_shared_subject
+    - field.field.node.os2loop_question.os2loop_shared_tags
     - node.type.os2loop_question
-  module:
-    - os2loop_question
-    - user
   enforced:
     module:
       - os2loop_question
+  module:
+    - os2loop_question
+    - user
 id: node.os2loop_question.teaser
 targetEntityType: node
 bundle: os2loop_question
@@ -28,10 +35,10 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_os2loop_question_answers: true
-  field_os2loop_question_content: true
-  field_os2loop_question_file: true
-  field_os2loop_shared_profession: true
-  field_os2loop_shared_rev_date: true
-  field_os2loop_shared_subject: true
-  field_os2loop_shared_tags: true
+  os2loop_question_answers: true
+  os2loop_question_content: true
+  os2loop_question_file: true
+  os2loop_shared_profession: true
+  os2loop_shared_rev_date: true
+  os2loop_shared_subject: true
+  os2loop_shared_tags: true

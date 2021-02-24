@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - os2loop_external
+  module:
+    - node
+    - os2loop_external
+    - text
+id: node.field_os2loop_external_description
+field_name: field_os2loop_external_description
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,13 +1,13 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - os2loop_external
   module:
     - link
     - node
     - os2loop_external
-  enforced:
-    module:
-      - os2loop_external
 id: node.field_os2loop_external_url
 field_name: field_os2loop_external_url
 entity_type: node

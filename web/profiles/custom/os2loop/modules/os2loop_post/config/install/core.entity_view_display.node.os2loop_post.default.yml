@@ -3,14 +3,24 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.os2loop_post_comment.default
-    - field.field.node.os2loop_post.field_os2loop_post_comments
-    - field.field.node.os2loop_post.field_os2loop_post_content
-    - field.field.node.os2loop_post.field_os2loop_post_file
-    - field.field.node.os2loop_post.field_os2loop_shared_profession
-    - field.field.node.os2loop_post.field_os2loop_shared_rev_date
-    - field.field.node.os2loop_post.field_os2loop_shared_subject
-    - field.field.node.os2loop_post.field_os2loop_shared_tags
+    - field.field.node.os2loop_post.os2loop_post_comments
+    - field.field.node.os2loop_post.os2loop_post_content
+    - field.field.node.os2loop_post.os2loop_post_file
+    - field.field.node.os2loop_post.os2loop_shared_profession
+    - field.field.node.os2loop_post.os2loop_shared_rev_date
+    - field.field.node.os2loop_post.os2loop_shared_subject
+    - field.field.node.os2loop_post.os2loop_shared_tags
+    - field.field.node.os2loop_post.os2loop_post_comments
+    - field.field.node.os2loop_post.os2loop_post_content
+    - field.field.node.os2loop_post.os2loop_post_file
+    - field.field.node.os2loop_post.os2loop_shared_profession
+    - field.field.node.os2loop_post.os2loop_shared_rev_date
+    - field.field.node.os2loop_post.os2loop_shared_subject
+    - field.field.node.os2loop_post.os2loop_shared_tags
     - node.type.os2loop_post
+  enforced:
+    module:
+      - os2loop_post
   module:
     - comment
     - datetime
@@ -18,15 +28,17 @@ dependencies:
     - os2loop_post
     - text
     - user
-  enforced:
-    module:
-      - os2loop_post
 id: node.os2loop_post.default
 targetEntityType: node
 bundle: os2loop_post
 mode: default
 content:
-  field_os2loop_post_comments:
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  os2loop_post_comments:
     weight: 6
     label: above
     settings:
@@ -35,14 +47,14 @@ content:
     third_party_settings: {  }
     type: comment_default
     region: content
-  field_os2loop_post_content:
+  os2loop_post_content:
     weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  field_os2loop_post_file:
+  os2loop_post_file:
     weight: 5
     label: above
     settings:
@@ -50,7 +62,7 @@ content:
     third_party_settings: {  }
     type: file_default
     region: content
-  field_os2loop_shared_profession:
+  os2loop_shared_profession:
     weight: 4
     label: above
     settings:
@@ -58,7 +70,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_os2loop_shared_rev_date:
+  os2loop_shared_rev_date:
     weight: 7
     label: above
     settings:
@@ -67,7 +79,7 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_os2loop_shared_subject:
+  os2loop_shared_subject:
     weight: 2
     label: above
     settings:
@@ -75,7 +87,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_os2loop_shared_tags:
+  os2loop_shared_tags:
     weight: 3
     label: above
     settings:
@@ -83,9 +95,11 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  links:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  os2loop_post_comments: true
+  os2loop_post_content: true
+  os2loop_post_file: true
+  os2loop_shared_profession: true
+  os2loop_shared_rev_date: true
+  os2loop_shared_subject: true
+  os2loop_shared_tags: true

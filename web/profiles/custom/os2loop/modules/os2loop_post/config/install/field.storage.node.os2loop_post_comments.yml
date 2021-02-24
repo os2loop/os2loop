@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - os2loop_post
+  module:
+    - comment
+    - node
+    - os2loop_post
+id: node.os2loop_post_comments
+field_name: os2loop_post_comments
+entity_type: node
+type: comment
+settings:
+  comment_type: os2loop_post_comment
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

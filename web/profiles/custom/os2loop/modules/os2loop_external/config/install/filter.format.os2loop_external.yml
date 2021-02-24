@@ -1,11 +1,11 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - os2loop_external
   enforced:
     module:
       - os2loop_external
+  module:
+    - os2loop_external
 name: External
 format: os2loop_external
 weight: 0

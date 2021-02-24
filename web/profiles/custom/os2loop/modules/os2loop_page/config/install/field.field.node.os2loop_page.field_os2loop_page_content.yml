@@ -4,13 +4,13 @@ dependencies:
   config:
     - field.storage.node.field_os2loop_page_content
     - node.type.os2loop_page
+  enforced:
+    module:
+      - os2loop_page
   module:
     - better_formats
     - os2loop_page
     - text
-  enforced:
-    module:
-      - os2loop_page
 third_party_settings:
   better_formats:
     allowed_formats_toggle: 1

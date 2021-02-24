@@ -3,12 +3,12 @@ status: true
 dependencies:
   config:
     - filter.format.os2loop_post
-  module:
-    - ckeditor
-    - os2loop_post
   enforced:
     module:
       - os2loop_post
+  module:
+    - ckeditor
+    - os2loop_post
 format: os2loop_post
 editor: ckeditor
 settings:

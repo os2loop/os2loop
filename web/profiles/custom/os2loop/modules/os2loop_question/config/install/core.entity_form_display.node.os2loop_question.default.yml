@@ -2,14 +2,24 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.os2loop_question.field_os2loop_question_answers
-    - field.field.node.os2loop_question.field_os2loop_question_content
-    - field.field.node.os2loop_question.field_os2loop_question_file
-    - field.field.node.os2loop_question.field_os2loop_shared_profession
-    - field.field.node.os2loop_question.field_os2loop_shared_rev_date
-    - field.field.node.os2loop_question.field_os2loop_shared_subject
-    - field.field.node.os2loop_question.field_os2loop_shared_tags
+    - field.field.node.os2loop_question.os2loop_question_answers
+    - field.field.node.os2loop_question.os2loop_question_content
+    - field.field.node.os2loop_question.os2loop_question_file
+    - field.field.node.os2loop_question.os2loop_shared_profession
+    - field.field.node.os2loop_question.os2loop_shared_rev_date
+    - field.field.node.os2loop_question.os2loop_shared_subject
+    - field.field.node.os2loop_question.os2loop_shared_tags
+    - field.field.node.os2loop_question.os2loop_question_answers
+    - field.field.node.os2loop_question.os2loop_question_content
+    - field.field.node.os2loop_question.os2loop_question_file
+    - field.field.node.os2loop_question.os2loop_shared_profession
+    - field.field.node.os2loop_question.os2loop_shared_rev_date
+    - field.field.node.os2loop_question.os2loop_shared_subject
+    - field.field.node.os2loop_question.os2loop_shared_tags
     - node.type.os2loop_question
+  enforced:
+    module:
+      - os2loop_question
   module:
     - comment
     - datetime
@@ -17,9 +27,6 @@ dependencies:
     - os2loop_question
     - path
     - text
-  enforced:
-    module:
-      - os2loop_question
 id: node.os2loop_question.default
 targetEntityType: node
 bundle: os2loop_question
@@ -31,13 +38,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_os2loop_question_answers:
+  os2loop_question_answers:
     weight: 26
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
-  field_os2loop_question_content:
+  os2loop_question_content:
     weight: 6
     settings:
       rows: 5
@@ -45,14 +52,14 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_os2loop_question_file:
+  os2loop_question_file:
     weight: 10
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
     region: content
-  field_os2loop_shared_profession:
+  os2loop_shared_profession:
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -62,13 +69,13 @@ content:
     type: entity_reference_autocomplete
     region: content
     weight: 7
-  field_os2loop_shared_rev_date:
+  os2loop_shared_rev_date:
     weight: 27
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_os2loop_shared_subject:
+  os2loop_shared_subject:
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -78,7 +85,7 @@ content:
     type: entity_reference_autocomplete
     region: content
     weight: 8
-  field_os2loop_shared_tags:
+  os2loop_shared_tags:
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -132,4 +139,11 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  os2loop_question_answers: true
+  os2loop_question_content: true
+  os2loop_question_file: true
+  os2loop_shared_profession: true
+  os2loop_shared_rev_date: true
+  os2loop_shared_subject: true
+  os2loop_shared_tags: true

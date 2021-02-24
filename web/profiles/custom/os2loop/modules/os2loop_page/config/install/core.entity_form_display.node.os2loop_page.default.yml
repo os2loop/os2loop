@@ -2,18 +2,20 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.os2loop_page.field_os2loop_page_content
-    - field.field.node.os2loop_page.field_os2loop_page_image
+    - field.field.node.os2loop_page.os2loop_page_content
+    - field.field.node.os2loop_page.os2loop_page_image
+    - field.field.node.os2loop_page.os2loop_page_content
+    - field.field.node.os2loop_page.os2loop_page_image
     - image.style.thumbnail
     - node.type.os2loop_page
+  enforced:
+    module:
+      - os2loop_page
   module:
     - image
     - os2loop_page
     - path
     - text
-  enforced:
-    module:
-      - os2loop_page
 id: node.os2loop_page.default
 targetEntityType: node
 bundle: os2loop_page
@@ -25,7 +27,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_os2loop_page_content:
+  os2loop_page_content:
     weight: 6
     settings:
       rows: 9
@@ -35,7 +37,7 @@ content:
     third_party_settings: {  }
     type: text_textarea_with_summary
     region: content
-  field_os2loop_page_image:
+  os2loop_page_image:
     weight: 7
     settings:
       progress_indicator: throbber
@@ -88,4 +90,6 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  os2loop_page_content: true
+  os2loop_page_image: true

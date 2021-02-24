@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_shared_profession
+    - node.type.os2loop_post
+    - taxonomy.vocabulary.os2loop_taxonomy_profession
+  enforced:
+    module:
+      - os2loop_post
+      - os2loop_shared
+  module:
+    - os2loop_post
+    - os2loop_shared
+id: node.os2loop_post.os2loop_shared_profession
+field_name: os2loop_shared_profession
+entity_type: node
+bundle: os2loop_post
+label: Profession
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      os2loop_taxonomy_profession: os2loop_taxonomy_profession
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

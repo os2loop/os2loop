@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_shared_tags
+    - node.type.os2loop_question
+    - taxonomy.vocabulary.os2loop_taxonomy_tag
+  enforced:
+    module:
+      - os2loop_question
+      - os2loop_shared
+  module:
+    - os2loop_question
+    - os2loop_shared
+id: node.os2loop_question.os2loop_shared_tags
+field_name: os2loop_shared_tags
+entity_type: node
+bundle: os2loop_question
+label: Tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      os2loop_taxonomy_tag: os2loop_taxonomy_tag
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

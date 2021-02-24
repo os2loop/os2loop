@@ -3,12 +3,12 @@ status: true
 dependencies:
   config:
     - filter.format.os2loop_question_rich_text
-  module:
-    - ckeditor
-    - os2loop_question
   enforced:
     module:
       - os2loop_question
+  module:
+    - ckeditor
+    - os2loop_question
 format: os2loop_question_rich_text
 editor: ckeditor
 settings:

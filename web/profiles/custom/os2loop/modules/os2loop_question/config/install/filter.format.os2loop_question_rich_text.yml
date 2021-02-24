@@ -1,11 +1,11 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - os2loop_question
   enforced:
     module:
       - os2loop_question
+  module:
+    - os2loop_question
 name: 'Question (rich text)'
 format: os2loop_question_rich_text
 weight: 0

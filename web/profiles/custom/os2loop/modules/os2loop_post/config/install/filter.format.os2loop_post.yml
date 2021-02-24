@@ -1,11 +1,11 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - os2loop_post
   enforced:
     module:
       - os2loop_post
+  module:
+    - os2loop_post
 name: Post
 format: os2loop_post
 weight: 0

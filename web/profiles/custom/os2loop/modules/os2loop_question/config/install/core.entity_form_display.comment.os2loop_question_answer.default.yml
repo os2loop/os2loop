@@ -3,13 +3,14 @@ status: true
 dependencies:
   config:
     - comment.type.os2loop_question_answer
-    - field.field.comment.os2loop_question_answer.field_os2loop_question_answer
-  module:
-    - os2loop_question
-    - text
+    - field.field.comment.os2loop_question_answer.os2loop_question_answer
+    - field.field.comment.os2loop_question_answer.os2loop_question_answer
   enforced:
     module:
       - os2loop_question
+  module:
+    - os2loop_question
+    - text
 id: comment.os2loop_question_answer.default
 targetEntityType: comment
 bundle: os2loop_question_answer
@@ -20,7 +21,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_os2loop_question_answer:
+  os2loop_question_answer:
     weight: 12
     settings:
       rows: 5
@@ -36,4 +37,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  os2loop_question_answer: true

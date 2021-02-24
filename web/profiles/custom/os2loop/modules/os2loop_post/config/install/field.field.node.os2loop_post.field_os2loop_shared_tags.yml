@@ -5,13 +5,13 @@ dependencies:
     - field.storage.node.field_os2loop_shared_tags
     - node.type.os2loop_post
     - taxonomy.vocabulary.os2loop_taxonomy_tag
-  module:
-    - os2loop_post
-    - os2loop_shared
   enforced:
     module:
       - os2loop_post
       - os2loop_shared
+  module:
+    - os2loop_post
+    - os2loop_shared
 id: node.os2loop_post.field_os2loop_shared_tags
 field_name: field_os2loop_shared_tags
 entity_type: node

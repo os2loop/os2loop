@@ -1,11 +1,11 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - os2loop_question
   enforced:
     module:
       - os2loop_question
+  module:
+    - os2loop_question
 id: os2loop_question_answer
 label: Answer
 target_entity_type_id: node

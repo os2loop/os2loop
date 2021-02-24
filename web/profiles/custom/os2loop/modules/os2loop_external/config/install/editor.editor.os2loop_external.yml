@@ -3,12 +3,12 @@ status: true
 dependencies:
   config:
     - filter.format.os2loop_external
-  module:
-    - ckeditor
-    - os2loop_external
   enforced:
     module:
       - os2loop_external
+  module:
+    - ckeditor
+    - os2loop_external
 format: os2loop_external
 editor: ckeditor
 settings:

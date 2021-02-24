@@ -1,11 +1,11 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - os2loop_post
   enforced:
     module:
       - os2loop_post
+  module:
+    - os2loop_post
 name: 'Comment (plain text)'
 format: os2loop_post_comment_plain_text
 weight: 0

@@ -4,13 +4,13 @@ dependencies:
   config:
     - comment.type.os2loop_question_answer
     - field.storage.comment.field_os2loop_question_answer
+  enforced:
+    module:
+      - os2loop_question
   module:
     - better_formats
     - os2loop_question
     - text
-  enforced:
-    module:
-      - os2loop_question
 third_party_settings:
   better_formats:
     allowed_formats_toggle: 1

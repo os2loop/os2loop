@@ -3,13 +3,14 @@ status: true
 dependencies:
   config:
     - comment.type.os2loop_post_comment
-    - field.field.comment.os2loop_post_comment.field_os2loop_post_comment
-  module:
-    - os2loop_post
-    - text
+    - field.field.comment.os2loop_post_comment.os2loop_post_comment
+    - field.field.comment.os2loop_post_comment.os2loop_post_comment
   enforced:
     module:
       - os2loop_post
+  module:
+    - os2loop_post
+    - text
 id: comment.os2loop_post_comment.default
 targetEntityType: comment
 bundle: os2loop_post_comment
@@ -20,7 +21,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_os2loop_post_comment:
+  os2loop_post_comment:
     weight: 12
     settings:
       rows: 5
@@ -36,4 +37,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  os2loop_post_comment: true
