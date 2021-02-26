@@ -29,8 +29,8 @@ vendor/bin/drush pm:enable field_ui
 vendor/bin/drush --yes config:set field_ui.settings field_prefix -- ''
 ```
 
-After editing content type fields the Field UI module must be uninstalled before
-updated content type configuration is exported.
+After editing content type fields the Field UI module **must be uninstalled**
+before updated content type configuration is exported.
 
 ### Shared fields
 
@@ -65,6 +65,7 @@ Here is an example on how to add module dependencies on the configuration of the
 ```sh
 # Enable the OS2Loop config module.
 vendor/bin/drush --yes pm:enable os2loop_config
+# Make changes to the content type and related stuff.
 # Add module dependencies and remove uuid from the config files (cf. https://www.drupal.org/node/2087879).
 vendor/bin/drush os2loop:config:add-module-config-dependencies --remove-uuid os2loop_page
 vendor/bin/drush config:export
@@ -101,4 +102,15 @@ vendor/bin/drush --yes pm:uninstall os2loop_config
 ## Sub-modules
 
 Each OS2Loop content type module must have two sub-modules: One for loading
-fixtures and one for testing the content type.
+fixtures and one for testing the content type. See [Testing](Testing.md).
+
+Continuing the `os2loop_page` example, these modules must be placed in the
+`modules` folder under the `os2loop_page` module folder:
+
+```sh
+web/profiles/custom/os2loop/modules/os2loop_page
+├── modules
+│   ├── os2loop_page_fixtures
+│   ├── os2loop_page_tests
+│   └── os2loop_page_tests_cypress
+```

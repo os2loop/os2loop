@@ -196,3 +196,5 @@ private-files/
 
 # Ignore VS-code
 .vscode
+node_modules/
+yarn-error.log

@@ -30,7 +30,7 @@ vendor/bin/drush --yes site:install os2loop --site-name='OS2Loop'
 
 Install the modules you need, e.g.:
 
-```
+```sh
 vendor/bin/drush pm:enable os2loop_question --yes
 ```
 
@@ -45,7 +45,8 @@ docker-compose exec phpfpm vendor/bin/drush --yes site:install os2loop --site-na
 # Get the site url
 echo "http://$(docker-compose port nginx 80)"
 # Get admin sign in url
-docker-compose exec phpfpm vendor/bin/drush --yes --uri="http://$(docker-compose port nginx 80)" user:login
+docker-compose exec phpfpm vendor/bin/drush --yes \
+  --uri="http://$(docker-compose port nginx 80)" user:login
 ```
 
 #### Using `symfony` binary
@@ -76,4 +77,9 @@ vendor/bin/drush --yes cache:rebuild
 ```sh
 composer check-coding-standards
 composer apply-coding-standards
+```
+
+```sh
+docker run --volume ${PWD}:/app --workdir /app node:latest yarn install
+docker run --volume ${PWD}:/app --workdir /app node:latest yarn coding-standards-check
 ```
