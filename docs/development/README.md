@@ -32,6 +32,9 @@ vendor/bin/drush --yes config:set field_ui.settings field_prefix -- ''
 After editing content type fields the Field UI module **must be uninstalled**
 before updated content type configuration is exported.
 
+Text formats on fields must be limited to the text formats that are defined as
+part of the content type and stored in the modules config folder.
+
 ### Shared fields
 
 A number of fields must be shared between content types in Loop: A field for
