@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_documents_document_autho
+    - node.type.os2loop_documents_document
+  module:
+    - os2loop_documents
+  enforced:
+    module:
+      - os2loop_documents
+id: node.os2loop_documents_document.os2loop_documents_document_autho
+field_name: os2loop_documents_document_autho
+entity_type: node
+bundle: os2loop_documents_document
+label: Author
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

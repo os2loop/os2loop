@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - os2loop_documents
+  enforced:
+    module:
+      - os2loop_documents
+id: os2loop_documents_text_and_image
+label: 'Text and image'
+icon_uuid: null
+icon_default: null
+description: 'A paragraph type for text and image, both optional.'
+behavior_plugins: {  }

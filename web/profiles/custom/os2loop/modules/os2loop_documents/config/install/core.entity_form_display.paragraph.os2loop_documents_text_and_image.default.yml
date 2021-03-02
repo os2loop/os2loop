@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.os2loop_documents_text_and_image.os2loop_documents_tai_image
+    - field.field.paragraph.os2loop_documents_text_and_image.os2loop_documents_tai_text
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.os2loop_documents_text_and_image
+  module:
+    - image
+    - os2loop_documents
+    - text
+  enforced:
+    module:
+      - os2loop_documents
+id: paragraph.os2loop_documents_text_and_image.default
+targetEntityType: paragraph
+bundle: os2loop_documents_text_and_image
+mode: default
+content:
+  os2loop_documents_tai_image:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  os2loop_documents_tai_text:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.os2loop_documents_document_colle.field_os2loop_shared_profession
+    - field.field.node.os2loop_documents_document_colle.field_os2loop_shared_subject
+    - field.field.node.os2loop_documents_document_colle.field_os2loop_shared_tags
+    - field.field.node.os2loop_documents_document_colle.os2loop_documents_dc_content
+    - node.type.os2loop_documents_document_colle
+  module:
+    - os2loop_documents
+    - user
+  enforced:
+    module:
+      - os2loop_documents
+id: node.os2loop_documents_document_colle.teaser
+targetEntityType: node
+bundle: os2loop_documents_document_colle
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_os2loop_shared_profession: true
+  field_os2loop_shared_subject: true
+  field_os2loop_shared_tags: true
+  os2loop_documents_dc_content: true

@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.os2loop_documents_step_by_step.os2loop_documents_sbs_step
+    - field.field.paragraph.os2loop_documents_step_by_step.os2loop_documents_sbs_step_by_st
+    - paragraphs.paragraphs_type.os2loop_documents_step_by_step
+  module:
+    - entity_reference_revisions
+    - os2loop_documents
+  enforced:
+    module:
+      - os2loop_documents
+id: paragraph.os2loop_documents_step_by_step.default
+targetEntityType: paragraph
+bundle: os2loop_documents_step_by_step
+mode: default
+content:
+  os2loop_documents_sbs_step:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  os2loop_documents_sbs_step_by_st:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

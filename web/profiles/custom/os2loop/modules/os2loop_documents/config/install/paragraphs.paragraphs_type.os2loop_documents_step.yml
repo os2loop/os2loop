@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - os2loop_documents
+  enforced:
+    module:
+      - os2loop_documents
+id: os2loop_documents_step
+label: Step
+icon_uuid: null
+icon_default: null
+description: 'A step for the step by step paragraph type, contains image and text, both optional.'
+behavior_plugins: {  }

@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_os2loop_shared_subject
+    - node.type.os2loop_documents_document_colle
+    - taxonomy.vocabulary.os2loop_subject
+  module:
+    - os2loop_documents
+  enforced:
+    module:
+      - os2loop_documents
+id: node.os2loop_documents_document_colle.field_os2loop_shared_subject
+field_name: field_os2loop_shared_subject
+entity_type: node
+bundle: os2loop_documents_document_colle
+label: Subject
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      os2loop_subject: os2loop_subject
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
