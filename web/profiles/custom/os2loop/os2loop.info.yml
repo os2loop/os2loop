@@ -25,7 +25,7 @@ distribution:
   #   theme: my_theme
   langcode: en
 
-# # Modules to install to support the profile.
+# Modules to install to support the profile.
 install:
   - history
   - block_content
@@ -49,14 +49,15 @@ install:
   - editor
   - ckeditor
 
-# # Required modules
-# # Note that any dependencies of the modules listed here will be installed automatically.
+# Required modules that cannot be uninstalled.
+# Note that any dependencies of the modules listed here will be installed automatically.
 dependencies:
   - node
   - block
   - views
+  - os2loop_taxonomy
 
-# # List any themes that should be installed as part of the profile installation.
-# # Note that this will not set any theme as the default theme.
+# List any themes that should be installed as part of the profile installation.
+# Note that this will not set any theme as the default theme.
 themes:
   - claro

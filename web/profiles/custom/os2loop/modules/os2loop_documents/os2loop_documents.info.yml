@@ -6,3 +6,4 @@ package: 'OS2Loop'
 dependencies:
   - image
   - paragraphs
+  - os2loop_shared
