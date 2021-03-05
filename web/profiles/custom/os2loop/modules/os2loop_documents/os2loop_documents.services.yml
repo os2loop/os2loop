@@ -1,0 +1,4 @@
+services:
+  os2loop_documents.collection_helper:
+    class: Drupal\os2loop_documents\Helper\CollectionHelper
+    arguments: ['@renderer']
