@@ -1,4 +1,9 @@
 services:
   os2loop_documents.collection_helper:
     class: Drupal\os2loop_documents\Helper\CollectionHelper
-    arguments: ['@renderer']
+
+  os2loop_documents.form_helper:
+    class: Drupal\os2loop_documents\Helper\FormHelper
+    arguments:
+      - '@os2loop_documents.collection_helper'
+      - '@renderer'
