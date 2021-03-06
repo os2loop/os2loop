@@ -18,6 +18,7 @@ class FormHelper {
   use StringTranslationTrait;
 
   private const DOCUMENTS = 'documents';
+  private const DOCUMENTS_TREE = 'documents_tree';
   private const DOCUMENTS_MESSAGE = 'documents_message';
 
   /**
@@ -70,7 +71,7 @@ class FormHelper {
       '#suffix' => '</div>',
     ];
 
-    $form[self::DOCUMENTS]['tree'] = [
+    $form[self::DOCUMENTS][self::DOCUMENTS_TREE] = [
       '#type' => 'table',
       '#empty' => $this->t('No documents added yet.'),
       // TableDrag: Each array value is a list of callback arguments for
@@ -93,7 +94,92 @@ class FormHelper {
       ],
     ];
 
-    $form['actions']['submit']['#submit'][] = [$this, 'documentsSubmit'];
+    // Build the table rows and columns.
+    //
+    // The first nested level in the render array forms the table row, on which
+    // you likely want to set #attributes and #weight.
+    // Each child element on the second level represents a table column cell in
+    // the respective table row, which are render elements on their own. For
+    // single output elements, use the table cell itself for the render element.
+    // If a cell should contain multiple elements, simply use nested sub-keys to
+    // build the render element structure for the renderer service as you would
+    // everywhere else.
+    // $results = self::getData();
+    $results = $this->getCollectionDocuments($formState, $node);
+
+    $treeForm = &$form[self::DOCUMENTS][self::DOCUMENTS_TREE];
+    foreach ($results as $row) {
+      // TableDrag: Mark the table row as draggable.
+      $treeForm[$row['id']]['#attributes']['class'][] = 'draggable';
+
+      // Indent item on load.
+      $indentation = [];
+      if (isset($row['depth']) && $row['depth'] > 0) {
+        $indentation = [
+          '#theme' => 'indentation',
+          '#size' => $row['depth'],
+        ];
+      }
+
+      // Some table columns containing raw markup.
+      $treeForm[$row['id']]['name'] = [
+        '#markup' => $row['name'],
+        '#prefix' => !empty($indentation) ? $this->renderer->render($indentation) : '',
+      ];
+
+      $treeForm[$row['id']]['actions'] = [
+        'remove' => [
+          '#type' => 'submit',
+          '#submit' => [[$this, 'removeDocumentSubmit']],
+          '#ajax' => [
+            'callback' => [$this, 'removeDocumentResult'],
+            'wrapper' => 'collection-documents-wrapper',
+            'progress' => [
+              'type' => 'throbber',
+              'message' => NULL,
+            ],
+          ],
+          // We must have unique values to make FormState::getTriggeringElement
+          // work as expected.
+          '#value' => $this->t('Remove %document from collection', ['%document' => $row['name']]),
+          '#attributes' => [
+            'data-document-id' => $row['id'],
+          ],
+        ],
+      ];
+
+      // This is hidden from #tabledrag array (above).
+      // TableDrag: Weight column element.
+      $treeForm[$row['id']]['weight'] = [
+        '#type' => 'weight',
+        '#title' => $this->t('Weight for ID @id', ['@id' => $row['id']]),
+        '#title_display' => 'invisible',
+        '#default_value' => $row['weight'],
+        // Classify the weight element for #tabledrag.
+        '#attributes' => [
+          'class' => ['row-weight'],
+        ],
+      ];
+      $treeForm[$row['id']]['parent']['id'] = [
+        '#parents' => [self::DOCUMENTS_TREE, $row['id'], 'id'],
+        '#type' => 'hidden',
+        '#value' => $row['id'],
+        '#attributes' => [
+          'class' => ['row-id'],
+        ],
+      ];
+      $treeForm[$row['id']]['parent']['pid'] = [
+        '#parents' => [self::DOCUMENTS_TREE, $row['id'], 'pid'],
+        '#type' => 'number',
+        '#size' => 3,
+        '#min' => 0,
+        '#title' => $this->t('Parent ID'),
+        '#default_value' => $row['pid'],
+        '#attributes' => [
+          'class' => ['row-pid'],
+        ],
+      ];
+    }
 
     $form[self::DOCUMENTS]['add_document'] = [
       '#type' => 'container',
@@ -133,91 +219,7 @@ class FormHelper {
       '#value' => $this->t('Add document'),
     ];
 
-    // Build the table rows and columns.
-    //
-    // The first nested level in the render array forms the table row, on which
-    // you likely want to set #attributes and #weight.
-    // Each child element on the second level represents a table column cell in
-    // the respective table row, which are render elements on their own. For
-    // single output elements, use the table cell itself for the render element.
-    // If a cell should contain multiple elements, simply use nested sub-keys to
-    // build the render element structure for the renderer service as you would
-    // everywhere else.
-    // $results = self::getData();
-    $results = $this->getCollectionDocuments($formState, $node);
-
-    foreach ($results as $row) {
-      // TableDrag: Mark the table row as draggable.
-      $form[self::DOCUMENTS]['tree'][$row['id']]['#attributes']['class'][] = 'draggable';
-
-      // Indent item on load.
-      $indentation = [];
-      if (isset($row['depth']) && $row['depth'] > 0) {
-        $indentation = [
-          '#theme' => 'indentation',
-          '#size' => $row['depth'],
-        ];
-      }
-
-      // Some table columns containing raw markup.
-      $form[self::DOCUMENTS]['tree'][$row['id']]['name'] = [
-        '#markup' => $row['name'],
-        '#prefix' => !empty($indentation) ? $this->renderer->render($indentation) : '',
-      ];
-
-      $form[self::DOCUMENTS]['tree'][$row['id']]['actions'] = [
-        'remove' => [
-          '#type' => 'submit',
-          '#submit' => [[$this, 'removeDocumentSubmit']],
-          '#ajax' => [
-            'callback' => [$this, 'removeDocumentResult'],
-            'wrapper' => 'collection-documents-wrapper',
-            'progress' => [
-              'type' => 'throbber',
-              'message' => NULL,
-            ],
-          ],
-          // We must have unique values to make FormState::getTriggeringElement
-          // work as expected.
-          '#value' => $this->t('Remove %document from collection', ['%document' => $row['name']]),
-          '#attributes' => [
-            'data-document-id' => $row['id'],
-          ],
-        ],
-      ];
-
-      // This is hidden from #tabledrag array (above).
-      // TableDrag: Weight column element.
-      $form[self::DOCUMENTS]['tree'][$row['id']]['weight'] = [
-        '#type' => 'weight',
-        '#title' => $this->t('Weight for ID @id', ['@id' => $row['id']]),
-        '#title_display' => 'invisible',
-        '#default_value' => $row['weight'],
-        // Classify the weight element for #tabledrag.
-        '#attributes' => [
-          'class' => ['row-weight'],
-        ],
-      ];
-      $form[self::DOCUMENTS]['tree'][$row['id']]['parent']['id'] = [
-        '#parents' => [self::DOCUMENTS, $row['id'], 'id'],
-        '#type' => 'hidden',
-        '#value' => $row['id'],
-        '#attributes' => [
-          'class' => ['row-id'],
-        ],
-      ];
-      $form[self::DOCUMENTS]['tree'][$row['id']]['parent']['pid'] = [
-        '#parents' => [self::DOCUMENTS, $row['id'], 'pid'],
-        '#type' => 'number',
-        '#size' => 3,
-        '#min' => 0,
-        '#title' => $this->t('Parent ID'),
-        '#default_value' => $row['pid'],
-        '#attributes' => [
-          'class' => ['row-pid'],
-        ],
-      ];
-    }
+    $form['actions']['submit']['#submit'][] = [$this, 'documentsSubmit'];
   }
 
   /**
@@ -256,7 +258,7 @@ class FormHelper {
    * @param \Drupal\Core\Form\FormStateInterface $formState
    */
   public function documentsSubmit(array &$form, FormStateInterface $formState) {
-    $data = $this->getDocumentsData($formState);
+    $data = $formState->getValue(self::DOCUMENTS_TREE);
     $node = $formState->getformObject()->getEntity();
     $this->collectionHelper->updateCollection($node, $data);
   }
