@@ -28,11 +28,17 @@ use Drupal\Core\Field\BaseFieldDefinition;
  * @property \Drupal\Core\Field\FieldItemList weight
  */
 class DocumentCollectionItem extends ContentEntityBase implements ContentEntityInterface {
+  /**
+   * The depth in tree.
+   *
+   * @var int
+   */
+  public $depth = 0;
 
   /**
    * Set collection.
    *
-   * @param int $collection
+   * @param NodeInterface $collection
    *   The collection.
    *
    * @return DocumentCollectionItem
@@ -67,26 +73,6 @@ class DocumentCollectionItem extends ContentEntityBase implements ContentEntityI
    */
   public function getDocument(): NodeInterface {
     return Node::load($this->get('document_id')->value);
-  }
-
-  /**
-   * Set weight.
-   *
-   * @param int $weight
-   *   The weight.
-   *
-   * @return DocumentCollectionItem
-   *   The item.
-   */
-  public function setWeight(int $weight): self {
-    return $this->set('weight', $weight);
-  }
-
-  /**
-   * Get weight.
-   */
-  public function getWeight(): int {
-    return $this->get('weight')->value;
   }
 
   /**

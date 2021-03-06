@@ -166,7 +166,7 @@ BODY,
 
     $document->save();
 
-    foreach (['Aaa', 'Bbb', 'Ccc'] as $title) {
+    foreach (['Aaa', 'Bbb', 'Ccc', 'Ddd', 'Eee', 'Fff'] as $title) {
       $document = Node::create([
         'type' => 'os2loop_documents_document',
         'title' => $title,
@@ -182,6 +182,7 @@ BODY,
           'target_id' => $this->getReference('os2loop_profession:Andet')->id(),
         ],
       ]);
+      $this->setReference($document->getType() . ':' . $document->getTitle(), $document);
       $document->save();
     }
   }

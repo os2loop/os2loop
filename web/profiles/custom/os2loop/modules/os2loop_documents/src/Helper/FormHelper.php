@@ -17,8 +17,8 @@ class FormHelper {
   use DependencySerializationTrait;
   use StringTranslationTrait;
 
-  private const DOCUMENTS = 'documents';
-  private const DOCUMENTS_TREE = 'documents_tree';
+  private const DOCUMENTS = 'os2loop_documents_documents';
+  private const DOCUMENTS_TREE = 'os2loop_documents_tree';
   private const DOCUMENTS_MESSAGE = 'documents_message';
 
   /**
@@ -47,8 +47,7 @@ class FormHelper {
    * Implements hook_form_BASE_FORM_ID_alter().
    */
   public function alterForm(array &$form, FormStateInterface $formState, string $formId) {
-//     $this->collectionHelper->test();
-
+    // $this->collectionHelper->test();
     $node = $formState->getformObject()->getEntity();
     if (NULL !== $node) {
       if ($node->getType() === CollectionHelper::CONTENT_TYPE_COLLECTION) {
@@ -64,6 +63,7 @@ class FormHelper {
           }, $collection);
           $data = array_column($data, NULL, 'id');
           $this->setDocumentsData($formState, $data);
+          // $formState->setRebuild(true);
         }
 
         $this->buildDocumentTree($form, $formState, $node);
@@ -239,40 +239,93 @@ class FormHelper {
   }
 
   /**
+   * Add document submit handler.
    *
+   * @param array $form
+   *   The form.
+   * @param \Drupal\Core\Form\FormStateInterface $formState
+   *   The form state.
    */
   public function addDocumentSubmit(array &$form, FormStateInterface $formState) {
-    $data = $this->getDocumentsData($formState);
+    $data = $formState->getValue(self::DOCUMENTS_TREE) ?: [];
     $documentId = $this->getDocumentId($formState);
-    $document = Node::load($documentId);
-
-    if ($document && !isset($data[$document->id()])) {
-      $weight = (int)max(array_column($data, 'weight'));
-      $data[$document->id()] = [
-        'weight' => $weight + 1,
-        'id' => $document->id(),
-        'pid' => 0,
-      ];
-
-      $this->setDocumentsData($formState, $data);
-      $formState->setRebuild(TRUE);
+    if (NULL !== $documentId) {
+      $document = Node::load($documentId);
+      if ($document && !isset($data[$document->id()])) {
+        $weight = (int) max(array_column($data, 'weight'));
+        $data[$document->id()] = [
+          'weight' => $weight + 1,
+          'id' => $document->id(),
+          'pid' => 0,
+        ];
+      }
     }
+    $this->setDocumentsData($formState, $data);
+    $formState->setRebuild(TRUE);
   }
 
   /**
+   * Add document ajax callback.
+   *
    * @param array $form
+   *   The form.
    * @param \Drupal\Core\Form\FormStateInterface $formState
-   * @return mixed
+   *   The form state.
+   *
+   * @return array
+   *   The form element.
    */
   public function addDocumentResult(array &$form, FormStateInterface $formState) {
     return $form[self::DOCUMENTS];
   }
 
   /**
+   * Remove document submit handler.
+   *
+   * @param array $form
+   *   The form.
+   * @param \Drupal\Core\Form\FormStateInterface $formState
+   *   The form state.
+   */
+  public function removeDocumentSubmit(array &$form, FormStateInterface $formState) {
+    // $this->getDocumentsData($formState);
+    $data = $formState->getValue(self::DOCUMENTS_TREE) ?: [];
+    $trigger = $formState->getTriggeringElement();
+    $documentId = $trigger['#attributes']['data-document-id'] ?? NULL;
+    if (NULL !== $documentId) {
+      // Remove document and children from collection.
+      foreach ($data as $id => $item) {
+        if ($id === $documentId || $id === $item['pid']) {
+          unset($data[$id]);
+        }
+      }
+    }
+    $this->setDocumentsData($formState, $data);
+    $formState->setRebuild(TRUE);
+  }
+
+  /**
+   * Remove document ajax callback.
+   *
+   * @param array $form
+   *   The form.
+   * @param \Drupal\Core\Form\FormStateInterface $formState
+   *   The form state.
+   *
+   * @return array
+   *   The form element.
+   */
+  public function removeDocumentResult(array &$form, FormStateInterface $formState) {
+    return $this->addDocumentResult($form, $formState);
+  }
+
+  /**
    * Submit handler.
    *
    * @param array $form
+   *   The form.
    * @param \Drupal\Core\Form\FormStateInterface $formState
+   *   The form state.
    */
   public function documentsSubmit(array &$form, FormStateInterface $formState) {
     $data = $formState->getValue(self::DOCUMENTS_TREE);
@@ -281,21 +334,41 @@ class FormHelper {
   }
 
   /**
+   * Set documents data.
    *
+   * @param \Drupal\Core\Form\FormStateInterface $formState
+   *   The form state.
+   * @param array $data
+   *   The data.
+   *
+   * @return \Drupal\Core\Form\FormStateInterface
+   *   The form state.
    */
   private function setDocumentsData(FormStateInterface $formState, array $data) {
-    return $formState->set(self::DOCUMENTS, $data);
+    return $formState->setValue(self::DOCUMENTS_TREE, $data);
   }
 
   /**
+   * Get documents data.
    *
+   * @param \Drupal\Core\Form\FormStateInterface $formState
+   *   The form state.
+   *
+   * @return array
+   *   The data.
    */
   private function getDocumentsData(FormStateInterface $formState) {
-    return $formState->get(self::DOCUMENTS) ?? [];
+    return $formState->getValue(self::DOCUMENTS_TREE) ?? [];
   }
 
   /**
+   * Get document id from form state.
    *
+   * @param \Drupal\Core\Form\FormStateInterface $formState
+   *   The form state.
+   *
+   * @return int|null
+   *   The document id if any.
    */
   private function getDocumentId(FormStateInterface $formState) {
     $spec = $formState->getValue('document');
@@ -354,32 +427,6 @@ class FormHelper {
     $data = $this->getDocumentsData($formState);
 
     return $this->collectionHelper->getCollectionItems($data);
-  }
-
-  /**
-   *
-   */
-  public function removeDocumentSubmit(array &$form, FormStateInterface $formState) {
-    $trigger = $formState->getTriggeringElement();
-    $documentId = $trigger['#attributes']['data-document-id'] ?? NULL;
-    if (NULL !== $documentId) {
-      // Remove document from collection.
-      // @todo remove children
-      $node = $formState->getformObject()->getEntity();
-      $data = $this->getDocumentsData($formState);
-      if (isset($data[$documentId])) {
-        unset($data[$documentId]);
-        $this->setDocumentsData($formState, $data);
-        $formState->setRebuild(TRUE);
-      }
-    }
-  }
-
-  /**
-   *
-   */
-  public function removeDocumentResult(array &$form, FormStateInterface $formState) {
-    return $this->addDocumentResult($form, $formState);
   }
 
 }

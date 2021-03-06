@@ -6,6 +6,7 @@ use Drupal\content_fixtures\Fixture\AbstractFixture;
 use Drupal\content_fixtures\Fixture\DependentFixtureInterface;
 use Drupal\content_fixtures\Fixture\FixtureGroupInterface;
 use Drupal\node\Entity\Node;
+use Drupal\os2loop_documents\Helper\CollectionHelper;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\ProfessionFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\SubjectFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\TagFixture;
@@ -16,12 +17,26 @@ use Drupal\os2loop_taxonomy_fixtures\Fixture\TagFixture;
  * @package Drupal\os2loop_page_fixtures\Fixture
  */
 class CollectionFixture extends AbstractFixture implements DependentFixtureInterface, FixtureGroupInterface {
+  /**
+   * The collection helper.
+   *
+   * @var \Drupal\os2loop_documents\Helper\CollectionHelper
+   */
+  private $collectionHelper;
+
+  /**
+   * Constructor.
+   */
+  public function __construct(CollectionHelper $collectionHelper) {
+    $this->collectionHelper = $collectionHelper;
+  }
 
   /**
    * {@inheritdoc}
    */
   public function load() {
-    $document = Node::create([
+    $collection = Node::create([
+      'nid' => 87,
       'type' => 'os2loop_documents_collection',
       'title' => 'The first collection',
       'os2loop_documents_dc_content' => [
@@ -41,7 +56,12 @@ BODY,
         'target_id' => $this->getReference('os2loop_profession:Andet')->id(),
       ],
     ]);
-    $document->save();
+    $collection->save();
+    $this->collectionHelper->addDocument($collection, $this->getReference('os2loop_documents_document:Aaa'));
+    $this->collectionHelper->addDocument($collection, $this->getReference('os2loop_documents_document:Bbb'), $this->getReference('os2loop_documents_document:Aaa'));
+    $this->collectionHelper->addDocument($collection, $this->getReference('os2loop_documents_document:Ccc'));
+    $this->collectionHelper->addDocument($collection, $this->getReference('os2loop_documents_document:Ddd'), $this->getReference('os2loop_documents_document:Ccc'));
+    $this->collectionHelper->addDocument($collection, $this->getReference('os2loop_documents_document:Eee'), $this->getReference('os2loop_documents_document:Ddd'));
   }
 
   /**

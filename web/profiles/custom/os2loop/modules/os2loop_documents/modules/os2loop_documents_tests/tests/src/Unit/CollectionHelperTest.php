@@ -5,12 +5,12 @@ namespace Drupal\Tests\os2loop_documents\Unit;
 use Drupal\Tests\UnitTestCase;
 
 /**
- *
+ * Collection helper test.
  */
 class CollectionHelperTest extends UnitTestCase {
 
   /**
-   *
+   * Test build tree.
    */
   public function testBuildTree() {
     /** @var \Drupal\os2loop_documents\Helper\CollectionHelper $helper */

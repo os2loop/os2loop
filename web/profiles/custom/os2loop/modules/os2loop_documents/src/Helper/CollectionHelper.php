@@ -14,20 +14,32 @@ class CollectionHelper {
   public const CONTENT_TYPE_COLLECTION = 'os2loop_documents_collection';
 
   /**
-   * @param \Drupal\node\Entity\NodeInterface $node
+   * Load collection items from database.
+   *
+   * @param \Drupal\node\Entity\NodeInterface $collection
+   *   The collection.
+   *
    * @return \Drupal\os2loop_documents\Entity\DocumentCollectionItem[]
+   *   The collection items.
+   *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function loadCollectionItems(NodeInterface $node) {
+  public function loadCollectionItems(NodeInterface $collection) {
     $ids = \Drupal::entityTypeManager()
       ->getStorage('os2loop_document_collection_item')
       ->getQuery()
-      ->condition('collection_id', $node->id())
+      ->condition('collection_id', $collection->id())
       ->sort('weight')
       ->execute();
 
-    return array_map(DocumentCollectionItem::class . '::load', $ids ?: []);
+    $items = array_map(DocumentCollectionItem::class . '::load', $ids ?: []);
+
+    // Initialize a variable to store our ordered tree structure.
+    $tree = [];
+    $this->buildTree($items, $tree);
+
+    return $tree;
   }
 
   /**
@@ -56,7 +68,78 @@ class CollectionHelper {
   }
 
   /**
+   * Add document to collection.
    *
+   * @param \Drupal\node\Entity\NodeInterface $collection
+   *   The collection.
+   * @param \Drupal\node\Entity\NodeInterface $document
+   *   The document.
+   * @param \Drupal\node\Entity\NodeInterface|null $parent
+   *   The optional document parent.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function addDocument(NodeInterface $collection, NodeInterface $document, NodeInterface $parent = NULL) {
+    $items = $this->loadCollectionItems($collection);
+    $weight = -1;
+    foreach ($items as $item) {
+      $weight = max($weight, $item->weight->value);
+    }
+    if (isset($items[$document->id()])) {
+      throw new \InvalidArgumentException(sprintf('Document %s is already in collection %s', $document->id(), $collection->id()));
+    }
+    if (NULL !== $parent) {
+      if (!isset($items[$parent->id()])) {
+        throw new \InvalidArgumentException(sprintf('Parent document %s is not in collection %s', $parent->id(),
+          $collection->id()));
+      }
+      if ($parent->id() === $document->id()) {
+        throw new \InvalidArgumentException(sprintf('Cannot add document %s as a child of itself', $document->id()));
+      }
+    }
+
+    $item = DocumentCollectionItem::create([
+      'collection_id' => $collection->id(),
+      'document_id' => $document->id(),
+      'parent_id' => $parent ? $parent->id() : 0,
+      'weight' => $weight + 1,
+    ])->save();
+  }
+
+  /**
+   * Remove document from collection.
+   *
+   * @param \Drupal\node\Entity\NodeInterface $collection
+   *   The collection.
+   * @param \Drupal\node\Entity\NodeInterface $document
+   *   The document.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function removeDocument(NodeInterface $collection, NodeInterface $document) {
+    $items = $this->loadCollectionItems($collection);
+    if (!isset($items[$document->id()])) {
+      throw new \InvalidArgumentException(sprintf('Document %s is not in collection %s', $document->id(), $collection->id()));
+    }
+    // Delete document and any children.
+    foreach ($items as $item) {
+      if ((int) $document->id() === (int) $item->document_id->value
+        || (int) $document->id() === (int) $item->parent_id->value) {
+        $item->delete();
+      }
+    }
+  }
+
+  /**
+   * Get collection items.
+   *
+   * @param array $data
+   *   The data.
+   *
+   * @return array
+   *   The collection items.
    */
   public function getCollectionItems(array $data) {
     $this->addDepths($data);
@@ -72,7 +155,13 @@ class CollectionHelper {
   }
 
   /**
+   * Get collection tree.
    *
+   * @param array $data
+   *   The data.
+   *
+   * @return array
+   *   The collection tree.
    */
   public function getCollectionTree(array $data) {
     $items = $this->getCollectionItems($data);
@@ -82,9 +171,13 @@ class CollectionHelper {
   }
 
   /**
+   * Sort items.
    *
+   * @param array $items
+   *   The itens.
    */
-  public function sortItems(array &$items) {}
+  public function sortItems(array &$items) {
+  }
 
   /**
    * Add depth to items in a list of items with weight and parent id (pid).
@@ -101,8 +194,17 @@ class CollectionHelper {
   /**
    * Build a tree from a list of items with weight and parent id (pid).
    */
-  public function buildTree(array $items) {
+  public function buildTree(array $items, &$tree = [], $depth = 0, $parent = 0) {
+    $roots = array_filter($items, static function (DocumentCollectionItem $item) use ($parent) {
+      return $item->parent_id->value == $parent;
+    });
 
+    foreach ($roots as $root) {
+      $id = $root->document_id->value;
+      $root->depth = $depth;
+      $tree[$id] = $root;
+      $this->buildTree($items, $tree, $depth + 1, $id);
+    }
   }
 
   /**
@@ -183,11 +285,7 @@ class CollectionHelper {
               $term = clone $term;
             }
             $term->depth = $depth;
-//            if (!$load_entities) {
-//              unset($term->parent);
-//            }
             $tid = $load_entities ? $term->id() : $term->document_id->value;
-//            $term->parents = $this->treeParents[$collectionId][$tid];
             $tree[] = $term;
             if (!empty($this->treeChildren[$collectionId][$tid])) {
               $has_children = TRUE;
@@ -216,59 +314,6 @@ class CollectionHelper {
       $this->trees[$cache_key] = $tree;
     }
     return $this->trees[$cache_key];
-  }
-
-  /**
-   *
-   */
-  public function test() {
-    //
-    //
-    //
-    //    $data = [
-    //      [
-    //        'id' => 1,
-    //        'pid' => 0,
-    //        'weight' => 123,
-    //      ],
-    //      [
-    //        'id' => 2,
-    //        'pid' => 0,
-    //        'weight' => 124,
-    //      ],
-    //    ];
-    //
-    //    $items = $this->getCollectionItems($data);
-    //
-    //    header('content-type: text/plain');
-    //    echo var_export([$data, $items], TRUE);
-    //    die(__FILE__ . ':' . __LINE__ . ':' . __METHOD__);
-    $node = Node::load(5);
-    $items = $this->loadTree($node->id());
-
-    header('content-type: text/plain');
-    echo var_export($items, TRUE);
-    die(__FILE__ . ':' . __LINE__ . ':' . __METHOD__);
-    $this->updateCollection($node,);
-
-    return;
-
-    $item = DocumentCollectionItem::create([
-      'document_id' => 87,
-      'collection_id' => 42,
-      'parent_id' => 0,
-      'weight' => 0,
-    ]);
-    $item->save();
-
-    $ids = \Drupal::entityTypeManager()
-      ->getStorage('os2loop_document_collection_item')
-      ->getQuery()
-      ->execute();
-    $items = DocumentCollectionItem::loadMultiple($ids);
-    header('content-type: text/plain');
-    echo var_export($items, TRUE);
-    die(__FILE__ . ':' . __LINE__ . ':' . __METHOD__);
   }
 
 }
