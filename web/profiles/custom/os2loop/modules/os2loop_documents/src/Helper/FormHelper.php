@@ -47,9 +47,25 @@ class FormHelper {
    * Implements hook_form_BASE_FORM_ID_alter().
    */
   public function alterForm(array &$form, FormStateInterface $formState, string $formId) {
+//     $this->collectionHelper->test();
+
     $node = $formState->getformObject()->getEntity();
     if (NULL !== $node) {
       if ($node->getType() === CollectionHelper::CONTENT_TYPE_COLLECTION) {
+        $request = \Drupal::request();
+        if ('GET' === $request->getMethod() && !$request->isXmlHttpRequest()) {
+          $collection = $this->collectionHelper->loadCollectionItems($node);
+          $data = array_map(static function ($item) {
+            return [
+              'id' => $item->document_id->value,
+              'pid' => $item->parent_id->value,
+              'weight' => $item->weight->value,
+            ];
+          }, $collection);
+          $data = array_column($data, NULL, 'id');
+          $this->setDocumentsData($formState, $data);
+        }
+
         $this->buildDocumentTree($form, $formState, $node);
       }
     }
@@ -231,13 +247,14 @@ class FormHelper {
     $document = Node::load($documentId);
 
     if ($document && !isset($data[$document->id()])) {
+      $weight = (int)max(array_column($data, 'weight'));
       $data[$document->id()] = [
-        'weight' => 1000,
+        'weight' => $weight + 1,
         'id' => $document->id(),
         'pid' => 0,
       ];
 
-      $formState->set(self::DOCUMENTS, $data);
+      $this->setDocumentsData($formState, $data);
       $formState->setRebuild(TRUE);
     }
   }
@@ -335,25 +352,8 @@ class FormHelper {
    */
   private function getCollectionDocuments(FormStateInterface $formState, NodeInterface $node) {
     $data = $this->getDocumentsData($formState);
-    $nodes = Node::loadMultiple(array_keys($data));
-    foreach ($data as &$item) {
-      if (0 == $item['pid']) {
-        $item['depth'] = 0;
-      }
-      $node = $nodes[$item['id']] ?? NULL;
-      $item['name'] = $node ? sprintf('%s (%s)', $node->getTitle(), $node->id()) : $item['id'];
-    }
 
-    foreach ($data as &$item) {
-      if (!isset($item['depth'])) {
-        $item['depth'] = $data[$item['pid']]['depth'] + 1;
-      }
-      if (!isset($item['weight'])) {
-        $item['weight'] = 0;
-      }
-    }
-
-    return $data;
+    return $this->collectionHelper->getCollectionItems($data);
   }
 
   /**

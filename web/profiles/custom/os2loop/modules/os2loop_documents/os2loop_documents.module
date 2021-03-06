@@ -32,3 +32,5 @@ function os2loop_documents_form_node_form_alter(array &$form, FormStateInterface
   // https://www.drupal.org/project/hook_event_dispatcher/issues/3199174
   \Drupal::service('os2loop_documents.form_helper')->alterForm($form, $form_state, $form_id);
 }
+
+// @todo Clear collection cache when document is updated.
