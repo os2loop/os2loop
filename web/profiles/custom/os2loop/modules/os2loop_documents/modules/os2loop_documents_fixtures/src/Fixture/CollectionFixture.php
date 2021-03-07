@@ -62,6 +62,31 @@ BODY,
     $this->collectionHelper->addDocument($collection, $this->getReference('os2loop_documents_document:Ccc'));
     $this->collectionHelper->addDocument($collection, $this->getReference('os2loop_documents_document:Ddd'), $this->getReference('os2loop_documents_document:Ccc'));
     $this->collectionHelper->addDocument($collection, $this->getReference('os2loop_documents_document:Eee'), $this->getReference('os2loop_documents_document:Ddd'));
+
+    $collection = Node::create([
+      'nid' => 42,
+      'type' => 'os2loop_documents_collection',
+      'title' => 'Another collection',
+      'os2loop_documents_dc_content' => [
+        'value' => <<<'BODY'
+<p>This collection shares a document with <a href="/node/87">The first collection</a>.</p>
+BODY,
+        'format' => 'os2loop_documents_rich_text',
+      ],
+      'os2loop_shared_subject' => [
+        'target_id' => $this->getReference('os2loop_subject:Diverse')->id(),
+      ],
+      'os2loop_shared_tags' => [
+        ['target_id' => $this->getReference('os2loop_tag:test')->id()],
+        ['target_id' => $this->getReference('os2loop_tag:Udredning')->id()],
+      ],
+      'os2loop_shared_profession' => [
+        'target_id' => $this->getReference('os2loop_profession:Andet')->id(),
+      ],
+    ]);
+    $collection->save();
+
+    $this->collectionHelper->addDocument($collection, $this->getReference('os2loop_documents_document:Aaa'));
   }
 
   /**

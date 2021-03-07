@@ -4,10 +4,14 @@ namespace Drupal\os2loop_documents\Helper;
 
 use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\Render\MainContent\AjaxRenderer;
 use Drupal\Core\Render\RendererInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Form helper.
@@ -36,23 +40,53 @@ class FormHelper {
   private $renderer;
 
   /**
+   * The ajax renderer.
+   *
+   * @var \Drupal\Core\Render\MainContent\AjaxRenderer
+   */
+  private $ajaxRenderer;
+
+  /**
+   * The request stack.
+   *
+   * @var \Symfony\Component\HttpFoundation\RequestStack
+   */
+  private $requestStack;
+
+  /**
+   * The route match.
+   *
+   * @var \Drupal\Core\Routing\RouteMatchInterface
+   */
+  private $routeMatch;
+
+  /**
+   * The messenger.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  private $messenger;
+
+  /**
    * {@inheritdoc}
    */
-  public function __construct(CollectionHelper $collectionHelper, RendererInterface $renderer) {
+  public function __construct(CollectionHelper $collectionHelper, RendererInterface $renderer, AjaxRenderer $ajaxRenderer, RequestStack $requestStack, RouteMatchInterface $routeMatch, MessengerInterface $messenger) {
     $this->collectionHelper = $collectionHelper;
     $this->renderer = $renderer;
+    $this->ajaxRenderer = $ajaxRenderer;
+    $this->requestStack = $requestStack;
+    $this->routeMatch = $routeMatch;
+    $this->messenger = $messenger;
   }
 
   /**
    * Implements hook_form_BASE_FORM_ID_alter().
    */
   public function alterForm(array &$form, FormStateInterface $formState, string $formId) {
-    // $this->collectionHelper->test();
-    $node = $formState->getformObject()->getEntity();
-    if (NULL !== $node) {
-      if ($node->getType() === CollectionHelper::CONTENT_TYPE_COLLECTION) {
-        $request = \Drupal::request();
-        if ('GET' === $request->getMethod() && !$request->isXmlHttpRequest()) {
+    if ('node_os2loop_documents_collection_edit_form' === $formId) {
+      $node = $formState->getformObject()->getEntity();
+      if (NULL !== $node && $node->getType() === CollectionHelper::CONTENT_TYPE_COLLECTION) {
+        if (!$formState->isSubmitted()) {
           $collection = $this->collectionHelper->loadCollectionItems($node);
           $data = array_map(static function ($item) {
             return [
@@ -61,9 +95,8 @@ class FormHelper {
               'weight' => $item->weight->value,
             ];
           }, $collection);
-          $data = array_column($data, NULL, 'id');
           $this->setDocumentsData($formState, $data);
-          // $formState->setRebuild(true);
+          $formState->setRebuild(TRUE);
         }
 
         $this->buildDocumentTree($form, $formState, $node);
@@ -160,6 +193,8 @@ class FormHelper {
           '#value' => $this->t('Remove %document from collection', ['%document' => $row['name']]),
           '#attributes' => [
             'data-document-id' => $row['id'],
+            // @todo Show only on leaf nodes.
+            // 'class' => ['visually-hidden'],
           ],
         ],
       ];
@@ -258,6 +293,10 @@ class FormHelper {
           'id' => $document->id(),
           'pid' => 0,
         ];
+        $this->messenger->addStatus($this->t('Document added to collection.'));
+      }
+      else {
+        $this->messenger->addWarning($this->t('Document already in collection.'));
       }
     }
     $this->setDocumentsData($formState, $data);
@@ -291,13 +330,15 @@ class FormHelper {
     // $this->getDocumentsData($formState);
     $data = $formState->getValue(self::DOCUMENTS_TREE) ?: [];
     $trigger = $formState->getTriggeringElement();
-    $documentId = $trigger['#attributes']['data-document-id'] ?? NULL;
-    if (NULL !== $documentId) {
-      // Remove document and children from collection.
-      foreach ($data as $id => $item) {
-        if ($id === $documentId || $id === $item['pid']) {
-          unset($data[$id]);
-        }
+    if (isset($trigger['#attributes']['data-document-id'])) {
+      $documentId = (int) $trigger['#attributes']['data-document-id'];
+      // Only leaf documents can be removed.
+      if (!$this->collectionHelper->hasChildren($documentId, $data)) {
+        unset($data[$documentId]);
+        $this->messenger->addStatus($this->t('Document removed from collection.'));
+      }
+      else {
+        $this->messenger->addError($this->t('Only leaf documents can be removed.'));
       }
     }
     $this->setDocumentsData($formState, $data);
@@ -316,7 +357,11 @@ class FormHelper {
    *   The form element.
    */
   public function removeDocumentResult(array &$form, FormStateInterface $formState) {
-    return $this->addDocumentResult($form, $formState);
+    $element = $this->addDocumentResult($form, $formState);
+    $response = $this->ajaxRenderer->renderResponse($element, $this->requestStack->getCurrentRequest(), $this->routeMatch);
+    // @todo Trigger "You have unsaved changes" warning.
+    // $response->addCommand(…);
+    return $response;
   }
 
   /**

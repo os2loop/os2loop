@@ -7,3 +7,7 @@ services:
     arguments:
       - '@os2loop_documents.collection_helper'
       - '@renderer'
+      - '@main_content_renderer.ajax'
+      - '@request_stack'
+      - '@current_route_match'
+      - '@messenger'

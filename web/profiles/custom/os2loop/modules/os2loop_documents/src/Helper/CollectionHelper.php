@@ -316,4 +316,61 @@ class CollectionHelper {
     return $this->trees[$cache_key];
   }
 
+  /**
+   * Get descendants.
+   *
+   * @param int|array $root
+   *   The root.
+   * @param array $data
+   *   The descendants.
+   */
+  public function getDescendants($root, array $data): array {
+    return [];
+  }
+
+  /**
+   * Decide if an item has children.
+   */
+  public function hasChildren($item, array &$data) {
+    $itemId = $this->getItemId($item);
+
+    foreach ($data as $datum) {
+      if ($itemId === (int) $datum['pid']) {
+        return TRUE;
+      }
+    }
+
+    return FALSE;
+  }
+
+  /**
+   * Remove item and descendants.
+   *
+   * @param int|array $item
+   *   The item.
+   * @param array $data
+   *   The descendants.
+   */
+  public function removeItem($item, array &$data) {
+    $itemId = $this->getItemId($item);
+    unset($data[$itemId]);
+    $descendants = $this->getDescendants($itemId, $data);
+    foreach ($descendants as $id) {
+      unset($data[$id]);
+    }
+  }
+
+  /**
+   * Get item id.
+   *
+   * @param int|array $item
+   *   The item.
+   *
+   * @return int|null
+   *   The item id.
+   */
+  private function getItemId($item) {
+    return is_scalar($item) ? $item : ($item['id'] ?? NULL);
+  }
+
 }
