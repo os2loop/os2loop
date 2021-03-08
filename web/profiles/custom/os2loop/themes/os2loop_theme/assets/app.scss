@@ -2,7 +2,6 @@
 $green: #41ab51;
 $green-light: #5dc26d;
 
-
 .navbar-default {
     background-color: $green;
     min-height: 5em;
@@ -20,15 +19,14 @@ $green-light: #5dc26d;
         justify-content: flex-end;
     }
  
-
     a {
         background-color: $green-light;
-
     }
+
     .navbar-nav > li > a {
-            color:black;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        
-        }
+        color:black;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    
+    }
 }
