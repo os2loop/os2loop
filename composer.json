@@ -25,6 +25,7 @@
         "composer/installers": "^1.9",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
         "drupal/better_formats": "1.x-dev",
+        "drupal/bootstrap": "^3.23",
         "drupal/coder": "^8.3",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
