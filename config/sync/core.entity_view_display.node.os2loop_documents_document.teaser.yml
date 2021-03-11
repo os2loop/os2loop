@@ -23,6 +23,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  langcode: true
   os2loop_documents_document_autho: true
   os2loop_documents_document_conte: true
   os2loop_shared_profession: true

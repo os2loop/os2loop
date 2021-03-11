@@ -24,6 +24,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  langcode: true
   os2loop_external_descripti: true
   os2loop_external_url: true
   os2loop_shared_profession: true

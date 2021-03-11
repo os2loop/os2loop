@@ -20,5 +20,6 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  langcode: true
   os2loop_page_content: true
   os2loop_page_image: true
