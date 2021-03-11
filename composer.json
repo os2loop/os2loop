@@ -21,6 +21,10 @@
         "os2loop/os2loop_fixtures": {
             "type": "path",
             "url": "web/profiles/custom/os2loop/modules/os2loop_fixtures"
+        },
+        "os2loop/os2loop_migrate": {
+            "type": "path",
+            "url": "web/profiles/custom/os2loop/modules/os2loop_migrate"
         }
     },
     "require": {
@@ -31,6 +35,7 @@
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
         "drupal/diff": "^1.0",
+        "drupal/field_group": "^3.1",
         "drupal/paragraphs": "^1.12",
         "drupal/theme_switcher": "dev-8.x-1.x",
         "drush/drush": "^10.4"
@@ -129,6 +134,7 @@
         "drupal/coder": "^8.3",
         "drupal/core-dev": "^9.1",
         "friendsoftwig/twigcs": "^5.0",
-        "os2loop/os2loop_fixtures": "*"
+        "os2loop/os2loop_fixtures": "*",
+        "os2loop/os2loop_migrate": "*"
     }
 }

@@ -1,0 +1,13 @@
+name: 'OS2Loop Migration'
+type: module
+description: 'OS2Loop Migration'
+# Used only for development and testing.
+hidden: true
+core_version_requirement: ^9
+package: OS2Loop
+# version: VERSION
+dependencies:
+  - drupal:migrate
+  - drupal:migrate_drupal
+  - drupal:migrate_plus
+  - drupal:migrate_upgrade

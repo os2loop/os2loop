@@ -1,0 +1,17 @@
+{
+    "name": "os2loop/os2loop_migrate",
+    "description": "OS2Loop Migrate",
+    "type": "drupal-custom-module",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Mikkel Ricky",
+            "email": "rimi@aarhus.dk"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "drupal/migrate_tools": "^5.0",
+        "drupal/migrate_upgrade": "^3.2"
+    }
+}
