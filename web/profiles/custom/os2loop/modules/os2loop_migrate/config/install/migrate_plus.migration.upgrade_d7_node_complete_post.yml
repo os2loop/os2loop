@@ -1,0 +1,134 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - os2loop_migrate
+  enforced:
+    module:
+      - os2loop_migrate
+id: upgrade_d7_node_complete_post
+class: Drupal\node\Plugin\migrate\D7NodeTranslation
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Node complete (Post)'
+source:
+  plugin: d7_node_complete
+  node_type: post
+process:
+  nid:
+    -
+      plugin: get
+      source: tnid
+  vid:
+    -
+      plugin: get
+      source: vid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  title:
+    -
+      plugin: get
+      source: title
+  uid:
+    -
+      plugin: get
+      source: node_uid
+  status:
+    -
+      plugin: get
+      source: status
+  created:
+    -
+      plugin: get
+      source: created
+  changed:
+    -
+      plugin: get
+      source: timestamp
+  promote:
+    -
+      plugin: get
+      source: promote
+  sticky:
+    -
+      plugin: get
+      source: sticky
+  revision_uid:
+    -
+      plugin: get
+      source: revision_uid
+  revision_log:
+    -
+      plugin: get
+      source: log
+  revision_timestamp:
+    -
+      plugin: get
+      source: timestamp
+  content_translation_source:
+    -
+      plugin: get
+      source: source_langcode
+  comment_node_post/0/status:
+    -
+      plugin: get
+      source: comment
+  field_description:
+    -
+      plugin: get
+      source: field_description
+  field_file_upload:
+    -
+      plugin: sub_process
+      source: field_file_upload
+      process:
+        target_id: fid
+        display: display
+        description: description
+  field_keyword:
+    -
+      plugin: sub_process
+      source: field_keyword
+      process:
+        target_id: tid
+  field_profession:
+    -
+      plugin: sub_process
+      source: field_profession
+      process:
+        target_id: tid
+  field_subject:
+    -
+      plugin: sub_process
+      source: field_subject
+      process:
+        target_id: tid
+  field_revision_date:
+    -
+      plugin: sub_process
+      source: field_revision_date
+      process:
+        value:
+          plugin: format_date
+          from_format: 'Y-m-d H:i:s'
+          to_format: Y-m-d
+          source: value
+destination:
+  plugin: 'entity_complete:node'
+  translations: true
+  default_bundle: post
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+    - upgrade_language
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

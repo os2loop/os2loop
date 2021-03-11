@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - os2loop_migrate
+  enforced:
+    module:
+      - os2loop_migrate
+id: default
+label: Default
+description: 'A container for any migrations not explicitly assigned to a group.'
+source_type: null
+module: null
+shared_configuration: null
