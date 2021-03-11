@@ -4,7 +4,6 @@
 
 <https://www.drupal.org/docs/upgrading-drupal/customize-migrations-when-upgrading-to-drupal-8-or-later>
 
-
 Define the source database with key `migrate` (cf.
 <https://www.drupal.org/docs/upgrading-drupal/upgrade-using-drush#s-define-the-source-database>):
 
@@ -30,7 +29,6 @@ vendor/bin/drush pm:enable os2loop_migrate
 ```sh
 vendor/bin/drush migrate:status --tag="Drupal 7"
 ```
-
 
 ```sh
 composer require --dev drupal/migrate_tools drupal/migrate_upgrade
