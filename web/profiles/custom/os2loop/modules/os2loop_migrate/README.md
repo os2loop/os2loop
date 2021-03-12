@@ -27,6 +27,11 @@ vendor/bin/drush pm:enable os2loop_migrate
 ```
 
 ```sh
+vendor/bin/drush migrate:import upgrade_d7_taxonomy_vocabulary
+vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_subject
+```
+
+```sh
 vendor/bin/drush migrate:status --tag="Drupal 7"
 ```
 
