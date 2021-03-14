@@ -42,6 +42,16 @@ vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_keyword
 vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_profession
 ```
 
+## Users
+
+@todo
+
+```sh
+vendor/bin/drush migrate:import upgrade_d7_field
+vendor/bin/drush migrate:import upgrade_d7_field_instance
+vendor/bin/drush migrate:import upgrade_d7_user_role,upgrade_d7_user
+```
+
 ## Nodes
 
 ```sh
