@@ -19,13 +19,23 @@ source:
   plugin: d7_taxonomy_vocabulary
 process:
   vid:
+    # -
+    #   plugin: make_unique_entity_field
+    #   source: machine_name
+    #   entity_type: taxonomy_vocabulary
+    #   field: vid
+    #   length: 30
+    #   migrated: true
     -
-      plugin: make_unique_entity_field
+      # Rename vocabularies
+      # @see https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21process%21StaticMap.php/class/StaticMap
+      plugin: static_map
       source: machine_name
-      entity_type: taxonomy_vocabulary
-      field: vid
-      length: 30
-      migrated: true
+      map:
+        subject: os2loop_subject
+        keyword: os2loop_tag
+        profession: os2loop_profession
+      bypass: TRUE
     -
       plugin: forum_vocabulary
       machine_name: forums
@@ -34,9 +44,18 @@ process:
       plugin: get
       source: name
   name:
+    # -
+    #   plugin: get
+    #   source: name
     -
-      plugin: get
+      # Rename vocabularies
+      # @see https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21process%21StaticMap.php/class/StaticMap
+      plugin: static_map
       source: name
+      map:
+        Keyword: Tag
+        Subjects: Subject
+      bypass: TRUE
   description:
     -
       plugin: get

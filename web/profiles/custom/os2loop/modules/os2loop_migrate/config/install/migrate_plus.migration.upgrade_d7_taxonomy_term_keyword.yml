@@ -24,10 +24,14 @@ process:
       plugin: get
       source: tid
   vid:
+    # -
+    #   plugin: migration_lookup
+    #   migration: upgrade_d7_taxonomy_vocabulary
+    #   source: vid
     -
-      plugin: migration_lookup
-      migration: upgrade_d7_taxonomy_vocabulary
-      source: vid
+      # Import into existing vocabulary
+      plugin: default_value
+      default_value: os2loop_tag
   name:
     -
       plugin: get
@@ -75,9 +79,9 @@ process:
 destination:
   plugin: 'entity:taxonomy_term'
   default_bundle: keyword
-migration_dependencies:
-  required:
-    - upgrade_d7_taxonomy_vocabulary
-  optional:
-    - upgrade_d7_field_instance
-    - upgrade_d7_taxonomy_vocabulary
+# migration_dependencies:
+#   required:
+#     - upgrade_d7_taxonomy_vocabulary
+#   optional:
+#     - upgrade_d7_field_instance
+#     - upgrade_d7_taxonomy_vocabulary

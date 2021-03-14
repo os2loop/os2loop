@@ -27,9 +27,37 @@ vendor/bin/drush pm:enable os2loop_migrate
 ```
 
 ```sh
-vendor/bin/drush migrate:import upgrade_d7_taxonomy_vocabulary
-vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_subject
+vendor/bin/drush --yes pm:enable config
+vendor/bin/drush --yes config:import --partial --source=profiles/custom/os2loop/modules/os2loop_migrate/config/install
+vendor/bin/drush --yes pm:uninstall config
 ```
+
+## Taxonomies
+
+```sh
+# We import terms into existing vocabularies
+# vendor/bin/drush migrate:import upgrade_d7_taxonomy_vocabulary
+vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_subject
+vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_keyword
+vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_profession
+```
+```
+
+## Tips and tricks
+
+If a migration gets stuck:
+
+```sh
+vendor/bin/drush migrate:reset-status
+```
+
+Reverting a migration:
+
+```sh
+vendor/bin/drush migrate:roolback upgrade_d7_taxonomy_vocabulary
+```
+
+Migration status:
 
 ```sh
 vendor/bin/drush migrate:status --tag="Drupal 7"
