@@ -80,11 +80,24 @@ process:
     -
       plugin: get
       source: comment
-  body:
+  # Rename field body → os2loop_page_content
+  # body:
+  os2loop_page_content:
+    # -
+    #   plugin: get
+    #   source: body
     -
-      plugin: get
+      # Set text format.
+      plugin: sub_process
       source: body
-  field_file_upload:
+      process:
+        value: value
+        format:
+          plugin: default_value
+          default_value: os2loop_page
+  # Rename field field_file_upload → os2loop_page_image
+  # @todo import actual file
+  os2loop_page_image:
     -
       plugin: sub_process
       source: field_file_upload
@@ -95,12 +108,12 @@ process:
 destination:
   plugin: 'entity_complete:node'
   translations: true
-  default_bundle: page
-migration_dependencies:
-  required:
-    - upgrade_d7_user
-    - upgrade_d7_node_type
-    - upgrade_language
-  optional:
-    - upgrade_d7_field_instance
-    - upgrade_d7_comment_field_instance
+  default_bundle: os2loop_page
+# migration_dependencies:
+#   required:
+#     - upgrade_d7_user
+#     - upgrade_d7_node_type
+#     - upgrade_language
+#   optional:
+#     - upgrade_d7_field_instance
+#     - upgrade_d7_comment_field_instance

@@ -41,6 +41,11 @@ vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_subject
 vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_keyword
 vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_profession
 ```
+
+## Nodes
+
+```sh
+vendor/bin/drush migrate:import upgrade_d7_node_complete_page
 ```
 
 ## Tips and tricks
