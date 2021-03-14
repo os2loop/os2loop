@@ -16,6 +16,7 @@ module:
   link: 0
   menu_link_content: 0
   menu_ui: 0
+  message: 0
   node: 0
   os2loop_documents: 0
   os2loop_external: 0
