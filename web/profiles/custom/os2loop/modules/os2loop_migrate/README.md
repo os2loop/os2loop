@@ -7,6 +7,9 @@
 Define the source database with key `migrate` (cf.
 <https://www.drupal.org/docs/upgrading-drupal/upgrade-using-drush#s-define-the-source-database>):
 
+"Altering migrations"
+(<https://www.lullabot.com/articles/overview-migrating-drupal-sites-8>)
+
 ```php
 $databases['migrate']['default'] = [
   'database' => 'db',
