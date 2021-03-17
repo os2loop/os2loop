@@ -68,6 +68,12 @@ vendor/bin/drush migrate:import upgrade_d7_node_complete_external_sources
 vendor/bin/drush migrate:import upgrade_d7_node_complete_post
 ```
 
+## Comments
+
+```sh
+vendor/bin/drush migrate:import upgrade_d7_comment
+```
+
 ## Tips and tricks
 
 If a migration gets stuck:

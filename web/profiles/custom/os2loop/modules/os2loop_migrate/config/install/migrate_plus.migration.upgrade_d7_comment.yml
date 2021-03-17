@@ -52,10 +52,16 @@ process:
       plugin: get
       source: constants/entity_type
   comment_type:
+    # -
+    #   plugin: migration_lookup
+    #   source: node_type
+    #   migration: upgrade_d7_comment_type
     -
-      plugin: migration_lookup
+      plugin: static_map
       source: node_type
-      migration: upgrade_d7_comment_type
+      map:
+        post: os2loop_question_answer
+      bypass: TRUE
     -
       plugin: skip_on_empty
       method: row
@@ -65,9 +71,15 @@ process:
       source: language
       default_value: und
   field_name:
+    # -
+    #   plugin: get
+    #   source: '@comment_type'
     -
-      plugin: get
-      source: '@comment_type'
+      plugin: static_map
+      source: node_type
+      map:
+        post: os2loop_question_answers
+      bypass: TRUE
   subject:
     -
       plugin: get
@@ -108,10 +120,21 @@ process:
     -
       plugin: get
       source: thread
-  comment_body:
+  # comment_body:
+  os2loop_question_answer:
+    # -
+    #   plugin: get
+    #   source: comment_body
     -
-      plugin: get
+      # Set text format.
+      plugin: sub_process
       source: comment_body
+      process:
+        value: value
+        format:
+          plugin: default_value
+          default_value: os2loop_question_answer_plain_text
+
   field_file_upload_comment:
     -
       plugin: sub_process
@@ -122,24 +145,24 @@ process:
         description: description
 destination:
   plugin: 'entity:comment'
-migration_dependencies:
-  required:
-    - upgrade_d7_node_complete_external_sources
-    - upgrade_d7_node_complete_loop_documents_collection
-    - upgrade_d7_node_complete_loop_documents_document
-    - upgrade_d7_node_complete_page
-    - upgrade_d7_node_complete_post
-    - upgrade_d7_comment_type
-  optional:
-    - upgrade_d7_node_complete_external_sources
-    - upgrade_d7_node_complete_loop_documents_collection
-    - upgrade_d7_node_complete_loop_documents_document
-    - upgrade_d7_node_complete_page
-    - upgrade_d7_node_complete_post
-    - upgrade_d7_comment
-    - upgrade_d7_comment_type
-    - upgrade_d7_node_complete_external_sources
-    - upgrade_d7_node_complete_loop_documents_collection
-    - upgrade_d7_node_complete_loop_documents_document
-    - upgrade_d7_node_complete_page
-    - upgrade_d7_node_complete_post
+# migration_dependencies:
+#   required:
+#     - upgrade_d7_node_complete_external_sources
+#     - upgrade_d7_node_complete_loop_documents_collection
+#     - upgrade_d7_node_complete_loop_documents_document
+#     - upgrade_d7_node_complete_page
+#     - upgrade_d7_node_complete_post
+#     - upgrade_d7_comment_type
+#   optional:
+#     - upgrade_d7_node_complete_external_sources
+#     - upgrade_d7_node_complete_loop_documents_collection
+#     - upgrade_d7_node_complete_loop_documents_document
+#     - upgrade_d7_node_complete_page
+#     - upgrade_d7_node_complete_post
+#     - upgrade_d7_comment
+#     - upgrade_d7_comment_type
+#     - upgrade_d7_node_complete_external_sources
+#     - upgrade_d7_node_complete_loop_documents_collection
+#     - upgrade_d7_node_complete_loop_documents_document
+#     - upgrade_d7_node_complete_page
+#     - upgrade_d7_node_complete_post
