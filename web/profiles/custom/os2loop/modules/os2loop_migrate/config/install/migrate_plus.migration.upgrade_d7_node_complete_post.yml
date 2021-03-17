@@ -80,10 +80,21 @@ process:
     -
       plugin: get
       source: comment
-  field_description:
+  # field_description:
+  os2loop_question_content:
+    # -
+    #   plugin: get
+    #   source: field_description
     -
-      plugin: get
+      # Set text format.
+      plugin: sub_process
       source: field_description
+      process:
+        value: value
+        format:
+          plugin: default_value
+          default_value: os2loop_question_plain_text
+  ## @todo handle files
   field_file_upload:
     -
       plugin: sub_process
@@ -92,25 +103,29 @@ process:
         target_id: fid
         display: display
         description: description
-  field_keyword:
+  # field_keyword:
+  os2loop_shared_subject:
     -
       plugin: sub_process
       source: field_keyword
       process:
         target_id: tid
-  field_profession:
+  # field_profession:
+  os2loop_shared_profession:
     -
       plugin: sub_process
       source: field_profession
       process:
         target_id: tid
-  field_subject:
+  # field_subject:
+  os2loop_shared_tags:
     -
       plugin: sub_process
       source: field_subject
       process:
         target_id: tid
-  field_revision_date:
+  # field_revision_date:
+  os2loop_shared_rev_date:
     -
       plugin: sub_process
       source: field_revision_date
@@ -123,12 +138,12 @@ process:
 destination:
   plugin: 'entity_complete:node'
   translations: true
-  default_bundle: post
-migration_dependencies:
-  required:
-    - upgrade_d7_user
-    - upgrade_d7_node_type
-    - upgrade_language
-  optional:
-    - upgrade_d7_field_instance
-    - upgrade_d7_comment_field_instance
+  default_bundle: os2loop_question
+# migration_dependencies:
+#   required:
+#     - upgrade_d7_user
+#     - upgrade_d7_node_type
+#     - upgrade_language
+#   optional:
+#     - upgrade_d7_field_instance
+#     - upgrade_d7_comment_field_instance
