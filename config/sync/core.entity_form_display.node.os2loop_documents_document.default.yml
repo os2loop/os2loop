@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.os2loop_documents_document.os2loop_documents_document_autho
+    - field.field.node.os2loop_documents_document.os2loop_documents_document_body
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
     - field.field.node.os2loop_documents_document.os2loop_shared_profession
     - field.field.node.os2loop_documents_document.os2loop_shared_subject
@@ -11,6 +12,7 @@ dependencies:
     - node.type.os2loop_documents_document
   module:
     - paragraphs
+    - text
 id: node.os2loop_documents_document.default
 targetEntityType: node
 bundle: os2loop_documents_document
@@ -36,6 +38,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  os2loop_documents_document_body:
+    weight: 128
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   os2loop_documents_document_conte:
     type: entity_reference_paragraphs

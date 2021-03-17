@@ -80,21 +80,35 @@ process:
     -
       plugin: get
       source: comment
-  field_loop_documents_author:
+  # field_loop_documents_author:
+  os2loop_documents_document_autho:
     -
       plugin: get
       source: field_loop_documents_author
-  body:
+  # body:
+  os2loop_documents_document_body:
+    # -
+    #   plugin: get
+    #   source: body
     -
-      plugin: get
+      # Set text format.
+      plugin: sub_process
       source: body
-  field_keyword:
+      process:
+        value: value
+        format:
+          plugin: default_value
+          default_value: os2loop_documents_rich_text
+
+  # field_keyword:
+  os2loop_shared_tags:
     -
       plugin: sub_process
       source: field_keyword
       process:
         target_id: tid
-  field_subject:
+  # field_subject:
+  os2loop_shared_subject:
     -
       plugin: sub_process
       source: field_subject
@@ -103,12 +117,12 @@ process:
 destination:
   plugin: 'entity_complete:node'
   translations: true
-  default_bundle: loop_documents_document
-migration_dependencies:
-  required:
-    - upgrade_d7_user
-    - upgrade_d7_node_type
-    - upgrade_language
-  optional:
-    - upgrade_d7_field_instance
-    - upgrade_d7_comment_field_instance
+  default_bundle: os2loop_documents_document
+# migration_dependencies:
+#   required:
+#     - upgrade_d7_user
+#     - upgrade_d7_node_type
+#     - upgrade_language
+#   optional:
+#     - upgrade_d7_field_instance
+#     - upgrade_d7_comment_field_instance
