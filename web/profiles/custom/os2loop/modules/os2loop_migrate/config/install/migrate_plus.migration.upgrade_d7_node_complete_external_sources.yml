@@ -80,23 +80,28 @@ process:
     -
       plugin: get
       source: comment
-  field_external_link:
+  # Rename field_external_link → os2loop_external_url
+  # field_external_link:
+  os2loop_external_url:
     -
       plugin: field_link
       source: field_external_link
-  field_keyword:
+  # field_keyword:
+  os2loop_shared_tags:
     -
       plugin: sub_process
       source: field_keyword
       process:
         target_id: tid
-  field_subject:
+  # field_subject:
+  os2loop_shared_subject:
     -
       plugin: sub_process
       source: field_subject
       process:
         target_id: tid
-  field_revision_date:
+  # field_revision_date:
+  os2loop_shared_rev_date:
     -
       plugin: sub_process
       source: field_revision_date
@@ -109,12 +114,12 @@ process:
 destination:
   plugin: 'entity_complete:node'
   translations: true
-  default_bundle: external_sources
-migration_dependencies:
-  required:
-    - upgrade_d7_user
-    - upgrade_d7_node_type
-    - upgrade_language
-  optional:
-    - upgrade_d7_field_instance
-    - upgrade_d7_comment_field_instance
+  default_bundle: os2loop_external
+# migration_dependencies:
+#   required:
+#     - upgrade_d7_user
+#     - upgrade_d7_node_type
+#     - upgrade_language
+#   optional:
+#     - upgrade_d7_field_instance
+#     - upgrade_d7_comment_field_instance

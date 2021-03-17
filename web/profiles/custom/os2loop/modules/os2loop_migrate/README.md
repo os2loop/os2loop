@@ -56,6 +56,7 @@ vendor/bin/drush migrate:import upgrade_d7_user_role,upgrade_d7_user
 
 ```sh
 vendor/bin/drush migrate:import upgrade_d7_node_complete_page
+vendor/bin/drush migrate:import upgrade_d7_node_complete_external_sources
 ```
 
 ## Tips and tricks
