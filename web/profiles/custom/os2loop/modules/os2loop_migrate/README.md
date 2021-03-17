@@ -79,7 +79,7 @@ vendor/bin/drush migrate:reset-status
 Reverting a migration:
 
 ```sh
-vendor/bin/drush migrate:roolback upgrade_d7_taxonomy_vocabulary
+vendor/bin/drush migrate:rollback
 ```
 
 Migration status:
