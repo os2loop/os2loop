@@ -32,6 +32,14 @@ vendor/bin/drush --yes config:import --partial --source=profiles/custom/os2loop/
 vendor/bin/drush --yes pm:uninstall config
 ```
 
+## Files
+
+```sh
+mkdir -p migrate/web/sites/default
+rsync --archive --compress --delete «old site root»/sites/default/files migrate/web/sites/default
+vendor/bin/drush migrate:import upgrade_d7_file
+```
+
 ## Taxonomies
 
 ```sh
@@ -78,6 +86,12 @@ Migration status:
 
 ```sh
 vendor/bin/drush migrate:status --tag="Drupal 7"
+```
+
+Migration messages:
+
+```sh
+vendor/bin/drush migrate:messages
 ```
 
 ```sh

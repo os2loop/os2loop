@@ -95,7 +95,8 @@ process:
           plugin: default_value
           default_value: os2loop_question_plain_text
   ## @todo handle files
-  field_file_upload:
+  # field_file_upload:
+  os2loop_question_file:
     -
       plugin: sub_process
       source: field_file_upload
