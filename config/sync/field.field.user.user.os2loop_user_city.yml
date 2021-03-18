@@ -1,0 +1,20 @@
+uuid: 58a1247f-b9b0-4054-9348-818c7b6471f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.os2loop_user_city
+  module:
+    - user
+id: user.user.os2loop_user_city
+field_name: os2loop_user_city
+entity_type: user
+bundle: user
+label: City
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

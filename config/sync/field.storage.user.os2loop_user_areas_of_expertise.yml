@@ -1,0 +1,20 @@
+uuid: 926e0e8a-b376-4f29-82a9-e534fe28f50b
+langcode: und
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - user
+id: user.os2loop_user_areas_of_expertise
+field_name: os2loop_user_areas_of_expertise
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

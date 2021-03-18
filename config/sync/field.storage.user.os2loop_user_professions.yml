@@ -1,0 +1,20 @@
+uuid: 69dab652-14d7-4fc1-bacc-03331b68de36
+langcode: und
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - user
+id: user.os2loop_user_professions
+field_name: os2loop_user_professions
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

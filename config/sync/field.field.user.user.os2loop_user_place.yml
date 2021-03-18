@@ -1,0 +1,20 @@
+uuid: eb4e6708-7bb1-46c1-b509-8ec84e324651
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.os2loop_user_place
+  module:
+    - user
+id: user.user.os2loop_user_place
+field_name: os2loop_user_place
+entity_type: user
+bundle: user
+label: 'Place / Department'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+uuid: cdd04494-fdb1-44e3-8e8e-4a3c4c9c5bf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.os2loop_user_job_title
+  module:
+    - user
+id: user.user.os2loop_user_job_title
+field_name: os2loop_user_job_title
+entity_type: user
+bundle: user
+label: 'Job title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

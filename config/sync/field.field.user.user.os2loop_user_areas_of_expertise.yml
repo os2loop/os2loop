@@ -1,0 +1,30 @@
+uuid: e6ed39f1-36b5-410a-a0d2-79f0bf9d8107
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.os2loop_user_areas_of_expertise
+    - taxonomy.vocabulary.os2loop_profession
+  module:
+    - user
+id: user.user.os2loop_user_areas_of_expertise
+field_name: os2loop_user_areas_of_expertise
+entity_type: user
+bundle: user
+label: 'Area of expertise'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      os2loop_profession: os2loop_profession
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

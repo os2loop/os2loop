@@ -25,6 +25,7 @@ module:
   os2loop_question: 0
   os2loop_shared: 0
   os2loop_taxonomy: 0
+  os2loop_user: 0
   page_cache: 0
   path_alias: 0
   system: 0

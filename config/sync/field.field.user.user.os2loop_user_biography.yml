@@ -1,0 +1,20 @@
+uuid: 0a271fb2-2dd4-48b1-8ce4-d596f23e7160
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.os2loop_user_biography
+  module:
+    - user
+id: user.user.os2loop_user_biography
+field_name: os2loop_user_biography
+entity_type: user
+bundle: user
+label: Biography
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

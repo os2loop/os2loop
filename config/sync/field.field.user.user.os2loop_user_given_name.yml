@@ -1,0 +1,20 @@
+uuid: cefd35a9-644f-4afa-a22b-ec6db78d28f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.os2loop_user_given_name
+  module:
+    - user
+id: user.user.os2loop_user_given_name
+field_name: os2loop_user_given_name
+entity_type: user
+bundle: user
+label: 'First name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: fce5428d-40a7-49d5-b851-3ce6c27b27c9
+langcode: und
+status: true
+dependencies:
+  module:
+    - user
+id: user.os2loop_user_postal_code
+field_name: os2loop_user_postal_code
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

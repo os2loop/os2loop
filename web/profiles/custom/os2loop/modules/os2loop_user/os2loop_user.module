@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains os2loop_user.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function os2loop_user_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the os2loop_user module.
+    case 'help.page.os2loop_user':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('OS2Loop user') . '</p>';
+      return $output;
+
+    default:
+  }
+}

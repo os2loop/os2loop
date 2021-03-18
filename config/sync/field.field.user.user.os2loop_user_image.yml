@@ -1,0 +1,38 @@
+uuid: 503c5e43-5224-4987-96bc-494e5189d61c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.os2loop_user_image
+  module:
+    - image
+    - user
+id: user.user.os2loop_user_image
+field_name: os2loop_user_image
+entity_type: user
+bundle: user
+label: 'User image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  alt_field: false
+  default_image:
+    alt: ''
+    title: ''
+    width: null
+    height: null
+    uuid: ''
+  file_directory: images/user_profiles
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  title_field: false
+  alt_field_required: true
+  title_field_required: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

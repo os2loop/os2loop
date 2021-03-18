@@ -1,0 +1,9 @@
+name: 'OS2Loop user'
+type: module
+description: 'OS2Loop user'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'OS2Loop'
+
+dependencies:
+  - user

@@ -1,0 +1,30 @@
+uuid: 2da464d8-80ad-43a1-a8c6-a5203a0bcc2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.os2loop_user_professions
+    - taxonomy.vocabulary.os2loop_profession
+  module:
+    - user
+id: user.user.os2loop_user_professions
+field_name: os2loop_user_professions
+entity_type: user
+bundle: user
+label: Profession
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      os2loop_profession: os2loop_profession
+    sort:
+      field: _none
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

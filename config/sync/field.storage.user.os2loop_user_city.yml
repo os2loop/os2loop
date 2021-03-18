@@ -1,0 +1,21 @@
+uuid: 7499a001-d86a-4d50-9888-02d503449b25
+langcode: und
+status: true
+dependencies:
+  module:
+    - user
+id: user.os2loop_user_city
+field_name: os2loop_user_city
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
