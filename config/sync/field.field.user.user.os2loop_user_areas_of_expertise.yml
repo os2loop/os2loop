@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.user.os2loop_user_areas_of_expertise
-    - taxonomy.vocabulary.os2loop_profession
+    - taxonomy.vocabulary.os2loop_subject
   module:
     - user
 id: user.user.os2loop_user_areas_of_expertise
@@ -21,7 +21,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      os2loop_profession: os2loop_profession
+      os2loop_subject: os2loop_subject
     sort:
       field: name
       direction: asc

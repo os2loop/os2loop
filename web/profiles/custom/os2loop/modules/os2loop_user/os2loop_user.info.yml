@@ -6,4 +6,5 @@ core_version_requirement: ^8 || ^9
 package: 'OS2Loop'
 
 dependencies:
+  - field_group
   - user

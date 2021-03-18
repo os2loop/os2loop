@@ -38,8 +38,8 @@ vendor/bin/drush --yes pm:uninstall config
 ## Files
 
 ```sh
-mkdir -p migrate/web/sites/default
-rsync --archive --compress --delete «old site root»/sites/default/files migrate/web/sites/default
+mkdir -p migrate/sites/default
+rsync --archive --compress --delete «old site root»/sites/default/files migrate/sites/default
 vendor/bin/drush migrate:import upgrade_d7_file
 ```
 
@@ -55,11 +55,7 @@ vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_profession
 
 ## Users
 
-@todo
-
 ```sh
-vendor/bin/drush migrate:import upgrade_d7_field
-vendor/bin/drush migrate:import upgrade_d7_field_instance
 vendor/bin/drush migrate:import upgrade_d7_user_role,upgrade_d7_user
 ```
 

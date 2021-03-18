@@ -86,55 +86,67 @@ process:
     -
       plugin: migration_lookup
       migration: upgrade_d7_file
-  field_area_of_expertise:
+  # field_area_of_expertise:
+  os2loop_user_areas_of_expertise:
     -
       plugin: sub_process
       source: field_area_of_expertise
       process:
         target_id: tid
-  field_biography:
+  # field_biography:
+  os2loop_user_biography:
     -
       plugin: get
       source: field_biography
-  field_first_name:
+  # field_first_name:
+  os2loop_user_given_name:
     -
       plugin: get
       source: field_first_name
-  field_job_title:
+  # field_job_title:
+  os2loop_user_job_title:
     -
       plugin: get
       source: field_job_title
-  field_last_name:
+  # field_last_name:
+  os2loop_user_family_name:
     -
       plugin: get
       source: field_last_name
-  field_location_address:
+  # field_location_address:
+  os2loop_user_address:
     -
       plugin: get
       source: field_location_address
-  field_location_city:
+  # field_location_city:
+  os2loop_user_city:
     -
       plugin: get
       source: field_location_city
-  field_location_place:
+  # field_location_place:
+  os2loop_user_place:
     -
       plugin: get
       source: field_location_place
-  field_location_postal_code:
+  # field_location_postal_code:
+  os2loop_user_postal_code:
     -
       plugin: get
       source: field_location_postal_code
-  field_phone_number:
+  # field_phone_number:
+  os2loop_user_phone_number:
     -
       plugin: get
       source: field_phone_number
-  field_profession:
+  # field_profession:
+  os2loop_user_professions:
     -
       plugin: sub_process
       source: field_profession
       process:
         target_id: tid
-  field_user_image:
+  # field_user_image:
+  os2loop_user_image:
     -
       plugin: sub_process
       source: field_user_image
@@ -149,12 +161,14 @@ destination:
 migration_dependencies:
   required:
     - upgrade_d7_user_role
-  optional:
-    - upgrade_d7_field_instance
     - upgrade_d7_file
-    - upgrade_language
-    - upgrade_default_language
-    - upgrade_user_picture_field_instance
-    - upgrade_user_picture_entity_display
-    - upgrade_user_picture_entity_form_display
-    - upgrade_d7_user_role
+    - upgrade_d7_taxonomy_term_subject
+    - upgrade_d7_taxonomy_term_profession
+  # optional:
+  #   - upgrade_d7_field_instance
+  #   - upgrade_language
+  #   - upgrade_default_language
+  #   - upgrade_user_picture_field_instance
+  #   - upgrade_user_picture_entity_display
+  #   - upgrade_user_picture_entity_form_display
+  #   - upgrade_d7_user_role
