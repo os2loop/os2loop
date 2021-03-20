@@ -1,7 +1,7 @@
 {
     "name": "os2loop/os2loop_migrate",
     "description": "OS2Loop Migrate",
-    "type": "drupal-custom-module",
+    "type": "os2loop-custom-module",
     "license": "GPL-2.0+",
     "authors": [
         {

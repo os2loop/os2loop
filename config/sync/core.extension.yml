@@ -12,6 +12,7 @@ module:
   field_group: 0
   file: 0
   filter: 0
+  flag: 0
   image: 0
   language: 0
   link: 0
