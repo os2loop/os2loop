@@ -1,0 +1,15 @@
+uuid: 20dde41c-c09e-4974-8de9-3532d5f64fcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.message_read
+  module:
+    - flag
+id: flag_action.message_read_flag
+label: 'Mark as read'
+type: message
+plugin: 'flag_action:message_read_flag'
+configuration:
+  flag_id: message_read
+  flag_action: flag

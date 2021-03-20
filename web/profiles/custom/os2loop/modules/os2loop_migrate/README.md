@@ -10,6 +10,15 @@ Define the source database with key `migrate` (cf.
 "Altering migrations"
 (<https://www.lullabot.com/articles/overview-migrating-drupal-sites-8>)
 
+
+Flags:
+
+https://deninet.com/tag/building-custom-migration-drupal-8
+https://www.drupal.org/project/migrate_extras/issues/1794568
+https://www.drupal.org/node/2503815
+https://www.drupal.org/project/flag/issues/2409901
+
+
 ```php
 $databases['migrate']['default'] = [
   'database' => 'db',
@@ -74,6 +83,15 @@ vendor/bin/drush migrate:import upgrade_d7_node_complete_loop_documents_collecti
 ```sh
 vendor/bin/drush migrate:import upgrade_d7_comment
 ```
+
+## Flags
+
+```sh
+# Flags are define in config.
+# vendor/bin/drush migrate:import upgrade_d7_flag
+vendor/bin/drush migrate:import upgrade_d7_flagging
+```
+
 
 ## Tips and tricks
 

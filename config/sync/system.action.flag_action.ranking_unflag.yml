@@ -1,0 +1,15 @@
+uuid: ced730f1-4a9d-4958-a476-361b7dc59012
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.ranking
+  module:
+    - flag
+id: flag_action.ranking_unflag
+label: 'Remove thumbs up'
+type: comment
+plugin: 'flag_action:ranking_unflag'
+configuration:
+  flag_id: ranking
+  flag_action: unflag

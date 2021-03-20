@@ -1,0 +1,35 @@
+uuid: d1eb92b0-16a3-4ab1-a154-6d6bf941def8
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: subscribe_term
+label: Terms
+bundles: {  }
+entity_type: taxonomy_term
+global: false
+weight: 0
+flag_short: Subscribe
+flag_long: ''
+flag_message: 'You are now subscribed to this subject.'
+unflag_short: Unsubscribe
+unflag_long: ''
+unflag_message: 'You are no longer subscribed to this subject.'
+unflag_denied_text: ''
+flag_type: 'entity:taxonomy_term'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links:
+    full: full
+    diff_standard: '0'
+    pdf: '0'
+    token: '0'
+  show_as_field: false
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions: {  }
+  access_author: ''
+linkTypeConfig:
+  flag_confirmation: null
+  unflag_confirmation: null

@@ -1,0 +1,93 @@
+uuid: 46ff6517-d4a7-4a6c-bb57-ba176cb0038d
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_flag
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Flag configuration'
+source:
+  plugin: d7_flag
+process:
+  id:
+    -
+      plugin: get
+      source: name
+  label:
+    -
+      plugin: get
+      source: title
+  bundles:
+    -
+      plugin: get
+      source: bundles
+  entity_type:
+    -
+      plugin: get
+      source: entity_type
+  global:
+    -
+      plugin: get
+      source: global
+  weight:
+    -
+      plugin: get
+      source: options/weight
+  flag_short:
+    -
+      plugin: get
+      source: options/flag_short
+  flag_long:
+    -
+      plugin: get
+      source: options/flag_long
+  flag_message:
+    -
+      plugin: get
+      source: options/flag_message
+  unflag_short:
+    -
+      plugin: get
+      source: options/unflag_short
+  unflag_long:
+    -
+      plugin: get
+      source: options/unflag_long
+  unflag_message:
+    -
+      plugin: get
+      source: options/unflag_message
+  unflag_denied_text:
+    -
+      plugin: get
+      source: options/unflag_denied_text
+  flag_type:
+    -
+      plugin: get
+      source: flag_type
+  link_type:
+    -
+      plugin: static_map
+      source: options/link_type
+      map:
+        toggle: ajax_link
+        normal: reload
+        confirm: confirm
+        form: field_entry
+  flagTypeConfig:
+    -
+      plugin: get
+      source: flagTypeConfig
+  linkTypeConfig:
+    -
+      plugin: get
+      source: linkTypeConfig
+destination:
+  plugin: 'entity:flag'
+migration_dependencies:
+  required: {  }
+  optional: {  }

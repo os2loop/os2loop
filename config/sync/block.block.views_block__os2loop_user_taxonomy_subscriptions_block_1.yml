@@ -1,0 +1,37 @@
+uuid: f23ba17f-3f84-4845-aa29-c0d2a170d8da
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.os2loop_user_taxonomy_subscriptions
+  module:
+    - system
+    - user
+    - views
+  theme:
+    - os2loop_theme
+id: views_block__os2loop_user_taxonomy_subscriptions_block_1
+theme: os2loop_theme
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:os2loop_user_taxonomy_subscriptions-block_1'
+settings:
+  id: 'views_block:os2loop_user_taxonomy_subscriptions-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

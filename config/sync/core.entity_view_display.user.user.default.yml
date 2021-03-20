@@ -1,0 +1,43 @@
+uuid: 4e9a2001-6a25-4c74-9678-dbe07095db79
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.user.user.os2loop_user_address
+    - field.field.user.user.os2loop_user_areas_of_expertise
+    - field.field.user.user.os2loop_user_biography
+    - field.field.user.user.os2loop_user_city
+    - field.field.user.user.os2loop_user_family_name
+    - field.field.user.user.os2loop_user_given_name
+    - field.field.user.user.os2loop_user_image
+    - field.field.user.user.os2loop_user_job_title
+    - field.field.user.user.os2loop_user_phone_number
+    - field.field.user.user.os2loop_user_place
+    - field.field.user.user.os2loop_user_postal_code
+    - field.field.user.user.os2loop_user_professions
+  module:
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  member_for:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  os2loop_user_address: true
+  os2loop_user_areas_of_expertise: true
+  os2loop_user_biography: true
+  os2loop_user_city: true
+  os2loop_user_family_name: true
+  os2loop_user_given_name: true
+  os2loop_user_image: true
+  os2loop_user_job_title: true
+  os2loop_user_phone_number: true
+  os2loop_user_place: true
+  os2loop_user_postal_code: true
+  os2loop_user_professions: true

@@ -1,0 +1,34 @@
+uuid: ade51592-e9d5-4d6f-9975-b2b0456c9e32
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+id: ranking
+label: Ranking
+bundles: {  }
+entity_type: comment
+global: false
+weight: 0
+flag_short: 'Thumbs up'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Remove thumbs up'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:comment'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links:
+    full: full
+    diff_standard: diff_standard
+    token: token
+  show_as_field: false
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions: {  }
+  access_author: ''
+linkTypeConfig:
+  flag_confirmation: null
+  unflag_confirmation: null

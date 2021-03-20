@@ -29,6 +29,7 @@
     },
     "require": {
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
         "drupal/adminimal_theme": "^1.6",
         "drupal/better_formats": "1.x-dev",
         "drupal/core-composer-scaffold": "^9.1",
@@ -37,6 +38,7 @@
         "drupal/diff": "^1.0",
         "drupal/field_group": "^3.1",
         "drupal/flag": "^4.0@beta",
+        "drupal/masquerade": "^2.0@beta",
         "drupal/message": "^1.2",
         "drupal/paragraphs": "^1.12",
         "drupal/theme_switcher": "dev-8.x-1.x",
@@ -129,6 +131,12 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
+        },
+        "enable-patching": true,
+        "patches": {
+            "drupal/flag": {
+                "Implement Migration Paths for Flag 7.x (https://www.drupal.org/project/flag/issues/2409901)": "https://www.drupal.org/files/issues/2019-10-02/2409901-60.patch"
+            }
         }
     },
     "require-dev": {
