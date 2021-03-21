@@ -84,6 +84,16 @@ vendor/bin/drush migrate:import upgrade_d7_node_complete_loop_documents_collecti
 vendor/bin/drush migrate:import upgrade_d7_comment
 ```
 
+## Messages
+
+```sh
+# Text formats are defined in config.
+# vendor/bin/drush migrate:import upgrade_d7_filter_format
+# Message templates are defined in config.
+# vendor/bin/drush migrate:import upgrade_d7_message_template
+vendor/bin/drush migrate:import upgrade_d7_message
+```
+
 ## Flags
 
 ```sh
