@@ -27,24 +27,16 @@ process:
       source: entity_type
   entity_id:
     -
-      plugin: migration_lookup
+      plugin: get
       source: entity_id
-      migration: {  }
-    -
-      plugin: skip_on_empty
-      method: row
   global:
     -
       plugin: get
       source: global
   uid:
     -
-      plugin: migration_lookup
+      plugin: get
       source: uid
-      migration: {  }
-    -
-      plugin: skip_on_empty
-      method: row
   created:
     -
       plugin: get
