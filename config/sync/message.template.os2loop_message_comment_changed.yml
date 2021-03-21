@@ -1,0 +1,12 @@
+uuid: 95588a1e-ef62-47b7-830f-d0d92b90cae8
+langcode: da
+status: true
+dependencies: {  }
+template: os2loop_message_comment_changed
+label: 'Comment changed'
+description: message_type
+text:
+  -
+    value: 'Et svar til spørgsmålet: <a href="/node/[message:field-message-node-reference:nid]">[message:field-message-node-reference:field_description]</a> er blevet ændret'
+    format: os2loop_message_message
+settings: {  }

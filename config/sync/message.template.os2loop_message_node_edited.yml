@@ -1,0 +1,12 @@
+uuid: f1bf5da6-402f-4aa6-b970-2ac64cc31ea6
+langcode: da
+status: true
+dependencies: {  }
+template: os2loop_message_node_edited
+label: 'Node edited'
+description: message_type
+text:
+  -
+    value: 'Et spørgsmål du følger er blevet ændret <a href="/node/[message:field-message-node-reference:nid]">[message:field-message-node-reference:field_description]</a>'
+    format: os2loop_message_message
+settings: {  }

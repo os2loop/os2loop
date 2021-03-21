@@ -1,0 +1,12 @@
+uuid: fb362223-d54d-47ca-b96e-94a9de0cfa30
+langcode: da
+status: true
+dependencies: {  }
+template: os2loop_message_collection_edited
+label: 'Document collection edited'
+description: message_type
+text:
+  -
+    value: 'En dokumentsamling er blevet ændret: <a href="/node/[message:field-message-node-reference:nid]">[message:field-message-node-reference:title]</a>'
+    format: os2loop_message_message
+settings: {  }

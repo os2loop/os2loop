@@ -1,0 +1,12 @@
+uuid: 8cb56fcb-422b-4eff-b88f-1561f394b678
+langcode: da
+status: true
+dependencies: {  }
+template: os2loop_message_document_edited
+label: 'Document edited'
+description: message_type
+text:
+  -
+    value: 'Et dokument er blevet ændret: <a href="/node/[message:field-message-node-reference:nid]">[message:field-message-node-reference:title]</a>'
+    format: os2loop_message_message
+settings: {  }

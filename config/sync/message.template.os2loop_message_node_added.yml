@@ -1,0 +1,12 @@
+uuid: 78b66a08-0886-4cfb-9b1a-9fd46711f7cf
+langcode: da
+status: true
+dependencies: {  }
+template: os2loop_message_node_added
+label: 'Node added'
+description: message_type
+text:
+  -
+    value: 'Der er kommet et nyt spørgsmål til et emne du følger <a href="/node/[message:field-message-node-reference:nid]">[message:field-message-node-reference:field_description]</a>'
+    format: os2loop_message_message
+settings: {  }
