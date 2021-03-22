@@ -10,14 +10,12 @@ Define the source database with key `migrate` (cf.
 "Altering migrations"
 (<https://www.lullabot.com/articles/overview-migrating-drupal-sites-8>)
 
-
 Flags:
 
-https://deninet.com/tag/building-custom-migration-drupal-8
-https://www.drupal.org/project/migrate_extras/issues/1794568
-https://www.drupal.org/node/2503815
-https://www.drupal.org/project/flag/issues/2409901
-
+<https://deninet.com/tag/building-custom-migration-drupal-8>
+<https://www.drupal.org/project/migrate_extras/issues/1794568>
+<https://www.drupal.org/node/2503815>
+<https://www.drupal.org/project/flag/issues/2409901>
 
 ```php
 $databases['migrate']['default'] = [
@@ -65,7 +63,9 @@ vendor/bin/drush migrate:import upgrade_d7_taxonomy_term_profession
 ## Users
 
 ```sh
-vendor/bin/drush migrate:import upgrade_d7_user_role,upgrade_d7_user
+# Roles are defined in config.
+# vendor/bin/drush migrate:import upgrade_d7_user_role
+vendor/bin/drush migrate:import upgrade_d7_user
 ```
 
 ## Nodes
@@ -102,6 +102,9 @@ vendor/bin/drush migrate:import upgrade_d7_message
 vendor/bin/drush migrate:import upgrade_d7_flagging
 ```
 
+```sh
+mysqldump --user=db --password=db --host=127.0.0.1 --port=58847 --no-create-info --complete-insert db flagging
+```
 
 ## Tips and tricks
 
@@ -136,7 +139,7 @@ vendor/bin/drush migrate:upgrade --configure-only --legacy-db-key=migrate
 vendor/bin/drush migrate:status --tag="Drupal 7"
 
 # Migrate users
-vendor/bin/drush migrate:import --execute-dependencies d7_user
+vendor/bin/drush migrate:import --execute-dependencies upgrade_d7_user
 # Migrate content
-vendor/bin/drush migrate:import --execute-dependencies d7_node_complete:external_sources
+vendor/bin/drush migrate:import --execute-dependencies upgrade_d7_node_complete:external_sources
 ```
