@@ -1,0 +1,5 @@
+name: 'OS2Loop flag content'
+type: module
+description: 'OS2Loop flag content'
+core_version_requirement: ^9
+package: 'OS2Loop'

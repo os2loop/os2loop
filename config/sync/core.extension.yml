@@ -26,6 +26,7 @@ module:
   node: 0
   os2loop_documents: 0
   os2loop_external: 0
+  os2loop_flag_content: 0
   os2loop_page: 0
   os2loop_post: 0
   os2loop_question: 0
