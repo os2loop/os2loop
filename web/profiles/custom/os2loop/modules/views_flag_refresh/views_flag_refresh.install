@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall hooks for the views_flag_refresh module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function views_flag_refresh_install() {
+  // Enable views_flag_refresh display extender.
+  /** @var \Drupal\Core\Config\Config $config */
+  $config = \Drupal::service('config.factory')->getEditable('views.settings');
+  $display_extenders = $config->get('display_extenders') ?: [];
+  $display_extenders[] = 'views_flag_refresh';
+  $config->set('display_extenders', $display_extenders);
+  $config->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function views_flag_refresh_uninstall() {
+  // Disable views_flag_refresh display extender.
+  /** @var \Drupal\Core\Config\Config $config */
+  $config = \Drupal::service('config.factory')->getEditable('views.settings');
+  $display_extenders = $config->get('display_extenders') ?: [];
+
+  $key = array_search('views_flag_refresh', $display_extenders);
+  if ($key !== FALSE) {
+    unset($display_extenders[$key]);
+    $config->set('display_extenders', $display_extenders);
+    $config->save();
+  }
+}

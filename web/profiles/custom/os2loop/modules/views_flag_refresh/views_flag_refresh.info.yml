@@ -1,0 +1,9 @@
+name: 'Views Flag Refresh'
+type: module
+description: 'Views Flag Refresh allows site administrators to configure which views are refreshed automatically via AJAX when certain flags are selected.'
+package: Views
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - flag:flag
+  - drupal:views
