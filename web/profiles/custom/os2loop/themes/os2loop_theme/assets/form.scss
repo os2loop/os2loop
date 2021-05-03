@@ -1,0 +1,11 @@
+.form-check {
+  label {
+    @extend .form-check-label;
+  }
+}
+
+#edit-account {
+  background: lighten($red, 40%);
+  padding: 1em;
+  margin-bottom: 1em;
+}

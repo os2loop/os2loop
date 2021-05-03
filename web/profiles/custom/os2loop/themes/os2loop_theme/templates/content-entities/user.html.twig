@@ -1,0 +1,77 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * @ingroup themeable
+ */
+#}
+<h1>{{ user.os2loop_user_given_name.value }} {{ user.os2loop_user_family_name.value }}</h1>
+<article{{ attributes.addClass('container') }}>
+  {% if content %}
+    <div class="row">
+      <div class="col-md-3">
+        {{ content.os2loop_user_image }}
+      </div>
+      <div class="col-md-9">
+        <h2 class="h4">{{ 'Personal information'|t }}</h2>
+        <div>
+          <div class="row mb-3">
+            <div class="os2loop-title-text-inline col-sm-3">{{ 'User name'|t }}</div>
+            <div class="col">{{ user.name.value }}</div>
+          </div>
+          {{ content.os2loop_user_given_name }}
+          {{ content.os2loop_user_family_name }}
+          {{ content.os2loop_user_phone_number }}
+        </div>
+        <h2 class="h4">{{ 'Job profile'|t }}</h2>
+        <div>
+          {{ content.os2loop_user_job_title }}
+          {{ content.os2loop_user_professions }}
+          {{ content.os2loop_user_areas_of_expertise }}
+        </div>
+        <h2 class="h4">{{ 'Location'|t }}</h2>
+        <div>
+          {{ content.os2loop_user_place }}
+          {{ content.os2loop_user_address }}
+          {{ content.os2loop_user_postal_code }}
+          {{ content.os2loop_user_city }}
+        </div>
+        {{ content.os2loop_user_professions }}
+        {{ content.os2loop_user_external_list }}
+        {{ content.os2loop_user_internal_list }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {{ content.os2loop_user_biography }}
+        {{ content|without(
+          'os2loop_user_image',
+          'os2loop_user_areas_of_expertise',
+          'os2loop_user_address',
+          'os2loop_user_city',
+          'os2loop_user_given_name',
+          'os2loop_user_job_title',
+          'os2loop_user_family_name',
+          'os2loop_user_phone_number',
+          'os2loop_user_place',
+          'os2loop_user_postal_code',
+          'os2loop_user_professions',
+          'os2loop_user_biography'
+        ) }}
+      </div>
+    </div>
+  {% endif %}
+</article>
