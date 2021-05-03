@@ -106,12 +106,7 @@
       <i class="bi bi-file-person"></i>
     {% endif %}
     {# TODO fix image #}
-    <div class="col-md">
-      <div>{{ author_name }}
-        {{ date }}</div>
-      <div>metadata</div>
-      {# TODO fix metadata #}
-    </div>
+    {{ author_name }}
     <div class="icon-container">
       <div class="icon edit" title="{{ 'Edit content'|t }}">
         <a aria-label="{{ 'edit content'|t }}" href="{{ path('entity.node.edit_form', {node: node.id}) }}"></a>
@@ -125,6 +120,7 @@
     </div>
   </div>
   <div{{ content_attributes.addClass('bg-secondary-loop') }}>
+    <div class="text-muted small">{{ date }}</div>
     {{ content.os2loop_post_content }}
     {{ content.os2loop_shared_tags }}
     {{ content.os2loop_shared_subject }}

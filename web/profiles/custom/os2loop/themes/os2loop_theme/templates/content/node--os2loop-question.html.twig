@@ -109,14 +109,10 @@
         <i class="bi bi-file-person"></i>
       {% endif %}
       {# TODO fix image #}
-      <div class="col-md">
-        <div>{{ author_name }}
-          {{ date }}</div>
-        <div>metadata</div>
-        {# TODO fix metadata #}
-      </div>
+      {{ author_name }}
     </div>
     <div{{ content_attributes.addClass('bg-secondary-loop') }}>
+      <div class="text-muted small">{{ date }}</div>
       {{ content.os2loop_question_content }}
       {{ content.os2loop_shared_tags }}
       {{ content.os2loop_shared_subject }}

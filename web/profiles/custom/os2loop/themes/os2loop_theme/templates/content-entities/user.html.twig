@@ -34,6 +34,10 @@
           </div>
           {{ content.os2loop_user_given_name }}
           {{ content.os2loop_user_family_name }}
+          <div class="row mb-3">
+            <div class="os2loop-title-text-inline col-sm-3">{{ 'Email'|t }}</div>
+            <div class="col">{{ user.mail.value }}</div>
+          </div>
           {{ content.os2loop_user_phone_number }}
         </div>
         <h2 class="h4">{{ 'Job profile'|t }}</h2>

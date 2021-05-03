@@ -106,14 +106,7 @@
     <div class="user">
       <i class="bi bi-file-person"></i>
       {# TODO fix image #}
-      <div class="col-md">
-        <div>
-          {{ author }}
-          {{ created }}
-        </div>
-        <div>metadata</div>
-        {# TODO fix metadata #}
-      </div>
+      {{ author }}
     </div>
   </div>
   {#
@@ -125,6 +118,7 @@
     {% if parent %}
       <p class="visually-hidden">{{ parent }}</p>
     {% endif %}
+    <div class="text-muted small">{{ created }}</div>
     {{ content.os2loop_post_comment }}
     <div>{{ content.flag_os2loop_upvote_correct_answer }}</div>
   </div>
