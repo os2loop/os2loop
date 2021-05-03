@@ -3,15 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.os2loop_user_external_list
-    - field.field.user.user.os2loop_user_internal_list
     - field.field.user.user.os2loop_user_address
     - field.field.user.user.os2loop_user_areas_of_expertise
     - field.field.user.user.os2loop_user_biography
     - field.field.user.user.os2loop_user_city
+    - field.field.user.user.os2loop_user_external_list
     - field.field.user.user.os2loop_user_family_name
     - field.field.user.user.os2loop_user_given_name
     - field.field.user.user.os2loop_user_image
+    - field.field.user.user.os2loop_user_internal_list
     - field.field.user.user.os2loop_user_job_title
     - field.field.user.user.os2loop_user_phone_number
     - field.field.user.user.os2loop_user_place
@@ -29,16 +29,17 @@ third_party_settings:
       children:
         - os2loop_user_given_name
         - os2loop_user_family_name
+        - os2loop_user_phone_number
       parent_name: ''
       weight: 2
       format_type: fieldset
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: user_personal_information
+        id: ''
+        classes: ''
+      label: 'Personal information'
     group_profession:
       children:
         - os2loop_user_professions
@@ -47,11 +48,11 @@ third_party_settings:
       format_type: fieldset
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: profession
+        id: ''
+        classes: ''
+      label: Profession
     group_areas_of_expertise:
       children:
         - os2loop_user_areas_of_expertise
@@ -60,11 +61,11 @@ third_party_settings:
       format_type: fieldset
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: areas_of_expertise
+        id: ''
+        classes: ''
+      label: 'Areas of expertise'
     group_description:
       children:
         - os2loop_user_biography
@@ -73,11 +74,11 @@ third_party_settings:
       format_type: fieldset
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: description
+        id: ''
+        classes: ''
+      label: Description
     group_location:
       children:
         - os2loop_user_place
@@ -89,11 +90,11 @@ third_party_settings:
       format_type: fieldset
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: location
+        id: ''
+        classes: ''
+      label: Location
     group_job_title:
       children:
         - os2loop_user_job_title
@@ -102,17 +103,17 @@ third_party_settings:
       format_type: fieldset
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: job_title
+        id: ''
+        classes: ''
+      label: 'Job title'
     group_member_list:
       children:
         - os2loop_user_internal_list
         - os2loop_user_external_list
       parent_name: ''
-      weight: 10
+      weight: 9
       format_type: fieldset
       region: content
       format_settings:
@@ -128,11 +129,6 @@ mode: default
 content:
   account:
     weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  language:
-    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -225,7 +221,7 @@ content:
     third_party_settings: {  }
   os2loop_user_phone_number:
     type: string_textfield
-    weight: 8
+    weight: 2
     region: content
     settings:
       size: 60
@@ -249,7 +245,7 @@ content:
     third_party_settings: {  }
   os2loop_user_professions:
     type: autocomplete_deluxe
-    weight: 0
+    weight: 9
     region: content
     settings:
       match_operator: CONTAINS
@@ -266,4 +262,5 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
+  language: true
   timezone: true

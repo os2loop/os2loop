@@ -11,9 +11,13 @@ field_name: os2loop_user_image
 entity_type: user
 type: image
 settings:
-  default_image:
-    uuid: ''
   uri_scheme: public
+  default_image:
+    uuid: 6efb7e6c-74ed-46ce-ae7d-326631a0ea46
+    alt: 'No image loaded'
+    title: 'User icon'
+    width: 500
+    height: 500
   target_type: file
   display_field: false
   display_default: false

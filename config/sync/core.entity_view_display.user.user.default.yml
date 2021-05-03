@@ -3,21 +3,22 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.user.user.os2loop_user_external_list
-    - field.field.user.user.os2loop_user_internal_list
     - field.field.user.user.os2loop_user_address
     - field.field.user.user.os2loop_user_areas_of_expertise
     - field.field.user.user.os2loop_user_biography
     - field.field.user.user.os2loop_user_city
+    - field.field.user.user.os2loop_user_external_list
     - field.field.user.user.os2loop_user_family_name
     - field.field.user.user.os2loop_user_given_name
     - field.field.user.user.os2loop_user_image
+    - field.field.user.user.os2loop_user_internal_list
     - field.field.user.user.os2loop_user_job_title
     - field.field.user.user.os2loop_user_phone_number
     - field.field.user.user.os2loop_user_place
     - field.field.user.user.os2loop_user_postal_code
     - field.field.user.user.os2loop_user_professions
   module:
+    - image
     - user
 id: user.user.default
 targetEntityType: user
@@ -44,28 +45,108 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  member_for:
-    weight: 5
+  os2loop_user_address:
+    type: string
+    weight: 8
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  os2loop_user_areas_of_expertise:
+    type: entity_reference_label
+    weight: 6
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  os2loop_user_biography:
+    type: basic_string
+    weight: 11
+    region: content
+    label: above
     settings: {  }
     third_party_settings: {  }
+  os2loop_user_city:
+    type: string
+    weight: 10
     region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  os2loop_user_family_name:
+    type: string
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  os2loop_user_given_name:
+    type: string
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  os2loop_user_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  os2loop_user_job_title:
+    type: string
+    weight: 4
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  os2loop_user_phone_number:
+    type: string
+    weight: 3
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  os2loop_user_place:
+    type: string
+    weight: 7
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  os2loop_user_postal_code:
+    type: string
+    weight: 9
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  os2loop_user_professions:
+    type: entity_reference_label
+    weight: 5
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
-  os2loop_user_address: true
-  os2loop_user_areas_of_expertise: true
-  os2loop_user_biography: true
-  os2loop_user_city: true
+  member_for: true
   os2loop_user_external_list: true
-  os2loop_user_family_name: true
-  os2loop_user_given_name: true
-  os2loop_user_image: true
   os2loop_user_internal_list: true
-  os2loop_user_job_title: true
-  os2loop_user_phone_number: true
-  os2loop_user_place: true
-  os2loop_user_postal_code: true
-  os2loop_user_professions: true
   search_api_excerpt: true
