@@ -1,0 +1,38 @@
+#block-os2loop-search-db-search-form, #block-os2loop-search-db-search {
+  // Hide submit button and search field label.
+  .form-actions,
+  .form-type-search-api-autocomplete label {
+    display: none;
+  }
+
+  .input-group-icon {
+    color: $grey;
+    background: none;
+    border-right-color: transparent;
+
+    i {
+      // Squash the search icon.
+      line-height: 0;
+    }
+  }
+
+  .form-control {
+    border-left-color: transparent;
+  }
+
+  // Rounded corners.
+  .input-group-text {
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+  }
+
+  .form-autocomplete {
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+    // Hide throbber when not loading.
+    &:not(.ui-autocomplete-loading) {
+      background-image: none;
+    }
+  }
+}
