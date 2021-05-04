@@ -11,9 +11,13 @@ field_name: os2loop_user_image
 entity_type: user
 type: image
 settings:
+  uri_scheme: public
   default_image:
     uuid: ''
-  uri_scheme: public
+    alt: ''
+    title: ''
+    width: 500
+    height: 500
   target_type: file
   display_field: false
   display_default: false

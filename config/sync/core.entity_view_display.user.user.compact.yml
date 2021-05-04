@@ -1,8 +1,9 @@
-uuid: 4e9a2001-6a25-4c74-9678-dbe07095db79
+uuid: 5f9383cd-7a53-450c-a65c-260cc3b60f24
 langcode: da
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.user.compact
     - field.field.user.user.os2loop_user_address
     - field.field.user.user.os2loop_user_areas_of_expertise
     - field.field.user.user.os2loop_user_biography
@@ -17,14 +18,14 @@ dependencies:
     - field.field.user.user.os2loop_user_place
     - field.field.user.user.os2loop_user_postal_code
     - field.field.user.user.os2loop_user_professions
-    - image.style.large
+    - image.style.thumbnail
   module:
     - image
     - user
-id: user.user.default
+id: user.user.compact
 targetEntityType: user
 bundle: user
-mode: default
+mode: compact
 content:
   field_os2loop_external_list:
     weight: 6
@@ -99,7 +100,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: large
+      image_style: thumbnail
       image_link: ''
     third_party_settings: {  }
   os2loop_user_job_title:

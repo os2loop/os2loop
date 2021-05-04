@@ -13,5 +13,7 @@ permissions:
   - 'delete own os2loop_post content'
   - 'edit any os2loop_post content'
   - 'edit own os2loop_post content'
+  - 'flag os2loop_upvote_correct_answer'
   - 'revert os2loop_post revisions'
+  - 'unflag os2loop_upvote_correct_answer'
   - 'view os2loop_post revisions'
