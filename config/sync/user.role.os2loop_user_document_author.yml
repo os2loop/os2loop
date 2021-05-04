@@ -16,6 +16,8 @@ permissions:
   - 'create os2loop_documents_document content'
   - 'download any image files'
   - 'edit own os2loop_documents_document content'
+  - 'flag os2loop_upvote_correct_answer'
+  - 'unflag os2loop_upvote_correct_answer'
   - 'use media wysiwyg'
   - 'use text format os2loop_documents_body'
   - 'use text format os2loop_documents_rich_text'
