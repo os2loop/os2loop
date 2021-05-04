@@ -5,6 +5,8 @@
  * The primary PHP file for the os2loop_theme theme.
  */
 
+use Drupal\user\Entity\User;
+
 /**
  * Site logo for menu.
  */
@@ -25,6 +27,17 @@ function os2loop_theme_preprocess_node(&$variables) {
     if ($variables['node']->getType() === 'os2loop_post') {
       $variables['comment_count'] = $variables['node']->get('os2loop_post_comments')->comment_count;
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ *
+ * Prepare variables for fields.
+ */
+function os2loop_theme_preprocess_field(&$variables) {
+  if ($variables['field_type'] === 'comment') {
+    $variables['logged_in_user'] = User::load($variables['user']->id());
   }
 }
 
