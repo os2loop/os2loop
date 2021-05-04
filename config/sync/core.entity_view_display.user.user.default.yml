@@ -17,6 +17,7 @@ dependencies:
     - field.field.user.user.os2loop_user_place
     - field.field.user.user.os2loop_user_postal_code
     - field.field.user.user.os2loop_user_professions
+    - image.style.large
   module:
     - image
     - user
@@ -98,7 +99,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: ''
+      image_style: large
       image_link: ''
     third_party_settings: {  }
   os2loop_user_job_title:
