@@ -112,8 +112,7 @@
   {% endif %}
   {{ title_suffix }}
   <div class="user">
-    <i class="bi bi-file-person"></i>
-    {# TODO fix image #}
+    {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': node.uid.target_id} %}
     {{ author_name }}
   </div>
   <div{{ content_attributes.addClass("bg-secondary-loop") }}>

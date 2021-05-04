@@ -104,8 +104,7 @@
     {% endif %}
     {{ title_suffix }}
     <div class="user">
-      <i class="bi bi-file-person"></i>
-      {# TODO fix image #}
+      {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': comment.uid.target_id} %}
       {{ author }}
     </div>
   </div>

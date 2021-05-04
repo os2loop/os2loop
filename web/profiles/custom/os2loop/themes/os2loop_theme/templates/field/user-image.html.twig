@@ -1,0 +1,14 @@
+{#
+/**
+* @file
+* Implementation of user image.
+*
+* - uid: The user id of the user to display.
+*/
+#}
+{% set image = drupal_field('os2loop_user_image', 'user', uid, 'compact') %}
+{% if image['#items'] is not empty %}
+  <div class="user-image">{{ image }}</div>
+{% else %}
+  <i class="bi bi-file-person"></i>
+{% endif %}

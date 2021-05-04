@@ -100,12 +100,7 @@
   {% endif %}
   {{ title_suffix }}
   <div class="user">
-    {% if author_picture %}
-      {{ author_picture }}
-    {% else %}
-      <i class="bi bi-file-person"></i>
-    {% endif %}
-    {# TODO fix image #}
+    {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': node.uid.target_id} %}
     {{ author_name }}
     <div class="icon-container">
       <div class="icon edit" title="{{ 'Edit content'|t }}">
