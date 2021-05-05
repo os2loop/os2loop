@@ -1,6 +1,0 @@
-services:
-  views_flag_refresh.request_subscriber:
-    class: Drupal\views_flag_refresh\EventSubscriber\RequestSubscriber
-    arguments: ['@current_route_match']
-    tags:
-      - { name: event_subscriber }
