@@ -103,14 +103,14 @@
         {{ content.os2loop_documents_dc_content }}
         {% if os2loop_documents_collection_tree|default(false) %}
           <fieldset>
-            <legend>{{ 'Documents in collection'|trans }}</legend>
+            <legend>{{ 'Documents in collection'|t }}</legend>
             {{ _self.table_of_contents(os2loop_documents_collection_tree, node) }}
           </fieldset>
         {% endif %}
       </div>
     </div>
     <div class="tab-pane" id="about-collection" role="tabpanel" aria-labelledby="about-collection-tab">
-      {{ macros.title("About collection", "collection", node, content) }}
+      {{ macros.title("About collection"|t, "collection", node, content) }}
       <div{{ content_attributes.addClass("bg-secondary-loop") }}>
         <div>{{ content.os2loop_shared_tags }}</div>
         <div>{{ content.os2loop_shared_subject }}</div>

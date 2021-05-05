@@ -35,8 +35,8 @@ $dark-delete: darken($red, 10%);
 $dark-upvote: darken($primary-color, 10%);
 $dark-follow-content: darken($primary-color, 10%);
 $dark-edit: darken($secondary-color, 10%);
-$dark-subscribe: darken($primary-color, 10%);
-$dark-favourite: darken($primary-color, 10%);
+$dark-subscribe: darken($subscribe, 10%);
+$dark-favourite: darken($favourite, 10%);
 
 // Link color
 $link-color: #0056b3;

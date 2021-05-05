@@ -108,7 +108,7 @@
       </div>
     </div>
     <div class="tab-pane" id="about-document" role="tabpanel" aria-labelledby="about-document-tab">
-      {{ macros.title("About document", "document", node, content) }}
+      {{ macros.title("About document"|t, "document", node, content) }}
       <div>{{ content.os2loop_documents_document_autho }}</div>
       <div{{ content_attributes.addClass("bg-secondary-loop") }}>
         <div>{{ content.os2loop_shared_tags }}</div>
@@ -120,14 +120,14 @@
       {{ macros.title(os2loop_documents_collection.title.value, "document", node, content) }}
       {% if os2loop_documents_collection_tree|default(false) %}
         <fieldset>
-          <legend>{{ 'Documents in collection'|trans }}
+          <legend>{{ 'Documents in collection'|t }}
             <a href="{{ path('entity.node.canonical', {node: os2loop_documents_collection.id}) }}">{{ os2loop_documents_collection.title.value }}</a>
           </legend>
           {{ _self.table_of_contents(os2loop_documents_collection_tree, os2loop_documents_collection, node) }}
         </fieldset>
       {% elseif os2loop_documents_collections|default(false) %}
         <fieldset>
-          <legend>{{ 'Document is part of these collections'|trans }}</legend>
+          <legend>{{ 'Document is part of these collections'|t }}</legend>
           <ol>
             {% for collection in os2loop_documents_collections %}
               <li><a href="{{ path('entity.node.canonical', {node: node.id, collection: collection.id, collection: collection.id}) }}">{{ collection.title.value }}</a></li>
