@@ -76,10 +76,7 @@
 
 <article{{ attributes.addClass("os2loop-content") }}>
   {{ macros.title(label, "external", node, content) }}
-  <div class="user">
-    {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': node.uid.target_id} %}
-    {% include '@os2loop_theme/field/user-name.html.twig' with {'uid': node.uid.target_id} %}
-  </div>
+  {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id)} %}
   <div{{ content_attributes.addClass("bg-secondary-loop") }}>
     {{ content|without('os2loop_shared_profession', 'os2loop_shared_tags', 'os2loop_shared_subject', 'flag_os2loop_subscription_node') }}
   </div>

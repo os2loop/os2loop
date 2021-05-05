@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Implementation of user info related to content.
+ *
+ * Available variables:
+ * - user: The user to display info about.
+ */
+#}
+<div class="user">
+  {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': user['#user'].id} %}
+  {% include '@os2loop_theme/field/user-name.html.twig' with {'user': user} %}
+</div>

@@ -36,10 +36,7 @@
   {{ comments }}
   {% if comment_form %}
     <h2{{ content_attributes }}>{{ 'Add new comment'|t }}</h2>
-    <div class="user">
-      {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': user.account.id} %}
-      {% include '@os2loop_theme/field/user-name.html.twig' with {'uid': user.account.id} %}
-    </div>
+    {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', user.account.id)} %}
     <div class="bg-secondary-loop comment-reply">
       {{ comment_form }}
     </div>

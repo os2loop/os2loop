@@ -1,23 +1,10 @@
 {#
 /**
  * @file
- * Default theme implementation for displaying a username.
+ * Template for displaying a username.
  *
  * Available variables:
- * - account: The full account information for the user.
- * - uid: The user ID, or zero if not a user. As used in anonymous comments.
- * - name: The user's name, sanitized, and optionally truncated.
- * - name_raw: The user's name, un-truncated.
- * - truncated: Whether the user's name was truncated.
- * - extra: Additional text to append to the user's name, sanitized.
- * - profile_access: Whether the current user has permission to access this
-     users profile page.
- * - link_path: The path or URL of the user's profile page, home page,
- *   or other desired page to link to for more information about the user.
- * - homepage: (optional) The home page of the account, only set for non users.
- * - link_options: Options to set on the \Drupal\Core\Url object if linking the
- *   user's name to the user's page.
- * - attributes: HTML attributes for the containing element.
+ * - user: The user entity
  *
  * @see template_preprocess_username()
  *
@@ -26,11 +13,12 @@
 #}
 <div class="col-md">
   <div>
-    <a href="{{ url('entity.user.canonical', {'user': uid}) }}">{{ drupal_field('os2loop_user_given_name', 'user', uid)['#items'].0.value }} {{ drupal_field('os2loop_user_family_name', 'user', uid)['#items'].0.value }}</a>
+    {% set user_url = user['#user'].id is not empty ? url('entity.user.canonical', {'user': user['#user'].id}) : '#' %}
+    <a href="{{ user_url }}">{{ user['#user'].os2loop_user_given_name.value }} {{ user['#user'].os2loop_user_family_name.value }}</a>
   </div>
   <div class="text-muted small">
-    <div>{{ drupal_field('os2loop_user_job_title', 'user', uid)['#items'].0.value }}</div>
-    <div>{{ drupal_field('os2loop_user_place', 'user', uid)['#items'].0.value }}</div>
+    <div>{{ user['#user'].os2loop_user_job_title.value }}</div>
+    <div>{{ user['#user'].os2loop_user_place.value }}</div>
     <div>{{ date }}</div>
   </div>
 </div>

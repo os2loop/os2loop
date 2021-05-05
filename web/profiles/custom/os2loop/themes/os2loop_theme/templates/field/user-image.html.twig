@@ -1,12 +1,13 @@
 {#
 /**
-* @file
-* Implementation of user image.
-*
-* - uid: The user id of the user to display.
-*/
+ * @file
+ * Implementation of user image.
+ *
+ * Available variables:
+ * - uid: The user id of the user to display.
+ */
 #}
-{% set image = drupal_field('os2loop_user_image', 'user', uid, 'compact') %}
+{% set image = uid is not empty ? drupal_field('os2loop_user_image', 'user', uid, 'compact') %}
 {% if image['#items'] is not empty %}
   <div class="user-image">{{ image }}</div>
 {% else %}
