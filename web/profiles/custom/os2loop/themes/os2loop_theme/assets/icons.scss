@@ -29,6 +29,19 @@
       @include link-icon("\f37c", $follow-content, $dark-follow-content);
     }
 
+    &.subscribe {
+      background-color: $subscribe;
+      &:hover {
+        background-color: $dark-subscribe;
+      }
+    }
+    &.unsubscribe {
+      background-color: $subscribe;
+      &:hover {
+        background-color: $dark-subscribe;
+      }
+    }
+
     &.share {
       @include link-icon("\f52e");
     }
