@@ -26,6 +26,7 @@
  * @see comment_preprocess_field()
  */
 #}
+
 <section{{ attributes }}>
   {% if comments and not label_hidden %}
     {{ title_prefix }}
@@ -37,7 +38,7 @@
     <h2{{ content_attributes }}>{{ 'Add new comment'|t }}</h2>
     <div class="user">
       {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': user.account.id} %}
-      {% include '@os2loop_theme/field/username.html.twig' with {'uid': user.account.id, 'account': logged_in_user} %}
+      {% include '@os2loop_theme/field/user-name.html.twig' with {'uid': user.account.id} %}
     </div>
     <div class="bg-secondary-loop comment-reply">
       {{ comment_form }}

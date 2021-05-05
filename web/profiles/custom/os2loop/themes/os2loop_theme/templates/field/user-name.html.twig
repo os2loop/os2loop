@@ -26,10 +26,12 @@
 #}
 <div class="col-md">
   <div>
-    <a href="{{ url('entity.user.canonical', {'user': uid}) }}">{{ account.os2loop_user_given_name.value }} {{ account.os2loop_user_family_name.value }}</a>
+    <a href="{{ url('entity.user.canonical', {'user': uid}) }}">{{ drupal_field('os2loop_user_given_name', 'user', uid)['#items'].0.value }} {{ drupal_field('os2loop_user_family_name', 'user', uid)['#items'].0.value }}</a>
   </div>
   <div class="text-muted small">
-    <div>{{ account.os2loop_user_job_title.value }}</div>
-    <div>{{ account.os2loop_user_place.value }}</div>
+    <div>{{ drupal_field('os2loop_user_job_title', 'user', uid)['#items'].0.value }}</div>
+    <div>{{ drupal_field('os2loop_user_place', 'user', uid)['#items'].0.value }}</div>
+    <div>{{ date }}</div>
   </div>
 </div>
+

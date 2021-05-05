@@ -72,6 +72,10 @@
  * @ingroup themeable
  */
 #}
+{# Import macros #}
+{% import '@os2loop_theme/macros.html.twig' as macros %}
+
+{# Unique table of contents macro #}
 {% macro table_of_contents(items, collection) %}
   {% if items %}
     <ol>
@@ -86,67 +90,27 @@
   {% endif %}
 {% endmacro %}
 
-{% macro title(title, class, node, content) %}
-  <div class="title">
-    <div class="icon-container {{ class }}"><div>
-    <h1{{ title_attributes }}>
-      {{ title }}
-    </h1>
-    <div>
-      {{ content.os2loop_shared_subject }}
-    </div>
-  </div>
-</div>
-  <div class="icon-container">
-    <div class="icon print" title="{{ 'Print document (PDF)'|t }}">
-      <a aria-label="{{ 'Print document (PDF)'|t }}" href="{{ path('entity_print.view', {export_type: 'pdf', entity_type: 'node', entity_id: node.id}) }}"></a>
-    </div>
-    <div class="icon flag" title="{{ 'contact editorial office'|t }}">
-      <a aria-label="{{ 'Contact editorial staff'|t }}" href="{{ path('os2loop_flag_content.flag_content_form', {node: node.id}) }}"></a>
-    </div>
-    <div class="icon share" title="{{ 'Share with a friend'|t }}">
-      <a aria-label="{{ 'Share with a friend'|t }}"></a>
-    </div>
-     <div class="icon edit" title="{{ 'Edit document'|t }}">
-        <a aria-label="{{ 'Edit document'|t }}" href="{{ path('entity.node.edit_form', {node: node.id}) }}"></a>
-      </div>
-      <div class="icon delete" title="{{ 'Delete document'|t }}">
-        <a aria-label="{{ 'delete document'|t }}" href="{{ path('entity.node.delete_form', {node: node.id}) }}"></a>
-      </div>
-  </div>
-</div>
-{% endmacro %}
-
 <article{{ attributes.addClass("document-collection") }}>
-  <ul class="tabs nav" id="document-tabs" role="tablist">
-    <li>
-      <a class="tab active" id="collection-tab" data-toggle="tab" href="#collection" role="tab" aria-controls="collection" aria-selected="true">{{ "Collection"|t }}</a>
-    </li>
-    <li>
-      <a class="tab" id="about-collection-tab" data-toggle="tab" href="#about-collection" role="tab" aria-controls="about-collection" aria-selected="false">{{ "About collection"|t }}</a>
-    </li>
-  </ul>
+  {% set tabs = [
+    {'id': 'collection', 'name': 'Collection'|t},
+    {'id': 'about-collection', 'name': 'About collection'|t}
+  ] %}
+  {% include '@os2loop_theme/navigation/content-tabs.html.twig' with {'tabs': tabs, 'id': 'document-tabs'} %}
   <div class="tab-content" id="document-tabs-content">
     <div class="tab-pane show active" id="collection" role="tabpanel" aria-labelledby="collection-tab">
-      {{ title_prefix }}
-      {% if label  %}
-        {{ _self.title(label, "collection", node, content) }}
-      {% endif %}
+      {{ macros.title(label, "collection", node, content) }}
       <div{{ content_attributes }}>
-      {{ content.os2loop_documents_dc_content }}
-      {% if os2loop_documents_collection_tree|default(false) %}
-        <fieldset>
-          <legend>{{ 'Documents in collection'|trans }}</legend>
-          {{ _self.table_of_contents(os2loop_documents_collection_tree, node) }}
-        </fieldset>
-      {% endif %}
+        {{ content.os2loop_documents_dc_content }}
+        {% if os2loop_documents_collection_tree|default(false) %}
+          <fieldset>
+            <legend>{{ 'Documents in collection'|trans }}</legend>
+            {{ _self.table_of_contents(os2loop_documents_collection_tree, node) }}
+          </fieldset>
+        {% endif %}
       </div>
     </div>
     <div class="tab-pane" id="about-collection" role="tabpanel" aria-labelledby="about-collection-tab">
-      {% if label  %}
-        {% set title = "About collection"|t %}
-        {{ _self.title(title, "collection", node, content) }}
-      {% endif %}
+      {{ macros.title("About collection", "collection", node, content) }}
       <div{{ content_attributes.addClass("bg-secondary-loop") }}>
         <div>{{ content.os2loop_shared_tags }}</div>
         <div>{{ content.os2loop_shared_subject }}</div>
@@ -155,7 +119,3 @@
     </div>
   </div>
 </article>
-
-
-
-
