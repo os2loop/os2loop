@@ -1,0 +1,5 @@
+name: 'OS2Loop share with a friend'
+type: module
+description: 'OS2Loop share with a friend'
+core_version_requirement: ^9
+package: 'OS2Loop'

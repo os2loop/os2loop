@@ -1,0 +1,10 @@
+os2loop_share_with_a_friend.share_with_a_friend_form:
+  path: '/node/{node}/share_with_a_friend_form'
+  defaults:
+    _form: '\Drupal\os2loop_share_with_a_friend\Form\ShareWithAFriendForm'
+  options:
+    parameters:
+      node:
+        type: entity:node
+  requirements:
+    _permission: 'access content'

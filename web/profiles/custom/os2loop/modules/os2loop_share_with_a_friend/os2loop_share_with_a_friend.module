@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * The module file for os2loop_share_with_a_friend.
+ */
+
+/**
+ * Implements hook_mail().
+ */
+function os2loop_share_with_a_friend_mail($key, &$message, $params) {
+  Drupal::service('os2loop_share_with_a_friend.mail_helper')->mail($key, $message, $params);
+}
