@@ -1,0 +1,31 @@
+{#
+/**
+ * Template for displaying tasks on content.
+ *
+ * Should only be used for on node templates.
+ *
+ * Available variables
+ * - @see drupal/core/node/templates/node.html.twig
+ */
+#}
+<div class="icon-container">
+  <div class="icon print" title="{{ 'Print document (PDF)'|t }}">
+    <a aria-label="{{ 'Print document (PDF)'|t }}" href="{{ path('entity_print.view', {export_type: 'pdf', entity_type: 'node', entity_id: node.id}) }}"></a>
+  </div>
+  <div class="icon flag" title="{{ 'contact editorial office'|t }}">
+    <a aria-label="{{ 'Contact editorial staff'|t }}" href="{{ path('os2loop_flag_content.flag_content_form', {node: node.id}) }}"></a>
+  </div>
+  <div class="icon share" title="{{ 'Share with a friend'|t }}">
+    <a aria-label="{{ 'Share with a friend'|t }}"></a>
+  </div>
+  <div class="icon edit" title="{{ 'Edit document'|t }}">
+    <a aria-label="{{ 'Edit document'|t }}" href="{{ path('entity.node.edit_form', {node: node.id}) }}"></a>
+  </div>
+  <div class="icon delete" title="{{ 'Delete document'|t }}">
+    <a aria-label="{{ 'delete document'|t }}" href="{{ path('entity.node.delete_form', {node: node.id}) }}"></a>
+  </div>
+  {{ content.flag_os2loop_favourite }}
+  {{ content.flag_os2loop_subscription_node }}
+</div>
+
+

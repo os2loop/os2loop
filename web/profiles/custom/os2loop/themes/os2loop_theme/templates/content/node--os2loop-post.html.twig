@@ -70,52 +70,12 @@
  *   in different view modes.
  */
 #}
-{% macro title(title, class, node, content) %}
-  <div class="title">
-    <div class="icon-container {{ class }}"><div>
-    <h1{{ title_attributes }}>
-      {{ title }}
-    </h1>
-    <div>
-      {{ content.os2loop_shared_subject }}
-    </div>
-  </div>
-</div>
-  <div class="icon-container">
-    <div class="icon print" aria-label="{{ 'Print document (PDF)'|t }}" title="{{ 'Print document (PDF)'|t }}">
-      <a href="{{ path('entity_print.view', {export_type: 'pdf', entity_type: 'node', entity_id: node.id}) }}"></a>
-    </div>
-    <div class="icon share" aria-label="{{ 'Share with a friend'|t }}" title="{{ 'Share with a friend'|t }}">
-      <a></a>
-    </div>
-    {{ content.flag_os2loop_favourite }}
-  </div>
-</div>
-{% endmacro %}
+{% import '@os2loop_theme/macros.html.twig' as macros %}
 
 <article{{ attributes.addClass("os2loop-content os2loop-post") }}>
-  {{ title_prefix }}
-  {% if label %}
-    {{ _self.title(label, "post", node, content) }}
-  {% endif %}
-  {{ title_suffix }}
-  <div class="user">
-    {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': node.uid.target_id} %}
-    {{ author_name }}
-    <div class="icon-container">
-      <div class="icon edit" title="{{ 'Edit content'|t }}">
-        <a aria-label="{{ 'edit content'|t }}" href="{{ path('entity.node.edit_form', {node: node.id}) }}"></a>
-      </div>
-      <div class="icon delete" title="{{ 'Delete content'|t }}">
-        <a aria-label="{{ 'delete content'|t }}" href="{{ path('entity.node.delete_form', {node: node.id}) }}"></a>
-      </div>
-      <div class="icon flag" title="{{ 'contact editorial office'|t }}">
-        <a aria-label="{{ 'Contact editorial staff'|t }}" href="{{ path('os2loop_flag_content.flag_content_form', {node: node.id}) }}"></a>
-      </div>
-    </div>
-  </div>
+  {{ macros.title(label, "post", node, content) }}
+  {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id)} %}
   <div{{ content_attributes.addClass('bg-secondary-loop') }}>
-    <div class="text-muted small">{{ date }}</div>
     {{ content.os2loop_post_content }}
     {{ content.os2loop_shared_tags }}
     {{ content.os2loop_shared_subject }}
@@ -123,5 +83,4 @@
     {{ content.os2loop_post_file }}
   </div>
   {{ content.os2loop_post_comments }}
-</div>
 </article>
