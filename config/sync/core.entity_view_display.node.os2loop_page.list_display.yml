@@ -16,6 +16,11 @@ targetEntityType: node
 bundle: os2loop_page
 mode: list_display
 content:
+  flag_os2loop_subscription_node:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 0
     region: content

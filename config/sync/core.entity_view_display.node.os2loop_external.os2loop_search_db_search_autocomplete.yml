@@ -18,6 +18,11 @@ targetEntityType: node
 bundle: os2loop_external
 mode: os2loop_search_db_search_autocomplete
 content:
+  flag_os2loop_subscription_node:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   os2loop_shared_subject:
     weight: 1
     label: visually_hidden

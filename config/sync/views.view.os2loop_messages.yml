@@ -4,9 +4,13 @@ status: true
 dependencies:
   config:
     - flag.flag.message_read
+    - flag.flag.os2loop_subscription_node
+    - flag.flag.os2loop_subscription_term
   module:
     - flag
     - message
+    - node
+    - taxonomy
 id: os2loop_messages
 label: Messages
 module: views
@@ -48,7 +52,7 @@ display:
       pager:
         type: mini
         options:
-          items_per_page: 20
+          items_per_page: 0
           offset: 0
           id: 0
           total_pages: null
@@ -227,6 +231,123 @@ display:
             group_items: {  }
           entity_type: flagging
           plugin_id: flag_filter
+        flagged_1:
+          id: flagged_1
+          table: flagging
+          field: flagged
+          relationship: flag_relationship_2
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: flagging
+          plugin_id: flag_filter
+        flagged_3:
+          id: flagged_3
+          table: flagging
+          field: flagged
+          relationship: flag_relationship_3
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: flagging
+          plugin_id: flag_filter
+        flagged_2:
+          id: flagged_2
+          table: flagging
+          field: flagged
+          relationship: flag_relationship_1
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: flagging
+          plugin_id: flag_filter
       sorts:
         created:
           id: created
@@ -254,15 +375,83 @@ display:
           field: flag_relationship
           relationship: none
           group_type: group
-          admin_label: Flags
+          admin_label: 'Flag -  Message read'
           required: false
           flag: message_read
           user_scope: current
           entity_type: message
           plugin_id: flag_relationship
+        os2loop_message_node_refer:
+          id: os2loop_message_node_refer
+          table: message__os2loop_message_node_refer
+          field: os2loop_message_node_refer
+          relationship: none
+          group_type: group
+          admin_label: 'os2loop_message_node_refer: Content'
+          required: false
+          plugin_id: standard
+        flag_relationship_1:
+          id: flag_relationship_1
+          table: node_field_data
+          field: flag_relationship
+          relationship: os2loop_message_node_refer
+          group_type: group
+          admin_label: 'Flag - Subscription node'
+          required: false
+          flag: os2loop_subscription_node
+          user_scope: current
+          entity_type: node
+          plugin_id: flag_relationship
+        os2loop_shared_profession:
+          id: os2loop_shared_profession
+          table: node__os2loop_shared_profession
+          field: os2loop_shared_profession
+          relationship: os2loop_message_node_refer
+          group_type: group
+          admin_label: 'os2loop_shared_profession: Taxonomy term'
+          required: false
+          plugin_id: standard
+        os2loop_shared_subject:
+          id: os2loop_shared_subject
+          table: node__os2loop_shared_subject
+          field: os2loop_shared_subject
+          relationship: os2loop_message_node_refer
+          group_type: group
+          admin_label: 'os2loop_shared_subject: Taxonomy term'
+          required: false
+          plugin_id: standard
+        flag_relationship_2:
+          id: flag_relationship_2
+          table: taxonomy_term_field_data
+          field: flag_relationship
+          relationship: os2loop_shared_profession
+          group_type: group
+          admin_label: 'Flag - Profession term'
+          required: false
+          flag: os2loop_subscription_term
+          user_scope: current
+          entity_type: taxonomy_term
+          plugin_id: flag_relationship
+        flag_relationship_3:
+          id: flag_relationship_3
+          table: taxonomy_term_field_data
+          field: flag_relationship
+          relationship: os2loop_shared_subject
+          group_type: group
+          admin_label: 'Flag - Subject term'
+          required: false
+          flag: os2loop_subscription_term
+          user_scope: current
+          entity_type: taxonomy_term
+          plugin_id: flag_relationship
       arguments: {  }
       display_extenders: {  }
       use_ajax: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+          2: OR
     cache_metadata:
       max-age: -1
       contexts:
@@ -345,10 +534,128 @@ display:
             group_items: {  }
           entity_type: flagging
           plugin_id: flag_filter
+        flagged_1:
+          id: flagged_1
+          table: flagging
+          field: flagged
+          relationship: flag_relationship_1
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: flagging
+          plugin_id: flag_filter
+        flagged_3:
+          id: flagged_3
+          table: flagging
+          field: flagged
+          relationship: flag_relationship_2
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: flagging
+          plugin_id: flag_filter
+        flagged_2:
+          id: flagged_2
+          table: flagging
+          field: flagged
+          relationship: flag_relationship_3
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: flagging
+          plugin_id: flag_filter
       filter_groups:
         operator: AND
         groups:
           1: AND
+          2: OR
       attachment_position: after
       inherit_arguments: false
       title: 'Messages read'

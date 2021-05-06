@@ -106,10 +106,7 @@
       </h1>
     {% endif %}
     {{ title_suffix }}
-    <div class="user">
-      {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': comment.uid.target_id} %}
-      {{ author }}
-    </div>
+    {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id)} %}
   </div>
   {#
     Indicate the semantic relationship between parent and child comments for
@@ -120,7 +117,6 @@
     {% if parent %}
       <p class="visually-hidden">{{ parent }}</p>
     {% endif %}
-    <div class="text-muted small">{{ created }}</div>
     {{ content.os2loop_question_answer }}
     <div>{{ content.flag_os2loop_upvote_correct_answer }}</div>
   </div>
