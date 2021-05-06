@@ -55,7 +55,7 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
   protected $messenger;
 
   /**
-   * Constructs an flag content form.
+   * Constructs a flag content form.
    *
    * @param \Drupal\Core\Routing\RouteMatchInterface $routeMatcher
    *   The route matcher.
