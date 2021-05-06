@@ -6,15 +6,15 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './app.scss';
+import "./app.scss";
 
 // Import popper.js
-import 'popper.js';
+import "popper.js";
 
 // Specific boostrap js
-import 'bootstrap/js/dist/collapse';
-import 'bootstrap/js/dist/dropdown';
-import 'bootstrap/js/dist/tab';
+import "bootstrap/js/dist/collapse";
+import "bootstrap/js/dist/dropdown";
+import "bootstrap/js/dist/tab";
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
