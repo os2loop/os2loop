@@ -167,7 +167,7 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
     $key = 'flag_content';
     $params['reason'] = $form_state->getValue('reason');
     $params['message'] = $message;
-    $params['node_title'] = $node->label();
+    $params['node'] = $node;
     $langcode = $this->currentUser->getPreferredLangcode();
     $send = TRUE;
     $result = $this->mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
