@@ -57,6 +57,11 @@ echo "http://$(docker-compose port nginx 80)"
 docker-compose exec phpfpm vendor/bin/drush --yes --uri="http://$(docker-compose port nginx 80)" user:login
 ```
 
+### Modules
+
+Uses a dev version of views_flag_refresh since the module
+is not yet available on drupal.org
+
 #### Mails
 
 Mails are caught by [MailHog](https://github.com/mailhog/MailHog) and can be

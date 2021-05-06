@@ -446,7 +446,7 @@ display:
           plugin_id: flag_relationship
       arguments: {  }
       display_extenders: {  }
-      use_ajax: false
+      use_ajax: true
       filter_groups:
         operator: AND
         groups:
@@ -465,7 +465,11 @@ display:
     display_title: 'Messages read attachment'
     position: 2
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        views_flag_refresh:
+          flags:
+            message_read: message_read
+          noscrolltop: 1
       style:
         type: default
       defaults:
@@ -681,7 +685,11 @@ display:
     display_title: 'Messages block'
     position: 2
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        views_flag_refresh:
+          flags:
+            message_read: message_read
+          noscrolltop: 0
       style:
         type: default
       defaults:
@@ -712,7 +720,11 @@ display:
     display_title: 'Messages page'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        views_flag_refresh:
+          flags:
+            message_read: message_read
+          noscrolltop: 1
       path: user/messages
       display_description: ''
       title: Messages

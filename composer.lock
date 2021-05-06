@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3dc37919c35e2c65018a5cc23d8d7440",
+    "content-hash": "c344fd19da088cbc2be351b7422675f0",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3850,6 +3850,16 @@
                 "source": "https://git.drupalcode.org/project/twig_tweak",
                 "issues": "https://www.drupal.org/project/issues/twig_tweak"
             }
+        },
+        {
+            "name": "drupal/views_flag_refresh",
+            "version": "dev-2929394-drupal-8-port",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/issue/views_flag_refresh-2929394.git",
+                "reference": "origin/2929394-drupal-8-port"
+            },
+            "type": "drupal-module"
         },
         {
             "name": "drupal/viewsreference",
@@ -13574,7 +13584,8 @@
         "drupal/block_field": 5,
         "drupal/flag": 10,
         "drupal/masquerade": 10,
-        "drupal/theme_switcher": 20
+        "drupal/theme_switcher": 20,
+        "drupal/views_flag_refresh": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

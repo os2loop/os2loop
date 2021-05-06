@@ -21,6 +21,19 @@
         "os2loop/os2loop_fixtures": {
             "type": "path",
             "url": "web/profiles/custom/os2loop/modules/os2loop_fixtures"
+        },
+        "drupal/views_flag_refresh": {
+            "type": "package",
+            "package": {
+                "name": "drupal/views_flag_refresh",
+                "version": "dev-2929394-drupal-8-port",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/views_flag_refresh-2929394.git",
+                    "type": "git",
+                    "reference": "origin/2929394-drupal-8-port"
+                }
+            }
         }
     },
     "require": {
@@ -51,6 +64,7 @@
         "drupal/token": "^1.9",
         "drupal/token_filter": "^1.2",
         "drupal/twig_tweak": "^3.0",
+        "drupal/views_flag_refresh": "dev-2929394-drupal-8-port",
         "drupal/viewsreference": "^2.0",
         "drush/drush": "^10.4",
         "mikehaertl/phpwkhtmltopdf": "^2.5"
