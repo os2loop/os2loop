@@ -8,7 +8,7 @@
  */
 #}
 <div class="user">
-  {% set image = uid is not empty ? drupal_field('os2loop_user_image', 'user', user['#user'].id, 'compact') %}
+  {% set image = user['#user'].id is not empty ? drupal_field('os2loop_user_image', 'user', user['#user'].id, 'compact') %}
   {% if image['#items'] is not empty %}
     <div class="user-image">{{ image }}</div>
   {% else %}
