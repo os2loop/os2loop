@@ -51,5 +51,6 @@ permissions:
   - 'use text format os2loop_section_page'
   - 'use text format simple'
   - 'view files'
+  - 'view media'
   - 'view own unpublished content'
   - 'view post access counter'
