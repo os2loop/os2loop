@@ -33,4 +33,10 @@
 }
 .os2loop-comment {
   position: relative;
+
+  &:target {
+    // Highlight comment
+    // @todo Design
+    outline: solid 1px $primary-color;
+  }
 }

@@ -8,3 +8,5 @@ weight: 10
 is_admin: null
 permissions:
   - 'administer users'
+  - 'flag os2loop_upvote_correct_answer'
+  - 'unflag os2loop_upvote_correct_answer'

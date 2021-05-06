@@ -100,18 +100,8 @@
   {% endif %}
   {{ title_suffix }}
   <div class="user">
-    {% if author_picture %}
-      {{ author_picture }}
-    {% else %}
-      <i class="bi bi-file-person"></i>
-    {% endif %}
-    {# TODO fix image #}
-    <div class="col-md">
-      <div>{{ author_name }}
-        {{ date }}</div>
-      <div>metadata</div>
-      {# TODO fix metadata #}
-    </div>
+    {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': node.uid.target_id} %}
+    {{ author_name }}
     <div class="icon-container">
       <div class="icon edit" title="{{ 'Edit content'|t }}">
         <a aria-label="{{ 'edit content'|t }}" href="{{ path('entity.node.edit_form', {node: node.id}) }}"></a>
@@ -125,6 +115,7 @@
     </div>
   </div>
   <div{{ content_attributes.addClass('bg-secondary-loop') }}>
+    <div class="text-muted small">{{ date }}</div>
     {{ content.os2loop_post_content }}
     {{ content.os2loop_shared_tags }}
     {{ content.os2loop_shared_subject }}

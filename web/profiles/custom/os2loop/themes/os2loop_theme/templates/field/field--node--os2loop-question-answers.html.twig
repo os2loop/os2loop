@@ -36,15 +36,8 @@
   {% if comment_form %}
     <h2{{ content_attributes }}>{{ 'Add new comment'|t }}</h2>
     <div class="user">
-      <i class="bi bi-file-person"></i>
-      {# TODO fix image #}
-      <div class="col-md">
-        <div>
-          {{ user.displayname }}
-        </div>
-        <div>metadata</div>
-        {# TODO fix metadata #}
-      </div>
+      {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': user.account.id} %}
+      {% include '@os2loop_theme/field/username.html.twig' with {'uid': user.account.id, 'account': logged_in_user} %}
     </div>
     <div class="bg-secondary-loop comment-reply">
       {{ comment_form }}

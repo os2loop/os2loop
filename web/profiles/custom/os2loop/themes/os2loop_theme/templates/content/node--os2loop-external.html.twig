@@ -112,16 +112,11 @@
   {% endif %}
   {{ title_suffix }}
   <div class="user">
-    <i class="bi bi-file-person"></i>
-    {# TODO fix image #}
-    <div class="col-md">
-      <div>{{ author_name }}
-        {{ date }}</div>
-      <div>metadata</div>
-      {# TODO fix metadata #}
-    </div>
+    {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': node.uid.target_id} %}
+    {{ author_name }}
   </div>
   <div{{ content_attributes.addClass("bg-secondary-loop") }}>
+    <div class="text-muted small">{{ date }}</div>
     {{ content|without('os2loop_shared_profession', 'os2loop_shared_tags', 'os2loop_shared_subject') }}
   </div>
 </article>

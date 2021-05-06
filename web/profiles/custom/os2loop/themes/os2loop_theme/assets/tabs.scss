@@ -48,4 +48,12 @@
     font-size: 2em;
     margin-left: 1em;
   }
+
+  // Set user image to icon size.
+  .user-image img {
+    max-height: 32px;
+    max-width: 48px;
+    font-size: 2em;
+    margin-left: 1em;
+  }
 }

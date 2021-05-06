@@ -85,6 +85,10 @@
 
   <a href="{{ comment_url }}">{{ 'View comment in context'|t }}</a>
 {% else %}
+  {# Remove comment id from element id on top comment #}
+  {% if attributes.hasClass('top-comment') %}
+    {% set attributes = attributes.setAttribute('id', 'top-comment') %}
+  {% endif %}
   <article{{ attributes.addClass('js-comment os2loop-comment') }}>
   {#
     Hide the "new" indicator by default, let a piece of JavaScript ask the
@@ -104,16 +108,8 @@
     {% endif %}
     {{ title_suffix }}
     <div class="user">
-      <i class="bi bi-file-person"></i>
-      {# TODO fix image #}
-      <div class="col-md">
-        <div>
-          {{ author }}
-          {{ created }}
-        </div>
-        <div>metadata</div>
-        {# TODO fix metadata #}
-      </div>
+      {% include '@os2loop_theme/field/user-image.html.twig' with {'uid': comment.uid.target_id} %}
+      {{ author }}
     </div>
   </div>
   {#
@@ -125,6 +121,7 @@
     {% if parent %}
       <p class="visually-hidden">{{ parent }}</p>
     {% endif %}
+    <div class="text-muted small">{{ created }}</div>
     {{ content.os2loop_post_comment }}
     <div>{{ content.flag_os2loop_upvote_correct_answer }}</div>
   </div>
