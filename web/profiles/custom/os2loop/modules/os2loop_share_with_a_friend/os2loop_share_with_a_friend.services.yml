@@ -1,3 +1,5 @@
 services:
   os2loop_share_with_a_friend.mail_helper:
     class: Drupal\os2loop_share_with_a_friend\Helper\MailHelper
+    arguments:
+      - '@token'

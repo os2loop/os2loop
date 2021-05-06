@@ -147,9 +147,7 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
     $module = 'os2loop_share_with_a_friend';
     $key = 'share_with_a_friend';
     $params['message'] = $message;
-    $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
-    $params['url'] = $url->toString();
-    $params['node_title'] = $node->label();
+    $params['node'] = $node;
     $langcode = $this->currentUser->getPreferredLangcode();
     $send = TRUE;
     $result = $this->mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
