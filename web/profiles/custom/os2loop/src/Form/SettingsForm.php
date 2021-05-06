@@ -95,6 +95,23 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('taxonomy_vocabulary'),
     ];
 
+    $form['os2loop_question'] = [
+      '#tree' => TRUE,
+      '#type' => 'fieldset',
+      '#title' => $this->t('Question settings'),
+      '#states' => [
+        'visible' => [
+          [':input[name="node_type[os2loop_question]"]' => ['checked' => TRUE]],
+        ],
+      ],
+
+      'enable_rich_text' => [
+        '#type' => 'checkbox',
+        '#title' => $this->t('Enable rich text in questions'),
+        '#default_value' => $config->get('os2loop_question.enable_rich_text'),
+      ],
+    ];
+
     $form['search_settings'] = [
       '#tree' => TRUE,
       '#type' => 'fieldset',
@@ -132,6 +149,7 @@ class SettingsForm extends ConfigFormBase {
     $this->configFactory->getEditable(static::SETTINGS)
       ->set('node_type', $form_state->getValue('node_type'))
       ->set('taxonomy_vocabulary', $form_state->getValue('taxonomy_vocabulary'))
+      ->set('os2loop_question', $form_state->getValue('os2loop_question'))
       ->set('search_settings', $form_state->getValue('search_settings'))
       ->save();
 

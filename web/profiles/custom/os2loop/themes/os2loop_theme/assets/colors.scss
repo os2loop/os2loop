@@ -27,12 +27,16 @@ $delete: $red;
 $upvote: $primary-color;
 $follow-content: $primary-color;
 $edit: $secondary-color;
+$subscribe: $primary-color;
+$favourite: $primary-color;
 
 $dark-icon-base-color: darken($dark-grey, 10%);
 $dark-delete: darken($red, 10%);
 $dark-upvote: darken($primary-color, 10%);
 $dark-follow-content: darken($primary-color, 10%);
 $dark-edit: darken($secondary-color, 10%);
+$dark-subscribe: darken($subscribe, 10%);
+$dark-favourite: darken($favourite, 10%);
 
 // Link color
 $link-color: #0056b3;

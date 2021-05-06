@@ -57,6 +57,7 @@ class Helper {
    */
   public function formAlter(&$form, FormStateInterface $form_state, $form_id) {
     $this->hideTaxonomyVocabularies($form);
+    $this->handleTextFormats($form, $form_state, $form_id);
   }
 
   /**
@@ -154,6 +155,22 @@ class Helper {
       if (isset($element[$fieldName]) && !isset($enabledTaxonomyVocabularies[$vocabularyName])) {
         unset($element[$fieldName]);
       }
+    }
+  }
+
+  /**
+   * Handle text formats.
+   */
+  private function handleTextFormats(&$form, FormStateInterface $form_state, $form_id) {
+    switch ($form_id) {
+      case 'node_os2loop_question_form':
+      case 'node_os2loop_question_edit_form':
+        $currentFormat = $form['os2loop_question_content']['widget'][0]['#format'] ?? NULL;
+        $useRichText = $this->config->get('os2loop_question.enable_rich_text') || 'os2loop_question_rich_text' === $currentFormat;
+        $form['os2loop_question_content']['widget'][0]['#better_formats']['settings']['allowed_formats'] =
+          $useRichText ? ['os2loop_question_rich_text' => 'os2loop_question_rich_text'] : ['os2loop_question_plain_text' => 'os2loop_question_plain_text'];
+
+        break;
     }
   }
 
