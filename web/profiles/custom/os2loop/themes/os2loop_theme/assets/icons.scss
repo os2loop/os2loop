@@ -1,3 +1,22 @@
+$content-types:
+  "os2loop_documents_collection",
+  "os2loop_documents_document",
+  "os2loop_external",
+  "os2loop_page",
+  "os2loop_post",
+  "os2loop_question",
+  "os2loop_section_page";
+
+$icons: (
+  "os2loop_documents_collection": "\f3c2",
+  "os2loop_documents_document": "\f3b9",
+  "os2loop_external": "\f471",
+  "os2loop_page": "\f112",
+  "os2loop_post": "\f383",
+  "os2loop_question": "\f50b",
+  // "os2loop_section_page": "",
+);
+
 .icon-container {
   display: flex;
   margin: 0;

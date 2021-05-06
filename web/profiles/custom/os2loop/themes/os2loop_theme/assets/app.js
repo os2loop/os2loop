@@ -18,3 +18,18 @@ import "bootstrap/js/dist/tab";
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
+
+jQuery(() => {
+  // Add/remove search-api-autocomplete-has-suggestions class when showing/hiding search autocomplete suggestions.
+  jQuery("[data-autocomplete-path]")
+    .on("autocompleteopen", (event) =>
+      jQuery(event.target)
+        .parent()
+        .addClass("search-api-autocomplete-has-suggestions")
+    )
+    .on("autocompleteclose", (event) =>
+      jQuery(event.target)
+        .parent()
+        .removeClass("search-api-autocomplete-has-suggestions")
+    );
+});
