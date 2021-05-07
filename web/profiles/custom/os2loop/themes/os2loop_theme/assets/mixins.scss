@@ -20,7 +20,7 @@
         font-family: bootstrap-icons !important;
         content: $content;
       }
-      &:focus {
+      &:focus-visible {
         .visually-hidden {
           position: relative !important;
           color: $text-color !important;
