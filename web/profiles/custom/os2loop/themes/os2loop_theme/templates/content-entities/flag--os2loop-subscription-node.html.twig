@@ -24,6 +24,7 @@
 {# Set the remaining Flag CSS classes. #}
 {% set classes = [
     'icon',
+    'bell',
     'flag-' ~ flag.id()|clean_class,
     'js-flag-' ~ flag.id()|clean_class ~ '-' ~ flaggable.id(),
     action_class,
@@ -32,8 +33,11 @@
 
 {# Set nofollow to prevent search bots from crawling anonymous flag links #}
 {% set attributes = attributes.setAttribute('rel', 'nofollow') %}
+{% set attributes = attributes.removeAttribute('title') %}
 
 <div class="{{ classes|join(' ') }}" title='{{ title }}'>
-  <a{{ attributes }} aria-label='{{ title }}'><i class="bi bi-bell"></i></a>
+  <a{{ attributes }} aria-label='{{ title }}'>
+    <span class="visually-hidden">{{ title }}</span>
+  </a>
 </div>
 {% endspaceless %}

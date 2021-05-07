@@ -1,13 +1,15 @@
 @mixin link-icon(
   $content: null,
   $color: $icon-base-color,
-  $hover-color: $dark-icon-base-color
+  $hover-color: $dark-icon-base-color,
+  $text-color: $black
 ) {
   background-color: $color;
 
   &:hover {
     background-color: $hover-color;
   }
+
   a {
     @if $content {
       width: 100%;
@@ -17,6 +19,12 @@
         font-size: 1.2em;
         font-family: bootstrap-icons !important;
         content: $content;
+      }
+      &:focus {
+        .visually-hidden {
+          position: relative !important;
+          color: $text-color !important;
+        }
       }
     }
   }
