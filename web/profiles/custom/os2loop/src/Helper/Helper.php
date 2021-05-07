@@ -47,6 +47,12 @@ class Helper {
    * Checks if a node type is enabled (cf self::contentTypeAccess()).
    */
   public function nodeAccess(NodeInterface $node, $op, AccountInterface $account): AccessResult {
+    // Our custom checks should only be applied when not viewing nodes, so we
+    // let others decide if a node can be viewed.
+    if ('view' === $op) {
+      return AccessResult::neutral();
+    }
+
     return $this->contentTypeAccess($node->bundle());
   }
 
