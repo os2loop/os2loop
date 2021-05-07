@@ -6,8 +6,8 @@ os2loop_flag_content.settings:
   requirements:
     _permission: 'administer site configuration'
 
-os2loop_flag_content.flag_content_form:
-  path: '/node/{node}/flag_content_form'
+os2loop_flag_content.flag_content:
+  path: '/node/{node}/flag_content'
   defaults:
     _form: '\Drupal\os2loop_flag_content\Form\FlagContentForm'
   options:

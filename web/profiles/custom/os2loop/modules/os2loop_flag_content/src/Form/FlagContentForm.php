@@ -12,6 +12,7 @@ use Drupal\os2loop_flag_content\Services\ConfigService;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Flag content form.
@@ -125,8 +126,7 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
       '#required' => TRUE,
     ];
 
-    $form['actions']['#type'] = 'actions';
-    $form['actions']['submit'] = [
+    $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Send'),
       '#attributes' => [
@@ -136,7 +136,7 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
       ],
     ];
 
-    $form['actions']['cancel'] = [
+    $form['cancel'] = [
       '#type' => 'link',
       '#url' => new Url('entity.node.canonical', ['node' => $node->id()]),
       '#title' => $this->t('Cancel'),
@@ -149,11 +149,6 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
 
     return $form;
   }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {}
 
   /**
    * {@inheritdoc}
@@ -172,11 +167,15 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
     $send = TRUE;
     $result = $this->mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
     if ($result['result'] !== TRUE) {
-      $this->messenger->addMessage($this->t('There was a problem sending your message and it was not sent.'), 'error');
+      $this->messenger->addError($this->t('There was a problem sending your message and it was not sent.'));
     }
     else {
-      $this->messenger->addError($this->t('Your message has been sent.'));
+      $this->messenger->addStatus($this->t('Your message has been sent.'));
     }
+
+    $redirectUrl = Url::fromRoute('entity.node.canonical', ['node' => $node->id()])->toString();
+    $response = new RedirectResponse($redirectUrl);
+    $response->send();
   }
 
 }
