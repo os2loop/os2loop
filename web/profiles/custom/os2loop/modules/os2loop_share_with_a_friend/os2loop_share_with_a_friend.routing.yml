@@ -1,5 +1,5 @@
-os2loop_share_with_a_friend.share_with_a_friend_form:
-  path: '/node/{node}/share_with_a_friend_form'
+os2loop_share_with_a_friend.share_with_a_friend:
+  path: '/node/{node}/share_with_a_friend'
   defaults:
     _form: '\Drupal\os2loop_share_with_a_friend\Form\ShareWithAFriendForm'
   options:

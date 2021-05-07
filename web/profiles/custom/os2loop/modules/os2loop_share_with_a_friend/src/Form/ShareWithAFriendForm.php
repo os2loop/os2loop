@@ -11,9 +11,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * Share with a friend from.
+ * Share with a friend form.
  *
  * @package Drupal\os2loop_share_with_a_friend\Form
  */
@@ -102,8 +103,12 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
       '#required' => TRUE,
     ];
 
-    $form['actions']['#type'] = 'actions';
-    $form['actions']['submit'] = [
+    $form['to_email'] = [
+      '#type' => 'email',
+      '#required' => TRUE,
+      '#title' => $this->t('Email address of recipient'),
+    ];
+    $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Send'),
       '#attributes' => [
@@ -113,12 +118,7 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
       ],
     ];
 
-    $form['to_email'] = [
-      '#type' => 'email',
-      '#title' => $this->t('Email address of recipient'),
-    ];
-
-    $form['actions']['cancel'] = [
+    $form['cancel'] = [
       '#type' => 'link',
       '#url' => new Url('entity.node.canonical', ['node' => $node->id()]),
       '#title' => $this->t('Cancel'),
@@ -135,11 +135,6 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {}
-
-  /**
-   * {@inheritdoc}
-   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $node = $this->routeMatcher->getParameter('node');
     $message = $form_state->getValue('message');
@@ -152,11 +147,15 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
     $send = TRUE;
     $result = $this->mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
     if ($result['result'] !== TRUE) {
-      $this->messenger->addMessage($this->t('There was a problem sending your message and it was not sent.'), 'error');
+      $this->messenger->addError($this->t('There was a problem sending your message and it was not sent.'), 'error');
     }
     else {
-      $this->messenger->addError($this->t('Your message has been sent.'));
+      $this->messenger->addStatus($this->t('Your message has been sent.'));
     }
+
+    $redirectUrl = Url::fromRoute('entity.node.canonical', ['node' => $node->id()])->toString();
+    $response = new RedirectResponse($redirectUrl);
+    $response->send();
   }
 
 }
