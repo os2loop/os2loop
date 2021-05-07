@@ -16,6 +16,10 @@ a {
   margin-bottom: $spacer * 2;
 }
 
+.nav-link {
+  color: $black !important;
+}
+
 .bg-white-loop {
   @extend .container;
   background-color: $white;

@@ -41,21 +41,20 @@
             ] %}
             {% set classes_link = [
               'nav-link',
-              'text-dark',
               item.is_expanded and item.url.routeName == '<nolink>' ? 'dropdown-toggle',
               item.is_collapsed and item.url.routeName == '<nolink>' ? 'dropdown-toggle',
               item.in_active_trail ? 'active',
             ] %}
             <li{{ item.attributes.addClass(classes_list_item) }}>
               {% if item.url.routeName == '<nolink>' %}
-                <a class="{{ classes_link|join(' ') }}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="{{ classes_link|join(' ') }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {{ item.title }}
                 </a>
               {% else %}
               {{ link(item.title, item.url, {'class': classes_link}) }}
               {% endif %}
               {% if item.below %}
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-label="{{ item.title }}">
                   {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
                 </div>
               {% endif %}
