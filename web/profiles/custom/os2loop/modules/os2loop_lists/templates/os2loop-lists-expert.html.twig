@@ -17,7 +17,7 @@
   {% for node in data %}
     <div class="list-group">
       <article class="list-group-item mb-2 bg-light border-0">
-        <div class="text-muted small">{{ node.type.entity.label }} </div>
+        <div class="small">{{ node.type.entity.label }} </div>
         <h3 class="h6"><a href="{{ url('entity.node.canonical', { 'node': node.id() }) }}">{{ node.title() }}</a></h3>
       </article>
     </div>
