@@ -57,7 +57,9 @@
           {{ content.os2loop_documents_step_text }}
           {{ content.os2loop_documents_step_image }}
           </div>
-          <ol class="indented">{{ content.os2loop_documents_steps }}</ol>
+          {% if content.os2loop_documents_steps['#title'] is not null %}
+            <ol class="indented">{{ content.os2loop_documents_steps }}</ol>
+          {% endif %}
         </li>
     {% endblock %}
 {% endblock paragraph %}
