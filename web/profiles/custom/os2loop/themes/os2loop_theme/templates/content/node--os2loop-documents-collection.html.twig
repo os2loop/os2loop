@@ -102,10 +102,10 @@
       <div{{ content_attributes }}>
         {{ content.os2loop_documents_dc_content }}
         {% if os2loop_documents_collection_tree|default(false) %}
-          <fieldset>
-            <legend>{{ 'Documents in collection'|t }}</legend>
+          <div>
+            <h2>{{ 'Documents in collection'|t }}</h2>
             {{ _self.table_of_contents(os2loop_documents_collection_tree, node) }}
-          </fieldset>
+          </div>
         {% endif %}
       </div>
     </div>

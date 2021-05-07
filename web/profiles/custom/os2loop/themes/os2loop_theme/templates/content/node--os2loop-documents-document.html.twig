@@ -119,21 +119,21 @@
     <div class="tab-pane" id="about-collection" role="tabpanel" aria-labelledby="about-collection">
       {{ macros.title(os2loop_documents_collection.title.value, "document", node, content) }}
       {% if os2loop_documents_collection_tree|default(false) %}
-        <fieldset>
-          <legend>{{ 'Documents in collection'|t }}
+        <div>
+          <h2>{{ 'Documents in collection'|t }}
             <a href="{{ path('entity.node.canonical', {node: os2loop_documents_collection.id}) }}">{{ os2loop_documents_collection.title.value }}</a>
-          </legend>
+          </h2>
           {{ _self.table_of_contents(os2loop_documents_collection_tree, os2loop_documents_collection, node) }}
-        </fieldset>
+        </div>
       {% elseif os2loop_documents_collections|default(false) %}
-        <fieldset>
-          <legend>{{ 'Document is part of these collections'|t }}</legend>
+        <div>
+          <h2>{{ 'Document is part of these collections'|t }}</h2>
           <ol>
             {% for collection in os2loop_documents_collections %}
               <li><a href="{{ path('entity.node.canonical', {node: node.id, collection: collection.id, collection: collection.id}) }}">{{ collection.title.value }}</a></li>
             {% endfor %}
           </ol>
-        </fieldset>
+        </div>
       {% endif %}</div>
   </div>
 </article>
