@@ -12,8 +12,8 @@
 #}
 <ul class="tabs nav" id="{{ id }}" role="tablist">
   {% for key, tab in tabs %}
-    <li>
-      <a class="tab {{ key == 0 ? 'active' }}" id="{{ tab.id }}-tab" data-toggle="tab" href="#{{ tab.id }}" role="tab" aria-controls="{{ tab.id }}" aria-selected="{{ key == 0 ? 'true' : 'false' }}">{{ tab.name }}</a>
+    <li role="tab" aria-controls="{{ tab.id }}">
+      <a class="tab {{ key == 0 ? 'active' }}" id="{{ tab.id }}-tab" data-toggle="tab" href="#{{ tab.id }}" >{{ tab.name }}</a>
     </li>
   {% endfor %}
 </ul>
