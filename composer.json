@@ -95,8 +95,7 @@
             "vendor/bin/phpcbf --standard=phpcs.xml.dist"
         ],
         "coding-standards-apply": [
-            "@coding-standards-apply/phpcs",
-            "@coding-standards-apply/prettier"
+            "@coding-standards-apply/phpcs"
         ]
     },
     "conflict": {
