@@ -86,9 +86,6 @@
         "coding-standards-check/twigcs": [
             "twigcs web/profiles/custom/os2loop/themes/os2loop_theme/templates"
         ],
-        "coding-standards-check/prettier": [
-            "yarn prettier --check web/profiles/custom/os2loop/themes/os2loop_theme/**/*.scss"
-        ],
         "coding-standards-check": [
             "@coding-standards-check/phpcs",
             "@coding-standards-check/drupal-check",
@@ -97,12 +94,8 @@
         "coding-standards-apply/phpcs": [
             "vendor/bin/phpcbf --standard=phpcs.xml.dist"
         ],
-        "coding-standards-apply/prettier": [
-            "yarn prettier --write web/profiles/custom/os2loop/themes/os2loop_theme/**/*.scss"
-        ],
         "coding-standards-apply": [
-            "@coding-standards-apply/phpcs",
-            "@coding-standards-apply/prettier"
+            "@coding-standards-apply/phpcs"
         ]
     },
     "conflict": {
