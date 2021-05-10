@@ -108,7 +108,8 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
       '#required' => TRUE,
       '#title' => $this->t('Email address of recipient'),
     ];
-    $form['submit'] = [
+
+    $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Send'),
       '#attributes' => [
@@ -117,8 +118,7 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
         ],
       ],
     ];
-
-    $form['cancel'] = [
+    $form['actions']['cancel'] = [
       '#type' => 'link',
       '#url' => new Url('entity.node.canonical', ['node' => $node->id()]),
       '#title' => $this->t('Cancel'),
@@ -128,6 +128,7 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
         ],
       ],
     ];
+    $form['actions']['#type'] = 'actions';
 
     return $form;
   }
@@ -147,7 +148,7 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
     $send = TRUE;
     $result = $this->mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
     if ($result['result'] !== TRUE) {
-      $this->messenger->addError($this->t('There was a problem sending your message and it was not sent.'), 'error');
+      $this->messenger->addError($this->t('There was a problem sending your message and it was not sent.'));
     }
     else {
       $this->messenger->addStatus($this->t('Your message has been sent.'));
