@@ -1,0 +1,5 @@
+filter_content_type: 1
+filter_taxonomy_vocabulary:
+  os2loop_subject: os2loop_subject
+  os2loop_profession: 0
+  os2loop_tag: 0

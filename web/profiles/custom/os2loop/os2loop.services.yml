@@ -1,5 +1,0 @@
-services:
-  Drupal\os2loop\Helper\Helper:
-    class: Drupal\os2loop\Helper\Helper
-    arguments:
-      - '@config.factory'

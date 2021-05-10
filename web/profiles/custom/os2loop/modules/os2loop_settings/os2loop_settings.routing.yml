@@ -1,4 +1,4 @@
-os2loop.admin:
+os2loop_settings.admin:
   path: '/admin/config/os2loop'
   defaults:
     _controller: 'Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
@@ -6,10 +6,10 @@ os2loop.admin:
   requirements:
     _permission: 'administer os2loop settings'
 
-os2loop.admin_settings:
+os2loop_settings.settings:
   path: '/admin/config/os2loop/settings'
   defaults:
-    _form: 'Drupal\os2loop\Form\SettingsForm'
+    _form: 'Drupal\os2loop_settings\Form\SettingsForm'
     _title: 'OS2Loop settings'
   options:
     _admin_route: TRUE

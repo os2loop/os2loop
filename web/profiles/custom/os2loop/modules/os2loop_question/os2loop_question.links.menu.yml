@@ -1,0 +1,6 @@
+os2loop_question.settings:
+  title: 'OS2Loop Question settings'
+  route_name: os2loop_question.settings
+  description: 'Configure OS2Loop Question settings'
+  parent: os2loop.group.admin
+  weight: 10
