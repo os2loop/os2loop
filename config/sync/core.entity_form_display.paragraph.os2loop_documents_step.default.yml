@@ -6,10 +6,9 @@ dependencies:
     - field.field.paragraph.os2loop_documents_step.os2loop_documents_step_image
     - field.field.paragraph.os2loop_documents_step.os2loop_documents_step_text
     - field.field.paragraph.os2loop_documents_step.os2loop_documents_steps
-    - image.style.thumbnail
     - paragraphs.paragraphs_type.os2loop_documents_step
   module:
-    - image
+    - media_library
     - paragraphs
     - text
 id: paragraph.os2loop_documents_step.default
@@ -18,12 +17,11 @@ bundle: os2loop_documents_step
 mode: default
 content:
   os2loop_documents_step_image:
-    weight: 1
+    type: media_library_widget
+    weight: 3
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      media_types: {  }
     third_party_settings: {  }
-    type: image_image
     region: content
   os2loop_documents_step_text:
     weight: 0

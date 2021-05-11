@@ -1,0 +1,35 @@
+uuid: 1ac87852-248c-4c12-92a2-10154c4ac95c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.os2loop_media_image.field_media_image
+    - image.style.medium
+    - media.type.os2loop_media_image
+  module:
+    - image
+id: media.os2loop_media_image.media_library
+targetEntityType: media
+bundle: os2loop_media_image
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    weight: 0
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_media_image: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  uid: true

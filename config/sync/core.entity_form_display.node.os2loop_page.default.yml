@@ -5,10 +5,9 @@ dependencies:
   config:
     - field.field.node.os2loop_page.os2loop_page_content
     - field.field.node.os2loop_page.os2loop_page_image
-    - image.style.thumbnail
     - node.type.os2loop_page
   module:
-    - image
+    - media_library
     - text
 id: node.os2loop_page.default
 targetEntityType: node
@@ -32,12 +31,11 @@ content:
     type: text_textarea_with_summary
     region: content
   os2loop_page_image:
-    weight: 7
+    type: media_library_widget
+    weight: 26
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      media_types: {  }
     third_party_settings: {  }
-    type: image_image
     region: content
   promote:
     type: boolean_checkbox
