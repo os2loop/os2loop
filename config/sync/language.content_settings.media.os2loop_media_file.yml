@@ -1,0 +1,11 @@
+uuid: 3707d085-4546-4d5b-9612-4a13576c1db3
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.os2loop_media_file
+id: media.os2loop_media_file
+target_entity_type_id: media
+target_bundle: os2loop_media_file
+default_langcode: site_default
+language_alterable: false
