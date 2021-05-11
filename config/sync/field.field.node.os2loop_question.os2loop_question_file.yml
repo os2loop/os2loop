@@ -1,12 +1,11 @@
-uuid: 057afcfd-2f7e-4927-8e73-cd91db823182
+uuid: 7bce83a7-c41b-4021-badc-7f2c2fc36b33
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.os2loop_question_file
+    - media.type.os2loop_media_file
     - node.type.os2loop_question
-  module:
-    - file
 id: node.os2loop_question.os2loop_question_file
 field_name: os2loop_question_file
 entity_type: node
@@ -18,10 +17,13 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'pdf doc docx jpg png gif'
-  max_filesize: ''
-  description_field: true
-  handler: 'default:file'
-  handler_settings: {  }
-field_type: file
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      os2loop_media_file: os2loop_media_file
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
