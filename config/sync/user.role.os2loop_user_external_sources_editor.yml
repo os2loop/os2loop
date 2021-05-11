@@ -18,3 +18,4 @@ permissions:
   - 'flag os2loop_upvote_correct_answer'
   - 'unflag os2loop_upvote_correct_answer'
   - 'view admin path'
+  - 'view all files in media browser'

@@ -60,3 +60,4 @@ permissions:
   - 'use Shorten URLs page'
   - 'use text format editor'
   - 'view admin path'
+  - 'view all files in media browser'

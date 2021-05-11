@@ -26,4 +26,5 @@ permissions:
   - 'unflag os2loop_upvote_correct_answer'
   - 'use text format editor'
   - 'view admin path'
+  - 'view all files in media browser'
   - 'view revisions'

@@ -35,6 +35,7 @@ permissions:
   - 'use media wysiwyg'
   - 'use text format os2loop_documents_rich_text'
   - 'view admin path'
+  - 'view all files in media browser'
   - 'view any unpublished os2loop_documents_collection content'
   - 'view any unpublished os2loop_documents_document content'
   - 'view document admin menu'
