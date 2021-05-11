@@ -6,7 +6,7 @@ dependencies:
     - node
 id: edit_question
 label: 'Edit question'
-weight: 0
+weight: -8
 theme: os2loop_theme
 admin_theme: os2loop_theme
 visibility:
