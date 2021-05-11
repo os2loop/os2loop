@@ -38,4 +38,3 @@ permissions:
   - 'view any unpublished os2loop_documents_collection content'
   - 'view any unpublished os2loop_documents_document content'
   - 'view document admin menu'
-  - 'view the administration theme'

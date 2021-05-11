@@ -23,4 +23,3 @@ permissions:
   - 'use text format os2loop_documents_rich_text'
   - 'view admin path'
   - 'view any unpublished os2loop_documents_document content'
-  - 'view the administration theme'

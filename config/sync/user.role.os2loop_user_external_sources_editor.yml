@@ -18,4 +18,3 @@ permissions:
   - 'flag os2loop_upvote_correct_answer'
   - 'unflag os2loop_upvote_correct_answer'
   - 'view admin path'
-  - 'view the administration theme'

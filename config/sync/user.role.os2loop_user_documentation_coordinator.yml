@@ -27,4 +27,3 @@ permissions:
   - 'use text format editor'
   - 'view admin path'
   - 'view revisions'
-  - 'view the administration theme'

@@ -60,4 +60,3 @@ permissions:
   - 'use Shorten URLs page'
   - 'use text format editor'
   - 'view admin path'
-  - 'view the administration theme'
