@@ -1,13 +1,8 @@
-$content-types:
-  "os2loop_documents_collection",
-  "os2loop_documents_document",
-  "os2loop_external",
-  "os2loop_page",
-  "os2loop_post",
-  "os2loop_question",
+$content-types: "os2loop_documents_collection", "os2loop_documents_document",
+  "os2loop_external", "os2loop_page", "os2loop_post", "os2loop_question",
   "os2loop_section_page";
 
-$icons: (
+$icons-content-types: (
   "os2loop_documents_collection": "\f3c2",
   "os2loop_documents_document": "\f3b9",
   "os2loop_external": "\f471",
@@ -16,6 +11,28 @@ $icons: (
   "os2loop_question": "\f50b",
   // "os2loop_section_page": "",
 );
+
+$comment-types: "os2loop_post_comment", "os2loop_question_answer";
+
+$icons-comment-types: (
+  // Chat bubble.
+  "os2loop_post_comment": "\f268",
+  // Friendly exclamation.
+  "os2loop_question_answer": "\f4b8"
+);
+
+// svg content from node_modules/bootstrap-icons/icons/search.svg.
+$search-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-search' viewBox='0 0 16 16'><path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/></svg>");
+
+@function bg-icon($icon, $fill-color) {
+  @if $fill-color {
+    // Convert fill color to string and (partially) url encode.
+    $color: str-replace("#{$fill-color}", "#", "%23");
+    $icon: str-replace($icon, " fill='currentColor'", " fill='#{$color}'");
+  }
+
+  @return $icon;
+}
 
 .icon-container {
   display: flex;

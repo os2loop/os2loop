@@ -7,68 +7,19 @@
 // at the end of app.js to trigger the search autocomplete.
 //
 // Uncomment the following line to keep the suggestions visible:
-// .search-api-autocomplete-search { display: block !important; }
-
-// @see https://gist.github.com/JacobDB/0ffffaf8e772c12acf7102edb8a302be
-// Replace letters
-@function str-replace($string, $search, $replace: '') {
-    $index: str-index($string, $search);
-
-    @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-    }
-
-    @return $string;
-}
-
-// Encode symbols
-@function url-encode($string) {
-    $map: (
-        "%": "%25",
-        "<": "%3C",
-        ">": "%3E",
-        " ": "%20",
-        "!": "%21",
-        "*": "%2A",
-        "'": "%27",
-        '"': "%22",
-        "(": "%28",
-        ")": "%29",
-        ";": "%3B",
-        ":": "%3A",
-        "@": "%40",
-        "&": "%26",
-        "=": "%3D",
-        "+": "%2B",
-        "$": "%24",
-        ",": "%2C",
-        "/": "%2F",
-        "?": "%3F",
-        "#": "%23",
-        "[": "%5B",
-        "]": "%5D"
-    );
-
-    $new: $string;
-
-    @each $search, $replace in $map {
-        $new: str-replace($new, $search, $replace);
-    }
-
-    @return $new;
-}
-
-// Format the SVG as a URL
-@function inline-svg($string) {
-    @return url('data:image/svg+xml,#{url-encode($string)}');
+.search-api-autocomplete-search {
+  display: block !important;
 }
 
 $search-icon-size: 40px;
 $search-icon-padding: 10px;
 
 $icon-color: $grey;
-// svg content from node_modules/bootstrap-icons/icons/search.svg.
-$search-icon: inline-svg('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#{$icon-color}" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+
+// @see ../node_modules/bootstrap/scss/_functions.scss for details on `escape-svg`.
+@import "../node_modules/bootstrap/scss/_functions.scss";
+// $search-icon: escape-svg($search-icon-bg);
+$search-icon: bg-icon($search-icon-bg, $icon-color);
 
 #block-os2loop-search-db-search-form,
 #block-os2loop-search-db-search,
@@ -82,22 +33,18 @@ $search-icon: inline-svg('<svg xmlns="http://www.w3.org/2000/svg" width="16" hei
   .form-autocomplete {
     border-radius: 1em;
 
-    // Pull search field in front of suggestions.
-    // position: relative;
-    // z-index: 999;
-
     // transition: border-radius .1s;
 
     // Make room for background images
     padding-left: 50px;
     padding-right: 50px;
 
-    // // Hide throbber when not loading.
-    // &:not(.ui-autocomplete-loading) {
-    //   background-image: none;
-    // }
-
-    background: #fff $search-icon $search-icon-padding 50%/24px 24px no-repeat;
+    background: {
+      image: $search-icon;
+      position: $search-icon-padding center;
+      size: 24px 24px;
+      repeat: no-repeat;
+    }
   }
 
   .search-api-autocomplete-has-suggestions {
@@ -106,28 +53,14 @@ $search-icon: inline-svg('<svg xmlns="http://www.w3.org/2000/svg" width="16" hei
       border-bottom-right-radius: 0;
     }
   }
-
-    // .search-api-autocomplete-has-suggestions {
-    //   outline: solid 10px green;
-
-    //   .input-group-text {
-    //     color: blue;
-    //   }
-    // }
-
 }
 
-
 .search-api-autocomplete-search.ui-widget.ui-widget-content {
-  // padding-left: $search-icon-padding;
-  // padding-right: $search-icon-padding;
   padding-bottom: 1em;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   border-top: none;
 }
-
-
 
 // @see search_api_autocomplete/css/search_api_autocomplete.css
 // .search-api-autocomplete-suggestion {
@@ -199,8 +132,22 @@ $search-highlight-color: $light-grey;
 
 .search-autocomplete {
   @each $content-type in $content-types {
-    &.search-autocomplete-#{$content-type} {
-      @include icon(map.get($icons, $content-type), $search-icon-size - $search-icon-padding, $margin-right: $search-icon-padding);
+    &.search-autocomplete--node--#{$content-type} {
+      @include icon(
+        map.get($icons-content-types, $content-type),
+        $search-icon-size - $search-icon-padding,
+        $margin-right: $search-icon-padding
+      );
+    }
+  }
+
+  @each $comment-type in $comment-types {
+    &.search-autocomplete--comment--#{$comment-type} {
+      @include icon(
+        map.get($icons-comment-types, $comment-type),
+        $search-icon-size - $search-icon-padding,
+        $margin-right: $search-icon-padding
+      );
     }
   }
 
