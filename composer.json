@@ -67,6 +67,7 @@
         "drupal/views_data_export": "^1.0",
         "drupal/views_flag_refresh": "dev-2929394-drupal-8-port",
         "drupal/viewsreference": "^2.0",
+        "drupal/xls_serialization": "^1.2",
         "drush/drush": "^10.4",
         "mikehaertl/phpwkhtmltopdf": "^2.5"
     },

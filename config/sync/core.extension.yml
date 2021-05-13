@@ -69,6 +69,7 @@ module:
   views_data_export: 0
   views_flag_refresh: 0
   viewsreference: 0
+  xls_serialization: 0
   paragraphs: 11
   better_formats: 100
   os2loop: 1000
