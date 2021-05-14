@@ -20,6 +20,7 @@ function os2loop_theme_preprocess(&$variables) {
  * Add comment/answers counts.
  */
 function os2loop_theme_preprocess_node(&$variables) {
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
   if ($variables['view_mode'] === 'teaser') {
     if ($variables['node']->getType() === 'os2loop_question') {
       $variables['comment_count'] = $variables['node']->get('os2loop_question_answers')->comment_count;
