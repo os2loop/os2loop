@@ -133,7 +133,8 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
       '#value' => $this->t('Send'),
       '#attributes' => [
         'class' => [
-          'button',
+          'btn',
+          'btn-primary',
         ],
       ],
     ];
@@ -144,7 +145,8 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
       '#title' => $this->t('Cancel'),
       '#attributes' => [
         'class' => [
-          'button',
+          'btn',
+          'btn-warning',
         ],
       ],
     ];
