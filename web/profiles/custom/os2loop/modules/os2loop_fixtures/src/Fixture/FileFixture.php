@@ -30,18 +30,18 @@ class FileFixture extends AbstractFixture implements FixtureGroupInterface {
    * {@inheritdoc}
    */
   public function load() {
-    $source = __DIR__ . '/../../fixtures/images';
-    $files = $this->fileSystem->scanDirectory($source, '/\.(jpg|png)$/');
+    $source = __DIR__ . '/../../fixtures/files';
+    $files = $this->fileSystem->scanDirectory($source, '/\.(jpg|png|docx|pdf|txt)$/');
     foreach ($files as $file) {
       $name = $file->filename;
-      $destination = 'public://fixtures/images/' . $name;
+      $destination = 'public://fixtures/files/' . $name;
       if (!is_dir(dirname($destination))) {
         $this->fileSystem->mkdir(dirname($destination), 0755, TRUE);
       }
-      $image = file_save_data(file_get_contents($file->uri), $destination,
+      $saved_file = file_save_data(file_get_contents($file->uri), $destination,
         FileSystemInterface::EXISTS_REPLACE);
 
-      $this->setReference('file:' . $file->filename, $image);
+      $this->setReference('file:' . $file->filename, $saved_file);
     }
   }
 
