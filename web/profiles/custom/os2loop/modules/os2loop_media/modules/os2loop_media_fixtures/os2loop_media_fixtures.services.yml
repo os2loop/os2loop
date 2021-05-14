@@ -1,0 +1,7 @@
+services:
+  os2loop_media_fixtures.media_fixture:
+    class: Drupal\os2loop_media_fixtures\Fixture\MediaFixture
+    tags:
+      - { name: content_fixture }
+    arguments:
+      - '@entity_type.manager'
