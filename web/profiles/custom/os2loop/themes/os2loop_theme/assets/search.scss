@@ -62,50 +62,8 @@ $search-icon: bg-icon($search-icon-bg, $icon-color);
   border-top: none;
 }
 
-// @see search_api_autocomplete/css/search_api_autocomplete.css
-// .search-api-autocomplete-suggestion {
-//   padding: 3px 5px;
-//   position: relative;
-// }
-
-// .search-api-autocomplete-search .ui-menu-item-wrapper {
-//   border: 0;
-//   color: #333;
-//   margin: 0;
-//   padding: 0;
-
-//   &.ui-state-active {
-//     // @todo Can we improve this?
-//     outline: solid 1px blue;
-//   }
-// }
-
-// .search-api-autocomplete-search .ui-menu-item {
-//   list-style-image: none;
-// }
-
-// .search-api-autocomplete-search .ui-menu-item:hover {
-//   background: #eee;
-// }
-
-// .search-api-autocomplete-search .ui-menu-item a {
-//   text-decoration: none;
-// }
-
-// .search-api-autocomplete-suggestion .autocomplete-suggestion-note {
-//   font-size: 90%;
-// }
-
-// .search-api-autocomplete-suggestion .autocomplete-suggestion-user-input {
-//   font-weight: bold;
-// }
-
-// .search-api-autocomplete-suggestion .autocomplete-suggestion-results-count {
-//   position: absolute;
-//   right: 0.2em;
-// }
-
-// search_api_autocomplete/css/search_api_autocomplete.css
+// See search_api_autocomplete/css/search_api_autocomplete.css for hints on how
+// to override the default styling of the autocomplete suggestions.
 
 .search-api-autocomplete-search .ui-menu-item:hover {
   background: none;
@@ -114,11 +72,6 @@ $search-icon: bg-icon($search-icon-bg, $icon-color);
 $search-highlight-color: $light-grey;
 
 .search-api-autocomplete-search .ui-menu-item-wrapper {
-  // border: 0;
-  // color: #333;
-  // margin: 0;
-  // padding: 0;
-
   display: block;
 
   &:hover {
