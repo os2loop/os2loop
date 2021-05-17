@@ -9,3 +9,4 @@ package: OS2Loop
 dependencies:
   - drupal:os2loop_media
   - drupal:os2loop_media_fixtures
+  - drupal:os2loop_fixtures

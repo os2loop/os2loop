@@ -8,3 +8,4 @@ dependencies:
   - drupal:image
   - drupal:os2loop_shared
   - drupal:os2loop_taxonomy
+  - drupal:os2loop_fixtures
