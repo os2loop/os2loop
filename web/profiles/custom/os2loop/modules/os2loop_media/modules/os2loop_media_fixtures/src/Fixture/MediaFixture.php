@@ -48,7 +48,7 @@ class MediaFixture extends AbstractFixture implements DependentFixtureInterface,
     $media = Media::create([
       'bundle' => 'os2loop_media_file',
       'field_media_file' => [
-        'target_id' => array_rand($pdf),
+        'target_id' => key(array_slice($pdf, 0, 1, TRUE)),
       ],
     ]);
     $media->save();
@@ -56,7 +56,7 @@ class MediaFixture extends AbstractFixture implements DependentFixtureInterface,
     $media = Media::create([
       'bundle' => 'os2loop_media_file',
       'field_media_file' => [
-        'target_id' => array_rand($txt),
+        'target_id' => key(array_slice($txt, 0, 1, TRUE)),
       ],
     ]);
     $media->save();
@@ -64,7 +64,7 @@ class MediaFixture extends AbstractFixture implements DependentFixtureInterface,
     $media = Media::create([
       'bundle' => 'os2loop_media_file',
       'field_media_file' => [
-        'target_id' => array_rand($docx),
+        'target_id' => key(array_slice($docx, 0, 1, TRUE)),
       ],
     ]);
     $media->save();
@@ -72,8 +72,8 @@ class MediaFixture extends AbstractFixture implements DependentFixtureInterface,
     $media = Media::create([
       'bundle' => 'os2loop_media_image',
       'field_media_image' => [
-        'target_id' => array_rand($images),
-        'alt' => 'Random 1',
+        'target_id' => key(array_slice($images, 0, 1, TRUE)),
+        'alt' => 'Image 1',
       ],
     ]);
     $media->save();
@@ -81,8 +81,8 @@ class MediaFixture extends AbstractFixture implements DependentFixtureInterface,
     $media = Media::create([
       'bundle' => 'os2loop_media_image',
       'field_media_image' => [
-        'target_id' => array_rand($images),
-        'alt' => 'Random 2',
+        'target_id' => key(array_slice($images, 1, 1, TRUE)),
+        'alt' => 'Image 2',
       ],
     ]);
     $media->save();
@@ -90,8 +90,8 @@ class MediaFixture extends AbstractFixture implements DependentFixtureInterface,
     $media = Media::create([
       'bundle' => 'os2loop_media_image',
       'field_media_image' => [
-        'target_id' => array_rand($images),
-        'alt' => 'Random 3',
+        'target_id' => key(array_slice($images, 2, 1, TRUE)),
+        'alt' => 'Image 3',
       ],
     ]);
     $media->save();
