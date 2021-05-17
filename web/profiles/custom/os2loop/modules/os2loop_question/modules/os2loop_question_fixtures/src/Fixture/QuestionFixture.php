@@ -6,7 +6,7 @@ use Drupal\content_fixtures\Fixture\AbstractFixture;
 use Drupal\content_fixtures\Fixture\DependentFixtureInterface;
 use Drupal\content_fixtures\Fixture\FixtureGroupInterface;
 use Drupal\node\Entity\Node;
-use Drupal\os2loop_fixtures\Fixture\FileFixture;
+use Drupal\os2loop_media_fixtures\Fixture\MediaFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\ProfessionFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\SubjectFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\TagFixture;
@@ -43,7 +43,7 @@ BODY,
         'target_id' => $this->getReference('os2loop_profession:Andet')->id(),
       ],
       'os2loop_question_file' => [
-        'target_id' => $this->getReference('file:image-001.jpg')->id(),
+        'target_id' => $this->getReference('os2loop_file:file-bbb.pdf')->id(),
         'description' => 'See this image!',
       ],
     ]);
@@ -69,7 +69,7 @@ BODY,
    */
   public function getDependencies() {
     return [
-      FileFixture::class,
+      MediaFixture::class,
       SubjectFixture::class,
       TagFixture::class,
       ProfessionFixture::class,

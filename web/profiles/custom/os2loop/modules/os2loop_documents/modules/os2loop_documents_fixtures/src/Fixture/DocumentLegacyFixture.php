@@ -6,7 +6,6 @@ use Drupal\content_fixtures\Fixture\AbstractFixture;
 use Drupal\content_fixtures\Fixture\DependentFixtureInterface;
 use Drupal\content_fixtures\Fixture\FixtureGroupInterface;
 use Drupal\node\Entity\Node;
-use Drupal\os2loop_fixtures\Fixture\FileFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\ProfessionFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\SubjectFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\TagFixture;
@@ -57,7 +56,6 @@ BODY,
    */
   public function getDependencies() {
     return [
-      FileFixture::class,
       SubjectFixture::class,
       TagFixture::class,
       ProfessionFixture::class,

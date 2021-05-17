@@ -5,3 +5,4 @@ services:
       - { name: content_fixture }
     arguments:
       - '@entity_type.manager'
+      - '@file_system'
