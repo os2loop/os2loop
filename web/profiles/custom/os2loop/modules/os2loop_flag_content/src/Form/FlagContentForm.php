@@ -171,11 +171,10 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
     }
     else {
       $this->messenger->addStatus($this->t('Your message has been sent.'));
+      $redirectUrl = Url::fromRoute('entity.node.canonical', ['node' => $node->id()])->toString();
+      $response = new RedirectResponse($redirectUrl);
+      $response->send();
     }
-
-    $redirectUrl = Url::fromRoute('entity.node.canonical', ['node' => $node->id()])->toString();
-    $response = new RedirectResponse($redirectUrl);
-    $response->send();
   }
 
 }
