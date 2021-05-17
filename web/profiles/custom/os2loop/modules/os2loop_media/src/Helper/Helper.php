@@ -4,6 +4,7 @@ namespace Drupal\os2loop_media\Helper;
 
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\Plugin\views\query\Sql;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -36,13 +37,11 @@ class Helper {
    *   The query to alter.
    */
   public function queryAlter(ViewExecutable $view, QueryPluginBase $query) {
-    if ('media_library' === $view->id()) {
+    if ($query instanceof Sql && 'media_library' === $view->id()) {
       // Add condition if user does not have permission to view all files.
       if (!$this->currentUser->hasPermission('view all files in media browser')) {
-        // $groupId = $query->setWhereGroup();
-        // @todo The addWhere method below works, but fails coding standards check due to not exist in QueryPluginBase.
-        // Suggestions are welcome.
-        // $query->addWhere($groupId, 'uid', $this->currentUser->id(), '=');
+        $groupId = $query->setWhereGroup();
+        $query->addWhere($groupId, 'uid', $this->currentUser->id(), '=');
       }
     }
   }
