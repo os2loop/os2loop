@@ -3,6 +3,7 @@ ignored_config_entities:
   - os2loop_flag_content.settings
   - os2loop_question.settings
   - os2loop_settings.settings
+  - os2loop_share_with_a_friend.settings
   - system.site
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk

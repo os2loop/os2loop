@@ -1,2 +1,0 @@
-template_subject: '[current-user:name] wants to share content from [site:name] with you'
-template_body: '[current-user:name] shared the following with you: [node:title] ([node:url]) with the following message: [os2loop_share_with_a_friend:message]'
