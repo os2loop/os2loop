@@ -1,0 +1,24 @@
+input,
+a {
+  &.btn-primary,
+  &.btn-secondary,
+  &.btn-success,
+  &.btn-danger,
+  &.btn-warning,
+  &.btn-info,
+  &.btn-light,
+  &.btn-dark,
+  &.btn-link {
+    color: $text-on-primary;
+
+    &:hover {
+      color: $text-on-primary;
+    }
+  }
+}
+
+.navbar {
+  .nav-link {
+    color: $text-on-primary;
+  }
+}

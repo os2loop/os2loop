@@ -16,10 +16,6 @@ a {
   margin-bottom: $spacer * 2;
 }
 
-.nav-link {
-  color: $black !important;
-}
-
 .bg-white-loop {
   @extend .container;
   background-color: $white;
@@ -46,41 +42,12 @@ img {
   height: auto;
 }
 
-input {
-  &.button {
-    @extend .btn;
-    color: $black !important;
-    background-color: $secondary-color !important;
-    border-color: $dark-secondary-color !important;
-
-    &:hover {
-      color: $black;
-      background-color: $dark-secondary-color;
-      border-color: $dark-secondary-color;
-    }
-  }
-}
-
-a {
-  &.button {
-    @extend .btn;
-    color: $black !important;
-    background-color: $secondary-color !important;
-    border-color: $dark-secondary-color !important;
-
-    &:hover {
-      color: $black;
-      background-color: $dark-secondary-color;
-      border-color: $dark-secondary-color;
-    }
-  }
-}
-
 .navbar-brand {
   min-width: 100px;
 }
 
 @import "bootstrap";
+@import "bootstrap-contrast-fixes";
 @import "./comment";
 @import "./teasers";
 @import "./document-collection";
