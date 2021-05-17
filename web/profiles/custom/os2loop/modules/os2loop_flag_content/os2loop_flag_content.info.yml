@@ -3,3 +3,7 @@ type: module
 description: 'OS2Loop flag content'
 core_version_requirement: ^9
 package: 'OS2Loop'
+dependencies:
+  - drupal:os2loop_settings
+
+configure: os2loop_flag_content.settings

@@ -61,6 +61,7 @@ dependencies:
   - drupal:twig_tweak
   - drupal:views
   - drupal:os2loop_menu
+  - drupal:os2loop_settings
 
 # # List any themes that should be installed as part of the profile installation.
 # # Note that this will not set any theme as the default theme.

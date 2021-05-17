@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a node.
+ * Default theme implementation to display a node.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -68,7 +68,33 @@
  * @todo Remove the id attribute (or make it a class), because if that gets
  *   rendered twice on a page this is invalid CSS for example: two lists
  *   in different view modes.
+ *
+ * @ingroup themeable
  */
 #}
-{% set body_text = node.os2loop_question_content.value|striptags|raw %}
-{% include 'node--list-display.html.twig' with {'body_text': body_text|length > 250 ? body_text|slice(0, 250) ~ '...' : body_text} %}
+
+<article{{ attributes }}>
+  {% if is_front %}
+    {% set title_attributes = title_attributes.addClass('visually-hidden').setAttribute('aria-label', node.title.value) %}
+  {% endif %}
+
+  {{ title_prefix }}
+      <h1{{ title_attributes }}>
+      {{ label }}
+    </h1>
+  {{ title_suffix }}
+
+  <div{{ content_attributes }}>
+    {{ content|without('flag_os2loop_subscription_node', 'links') }}
+  </div>
+
+  {% if display_submitted %}
+    <footer>
+      {{ author_picture }}
+      <div{{ author_attributes }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+</article>
