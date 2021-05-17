@@ -3,12 +3,36 @@
  * Os2loop colors. for now.
  */
 
-$primary-color: #41ab51;
-$secondary-color: #488cd4;
-$dark-secondary-color: darken($secondary-color, 5%);
-$primary: $primary-color;
+// Bootstrap colors
+$primary: #41ab51;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+// Black and white
 $black: #000;
 $white: #fff;
+
+// Returns the contrast color of the input: black or white.
+// https://codepen.io/davidhalford/pen/wlDxL
+@function contrast-color($color) {
+  $color-brightness: round(
+    (red($color) * 299) + (green($color) * 587) + (blue($color) * 114) / 1000
+  );
+  $light-color: round(
+    (red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000
+  );
+
+  @if abs($color-brightness) < ($light-color/2) {
+    @return $white;
+  } @else {
+    @return $black;
+  }
+}
 
 // Colors
 $light-grey: #f2f2f2;
@@ -20,21 +44,22 @@ $light-background: $light-grey;
 $dark-background: $grey;
 $field-title-color: $dark-grey;
 $text-color: $dark-grey;
+$text-on-primary: contrast-color($primary);
 
 // Icon buttons
 $icon-base-color: $dark-grey;
 $delete: $red;
-$upvote: $primary-color;
-$follow-content: $primary-color;
-$edit: $secondary-color;
-$subscribe: $primary-color;
-$favourite: $primary-color;
+$upvote: $primary;
+$follow-content: $primary;
+$edit: $secondary;
+$subscribe: $primary;
+$favourite: $primary;
 
 $dark-icon-base-color: darken($dark-grey, 10%);
 $dark-delete: darken($red, 10%);
-$dark-upvote: darken($primary-color, 10%);
-$dark-follow-content: darken($primary-color, 10%);
-$dark-edit: darken($secondary-color, 10%);
+$dark-upvote: darken($primary, 10%);
+$dark-follow-content: darken($primary, 10%);
+$dark-edit: darken($secondary, 10%);
 $dark-subscribe: darken($subscribe, 10%);
 $dark-favourite: darken($favourite, 10%);
 

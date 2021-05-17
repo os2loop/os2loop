@@ -56,7 +56,7 @@ $search-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'
     }
 
     &.print {
-      @include link-icon("\f501", $text-color: $white);
+      @include link-icon("\f501");
     }
 
     &.fav {
@@ -81,17 +81,17 @@ $search-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'
 
     &.comment-share,
     &.share {
-      @include link-icon("\f52e", $text-color: $white);
+      @include link-icon("\f52e");
     }
 
     &.comment-flag,
     &.flag {
-      @include link-icon("\f3cc", $text-color: $white);
+      @include link-icon("\f3cc");
     }
 
     &.comment-reply,
     &.reply {
-      @include link-icon("\f51f", $text-color: $white);
+      @include link-icon("\f51f");
     }
 
     &.bell {

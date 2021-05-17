@@ -16,18 +16,19 @@
   }
 
   .top-comment {
-    background-color: $primary-color;
+    background-color: $primary;
     border-radius: 0;
+    color: $text-on-primary;
   }
 
   .top-comment-background {
-    background-color: $primary-color;
+    background-color: $primary;
     padding: $spacer * 2;
     margin-bottom: $spacer * 2;
     color: $black;
 
     a {
-      color: $black;
+      color: $text-on-primary;
     }
   }
 }
@@ -37,6 +38,6 @@
   &:target {
     // Highlight comment
     // @todo Design
-    outline: solid 1px $primary-color;
+    outline: solid 1px $primary;
   }
 }

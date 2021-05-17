@@ -3,6 +3,8 @@
  * The step-by-step paragraph, complete with numbering.
  */
 .counter {
+  color: $text-on-primary;
+
   ol {
     list-style-type: none;
     counter-reset: item;
@@ -26,7 +28,7 @@
       width: 15px;
       height: 15px;
       border-radius: 50%;
-      background-color: $primary-color;
+      background-color: $primary;
       font-size: 1.2em;
       font-family: $font-family-base;
       content: counters(item, ".") " ";

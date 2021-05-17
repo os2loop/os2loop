@@ -1,9 +1,10 @@
 .shared-tags {
-  background-color: $primary-color;
+  background-color: $primary;
   border-radius: 15px;
   margin-right: 5px;
   padding: 3px 15px;
+
   a {
-    color: black;
+    color: $text-on-primary;
   }
 }
