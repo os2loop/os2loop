@@ -7,3 +7,4 @@ services:
     class: Drupal\os2loop_flag_content\Helper\MailHelper
     arguments:
       - '@token'
+      - '@Drupal\os2loop_settings\Settings'
