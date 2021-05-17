@@ -3,3 +3,4 @@ services:
     class: Drupal\os2loop_share_with_a_friend\Helper\MailHelper
     arguments:
       - '@token'
+      - '@Drupal\os2loop_settings\Settings'

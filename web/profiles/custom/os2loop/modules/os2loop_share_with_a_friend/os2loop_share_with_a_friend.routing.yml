@@ -8,3 +8,11 @@ os2loop_share_with_a_friend.share_with_a_friend:
         type: entity:node
   requirements:
     _permission: 'access content'
+
+os2loop_share_with_a_friend.settings:
+  path: '/admin/config/os2loop/os2loop_share_with_a_friend/settings'
+  defaults:
+    _form: '\Drupal\os2loop_share_with_a_friend\Form\SettingsForm'
+    _title: 'OS2Loop share with a friend settings'
+  requirements:
+    _permission: 'administer site configuration'

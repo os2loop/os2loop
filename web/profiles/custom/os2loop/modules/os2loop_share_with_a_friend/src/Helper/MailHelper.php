@@ -4,6 +4,8 @@ namespace Drupal\os2loop_share_with_a_friend\Helper;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Utility\Token;
+use Drupal\os2loop_share_with_a_friend\Form\SettingsForm;
+use Drupal\os2loop_settings\Settings;
 
 /**
  * MailHelper for creating mail templates.
@@ -11,20 +13,25 @@ use Drupal\Core\Utility\Token;
 class MailHelper {
   use StringTranslationTrait;
   /**
-   * The toke.
+   * The token.
    *
    * @var \Drupal\Core\Utility\Token
    */
   protected $token;
 
   /**
-   * Constructor.
+   * The config.
    *
-   * @param \Drupal\Core\Utility\Token $token
-   *   The token.
+   * @var \Drupal\Core\Config\ImmutableConfig
    */
-  public function __construct(Token $token) {
+  private $config;
+
+  /**
+   * Constructor.
+   */
+  public function __construct(Token $token, Settings $settings) {
     $this->token = $token;
+    $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME);
   }
 
   /**
@@ -35,12 +42,12 @@ class MailHelper {
       case 'share_with_a_friend':
         $node = $params['node'];
         // @todo move this to settings
-        $template = '[current-user:name] shared the following with you: [node:title] ([node:url]) with the following message: [os2loop_share_with_a_friend:message]';
+        $body_template = $this->config->get('template_body');
+        $subject_template = $this->config->get('template_subject');
         $data['node'] = $node;
         $data['message'] = $params['message'];
-        $body = $this->renderTemplate($template, $data);
-        $template = '[current-user:name] wants to share content from [site:name] with you';
-        $subject = $this->renderTemplate($template);
+        $body = $this->renderTemplate($body_template, $data);
+        $subject = $this->renderTemplate($subject_template);
         $message['subject'] = $subject;
         $message['body'][] = $body;
         break;

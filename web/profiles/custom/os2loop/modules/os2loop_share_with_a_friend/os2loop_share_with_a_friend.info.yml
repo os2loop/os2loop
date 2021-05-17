@@ -3,3 +3,5 @@ type: module
 description: 'OS2Loop share with a friend'
 core_version_requirement: ^9
 package: 'OS2Loop'
+dependencies:
+  - drupal:os2loop_settings
