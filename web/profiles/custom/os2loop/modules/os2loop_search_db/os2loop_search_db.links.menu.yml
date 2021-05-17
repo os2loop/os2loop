@@ -1,0 +1,6 @@
+os2loop_search_db.settings:
+  title: 'OS2Loop Search DB settings'
+  route_name: os2loop_search_db.settings
+  description: 'Configure OS2Loop Search DB settings'
+  parent: os2loop.group.admin
+  weight: 5

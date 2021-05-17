@@ -1,0 +1,5 @@
+services:
+  Drupal\os2loop_question\Helper\Helper:
+    class: Drupal\os2loop_question\Helper\Helper
+    arguments:
+      - '@Drupal\os2loop_settings\Settings'
