@@ -34,10 +34,10 @@
  */
 #}
 {% if links -%}
-    {%- for item in links -%}
-      <li{{ item.attributes }} class="icon {{ item.link['#title']|lower }}">
+    {%- for key, item in links -%}
+      <li{{ item.attributes.addClass('icon', key) }}>
         {%- if item.link -%}
-          <a href={{ item.link['#url'] }} aria-label={{ item.link['#title'] }}>
+          <a href={{ item.link['#url'] }} aria-label={{ item.text }}>
           </a>
         {%- endif -%}
       </li>
