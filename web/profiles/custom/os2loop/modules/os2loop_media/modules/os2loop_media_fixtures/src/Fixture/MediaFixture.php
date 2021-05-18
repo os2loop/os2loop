@@ -67,9 +67,9 @@ class MediaFixture extends AbstractFixture implements FixtureGroupInterface {
             'target_id' => $file->id(),
           ],
         ]);
+        $media->save();
+        $this->setReference('os2loop_file:' . $file->getFilename(), $media);
       }
-      $media->save();
-      $this->setReference('os2loop_file:' . $file->getFilename(), $media);
     }
   }
 
