@@ -1,0 +1,17 @@
+.paragraph--type--os2loop-section-page-info-block {
+  &.is-bordered {
+    border: 1px solid $black;
+    // Only add padding if it has border or background color.
+    padding: 1em;
+  }
+
+  &.is-highlighted {
+    background: $highlighted;
+    // Only add padding if it has border or background color.
+    padding: 1em;
+  }
+
+  &.is-highlighted.is-bordered {
+    border-color: $highlighted-border;
+  }
+}
