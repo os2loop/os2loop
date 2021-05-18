@@ -7,6 +7,6 @@ core_version_requirement: ^9
 package: OS2Loop
 # version: VERSION
 dependencies:
-  - drupal:os2loop_fixtures
+  - drupal:os2loop_media_fixtures
   - drupal:os2loop_question
   - drupal:os2loop_post

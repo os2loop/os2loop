@@ -18,5 +18,6 @@ permissions:
   - 'edit own os2loop_external content'
   - 'use text format os2loop_external'
   - 'view admin path'
+  - 'view all files in media browser'
   - 'view os2loop_external revisions'
   - 'view the administration theme'

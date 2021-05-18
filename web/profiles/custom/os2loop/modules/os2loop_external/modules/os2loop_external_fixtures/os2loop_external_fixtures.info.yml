@@ -8,5 +8,6 @@ package: OS2Loop
 # version: VERSION
 dependencies:
   - drupal:os2loop_external
-  - drupal:os2loop_fixtures
+  - drupal:os2loop_media_fixtures
   - drupal:os2loop_taxonomy_fixtures
+  - drupal:os2loop_fixtures

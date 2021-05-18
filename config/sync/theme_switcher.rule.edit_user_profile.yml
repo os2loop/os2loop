@@ -1,0 +1,16 @@
+uuid: f3b46743-bfa6-4110-9e4b-48dd690a0502
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: edit_user_profile
+label: 'Edit user profile'
+weight: -10
+theme: os2loop_theme
+admin_theme: os2loop_theme
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*/edit'
+    negate: false

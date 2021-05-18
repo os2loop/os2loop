@@ -15,7 +15,7 @@ dependencies:
     - autocomplete_deluxe
     - comment
     - datetime
-    - file
+    - media_library
     - text
 id: node.os2loop_question.default
 targetEntityType: node
@@ -43,11 +43,11 @@ content:
     type: text_textarea
     region: content
   os2loop_question_file:
-    weight: 10
+    type: media_library_widget
+    weight: 26
     settings:
-      progress_indicator: throbber
+      media_types: {  }
     third_party_settings: {  }
-    type: file_generic
     region: content
   os2loop_shared_profession:
     settings:

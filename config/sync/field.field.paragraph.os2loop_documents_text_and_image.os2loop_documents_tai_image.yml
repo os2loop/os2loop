@@ -1,12 +1,11 @@
-uuid: b733e6f3-2108-48d1-b0a0-bb2e09e548e1
+uuid: 91d18d2b-890e-42d1-98dc-956ccfef6bfa
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.os2loop_documents_tai_image
+    - media.type.os2loop_media_image
     - paragraphs.paragraphs_type.os2loop_documents_text_and_image
-  module:
-    - image
 id: paragraph.os2loop_documents_text_and_image.os2loop_documents_tai_image
 field_name: os2loop_documents_tai_image
 entity_type: paragraph
@@ -18,21 +17,13 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'png gif jpg jpeg'
-  max_filesize: ''
-  max_resolution: ''
-  min_resolution: ''
-  alt_field: true
-  alt_field_required: true
-  title_field: false
-  title_field_required: false
-  default_image:
-    uuid: ''
-    alt: ''
-    title: ''
-    width: null
-    height: null
-  handler: 'default:file'
-  handler_settings: {  }
-field_type: image
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      os2loop_media_image: os2loop_media_image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

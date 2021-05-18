@@ -67,4 +67,4 @@ permissions:
   - 'use text format os2loop_page'
   - 'use text format os2loop_section_page'
   - 'view admin path'
-  - 'view the administration theme'
+  - 'view all files in media browser'

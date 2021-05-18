@@ -17,9 +17,7 @@ dependencies:
     - field.field.user.user.os2loop_user_place
     - field.field.user.user.os2loop_user_postal_code
     - field.field.user.user.os2loop_user_professions
-    - image.style.large
   module:
-    - image
     - user
 id: user.user.default
 targetEntityType: user
@@ -94,14 +92,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
   os2loop_user_image:
-    type: image
+    type: entity_reference_entity_view
     weight: 0
-    region: content
     label: hidden
     settings:
-      image_style: large
-      image_link: ''
+      view_mode: default
+      link: false
     third_party_settings: {  }
+    region: content
   os2loop_user_job_title:
     type: string
     weight: 4
