@@ -919,9 +919,9 @@ display:
           noscrolltop: 0
       path: admin/people/export
       filename: 'os2loop-users-[date:raw].csv'
-      automatic_download: false
+      automatic_download: true
       store_in_public_file_directory: null
-      redirect_to_display: none
+      redirect_to_display: page_1
       custom_redirect_path: false
       include_query_params: false
       displays:
@@ -1280,6 +1280,8 @@ display:
       defaults:
         fields: false
       display_description: ''
+      export_method: batch
+      export_batch_size: 1000
     cache_metadata:
       max-age: -1
       contexts:
@@ -1301,9 +1303,9 @@ display:
           noscrolltop: 0
       path: admin/people/export
       filename: 'os2loop-users-[date:raw].xlsx'
-      automatic_download: false
+      automatic_download: true
       store_in_public_file_directory: null
-      redirect_to_display: none
+      redirect_to_display: page_1
       custom_redirect_path: false
       include_query_params: false
       displays:
@@ -1674,6 +1676,8 @@ display:
       defaults:
         fields: false
       display_description: ''
+      export_method: batch
+      export_batch_size: 1000
     cache_metadata:
       max-age: -1
       contexts:
