@@ -53,7 +53,7 @@ field_name: os2loop_section_page_view_text
 entity_type: paragraph
 bundle: os2loop_section_page_views_refer
 label: Tekst
-description: ''
+description: 'Will not be displayed for a search block section.'
 required: false
 translatable: false
 default_value: {  }
