@@ -71,19 +71,6 @@
     not attributes.hasClass('top-comment') ? 'bg-secondary-loop',
   ]
 %}
-
-{% if 'os2loop_search_db' == view.storage.id %}
-  {# It's a search result #}
-  {# @todo Use template suggestions rather than this hack #}
-  {% set content_url = path('entity.node.canonical', {'node': commented_entity.id}) %}
-  {% set comment_url = content_url ~ '#comment-' ~ comment.id %}
-  <h2><a href="{{ content_url }}">{{ 'Answer on @title'|t({'@title': commented_entity.label}) }}</a></h2>
-  <div class="search_api_excerpt">
-    {{ content.search_api_excerpt }}
-  </div>
-
-  <a href="{{ comment_url }}">{{ 'View answer in context'|t }}</a>
-{% else %}
 {# Remove comment id from element id on top comment #}
 {% if attributes.hasClass('top-comment') %}
   {% set attributes = attributes.setAttribute('id', 'top-comment') %}
@@ -93,7 +80,7 @@
     Hide the "new" indicator by default, let a piece of JavaScript ask the
     server which comments are new for the user. Rendering the final "new"
     indicator here would break the render cache.
-  #}
+    #}
   <div class="d-flex align-items-center">
     <div class="icon-container">
       {{ content.flag_os2loop_upvote_upvote_button }}
@@ -112,13 +99,12 @@
     Indicate the semantic relationship between parent and child comments for
     accessibility. The list is difficult to navigate in a screen reader
     without this information.
-  #}
+    #}
   <div{{ content_attributes.addClass(background_class) }}>
     {% if parent %}
       <p class="visually-hidden">{{ parent }}</p>
     {% endif %}
-    {{ content.os2loop_question_answer }}
+    {{ content.os2loop_post_comment }}
     <div>{{ content.flag_os2loop_upvote_correct_answer }}</div>
   </div>
 </article>
-{% endif %}

@@ -1,7 +1,11 @@
 {% set node = elements['#node'] %}
-<div class="search-autocomplete search-autocomplete-{{ node.bundle }}">
-  <h2>{{ label }}</h2>
-  <span class="badge bg-light text-dark node-bundle node-bundle-{{ node.bundle }}">{{ node.bundle|t }}</span>
-  <span class="search_api_excerpt">{{ elements['#search_api_excerpt']|raw }}</span>
-  <span class="subject">{{ elements['os2loop_shared_subject'] }}</span>
-</div>
+{% spaceless %}
+  <div class="search-autocomplete search-autocomplete--node search-autocomplete--node--{{ node.bundle }}">
+    <div class="search-autocomplete-suggestion">
+      <h2 class="content-title">{{ label }}</h2>
+      {# <span class="badge bg-light text-dark node-bundle node-bundle-{{ node.bundle }}">{{ node.bundle|t }}</span> #}
+      <span class="search_api_excerpt">{{ elements['#search_api_excerpt']|raw }}</span>
+      <span class="subject">{{ elements['os2loop_shared_subject'] }}</span>
+    </div>
+  </div>
+{% endspaceless %}
