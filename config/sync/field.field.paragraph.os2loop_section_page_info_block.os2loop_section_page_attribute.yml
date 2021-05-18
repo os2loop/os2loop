@@ -11,7 +11,7 @@ id: paragraph.os2loop_section_page_info_block.os2loop_section_page_attribute
 field_name: os2loop_section_page_attribute
 entity_type: paragraph
 bundle: os2loop_section_page_info_block
-label: Attributes
+label: Type
 description: ''
 required: false
 translatable: false
