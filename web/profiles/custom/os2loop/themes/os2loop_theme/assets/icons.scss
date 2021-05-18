@@ -14,6 +14,7 @@
     border-radius: 2px;
     color: $white;
 
+    &.comment-edit,
     &.edit {
       @include link-icon("\f4ca", $edit, $dark-edit);
     }
@@ -42,18 +43,22 @@
       }
     }
 
+    &.comment-share,
     &.share {
       @include link-icon("\f52e");
     }
 
+    &.comment-flag,
     &.flag {
       @include link-icon("\f3cc");
     }
 
+    &.comment-reply,
     &.reply {
       @include link-icon("\f51f");
     }
 
+    &.comment-delete,
     &.delete {
       @include link-icon("\f5de", $delete, $dark-delete);
     }

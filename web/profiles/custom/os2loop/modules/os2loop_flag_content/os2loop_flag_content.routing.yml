@@ -1,5 +1,5 @@
 os2loop_flag_content.settings:
-  path: '/admin/config/os2loop_flag_content/settings'
+  path: '/admin/config/os2loop/os2loop_flag_content/settings'
   defaults:
     _form: '\Drupal\os2loop_flag_content\Form\FlagContentAdminForm'
     _title: 'os2loop_flag_content'

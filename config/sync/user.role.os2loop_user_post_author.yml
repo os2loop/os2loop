@@ -7,6 +7,8 @@ label: 'Post author'
 weight: 9
 is_admin: null
 permissions:
+  - 'access content overview'
+  - 'access toolbar'
   - 'create os2loop_post content'
   - 'delete any os2loop_post content'
   - 'delete os2loop_post revisions'
@@ -17,4 +19,6 @@ permissions:
   - 'revert os2loop_post revisions'
   - 'unflag os2loop_upvote_correct_answer'
   - 'view all files in media browser'
+  - 'use text format os2loop_post'
   - 'view os2loop_post revisions'
+  - 'view the administration theme'

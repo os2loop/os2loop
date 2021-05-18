@@ -9,6 +9,7 @@ module:
   config_ignore: 0
   config_translation: 0
   convert_media_tags_to_markup: 0
+  csv_serialization: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
@@ -44,6 +45,7 @@ module:
   os2loop_question: 0
   os2loop_search_db: 0
   os2loop_section_page: 0
+  os2loop_settings: 0
   os2loop_shared: 0
   os2loop_subscriptions: 0
   os2loop_taxonomy: 0
@@ -51,9 +53,11 @@ module:
   os2loop_user: 0
   page_cache: 0
   path_alias: 0
+  rest: 0
   search_api: 0
   search_api_autocomplete: 0
   search_api_db: 0
+  serialization: 0
   snowball_stemmer: 0
   statistics: 0
   system: 0
@@ -66,8 +70,10 @@ module:
   twig_tweak: 0
   user: 0
   views: 0
+  views_data_export: 0
   views_flag_refresh: 0
   viewsreference: 0
+  xls_serialization: 0
   paragraphs: 11
   better_formats: 100
   os2loop: 1000

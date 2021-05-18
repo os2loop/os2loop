@@ -5,10 +5,9 @@
  * Enables modules and site configuration for a standard site installation.
  */
 
-use Drupal\block\Entity\Block;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\node\NodeInterface;
-use Drupal\os2loop\Helper\Helper;
+use Drupal\os2loop_settings\Helper\Helper;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -16,7 +15,7 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @see Helper::entityCreateAccess()
  */
-function os2loop_entity_create_access(AccountInterface $account, array $context, $entity_bundle) {
+function os2loop_settings_entity_create_access(AccountInterface $account, array $context, $entity_bundle) {
   return Drupal::service(Helper::class)->entityCreateAccess($account, $context, $entity_bundle);
 }
 
@@ -25,7 +24,7 @@ function os2loop_entity_create_access(AccountInterface $account, array $context,
  *
  * @see Helper::nodeAccess()
  */
-function os2loop_node_access(NodeInterface $node, $op, AccountInterface $account) {
+function os2loop_settings_node_access(NodeInterface $node, $op, AccountInterface $account) {
   return Drupal::service(Helper::class)->nodeAccess($node, $op, $account);
 }
 
@@ -34,7 +33,7 @@ function os2loop_node_access(NodeInterface $node, $op, AccountInterface $account
  *
  * @see Helper::formAlter()
  */
-function os2loop_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function os2loop_settings_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   return Drupal::service(Helper::class)->formAlter($form, $form_state, $form_id);
 }
 
@@ -43,15 +42,6 @@ function os2loop_form_alter(&$form, FormStateInterface $form_state, $form_id) {
  *
  * @see Helper::preprocessNode()
  */
-function os2loop_preprocess_node(array &$variables) {
+function os2loop_settings_preprocess_node(array &$variables) {
   return Drupal::service(Helper::class)->preprocessNode($variables);
-}
-
-/**
- * Implements hook_block_access().
- *
- * @see Helper::blockAccess()
- */
-function os2loop_block_access(Block $block, $operation, AccountInterface $account) {
-  return Drupal::service(Helper::class)->blockAccess($block, $operation, $account);
 }

@@ -1,0 +1,3 @@
+services:
+  os2loop_section_page.form_helper:
+    class: Drupal\os2loop_section_page\Helper\FormHelper

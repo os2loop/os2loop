@@ -10,8 +10,21 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
-  - 'use text format os2loop_post'
+  - 'hide format selection for comment'
+  - 'hide format selection for flagging'
+  - 'hide format selection for message'
+  - 'hide format selection for node'
+  - 'hide format selection for paragraph'
+  - 'hide format selection for taxonomy_term'
+  - 'hide format selection for user'
+  - 'hide format tips'
+  - 'hide more format tips link'
+  - 'use search_api_autocomplete for os2loop_search_db'
   - 'use text format os2loop_post_comment_plain_text'
+  - 'use text format os2loop_post_comment_rich_text'
   - 'use text format os2loop_question_answer_plain_text'
+  - 'use text format os2loop_question_answer_rich_text'
   - 'use text format os2loop_question_plain_text'
   - 'view media'
+  - 'use text format os2loop_question_rich_text'
+
