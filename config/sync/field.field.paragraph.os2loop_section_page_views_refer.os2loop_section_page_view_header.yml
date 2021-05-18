@@ -10,7 +10,7 @@ field_name: os2loop_section_page_view_header
 entity_type: paragraph
 bundle: os2loop_section_page_views_refer
 label: Header
-description: 'Will be visually hidden for a search block section.'
+description: 'Will not be displayed for a search block section.'
 required: true
 translatable: false
 default_value: {  }

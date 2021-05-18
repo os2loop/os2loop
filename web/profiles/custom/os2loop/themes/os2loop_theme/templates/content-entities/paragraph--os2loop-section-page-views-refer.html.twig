@@ -50,7 +50,7 @@
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
       {% if 'os2loop_search_db' in paragraph.fields.os2loop_section_page_block[0].plugin_id|default('') %}
-        {{ content|without('os2loop_section_page_view_text') }}
+        {{ content|without(['os2loop_section_page_view_header', 'os2loop_section_page_view_text']) }}
       {% else %}
         {{ content }}
       {% endif %}
