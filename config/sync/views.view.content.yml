@@ -797,9 +797,9 @@ display:
           noscrolltop: 0
       path: admin/content/export
       filename: 'os2loop-content-[date:raw].csv'
-      automatic_download: false
+      automatic_download: true
       store_in_public_file_directory: null
-      redirect_to_display: none
+      redirect_to_display: page_1
       custom_redirect_path: false
       include_query_params: false
       displays:
@@ -819,8 +819,8 @@ display:
             encoding: utf8
             utf8_bom: '0'
             use_serializer_encode_only: false
-      export_method: standard
       export_batch_size: 1000
+      export_method: batch
       fields:
         title:
           id: title
@@ -1124,9 +1124,9 @@ display:
           noscrolltop: 0
       path: admin/content/export
       filename: 'os2loop-content-[date:raw].xlsx'
-      automatic_download: false
+      automatic_download: true
       store_in_public_file_directory: null
-      redirect_to_display: none
+      redirect_to_display: page_1
       custom_redirect_path: false
       include_query_params: false
       displays:
@@ -1158,8 +1158,8 @@ display:
               category: ''
               manager: ''
               company: ''
-      export_method: standard
       export_batch_size: 1000
+      export_method: batch
       fields:
         title:
           id: title
