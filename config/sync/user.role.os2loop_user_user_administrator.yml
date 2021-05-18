@@ -7,6 +7,6 @@ label: 'User administrator'
 weight: 10
 is_admin: null
 permissions:
+  - 'access toolbar'
   - 'administer users'
-  - 'flag os2loop_upvote_correct_answer'
-  - 'unflag os2loop_upvote_correct_answer'
+  - 'view the administration theme'
