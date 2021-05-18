@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.os2loop_section_page_info_block.os2loop_section_page_attribute
     - field.field.paragraph.os2loop_section_page_info_block.os2loop_section_page_info_text
+    - field.field.paragraph.os2loop_section_page_info_block.os2loop_section_page_title
     - paragraphs.paragraphs_type.os2loop_section_page_info_block
   module:
     - options
@@ -15,18 +16,26 @@ bundle: os2loop_section_page_info_block
 mode: default
 content:
   os2loop_section_page_attribute:
-    weight: 1
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   os2loop_section_page_info_text:
-    weight: 0
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  os2loop_section_page_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
 hidden:
   entity_print_view_epub: true
