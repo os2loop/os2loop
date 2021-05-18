@@ -40,3 +40,7 @@ $dark-favourite: darken($favourite, 10%);
 
 // Link color
 $link-color: #0056b3;
+
+// Attributes
+$highlighted: lighten($primary-color, 40%);
+$highlighted-border: $primary-color;

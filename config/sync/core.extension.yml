@@ -32,6 +32,7 @@ module:
   menu_ui: 0
   message: 0
   node: 0
+  options: 0
   os2loop_documents: 0
   os2loop_external: 0
   os2loop_flag_content: 0
