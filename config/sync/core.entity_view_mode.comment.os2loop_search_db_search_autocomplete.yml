@@ -1,0 +1,10 @@
+uuid: b143ff2f-b951-4289-9b61-5837a176e4be
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+id: comment.os2loop_search_db_search_autocomplete
+label: 'Search autocomplete'
+targetEntityType: comment
+cache: true

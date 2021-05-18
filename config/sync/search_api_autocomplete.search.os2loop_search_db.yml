@@ -5,6 +5,7 @@ dependencies:
   config:
     - search_api.index.os2loop_search_db_index
     - views.view.os2loop_search_db
+    - core.entity_view_mode.comment.os2loop_search_db_search_autocomplete
     - core.entity_view_mode.node.os2loop_search_db_search_autocomplete
   module:
     - views
@@ -16,6 +17,9 @@ suggester_settings:
   live_results:
     fields: {  }
     view_modes:
+      'entity:comment':
+        os2loop_post_comment: os2loop_search_db_search_autocomplete
+        os2loop_question_answer: os2loop_search_db_search_autocomplete
       'entity:node':
         os2loop_documents_collection: os2loop_search_db_search_autocomplete
         os2loop_documents_document: os2loop_search_db_search_autocomplete
