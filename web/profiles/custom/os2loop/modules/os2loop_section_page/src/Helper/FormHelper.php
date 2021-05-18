@@ -22,6 +22,8 @@ class FormHelper {
           $form['os2loop_section_page_paragraph']['widget'][$widget_key]['subform']['os2loop_section_page_block']['widget'][0]['settings']['views_label_fieldset']['#access'] = FALSE;
           $form['os2loop_section_page_paragraph']['widget'][$widget_key]['subform']['os2loop_section_page_block']['widget'][0]['settings']['views_label_field']['#access'] = FALSE;
           $form['os2loop_section_page_paragraph']['widget'][$widget_key]['subform']['os2loop_section_page_block']['widget'][0]['settings']['label_display']['#access'] = FALSE;
+          // Don't show the view label.
+          $form['os2loop_section_page_paragraph']['widget'][$widget_key]['subform']['os2loop_section_page_block']['widget'][0]['settings']['label_display']['#default_value'] = FALSE;
           $form['os2loop_section_page_paragraph']['widget'][$widget_key]['subform']['os2loop_section_page_block']['widget'][0]['settings']['label']['#access'] = FALSE;
         }
       }
