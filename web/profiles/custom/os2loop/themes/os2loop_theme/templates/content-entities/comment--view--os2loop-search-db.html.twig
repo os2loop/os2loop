@@ -1,0 +1,12 @@
+<div class="search-result search-result--comment search-result--comment--{{ comment.bundle }}">
+  {% set content_url = path('entity.node.canonical', {'node': commented_entity.id}) %}
+  {% set comment_url = content_url ~ '#comment-' ~ comment.id %}
+  <h2><a href="{{ content_url }}">{{ 'os2loop_question_answer' == comment.bundle ? 'Answer on @title'|t({'@title': commented_entity.label}) : 'Comment on @title'|t({'@title': commented_entity.label}) }}</a></h2>
+  <div class="search_api_excerpt">
+    {{ elements.search_api_excerpt }}
+  </div>
+
+  <a href="{{ comment_url }}">{{ 'os2loop_question_answer' == comment.bundle ? 'View answer in context'|t : 'View comment in context'|t }}</a>
+
+  <span class="subject">{{ drupal_field('os2loop_shared_subject', 'node', commented_entity.id, 'search_result') }}</span>
+</div>

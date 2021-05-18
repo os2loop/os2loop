@@ -1,0 +1,27 @@
+uuid: d0103eb7-87c0-4bf3-a685-0e3c465dfb6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.os2loop_question_answer
+    - core.entity_view_mode.comment.os2loop_search_db_search_autocomplete
+    - field.field.comment.os2loop_question_answer.os2loop_question_answer
+id: comment.os2loop_question_answer.os2loop_search_db_search_autocomplete
+targetEntityType: comment
+bundle: os2loop_question_answer
+mode: os2loop_search_db_search_autocomplete
+content:
+  search_api_excerpt:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  flag_os2loop_upvote_correct_answer: true
+  flag_os2loop_upvote_upvote_button: true
+  langcode: true
+  links: true
+  os2loop_question_answer: true

@@ -1,0 +1,7 @@
+<div class="search-autocomplete search-autocomplete--comment search-autocomplete--comment--{{ comment.bundle }}">
+  <div class="search-autocomplete-suggestion">
+    <h2 class="content-title">{{ 'os2loop_question_answer' == comment.bundle ? 'Answer on @title'|t({'@title': commented_entity.label}) : 'Comment on @title'|t({'@title': commented_entity.label}) }}</h2>
+    <div class="search_api_excerpt">{{ elements.search_api_excerpt }}</div>
+    <span class="subject">{{ drupal_field('os2loop_shared_subject', 'node', commented_entity.id, 'search_result') }}</span>
+  </div>
+</div>
