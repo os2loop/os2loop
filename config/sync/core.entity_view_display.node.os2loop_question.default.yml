@@ -15,7 +15,6 @@ dependencies:
   module:
     - comment
     - datetime
-    - file
     - text
     - user
 id: node.os2loop_question.default
@@ -55,12 +54,13 @@ content:
     type: text_default
     region: content
   os2loop_question_file:
-    weight: 5
-    label: visually_hidden
+    type: entity_reference_entity_view
+    weight: 11
+    label: above
     settings:
-      use_description_as_link_text: true
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: file_default
     region: content
   os2loop_shared_profession:
     label: inline

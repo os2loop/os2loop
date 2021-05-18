@@ -18,9 +18,7 @@ dependencies:
     - field.field.user.user.os2loop_user_place
     - field.field.user.user.os2loop_user_postal_code
     - field.field.user.user.os2loop_user_professions
-    - image.style.thumbnail
   module:
-    - image
     - user
 id: user.user.compact
 targetEntityType: user
@@ -94,15 +92,6 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  os2loop_user_image:
-    type: image
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      image_style: thumbnail
-      image_link: ''
-    third_party_settings: {  }
   os2loop_user_job_title:
     type: string
     weight: 4
@@ -150,5 +139,6 @@ hidden:
   langcode: true
   member_for: true
   os2loop_user_external_list: true
+  os2loop_user_image: true
   os2loop_user_internal_list: true
   search_api_excerpt: true

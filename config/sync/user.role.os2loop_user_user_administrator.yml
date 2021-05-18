@@ -9,4 +9,7 @@ is_admin: null
 permissions:
   - 'access toolbar'
   - 'administer users'
+  - 'flag os2loop_upvote_correct_answer'
+  - 'unflag os2loop_upvote_correct_answer'
+  - 'view all files in media browser'
   - 'view the administration theme'

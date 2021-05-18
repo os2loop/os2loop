@@ -1,22 +1,19 @@
-uuid: 9145704e-47a4-4e89-ad04-d1c1e1fc4707
+uuid: 635f7710-17cf-4b5a-83bb-20f748f161c8
 langcode: en
 status: true
 dependencies:
   module:
-    - file
+    - media
     - node
 id: node.os2loop_question_file
 field_name: os2loop_question_file
 entity_type: node
-type: file
+type: entity_reference
 settings:
-  display_field: true
-  display_default: true
-  uri_scheme: public
-  target_type: file
-module: file
+  target_type: media
+module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

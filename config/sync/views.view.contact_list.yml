@@ -1,20 +1,18 @@
 uuid: d340e29c-8345-4d89-9d11-6e36e77f48b5
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.user.os2loop_user_address
     - field.storage.user.os2loop_user_city
     - field.storage.user.os2loop_user_family_name
     - field.storage.user.os2loop_user_given_name
-    - field.storage.user.os2loop_user_image
     - field.storage.user.os2loop_user_job_title
     - field.storage.user.os2loop_user_phone_number
     - field.storage.user.os2loop_user_place
     - field.storage.user.os2loop_user_postal_code
     - system.menu.main
   module:
-    - image
     - user
 id: contact_list
 label: 'Contact list'
@@ -288,70 +286,6 @@ display:
           settings:
             link_to_entity: false
           group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        os2loop_user_image:
-          id: os2loop_user_image
-          table: user__os2loop_user_image
-          field: os2loop_user_image
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_style: ''
-            image_link: ''
-          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -979,7 +913,6 @@ display:
         - 'config:field.storage.user.os2loop_user_city'
         - 'config:field.storage.user.os2loop_user_family_name'
         - 'config:field.storage.user.os2loop_user_given_name'
-        - 'config:field.storage.user.os2loop_user_image'
         - 'config:field.storage.user.os2loop_user_job_title'
         - 'config:field.storage.user.os2loop_user_phone_number'
         - 'config:field.storage.user.os2loop_user_place'
@@ -1008,7 +941,6 @@ display:
         - 'config:field.storage.user.os2loop_user_city'
         - 'config:field.storage.user.os2loop_user_family_name'
         - 'config:field.storage.user.os2loop_user_given_name'
-        - 'config:field.storage.user.os2loop_user_image'
         - 'config:field.storage.user.os2loop_user_job_title'
         - 'config:field.storage.user.os2loop_user_phone_number'
         - 'config:field.storage.user.os2loop_user_place'

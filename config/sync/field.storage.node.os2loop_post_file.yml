@@ -1,22 +1,19 @@
-uuid: 634dabc8-98a5-482c-a94f-ebb84334ba8c
+uuid: 6b724544-8bfa-40e0-86ed-ab61e018eac5
 langcode: en
 status: true
 dependencies:
   module:
-    - file
+    - media
     - node
 id: node.os2loop_post_file
 field_name: os2loop_post_file
 entity_type: node
-type: file
+type: entity_reference
 settings:
-  display_field: true
-  display_default: true
-  uri_scheme: public
-  target_type: file
-module: file
+  target_type: media
+module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

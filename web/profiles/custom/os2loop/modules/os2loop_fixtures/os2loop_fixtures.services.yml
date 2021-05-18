@@ -1,7 +1,0 @@
-services:
-  os2loop_fixtures.file_fixture:
-    class: Drupal\os2loop_fixtures\Fixture\FileFixture
-    arguments:
-      - '@file_system'
-    tags:
-      - { name: content_fixture }

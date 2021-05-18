@@ -1,0 +1,3 @@
+view all files in media browser:
+  title: 'View all files in media browser'
+  description: 'Os2loop_media module limits the media browser to users own files by default. This permission allows users to see all files.'

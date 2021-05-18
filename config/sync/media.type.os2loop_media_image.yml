@@ -1,0 +1,14 @@
+uuid: 21f0bd3c-7f3b-42a3-b874-abffa2850fa9
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_media_image
+label: Image
+description: ''
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map:
+  name: name

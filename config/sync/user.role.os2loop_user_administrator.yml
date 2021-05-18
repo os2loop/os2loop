@@ -214,6 +214,7 @@ permissions:
   - 'use text format os2loop_question_rich_text'
   - 'use text format os2loop_section_page'
   - 'view admin path'
+  - 'view all files in media browser'
   - 'view all revisions'
   - 'view any unpublished os2loop_documents_collection content'
   - 'view any unpublished os2loop_documents_document content'
@@ -230,3 +231,4 @@ permissions:
   - 'view revisions'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
+

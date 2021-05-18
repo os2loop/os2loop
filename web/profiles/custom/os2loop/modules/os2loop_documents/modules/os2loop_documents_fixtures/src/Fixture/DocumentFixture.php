@@ -6,7 +6,7 @@ use Drupal\content_fixtures\Fixture\AbstractFixture;
 use Drupal\content_fixtures\Fixture\DependentFixtureInterface;
 use Drupal\content_fixtures\Fixture\FixtureGroupInterface;
 use Drupal\node\Entity\Node;
-use Drupal\os2loop_fixtures\Fixture\FileFixture;
+use Drupal\os2loop_media_fixtures\Fixture\MediaFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\ProfessionFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\SubjectFixture;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\TagFixture;
@@ -55,7 +55,7 @@ class DocumentFixture extends AbstractFixture implements DependentFixtureInterfa
     $paragraph = Paragraph::create([
       'type' => 'os2loop_documents_text_and_image',
       'os2loop_documents_tai_image' => [
-        'target_id' => $this->getReference('file:image-001.jpg')->id(),
+        'target_id' => $this->getReference('os2loop_image:image-001.jpg')->id(),
         'alt' => 'Look! An image!',
       ],
       'os2loop_documents_tai_text' => [
@@ -204,7 +204,7 @@ BODY,
    */
   public function getDependencies() {
     return [
-      FileFixture::class,
+      MediaFixture::class,
       SubjectFixture::class,
       TagFixture::class,
       ProfessionFixture::class,
