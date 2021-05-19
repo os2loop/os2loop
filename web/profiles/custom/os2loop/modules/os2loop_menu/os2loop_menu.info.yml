@@ -3,6 +3,3 @@ type: module
 description: 'OS2Loop Menu'
 core_version_requirement: ^9
 package: 'OS2Loop'
-dependencies:
-  # Used by a default menu item.
-  - drupal:os2loop_question
