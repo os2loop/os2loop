@@ -89,6 +89,7 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    /** @var \Drupal\node\NodeInterface $node */
     $node = $this->routeMatcher->getParameter('node');
 
     $form['title'] = [
@@ -109,6 +110,7 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
       '#title' => $this->t('Email address of recipient'),
     ];
 
+    $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Send'),
@@ -120,7 +122,7 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
     ];
     $form['actions']['cancel'] = [
       '#type' => 'link',
-      '#url' => new Url('entity.node.canonical', ['node' => $node->id()]),
+      '#url' => $node->toUrl(),
       '#title' => $this->t('Cancel'),
       '#attributes' => [
         'class' => [
@@ -128,7 +130,6 @@ class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterfa
         ],
       ],
     ];
-    $form['actions']['#type'] = 'actions';
 
     return $form;
   }

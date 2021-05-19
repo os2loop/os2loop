@@ -40,16 +40,16 @@ class MailHelper {
   public function mail($key, &$message, $params) {
     switch ($key) {
       case 'share_with_a_friend':
-        $node = $params['node'];
-        // @todo move this to settings
         $body_template = $this->config->get('template_body');
         $subject_template = $this->config->get('template_subject');
-        $data['node'] = $node;
-        $data['message'] = $params['message'];
-        $body = $this->renderTemplate($body_template, $data);
-        $subject = $this->renderTemplate($subject_template);
-        $message['subject'] = $subject;
-        $message['body'][] = $body;
+        $data = [
+          'node' => $params['node'],
+          'os2loop_share_with_a_friend' => [
+            'message' => $params['message'],
+          ],
+        ];
+        $message['subject'] = $this->renderTemplate($subject_template, $data);
+        $message['body'][] = $this->renderTemplate($body_template, $data);
         break;
     }
   }
@@ -57,16 +57,8 @@ class MailHelper {
   /**
    * Renders content of a mail.
    */
-  public function renderTemplate($template, array $data = NULL) {
-    if (isset($data)) {
-      return $this->token->replace($template, [
-        'node' => $data['node'],
-        'message' => $data['message'],
-      ], []);
-    }
-    else {
-      return $this->token->replace($template, [], []);
-    }
+  public function renderTemplate($template, array $data) {
+    return $this->token->replace($template, $data, []);
   }
 
   /**
@@ -74,15 +66,14 @@ class MailHelper {
    */
   public function tokens($type, $tokens, array $data) {
     $replacements = [];
-    if ($type == 'os2loop_share_with_a_friend' && !empty($data['message'])) {
+    if ('os2loop_share_with_a_friend' === $type && isset($data[$type])) {
       foreach ($tokens as $name => $original) {
-        switch ($name) {
-          case 'message':
-            $replacements[$original] = $data['message'];
-            break;
+        if (isset($data[$type][$name])) {
+          $replacements[$original] = $data[$type][$name];
         }
       }
     }
+
     return $replacements;
   }
 
@@ -90,20 +81,23 @@ class MailHelper {
    * Implements hook_token_info().
    */
   public function tokenInfo() {
-    $types['os2loop_share_with_a_friend'] = [
-      'name' => $this->t('Message type'),
-    ];
-    $tokens['message'] = [
-      'name' => $this->t('Message'),
-    ];
-
     return [
-      'types' => $types,
+      'types' => [
+        'os2loop_share_with_a_friend' => [
+          'name' => $this->t('Share with a friend'),
+          'description' => $this->t('Tokens related to share with a friend.'),
+          'needs-data' => 'os2loop_share_with_a_friend',
+        ],
+      ],
       'tokens' => [
-        'os2loop_share_with_a_friend' => $tokens,
+        'os2loop_share_with_a_friend' => [
+          'message' => [
+            'name' => $this->t('The message'),
+            'description' => $this->t('The message.'),
+          ],
+        ],
       ],
     ];
-
   }
 
 }

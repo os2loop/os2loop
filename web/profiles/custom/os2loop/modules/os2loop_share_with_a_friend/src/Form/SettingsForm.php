@@ -69,16 +69,29 @@ class SettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->settings->getConfig(static::SETTINGS_NAME);
 
+    $form['subject_template'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Subject template for share with a friend subject'),
+      '#required' => TRUE,
+      '#default_value' => $config->get('template_subject'),
+    ];
+
+    $form['subject_template_tokens'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => ['user', 'node', 'os2loop_share_with_a_friend'],
+    ];
+
     $form['email_template'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Email template for share with a friend body'),
+      '#required' => TRUE,
       '#default_value' => $config->get('template_body'),
+      '#token_insert' => TRUE,
     ];
 
-    $form['subject_template'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('Subject template for share with a friend subject'),
-      '#default_value' => $config->get('template_subject'),
+    $form['email_template_tokens'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => ['user', 'node', 'os2loop_share_with_a_friend'],
     ];
 
     return parent::buildForm($form, $form_state);
