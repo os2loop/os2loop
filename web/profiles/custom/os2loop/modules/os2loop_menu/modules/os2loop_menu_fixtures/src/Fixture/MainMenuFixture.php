@@ -36,31 +36,6 @@ class MainMenuFixture extends AbstractFixture implements DependentFixtureInterfa
       'weight' => 1,
     ]);
     $menuLink->save();
-
-    $userMenuLink = MenuLinkContent::create([
-      'title' => 'User',
-      'link' => ['uri' => 'route:<nolink>'],
-      'menu_name' => 'main',
-      'expanded' => TRUE,
-      'weight' => 3,
-    ]);
-    $userMenuLink->save();
-
-    MenuLinkContent::create([
-      'title' => 'Profile',
-      'link' => ['uri' => 'internal:/user'],
-      'menu_name' => 'main',
-      'expanded' => TRUE,
-      'parent' => sprintf('menu_link_content:%s', $userMenuLink->uuid()),
-    ])->save();
-
-    MenuLinkContent::create([
-      'title' => 'Sign out',
-      'link' => ['uri' => 'internal:/user/logout'],
-      'menu_name' => 'main',
-      'expanded' => TRUE,
-      'parent' => sprintf('menu_link_content:%s', $userMenuLink->uuid()),
-    ])->save();
   }
 
   /**
