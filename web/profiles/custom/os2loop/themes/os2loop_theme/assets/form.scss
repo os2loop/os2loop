@@ -9,3 +9,31 @@
   padding: 1em;
   margin-bottom: 1em;
 }
+
+div.autocomplete-deluxe-multiple,
+div.autocomplete-deluxe-container {
+  @extend .w-100;
+  @extend .d-block;
+
+  background: none;
+  border-color: #aaaaaa;
+  padding: 5px;
+
+  input.autocomplete-deluxe-form-single,
+  input.autocomplete-deluxe-multiple {
+    height: 2em;
+    background: none;
+    box-shadow: none;
+  }
+}
+
+.autocomplete-deluxe-item {
+  margin-top: 0.6em;
+  margin-bottom: 0.4em;
+}
+
+.autocomplete-deluxe-throbber {
+  position: absolute;
+  top: 25%;
+  right: 0;
+}
