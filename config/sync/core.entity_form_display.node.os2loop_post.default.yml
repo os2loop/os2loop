@@ -106,25 +106,11 @@ content:
     third_party_settings: {  }
     type: autocomplete_deluxe
     region: content
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
-    region: content
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 5
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 4
     region: content
     third_party_settings: {  }
   title:
@@ -147,3 +133,5 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
+  promote: true
+  sticky: true
