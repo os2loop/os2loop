@@ -92,10 +92,10 @@ class MailHelper {
    */
   public function tokenInfo() {
     $types['os2loop_flag_content'] = [
-      'name' => $this->t('Reasons type'),
+      'name' => $this->t('Reason type'),
     ];
     $tokens['reason'] = [
-      'name' => $this->t('Reasons'),
+      'name' => $this->t('Reason'),
     ];
 
     $tokens['message'] = [
