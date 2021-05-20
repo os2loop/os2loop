@@ -19,15 +19,12 @@ $white: #fff;
 
 @import "contrast-function";
 
-// Colors
-$dark-grey: #2c3c44;
-
 $light-background: $light;
 $dark-background: darken($light-background, 10%);
 $field-title-color: $dark;
 
 // Text color
-$text-color: $dark-grey;
+$text-color: $dark;
 $text-on-primary: contrast-color($primary);
 
 // Icon buttons
@@ -47,10 +44,7 @@ $dark-edit: darken($edit, 10%);
 $dark-subscribe: darken($subscribe, 10%);
 $dark-favourite: darken($favourite, 10%);
 
-// Link color
-$link-color: #0056b3;
-
 // Attributes
 $highlighted: lighten($primary, 40%);
 $highlighted-border: $primary;
-$link-color: #0051a8;
+$link-color: #0056b3;
