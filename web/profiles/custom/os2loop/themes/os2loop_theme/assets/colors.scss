@@ -21,7 +21,7 @@ $white: #fff;
 // https://codepen.io/davidhalford/pen/wlDxL
 @function contrast-color($color) {
   $color-brightness: round(
-    (red($color) * 299) + (green($color) * 587) + (blue($color) * 114) / 1000
+    (red($color) * 327) + (green($color) * 587) + (blue($color) * 114) / 1000
   );
   $light-color: round(
     (red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000
@@ -67,6 +67,6 @@ $dark-favourite: darken($favourite, 10%);
 $link-color: #0056b3;
 
 // Attributes
-$highlighted: lighten($primary-color, 40%);
-$highlighted-border: $primary-color;
+$highlighted: lighten($primary, 40%);
+$highlighted-border: $primary;
 $link-color: #0051a8;
