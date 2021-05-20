@@ -14,7 +14,7 @@
 $search-icon-size: 40px;
 $search-icon-padding: 10px;
 
-$icon-color: $grey;
+$icon-color: $dark-grey;
 
 // @see ../node_modules/bootstrap/scss/_functions.scss for details on `escape-svg`.
 @import "../node_modules/bootstrap/scss/_functions.scss";
@@ -69,7 +69,7 @@ $search-icon: bg-icon($search-icon-bg, $icon-color);
   background: none;
 }
 
-$search-highlight-color: $light-grey;
+$search-highlight-color: $light;
 
 .search-api-autocomplete-search .ui-menu-item-wrapper {
   display: block;

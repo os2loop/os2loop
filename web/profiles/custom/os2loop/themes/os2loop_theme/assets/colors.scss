@@ -17,49 +17,33 @@ $dark: #343a40;
 $black: #000;
 $white: #fff;
 
-// Returns the contrast color of the input: black or white.
-// https://codepen.io/davidhalford/pen/wlDxL
-@function contrast-color($color) {
-  $color-brightness: round(
-    (red($color) * 327) + (green($color) * 587) + (blue($color) * 114) / 1000
-  );
-  $light-color: round(
-    (red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000
-  );
-
-  @if abs($color-brightness) < ($light-color/2) {
-    @return $white;
-  } @else {
-    @return $black;
-  }
-}
+@import "contrast-function";
 
 // Colors
-$light-grey: #f2f2f2;
-$grey: #e4e4ec;
 $dark-grey: #2c3c44;
-$red: #c8545c;
 
-$light-background: $light-grey;
-$dark-background: $grey;
-$field-title-color: $dark-grey;
+$light-background: $light;
+$dark-background: darken($light-background, 10%);
+$field-title-color: $dark;
+
+// Text color
 $text-color: $dark-grey;
 $text-on-primary: contrast-color($primary);
 
 // Icon buttons
-$icon-base-color: $dark-grey;
-$delete: $red;
+$icon-base-color: $secondary;
+$delete: $danger;
 $upvote: $primary;
 $follow-content: $primary;
 $edit: $secondary;
 $subscribe: $primary;
 $favourite: $primary;
 
-$dark-icon-base-color: darken($dark-grey, 10%);
-$dark-delete: darken($red, 10%);
-$dark-upvote: darken($primary, 10%);
-$dark-follow-content: darken($primary, 10%);
-$dark-edit: darken($secondary, 10%);
+$dark-icon-base-color: darken($icon-base-color, 10%);
+$dark-delete: darken($delete, 10%);
+$dark-upvote: darken($upvote, 10%);
+$dark-follow-content: darken($follow-content, 10%);
+$dark-edit: darken($edit, 10%);
 $dark-subscribe: darken($subscribe, 10%);
 $dark-favourite: darken($favourite, 10%);
 
