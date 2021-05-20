@@ -40,12 +40,15 @@ class MailHelper {
   public function mail($key, &$message, $params) {
     switch ($key) {
       case 'flag_content':
-        $node = $params['node'];
         $body_template = $this->config->get('template_body');
         $subject_template = $this->config->get('template_subject');
-        $data['node'] = $node;
-        $data['reason'] = $params['reason'];
-        $data['message'] = $params['message'];
+        $data = [
+          'node' => $params['node'],
+          'os2loop_flag_content' => [
+            'message' => $params['message'],
+            'reason' => $params['reason'],
+          ],
+        ];
         $body = $this->renderTemplate($body_template, $data);
         $subject = $this->renderTemplate($subject_template, $data);
         $message['subject'] = $subject;
@@ -57,12 +60,8 @@ class MailHelper {
   /**
    * Renders content of a mail.
    */
-  public function renderTemplate($template, array $data = NULL) {
-    return $this->token->replace($template, [
-      'node' => $data['node'],
-      'reason' => $data['reason'],
-      'message' => $data['message'],
-    ], []);
+  public function renderTemplate($template, array $data) {
+    return $this->token->replace($template, $data, []);
 
   }
 
@@ -94,7 +93,7 @@ class MailHelper {
         ],
       ],
       'tokens' => [
-        'os2loop_share_with_a_friend' => [
+        'os2loop_flag_content' => [
           'message' => [
             'name' => $this->t('The message'),
             'description' => $this->t('The message.'),
