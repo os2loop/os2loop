@@ -5,3 +5,6 @@ services:
       - '@config.factory'
   os2loop_flag_content.mail_helper:
     class: Drupal\os2loop_flag_content\Helper\MailHelper
+    arguments:
+      - '@token'
+      - '@Drupal\os2loop_settings\Settings'

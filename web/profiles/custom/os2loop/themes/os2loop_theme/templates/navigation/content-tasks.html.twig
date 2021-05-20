@@ -16,7 +16,7 @@
   {% endif %}
   {% if is_granted('contact editorial office', node) %}
     <div class="icon flag" title="{{ 'contact editorial office'|t }}">
-      <a aria-label="{{ 'Contact editorial staff'|t }}" href="{{ path('os2loop_flag_content.flag_content_form', {node: node.id}) }}"></a>
+      <a aria-label="{{ 'Contact editorial staff'|t }}" href="{{ path('os2loop_flag_content.flag_content', {node: node.id}) }}"></a>
     </div>
   {% endif %}
   {% if is_granted('share with a friend', node) %}
