@@ -21,7 +21,7 @@
   {% endif %}
   {% if is_granted('share with a friend', node) %}
     <div class="icon share" title="{{ 'Share with a friend'|t }}">
-      <a aria-label="{{ 'Share with a friend'|t }}"></a>
+      <a aria-label="{{ 'Share with a friend'|t }}" href="{{ path('os2loop_share_with_a_friend.share_with_a_friend', {node: node.id}) }}"></a>
     </div>
   {% endif %}
   {% if is_granted('update', node) %}

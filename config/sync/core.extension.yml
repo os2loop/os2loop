@@ -47,6 +47,7 @@ module:
   os2loop_search_db: 0
   os2loop_section_page: 0
   os2loop_settings: 0
+  os2loop_share_with_a_friend: 0
   os2loop_shared: 0
   os2loop_subscriptions: 0
   os2loop_taxonomy: 0

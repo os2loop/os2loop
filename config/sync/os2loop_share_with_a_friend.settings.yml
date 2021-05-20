@@ -1,0 +1,2 @@
+template_subject: '[current-user:mail] wants to share “[node:title]” on [site:name] with you'
+template_body: "[current-user:mail] wants to share <a href=\"/node/[node:nid]\">[node:title]</a> on [site:name] with you:\r\n\r\n[os2loop_share_with_a_friend:message]\r\n\r\nBest regards,\r\n[site:name]"
