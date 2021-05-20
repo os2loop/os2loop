@@ -54,14 +54,26 @@ class SettingsForm extends ConfigFormBase {
 
     $form['email_template'] = [
       '#type' => 'textarea',
+      '#required' => TRUE,
       '#title' => $this->t('Email template for flag content body'),
       '#default_value' => $config->get('template_body'),
     ];
 
+    $form['email_template_tokens'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => ['user', 'node', 'os2loop_flag_content'],
+    ];
+
     $form['subject_template'] = [
       '#type' => 'textarea',
+      '#required' => TRUE,
       '#title' => $this->t('Subject template for flag content subject'),
       '#default_value' => $config->get('template_subject'),
+    ];
+
+    $form['subject_template_tokens'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => ['user', 'node', 'os2loop_flag_content'],
     ];
 
     return parent::buildForm($form, $form_state);

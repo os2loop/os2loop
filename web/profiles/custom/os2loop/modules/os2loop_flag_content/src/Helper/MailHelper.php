@@ -71,16 +71,10 @@ class MailHelper {
    */
   public function tokens($type, $tokens, array $data) {
     $replacements = [];
-    if ($type == 'os2loop_flag_content' && !empty($data['reason']) && !empty($data['message'])) {
+    if ('os2loop_flag_content' === $type && isset($data[$type])) {
       foreach ($tokens as $name => $original) {
-        switch ($name) {
-          case 'reason':
-            $replacements[$original] = $data['reason'];
-            break;
-
-          case 'message':
-            $replacements[$original] = $data['message'];
-            break;
+        if (isset($data[$type][$name])) {
+          $replacements[$original] = $data[$type][$name];
         }
       }
     }
@@ -91,24 +85,27 @@ class MailHelper {
    * Implements hook_token_info().
    */
   public function tokenInfo() {
-    $types['os2loop_flag_content'] = [
-      'name' => $this->t('Reason type'),
-    ];
-    $tokens['reason'] = [
-      'name' => $this->t('Reason'),
-    ];
-
-    $tokens['message'] = [
-      'name' => $this->t('Message'),
-    ];
-
     return [
-      'types' => $types,
+      'types' => [
+        'os2loop_flag_content' => [
+          'name' => $this->t('Flag content'),
+          'description' => $this->t('Tokens related to flag content.'),
+          'needs-data' => 'os2loop_flag_content',
+        ],
+      ],
       'tokens' => [
-        'os2loop_flag_content' => $tokens,
+        'os2loop_share_with_a_friend' => [
+          'message' => [
+            'name' => $this->t('The message'),
+            'description' => $this->t('The message.'),
+          ],
+          'reason' => [
+            'name' => $this->t('The reason'),
+            'description' => $this->t('The reason.'),
+          ],
+        ],
       ],
     ];
-
   }
 
 }

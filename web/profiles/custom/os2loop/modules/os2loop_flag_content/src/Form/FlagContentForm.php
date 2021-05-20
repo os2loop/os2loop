@@ -126,7 +126,9 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
       '#required' => TRUE,
     ];
 
-    $form['submit'] = [
+    $form['actions']['#type'] = 'actions';
+
+    $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Send'),
       '#attributes' => [
@@ -136,9 +138,9 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
       ],
     ];
 
-    $form['cancel'] = [
+    $form['actions']['cancel'] = [
       '#type' => 'link',
-      '#url' => new Url('entity.node.canonical', ['node' => $node->id()]),
+      '#url' => $node->toUrl(),
       '#title' => $this->t('Cancel'),
       '#attributes' => [
         'class' => [
