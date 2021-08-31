@@ -222,7 +222,7 @@ class Helper {
    * Implements hook_preprocess_node().
    */
   public function preprocessNode(&$variables) {
-    if ('search_result' == $variables['view_mode']) {
+    if ('search_result' === $variables['view_mode']) {
       $bundle = $variables['node']->bundle();
       switch ($bundle) {
         case 'os2loop_question':
@@ -235,6 +235,10 @@ class Helper {
           $variables['searchedComment'] = $comment;
           break;
       }
+
+      // Disable search result cache to make processors, e.g. highlight, work as
+      // expected (cf. https://drupal.stackexchange.com/a/289180).
+      $variables['#cache']['max-age'] = 0;
     }
   }
 
