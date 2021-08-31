@@ -66,7 +66,7 @@ third_party_settings:
         required_fields: true
         id: ''
         classes: ''
-      label: Ekspertiseområde
+      label: Kompetencer
     group_description:
       children:
         - os2loop_user_biography
