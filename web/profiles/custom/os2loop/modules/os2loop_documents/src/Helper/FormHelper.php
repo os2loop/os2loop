@@ -160,26 +160,28 @@ class FormHelper {
       if ($entity instanceof NodeInterface && NodeHelper::CONTENT_TYPE_DOCUMENT === $entity->getType()) {
         $collections = $this->collectionHelper->loadCollections($entity);
 
-        unset($form['actions']['submit'], $form['description']);
+        if (!empty($collections)) {
+          unset($form['actions']['submit'], $form['description']);
 
-        $form['referencing_document_collections'] = [
-          '#weight' => -10,
-          'explanation' => [
-            '#prefix' => '<div class="messages messages--error">',
-            '#markup' => $this->formatPlural(
-              count($collections),
-              'You can not delete this document as it is being used in a collection.',
-              'You can not delete this document as it is being used in @count collections.'
-            ),
-            '#suffix' => '</div>',
-          ],
-          'collections' => [
-            '#theme' => 'item_list',
-            '#items' => array_values(array_map(static function (NodeInterface $collection) {
-              return $collection->toLink();
-            }, $collections)),
-          ],
-        ];
+          $form['referencing_document_collections'] = [
+            '#weight' => -10,
+            'explanation' => [
+              '#prefix' => '<div class="messages messages--error">',
+              '#markup' => $this->formatPlural(
+                count($collections),
+                'You can not delete this document as it is being used in a collection.',
+                'You can not delete this document as it is being used in @count collections.'
+              ),
+              '#suffix' => '</div>',
+            ],
+            'collections' => [
+              '#theme' => 'item_list',
+              '#items' => array_values(array_map(static function (NodeInterface $collection) {
+                return $collection->toLink();
+              }, $collections)),
+            ],
+          ];
+        }
       }
     }
   }
