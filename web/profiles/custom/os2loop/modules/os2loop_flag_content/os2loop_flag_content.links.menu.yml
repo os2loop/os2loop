@@ -1,0 +1,6 @@
+os2loop_flag_content.settings:
+  title: 'OS2Loop Flag content settings'
+  route_name: os2loop_flag_content.settings
+  description: 'Configure OS2Loop Flag content settings'
+  parent: os2loop.group.admin
+  weight: 10

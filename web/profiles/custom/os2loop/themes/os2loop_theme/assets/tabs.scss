@@ -24,7 +24,7 @@
   }
 
   .active {
-    border-bottom: 3px solid $primary-color;
+    border-bottom: 3px solid $primary;
   }
 }
 
@@ -41,11 +41,17 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: $dark-background;
+  background-color: $gray-200;
   align-items: center;
   padding: 5px 0;
   i {
     font-size: 2em;
-    margin-left: 1em;
+  }
+
+  // Set user image to icon size.
+  .user-image img {
+    max-height: 48px;
+    max-width: 48px;
+    font-size: 2em;
   }
 }

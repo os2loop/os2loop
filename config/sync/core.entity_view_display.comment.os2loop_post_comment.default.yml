@@ -12,23 +12,18 @@ targetEntityType: comment
 bundle: os2loop_post_comment
 mode: default
 content:
-  flag_os2loop_upvote_correct_answer:
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   flag_os2loop_upvote_upvote_button:
-    weight: 10
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   links:
-    weight: 100
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   os2loop_post_comment:
-    weight: 101
+    weight: 2
     label: visually_hidden
     settings: {  }
     third_party_settings: {  }
@@ -38,5 +33,6 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
+  flag_os2loop_upvote_correct_answer: true
   langcode: true
   search_api_excerpt: true

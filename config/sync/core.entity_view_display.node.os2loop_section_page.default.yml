@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.os2loop_section_page.os2loop_section_page_paragraph
+    - field.field.node.os2loop_section_page.os2loop_shared_rev_date
     - node.type.os2loop_section_page
   module:
+    - datetime
     - entity_reference_revisions
     - user
 id: node.os2loop_section_page.default
@@ -31,6 +33,15 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
+  os2loop_shared_rev_date:
+    weight: 102
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
 hidden:
   entity_print_view_epub: true

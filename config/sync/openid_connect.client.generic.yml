@@ -1,0 +1,18 @@
+uuid: 398e2246-b9c9-4721-8036-28076d5028c8
+langcode: en
+status: true
+dependencies: {  }
+id: generic
+label: generic
+plugin: generic
+settings:
+  issuer_url: ''
+  authorization_endpoint: 'file:///settings.local.php#$config[''openid_connect.client.generic][''settings''][''client_id'']'
+  token_endpoint: 'file:///settings.local.php#$config[''openid_connect.client.generic][''settings''][token_endpoint'']'
+  userinfo_endpoint: ''
+  end_session_endpoint: ''
+  scopes:
+    - openid
+    - email
+  client_id: 'file:///settings.local.php#$config[''openid_connect.client.generic''][''settings''][''client_id'']'
+  client_secret: 'file:///settings.local.php#$config[''openid_connect.client.generic''][''settings''][''client_secret'']'

@@ -1,0 +1,6 @@
+os2loop_analytics.settings:
+  title: 'OS2Loop Analytics settings'
+  route_name: os2loop_analytics.settings
+  description: 'Configure OS2Loop analytics settings'
+  parent: os2loop.group.admin
+  weight: 10

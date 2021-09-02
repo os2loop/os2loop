@@ -1,0 +1,6 @@
+name: 'OS2Loop revision date'
+type: module
+description: 'OS2Loop revision date'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'OS2Loop'

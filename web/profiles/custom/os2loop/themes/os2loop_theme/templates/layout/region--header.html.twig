@@ -15,9 +15,9 @@
  */
 #}
 {% if content %}
-  <header{{ attributes.addClass('bg-primary') }}>
+  <header{{ attributes.addClass('bg-primary', 'shadow-sm') }}>
     <div class="container">
-      <div class="navbar navbar-light navbar-expand-lg justify-content-between">
+      <div class="row navbar navbar-expand-lg justify-content-between">
         {{ content }}
       </div>
     </div>

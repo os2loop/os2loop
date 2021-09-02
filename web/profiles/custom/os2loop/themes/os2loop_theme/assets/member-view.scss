@@ -1,36 +1,19 @@
-.views-view-contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .rows {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .views-row {
-    background-color: $light-background;
-    margin: 0.5 * $spacer;
-    padding: 0.5 * $spacer;
-  }
-
-  .views-field-os2loop-user-given-name,
-  .views-field-os2loop-user-family-name {
-    display: inline-flex;
-
-    &::after {
-      content: "\00a0 ";
-    }
-  }
-
+.member-list-item {
   img {
-    height: 220px;
-    width: 220px;
-    object-fit: cover;
-    border-radius: 2px;
+    max-height: 60px;
+    width: auto;
   }
+}
 
-  .search {
-    width: 100%;
+// We don't wnat to display the sort by selecter since there is only one type of sort,
+// but we need it for sort order reference field to work.
+#views-exposed-form-contact-list-page-1,
+#views-exposed-form-contact-list-page-2 {
+  .form-item-sort-by {
+    display: none;
   }
+}
+
+.views-display-link.is-active {
+  text-decoration: underline;
 }

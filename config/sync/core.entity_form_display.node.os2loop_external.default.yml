@@ -85,13 +85,13 @@ content:
   os2loop_shared_tags:
     weight: 9
     settings:
-      limit: '10'
-      min_length: '0'
+      limit: 10
+      min_length: 0
       delimiter: ''
       not_found_message: 'The term ''@term'' will be added'
-      new_terms: '1'
+      new_terms: true
       no_empty_message: 'No terms could be found. Please type in order to add a new term.'
-      not_found_message_allow: 0
+      not_found_message_allow: false
       match_operator: CONTAINS
       autocomplete_route_name: autocomplete_deluxe.autocomplete
       size: 60
@@ -99,25 +99,17 @@ content:
     third_party_settings: {  }
     type: autocomplete_deluxe
     region: content
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
+  path:
+    type: path
+    weight: 30
     region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 5
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 4
     region: content
     third_party_settings: {  }
   title:
@@ -140,3 +132,5 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
+  promote: true
+  sticky: true

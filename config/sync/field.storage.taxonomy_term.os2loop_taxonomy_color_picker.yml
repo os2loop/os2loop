@@ -1,0 +1,33 @@
+uuid: 578d62ae-0e8b-422d-b8be-40d266754768
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.os2loop_taxonomy_color_picker
+field_name: os2loop_taxonomy_color_picker
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: taxonomy-color-1
+      label: 'Taxonomy color 1'
+    -
+      value: taxonomy-color-2
+      label: 'Taxonomy color 2'
+    -
+      value: taxonomy-color-3
+      label: 'Taxonomy color 3'
+    -
+      value: taxonomy-color-4
+      label: 'Taxonomy color 4'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

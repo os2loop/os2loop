@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.comment.list_display
+    - node.type.os2loop_post
     - node.type.os2loop_question
   module:
     - comment
@@ -68,11 +69,21 @@ display:
             next: ››
       style:
         type: default
-      row:
-        type: 'entity:comment'
         options:
-          relationship: none
-          view_mode: list_display
+          grouping:
+            -
+              field: comment_type
+              rendered: true
+              rendered_strip: false
+          row_class: ''
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
       relationships:
         node:
           id: node
@@ -85,44 +96,59 @@ display:
           group_type: group
           admin_label: Content
       fields:
-        subject:
-          id: subject
+        comment_type:
+          id: comment_type
           table: comment_field_data
-          field: subject
-          entity_type: comment
-          entity_field: subject
-          label: ''
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          plugin_id: field
-          type: string
-          settings:
-            link_to_entity: true
+          field: comment_type
           relationship: none
           group_type: group
           admin_label: ''
-          exclude: false
-          element_type: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: h4
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          group_column: value
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -132,6 +158,60 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: comment
+          entity_field: comment_type
+          plugin_id: field
+        rendered_entity:
+          id: rendered_entity
+          table: comment
+          field: rendered_entity
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view_mode: list_display
+          entity_type: comment
+          plugin_id: rendered_entity
       filters:
         status:
           value: '1'
@@ -169,6 +249,7 @@ display:
           admin_label: ''
           operator: in
           value:
+            os2loop_post: os2loop_post
             os2loop_question: os2loop_question
           group: 1
           exposed: false
@@ -203,10 +284,23 @@ display:
           entity_field: type
           plugin_id: bundle
       sorts: {  }
-      title: 'My answers'
+      title: 'My replies'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'No content related to your user.'
+            format: os2loop_question_answer_plain_text
+          plugin_id: text
       arguments:
         uid:
           id: uid
@@ -254,15 +348,25 @@ display:
         - url.query_args
         - user
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.comment.os2loop_post_comment.default'
+        - 'config:core.entity_view_display.comment.os2loop_post_comment.os2loop_search_db_search_autocomplete'
+        - 'config:core.entity_view_display.comment.os2loop_post_comment.search_result'
+        - 'config:core.entity_view_display.comment.os2loop_question_answer.default'
+        - 'config:core.entity_view_display.comment.os2loop_question_answer.list_display'
+        - 'config:core.entity_view_display.comment.os2loop_question_answer.os2loop_search_db_search_autocomplete'
+        - 'config:core.entity_view_display.comment.os2loop_question_answer.search_result'
   page_1:
     display_plugin: page
     id: page_1
     display_title: Page
     position: 1
     display_options:
-      display_extenders: {  }
-      path: user/answers
+      display_extenders:
+        views_flag_refresh:
+          flags: {  }
+          noscrolltop: 0
+      path: user/replies
     cache_metadata:
       max-age: -1
       contexts:
@@ -272,4 +376,11 @@ display:
         - url.query_args
         - user
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.comment.os2loop_post_comment.default'
+        - 'config:core.entity_view_display.comment.os2loop_post_comment.os2loop_search_db_search_autocomplete'
+        - 'config:core.entity_view_display.comment.os2loop_post_comment.search_result'
+        - 'config:core.entity_view_display.comment.os2loop_question_answer.default'
+        - 'config:core.entity_view_display.comment.os2loop_question_answer.list_display'
+        - 'config:core.entity_view_display.comment.os2loop_question_answer.os2loop_search_db_search_autocomplete'
+        - 'config:core.entity_view_display.comment.os2loop_question_answer.search_result'

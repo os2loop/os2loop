@@ -5,3 +5,11 @@ os2loop_subscriptions.user_subscriptions:
     _title: 'User subscriptions'
   requirements:
     _permission: 'access content'
+
+os2loop_subscriptions.settings:
+  path: '/admin/config/os2loop/os2loop_subscriptions/settings'
+  defaults:
+    _form: '\Drupal\os2loop_subscriptions\Form\SettingsForm'
+    _title: 'OS2Loop subscriptions settings'
+  requirements:
+    _permission: 'administer os2loop settings'

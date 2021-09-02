@@ -7,12 +7,15 @@ dependencies:
     - field.field.node.os2loop_documents_document.os2loop_documents_document_autho
     - field.field.node.os2loop_documents_document.os2loop_documents_document_body
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
+    - field.field.node.os2loop_documents_document.os2loop_documents_info_box
     - field.field.node.os2loop_documents_document.os2loop_shared_profession
+    - field.field.node.os2loop_documents_document.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_document.os2loop_shared_subject
     - field.field.node.os2loop_documents_document.os2loop_shared_tags
     - node.type.os2loop_documents_document
   module:
     - entity_reference_revisions
+    - text
     - user
 id: node.os2loop_documents_document.pdf
 targetEntityType: node
@@ -25,34 +28,48 @@ content:
     settings: {  }
     third_party_settings: {  }
   flag_os2loop_subscription_node:
-    weight: 10
+    weight: 9
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   links:
     weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   os2loop_documents_document_autho:
-    weight: 3
+    weight: 5
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
+  os2loop_documents_document_body:
+    type: text_default
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   os2loop_documents_document_conte:
     type: entity_reference_revisions_entity_view
-    weight: 2
+    weight: 4
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
+  os2loop_documents_info_box:
+    type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   os2loop_shared_profession:
-    weight: 6
+    weight: 8
     label: above
     settings:
       link: true
@@ -60,7 +77,7 @@ content:
     type: entity_reference_label
     region: content
   os2loop_shared_subject:
-    weight: 4
+    weight: 6
     label: above
     settings:
       link: true
@@ -68,7 +85,7 @@ content:
     type: entity_reference_label
     region: content
   os2loop_shared_tags:
-    weight: 5
+    weight: 7
     label: above
     settings:
       link: true
@@ -80,5 +97,5 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
-  os2loop_documents_document_body: true
+  os2loop_shared_rev_date: true
   search_api_excerpt: true

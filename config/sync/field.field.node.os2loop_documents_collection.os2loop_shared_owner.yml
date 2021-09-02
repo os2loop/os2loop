@@ -1,0 +1,19 @@
+uuid: 542e9141-d8fc-418f-8c6d-1bd940ff8632
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_shared_owner
+    - node.type.os2loop_documents_collection
+id: node.os2loop_documents_collection.os2loop_shared_owner
+field_name: os2loop_shared_owner
+entity_type: node
+bundle: os2loop_documents_collection
+label: Owner
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

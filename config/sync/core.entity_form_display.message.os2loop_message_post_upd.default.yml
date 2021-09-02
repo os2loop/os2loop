@@ -1,0 +1,23 @@
+uuid: c962b8a6-3988-40aa-b66e-f24a2c648690
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.message.os2loop_message_post_upd.os2loop_message_node_refer
+    - message.template.os2loop_message_post_upd
+id: message.os2loop_message_post_upd.default
+targetEntityType: message
+bundle: os2loop_message_post_upd
+mode: default
+content:
+  os2loop_message_node_refer:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden: {  }

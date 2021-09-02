@@ -1,0 +1,7 @@
+os2loop_analytics.settings:
+  path: '/admin/config/os2loop/os2loop_analytics/settings'
+  defaults:
+    _form: '\Drupal\os2loop_analytics\Form\SettingsForm'
+    _title: 'OS2Loop analytics settings'
+  requirements:
+    _permission: 'administer os2loop settings'

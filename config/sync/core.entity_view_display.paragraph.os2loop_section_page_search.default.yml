@@ -1,0 +1,26 @@
+uuid: 49127080-8cc6-47a0-b781-21f98e5c1706
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.os2loop_section_page_search.os2loop_section_page_block
+    - paragraphs.paragraphs_type.os2loop_section_page_search
+  module:
+    - block_field
+id: paragraph.os2loop_section_page_search.default
+targetEntityType: paragraph
+bundle: os2loop_section_page_search
+mode: default
+content:
+  os2loop_section_page_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

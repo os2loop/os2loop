@@ -1,0 +1,4 @@
+text:
+  -
+    value: 'Et indlæg du følger er blevet opdateret: <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a>'
+    format: os2loop_message_message

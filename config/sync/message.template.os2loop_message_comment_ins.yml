@@ -1,0 +1,19 @@
+uuid: 77e63684-347d-4e02-8e25-a4f257d2929e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.os2loop_message_message
+template: os2loop_message_comment_ins
+label: 'Comment added'
+description: ''
+text:
+  -
+    value: 'There is a new comment on the post <a href="/node/[message:os2loop_message_node_refer:entity:nid]#comment-[message:os2loop_message_comment_refer:target_id]">[message:os2loop_message_node_refer:entity:title]</a>'
+    format: os2loop_message_message
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

@@ -3,36 +3,62 @@
  * Os2loop colors. for now.
  */
 
-$primary-color: #41ab51;
-$secondary-color: #488cd4;
-$dark-secondary-color: darken($secondary-color, 5%);
-$primary: $primary-color;
+// Override Bootstrap colors
+$primary: #41ab51 !default;
+$secondary: #6c757d !default;
+$success: #28a745 !default;
+$info: #17a2b8 !default;
+$warning: #ffc107 !default;
+$danger: #dc3545 !default;
+$light: #f8f9fa !default;
+$dark: #343a40 !default;
+$blue: #0a58ca !default;
+
+// Taxonomy colors
+$taxonomy-color-1: hsl(60, 54%, 35%) !default;
+$taxonomy-color-2: hsl(120, 54%, 35%) !default;
+$taxonomy-color-3: hsl(230, 54%, 35%) !default;
+$taxonomy-color-4: hsl(0, 0%, 13%) !default;
+
+// Black and white
 $black: #000;
 $white: #fff;
 
-// Colors
-$light-grey: #f2f2f2;
-$grey: #e4e4ec;
-$dark-grey: #2c3c44;
-$red: #c8545c;
+@import "contrast-function";
 
-$light-background: $light-grey;
-$dark-background: $grey;
-$field-title-color: $dark-grey;
-$text-color: $dark-grey;
+$light-background: $gray-100;
+$dark-background: $gray-300;
+$field-title-color: $dark;
+
+// Text color
+$text-color: $dark;
+$text-on-primary: contrast-color($primary);
+$text-on-secondary: contrast-color($secondary);
+$text-on-success: contrast-color($success);
+$text-on-info: contrast-color($info);
+$text-on-warning: contrast-color($warning);
+$text-on-danger: contrast-color($danger);
 
 // Icon buttons
-$icon-base-color: $dark-grey;
-$delete: $red;
-$upvote: $primary-color;
-$follow-content: $primary-color;
-$edit: $secondary-color;
+$icon-base-color: $gray-700;
+$delete: $danger;
+$upvote: $primary;
+$follow-content: $primary;
+$edit: $secondary;
+$subscribe: $primary;
+$favourite: $primary;
 
-$dark-icon-base-color: darken($dark-grey, 10%);
-$dark-delete: darken($red, 10%);
-$dark-upvote: darken($primary-color, 10%);
-$dark-follow-content: darken($primary-color, 10%);
-$dark-edit: darken($secondary-color, 10%);
+$dark-icon-base-color: darken($icon-base-color, 10%);
+$dark-delete: darken($delete, 10%);
+$dark-upvote: darken($upvote, 10%);
+$dark-follow-content: darken($follow-content, 10%);
+$dark-edit: darken($edit, 10%);
+$dark-subscribe: darken($subscribe, 10%);
+$dark-favourite: darken($favourite, 10%);
 
-// Link color
-$link-color: #0056b3;
+// Attributes
+$highlighted: lighten($primary, 40%);
+$highlighted-border: $primary;
+$link-color: $blue;
+
+$info-box-background: $info;

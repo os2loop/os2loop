@@ -6,7 +6,7 @@ global-styling:
 global-scripts:
   version: 1.x
   js:
-    build/app.js: {  }
+    build/app.js: { preprocess: false }
 
 pdf-styling:
   version: 1.x

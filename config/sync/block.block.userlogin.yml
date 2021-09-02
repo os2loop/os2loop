@@ -1,0 +1,27 @@
+uuid: 11fc8127-6a14-44b8-865f-fef3e55a34f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - os2loop_theme
+id: userlogin
+theme: os2loop_theme
+region: content
+weight: -7
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

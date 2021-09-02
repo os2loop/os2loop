@@ -1,0 +1,19 @@
+uuid: 2665b2fd-0d2f-44e0-bbea-b019e1e755e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.os2loop_message_message
+template: os2loop_message_post_ins
+label: 'Post added'
+description: ''
+text:
+  -
+    value: 'There is a new post with a subject you follow: <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a>'
+    format: os2loop_message_message
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

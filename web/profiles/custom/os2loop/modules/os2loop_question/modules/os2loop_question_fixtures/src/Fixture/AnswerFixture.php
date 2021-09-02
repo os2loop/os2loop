@@ -6,6 +6,7 @@ use Drupal\comment\Entity\Comment;
 use Drupal\content_fixtures\Fixture\AbstractFixture;
 use Drupal\content_fixtures\Fixture\DependentFixtureInterface;
 use Drupal\content_fixtures\Fixture\FixtureGroupInterface;
+use Drupal\os2loop_media_fixtures\Fixture\MediaFixture;
 
 /**
  * Answer fixture.
@@ -62,6 +63,9 @@ No! The first answer is still the best.
 BODY,
         'format' => 'os2loop_question_answer_plain_text',
       ],
+      'os2loop_question_answer_media' => [
+        'target_id' => $this->getReference('os2loop_file:file-bbb.pdf')->id(),
+      ],
     ]);
     $this->setReference('comment:answer-with-attitude', $comment);
     $comment->save();
@@ -72,6 +76,7 @@ BODY,
    */
   public function getDependencies() {
     return [
+      MediaFixture::class,
       QuestionFixture::class,
     ];
   }

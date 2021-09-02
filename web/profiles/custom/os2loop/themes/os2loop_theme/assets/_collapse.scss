@@ -1,0 +1,17 @@
+button[data-toggle="collapse"][aria-expanded="true"] {
+  .more {
+    @extend .d-none;
+  }
+  .less {
+    @extend .d-inline;
+  }
+}
+
+button[data-toggle="collapse"][aria-expanded="false"] {
+  .more {
+    @extend .d-inline;
+  }
+  .less {
+    @extend .d-none;
+  }
+}

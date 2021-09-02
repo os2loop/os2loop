@@ -12,6 +12,7 @@ use Drupal\os2loop_flag_content\Services\ConfigService;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Flag content form.
@@ -55,7 +56,7 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
   protected $messenger;
 
   /**
-   * Constructs an flag content form.
+   * Constructs a flag content form.
    *
    * @param \Drupal\Core\Routing\RouteMatchInterface $routeMatcher
    *   The route matcher.
@@ -113,7 +114,7 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
 
     $form['reason'] = [
       '#type' => 'select',
-      '#title' => $this->t('Reasons'),
+      '#title' => $this->t('Reason'),
       '#required' => TRUE,
       '#options' => $reasons,
       '#empty_option' => $this->t('Pick a reason'),
@@ -126,34 +127,32 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
     ];
 
     $form['actions']['#type'] = 'actions';
+
     $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Send'),
       '#attributes' => [
         'class' => [
-          'button',
+          'btn',
+          'btn-primary',
         ],
       ],
     ];
 
     $form['actions']['cancel'] = [
       '#type' => 'link',
-      '#url' => new Url('entity.node.canonical', ['node' => $node->id()]),
+      '#url' => $node->toUrl(),
       '#title' => $this->t('Cancel'),
       '#attributes' => [
         'class' => [
-          'button',
+          'btn',
+          'btn-warning',
         ],
       ],
     ];
 
     return $form;
   }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {}
 
   /**
    * {@inheritdoc}
@@ -167,15 +166,18 @@ class FlagContentForm extends FormBase implements ContainerInjectionInterface {
     $key = 'flag_content';
     $params['reason'] = $form_state->getValue('reason');
     $params['message'] = $message;
-    $params['node_title'] = $node->label();
+    $params['node'] = $node;
     $langcode = $this->currentUser->getPreferredLangcode();
     $send = TRUE;
     $result = $this->mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
     if ($result['result'] !== TRUE) {
-      $this->messenger->addMessage($this->t('There was a problem sending your message and it was not sent.'), 'error');
+      $this->messenger->addError($this->t('There was a problem sending your message and it was not sent.'));
     }
     else {
-      $this->messenger->addError($this->t('Your message has been sent.'));
+      $this->messenger->addStatus($this->t('Your message has been sent.'));
+      $redirectUrl = Url::fromRoute('entity.node.canonical', ['node' => $node->id()])->toString();
+      $response = new RedirectResponse($redirectUrl);
+      $response->send();
     }
   }
 

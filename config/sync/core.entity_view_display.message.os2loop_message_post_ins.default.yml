@@ -1,0 +1,35 @@
+uuid: bfb6b3a6-83aa-4baa-8a75-1148c1391531
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.message.os2loop_message_post_ins.os2loop_message_node_refer
+    - message.template.os2loop_message_post_ins
+id: message.os2loop_message_post_ins.default
+targetEntityType: message
+bundle: os2loop_message_post_ins
+mode: default
+content:
+  flag_message_read:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  os2loop_message_node_refer:
+    weight: 11
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  partial_0:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

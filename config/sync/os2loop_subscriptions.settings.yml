@@ -1,0 +1,16 @@
+subscribe_node_types:
+  os2loop_documents_collection: os2loop_documents_collection
+  os2loop_documents_document: os2loop_documents_document
+  os2loop_post: os2loop_post
+  os2loop_question: os2loop_question
+  os2loop_external: 0
+  os2loop_page: 0
+  os2loop_section_page: 0
+favourite_node_types:
+  os2loop_documents_collection: os2loop_documents_collection
+  os2loop_documents_document: os2loop_documents_document
+  os2loop_post: os2loop_post
+  os2loop_question: os2loop_question
+  os2loop_section_page: os2loop_section_page
+  os2loop_external: 0
+  os2loop_page: 0

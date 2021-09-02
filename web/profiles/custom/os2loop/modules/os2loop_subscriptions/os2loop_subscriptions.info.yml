@@ -6,3 +6,4 @@ package: 'OS2Loop'
 dependencies:
   - drupal:twig_tweak
   - drupal:views
+  - drupal:flag

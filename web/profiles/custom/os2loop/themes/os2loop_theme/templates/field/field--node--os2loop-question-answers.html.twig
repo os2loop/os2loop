@@ -26,27 +26,18 @@
  * @see comment_preprocess_field()
  */
 #}
+
 <section{{ attributes }}>
   {% if comments and not label_hidden %}
     {{ title_prefix }}
-    <h2{{ title_attributes }}>{{ label }}</h2>
+    <h3{{ title_attributes }}>{{ label }}</h3>
     {{ title_suffix }}
   {% endif %}
   {{ comments }}
   {% if comment_form %}
-    <h2{{ content_attributes }}>{{ 'Add new comment'|t }}</h2>
-    <div class="user">
-      <i class="bi bi-file-person"></i>
-      {# TODO fix image #}
-      <div class="col-md">
-        <div>
-          {{ user.displayname }}
-        </div>
-        <div>metadata</div>
-        {# TODO fix metadata #}
-      </div>
-    </div>
-    <div class="bg-secondary-loop comment-reply">
+    <h3{{ content_attributes.addClass('h5') }}>{{ 'Add new answer'|t }}</h3>
+    {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', user.account.id)} %}
+    <div class="bg-secondary-loop comment-write-reply">
       {{ comment_form }}
     </div>
   {% endif %}

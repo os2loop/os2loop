@@ -1,0 +1,21 @@
+uuid: 8a7386a7-ea23-40ce-b969-b9f9a7e4d344
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.os2loop_taxonomy_color_picker
+    - taxonomy.vocabulary.os2loop_subject
+  module:
+    - options
+id: taxonomy_term.os2loop_subject.os2loop_taxonomy_color_picker
+field_name: os2loop_taxonomy_color_picker
+entity_type: taxonomy_term
+bundle: os2loop_subject
+label: os2loop
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

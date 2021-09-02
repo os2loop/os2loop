@@ -5,6 +5,7 @@ dependencies:
   config:
     - comment.type.os2loop_question_answer
     - field.field.comment.os2loop_question_answer.os2loop_question_answer
+    - field.field.comment.os2loop_question_answer.os2loop_question_answer_media
   module:
     - text
 id: comment.os2loop_question_answer.default
@@ -33,6 +34,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  os2loop_question_answer_media:
+    type: entity_reference_entity_id
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
     region: content
 hidden:
   entity_print_view_epub: true

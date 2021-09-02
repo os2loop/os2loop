@@ -1,0 +1,10 @@
+uuid: db078576-3d42-4de9-8994-f0a8ec621169
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_section_page_info_block
+label: 'Info block'
+icon_uuid: null
+icon_default: null
+description: 'Info block for section pages'
+behavior_plugins: {  }

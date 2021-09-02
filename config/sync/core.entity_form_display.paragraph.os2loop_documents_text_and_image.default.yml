@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.os2loop_documents_text_and_image.os2loop_documents_tai_image
+    - field.field.paragraph.os2loop_documents_text_and_image.os2loop_documents_tai_position
     - field.field.paragraph.os2loop_documents_text_and_image.os2loop_documents_tai_text
-    - image.style.thumbnail
     - paragraphs.paragraphs_type.os2loop_documents_text_and_image
   module:
-    - image
+    - media_library
     - text
 id: paragraph.os2loop_documents_text_and_image.default
 targetEntityType: paragraph
@@ -16,12 +16,17 @@ bundle: os2loop_documents_text_and_image
 mode: default
 content:
   os2loop_documents_tai_image:
+    type: media_library_widget
     weight: 1
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      media_types: {  }
     third_party_settings: {  }
-    type: image_image
+    region: content
+  os2loop_documents_tai_position:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   os2loop_documents_tai_text:
     weight: 0

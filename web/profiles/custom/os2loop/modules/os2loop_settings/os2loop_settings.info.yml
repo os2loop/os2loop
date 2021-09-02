@@ -1,0 +1,7 @@
+name: 'OS2Loop Settings'
+type: module
+description: 'OS2Loop Settings'
+core_version_requirement: ^9
+package: 'OS2Loop'
+
+configure: os2loop_settings.settings

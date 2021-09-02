@@ -1,0 +1,14 @@
+uuid: 42224c94-542a-489c-b4df-ec566642b125
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: os2loop_taxonomy
+label: Taxonomy
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:vocabulary]/[term:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

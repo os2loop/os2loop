@@ -15,7 +15,6 @@ dependencies:
   module:
     - comment
     - datetime
-    - file
     - text
     - user
 id: node.os2loop_post.default
@@ -30,9 +29,9 @@ content:
     third_party_settings: {  }
   flag_os2loop_subscription_node:
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   links:
     weight: 0
     region: content
@@ -55,16 +54,15 @@ content:
     type: text_default
     region: content
   os2loop_post_file:
-    weight: 5
+    type: entity_reference_entity_id
+    weight: 11
     label: visually_hidden
-    settings:
-      use_description_as_link_text: true
+    settings: {  }
     third_party_settings: {  }
-    type: file_default
     region: content
   os2loop_shared_profession:
     weight: 4
-    label: inline
+    label: above
     settings:
       link: true
     third_party_settings: {  }
@@ -81,7 +79,7 @@ content:
     region: content
   os2loop_shared_subject:
     weight: 2
-    label: inline
+    label: above
     settings:
       link: true
     third_party_settings: {  }
@@ -89,7 +87,7 @@ content:
     region: content
   os2loop_shared_tags:
     weight: 3
-    label: inline
+    label: above
     settings:
       link: true
     third_party_settings: {  }

@@ -1,0 +1,32 @@
+{#
+/**
+ * Template for displaying tasks on content.
+ *
+ * Should only be used for on node templates.
+ *
+ * Available variables
+ * - @see drupal/core/node/templates/node.html.twig
+ */
+#}
+<div class="icon-container">
+  {{ content.flag_os2loop_upvote_upvote_button }}
+  {% if is_granted('update', comment) %}
+    <div class="icon edit" data-toggle="tooltip" title="{{ 'Edit reply'|t }}">
+      <a aria-label="{{ 'Edit reply'|t }}" href="{{ path('entity.comment.edit_form', {comment: comment.id}) }}">
+        <span class="visually-hidden">{{ 'Edit reply'|t }}</span>
+      </a>
+    </div>
+  {% endif %}
+  {% if is_granted('delete', comment) %}
+    <div class="icon delete" data-toggle="tooltip" title="{{ 'Delete reply'|t }}">
+      <a aria-label="{{ 'Delete reply'|t }}" href="{{ path('entity.comment.delete_form', {comment: comment.id}) }}">
+        <span class="visually-hidden">{{ 'Delete reply'|t }}</span>
+      </a>
+    </div>
+  {% endif %}
+  <div class="icon comment-reply" data-toggle="reply-to-reply" title="{{ 'Reply to reply'|t }}">
+    <a href="{{ path('comment.reply', {entity_type: 'node', entity: node['#node'].id, field_name: comment.field_name.value, pid: comment.id}) }}" aria-label="{{ 'Reply to reply'|t }}">
+      <span class="visually-hidden">{{ 'Reply to reply'|t }}</span>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+uuid: 32e2747b-fb6b-4015-9325-855d914f36ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.os2loop_section_page_block
+    - paragraphs.paragraphs_type.os2loop_section_page_search
+  module:
+    - block_field
+id: paragraph.os2loop_section_page_search.os2loop_section_page_block
+field_name: os2loop_section_page_block
+entity_type: paragraph
+bundle: os2loop_section_page_search
+label: 'Block element'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids:
+      'views_exposed_filter_block:os2loop_search_db-page_search_form': 'views_exposed_filter_block:os2loop_search_db-page_search_form'
+field_type: block_field

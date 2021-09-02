@@ -1,0 +1,26 @@
+uuid: 2cddeaee-317b-48d8-b491-faed2ae1c68e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.os2loop_section_page_search.os2loop_section_page_block
+    - paragraphs.paragraphs_type.os2loop_section_page_search
+  module:
+    - block_field
+id: paragraph.os2loop_section_page_search.default
+targetEntityType: paragraph
+bundle: os2loop_section_page_search
+mode: default
+content:
+  os2loop_section_page_block:
+    weight: 0
+    settings:
+      plugin_id: ''
+      settings: {  }
+      configuration_form: full
+    third_party_settings: {  }
+    type: block_field_default
+    region: content
+hidden:
+  created: true
+  status: true

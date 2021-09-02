@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * The module file for os2loop_user_login.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @see \Drupal\os2loop_user_login\Helper\Helper::alterForm()
+ */
+function os2loop_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  Drupal::service('os2loop_user_login.helper')->alterForm($form, $form_state, $form_id);
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * @see \Drupal\os2loop_user_login\Helper\Helper::alterLocalTasks()
+ */
+function os2loop_user_login_menu_local_tasks_alter(&$data, $route_name) {
+  Drupal::service('os2loop_user_login.helper')->alterLocalTasks($data, $route_name);
+}
+
+/**
+ * Implements hook_user_login().
+ */
+function os2loop_user_login_user_login(UserInterface $account) {
+  Drupal::service('os2loop_user_login.helper')->userLogin($account);
+}
+
+/**
+ * Implements hook_preprocess_block().
+ *
+ * @see \Drupal\os2loop_user_login\Helper\Helper::preprocessBlock()
+ */
+function os2loop_user_login_preprocess_block(array &$variables) {
+  Drupal::service('os2loop_user_login.helper')->preprocessBlock($variables);
+}
+
+/**
+ * Implements hook_openid_connect_userinfo_alter().
+ */
+function os2loop_user_login_openid_connect_userinfo_alter(array &$userinfo, array $context) {
+  Drupal::service('os2loop_user_login.helper')->openidConnectUserinfoAlter($userinfo, $context);
+}
+
+/**
+ * Implements hook_menu_links_discovered_alter().
+ */
+function os2loop_user_login_menu_links_discovered_alter(&$links) {
+  Drupal::service('os2loop_user_login.helper')->menuLinksDiscoveredAlter($links);
+}

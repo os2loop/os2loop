@@ -1,0 +1,11 @@
+uuid: bee77c0b-0d37-43fe-84b0-28c531bdc3a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.os2loop_media_library
+id: taxonomy_term.os2loop_media_library
+target_entity_type_id: taxonomy_term
+target_bundle: os2loop_media_library
+default_langcode: site_default
+language_alterable: false

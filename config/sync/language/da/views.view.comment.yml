@@ -1,8 +1,8 @@
 label: Kommentarer
-description: 'Find og administrér kommentarer'
+description: 'Find og administrér kommentarer.'
 display:
   default:
-    display_title: Master
+    display_title: Standard
     display_options:
       exposed_form:
         options:
@@ -71,6 +71,7 @@ display:
       menu:
         title: 'Ikke-godkendte kommentarer'
         description: 'Ikke-godkendte kommentarer'
+      display_description: 'Listen af ikke-godkendte kommentarer.'
       filters:
         subject:
           expose:

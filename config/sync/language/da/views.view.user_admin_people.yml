@@ -2,7 +2,7 @@ label: Personer
 description: 'Find og håndtér personer som bruger dit site.'
 display:
   default:
-    display_title: Master
+    display_title: Standard
     display_options:
       exposed_form:
         options:

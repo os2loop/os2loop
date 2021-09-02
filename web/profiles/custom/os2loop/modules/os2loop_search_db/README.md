@@ -51,3 +51,15 @@ $config['os2loop.settings']['os2loop_search_db']['content_type_groups'] = [];
 ```
 
 to disable the content type grouping.
+
+## Indexing content
+
+Content is indexed immediately when its created or updated.
+
+If you need to (re-)index content manually, run
+
+```sh
+vendor/bin/drush search-api:reset-tracker os2loop_search_db_index
+vendor/bin/drush search-api:rebuild-tracker os2loop_search_db_index
+vendor/bin/drush search-api:index os2loop_search_db_index
+```

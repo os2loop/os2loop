@@ -1,0 +1,11 @@
+name: 'OS2Loop user login'
+type: module
+description: 'OS2Loop user login'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'OS2Loop'
+
+dependencies:
+  - drupal:openid_connect
+  - drupal:os2loop_user
+  - drupal:samlauth

@@ -1,5 +1,7 @@
 # OS2Loop Taxonomy
 
+Adds taxonomy terms.
+
 ## Fixtures
 
 ```sh

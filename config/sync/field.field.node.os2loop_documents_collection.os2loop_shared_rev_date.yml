@@ -1,0 +1,21 @@
+uuid: cecad11d-a8d0-44fe-bd37-93e6d3bb5525
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_shared_rev_date
+    - node.type.os2loop_documents_collection
+  module:
+    - datetime
+id: node.os2loop_documents_collection.os2loop_shared_rev_date
+field_name: os2loop_shared_rev_date
+entity_type: node
+bundle: os2loop_documents_collection
+label: 'Revision date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

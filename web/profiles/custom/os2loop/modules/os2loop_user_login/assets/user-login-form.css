@@ -1,0 +1,9 @@
+/* Hide the default Drupal login form … */
+.user-login-form #drupal-login {
+  display: none;
+}
+
+/* … unless it's explicitly targeted. */
+.user-login-form #drupal-login:target {
+  display: block;
+}

@@ -1,0 +1,6 @@
+os2loop_mail_notifications.settings:
+  title: 'OS2Loop Mail notifications settings'
+  route_name: os2loop_mail_notifications.settings
+  description: 'Configure OS2Loop Mail notifications settings'
+  parent: os2loop.group.admin
+  weight: 10

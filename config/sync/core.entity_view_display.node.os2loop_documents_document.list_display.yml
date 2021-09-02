@@ -7,7 +7,9 @@ dependencies:
     - field.field.node.os2loop_documents_document.os2loop_documents_document_autho
     - field.field.node.os2loop_documents_document.os2loop_documents_document_body
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
+    - field.field.node.os2loop_documents_document.os2loop_documents_info_box
     - field.field.node.os2loop_documents_document.os2loop_shared_profession
+    - field.field.node.os2loop_documents_document.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_document.os2loop_shared_subject
     - field.field.node.os2loop_documents_document.os2loop_shared_tags
     - node.type.os2loop_documents_document
@@ -81,4 +83,6 @@ hidden:
   entity_print_view_word_docx: true
   langcode: true
   os2loop_documents_document_body: true
+  os2loop_documents_info_box: true
+  os2loop_shared_rev_date: true
   search_api_excerpt: true

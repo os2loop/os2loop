@@ -1,0 +1,6 @@
+os2loop_documents.settings:
+  title: 'OS2Loop Documents settings'
+  route_name: os2loop_documents.settings
+  description: 'Configure OS2Loop Documents settings'
+  parent: os2loop.group.admin
+  weight: 10

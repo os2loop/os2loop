@@ -15,8 +15,6 @@
  */
 #}
 {% spaceless %}
-{# Attach the flag CSS library.#}
-{{ attach_library('flag/flag.link') }}
 
 {# Depending on the flag action, set the appropriate action class. #}
 {% if action == 'unflag' %}
@@ -36,8 +34,11 @@
 
 {# Set nofollow to prevent search bots from crawling anonymous flag links #}
 {% set attributes = attributes.setAttribute('rel', 'nofollow') %}
+{% set attributes = attributes.removeAttribute('title') %}
 
-<div class="{{ classes|join(' ') }}" title='{{ title }}'>
-  <a{{ attributes }} aria-label='{{ title }}'></a>
+<div class="{{ classes|join(' ') }}" data-toggle="tooltip" title='{{ title }}'>
+  <a{{ attributes }} aria-label='{{ title }}'>
+    <span class="visually-hidden">{{ title }}</span>
+  </a>
 </div>
 {% endspaceless %}

@@ -1,0 +1,23 @@
+uuid: bc2a2395-6553-4499-8379-de118747d743
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.os2loop_mail_notifications_intvl
+  module:
+    - options
+    - user
+id: user.user.os2loop_mail_notifications_intvl
+field_name: os2loop_mail_notifications_intvl
+entity_type: user
+bundle: user
+label: 'Mail notifications interval'
+description: 'Specify how often you want mail notifications.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 86400
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

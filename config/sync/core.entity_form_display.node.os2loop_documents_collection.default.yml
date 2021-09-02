@@ -4,13 +4,40 @@ status: true
 dependencies:
   config:
     - field.field.node.os2loop_documents_collection.os2loop_documents_dc_content
+    - field.field.node.os2loop_documents_collection.os2loop_documents_info_box
+    - field.field.node.os2loop_documents_collection.os2loop_shared_approval_date
+    - field.field.node.os2loop_documents_collection.os2loop_shared_approver
+    - field.field.node.os2loop_documents_collection.os2loop_shared_owner
     - field.field.node.os2loop_documents_collection.os2loop_shared_profession
+    - field.field.node.os2loop_documents_collection.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_collection.os2loop_shared_subject
     - field.field.node.os2loop_documents_collection.os2loop_shared_tags
+    - field.field.node.os2loop_documents_collection.os2loop_shared_version
     - node.type.os2loop_documents_collection
   module:
     - autocomplete_deluxe
+    - datetime
+    - field_group
     - text
+third_party_settings:
+  field_group:
+    group_os2loop_documents_metadata:
+      children:
+        - os2loop_shared_owner
+        - os2loop_shared_version
+        - os2loop_shared_approver
+        - os2loop_shared_approval_date
+        - os2loop_shared_rev_date
+      parent_name: ''
+      weight: 9
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Metadata
 id: node.os2loop_documents_collection.default
 targetEntityType: node
 bundle: os2loop_documents_collection
@@ -23,15 +50,45 @@ content:
     settings: {  }
     third_party_settings: {  }
   os2loop_documents_dc_content:
-    weight: 6
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
+  os2loop_documents_info_box:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  os2loop_shared_approval_date:
+    weight: 29
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  os2loop_shared_approver:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  os2loop_shared_owner:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   os2loop_shared_profession:
-    weight: 9
+    weight: 8
     settings:
       match_operator: CONTAINS
       autocomplete_route_name: autocomplete_deluxe.autocomplete
@@ -47,8 +104,14 @@ content:
     third_party_settings: {  }
     type: autocomplete_deluxe
     region: content
+  os2loop_shared_rev_date:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   os2loop_shared_subject:
-    weight: 7
+    weight: 6
     settings:
       match_operator: CONTAINS
       autocomplete_route_name: autocomplete_deluxe.autocomplete
@@ -65,15 +128,15 @@ content:
     type: autocomplete_deluxe
     region: content
   os2loop_shared_tags:
-    weight: 8
+    weight: 7
     settings:
-      limit: '10'
-      min_length: '0'
+      limit: 10
+      min_length: 0
       delimiter: ''
       not_found_message: 'The term ''@term'' will be added'
-      new_terms: '1'
+      new_terms: true
       no_empty_message: 'No terms could be found. Please type in order to add a new term.'
-      not_found_message_allow: 0
+      not_found_message_allow: false
       match_operator: CONTAINS
       autocomplete_route_name: autocomplete_deluxe.autocomplete
       size: 60
@@ -81,25 +144,25 @@ content:
     third_party_settings: {  }
     type: autocomplete_deluxe
     region: content
-  promote:
-    type: boolean_checkbox
+  os2loop_shared_version:
+    weight: 27
     settings:
-      display_label: true
-    weight: 3
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 4
+    weight: 3
     region: content
     third_party_settings: {  }
   title:
@@ -122,3 +185,5 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
+  promote: true
+  sticky: true

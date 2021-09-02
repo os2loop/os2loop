@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Hooks for OS2Loop Mail notifications.
+ */
+
+use Drupal\Core\Render\BubbleableMetadata;
+
+/**
+ * Implements hook_cron().
+ *
+ * @see \Drupal\os2loop_mail_notifications\Helper\Helper::cron()
+ */
+function os2loop_mail_notifications_cron() {
+  Drupal::service('os2loop_mail_notifications.helper')->cron();
+}
+
+/**
+ * Implements hook_mail().
+ *
+ * @see \Drupal\os2loop_mail_notifications\Helper\MailHelper::mail()
+ */
+function os2loop_mail_notifications_mail($key, &$message, $params) {
+  Drupal::service('os2loop_mail_notifications.mail_helper')->mail($key, $message, $params);
+}
+
+/**
+ * Implements hook_tokens().
+ *
+ * @see \Drupal\os2loop_mail_notifications\Helper\MailHelper::tokens()
+ */
+function os2loop_mail_notifications_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  return Drupal::service('os2loop_mail_notifications.mail_helper')->tokens($type, $tokens, $data);
+}
+
+/**
+ * Implements hook_token_info().
+ *
+ * @see \Drupal\os2loop_mail_notifications\Helper\MailHelper::tokenInfo()
+ */
+function os2loop_mail_notifications_token_info() {
+  return Drupal::service('os2loop_mail_notifications.mail_helper')->tokenInfo();
+}

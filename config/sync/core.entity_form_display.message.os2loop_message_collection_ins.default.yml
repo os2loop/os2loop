@@ -1,0 +1,23 @@
+uuid: 39dfcbfd-bece-4f6a-b7b4-2d330dde843d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.message.os2loop_message_collection_ins.os2loop_message_node_refer
+    - message.template.os2loop_message_collection_ins
+id: message.os2loop_message_collection_ins.default
+targetEntityType: message
+bundle: os2loop_message_collection_ins
+mode: default
+content:
+  os2loop_message_node_refer:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden: {  }

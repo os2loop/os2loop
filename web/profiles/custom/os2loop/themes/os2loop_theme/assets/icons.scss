@@ -1,3 +1,50 @@
+$content-types: "os2loop_documents_collection", "os2loop_documents_document",
+  "os2loop_external", "os2loop_page", "os2loop_post", "os2loop_question",
+  "os2loop_section_page";
+
+// Run
+// `grep «icon name» ../node_modules/bootstrap-icons/font/bootstrap-icons.css`,
+// e.g. `grep question-square ../node_modules/bootstrap-icons/font/bootstrap-icons.css`,
+// to get the font index for an icon.
+$icons-content-types: (
+  // https://icons.getbootstrap.com/icons/files/
+  "os2loop_documents_collection": "\f3c2",
+  // https://icons.getbootstrap.com/icons/file-text/
+  "os2loop_documents_document": "\f3b9",
+  // https://icons.getbootstrap.com/icons/link/
+  "os2loop_external": "\f471",
+  // https://icons.getbootstrap.com/icons/globe/
+  "os2loop_page": "\f3ee",
+  // https://icons.getbootstrap.com/icons/file-earmark-richtext/
+  "os2loop_post": "\f383",
+  // https://icons.getbootstrap.com/icons/question-square/
+  "os2loop_question": "\f50b",
+  // "os2loop_section_page": "",
+);
+
+$comment-types: "os2loop_post_comment", "os2loop_question_answer";
+
+$icons-comment-types: (
+  // https://icons.getbootstrap.com/icons/chat/
+  "os2loop_post_comment": "\f383",
+  // https://icons.getbootstrap.com/icons/exclamation-square/ (to match sqare
+  // question icon).
+  "os2loop_question_answer": "\f50b"
+);
+
+// svg content from node_modules/bootstrap-icons/icons/search.svg.
+$search-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-search' viewBox='0 0 16 16'><path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/></svg>");
+
+@function bg-icon($icon, $fill-color) {
+  @if $fill-color {
+    // Convert fill color to string and (partially) url encode.
+    $color: str-replace("#{$fill-color}", "#", "%23");
+    $icon: str-replace($icon, " fill='currentColor'", " fill='#{$color}'");
+  }
+
+  @return $icon;
+}
+
 .icon-container {
   display: flex;
   margin: 0;
@@ -14,6 +61,7 @@
     border-radius: 2px;
     color: $white;
 
+    &.comment-edit,
     &.edit {
       @include link-icon("\f4ca", $edit, $dark-edit);
     }
@@ -29,18 +77,30 @@
       @include link-icon("\f37c", $follow-content, $dark-follow-content);
     }
 
+    &.comment-share,
     &.share {
-      @include link-icon("\f52e");
+      @include link-icon("\f110");
     }
 
+    &.comment-flag,
     &.flag {
       @include link-icon("\f3cc");
     }
 
+    &.comment-reply,
     &.reply {
       @include link-icon("\f51f");
     }
 
+    &.subscribe {
+      @include link-icon("\f18a", $subscribe, $dark-subscribe);
+    }
+
+    &.unsubscribe {
+      @include link-icon("\f189", $subscribe, $dark-subscribe);
+    }
+
+    &.comment-delete,
     &.delete {
       @include link-icon("\f5de", $delete, $dark-delete);
     }
@@ -71,10 +131,9 @@
 // When it is in a comment, it should leave a little margin.
 .os2loop-comment {
   .icon-container {
-    right: 2em;
     display: flex;
     position: absolute;
-    right: 0px;
+    right: 0;
     z-index: 10;
   }
 }

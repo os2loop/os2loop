@@ -1,0 +1,68 @@
+uuid: acd2a7b7-fe02-47a2-82d1-1b5bbe7ec8db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_documents_info_box
+    - node.type.os2loop_documents_document
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 1
+    allowed_formats:
+      os2loop_documents_body: os2loop_documents_body
+      os2loop_question_answer_plain_text: 0
+      os2loop_question_answer_rich_text: 0
+      os2loop_post_comment_plain_text: 0
+      os2loop_post_comment_rich_text: 0
+      os2loop_documents_rich_text: 0
+      os2loop_external: 0
+      os2loop_message_message: 0
+      os2loop_page: 0
+      os2loop_post: 0
+      os2loop_question_plain_text: 0
+      os2loop_question_rich_text: 0
+      os2loop_section_page: 0
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        os2loop_question_answer_plain_text:
+          weight: '0'
+        os2loop_question_answer_rich_text:
+          weight: '0'
+        os2loop_post_comment_plain_text:
+          weight: '0'
+        os2loop_post_comment_rich_text:
+          weight: '0'
+        os2loop_documents_body:
+          weight: '0'
+        os2loop_documents_rich_text:
+          weight: '0'
+        os2loop_external:
+          weight: '0'
+        os2loop_message_message:
+          weight: '0'
+        os2loop_page:
+          weight: '0'
+        os2loop_post:
+          weight: '0'
+        os2loop_question_plain_text:
+          weight: '0'
+        os2loop_question_rich_text:
+          weight: '0'
+        os2loop_section_page:
+          weight: '0'
+id: node.os2loop_documents_document.os2loop_documents_info_box
+field_name: os2loop_documents_info_box
+entity_type: node
+bundle: os2loop_documents_document
+label: 'Quickbox (legacy)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

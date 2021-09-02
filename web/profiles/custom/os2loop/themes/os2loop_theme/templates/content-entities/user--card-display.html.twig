@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div class="card-body">
+  <h2 class="card-title h4">
+    <a href="{{ url('entity.user.canonical', {'user': user.id}) }}">
+      {{ user.os2loop_user_given_name.value }} {{ user.os2loop_user_family_name.value }}
+    </a>
+  </h2>
+  <div class="card-text">
+    <div class="row">
+      <div class="col-3">
+        {% if user.os2loop_user_image.value is not empty %}
+          <div class="rounded-circle bg-white text-center overflow-hidden">
+            {{ content.os2loop_user_image }}
+          </div>
+          {% else %}
+            <i class="bi bi-person-circle display-2"></i>
+          {% endif %}
+      </div>
+      <div class="col">
+        <p class="mb-0">{{ user.os2loop_user_job_title.value }}</p>
+        <p class="mb-0">{{ user.email }}</p>
+        <p class="mb-0">{{ user.os2loop_user_phone_number.value }}</p>
+        <p class="mb-0 mt-2">{{ user.os2loop_user_place.value }}</p>
+        <p class="mb-0">{{ user.os2loop_user_address.value }}</p>
+        <p class="mb-0">{{ user.os2loop_user_city.value }} {% if user.os2loop_user_city.value %}-{% endif %} {{ user.os2loop_user_postal_code.value }}  </p>
+      </div>
+    </div>
+  </div>
+</div>

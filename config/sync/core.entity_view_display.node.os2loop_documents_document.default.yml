@@ -6,11 +6,14 @@ dependencies:
     - field.field.node.os2loop_documents_document.os2loop_documents_document_autho
     - field.field.node.os2loop_documents_document.os2loop_documents_document_body
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
+    - field.field.node.os2loop_documents_document.os2loop_documents_info_box
     - field.field.node.os2loop_documents_document.os2loop_shared_profession
+    - field.field.node.os2loop_documents_document.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_document.os2loop_shared_subject
     - field.field.node.os2loop_documents_document.os2loop_shared_tags
     - node.type.os2loop_documents_document
   module:
+    - datetime
     - entity_reference_revisions
     - text
     - user
@@ -20,22 +23,22 @@ bundle: os2loop_documents_document
 mode: default
 content:
   flag_os2loop_favourite:
-    weight: 10
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   flag_os2loop_subscription_node:
-    weight: 10
+    weight: 9
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   links:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   os2loop_documents_document_autho:
-    weight: 3
+    weight: 4
     label: inline
     settings:
       link_to_entity: false
@@ -43,7 +46,7 @@ content:
     type: string
     region: content
   os2loop_documents_document_body:
-    weight: 1
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -51,32 +54,48 @@ content:
     region: content
   os2loop_documents_document_conte:
     type: entity_reference_revisions_entity_view
-    weight: 2
+    weight: 3
     label: visually_hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
+  os2loop_documents_info_box:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   os2loop_shared_profession:
-    weight: 4
-    label: inline
+    weight: 5
+    label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  os2loop_shared_rev_date:
+    weight: 10
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   os2loop_shared_subject:
-    weight: 5
-    label: inline
+    weight: 6
+    label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   os2loop_shared_tags:
-    weight: 6
-    label: inline
+    weight: 7
+    label: above
     settings:
       link: true
     third_party_settings: {  }

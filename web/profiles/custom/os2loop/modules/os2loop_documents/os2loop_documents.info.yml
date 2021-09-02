@@ -4,5 +4,6 @@ description: 'OS2Loop Documents'
 core_version_requirement: ^9
 package: 'OS2Loop'
 dependencies:
+  - drupal:entity_print
   - drupal:image
   - drupal:paragraphs

@@ -1,0 +1,10 @@
+uuid: 7ac10bf8-f482-4d1d-8b64-c9989076e498
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_section_page_search
+label: Search
+icon_uuid: null
+icon_default: null
+description: 'A paragraph for displaying a search box'
+behavior_plugins: {  }

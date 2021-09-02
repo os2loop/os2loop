@@ -1,0 +1,21 @@
+services:
+  Drupal\os2loop_settings\Settings:
+    class: Drupal\os2loop_settings\Settings
+    arguments:
+      - '@config.factory'
+      - '@entity_type.manager'
+
+  Drupal\os2loop_settings\Helper\Helper:
+    class: Drupal\os2loop_settings\Helper\Helper
+    arguments:
+      - '@Drupal\os2loop_settings\Settings'
+      - '@messenger'
+
+  Drupal\os2loop_settings\TwigExtension\TwigExtension:
+    class: Drupal\os2loop_settings\TwigExtension\TwigExtension
+    arguments:
+      - '@current_user'
+      - '@module_handler'
+      - '@Drupal\os2loop_settings\Settings'
+    tags:
+      - { name: twig.extension }

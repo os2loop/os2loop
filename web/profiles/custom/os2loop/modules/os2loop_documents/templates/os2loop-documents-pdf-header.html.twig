@@ -1,0 +1,67 @@
+{#
+/**
+ * @file
+ * Document collection print header template.
+ */
+#}
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>print – header – {{ node.title() }}</title>
+    <style>
+     html, body {
+       margin: 0;
+       padding: 0;
+     }
+
+     .metadata {
+       height: 25mm;
+     }
+
+     .metadata .item {
+       display: inline-block;
+       width: 45%;
+     }
+
+     .metadata .label, .metadata .value {
+       display: inline-block;
+     }
+
+     .metadata .label::after {
+       content: ':';
+     }
+    </style>
+  </head>
+  <body>
+    <div class="metadata">
+      <div class="item">
+        <div class="label">{{ 'Owner'|t }}</div>
+        <div class="value">{{ node.os2loop_shared_owner.value }}</div>
+      </div>
+
+      <div class="item">
+        <div class="label">{{ 'Version'|t }}</div>
+        <div class="value">{{ node.os2loop_shared_version.value }}</div>
+      </div>
+
+      <div class="item">
+        <div class="label">{{ 'Approver'|t }}</div>
+        <div class="value">{{ node.os2loop_shared_approver.value }}</div>
+      </div>
+
+      <div class="item">
+        <div class="label">{{ 'Approval date'|t }}</div>
+        <div class="value">{{ node.os2loop_shared_approval_date.value }}</div>
+      </div>
+
+      <div class="item"><!-- @author --></div>
+
+      <div class="item">
+        <div class="label">{{ 'Revision date'|t }}</div>
+        <div class="value">{{ node.os2loop_shared_rev_date.value }}</div>
+      </div>
+    </div>
+  </body>
+</html>

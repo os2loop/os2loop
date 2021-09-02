@@ -1,7 +1,23 @@
 {% set node = elements['#node'] %}
-<div class="search-result search-result-{{ node.bundle }}">
-  <h2><a href="{{ url }}">{{ label }}</a></h2>
-  <span class="badge bg-light text-dark node-bundle node-bundle-{{ node.bundle }}">{{ node.bundle|t }}</span>
-  <span class="search_api_excerpt">{{ elements['#search_api_excerpt']|raw }}</span>
-  <span class="subject">{{ elements['os2loop_shared_subject'] }}</span>
+<div class="my-3 search-result search-result--node search-result--node--{{ node.bundle }}">
+  <div class="d-block ml-5">
+    <h2 class="h5"><a href="{{ url }}">{{ label }}</a></h2>
+    <div class="small">{{ 'Type'|t }}: {{ node.type.entity.label }} - {{ 'Posted'|t }}: {{ node.createdtime|format_date('medium') }}</div>
+    {% if (searchedComment.comment) %}
+      <div class="search_api_excerpt ml-3 border bg-light p-3">
+        <div class="small">{{ searchedComment.comment.bundle == 'os2loop_question_answer' ? 'Reply'|t : 'Comment'|t }}:</div>
+        {{ searchedComment.comment_text|raw }}
+      </div>
+    {% else %}
+      <div class="search_api_excerpt mb-0">{{ elements['#search_api_excerpt']|raw }}</div>
+    {% endif %}
+    <span class="subject">{{ elements['os2loop_shared_subject'] }}</span>
+    {% if (node.os2loop_question_answers) %}
+      <span class="subject">{{ 'Replies'|t }}:  <span class="badge badge-light">{{ node.get('os2loop_question_answers').comment_count }}</span></span>
+    {% endif %}
+    {% if (node.os2loop_post_comments) %}
+      <span class="subject">{{ 'Comments'|t }}:  <span class="badge badge-light">{{ node.get('os2loop_post_comments').comment_count }}</span></span>
+    {% endif %}
+  </div>
 </div>
+

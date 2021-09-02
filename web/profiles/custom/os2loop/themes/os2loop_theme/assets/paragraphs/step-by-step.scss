@@ -3,6 +3,10 @@
  * The step-by-step paragraph, complete with numbering.
  */
 .counter {
+  color: $text-on-primary;
+  position: relative;
+  margin-bottom: $spacer * 1.5;
+
   ol {
     list-style-type: none;
     counter-reset: item;
@@ -11,42 +15,49 @@
   }
 
   li {
-    display: table;
-    counter-increment: item;
-    width: 100%;
+    &.paragraph-step {
+      counter-increment: item;
+      width: 100%;
 
-    &::before {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      top: 15px;
-      margin: 10px 0 0 -20px;
-      padding: $spacer*2;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background-color: $primary-color;
-      font-size: 1.2em;
-      font-family: $font-family-base;
-      content: counters(item, ".") " ";
+      &::before {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: $spacer/2;
+        left: -$spacer/2;
+        padding: $spacer * 1.5;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: $primary;
+        font-size: 1.2em;
+        font-weight: bold;
+        font-family: $font-family-base;
+        content: counters(item, ".") " ";
+      }
     }
-  }
-
-  li li {
-    &::before {
-      content: counters(item, ".") " ";
+    li {
+      &.paragraph-step {
+        &::before {
+          content: counters(item, ".") " ";
+          padding: $spacer * 1.25;
+          font-size: 1em;
+          background-color: $gray-500;
+          left: 0;
+        }
+      }
     }
   }
 }
 
 .indented-step {
-  padding-left: $spacer*2;
+  padding-left: $spacer * 1.5;
 }
 
 .step {
-  margin-top: -45px;
-  min-height: 100px;
-  padding: 15px 0 0 55px;
+  min-height: $spacer * 4;
+  padding: $spacer/2 $spacer/2 $spacer/2 $spacer;
   background-color: $light-background;
+  margin-bottom: $spacer/2;
 }

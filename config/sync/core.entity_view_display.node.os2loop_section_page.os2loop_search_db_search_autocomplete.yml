@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.os2loop_search_db_search_autocomplete
     - field.field.node.os2loop_section_page.os2loop_section_page_paragraph
+    - field.field.node.os2loop_section_page.os2loop_shared_rev_date
     - node.type.os2loop_section_page
   module:
     - user
@@ -30,3 +31,4 @@ hidden:
   langcode: true
   links: true
   os2loop_section_page_paragraph: true
+  os2loop_shared_rev_date: true

@@ -43,6 +43,13 @@ theme](web/profiles/custom/os2loop/themes/os2loop_theme/README.md) assets; see
 assets](web/profiles/custom/os2loop/themes/os2loop_theme/README.md#building-assets)
 for details.
 
+After installing the site you should check out [Configuring
+OS2Loop](docs/configuring-os2loop.md) for important and useful post-install
+instructions.
+
+See [OS2Loop modules](docs/modules.md) for a complete list of custom OS2Loop
+modules.
+
 ### Development
 
 See [docs/development](docs/development/README.md) for details on development.
@@ -56,6 +63,11 @@ echo "http://$(docker-compose port nginx 80)"
 # Get admin sign in url
 docker-compose exec phpfpm vendor/bin/drush --yes --uri="http://$(docker-compose port nginx 80)" user:login
 ```
+
+### Modules
+
+Uses a dev version of views_flag_refresh since the module
+is not yet available on drupal.org
 
 #### Mails
 

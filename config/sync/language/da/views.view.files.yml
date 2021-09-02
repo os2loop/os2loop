@@ -2,7 +2,7 @@ label: Filer
 description: 'Find og håndtér filer.'
 display:
   default:
-    display_title: Master
+    display_title: Standard
     display_options:
       exposed_form:
         options:

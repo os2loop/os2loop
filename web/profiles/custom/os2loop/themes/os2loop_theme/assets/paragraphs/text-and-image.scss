@@ -1,14 +1,21 @@
 .paragraph-text-and-image {
-    margin: 1em 0;
-    width: 100%;
-    display: inline-block;
-  
+  margin: 1em 0;
+  width: 100%;
+  display: inline-block;
+
+  img {
+    max-height: 400px;
+    width: auto;
+    float: left;
+    padding-right: $spacer;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  &.image-position-right {
     img {
-      max-height: 400px;
-      width: auto;
-      float: left;
-      padding-right: $spacer;
-      max-width: 100%;
-      object-fit: contain;
+      float: right;
+      padding-left: $spacer;
     }
   }
+}

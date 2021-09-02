@@ -1,0 +1,67 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="col">
+  <div class="card bg-light w-100 member-list-item">
+    <div class="card-body">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          {% if user.os2loop_user_image.value is not empty %}
+            <div class="rounded-circle bg-white text-center overflow-hidden">
+              {{ content.os2loop_user_image }}
+            </div>
+          {% else %}
+            <i class="bi bi-person-circle display-4"></i>
+          {% endif %}
+        </div>
+        <div class="col">
+          <div class="row">
+            <h2 class="card-title h6 col-auto mb-0">
+              <a href="{{ url('entity.user.canonical', {'user': user.id}) }}">
+              {{ user.os2loop_user_given_name.value }} {{ user.os2loop_user_family_name.value }}
+              </a>
+            </h2>
+            <p class="col h6 mb-0">{{ user.os2loop_user_job_title.value }}</p>
+          </div>
+          <div class="row">
+            <div class="col card-text">
+              <div id="collapse-uid-{{ user.id }}" class="collapse d-md-block">
+                <span class="mr-3 d-block d-md-inline">{{ user.email }}</span>
+                <span class="mr-3 d-block d-md-inline">{{ user.os2loop_user_phone_number.value }}</span>
+                <span class="mr-3 d-block d-md-inline">
+                  {% if user.os2loop_user_place.value is not empty %}
+                    <span class="mr-1">{{ user.os2loop_user_place.value }},</span>
+                  {% endif %}
+                  {% if user.os2loop_user_address.value is not empty %}
+                    <span class="mr-1">{{ user.os2loop_user_address.value }},</span>
+                  {% endif %}
+                  <span>{{ user.os2loop_user_postal_code.value }} {{ user.os2loop_user_city.value }}</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carret-collapse col-auto d-md-none" data-toggle="collapse" href="#collapse-uid-{{ user.id }}" role="button" aria-expanded="true" aria-controls="collapse-uid-{{ user.id }}">
+          <i class="bi bi-caret-down"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

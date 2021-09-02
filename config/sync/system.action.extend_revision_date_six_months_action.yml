@@ -1,0 +1,14 @@
+uuid: e0b811b9-504d-486e-a1e7-2b072241316e
+langcode: en
+status: true
+dependencies:
+  module:
+    - os2loop_revision_date
+_core:
+  default_config_hash: QRJsvkEVCyOCmtQ8G3XJEtU0ckVzaeqOtwVJ_efHosw
+id: extend_revision_date_six_months_action
+label: 'Set next revision date to 6 months from now'
+type: node
+plugin: os2loop_revision_date_set_action
+configuration:
+  time_span: '+6 months'

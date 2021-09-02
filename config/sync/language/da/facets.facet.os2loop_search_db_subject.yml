@@ -1,0 +1,4 @@
+name: Emne
+widget:
+  config:
+    reset_text: 'Vis alle'

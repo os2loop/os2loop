@@ -3,3 +3,11 @@ services:
     class: Drupal\os2loop_member_list\Helper\MemberListHelper
     arguments:
       - '@current_user'
+      - '@Drupal\os2loop_settings\Settings'
+
+  os2loop_member_list.access_checker:
+    class: Drupal\os2loop_member_list\Access\AccessCheck
+    arguments:
+      - '@Drupal\os2loop_settings\Settings'
+    tags:
+      - { name: access_check }

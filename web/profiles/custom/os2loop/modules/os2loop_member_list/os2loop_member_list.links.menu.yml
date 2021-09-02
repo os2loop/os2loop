@@ -1,0 +1,6 @@
+os2loop_member_list.settings:
+  title: 'OS2Loop Member list settings'
+  route_name: os2loop_member_list.settings
+  description: 'Configure OS2Loop Member list settings'
+  parent: os2loop.group.admin
+  weight: 5

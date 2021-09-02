@@ -1,0 +1,7 @@
+os2loop_question.settings:
+  path: '/admin/config/os2loop/os2loop_question/settings'
+  defaults:
+    _form: '\Drupal\os2loop_question\Form\SettingsForm'
+    _title: 'OS2Loop Question settings'
+  requirements:
+    _permission: 'administer OS2Loop settings'

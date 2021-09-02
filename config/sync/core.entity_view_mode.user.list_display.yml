@@ -1,0 +1,10 @@
+uuid: 30def988-0a60-4631-a4d0-82fe9456583b
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.list_display
+label: 'List display'
+targetEntityType: user
+cache: true

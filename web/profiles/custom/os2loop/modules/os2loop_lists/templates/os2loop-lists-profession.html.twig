@@ -7,19 +7,41 @@
  * - data: A list of nodes
  */
 #}
-{% if data is empty %}
-  <div class="list-group">
-    <div class="list-group-item mb-2 bg-light border-0">
-      {{ 'No content related to your user'|t }}
-    </div>
-  </div>
-{% else %}
-  {% for node in data %}
-    <div class="list-group">
-      <article class="list-group-item mb-2 bg-light border-0">
-        <div class="text-muted small">{{ node.type.entity.label }} </div>
-        <h3 class="h6"><a href="{{ url('entity.node.canonical', { 'node': node.id() }) }}">{{ node.title() }}</a></h3>
+<div class="list-group">
+  {% if data is empty %}
+    <div class="container list-group-item bg-light border-top mb-2 js-view-empty">
+      <article class="row">
+        {{ 'No content related to your user'|t }}
       </article>
     </div>
-  {% endfor %}
-{% endif %}
+  {% else %}
+    {% for node in data %}
+      <div class="container list-group-item bg-light border-top mb-2">
+        <article class="row">
+          <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+            {{ drupal_field('os2loop_user_image', 'user', node.uid.target_id) }}
+          </div>
+          <div class="col">
+            <div class="small">{{ node.type.entity.label }}</div>
+            <div class="d-flex">
+              <h3 class="h6"><a href="{{ url('entity.node.canonical', { 'node': node.id() }) }}">{{ node.title() }}</a></h3>
+            </div>
+            <div class="d-flex">
+              {% if node.bundle is same as 'os2loop_post' %}
+                {% set body_text = node.os2loop_post_content.value|striptags|raw %}
+              {% endif %}
+
+              {% if node.bundle is same as 'os2loop_question' %}
+                {% set body_text = node.os2loop_question_content.value|striptags|raw %}
+              {% endif %}
+
+              {% if body_text is defined %}
+                {{ body_text|length > 250 ? body_text|slice(0, 250) ~ '...' : body_text }}
+              {% endif %}
+            </div>
+          </div>
+        </article>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>

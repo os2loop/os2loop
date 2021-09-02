@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.os2loop_section_page_paragraph
     - node.type.os2loop_section_page
+    - paragraphs.paragraphs_type.os2loop_section_page_info_block
+    - paragraphs.paragraphs_type.os2loop_section_page_search
     - paragraphs.paragraphs_type.os2loop_section_page_views_refer
   module:
     - entity_reference_revisions
@@ -24,6 +26,8 @@ settings:
     negate: 0
     target_bundles:
       os2loop_section_page_views_refer: os2loop_section_page_views_refer
+      os2loop_section_page_info_block: os2loop_section_page_info_block
+      os2loop_section_page_search: os2loop_section_page_search
     target_bundles_drag_drop:
       os2loop_documents_highlighted_co:
         weight: 6
@@ -37,6 +41,12 @@ settings:
       os2loop_documents_text_and_image:
         weight: 9
         enabled: false
+      os2loop_section_page_info_block:
+        enabled: true
+        weight: 11
+      os2loop_section_page_search:
+        enabled: true
+        weight: 13
       os2loop_section_page_views_refer:
         enabled: true
         weight: 10

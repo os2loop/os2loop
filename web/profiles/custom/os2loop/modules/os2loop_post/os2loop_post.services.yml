@@ -1,0 +1,3 @@
+services:
+  Drupal\os2loop_post\Helper\Helper:
+    class: Drupal\os2loop_post\Helper\Helper

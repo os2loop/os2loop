@@ -5,9 +5,15 @@ dependencies:
   config:
     - core.entity_view_mode.node.pdf
     - field.field.node.os2loop_documents_collection.os2loop_documents_dc_content
+    - field.field.node.os2loop_documents_collection.os2loop_documents_info_box
+    - field.field.node.os2loop_documents_collection.os2loop_shared_approval_date
+    - field.field.node.os2loop_documents_collection.os2loop_shared_approver
+    - field.field.node.os2loop_documents_collection.os2loop_shared_owner
     - field.field.node.os2loop_documents_collection.os2loop_shared_profession
+    - field.field.node.os2loop_documents_collection.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_collection.os2loop_shared_subject
     - field.field.node.os2loop_documents_collection.os2loop_shared_tags
+    - field.field.node.os2loop_documents_collection.os2loop_shared_version
     - node.type.os2loop_documents_collection
   module:
     - text
@@ -23,24 +29,31 @@ content:
     settings: {  }
     third_party_settings: {  }
   flag_os2loop_subscription_node:
-    weight: 10
+    weight: 7
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   links:
     weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   os2loop_documents_dc_content:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
+  os2loop_documents_info_box:
+    type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   os2loop_shared_profession:
-    weight: 5
+    weight: 6
     label: above
     settings:
       link: true
@@ -48,7 +61,7 @@ content:
     type: entity_reference_label
     region: content
   os2loop_shared_subject:
-    weight: 3
+    weight: 4
     label: above
     settings:
       link: true
@@ -56,7 +69,7 @@ content:
     type: entity_reference_label
     region: content
   os2loop_shared_tags:
-    weight: 4
+    weight: 5
     label: above
     settings:
       link: true
@@ -68,4 +81,9 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
+  os2loop_shared_approval_date: true
+  os2loop_shared_approver: true
+  os2loop_shared_owner: true
+  os2loop_shared_rev_date: true
+  os2loop_shared_version: true
   search_api_excerpt: true

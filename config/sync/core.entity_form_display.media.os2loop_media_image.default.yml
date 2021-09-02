@@ -1,0 +1,56 @@
+uuid: cdebb95f-0ee2-4687-bf6a-cf9bd25baa12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.os2loop_media_image.field_media_image
+    - field.field.media.os2loop_media_image.field_media_library
+    - image.style.thumbnail
+    - media.type.os2loop_media_image
+  module:
+    - image
+id: media.os2loop_media_image.default
+targetEntityType: media
+bundle: os2loop_media_image
+mode: default
+content:
+  field_media_image:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_media_library:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  status: true
+  uid: true

@@ -1,0 +1,29 @@
+uuid: ea2aa726-f8f7-486e-bb72-b63fe96c9708
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.os2loop_question_answer
+    - field.storage.message.os2loop_message_comment_refer
+    - message.template.os2loop_message_answer_ins
+id: message.os2loop_message_answer_ins.os2loop_message_comment_refer
+field_name: os2loop_message_comment_refer
+entity_type: message
+bundle: os2loop_message_answer_ins
+label: 'Comment reference'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:comment'
+  handler_settings:
+    target_bundles:
+      os2loop_question_answer: os2loop_question_answer
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: os2loop_question_answer
+field_type: entity_reference

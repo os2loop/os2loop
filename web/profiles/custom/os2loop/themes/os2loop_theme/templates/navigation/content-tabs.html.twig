@@ -1,0 +1,19 @@
+{#
+/**
+ * Template for displaying tabs on content.
+ *
+ * Should only be used for on node templates.
+ *
+ * Available variables
+ * - @see drupal/core/node/templates/node.html.twig
+ * - id: the id to identify the tab menu.
+ * - tabs: A list of tabs to display.
+ */
+#}
+<ul class="tabs nav" id="{{ id }}" role="tablist">
+  {% for key, tab in tabs %}
+    <li role="tab" aria-controls="{{ tab.id }}">
+      <a class="tab {{ key == 0 ? 'active' }}" id="{{ tab.id }}-tab" data-toggle="tab" href="#{{ tab.id }}" >{{ tab.name }}</a>
+    </li>
+  {% endfor %}
+</ul>

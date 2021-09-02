@@ -5,9 +5,15 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.os2loop_documents_collection.os2loop_documents_dc_content
+    - field.field.node.os2loop_documents_collection.os2loop_documents_info_box
+    - field.field.node.os2loop_documents_collection.os2loop_shared_approval_date
+    - field.field.node.os2loop_documents_collection.os2loop_shared_approver
+    - field.field.node.os2loop_documents_collection.os2loop_shared_owner
     - field.field.node.os2loop_documents_collection.os2loop_shared_profession
+    - field.field.node.os2loop_documents_collection.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_collection.os2loop_shared_subject
     - field.field.node.os2loop_documents_collection.os2loop_shared_tags
+    - field.field.node.os2loop_documents_collection.os2loop_shared_version
     - node.type.os2loop_documents_collection
   module:
     - text
@@ -45,7 +51,13 @@ hidden:
   langcode: true
   links: true
   os2loop_documents_dc_content: true
+  os2loop_documents_info_box: true
+  os2loop_shared_approval_date: true
+  os2loop_shared_approver: true
+  os2loop_shared_owner: true
   os2loop_shared_profession: true
+  os2loop_shared_rev_date: true
   os2loop_shared_subject: true
   os2loop_shared_tags: true
+  os2loop_shared_version: true
   search_api_excerpt: true

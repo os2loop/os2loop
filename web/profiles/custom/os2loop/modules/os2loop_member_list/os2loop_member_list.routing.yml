@@ -1,0 +1,7 @@
+os2loop_member_list.settings:
+  path: '/admin/config/os2loop/os2loop_member_list/settings'
+  defaults:
+    _form: '\Drupal\os2loop_member_list\Form\SettingsForm'
+    _title: 'OS2Loop Member list settings'
+  requirements:
+    _permission: 'administer os2loop settings'

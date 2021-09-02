@@ -1,0 +1,18 @@
+uuid: 7a551b1d-f957-45bc-a54e-11d227cce0d8
+langcode: en
+status: false
+dependencies: {  }
+id: windows_aad
+label: windows_aad
+plugin: generic
+settings:
+  issuer_url: ''
+  authorization_endpoint: 'file:///settings.local.php#$config[''openid_connect.client.windows_aad][''settings''][''client_id'']'
+  token_endpoint: 'file:///settings.local.php#$config[''openid_connect.client.windows_aad][''settings''][token_endpoint'']'
+  userinfo_endpoint: ''
+  end_session_endpoint: ''
+  scopes:
+    - openid
+    - email
+  client_id: 'file:///settings.local.php#$config[''openid_connect.client.windows_aad''][''settings''][''client_id'']'
+  client_secret: 'file:///settings.local.php#$config[''openid_connect.client.windows_aad''][''settings''][''client_secret'']'

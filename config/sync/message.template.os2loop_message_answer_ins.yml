@@ -1,0 +1,19 @@
+uuid: 37f9a18e-f422-4761-8b1c-292050d058ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.os2loop_message_message
+template: os2loop_message_answer_ins
+label: 'Answer added'
+description: ''
+text:
+  -
+    value: 'There is a new answer to the question <a href="/node/[message:os2loop_message_node_refer:entity:nid]#comment-[message:os2loop_message_comment_refer:target_id]">[message:os2loop_message_node_refer:entity:title]</a>'
+    format: os2loop_message_message
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

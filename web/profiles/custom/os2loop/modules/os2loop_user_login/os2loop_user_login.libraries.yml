@@ -1,0 +1,7 @@
+user-login-form:
+  version: VERSION
+  css:
+    theme:
+      assets/user-login-form.css: { media: screen }
+  js:
+    assets/user-login-form.js: {}

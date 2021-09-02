@@ -1,0 +1,7 @@
+os2loop_user_login.settings:
+  path: '/admin/config/os2loop/os2loop_user_login/settings'
+  defaults:
+    _form: '\Drupal\os2loop_user_login\Form\SettingsForm'
+    _title: 'OS2Loop user login settings'
+  requirements:
+    _permission: 'administer os2loop settings'

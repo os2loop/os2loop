@@ -5,10 +5,11 @@ dependencies:
   config:
     - field.field.node.os2loop_page.os2loop_page_content
     - field.field.node.os2loop_page.os2loop_page_image
-    - image.style.thumbnail
+    - field.field.node.os2loop_page.os2loop_shared_rev_date
     - node.type.os2loop_page
   module:
-    - image
+    - datetime
+    - media_library
     - text
 id: node.os2loop_page.default
 targetEntityType: node
@@ -32,32 +33,29 @@ content:
     type: text_textarea_with_summary
     region: content
   os2loop_page_image:
-    weight: 7
+    type: media_library_widget
+    weight: 26
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      media_types: {  }
     third_party_settings: {  }
-    type: image_image
     region: content
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
+  os2loop_shared_rev_date:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 5
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 4
     region: content
     third_party_settings: {  }
   title:
@@ -80,3 +78,5 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
+  promote: true
+  sticky: true

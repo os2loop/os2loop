@@ -21,6 +21,7 @@ settings:
   selection: blocks
   selection_settings:
     plugin_ids:
+      'views_block:os2loop_messages-block_1': 'views_block:os2loop_messages-block_1'
       'views_block:os2loop_section_page_most_viewed-block_2': 'views_block:os2loop_section_page_most_viewed-block_2'
       'views_block:os2loop_section_page_most_viewed-block_1': 'views_block:os2loop_section_page_most_viewed-block_1'
       'views_block:os2loop_section_page_most_viewed-block_4': 'views_block:os2loop_section_page_most_viewed-block_4'
@@ -29,9 +30,7 @@ settings:
       'views_block:os2loop_section_page_newest_content-block_1': 'views_block:os2loop_section_page_newest_content-block_1'
       'views_block:os2loop_section_page_newest_content-block_4': 'views_block:os2loop_section_page_newest_content-block_4'
       'views_block:os2loop_section_page_newest_content-block_3': 'views_block:os2loop_section_page_newest_content-block_3'
-      'views_block:os2loop_messages-block_1': 'views_block:os2loop_messages-block_1'
       'views_block:os2loop_section_page_user_favourites-block_1': 'views_block:os2loop_section_page_user_favourites-block_1'
       os2loop_list_user_expert_content: os2loop_list_user_expert_content
       os2loop_list_user_profession_content: os2loop_list_user_profession_content
-      'views_exposed_filter_block:os2loop_search_db-page_1': 'views_exposed_filter_block:os2loop_search_db-page_1'
 field_type: block_field

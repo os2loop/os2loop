@@ -3,6 +3,8 @@
 namespace Drupal\os2loop_documents\Helper;
 
 use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\node\NodeInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -10,6 +12,8 @@ use Symfony\Component\HttpFoundation\RequestStack;
  * Node helper.
  */
 class NodeHelper {
+  use StringTranslationTrait;
+
   public const CONTENT_TYPE_DOCUMENT = 'os2loop_documents_document';
   public const CONTENT_TYPE_COLLECTION = 'os2loop_documents_collection';
 
@@ -35,12 +39,20 @@ class NodeHelper {
   private $cacheTagsInvalidator;
 
   /**
+   * The messenger.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  private $messenger;
+
+  /**
    * Constructor.
    */
-  public function __construct(CollectionHelper $collectionHelper, RequestStack $requestStack, CacheTagsInvalidatorInterface $cacheTagsInvalidator) {
+  public function __construct(CollectionHelper $collectionHelper, RequestStack $requestStack, CacheTagsInvalidatorInterface $cacheTagsInvalidator, MessengerInterface $messenger) {
     $this->collectionHelper = $collectionHelper;
     $this->requestStack = $requestStack;
     $this->cacheTagsInvalidator = $cacheTagsInvalidator;
+    $this->messenger = $messenger;
   }
 
   /**
@@ -102,6 +114,26 @@ class NodeHelper {
       // https://www.drupal.org/docs/drupal-apis/cache-api/cache-contexts).
       $variables['#cache']['contexts'][] = 'url.query_args:collection';
     }
+  }
+
+  /**
+   * Implements hook_theme().
+   */
+  public function theme($existing, $type, $theme, $path) {
+    return [
+      'os2loop_documents_pdf_header' => [
+        'variables' => [
+          'node' => NULL,
+          'image' => NULL,
+        ],
+      ],
+      'os2loop_documents_pdf_footer' => [
+        'variables' => [
+          'node' => NULL,
+          'image' => NULL,
+        ],
+      ],
+    ];
   }
 
   /**

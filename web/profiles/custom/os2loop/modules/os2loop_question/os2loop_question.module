@@ -5,7 +5,9 @@
  * Contains os2loop_question.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\os2loop_question\Helper\Helper;
 
 /**
  * Implements hook_help().
@@ -21,4 +23,13 @@ function os2loop_question_help($route_name, RouteMatchInterface $route_match) {
 
     default:
   }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @see \Drupal\os2loop_question\Helper\Helper::alterForm()
+ */
+function os2loop_question_form_alter(array &$form, FormStateInterface $form_state, string $form_id) {
+  Drupal::service(Helper::class)->alterForm($form, $form_state, $form_id);
 }

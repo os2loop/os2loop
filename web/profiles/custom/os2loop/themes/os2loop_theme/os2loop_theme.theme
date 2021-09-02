@@ -5,7 +5,14 @@
  * The primary PHP file for the os2loop_theme theme.
  */
 
+use Drupal\file\Entity\File;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\user\Entity\User;
+
 /**
+ * Implements hook_preprocess().
+ *
  * Site logo for menu.
  */
 function os2loop_theme_preprocess(&$variables) {
@@ -13,11 +20,24 @@ function os2loop_theme_preprocess(&$variables) {
 };
 
 /**
+ * Implements hook_preprocess_html().
+ */
+function os2loop_theme_preprocess_html(&$variables) {
+  // Set page head title.
+  $path = \Drupal::routeMatch()->getRouteObject()->getPath();
+  if ('/user/{user}' === $path) {
+    $user = \Drupal::routeMatch()->getParameter('user');
+    $variables['head_title']['title'] = $user->os2loop_user_given_name->value . ' ' . $user->os2loop_user_family_name->value;
+  }
+}
+
+/**
  * Implements hook_preprocess_node().
  *
  * Add comment/answers counts.
  */
 function os2loop_theme_preprocess_node(&$variables) {
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
   if ($variables['view_mode'] === 'teaser') {
     if ($variables['node']->getType() === 'os2loop_question') {
       $variables['comment_count'] = $variables['node']->get('os2loop_question_answers')->comment_count;
@@ -25,6 +45,31 @@ function os2loop_theme_preprocess_node(&$variables) {
     if ($variables['node']->getType() === 'os2loop_post') {
       $variables['comment_count'] = $variables['node']->get('os2loop_post_comments')->comment_count;
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function os2loop_theme_preprocess_block(&$variables) {
+  // Set page title for user/[uid] pages.
+  if ('page_title_block' == $variables['plugin_id']) {
+    $path = \Drupal::routeMatch()->getRouteObject()->getPath();
+    if ('/user/{user}' === $path) {
+      $user = \Drupal::routeMatch()->getParameter('user');
+      $variables['content']['#title'] = $user->os2loop_user_given_name->value . ' ' . $user->os2loop_user_family_name->value;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ *
+ * Prepare variables for fields.
+ */
+function os2loop_theme_preprocess_field(&$variables) {
+  if ($variables['field_type'] === 'comment') {
+    $variables['logged_in_user'] = User::load($variables['user']->id());
   }
 }
 
@@ -41,10 +86,147 @@ function os2loop_theme_theme_suggestions_taxonomy_term_alter(array &$suggestions
 }
 
 /**
+ * Implements hook_theme_suggestions_user_alter().
+ */
+function os2loop_theme_theme_suggestions_user_alter(array &$suggestions, array $variables) {
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+  // Add view mode theme suggestions.
+  $suggestions[] = 'user__' . $sanitized_view_mode;
+}
+
+/**
  * Implements hook_theme_suggestions_comment_alter().
  */
 function os2loop_theme_theme_suggestions_comment_alter(array &$suggestions, array $variables) {
   $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
   // Add view mode theme suggestions.
   $suggestions[] = 'comment__' . $sanitized_view_mode;
+}
+
+/**
+ * Implements hook_theme_suggestions_form_alter().
+ */
+function os2loop_theme_theme_suggestions_form_alter(array &$suggestions, array $variables, $hook) {
+  $suggestions[] = $hook . '__' . str_replace('-', '_', $variables['element']['#id']);
+}
+
+/**
+ * Implements hook_theme_suggestions_form_element_alter().
+ */
+function os2loop_theme_theme_suggestions_form_element_alter(array &$suggestions, array $variables, $hook) {
+  $suggestions[] = $hook . '__' . str_replace('-', '_', $variables['element']['#id']);
+  $suggestions[] = $hook . '__' . $variables['element']['#type'];
+}
+
+/**
+ * Implements hook_theme_suggestions_container_alter().
+ */
+function os2loop_theme_theme_suggestions_container_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#id'])) {
+    $suggestions[] = 'container' . '__' . str_replace('-', '_', $variables['element']['#id']);
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_label_alter().
+ */
+function os2loop_theme_theme_suggestions_form_element_label_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#id'])) {
+    $suggestions[] = 'form_element_label' . '__' . str_replace('-', '_', $variables['element']['#id']);
+  }
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function os2loop_theme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state, $form_id = NULL) {
+  // Work-around for a core bug affecting admin themes. See issue #943212.
+  if (isset($form_id)) {
+    return;
+  }
+
+  $form['colors'] = [
+    '#type' => 'details',
+    '#description' => t('Select a color template or provide your own @todo link to readme. Cache must be cleared before this takes effect.'),
+    '#title' => t('Colors'),
+    '#open' => TRUE,
+  ];
+
+  $schemes = [
+    'default.css' => t('Default'),
+    'blue.css' => t('Blue'),
+    'green.css' => t('Green'),
+    'red.css' => t('Red'),
+    'yellow.css' => t('Yellow'),
+  ];
+
+  $form['colors']['color_scheme'] = [
+    '#type' => 'select',
+    '#title' => t('Select color template'),
+    '#options' => $schemes,
+    '#default_value' => theme_get_setting('color_scheme'),
+  ];
+
+  $uploaded_file = theme_get_setting('custom_scheme');
+  $form['colors']['custom_scheme'] = [
+    '#type' => 'managed_file',
+    '#name' => 'custom_styles',
+    '#title' => t('Custom css file'),
+    '#size' => 20,
+    '#description' => t('.css format only'),
+    '#upload_validators' => [
+      'file_validate_extensions' => ['css'],
+      'file_validate_size' => [10000000],
+    ],
+    '#default_value' => isset($uploaded_file) ? $uploaded_file : NULL,
+    '#upload_location' => 'public://custom_color_scheme/',
+  ];
+
+  // Add a custom submit handler (cf. https://kb.detlus.com/articles/drupal/drupal-8-use-custom-submit-handler-for-theme-settings-form/)
+  $form['#submit'][] = 'os2loop_theme_form_system_theme_settings_submit';
+}
+
+/**
+ * Theme settings form submit handler.
+ *
+ * @param array $form
+ *   The form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ * @param string|null $form_id
+ *   The form id.
+ */
+function os2loop_theme_form_system_theme_settings_submit(array &$form, FormStateInterface $form_state, $form_id = NULL) {
+  drupal_flush_all_caches();
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function os2loop_theme_library_info_alter(&$libraries, $extension) {
+  if ('os2loop_theme' === $extension) {
+    $custom_scheme = theme_get_setting('custom_scheme');
+    $color_scheme = theme_get_setting('color_scheme');
+    if (empty($custom_scheme)) {
+      $stylesheet = !empty($color_scheme) ? 'build/' . $color_scheme : 'build/default.css';
+    }
+    else {
+      $file = File::load($custom_scheme[0]);
+      $uri = $file->getFileUri();
+      $url = Url::fromUri(file_create_url($uri))->toString();
+      $stylesheet = $url;
+    }
+
+    $libraries['global-styling']['css']['theme'] = [$stylesheet => ['preprocess' => FALSE]];
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function os2loop_theme_preprocess_views_view(&$variables) {
+  if ('os2loop_messages' == $variables['view']->id()) {
+    // Execute the query without pager limitations.
+    $variables['total_rows'] = $variables['view']->query->query()->countQuery()->execute()->fetchField();
+  }
 }

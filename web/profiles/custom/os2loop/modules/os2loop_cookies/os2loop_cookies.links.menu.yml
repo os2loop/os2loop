@@ -1,0 +1,6 @@
+os2loop_cookies.settings:
+  title: 'OS2Loop Cookies settings'
+  route_name: os2loop_cookies.settings
+  description: 'Configure OS2Loop cookies settings'
+  parent: os2loop.group.admin
+  weight: 10

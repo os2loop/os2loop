@@ -1,0 +1,5 @@
+services:
+  os2loop_cookie_information.form_helper:
+    class: Drupal\os2loop_cookie_information\Helper\FormHelper
+    arguments:
+      - '@Drupal\os2loop_settings\Settings'

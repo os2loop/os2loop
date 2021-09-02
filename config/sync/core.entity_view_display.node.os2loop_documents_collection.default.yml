@@ -4,11 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.node.os2loop_documents_collection.os2loop_documents_dc_content
+    - field.field.node.os2loop_documents_collection.os2loop_documents_info_box
+    - field.field.node.os2loop_documents_collection.os2loop_shared_approval_date
+    - field.field.node.os2loop_documents_collection.os2loop_shared_approver
+    - field.field.node.os2loop_documents_collection.os2loop_shared_owner
     - field.field.node.os2loop_documents_collection.os2loop_shared_profession
+    - field.field.node.os2loop_documents_collection.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_collection.os2loop_shared_subject
     - field.field.node.os2loop_documents_collection.os2loop_shared_tags
+    - field.field.node.os2loop_documents_collection.os2loop_shared_version
     - node.type.os2loop_documents_collection
   module:
+    - datetime
     - text
     - user
 id: node.os2loop_documents_collection.default
@@ -17,17 +24,17 @@ bundle: os2loop_documents_collection
 mode: default
 content:
   flag_os2loop_favourite:
-    weight: 10
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   flag_os2loop_subscription_node:
-    weight: 10
+    weight: 7
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   links:
-    weight: 1
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -38,17 +45,58 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  os2loop_documents_info_box:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  os2loop_shared_approval_date:
+    weight: 9
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  os2loop_shared_approver:
+    weight: 10
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  os2loop_shared_owner:
+    weight: 11
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   os2loop_shared_profession:
     weight: 5
-    label: inline
+    label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  os2loop_shared_rev_date:
+    weight: 8
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   os2loop_shared_subject:
     weight: 3
-    label: inline
+    label: above
     settings:
       link: true
     third_party_settings: {  }
@@ -56,11 +104,19 @@ content:
     region: content
   os2loop_shared_tags:
     weight: 4
-    label: inline
+    label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  os2loop_shared_version:
+    weight: 12
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
 hidden:
   entity_print_view_epub: true

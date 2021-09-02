@@ -2,24 +2,24 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: $spacer;
-  $icon-size: 40px;
+  $icon-size: 30px;
 
-  .icon-container {
+  .header {
     align-items: center;
 
-    &.external {
+    .external {
       @include icon("\f471", $icon-size);
     }
-    &.post {
+    .post {
       @include icon("\f383", $icon-size);
     }
-    &.question {
+    .question {
       @include icon("\f50b", $icon-size);
     }
-    &.collection {
+    .collection {
       @include icon("\f3c2", $icon-size);
     }
-    &.document {
+    .document {
       @include icon("\f3b9", $icon-size);
     }
   }

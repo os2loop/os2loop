@@ -1,0 +1,4 @@
+// Make login links look like buttons.
+.os2loop-user-login-button {
+  @extend .btn, .btn-primary;
+}

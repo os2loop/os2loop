@@ -34,9 +34,9 @@
     {%- endif -%}
 
     {%- if items -%}
-      <{{ list_type }}{{ attributes }}>
+      <{{ list_type }}{{ attributes.addClass('pl-0 list-unstyled row no-gutters') }}>
         {%- for item in items -%}
-          <li{{ item.attributes }}>{{ item.value }}</li>
+          <li{{ item.attributes.addClass('mx-0 mb-2 col-lg-4') }}>{{ item.value }}</li>
         {%- endfor -%}
       </{{ list_type }}>
     {%- else -%}

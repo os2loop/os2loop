@@ -19,6 +19,12 @@ docker run --volume ${PWD}:/app --workdir /app node:latest yarn install
 docker run --volume ${PWD}:/app --workdir /app node:latest yarn build
 ```
 
+Watch for changes:
+
+```sh
+docker run --interactive --tty --volume ${PWD}:/app --workdir /app node:latest yarn watch
+```
+
 During development you may want to run it with your locally installed
 [`yarn`](https://classic.yarnpkg.com/en/docs/install/) binary:
 

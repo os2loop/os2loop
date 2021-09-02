@@ -1,0 +1,7 @@
+os2loop_search_db.settings:
+  path: '/admin/config/os2loop/os2loop_search_db/settings'
+  defaults:
+    _form: '\Drupal\os2loop_search_db\Form\SettingsForm'
+    _title: 'OS2Loop Search DB settings'
+  requirements:
+    _permission: 'administer os2loop settings'

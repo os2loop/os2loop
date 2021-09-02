@@ -5,6 +5,7 @@ namespace Drupal\os2loop_documents_fixtures\Fixture;
 use Drupal\content_fixtures\Fixture\AbstractFixture;
 use Drupal\content_fixtures\Fixture\DependentFixtureInterface;
 use Drupal\content_fixtures\Fixture\FixtureGroupInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\node\Entity\Node;
 use Drupal\os2loop_documents\Helper\CollectionHelper;
 use Drupal\os2loop_taxonomy_fixtures\Fixture\ProfessionFixture;
@@ -55,6 +56,11 @@ BODY,
       'os2loop_shared_profession' => [
         'target_id' => $this->getReference('os2loop_profession:Andet')->id(),
       ],
+      'os2loop_shared_owner' => 'Document owner',
+      'os2loop_shared_version' => '1.0',
+      'os2loop_shared_approver' => 'Document approver',
+      'os2loop_shared_approval_date' => (new DrupalDateTime('2021-06-02'))->format('Y-m-d'),
+      'os2loop_shared_rev_date' => (new DrupalDateTime('2021-08-01'))->format('Y-m-d'),
     ]);
     $collection->save();
     $this->collectionHelper->addDocument($collection, $this->getReference('os2loop_documents_document:Aaa'));

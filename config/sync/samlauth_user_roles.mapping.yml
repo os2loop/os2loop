@@ -1,0 +1,42 @@
+only_first_login: false
+unassign_roles:
+  os2loop_user_administrator: os2loop_user_administrator
+  os2loop_user_documentation_coordinator: os2loop_user_documentation_coordinator
+  os2loop_user_manager: os2loop_user_manager
+  os2loop_user_read_only: os2loop_user_read_only
+  os2loop_user_external_sources_editor: os2loop_user_external_sources_editor
+  os2loop_user_document_author: os2loop_user_document_author
+  os2loop_user_document_collection_editor: os2loop_user_document_collection_editor
+  os2loop_user_post_author: os2loop_user_post_author
+  os2loop_user_user_administrator: os2loop_user_user_administrator
+default_roles: {  }
+saml_attribute: groups
+saml_attribute_separator: ''
+value_map:
+  -
+    attribute_value: administrator
+    role_machine_name: os2loop_user_administrator
+  -
+    attribute_value: document_author
+    role_machine_name: os2loop_user_document_author
+  -
+    attribute_value: document_collection_editor
+    role_machine_name: os2loop_user_document_collection_editor
+  -
+    attribute_value: documentation_coordinator
+    role_machine_name: os2loop_user_documentation_coordinator
+  -
+    attribute_value: external_sources_editor
+    role_machine_name: os2loop_user_external_sources_editor
+  -
+    attribute_value: manager
+    role_machine_name: os2loop_user_manager
+  -
+    attribute_value: post_author
+    role_machine_name: os2loop_user_post_author
+  -
+    attribute_value: read_only
+    role_machine_name: os2loop_user_read_only
+  -
+    attribute_value: user_administrator
+    role_machine_name: os2loop_user_user_administrator

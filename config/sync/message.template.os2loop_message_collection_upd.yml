@@ -1,0 +1,19 @@
+uuid: fb362223-d54d-47ca-b96e-94a9de0cfa30
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.os2loop_message_message
+template: os2loop_message_collection_upd
+label: 'Document collection edited'
+description: ''
+text:
+  -
+    value: 'A document collection has been changed: <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a>'
+    format: os2loop_message_message
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

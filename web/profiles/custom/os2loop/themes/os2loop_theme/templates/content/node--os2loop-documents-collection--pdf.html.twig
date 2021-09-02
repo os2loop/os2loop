@@ -78,7 +78,7 @@
       {% for item in items %}
         {% set document = item.document %}
         <li>
-          <a href="{{ path('entity.node.canonical', {node: document.id, collection: collection.id}) }}" class="document-title">{{ document.title.value }}</a>
+          <a href="#node/{{ document.id }}" class="document-title">{{ document.title.value }}</a>
           {{ item.children ? _self.table_of_contents(item.children, collection) }}
         </li>
       {% endfor %}
@@ -91,8 +91,8 @@
     {% for item in items %}
       {% set document = item.document %}
       {% set tag_name = 'h' ~ level %}
-      <article class="os2loop-documents--collection-documents--document">
-        <{{ tag_name }}>{{ document.title.value }}</{{ tag_name }}>
+      <article class="os2loop-documents--collection-documents--document" id="node/{{ document.id }}">
+        <{{ tag_name }} class="os2loop-documents--document-title">{{ document.title.value }}</{{ tag_name }}>
 
         {# Render document content (cf. https://www.drupal.org/docs/contributed-modules/twig-tweak-2x/cheat-sheet#s-drupal-entity). #}
         {# Note that we must use `pdf_content` to make the template renderer pick up the `…-pdf-content` template (!) #}
@@ -119,7 +119,7 @@
         {{ content.os2loop_documents_dc_content }}
 
         {% if os2loop_documents_collection_tree|default(false) %}
-          <fieldset>
+          <fieldset class="os2loop-documents--collection-toc">
             <legend>{{ 'Documents in collection'|trans }}</legend>
             {{ _self.table_of_contents(os2loop_documents_collection_tree, node) }}
           </fieldset>

@@ -3,10 +3,8 @@
 namespace Drupal\os2loop_section_page_fixtures\Fixture;
 
 use Drupal\content_fixtures\Fixture\AbstractFixture;
-use Drupal\content_fixtures\Fixture\DependentFixtureInterface;
 use Drupal\content_fixtures\Fixture\FixtureGroupInterface;
 use Drupal\node\Entity\Node;
-use Drupal\os2loop_fixtures\Fixture\FileFixture;
 use Drupal\paragraphs\Entity\Paragraph;
 
 /**
@@ -14,7 +12,7 @@ use Drupal\paragraphs\Entity\Paragraph;
  *
  * @package Drupal\os2loop_section_page_fixtures\Fixture
  */
-class SectionPageFixture extends AbstractFixture implements DependentFixtureInterface, FixtureGroupInterface {
+class SectionPageFixture extends AbstractFixture implements FixtureGroupInterface {
 
   /**
    * {@inheritdoc}
@@ -86,15 +84,6 @@ class SectionPageFixture extends AbstractFixture implements DependentFixtureInte
 
     $this->setReference($page->getType() . ':' . $page->getTitle(), $page);
     $page->save();
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getDependencies() {
-    return [
-      FileFixture::class,
-    ];
   }
 
   /**

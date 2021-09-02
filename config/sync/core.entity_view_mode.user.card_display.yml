@@ -1,0 +1,10 @@
+uuid: b18e24d9-c238-4110-8032-f7214f487e17
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.card_display
+label: 'Card display'
+targetEntityType: user
+cache: true

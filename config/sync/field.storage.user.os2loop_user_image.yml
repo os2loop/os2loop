@@ -3,21 +3,15 @@ langcode: en
 status: true
 dependencies:
   module:
-    - file
-    - image
+    - media
     - user
 id: user.os2loop_user_image
 field_name: os2loop_user_image
 entity_type: user
-type: image
+type: entity_reference
 settings:
-  default_image:
-    uuid: ''
-  uri_scheme: public
-  target_type: file
-  display_field: false
-  display_default: false
-module: image
+  target_type: media
+module: core
 locked: false
 cardinality: 1
 translatable: true

@@ -1,3 +1,10 @@
+os2loop_subscriptions.settings:
+  title: 'OS2Loop Subscriptions settings'
+  route_name: os2loop_subscriptions.settings
+  description: 'Configure OS2Loop Subscriptions settings'
+  parent: os2loop.group.admin
+  weight: 10
+
 os2loop_user.subscriptions:
   title: 'Subscriptions'
   parent: os2loop_user.user

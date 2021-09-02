@@ -7,4 +7,5 @@ package: 'OS2Loop'
 
 dependencies:
   - drupal:field_group
+  - drupal:simple_menu_permissions
   - drupal:user

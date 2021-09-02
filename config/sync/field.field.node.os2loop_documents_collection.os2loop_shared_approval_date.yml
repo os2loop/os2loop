@@ -1,0 +1,21 @@
+uuid: 0a477e45-8d7e-4774-94f3-00f720c5b6da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_shared_approval_date
+    - node.type.os2loop_documents_collection
+  module:
+    - datetime
+id: node.os2loop_documents_collection.os2loop_shared_approval_date
+field_name: os2loop_shared_approval_date
+entity_type: node
+bundle: os2loop_documents_collection
+label: 'Approval date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

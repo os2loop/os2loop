@@ -1,0 +1,4 @@
+hide-empty-sections:
+  version: 1.x
+  js:
+    js/hide-empty-sections.js: {preprocess: false}

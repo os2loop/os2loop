@@ -1,0 +1,6 @@
+os2loop_user_login.settings:
+  title: 'OS2Loop user login settings'
+  route_name: os2loop_user_login.settings
+  description: 'Configure OS2Loop user login settings'
+  parent: os2loop.group.admin
+  weight: 10

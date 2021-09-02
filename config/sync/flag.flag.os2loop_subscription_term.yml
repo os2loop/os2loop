@@ -6,7 +6,8 @@ dependencies:
     - taxonomy
 id: os2loop_subscription_term
 label: 'Subscription term'
-bundles: {  }
+bundles:
+  - os2loop_subject
 entity_type: taxonomy_term
 global: false
 weight: 0

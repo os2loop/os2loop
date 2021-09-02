@@ -6,6 +6,7 @@ dependencies:
     - comment.type.os2loop_question_answer
     - core.entity_view_mode.comment.list_display
     - field.field.comment.os2loop_question_answer.os2loop_question_answer
+    - field.field.comment.os2loop_question_answer.os2loop_question_answer_media
   module:
     - text
 id: comment.os2loop_question_answer.list_display
@@ -40,4 +41,5 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
+  os2loop_question_answer_media: true
   search_api_excerpt: true

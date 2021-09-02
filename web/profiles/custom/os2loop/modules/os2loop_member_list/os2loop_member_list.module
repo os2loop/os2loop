@@ -10,6 +10,8 @@ use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_views_query_alter().
+ *
+ * @see \Drupal\os2loop_member_list\Helper\MemberListHelper::queryAlter()
  */
 function os2loop_member_list_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
   Drupal::service('os2loop_member_list.member_list_helper')->queryAlter($view, $query);
@@ -17,6 +19,8 @@ function os2loop_member_list_views_query_alter(ViewExecutable $view, QueryPlugin
 
 /**
  * Implements hook_form_alter().
+ *
+ * @see \Drupal\os2loop_member_list\Helper\MemberListHelper::formAlter()
  */
 function os2loop_member_list_form_alter(&$form, &$form_state, $form_id) {
   Drupal::service('os2loop_member_list.member_list_helper')->formAlter($form, $form_id);

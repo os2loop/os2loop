@@ -1,0 +1,30 @@
+always_save_userinfo: true
+connect_existing_users: true
+override_registration_settings: true
+userinfo_mappings:
+  timezone: zoneinfo
+  os2loop_user_family_name: family_name
+  os2loop_user_given_name: given_name
+user_login_display: above
+redirect_login: ''
+redirect_logout: ''
+end_session_enabled: true
+role_mappings:
+  os2loop_user_administrator:
+    - administrator
+  os2loop_user_documentation_coordinator:
+    - documentation_coordinator
+  os2loop_user_manager:
+    - manager
+  os2loop_user_read_only:
+    - read_only
+  os2loop_user_external_sources_editor:
+    - external_sources_editor
+  os2loop_user_document_author:
+    - document_author
+  os2loop_user_document_collection_editor:
+    - document_collection_editor
+  os2loop_user_post_author:
+    - post_author
+  os2loop_user_user_administrator:
+    - user_administrator

@@ -1,5 +1,0 @@
-text:
-  -
-    value: 'Et svar til spørgsmålet: <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a> er blevet ændret'
-    format: os2loop_message_message
-label: 'Svar redigeret'

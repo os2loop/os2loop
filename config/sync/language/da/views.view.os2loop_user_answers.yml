@@ -1,0 +1,5 @@
+label: 'Bruger svar'
+display:
+  default:
+    display_options:
+      title: 'Mine svar'

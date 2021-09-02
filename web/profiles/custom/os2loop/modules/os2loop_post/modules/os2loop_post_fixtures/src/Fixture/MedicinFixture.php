@@ -140,6 +140,8 @@ BODY,
       'os2loop_shared_profession' => [
         'target_id' => $this->getReference('os2loop_profession:Andet')->id(),
       ],
+      'created' => (new \DateTimeImmutable('2001-01-01'))->getTimestamp(),
+      'changed' => (new \DateTimeImmutable('2001-01-03'))->getTimestamp(),
     ])->save();
 
     // A post with "medicin" in content only.
@@ -161,6 +163,8 @@ BODY,
       'os2loop_shared_profession' => [
         'target_id' => $this->getReference('os2loop_profession:Andet')->id(),
       ],
+      'created' => (new \DateTimeImmutable('2001-01-02'))->getTimestamp(),
+      'changed' => (new \DateTimeImmutable('2001-01-02'))->getTimestamp(),
     ])->save();
   }
 

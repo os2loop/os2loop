@@ -1,0 +1,18 @@
+display:
+  default:
+    display_options:
+      pager:
+        options:
+          tags:
+            first: '« Første'
+            last: 'Sidste »'
+          expose:
+            items_per_page_options_all_label: '- Alle -'
+      filters:
+        search_api_fulltext:
+          expose:
+            placeholder: 'Søg efter indhold eller emner'
+      title: Søg
+      header:
+        result:
+          content: '<div class="mx-2">Viser @start - @end af @total</div>'

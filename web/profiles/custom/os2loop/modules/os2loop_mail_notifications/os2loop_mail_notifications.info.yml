@@ -1,0 +1,8 @@
+name: 'OS2Loop Mail notifications'
+type: module
+description: 'Send mail notifications to users when relevant content is edited'
+core_version_requirement: ^9
+package: 'OS2Loop'
+
+dependencies:
+  - drupal:os2loop_subscriptions

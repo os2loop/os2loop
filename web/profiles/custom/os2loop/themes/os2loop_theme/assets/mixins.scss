@@ -8,21 +8,40 @@
   &:hover {
     background-color: $hover-color;
   }
+
   a {
     @if $content {
       width: 100%;
+      height: 100%;
+      padding: 4px;
       text-align: center;
+
+      &:hover {
+        text-decoration: none;
+      }
+
       &::before {
-        color: $white;
+        color: contrast-color($color);
         font-size: 1.2em;
         font-family: bootstrap-icons !important;
         content: $content;
+      }
+      &:focus-visible {
+        .visually-hidden {
+          position: relative !important;
+          color: contrast-color($color);
+        }
       }
     }
   }
 }
 
-@mixin icon($content: null, $font-size: 1em, $margin-right: $spacer) {
+@mixin icon(
+  $content: null,
+  $font-size: 1em,
+  $margin-right: $spacer,
+  $icon-position: middle
+) {
   @if $content {
     &::before {
       color: $icon-base-color;
@@ -30,6 +49,8 @@
       margin-right: $margin-right;
       font-family: bootstrap-icons !important;
       content: $content;
+      vertical-align: $icon-position;
+      float: left;
     }
   }
 }

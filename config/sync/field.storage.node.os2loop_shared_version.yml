@@ -1,0 +1,21 @@
+uuid: adc3a0ff-9e0f-4863-94a1-9933f7a5cf6e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.os2loop_shared_version
+field_name: os2loop_shared_version
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

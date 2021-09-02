@@ -1,0 +1,55 @@
+{#
+/**
+ * Template for displaying tasks on content.
+ *
+ * Should only be used for on node templates.
+ *
+ * Available variables
+ * - @see drupal/core/node/templates/node.html.twig
+ */
+#}
+<div class="icon-container">
+  {% if node.id|default(false) %}
+    {% if is_granted('entity print access bundle ' ~ node.bundle) %}
+      <div class="icon print" data-toggle="tooltip" title="{{ 'Print document (PDF)'|t }}">
+        <a aria-label="{{ 'Print document (PDF)'|t }}" href="{{ path('entity_print.view', {export_type: 'pdf', entity_type: 'node', entity_id: node.id}) }}">
+          <span class="visually-hidden">{{ 'Print document (PDF)'|t }}</span>
+        </a>
+      </div>
+    {% endif %}
+    {% if is_granted('contact editorial office', node) %}
+      <div class="icon flag" data-toggle="tooltip" title="{{ 'contact editorial office'|t }}">
+        <a aria-label="{{ 'Contact editorial staff'|t }}" href="{{ path('os2loop_flag_content.flag_content', {node: node.id}) }}">
+          <span class="visually-hidden">{{ 'Contact editorial staff'|t }}</span>
+        </a>
+      </div>
+    {% endif %}
+    {% if is_granted('share with a friend', node) %}
+      <div class="icon share" data-toggle="tooltip" title="{{ 'Share with a friend'|t }}">
+        <a aria-label="{{ 'Share with a friend'|t }}" href="{{ path('os2loop_share_with_a_friend.share_with_a_friend', {node: node.id}) }}">
+          <span class="visually-hidden">{{ 'Share with a friend'|t }}</span>
+        </a>
+      </div>
+    {% endif %}
+    {% if is_granted('update', node) %}
+      <div class="icon edit" data-toggle="tooltip" title="{{ 'Edit document'|t }}">
+        <a aria-label="{{ 'Edit document'|t }}" href="{{ path('entity.node.edit_form', {node: node.id}) }}">
+          <span class="visually-hidden">{{ 'Edit document'|t }}</span>
+        </a>
+      </div>
+    {% endif %}
+    {% if is_granted('delete', node) %}
+      <div class="icon delete" data-toggle="tooltip" title="{{ 'Delete document'|t }}">
+        <a aria-label="{{ 'delete document'|t }}" href="{{ path('entity.node.delete_form', {node: node.id}) }}">
+          <span class="visually-hidden">{{ 'delete document'|t }}</span>
+        </a>
+      </div>
+    {% endif %}
+    {% if is_granted('favourite', node) %}
+      {{ content.flag_os2loop_favourite }}
+    {% endif %}
+    {% if is_granted('subscribe', node) %}
+      {{ content.flag_os2loop_subscription_node }}
+    {% endif %}
+  {% endif %}
+</div>

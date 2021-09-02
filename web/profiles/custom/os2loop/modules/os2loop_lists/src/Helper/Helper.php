@@ -63,8 +63,14 @@ class Helper {
     if (empty($user_expertises)) {
       return [];
     }
-
-    return $this->getList('os2loop_shared_subject', $user_expertises);
+    $list = $this->getList('os2loop_shared_subject', $user_expertises);
+    // Filter out content that has been replied to.
+    foreach ($list as $key => $node) {
+      if ($node->hasField('os2loop_question_answers') && $node->get('os2loop_question_answers')->comment_count > 0) {
+        unset($list[$key]);
+      }
+    }
+    return $list;
   }
 
   /**
@@ -80,7 +86,14 @@ class Helper {
       return [];
     }
 
-    return $this->getList('os2loop_shared_profession', $user_professions);
+    $list = $this->getList('os2loop_shared_profession', $user_professions);
+    // Filter out content that has been replied to.
+    foreach ($list as $key => $node) {
+      if ($node->hasField('os2loop_question_answers') && $node->get('os2loop_question_answers')->comment_count > 0) {
+        unset($list[$key]);
+      }
+    }
+    return $list;
   }
 
   /**

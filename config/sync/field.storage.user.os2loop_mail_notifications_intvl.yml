@@ -1,0 +1,30 @@
+uuid: 94b4583d-ddd2-41b4-b120-c0a710e7d689
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.os2loop_mail_notifications_intvl
+field_name: os2loop_mail_notifications_intvl
+entity_type: user
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: Never
+    -
+      value: 86400
+      label: Daily
+    -
+      value: 604800
+      label: Weekly
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

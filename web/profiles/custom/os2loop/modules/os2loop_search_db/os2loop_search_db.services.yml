@@ -2,4 +2,6 @@ services:
   Drupal\os2loop_search_db\Helper\Helper:
     class: Drupal\os2loop_search_db\Helper\Helper
     arguments:
-      - '@config.factory'
+      - '@Drupal\os2loop_settings\Settings'
+      - '@request_stack'
+      - '@entity_type.manager'

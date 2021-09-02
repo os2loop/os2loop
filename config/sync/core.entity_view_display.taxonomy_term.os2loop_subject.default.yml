@@ -3,12 +3,23 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.os2loop_subject.os2loop_taxonomy_color_picker
     - taxonomy.vocabulary.os2loop_subject
+  module:
+    - entity_print
+third_party_settings:
+  entity_print:
+    pdf_label: 'View PDF'
 id: taxonomy_term.os2loop_subject.default
 targetEntityType: taxonomy_term
 bundle: os2loop_subject
 mode: default
 content:
+  entity_print_view_pdf:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   flag_os2loop_subscription_term:
     weight: 0
     region: content
@@ -17,7 +28,7 @@ content:
 hidden:
   description: true
   entity_print_view_epub: true
-  entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
+  os2loop_taxonomy_color_picker: true
   search_api_excerpt: true

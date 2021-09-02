@@ -5,9 +5,10 @@ dependencies:
   config:
     - field.field.node.os2loop_page.os2loop_page_content
     - field.field.node.os2loop_page.os2loop_page_image
+    - field.field.node.os2loop_page.os2loop_shared_rev_date
     - node.type.os2loop_page
   module:
-    - image
+    - datetime
     - text
     - user
 id: node.os2loop_page.default
@@ -17,9 +18,9 @@ mode: default
 content:
   flag_os2loop_subscription_node:
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   links:
     weight: 0
     region: content
@@ -33,13 +34,22 @@ content:
     type: text_default
     region: content
   os2loop_page_image:
-    weight: 2
+    type: entity_reference_entity_view
+    weight: 11
     label: visually_hidden
     settings:
-      image_style: ''
-      image_link: ''
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: image
+    region: content
+  os2loop_shared_rev_date:
+    weight: 12
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
 hidden:
   entity_print_view_epub: true

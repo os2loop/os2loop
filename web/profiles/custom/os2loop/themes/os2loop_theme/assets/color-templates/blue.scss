@@ -1,0 +1,8 @@
+$primary: hsl(230, 54%, 35%);
+$secondary: hsl(208, 7%, 46%);
+$success: lighten(hsl(110, 54%, 35%), 40%);
+$info: lighten(hsl(230, 54%, 35%), 40%);
+$warning: lighten(hsl(60, 54%, 35%), 40%);
+$danger: lighten(hsl(0, 54%, 35%), 40%);
+
+@import "../app.scss";

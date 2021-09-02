@@ -1,0 +1,7 @@
+os2loop_mail_notifications.settings:
+  path: '/admin/config/os2loop/os2loop_mail_notifications/settings'
+  defaults:
+    _form: '\Drupal\os2loop_mail_notifications\Form\SettingsForm'
+    _title: 'OS2Loop Mail notifications settings'
+  requirements:
+    _permission: 'administer os2loop settings'

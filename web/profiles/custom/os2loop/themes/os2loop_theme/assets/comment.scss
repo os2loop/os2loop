@@ -11,26 +11,50 @@
 .os2loop-post,
 .os2loop-question {
   .indented {
-    margin-left: 25px;
-    margin-top: -20px;
+    margin-left: $spacer * 3;
   }
-
   .top-comment {
-    background-color: $primary-color;
-    border-radius: 0;
+    .user {
+      background: #c3e6cb; // TODO: Generate this color from $success
+    }
   }
 
   .top-comment-background {
-    background-color: $primary-color;
-    padding: $spacer * 2;
-    margin-bottom: $spacer * 2;
-    color: $black;
+    margin-top: 0;
+    padding: $spacer;
+    border-left: 1px solid $gray-200;
+    border-right: 1px solid $gray-200;
+    border-bottom: 1px solid $gray-200;
+    border-radius: 0 0 5px 5px;
 
-    a {
-      color: $black;
-    }
+    background-color: #d4edda; // TODO: Generate this color from $success
+    border-color: #c3e6cb; // TODO: Generate this color from $success
+
+    margin-bottom: $spacer * 2;
+    color: #155724; // TODO: Generate this color from $success
   }
 }
+
 .os2loop-comment {
   position: relative;
+
+  &:target {
+    // Highlight comment
+    // @todo Design
+    outline: solid 1px $primary;
+  }
+
+  .bg-secondary-loop {
+    margin-top: 0;
+    padding: $spacer;
+    border-left: 1px solid $gray-200;
+    border-right: 1px solid $gray-200;
+    border-bottom: 1px solid $gray-200;
+    border-radius: 0 0 5px 5px;
+  }
+}
+
+.comment-write-reply {
+  background-color: $light;
+  padding: $spacer;
 }

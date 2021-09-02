@@ -33,6 +33,27 @@ class CollectionHelper {
   }
 
   /**
+   * Load a collection by id.
+   *
+   * @param int $id
+   *   The collection (node) id.
+   *
+   * @return \Drupal\node\NodeInterface|null
+   *   The collection if it exists.
+   */
+  public function loadCollection(int $id): ?NodeInterface {
+    $node = $this->nodeStorage->load($id);
+
+    if (NULL === $node
+      || !$node instanceof NodeInterface
+      || NodeHelper::CONTENT_TYPE_COLLECTION !== $node->bundle()) {
+      return NULL;
+    }
+
+    return $node;
+  }
+
+  /**
    * Load a document by id.
    *
    * @param int $id
@@ -397,7 +418,9 @@ class CollectionHelper {
       }, $items);
       $documents = $this->nodeStorage->loadMultiple($nodeIds);
       foreach ($items as $item) {
-        $item->setDocument($documents[$item->getDocumentId()]);
+        if (isset($documents[$item->getDocumentId()])) {
+          $item->setDocument($documents[$item->getDocumentId()]);
+        }
       }
     }
     $children = array_filter($items, static function (DocumentCollectionItem $item) use ($root) {

@@ -1,0 +1,9 @@
+uuid: febdb22f-ecef-4c6d-887b-7be81b31d9b4
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__os2loop_search_db__page_search_form
+name: 'search_api:views_page__os2loop_search_db__page_search_form'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }

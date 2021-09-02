@@ -1,0 +1,6 @@
+os2loop_share_with_a_friend.settings:
+  title: 'OS2Loop Share With A Friend settings'
+  route_name: os2loop_share_with_a_friend.settings
+  description: 'Configure OS2Loop Share With A Friend settings'
+  parent: os2loop.group.admin
+  weight: 10

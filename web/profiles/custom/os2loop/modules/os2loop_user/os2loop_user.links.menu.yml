@@ -26,7 +26,7 @@ os2loop_user.questions:
   menu_name: main
   route_name: view.os2loop_user_questions.page_1
 os2loop_user.answers:
-  title: 'My answers'
+  title: 'My replies'
   parent: os2loop_user.user
   weight: 52
   menu_name: main

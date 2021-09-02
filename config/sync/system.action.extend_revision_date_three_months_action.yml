@@ -1,0 +1,14 @@
+uuid: 39c3ac5d-3821-473d-bc43-7b1e0acb80f9
+langcode: en
+status: true
+dependencies:
+  module:
+    - os2loop_revision_date
+_core:
+  default_config_hash: U5PfDTS42RKqbYCR30JF8XSIP2kAFizgQp5zCjpD4Mg
+id: extend_revision_date_three_months_action
+label: 'Set next revision date to 3 months from now'
+type: node
+plugin: os2loop_revision_date_set_action
+configuration:
+  time_span: '+3 months'

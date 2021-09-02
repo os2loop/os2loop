@@ -46,9 +46,15 @@ class FrontPageFixture extends AbstractFixture implements FixtureGroupInterface 
     BODY,
         'format' => 'os2loop_section_page',
       ],
-      'os2loop_section_page_view' => [
-        'target_id' => 'os2loop_section_page_most_viewed',
-        'display_id' => 'block_1',
+    ]);
+    $paragraph->save();
+    $page->get('os2loop_section_page_paragraph')->appendItem($paragraph);
+
+    $paragraph = Paragraph::create([
+      'type' => 'os2loop_section_page_views_refer',
+      'os2loop_section_page_view_header' => 'Search',
+      'os2loop_section_page_block' => [
+        'plugin_id' => 'views_exposed_filter_block:os2loop_search_db-page_search_form',
       ],
     ]);
     $paragraph->save();

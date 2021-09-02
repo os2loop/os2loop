@@ -4,6 +4,7 @@ namespace Drupal\os2loop_documents\Helper;
 
 use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Entity\EntityForm;
+use Drupal\Core\Entity\EntityFormInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Render\MainContent\AjaxRenderer;
@@ -94,7 +95,7 @@ class FormHelper {
       case 'node_os2loop_documents_document_edit_form':
         $node = $this->getNode($formState);
         if (NULL !== $node && !$this->isLegacyDocument($node)) {
-          unset($form['os2loop_documents_document_body']);
+          unset($form['os2loop_documents_info_box'], $form['os2loop_documents_document_body']);
         }
     }
 
@@ -134,6 +135,54 @@ class FormHelper {
           $this->buildDocumentTree($form, $formState, $node);
           break;
         }
+    }
+
+    $this->checkDocumentDeletion($form, $formState);
+  }
+
+  /**
+   * Check if a document can be safely deleted.
+   *
+   * Heavily inspired by the entity_reference_integrity_enforce module.
+   *
+   * @param array $form
+   *   The form.
+   * @param \Drupal\Core\Form\FormStateInterface $formState
+   *   The form state.
+   *
+   * @see https://www.drupal.org/project/entity_reference_integrity
+   */
+  private function checkDocumentDeletion(array &$form, FormStateInterface $formState) {
+    /** @var \Drupal\Core\Entity\EntityFormInterface $formObject */
+    $formObject = $formState->getFormObject();
+    if ($formObject instanceof EntityFormInterface && 'delete' === $formObject->getOperation()) {
+      $entity = $formObject->getEntity();
+      if ($entity instanceof NodeInterface && NodeHelper::CONTENT_TYPE_DOCUMENT === $entity->getType()) {
+        $collections = $this->collectionHelper->loadCollections($entity);
+
+        if (!empty($collections)) {
+          unset($form['actions']['submit'], $form['description']);
+
+          $form['referencing_document_collections'] = [
+            '#weight' => -10,
+            'explanation' => [
+              '#prefix' => '<div class="messages messages--error">',
+              '#markup' => $this->formatPlural(
+                count($collections),
+                'You can not delete this document as it is being used in a collection.',
+                'You can not delete this document as it is being used in @count collections.'
+              ),
+              '#suffix' => '</div>',
+            ],
+            'collections' => [
+              '#theme' => 'item_list',
+              '#items' => array_values(array_map(static function (NodeInterface $collection) {
+                return $collection->toLink();
+              }, $collections)),
+            ],
+          ];
+        }
+      }
     }
   }
 

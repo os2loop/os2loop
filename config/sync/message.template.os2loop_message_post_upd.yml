@@ -1,0 +1,19 @@
+uuid: 35910953-cdbe-48c1-99ab-65b3df32e785
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.os2loop_message_message
+template: os2loop_message_post_upd
+label: 'Post edited'
+description: ''
+text:
+  -
+    value: 'A post you follow has been changed <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a>'
+    format: os2loop_message_message
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

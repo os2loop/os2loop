@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.os2loop_section_page.os2loop_section_page_paragraph
+    - field.field.node.os2loop_section_page.os2loop_shared_rev_date
     - node.type.os2loop_section_page
   module:
     - user
@@ -29,4 +30,5 @@ hidden:
   entity_print_view_word_docx: true
   langcode: true
   os2loop_section_page_paragraph: true
+  os2loop_shared_rev_date: true
   search_api_excerpt: true

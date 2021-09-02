@@ -1,0 +1,12 @@
+label: 'Bruger spørgsmål'
+display:
+  default:
+    display_options:
+      title: 'Mine spørgsmål'
+      empty:
+        area:
+          content:
+            value: 'Intet indhold relateret til din bruger.'
+            format: os2loop_question_answer_plain_text
+  page_1:
+    display_title: Side

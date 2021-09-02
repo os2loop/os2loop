@@ -1,0 +1,19 @@
+uuid: 32d3f69f-2a1d-487b-9684-33e7a6c6697d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_shared_approver
+    - node.type.os2loop_documents_collection
+id: node.os2loop_documents_collection.os2loop_shared_approver
+field_name: os2loop_shared_approver
+entity_type: node
+bundle: os2loop_documents_collection
+label: Approver
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

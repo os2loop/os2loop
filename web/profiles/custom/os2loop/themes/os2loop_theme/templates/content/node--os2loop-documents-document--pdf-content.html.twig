@@ -6,16 +6,18 @@
 
 <div class="os2loop-documents--document-content">
   {% if content.os2loop_shared_subject %}
-    <div class="os2loop-shared-subject">{{ content.os2loop_shared_subject }}</div>
+    <div class="badge badge-success">{{ content.os2loop_shared_subject }}</div>
   {% endif %}
 
   {% if content.os2loop_shared_tags %}
-    <div class="os2loop-shared-tags">{{ content.os2loop_shared_tags }}</div>
+    <div class="badge badge-secondary">{{ content.os2loop_shared_tags }}</div>
   {% endif %}
 
   {% if content.os2loop_shared_profession %}
     <div class="os2loop-shared-profession">{{ content.os2loop_shared_profession }}</div>
   {% endif %}
 
+  <div class="os2loop-document-info-box">{{ content.os2loop_documents_info_box }}</div>
+  <div class="os2loop-document-body">{{ content.os2loop_documents_document_body }}</div>
   <div class="os2loop-document-content">{{ content.os2loop_documents_document_conte }}</div>
 </div>

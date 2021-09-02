@@ -22,14 +22,28 @@ display:
             first: '« første'
             last: 'sidste »'
       fields:
+        message_bulk_form_1:
+          action_title: 'Med valg'
         mid:
           separator: ', '
         template:
           separator: ', '
+        get_text:
+          label: Beskedtekst
         uid:
           label: Forfatter
           separator: ', '
+        created:
+          label: Publiseringsdato
+      filters:
+        template:
+          expose:
+            label: Template
       title: Meddelelse
+      empty:
+        area:
+          content:
+            value: 'No beskeder oprettet endnu'
   page_1:
     display_title: Side
     display_options:

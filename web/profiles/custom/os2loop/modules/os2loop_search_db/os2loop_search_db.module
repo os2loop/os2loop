@@ -5,9 +5,12 @@
  * Contains os2loop_search_db.module.
  */
 
+use Drupal\block\Entity\Block;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\os2loop_search_db\Helper\Helper;
 use Drupal\search_api\Query\QueryInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_help().
@@ -36,7 +39,45 @@ function os2loop_search_db_search_api_autocomplete_suggestions_alter(array &$sug
 
 /**
  * Implements hook_search_api_query_alter().
+ *
+ * @see \Drupal\os2loop_search_db\Helper\Helper::alterSearchApiQuery()
  */
 function os2loop_search_db_search_api_query_alter(QueryInterface $query) {
   Drupal::service(Helper::class)->alterSearchApiQuery($query);
+}
+
+/**
+ * Implements hook_block_access().
+ *
+ * @see \Drupal\os2loop_search_db\Helper\Helper::blockAccess()
+ */
+function os2loop_search_db_block_access(Block $block, $operation, AccountInterface $account) {
+  return Drupal::service(Helper::class)->blockAccess($block, $operation, $account);
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @see \Drupal\os2loop_search_db\Helper\Helper::formAlter()
+ */
+function os2loop_search_db_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  return Drupal::service(Helper::class)->formAlter($form, $form_state, $form_id);
+}
+
+/**
+ * Implements hook_preprocess().
+ *
+ * @see \Drupal\os2loop_search_db\Helper\Helper::preprocessNode()
+ */
+function os2loop_search_db_preprocess_node(&$variables) {
+  return Drupal::service(Helper::class)->preprocessNode($variables);
+}
+
+/**
+ * Implements hook_preprocess().
+ *
+ * @see \Drupal\os2loop_search_db\Helper\Helper::preprocessNode()
+ */
+function os2loop_search_db_preprocess_views_view(&$variables) {
+  return Drupal::service(Helper::class)->preprocessView($variables);
 }

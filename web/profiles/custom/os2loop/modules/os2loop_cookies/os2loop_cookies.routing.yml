@@ -1,0 +1,7 @@
+os2loop_cookies.settings:
+  path: '/admin/config/os2loop/os2loop_cookies/settings'
+  defaults:
+    _form: '\Drupal\os2loop_cookies\Form\SettingsForm'
+    _title: 'OS2Loop cookies settings'
+  requirements:
+    _permission: 'administer os2loop settings'

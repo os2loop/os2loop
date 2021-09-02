@@ -1,0 +1,29 @@
+uuid: d9dda1ed-626e-4b65-a1c9-9a6b8894996a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_library
+    - media.type.os2loop_media_file
+    - taxonomy.vocabulary.os2loop_media_library
+id: media.os2loop_media_file.field_media_library
+field_name: field_media_library
+entity_type: media
+bundle: os2loop_media_file
+label: Library
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      os2loop_media_library: os2loop_media_library
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

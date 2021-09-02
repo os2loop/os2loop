@@ -1,0 +1,29 @@
+uuid: a5f34b5f-9463-40d0-870d-3847cc33df0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.message.os2loop_message_node_refer
+    - message.template.os2loop_message_post_upd
+    - node.type.os2loop_post
+id: message.os2loop_message_post_upd.os2loop_message_node_refer
+field_name: os2loop_message_node_refer
+entity_type: message
+bundle: os2loop_message_post_upd
+label: 'Node reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      os2loop_post: os2loop_post
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

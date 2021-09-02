@@ -70,59 +70,29 @@
  *   in different view modes.
  */
 #}
-{% macro title(title, class, node, content) %}
-  <div class="title">
-    <div class="icon-container {{ class }}"><div>
-    <h1{{ title_attributes }}>
-      {{ title }}
-    </h1>
-    <div>
-      {{ content.os2loop_shared_subject }}
-    </div>
-  </div>
-</div>
-  <div class="icon-container">
-    <div class="icon print" aria-label="{{ 'Print document (PDF)'|t }}">
-      <a href="{{ path('entity_print.view', {export_type: 'pdf', entity_type: 'node', entity_id: node.id}) }}"></a>
-    </div>
-    <div class="icon flag" title="{{ 'contact editorial office'|t }}">
-      <a aria-label="{{ 'Contact editorial staff'|t }}" href="{{ path('os2loop_flag_content.flag_content_form', {node: node.id}) }}"></a>
-    </div>
-    <div class="icon share" aria-label="{{ 'Share with a friend'|t }}">
-      <a></a>
-    </div>
-    {{ content.flag_os2loop_favourite }}
-  </div>
-</div>
-{% endmacro %}
+{% import '@os2loop_theme/macros.html.twig' as macros %}
 
 <article{{ attributes.addClass("os2loop-content os2loop-question") }}>
-    {{ title_prefix }}
-    {% if label %}
-      {{ _self.title(label, "question", node, content) }}
-    {% endif %}
-    {{ title_suffix }}
-    <div class="user">
-      {% if author_picture %}
-        {{ author_picture }}
-      {% else %}
-        <i class="bi bi-file-person"></i>
-      {% endif %}
-      {# TODO fix image #}
-      <div class="col-md">
-        <div>{{ author_name }}
-          {{ date }}</div>
-        <div>metadata</div>
-        {# TODO fix metadata #}
+  {{ macros.title(label, "question", node, content, false) }}
+  {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id)} %}
+  <div{{ content_attributes.addClass('mt-3 mb-5 px-3') }}>
+    {{ content.os2loop_question_content }}
+    <div class="row mt-3 mt-md-5 py-2 bg-light">
+      <div class="col-12 col-md-auto">
+        {{ content.os2loop_shared_tags }}
+      </div>
+      <div class="col-12 col-md-auto">
+        {{ content.os2loop_shared_subject }}
+      </div>
+      <div class="col-12 col-md-auto">
+        {{ content.os2loop_shared_profession }}
       </div>
     </div>
-    <div{{ content_attributes.addClass('bg-secondary-loop') }}>
-      {{ content.os2loop_question_content }}
-      {{ content.os2loop_shared_tags }}
-      {{ content.os2loop_shared_subject }}
-      {{ content.os2loop_shared_profession }}
-      {{ content.os2loop_question_file }}
+    <div class="row border-top pt-2 pb-3 bg-light rounded-bottom">
+      <div class="col">
+        {{ content.os2loop_question_file }}
+      </div>
     </div>
-    {{ content.os2loop_question_answers }}
   </div>
+  {{ content.os2loop_question_answers }}
 </article>

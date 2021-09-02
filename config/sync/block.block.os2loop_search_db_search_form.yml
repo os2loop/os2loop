@@ -6,13 +6,14 @@ dependencies:
     - views.view.os2loop_search_db
   module:
     - node
+    - system
     - views
   theme:
     - os2loop_theme
 id: os2loop_search_db_search_form
 theme: os2loop_theme
 region: content
-weight: -4
+weight: -5
 provider: null
 plugin: 'views_exposed_filter_block:os2loop_search_db-page_search_form'
 settings:
@@ -33,3 +34,7 @@ visibility:
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "# Show only on node view page (works with \"Hide for the listed pages\" and selected content types)\r\n/node/*/*"
+    negate: true

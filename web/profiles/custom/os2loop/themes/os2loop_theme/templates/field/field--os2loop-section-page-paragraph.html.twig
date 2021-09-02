@@ -48,7 +48,7 @@
   {% if multiple %}
     <div{{ attributes.addClass("os2loop-title") }}>
       {% for item in items %}
-        <div{{ item.attributes.addClass('section') }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass('section mb-3 mb-md-5') }}>{{ item.content }}</div>
       {% endfor %}
     </div>
   {% else %}

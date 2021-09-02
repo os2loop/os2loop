@@ -2,8 +2,55 @@
   .main-menu {
     flex-grow: 0;
   }
+
+  .navbar-brand {
+    min-width: 100px;
+  }
+
+  .brand-logo {
+    max-height: 48px;
+  }
 }
 
 .dropdown-divider {
   display: block;
+}
+
+// Fix for drop down menu, extending out of viewport when placed on at the right side of the page.
+.dropdown-menu {
+  &.position-right {
+    left: auto !important;
+    right: 0;
+  }
+}
+
+// Toggle icon on mobile menu
+.navbar-toggler {
+  .bi-list {
+    display: none;
+  }
+  .bi-x {
+    display: inline;
+  }
+  &.collapsed {
+    .bi-list {
+      display: inline;
+    }
+    .bi-x {
+      display: none;
+    }
+  }
+}
+
+.nav-item a {
+  &.is-active {
+    background: inherit;
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  &:active {
+    background: inherit;
+    color: inherit;
+  }
 }

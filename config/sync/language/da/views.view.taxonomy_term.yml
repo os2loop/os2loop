@@ -2,7 +2,7 @@ label: 'Ord i ordforråd'
 description: 'Indhold som er knyttet til en bestemt term.'
 display:
   default:
-    display_title: Master
+    display_title: Standard
     display_options:
       exposed_form:
         options:

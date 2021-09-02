@@ -1,0 +1,23 @@
+uuid: fae46186-5820-4d2f-9b84-12d04556a598
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.message.os2loop_message_question_ins.os2loop_message_node_refer
+    - message.template.os2loop_message_question_ins
+id: message.os2loop_message_question_ins.default
+targetEntityType: message
+bundle: os2loop_message_question_ins
+mode: default
+content:
+  os2loop_message_node_refer:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden: {  }

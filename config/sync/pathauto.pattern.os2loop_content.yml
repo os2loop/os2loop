@@ -1,0 +1,14 @@
+uuid: a8605d54-b9a8-43a3-9aa8-28c7785ecede
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: os2loop_content
+label: Content
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,5 @@
+name: 'OS2Loop media'
+type: module
+description: 'OS2Loop media'
+core_version_requirement: ^9
+package: 'OS2Loop'

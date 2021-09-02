@@ -1,0 +1,29 @@
+uuid: 71b1a9c6-7579-49c7-8b22-e6c384782395
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.message.os2loop_message_node_refer
+    - message.template.os2loop_message_answer_upd
+    - node.type.os2loop_question
+id: message.os2loop_message_answer_upd.os2loop_message_node_refer
+field_name: os2loop_message_node_refer
+entity_type: message
+bundle: os2loop_message_answer_upd
+label: 'Node reference'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      os2loop_question: os2loop_question
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -13,3 +13,8 @@ services:
     class: Drupal\os2loop_taxonomy_fixtures\Fixture\TagFixture
     tags:
       - { name: content_fixture }
+
+  os2loop_taxonomy_fixtures.media_library_fixture:
+    class: Drupal\os2loop_taxonomy_fixtures\Fixture\MediaLibraryFixture
+    tags:
+      - { name: content_fixture }

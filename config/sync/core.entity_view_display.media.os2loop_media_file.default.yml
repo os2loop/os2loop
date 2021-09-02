@@ -1,0 +1,33 @@
+uuid: 3ca70947-94fb-4356-a06c-519c50cf2143
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.os2loop_media_file.field_media_file
+    - field.field.media.os2loop_media_file.field_media_library
+    - media.type.os2loop_media_file
+  module:
+    - file
+id: media.os2loop_media_file.default
+targetEntityType: media
+bundle: os2loop_media_file
+mode: default
+content:
+  field_media_file:
+    label: visually_hidden
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: file_url_plain
+    region: content
+hidden:
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_media_library: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

@@ -55,7 +55,7 @@ display:
       empty:
         area_text_custom:
           content: 'Der er intet indhold at vise.'
-    display_title: Master
+    display_title: Standard
   page_1:
     display_options:
       menu:

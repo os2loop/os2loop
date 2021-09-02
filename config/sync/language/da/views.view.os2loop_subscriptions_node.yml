@@ -1,0 +1,8 @@
+display:
+  default:
+    display_options:
+      empty:
+        area:
+          content:
+            value: 'Du har ingen notifikationer'
+            format: os2loop_question_answer_plain_text

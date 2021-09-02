@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.taxonomy_term.list_display
+    - field.field.taxonomy_term.os2loop_subject.os2loop_taxonomy_color_picker
     - taxonomy.vocabulary.os2loop_subject
   module:
     - text
@@ -29,4 +30,5 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
+  os2loop_taxonomy_color_picker: true
   search_api_excerpt: true

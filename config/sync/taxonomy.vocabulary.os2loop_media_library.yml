@@ -1,0 +1,8 @@
+uuid: 60b14cff-0425-4ac2-8308-bef6e242b267
+langcode: en
+status: true
+dependencies: {  }
+name: 'Media library'
+vid: os2loop_media_library
+description: ''
+weight: 0

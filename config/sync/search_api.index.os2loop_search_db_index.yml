@@ -2,30 +2,29 @@ uuid: e9ce8c07-994e-4d35-88b4-f4065ac9611b
 langcode: en
 status: true
 dependencies:
+  module:
+    - node
+    - taxonomy
+    - paragraphs
+    - search_api
   config:
-    - field.storage.comment.os2loop_question_answer
-    - field.storage.comment.os2loop_post_comment
-    - field.storage.node.os2loop_documents_document_body
+    - field.storage.node.os2loop_shared_tags
     - field.storage.node.os2loop_documents_dc_content
-    - field.storage.node.os2loop_question_content
-    - field.storage.node.os2loop_post_content
     - field.storage.node.os2loop_documents_document_conte
-    - field.storage.paragraph.os2loop_documents_hc_content
     - field.storage.paragraph.os2loop_documents_description
+    - field.storage.node.os2loop_documents_document_body
+    - field.storage.paragraph.os2loop_documents_hc_content
+    - field.storage.paragraph.os2loop_documents_hc_title
     - field.storage.paragraph.os2loop_documents_step_text
     - field.storage.paragraph.os2loop_documents_tai_text
-    - field.storage.paragraph.os2loop_documents_hc_title
     - field.storage.node.os2loop_external_descripti
+    - field.storage.node.os2loop_post_comments
+    - field.storage.node.os2loop_post_content
+    - field.storage.node.os2loop_question_answers
+    - field.storage.node.os2loop_question_content
     - field.storage.node.os2loop_shared_profession
     - field.storage.node.os2loop_shared_subject
-    - field.storage.node.os2loop_shared_tags
     - search_api.server.os2loop_search_db_server
-  module:
-    - comment
-    - node
-    - paragraphs
-    - taxonomy
-    - search_api
 id: os2loop_search_db_index
 name: Index
 description: ''
@@ -39,14 +38,6 @@ field_settings:
     dependencies:
       module:
         - node
-  comment_type:
-    label: 'Comment Type'
-    datasource_id: 'entity:comment'
-    property_path: comment_type
-    type: string
-    dependencies:
-      module:
-        - comment
   created:
     label: 'Authored on'
     datasource_id: 'entity:node'
@@ -55,6 +46,16 @@ field_settings:
     dependencies:
       module:
         - node
+  name:
+    label: 'Tags » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_shared_tags:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_shared_tags
+      module:
+        - taxonomy
   os2loop_documents_dc_content:
     label: Content
     datasource_id: 'entity:node'
@@ -134,14 +135,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.os2loop_external_descripti
-  os2loop_post_comment:
-    label: Comment
-    datasource_id: 'entity:comment'
-    property_path: os2loop_post_comment
-    type: text
+  os2loop_post_comments:
+    label: Comments
+    datasource_id: 'entity:node'
+    property_path: os2loop_post_comments
+    type: string
     dependencies:
       config:
-        - field.storage.comment.os2loop_post_comment
+        - field.storage.node.os2loop_post_comments
   os2loop_post_content:
     label: Content
     datasource_id: 'entity:node'
@@ -150,14 +151,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.os2loop_post_content
-  os2loop_question_answer:
-    label: Answer
-    datasource_id: 'entity:comment'
-    property_path: os2loop_question_answer
-    type: text
+  os2loop_question_answers:
+    label: Answers
+    datasource_id: 'entity:node'
+    property_path: os2loop_question_answers
+    type: string
     dependencies:
       config:
-        - field.storage.comment.os2loop_question_answer
+        - field.storage.node.os2loop_question_answers
   os2loop_question_content:
     label: Content
     datasource_id: 'entity:node'
@@ -201,6 +202,16 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.os2loop_shared_tags
+  processed_answer:
+    label: Answer
+    datasource_id: 'entity:node'
+    property_path: 'search_api_reverse_entity_references_comment__entity_id:os2loop_question_answer:processed'
+    type: text
+  processed_comment:
+    label: Comment
+    datasource_id: 'entity:node'
+    property_path: 'search_api_reverse_entity_references_comment__entity_id:os2loop_post_comment:processed'
+    type: text
   title:
     label: Title
     datasource_id: 'entity:node'
@@ -219,13 +230,6 @@ field_settings:
       module:
         - node
 datasource_settings:
-  'entity:comment':
-    bundles:
-      default: true
-      selected: {  }
-    languages:
-      default: true
-      selected: {  }
   'entity:node':
     bundles:
       default: true
@@ -238,6 +242,7 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  entity_status: {  }
   highlight:
     highlight: always
     highlight_partial: true
@@ -251,7 +256,7 @@ processor_settings:
   html_filter:
     all_fields: true
     fields:
-      - comment_type
+      - name
       - os2loop_documents_dc_content
       - os2loop_documents_description
       - os2loop_documents_document_body
@@ -260,11 +265,13 @@ processor_settings:
       - os2loop_documents_step_text
       - os2loop_documents_tai_text
       - os2loop_external_descripti
-      - os2loop_post_comment
+      - os2loop_post_comments
       - os2loop_post_content
-      - os2loop_question_answer
+      - os2loop_question_answers
       - os2loop_question_content
       - os2loop_shared_subject_name
+      - processed_answer
+      - processed_comment
       - title
       - type
     title: false
@@ -278,12 +285,65 @@ processor_settings:
     weights:
       preprocess_index: -15
       preprocess_query: -15
+  ignorecase:
+    all_fields: true
+    fields:
+      - name
+      - os2loop_documents_dc_content
+      - os2loop_documents_description
+      - os2loop_documents_document_body
+      - os2loop_documents_hc_content
+      - os2loop_documents_hc_title
+      - os2loop_documents_step_text
+      - os2loop_documents_tai_text
+      - os2loop_external_descripti
+      - os2loop_post_comments
+      - os2loop_post_content
+      - os2loop_question_answers
+      - os2loop_question_content
+      - os2loop_shared_subject_name
+      - processed_answer
+      - processed_comment
+      - title
+      - type
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
   language_with_fallback: {  }
   rendered_item: {  }
+  reverse_entity_references: {  }
+  tokenizer:
+    all_fields: true
+    fields:
+      - name
+      - os2loop_documents_dc_content
+      - os2loop_documents_description
+      - os2loop_documents_document_body
+      - os2loop_documents_hc_content
+      - os2loop_documents_hc_title
+      - os2loop_documents_step_text
+      - os2loop_documents_tai_text
+      - os2loop_external_descripti
+      - os2loop_post_content
+      - os2loop_question_content
+      - os2loop_shared_subject_name
+      - processed_answer
+      - processed_comment
+      - title
+    ignored: ._-
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '1'
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
   type_boost:
     boosts:
       'entity:node':
         datasource_boost: !!float 1
+        bundle_boosts:
+          os2loop_documents_collection: !!float 2
+          os2loop_documents_document: !!float 2
     weights:
       preprocess_index: 0
 tracker_settings:

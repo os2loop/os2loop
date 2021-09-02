@@ -20,3 +20,9 @@ services:
       - '@os2loop_documents.collection_helper'
       - '@request_stack'
       - '@cache_tags.invalidator'
+      - '@messenger'
+
+  os2loop_documents.entity_print.event_subscriber:
+    class: Drupal\os2loop_documents\EventSubscriber\EntityPrintEventSubscriber
+    tags:
+      - { name: event_subscriber }

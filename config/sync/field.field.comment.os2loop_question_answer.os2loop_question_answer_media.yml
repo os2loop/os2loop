@@ -1,0 +1,29 @@
+uuid: fa76e5b6-b014-48ac-9927-170522b0077b
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.os2loop_question_answer
+    - field.storage.comment.os2loop_question_answer_media
+    - media.type.os2loop_media_file
+id: comment.os2loop_question_answer.os2loop_question_answer_media
+field_name: os2loop_question_answer_media
+entity_type: comment
+bundle: os2loop_question_answer
+label: Upload
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      os2loop_media_file: os2loop_media_file
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

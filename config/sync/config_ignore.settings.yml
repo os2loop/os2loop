@@ -1,6 +1,18 @@
 ignored_config_entities:
   - os2loop.settings
-  - system.site
+  - os2loop_analytics.settings
+  - os2loop_cookies.settings
+  - os2loop_documents.settings
   - os2loop_flag_content.settings
+  - os2loop_mail_notifications.settings
+  - os2loop_member_list.settings
+  - os2loop_question.settings
+  - os2loop_settings.settings
+  - os2loop_share_with_a_friend.settings
+  - os2loop_theme.settings
+  - os2loop_user_login.settings
+  - samlauth.authentication
+  - samlauth_user_roles.mapping
+  - system.site
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk

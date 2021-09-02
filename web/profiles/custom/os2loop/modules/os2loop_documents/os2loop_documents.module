@@ -26,11 +26,11 @@ function os2loop_documents_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
- * Implements hook_form_BASE_FORM_ID_alter().
+ * Implements hook_form_alter().
  *
  * @see \Drupal\os2loop_documents\Helper\FormHelper::alterForm()
  */
-function os2loop_documents_form_node_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+function os2loop_documents_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   // @todo We should use hook_event_dispatcher for this
   // https://www.drupal.org/project/hook_event_dispatcher/issues/3199174
   \Drupal::service('os2loop_documents.form_helper')->alterForm($form, $form_state, $form_id);
@@ -52,4 +52,13 @@ function os2loop_documents_node_update(EntityInterface $entity) {
  */
 function os2loop_documents_preprocess_node(array &$variables) {
   \Drupal::service('os2loop_documents.node_helper')->preprocessNode($variables);
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * @see \Drupal\os2loop_documents\Helper\NodeHelper::theme()
+ */
+function os2loop_documents_theme($existing, $type, $theme, $path) {
+  return \Drupal::service('os2loop_documents.node_helper')->theme($existing, $type, $theme, $path);
 }

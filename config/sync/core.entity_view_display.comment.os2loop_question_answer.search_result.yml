@@ -6,6 +6,7 @@ dependencies:
     - comment.type.os2loop_question_answer
     - core.entity_view_mode.comment.search_result
     - field.field.comment.os2loop_question_answer.os2loop_question_answer
+    - field.field.comment.os2loop_question_answer.os2loop_question_answer_media
 id: comment.os2loop_question_answer.search_result
 targetEntityType: comment
 bundle: os2loop_question_answer
@@ -25,3 +26,4 @@ hidden:
   langcode: true
   links: true
   os2loop_question_answer: true
+  os2loop_question_answer_media: true

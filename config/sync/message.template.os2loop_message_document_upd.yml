@@ -1,0 +1,19 @@
+uuid: 8cb56fcb-422b-4eff-b88f-1561f394b678
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.os2loop_message_message
+template: os2loop_message_document_upd
+label: 'Document edited'
+description: ''
+text:
+  -
+    value: 'A document has been changed: <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a>'
+    format: os2loop_message_message
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }
