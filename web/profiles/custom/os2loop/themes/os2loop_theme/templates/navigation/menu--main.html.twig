@@ -47,7 +47,7 @@
               item.in_active_trail ? 'active',
             ] %}
             <li{{ item.attributes.addClass(classes_list_item) }}>
-              {% if not item.url.external and item.url.routeName == '<nolink>' %}
+              {% if item.url.routed and item.url.routeName == '<nolink>' %}
                 <a class="{{ classes_link|join(' ') }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {{ item.title }}
                 </a>
