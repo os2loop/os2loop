@@ -16,6 +16,7 @@ dependencies:
     - autocomplete_deluxe
     - datetime
     - paragraphs
+    - path
     - text
 id: node.os2loop_documents_document.default
 targetEntityType: node
@@ -67,17 +68,17 @@ content:
   os2loop_shared_profession:
     weight: 8
     settings:
+      match_limit: '0'
+      min_length: 0
+      delimiter: ''
+      not_found_message: 'The term ''@term'' will be added'
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+      not_found_message_allow: false
+      new_terms: false
       match_operator: CONTAINS
       autocomplete_route_name: autocomplete_deluxe.autocomplete
       size: 60
       selection_handler: default
-      limit: 10
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
-      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
     third_party_settings: {  }
     type: autocomplete_deluxe
     region: content
@@ -90,7 +91,7 @@ content:
   os2loop_shared_subject:
     weight: 9
     settings:
-      limit: 10
+      match_limit: '0'
       min_length: 0
       delimiter: ''
       not_found_message: 'The term ''@term'' will be added'
@@ -107,7 +108,6 @@ content:
   os2loop_shared_tags:
     weight: 10
     settings:
-      limit: 10
       min_length: 0
       delimiter: ''
       not_found_message: 'The term ''@term'' will be added'
@@ -118,6 +118,7 @@ content:
       autocomplete_route_name: autocomplete_deluxe.autocomplete
       size: 60
       selection_handler: default
+      match_limit: 10
     third_party_settings: {  }
     type: autocomplete_deluxe
     region: content
