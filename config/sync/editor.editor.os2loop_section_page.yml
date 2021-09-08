@@ -28,10 +28,12 @@ settings:
             - BulletedList
             - NumberedList
   plugins:
-    language:
-      language_list: un
     stylescombo:
       styles: ''
+    language:
+      language_list: un
+    tokenbrowser:
+      token_types: {  }
 image_upload:
   status: false
   scheme: public
