@@ -165,17 +165,17 @@ content:
     weight: 0
     region: content
     settings:
-      match_operator: CONTAINS
-      size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      selection_handler: default
-      limit: 10
+      match_limit: '0'
       min_length: 0
       delimiter: ''
-      not_found_message_allow: false
       not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
       no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+      not_found_message_allow: false
+      new_terms: false
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      size: 60
+      selection_handler: default
     third_party_settings: {  }
   os2loop_user_biography:
     type: string_textarea
@@ -267,17 +267,17 @@ content:
     weight: 9
     region: content
     settings:
-      match_operator: CONTAINS
-      size: 60
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      selection_handler: default
-      limit: 10
+      match_limit: '0'
       min_length: 0
       delimiter: ''
-      not_found_message_allow: false
       not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
       no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+      not_found_message_allow: false
+      new_terms: false
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      size: 60
+      selection_handler: default
     third_party_settings: {  }
 hidden:
   langcode: true

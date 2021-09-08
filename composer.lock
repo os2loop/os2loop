@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8389a8ae3f00d8dc6658e8b538c3b288",
+    "content-hash": "5e003ea36979d6761d7e02f2092e2b47",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -13057,7 +13057,7 @@
         },
         {
             "name": "os2loop/os2loop_fixtures",
-            "version": "dev-develop",
+            "version": "dev-feature/LOOP-1091-autocomplete-limitation",
             "dist": {
                 "type": "path",
                 "url": "web/profiles/custom/os2loop/modules/os2loop_fixtures",
@@ -15525,7 +15525,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/autocomplete_deluxe": 5,
         "drupal/better_formats": 20,
         "drupal/block_field": 5,
         "drupal/entity_usage": 10,
@@ -15541,5 +15540,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
