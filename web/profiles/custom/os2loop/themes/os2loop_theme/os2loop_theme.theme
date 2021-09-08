@@ -181,6 +181,23 @@ function os2loop_theme_form_system_theme_settings_alter(&$form, FormStateInterfa
     '#default_value' => isset($uploaded_file) ? $uploaded_file : NULL,
     '#upload_location' => 'public://custom_color_scheme/',
   ];
+
+  // Add a custom submit handler (cf. https://kb.detlus.com/articles/drupal/drupal-8-use-custom-submit-handler-for-theme-settings-form/)
+  $form['#submit'][] = 'os2loop_theme_form_system_theme_settings_submit';
+}
+
+/**
+ * Theme settings form submit handler.
+ *
+ * @param array $form
+ *   The form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ * @param string|null $form_id
+ *   The form id.
+ */
+function os2loop_theme_form_system_theme_settings_submit(array &$form, FormStateInterface $form_state, $form_id = NULL) {
+  drupal_flush_all_caches();
 }
 
 /**

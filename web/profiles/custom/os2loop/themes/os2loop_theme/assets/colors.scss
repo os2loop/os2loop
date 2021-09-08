@@ -4,21 +4,21 @@
  */
 
 // Override Bootstrap colors
-$primary: #41ab51;
-$secondary: #6c757d;
-$success: #28a745;
-$info: #17a2b8;
-$warning: #ffc107;
-$danger: #dc3545;
-$light: #f8f9fa;
-$dark: #343a40;
-$blue: #0a58ca;
+$primary: #41ab51 !default;
+$secondary: #6c757d !default;
+$success: #28a745 !default;
+$info: #17a2b8 !default;
+$warning: #ffc107 !default;
+$danger: #dc3545 !default;
+$light: #f8f9fa !default;
+$dark: #343a40 !default;
+$blue: #0a58ca !default;
 
 // Taxonomy colors
-$taxonomy-color-1: hsl(60, 54%, 35%);
-$taxonomy-color-2: hsl(120, 54%, 35%);
-$taxonomy-color-3: hsl(230, 54%, 35%);
-$taxonomy-color-4: hsl(0, 0%, 13%);
+$taxonomy-color-1: hsl(60, 54%, 35%) !default;
+$taxonomy-color-2: hsl(120, 54%, 35%) !default;
+$taxonomy-color-3: hsl(230, 54%, 35%) !default;
+$taxonomy-color-4: hsl(0, 0%, 13%) !default;
 
 // Black and white
 $black: #000;
