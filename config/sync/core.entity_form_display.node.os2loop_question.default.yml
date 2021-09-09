@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.media.inline_media_form
     - field.field.node.os2loop_question.os2loop_question_answers
     - field.field.node.os2loop_question.os2loop_question_content
     - field.field.node.os2loop_question.os2loop_question_file
@@ -13,7 +14,7 @@ dependencies:
   module:
     - autocomplete_deluxe
     - comment
-    - media_library
+    - inline_entity_form
     - path
     - text
 id: node.os2loop_question.default
@@ -42,10 +43,16 @@ content:
     type: text_textarea
     region: content
   os2loop_question_file:
-    type: media_library_widget
+    type: inline_entity_form_simple
     weight: 26
     settings:
-      media_types: {  }
+      form_mode: inline_media_form
+      label_singular: ''
+      label_plural: ''
+      revision: false
+      override_labels: false
+      collapsible: false
+      collapsed: false
     third_party_settings: {  }
     region: content
   os2loop_shared_profession:

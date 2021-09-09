@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.media.inline_media_form
     - field.field.user.user.os2loop_mail_notifications_intvl
     - field.field.user.user.os2loop_user_address
     - field.field.user.user.os2loop_user_areas_of_expertise
@@ -21,7 +22,7 @@ dependencies:
   module:
     - autocomplete_deluxe
     - field_group
-    - media_library
+    - inline_entity_form
     - user
 third_party_settings:
   field_group:
@@ -217,10 +218,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
   os2loop_user_image:
-    type: media_library_widget
+    type: inline_entity_form_simple
     weight: 2
     settings:
-      media_types: {  }
+      form_mode: inline_media_form
+      label_singular: ''
+      label_plural: ''
+      revision: false
+      override_labels: false
+      collapsible: false
+      collapsed: false
     third_party_settings: {  }
     region: content
   os2loop_user_internal_list:
