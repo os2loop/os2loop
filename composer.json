@@ -60,6 +60,7 @@
         "drupal/gin": "^3.0",
         "drupal/gin_login": "^1.0@RC",
         "drupal/gin_toolbar": "^1.0@beta",
+        "drupal/inline_entity_form": "^1.0@RC",
         "drupal/masquerade": "^2.0@beta",
         "drupal/message": "^1.2",
         "drupal/openid_connect": "2.x-dev@dev",

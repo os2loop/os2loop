@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e003ea36979d6761d7e02f2092e2b47",
+    "content-hash": "36b8d7a226ac4204b369e6bb728ad44d",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3782,6 +3782,90 @@
                     "url": "https://paypal.me/saschaeggi"
                 }
             ]
+        },
+        {
+            "name": "drupal/inline_entity_form",
+            "version": "1.0.0-rc9",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/inline_entity_form.git",
+                "reference": "8.x-1.0-rc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-rc9.zip",
+                "reference": "8.x-1.0-rc9",
+                "shasum": "78953103a9c6e4e44bc877820a35f39913ea4559"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "drupal/entity_reference_revisions": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-rc9",
+                    "datestamp": "1618174486",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "geek-merlin",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "joachim",
+                    "homepage": "https://www.drupal.org/user/107701"
+                },
+                {
+                    "name": "jsacksick",
+                    "homepage": "https://www.drupal.org/user/972218"
+                },
+                {
+                    "name": "kaythay",
+                    "homepage": "https://www.drupal.org/user/2182186"
+                },
+                {
+                    "name": "oknate",
+                    "homepage": "https://www.drupal.org/user/471638"
+                },
+                {
+                    "name": "rszrama",
+                    "homepage": "https://www.drupal.org/user/49344"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                },
+                {
+                    "name": "webflo",
+                    "homepage": "https://www.drupal.org/user/254778"
+                }
+            ],
+            "description": "Provides a widget for inline management (creation, modification, removal) of referenced entities.",
+            "homepage": "https://www.drupal.org/project/inline_entity_form",
+            "support": {
+                "source": "https://git.drupalcode.org/project/inline_entity_form"
+            }
         },
         {
             "name": "drupal/masquerade",
@@ -13057,7 +13141,7 @@
         },
         {
             "name": "os2loop/os2loop_fixtures",
-            "version": "dev-feature/LOOP-1091-autocomplete-limitation",
+            "version": "dev-develop",
             "dist": {
                 "type": "path",
                 "url": "web/profiles/custom/os2loop/modules/os2loop_fixtures",
@@ -15531,6 +15615,7 @@
         "drupal/flag": 10,
         "drupal/gin_login": 5,
         "drupal/gin_toolbar": 10,
+        "drupal/inline_entity_form": 5,
         "drupal/masquerade": 10,
         "drupal/openid_connect": 20,
         "drupal/theme_switcher": 20,
