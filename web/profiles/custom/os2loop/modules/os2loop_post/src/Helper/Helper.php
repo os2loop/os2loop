@@ -17,7 +17,7 @@ class Helper {
   public function alterForm(array &$form, FormStateInterface $form_state, string $form_id) {
     switch ($form_id) {
       case 'comment_os2loop_post_comment_form':
-        $this->hidePreviewButton($form, $form_state, $form_id);
+        $this->alterCommentForm($form, $form_state, $form_id);
         break;
     }
   }
@@ -32,8 +32,31 @@ class Helper {
    * @param string $form_id
    *   The id of the the form.
    */
-  private function hidePreviewButton(array &$form, FormStateInterface $form_state, string $form_id) {
+  private function alterCommentForm(array &$form, FormStateInterface $form_state, string $form_id) {
     $form['actions']['preview']['#access'] = FALSE;
+    $form['os2loop_post_comment']['widget']['#after_build'][] =
+      [$this, 'fieldAfterBuild'];
+  }
+
+  /**
+   * Remove help text about format.
+   *
+   * @param array $form_element
+   *   The form element.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The state of the form.
+   *
+   * @return array
+   *   The altered form element.
+   */
+  public function fieldAfterBuild(array $form_element, FormStateInterface $form_state) {
+    if (isset($form_element[0]['format'])) {
+      // Hide "about text formats and formatter rules." text.
+      unset($form_element[0]['format']['guidelines']);
+      unset($form_element[0]['format']['help']);
+    }
+
+    return $form_element;
   }
 
 }
