@@ -40,7 +40,7 @@
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
         "drupal/adminimal_theme": "^1.6",
-        "drupal/autocomplete_deluxe": "^2.0@RC",
+        "drupal/autocomplete_deluxe": "2.0.0",
         "drupal/better_formats": "1.x-dev",
         "drupal/block_field": "^1.0@RC",
         "drupal/config_ignore": "^2.3",
@@ -60,6 +60,7 @@
         "drupal/gin": "^3.0",
         "drupal/gin_login": "^1.0@RC",
         "drupal/gin_toolbar": "^1.0@beta",
+        "drupal/inline_entity_form": "^1.0@RC",
         "drupal/masquerade": "^2.0@beta",
         "drupal/message": "^1.2",
         "drupal/openid_connect": "2.x-dev@dev",
@@ -186,6 +187,9 @@
             },
             "drupal/openid_connect": {
                 "Revoking group access does not reflect on applied roles (https://www.drupal.org/project/openid_connect/issues/3224128)": "https://git.drupalcode.org/project/openid_connect/-/merge_requests/31.diff"
+            },
+            "drupal/autocomplete_deluxe": {
+                "Fix bug in limitation": "patches/autocomplete_deluxe_fix_limitation_bug.patch"
             }
         }
     },

@@ -9,6 +9,7 @@ dependencies:
     - media.type.os2loop_media_image
   module:
     - image
+    - path
 id: media.os2loop_media_image.default
 targetEntityType: media
 bundle: os2loop_media_image
@@ -52,5 +53,4 @@ content:
 hidden:
   created: true
   langcode: true
-  status: true
   uid: true

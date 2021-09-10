@@ -5,7 +5,9 @@
  * Contains os2loop_user.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\os2loop_user\Helper\Helper;
 
 /**
  * Implements hook_help().
@@ -21,4 +23,13 @@ function os2loop_user_help($route_name, RouteMatchInterface $route_match) {
 
     default:
   }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @see \Drupal\os2loop_user\Helper\Helper::alterForm()
+ */
+function os2loop_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  Drupal::service(Helper::class)->alterForm($form, $form_state, $form_id);
 }
