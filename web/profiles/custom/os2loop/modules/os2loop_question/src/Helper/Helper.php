@@ -34,7 +34,7 @@ class Helper {
   public function alterForm(array &$form, FormStateInterface $form_state, string $form_id) {
     switch ($form_id) {
       case 'comment_os2loop_question_answer_form':
-        $this->hidePreviewButton($form, $form_state, $form_id);
+        $this->alterCommentForm($form, $form_state, $form_id);
         break;
 
       case 'node_os2loop_question_edit_form':
@@ -82,7 +82,7 @@ class Helper {
    * @param string $form_id
    *   The id of the the form.
    */
-  private function hidePreviewButton(array &$form, FormStateInterface $form_state, string $form_id) {
+  private function alterCommentForm(array &$form, FormStateInterface $form_state, string $form_id) {
     $form['actions']['preview']['#access'] = FALSE;
     $form['os2loop_question_answer']['widget']['#after_build'][] =
         [$this, 'fieldAfterBuild'];
