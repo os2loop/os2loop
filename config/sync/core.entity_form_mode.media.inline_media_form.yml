@@ -1,0 +1,10 @@
+uuid: de7d72af-6d61-477a-bf35-3668f18378bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.inline_media_form
+label: 'Inline media form'
+targetEntityType: media
+cache: true

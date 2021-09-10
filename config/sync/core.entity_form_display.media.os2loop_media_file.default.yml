@@ -8,6 +8,7 @@ dependencies:
     - media.type.os2loop_media_file
   module:
     - file
+    - path
 id: media.os2loop_media_file.default
 targetEntityType: media
 bundle: os2loop_media_file
