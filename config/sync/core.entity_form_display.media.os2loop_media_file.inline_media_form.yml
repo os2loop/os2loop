@@ -1,0 +1,31 @@
+uuid: 6975c465-28ff-4289-9e1a-87ef58c5b185
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.inline_media_form
+    - field.field.media.os2loop_media_file.field_media_file
+    - field.field.media.os2loop_media_file.field_media_library
+    - media.type.os2loop_media_file
+  module:
+    - file
+id: media.os2loop_media_file.inline_media_form
+targetEntityType: media
+bundle: os2loop_media_file
+mode: inline_media_form
+content:
+  field_media_file:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+hidden:
+  created: true
+  field_media_library: true
+  langcode: true
+  name: true
+  path: true
+  status: true
+  uid: true

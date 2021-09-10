@@ -81,8 +81,10 @@
       {% if media.bundle() is same as('os2loop_media_image') %}
         {% set file_id = media.field_media_image.value[0].target_id %}
       {% endif %}
-      {% set file = drupal_entity('file', file_id)['#file'] %}
+      {% if file_id %}
+        {% set file = drupal_entity('file', file_id)['#file'] %}
         <a href="{{ file_url(file.getFileUri()) }}" target="_blank" class="mb-1 btn btn-sm btn-dark"><i class="bi bi-file-earmark-arrow-down-fill mr-1"></i>{{ file.getFileName() }}</a>
+      {% endif %}
     {% endfor %}
     {% if multiple %}
       </div>
