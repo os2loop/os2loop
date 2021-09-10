@@ -29,14 +29,16 @@ class Helper {
   public function alterForm(array &$form, FormStateInterface $form_state, string $form_id) {
     switch ($form_id) {
       case 'user_form':
-        // Allow only administrator and user_administrator to edit user mail.
-        $form['account']['mail']['#access'] = !empty(array_intersect(
-          [
-            'os2loop_user_administrator',
-            'os2loop_user_user_administrator',
-          ],
-          $this->currentUser->getRoles()
-        ));
+        // Allow only user 1 and administrator and user_administrator to edit
+        // user mail.
+        $form['account']['mail']['#access'] = 1 === (int) $this->currentUser->id()
+          || !empty(array_intersect(
+            [
+              'os2loop_user_administrator',
+              'os2loop_user_user_administrator',
+            ],
+            $this->currentUser->getRoles()
+          ));
         break;
     }
   }
