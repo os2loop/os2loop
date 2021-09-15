@@ -4,6 +4,7 @@ namespace Drupal\os2loop_media\Helper;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\Plugin\views\query\Sql;
 use Drupal\views\ViewExecutable;
@@ -12,6 +13,7 @@ use Drupal\views\ViewExecutable;
  * The helper.
  */
 class Helper {
+  use StringTranslationTrait;
   /**
    * The current user.
    *
@@ -115,6 +117,11 @@ class Helper {
     if ('media_library_add_form_upload' === $form_id) {
       $form['#after_build'][] = [$this, 'afterBuild'];
     }
+
+    // The inline upload form is built later so we use after build.
+    if ('user_form' === $form_id) {
+      $form['#after_build'][] = [$this, 'userAfterBuild'];
+    }
   }
 
   /**
@@ -142,6 +149,26 @@ class Helper {
       }
     }
 
+    return $form;
+  }
+
+  /**
+   * Modify alt field.
+   *
+   * Set a default value for alt field.
+   *
+   * @param array $form
+   *   The form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The state of the form.
+   *
+   * @return array
+   *   The altered form.
+   */
+  public function userAfterBuild(array $form, FormStateInterface $form_state) {
+    $form['os2loop_user_image']['widget'][0]['inline_entity_form']['field_media_image']['widget'][0]['alt']['#default_value'] = $this->t('Profile image');
+    $form['os2loop_user_image']['widget'][0]['inline_entity_form']['field_media_image']['widget'][0]['alt']['#value'] = $this->t('Profile image');
+    $form['os2loop_user_image']['widget'][0]['inline_entity_form']['field_media_image']['widget'][0]['alt']['#access'] = FALSE;
     return $form;
   }
 
