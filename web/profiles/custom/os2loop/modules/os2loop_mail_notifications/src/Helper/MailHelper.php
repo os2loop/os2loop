@@ -64,6 +64,7 @@ class MailHelper {
           'os2loop_mail_notifications' => [
             // Prevent html escaping by converting to markup.
             'messages' => Markup::create($params['messages']),
+            'messages_with_headings' => Markup::create($params['messages_with_headings']),
           ],
         ];
         $message['subject'] = $this->renderTemplate($subject_template, $data);
@@ -90,6 +91,34 @@ class MailHelper {
       $sections[$type] = $section;
       $params[$type] = $section;
     }
+
+    // Group messages under headings.
+    //
+    // A message on the form
+    //
+    //   Something new: <a href="…">New stuff</a>.
+    //
+    // will be put under the heading "Something new" (colon and space are
+    // removed) as <a href="…">New stuff</a> (only a element is used).
+    $messageSections = [];
+    foreach ($groupedMessages as $messages) {
+      foreach ($messages as $message) {
+        $text = $message->getText($lang_code)[0] ?? NULL;
+        // Use text before a element as heading and keep only the a element as
+        // text.
+        if (NULL !== $text
+        && preg_match('@^(?P<heading>[^<]+?)(:\s*)?(?P<content><a.+</a>)@', $text, $matches)) {
+          [$heading, $content] = [$matches['heading'], $matches['content']];
+          $messageSections[$heading][] = $content;
+        }
+      }
+    }
+    $messagesWithHeadings = '';
+    foreach ($messageSections as $heading => $content) {
+      $messagesWithHeadings .= $heading . PHP_EOL . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $content) . PHP_EOL . PHP_EOL;
+    }
+    $params['messages_with_headings'] = $messagesWithHeadings;
+
     $sections = array_filter($sections);
     $params['messages'] = implode(PHP_EOL . PHP_EOL, $sections);
     $params['user'] = $user;
@@ -143,6 +172,10 @@ class MailHelper {
           'messages' => [
             'name' => $this->t('The messages'),
             'description' => $this->t('The messages.'),
+          ],
+          'messages_with_headings' => [
+            'name' => $this->t('The messages with headings'),
+            'description' => $this->t('The messages in sections with headings.'),
           ],
         ],
       ],

@@ -408,6 +408,9 @@ class Helper {
    *
    * @param \Drupal\user\Entity\User $user
    *   The user.
+   *
+   * @return int
+   *   How often the user will receive notifications.
    */
   private function getNotificationInterval(User $user): int {
     return (int) ($user->get(static::USER_NOTIFICATION_INTERVAL_FIELD_NAME)->getValue()[0]['value'] ?: 0);
