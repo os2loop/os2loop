@@ -2,6 +2,7 @@
 
 namespace Drupal\os2loop_media\Helper;
 
+use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -13,6 +14,7 @@ use Drupal\views\ViewExecutable;
  * The helper.
  */
 class Helper {
+  use DependencySerializationTrait;
   use StringTranslationTrait;
   /**
    * The current user.
