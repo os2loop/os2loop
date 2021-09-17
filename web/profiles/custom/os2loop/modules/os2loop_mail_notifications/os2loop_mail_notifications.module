@@ -5,6 +5,7 @@
  * Hooks for OS2Loop Mail notifications.
  */
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Render\BubbleableMetadata;
 
 /**
@@ -41,4 +42,13 @@ function os2loop_mail_notifications_tokens($type, $tokens, array $data, array $o
  */
 function os2loop_mail_notifications_token_info() {
   return Drupal::service('os2loop_mail_notifications.mail_helper')->tokenInfo();
+}
+
+/**
+ * Implements hook_user_insert().
+ *
+ * @see \Drupal\os2loop_mail_notifications\Helper\Helper::userInsert()
+ */
+function os2loop_mail_notifications_user_insert(EntityInterface $entity) {
+  return Drupal::service('os2loop_mail_notifications.helper')->userInsert($entity);
 }
