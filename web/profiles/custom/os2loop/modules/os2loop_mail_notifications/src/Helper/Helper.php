@@ -4,12 +4,15 @@ namespace Drupal\os2loop_mail_notifications\Helper;
 
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\State\StateInterface;
 use Drupal\message\Entity\Message;
 use Drupal\node\NodeInterface;
+use Drupal\os2loop_mail_notifications\Form\SettingsForm;
+use Drupal\os2loop_settings\Settings;
 use Drupal\user\Entity\User;
 use Drupal\user\UserDataInterface;
 use Drupal\user\UserInterface;
@@ -60,6 +63,13 @@ class Helper {
   ];
 
   /**
+   * The module config.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  private $config;
+
+  /**
    * The state.
    *
    * @var \Drupal\Core\State\StateInterface
@@ -104,7 +114,8 @@ class Helper {
   /**
    * Helper constructor.
    */
-  public function __construct(StateInterface $state, UserDataInterface $userData, EntityTypeManagerInterface $entityTypeManager, Connection $database, MailHelper $mailHelper, LoggerChannelFactoryInterface $loggerFactory) {
+  public function __construct(Settings $settings, StateInterface $state, UserDataInterface $userData, EntityTypeManagerInterface $entityTypeManager, Connection $database, MailHelper $mailHelper, LoggerChannelFactoryInterface $loggerFactory) {
+    $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME);
     $this->state = $state;
     $this->userData = $userData;
     $this->entityTypeManager = $entityTypeManager;
@@ -160,6 +171,22 @@ class Helper {
             $this->logger->error(sprintf('Error sending notification mail to %s', $user->getEmail()));
           }
         }
+      }
+    }
+  }
+
+  /**
+   * Implements hook_user_insert().
+   *
+   * Sets default notification interval on new user if requested.
+   */
+  public function userInsert(EntityInterface $entity) {
+    if ($entity instanceof UserInterface) {
+      $default_user_notification_interval = $this->config->get('default_user_notification_interval') ?? '';
+      if ('' !== $default_user_notification_interval) {
+        $entity
+          ->set('os2loop_mail_notifications_intvl', $default_user_notification_interval)
+          ->save();
       }
     }
   }

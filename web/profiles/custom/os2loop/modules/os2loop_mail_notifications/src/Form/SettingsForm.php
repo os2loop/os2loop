@@ -3,6 +3,7 @@
 namespace Drupal\os2loop_mail_notifications\Form;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -30,11 +31,19 @@ class SettingsForm extends ConfigFormBase {
   private $settings;
 
   /**
+   * The entity field manager.
+   *
+   * @var \Drupal\Core\Entity\EntityFieldManagerInterface
+   */
+  private $entityFieldManager;
+
+  /**
    * Constructor.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, Settings $settings) {
+  public function __construct(ConfigFactoryInterface $config_factory, Settings $settings, EntityFieldManagerInterface $entityFieldManager) {
     parent::__construct($config_factory);
     $this->settings = $settings;
+    $this->entityFieldManager = $entityFieldManager;
   }
 
   /**
@@ -43,7 +52,8 @@ class SettingsForm extends ConfigFormBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('config.factory'),
-      $container->get(Settings::class)
+      $container->get(Settings::class),
+      $container->get('entity_field.manager')
     );
   }
 
@@ -96,6 +106,21 @@ class SettingsForm extends ConfigFormBase {
       '#token_types' => ['user', 'node', 'os2loop_mail_notifications'],
     ];
 
+    $userFields = $this->entityFieldManager->getFieldDefinitions('user', 'user');
+    $notificationIntervalField = $userFields['os2loop_mail_notifications_intvl'] ?? NULL;
+    if (NULL !== $notificationIntervalField) {
+      $options = $notificationIntervalField->getSetting('allowed_values');
+
+      $form['default_user_notification_interval'] = [
+        '#type' => 'select',
+        '#title' => $this->t('Default user notification interval'),
+        '#options' => $options,
+        '#empty_option' => $this->t('- None -'),
+        '#default_value' => $config->get('default_user_notification_interval'),
+        '#description' => $this->t('Notification interval to use if user has not set a notification interval.'),
+      ];
+    }
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -117,6 +142,7 @@ class SettingsForm extends ConfigFormBase {
     $this->configFactory->getEditable(static::SETTINGS_NAME)
       ->set('template_subject', $form_state->getValue('template_subject'))
       ->set('template_body', $form_state->getValue('template_body'))
+      ->set('default_user_notification_interval', $form_state->getValue('default_user_notification_interval'))
       ->save();
 
     drupal_flush_all_caches();
