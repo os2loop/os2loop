@@ -101,10 +101,14 @@ To load all content type fixtures, run:
 ```sh
 # Find and enable all fixtures modules
 vendor/bin/drush --yes pm:enable $(find web/profiles/custom/os2loop/modules/ -type f -name 'os2loop_*_fixtures.info.yml' -exec basename -s .info.yml {} \;)
+# Disable "Entity Reference Integrity Enforce" module to be able to delete (purge) content before loading fixtures.
+vendor/bin/drush --yes pm:uninstall entity_reference_integrity_enforce
 # Load the fixtures
 vendor/bin/drush --yes content-fixtures:load
 # Uninstall all fixtures modules
 vendor/bin/drush --yes pm:uninstall content_fixtures
+# Enable "Entity Reference Integrity Enforce" module
+vendor/bin/drush --yes pm:enable entity_reference_integrity_enforce
 ```
 
 ## Updates
