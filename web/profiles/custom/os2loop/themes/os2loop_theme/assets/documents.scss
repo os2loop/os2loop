@@ -37,12 +37,12 @@ table.loop-documents-table {
     height: auto !important;
     max-width: inherit !important;
   }
-}
 
-th,
-td {
-  &.number {
-    text-align: right;
+  th,
+  td {
+    &.number {
+      text-align: right;
+    }
   }
 }
 
