@@ -1,0 +1,26 @@
+uuid: 6ea12029-736c-4978-b367-b6fbecf94573
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.os2loop_section_page_free.os2loop_section_page_free_html
+    - paragraphs.paragraphs_type.os2loop_section_page_free
+  module:
+    - text
+id: paragraph.os2loop_section_page_free.default
+targetEntityType: paragraph
+bundle: os2loop_section_page_free
+mode: default
+content:
+  os2loop_section_page_free_html:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

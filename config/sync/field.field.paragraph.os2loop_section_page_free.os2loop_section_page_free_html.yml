@@ -1,0 +1,71 @@
+uuid: 70a5c8fb-5457-475c-929a-1c3b2f1d0bdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.os2loop_section_page_free_html
+    - paragraphs.paragraphs_type.os2loop_section_page_free
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 1
+    allowed_formats:
+      os2loop_section_page_free_html: os2loop_section_page_free_html
+      os2loop_question_answer_plain_text: 0
+      os2loop_question_answer_rich_text: 0
+      os2loop_post_comment_plain_text: 0
+      os2loop_post_comment_rich_text: 0
+      os2loop_documents_body: 0
+      os2loop_documents_rich_text: 0
+      os2loop_external: 0
+      os2loop_message_message: 0
+      os2loop_page: 0
+      os2loop_post: 0
+      os2loop_question_plain_text: 0
+      os2loop_question_rich_text: 0
+      os2loop_section_page: 0
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        os2loop_question_answer_plain_text:
+          weight: '0'
+        os2loop_question_answer_rich_text:
+          weight: '0'
+        os2loop_post_comment_plain_text:
+          weight: '0'
+        os2loop_post_comment_rich_text:
+          weight: '0'
+        os2loop_documents_body:
+          weight: '0'
+        os2loop_documents_rich_text:
+          weight: '0'
+        os2loop_external:
+          weight: '0'
+        os2loop_message_message:
+          weight: '0'
+        os2loop_page:
+          weight: '0'
+        os2loop_post:
+          weight: '0'
+        os2loop_question_plain_text:
+          weight: '0'
+        os2loop_question_rich_text:
+          weight: '0'
+        os2loop_section_page_free_html:
+          weight: '0'
+        os2loop_section_page:
+          weight: '0'
+id: paragraph.os2loop_section_page_free.os2loop_section_page_free_html
+field_name: os2loop_section_page_free_html
+entity_type: paragraph
+bundle: os2loop_section_page_free
+label: 'Free HTML'
+description: 'Add any HTML to the page. This may be used for creating advanced content.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

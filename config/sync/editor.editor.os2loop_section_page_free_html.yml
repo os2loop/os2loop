@@ -1,0 +1,55 @@
+uuid: 5082e974-ec93-4d15-a3bc-89fb5ff566c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.os2loop_section_page_free_html
+  module:
+    - ckeditor
+format: os2loop_section_page_free_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Format
+            - Bold
+            - Italic
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalMediaLibrary
+        -
+          name: Tools
+          items:
+            - Source
+            - Table
+  plugins:
+    stylescombo:
+      styles: ''
+    language:
+      language_list: un
+    tokenbrowser:
+      token_types: {  }
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null
