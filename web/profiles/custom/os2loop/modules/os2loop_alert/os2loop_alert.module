@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains os2loop_alert.module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function os2loop_alert_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the os2loop_alert module.
+    case 'help.page.os2loop_alert':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('OS2Loop Alert') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function os2loop_alert_entity_extra_field_info() {
+  return Drupal::service('os2loop_alert.helper')->entityExtraFieldInfo();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function os2loop_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  return Drupal::service('os2loop_alert.helper')->nodeView($build, $entity, $display, $view_mode);
+}
+
+/**
+ * Implements hook_mail().
+ */
+function os2loop_alert_mail($key, &$message, $params) {
+  return Drupal::service('os2loop_alert.helper')->mail($key, $message, $params);
+}

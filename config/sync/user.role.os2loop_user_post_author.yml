@@ -17,6 +17,7 @@ permissions:
   - 'edit any os2loop_post content'
   - 'edit own os2loop_post content'
   - 'flag os2loop_upvote_correct_answer'
+  - 'os2loop send alert'
   - 'revert os2loop_post revisions'
   - 'unflag os2loop_upvote_correct_answer'
   - 'update any media'

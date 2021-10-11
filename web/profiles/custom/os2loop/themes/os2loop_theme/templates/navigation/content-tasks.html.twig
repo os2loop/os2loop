@@ -51,5 +51,15 @@
     {% if is_granted('subscribe', node) %}
       {{ content.flag_os2loop_subscription_node }}
     {% endif %}
+    {% if is_granted('os2loop send alert') %}
+      {# This is a hack to unwrap a Link element to wrap the link title in .visually-hidden! #}
+      {% set url = content.os2loop_alert['#url'] %}
+      {% set title = content.os2loop_alert['#title'] %}
+      <div class="icon os2loop-alert" data-toggle="tooltip" title="{{ title }}">
+        <a aria-label="{{ title }}" href="{{ url }}">
+          <span class="visually-hidden">{{ title }}</span>
+        </a>
+      </div>
+    {% endif %}
   {% endif %}
 </div>

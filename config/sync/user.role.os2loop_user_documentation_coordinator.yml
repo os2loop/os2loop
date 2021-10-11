@@ -24,6 +24,7 @@ permissions:
   - 'edit any os2loop_question content'
   - 'edit terms in os2loop_tag'
   - 'flag os2loop_upvote_correct_answer'
+  - 'os2loop send alert'
   - 'revert revisions'
   - 'set revision date for content'
   - 'unflag os2loop_upvote_correct_answer'
