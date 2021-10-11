@@ -1,0 +1,55 @@
+uuid: e112eb77-5247-4da8-b2e0-6f6f9c43b82c
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.os2loop_documents_table
+  module:
+    - ckeditor
+format: os2loop_documents_table
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalImage
+        -
+          name: Tools
+          items:
+            - Source
+            - Table
+            - Styles
+  plugins:
+    stylescombo:
+      styles: "table.loop-documents-table|Loop table\r\nth.number|Number (header)\r\ntd.number|Number\r\n"
+    language:
+      language_list: un
+    tokenbrowser:
+      token_types: {  }
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

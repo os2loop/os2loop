@@ -1,0 +1,19 @@
+uuid: adf01436-ae04-4a43-a78d-66b231fd2e86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_os2loop_documents_tbl_desc
+    - paragraphs.paragraphs_type.os2loop_documents_table
+id: paragraph.os2loop_documents_table.field_os2loop_documents_tbl_desc
+field_name: field_os2loop_documents_tbl_desc
+entity_type: paragraph
+bundle: os2loop_documents_table
+label: Description
+description: 'Description of the table'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

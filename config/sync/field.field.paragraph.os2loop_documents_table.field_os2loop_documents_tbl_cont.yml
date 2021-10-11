@@ -1,0 +1,74 @@
+uuid: 901c077e-c2b4-4866-909d-06d6a584d2f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_os2loop_documents_tbl_cont
+    - paragraphs.paragraphs_type.os2loop_documents_table
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 1
+    allowed_formats:
+      os2loop_documents_table: os2loop_documents_table
+      os2loop_question_answer_plain_text: 0
+      os2loop_question_answer_rich_text: 0
+      os2loop_post_comment_plain_text: 0
+      os2loop_post_comment_rich_text: 0
+      os2loop_documents_body: 0
+      os2loop_documents_rich_text: 0
+      os2loop_external: 0
+      os2loop_message_message: 0
+      os2loop_page: 0
+      os2loop_post: 0
+      os2loop_question_plain_text: 0
+      os2loop_question_rich_text: 0
+      os2loop_section_page: 0
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        os2loop_question_answer_plain_text:
+          weight: '0'
+        os2loop_question_answer_rich_text:
+          weight: '0'
+        os2loop_post_comment_plain_text:
+          weight: '0'
+        os2loop_post_comment_rich_text:
+          weight: '0'
+        os2loop_documents_body:
+          weight: '0'
+        os2loop_documents_rich_text:
+          weight: '0'
+        os2loop_documents_table:
+          weight: '0'
+        os2loop_external:
+          weight: '0'
+        os2loop_message_message:
+          weight: '0'
+        os2loop_page:
+          weight: '0'
+        os2loop_post:
+          weight: '0'
+        os2loop_question_plain_text:
+          weight: '0'
+        os2loop_question_rich_text:
+          weight: '0'
+        os2loop_section_page:
+          weight: '0'
+id: paragraph.os2loop_documents_table.field_os2loop_documents_tbl_cont
+field_name: field_os2loop_documents_tbl_cont
+entity_type: paragraph
+bundle: os2loop_documents_table
+label: Table
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: "<table class=\"loop-documents-table\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>A</th>\r\n\t\t\t<th>B</th>\r\n\t\t\t<th class=\"number\">C</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td class=\"number\">5</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>11</td>\r\n\t\t\t<td class=\"number\">13</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n"
+    format: os2loop_documents_table
+default_value_callback: ''
+settings: {  }
+field_type: text_long

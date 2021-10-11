@@ -39,6 +39,13 @@ table.loop-documents-table {
   }
 }
 
+th,
+td {
+  &.number {
+    text-align: right;
+  }
+}
+
 #about-collection .header .document a {
   color: inherit;
 }
