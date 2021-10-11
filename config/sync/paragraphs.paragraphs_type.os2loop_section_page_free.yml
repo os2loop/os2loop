@@ -1,0 +1,10 @@
+uuid: f2c61be2-05f6-4401-9506-664aaf457840
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_section_page_free
+label: 'Free html'
+icon_uuid: null
+icon_default: null
+description: 'A textarea that does not limit html'
+behavior_plugins: {  }

@@ -4,3 +4,11 @@ settings:
       label: Venstre
     -
       label: Højre
+    -
+      label: 'Fuld bredde over tekst'
+    -
+      label: 'Fuld bredde under tekst'
+    -
+      label: 'Halv bredde over tekst'
+    -
+      label: 'Halv bredde under tekst'

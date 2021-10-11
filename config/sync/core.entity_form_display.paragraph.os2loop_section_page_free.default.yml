@@ -1,0 +1,25 @@
+uuid: 606341c6-9738-4ba1-9825-c9ba60b73475
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.os2loop_section_page_free.os2loop_section_page_free_html
+    - paragraphs.paragraphs_type.os2loop_section_page_free
+  module:
+    - text
+id: paragraph.os2loop_section_page_free.default
+targetEntityType: paragraph
+bundle: os2loop_section_page_free
+mode: default
+content:
+  os2loop_section_page_free_html:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true
