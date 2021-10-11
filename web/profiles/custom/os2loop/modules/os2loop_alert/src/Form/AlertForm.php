@@ -68,6 +68,11 @@ class AlertForm extends FormBase {
     $node = $this->getNode();
     $subject = $this->helper->getSubject($node);
 
+    if ($form_state->getTemporaryValue('is_sent')) {
+      // Don't build the form if alert has been sent.
+      return [];
+    }
+
     $form['subject'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Subject'),
@@ -88,7 +93,6 @@ class AlertForm extends FormBase {
     $options = [
       'all_users' => $this->formatPlural($numberOfUsers, 'One user', 'All @count users'),
     ];
-    $defaultValue = 'all';
     if (NULL !== $subject) {
       $numberOfUsers = $this->helper->getNumberOfSubscribers($subject);
       $options['subject_subscribers'] = $this->formatPlural(
@@ -100,13 +104,12 @@ class AlertForm extends FormBase {
           '@count' => $numberOfUsers,
         ]
       );
-      $defaultValue = 'subject_subscribers';
     }
     $form['recipients'] = [
       '#type' => 'radios',
       '#title' => $this->t('Recipients'),
       '#options' => $options,
-      '#default_value' => $defaultValue,
+      '#required' => TRUE,
     ];
 
     $form['actions']['#type'] = 'actions';
@@ -151,6 +154,11 @@ class AlertForm extends FormBase {
     if (FALSE === strpos($message, '[node:url]')) {
       $form_state->setErrorByName('message', $this->t('Message does not contain <code>[node:url]</code>'));
     }
+
+    $numberOfRecipients = count($this->getRecipients($form_state));
+    if ($numberOfRecipients < 1) {
+      $form_state->setErrorByName('recipients', $this->t('Empty list of recipients selected'));
+    }
   }
 
   /**
@@ -187,11 +195,22 @@ class AlertForm extends FormBase {
       'node' => $node,
     ]);
     if ($result['result']) {
-      $this->messenger()->addMessage($this->t('Your message has been sent.'));
-      $form_state->setRedirect('entity.node.canonical', ['node' => $node->id()]);
+      $this->messenger()->addMessage(
+        $this->formatPlural(
+          count($recipients),
+          'Your alert on <a href="@url">@title</a> has been sent to one recipient.',
+          'Your alert on <a href="@url">@title</a> has been sent to @count recipients.',
+          [
+            '@url' => Url::fromRoute('entity.node.canonical', ['node' => $node->id()])->toString(),
+            '@title' => $node->label(),
+          ]
+        ));
+      $form_state
+        ->setTemporaryValue('is_sent', TRUE)
+        ->setRebuild();
     }
     else {
-      $this->messenger()->addError($this->t('There was a problem sending your message and it was not sent.'));
+      $this->messenger()->addError($this->t('There was a problem sending your alert and it was not sent.'));
       $form_state
         ->setRebuild()
         ->set('submitted', TRUE);
