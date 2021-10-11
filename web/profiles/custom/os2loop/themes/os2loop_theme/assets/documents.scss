@@ -49,3 +49,10 @@ td {
 #about-collection .header .document a {
   color: inherit;
 }
+
+// Spacing between paragraphs.
+.os2loop-documents-document-content-item {
+  & + & {
+    margin-top: 2em;
+  }
+}
