@@ -79,6 +79,29 @@ BODY,
     ]);
     $document->save();
     $this->setReference($document->getType() . ':' . 'legacy-info', $document);
+
+    $document = Node::create([
+      'type' => 'os2loop_documents_document',
+      'title' => 'A legacy document with a really wide image',
+      'os2loop_documents_document_body' => [
+        'value' => <<<'BODY'
+<p>Note: This is a <strong>very wide</strong> image:</p>
+<p><img alt="" data-entity-type="" data-entity-uuid="" src="/sites/default/files//fixtures/files/a-really-wide-image.png" /></p>
+BODY,
+        'format' => 'os2loop_documents_body',
+      ],
+      'os2loop_documents_document_autho' => 'Legacy Document author',
+      'os2loop_shared_subject' => [
+        'target_id' => $this->getReference('os2loop_subject:Diverse')->id(),
+      ],
+      'os2loop_shared_tags' => [
+        ['target_id' => $this->getReference('os2loop_tag:test')->id()],
+      ],
+      'os2loop_shared_profession' => [
+        'target_id' => $this->getReference('os2loop_profession:Andet')->id(),
+      ],
+    ]);
+    $document->save();
   }
 
   /**
