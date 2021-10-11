@@ -2,9 +2,11 @@
 
 namespace Drupal\os2loop_subscriptions\Helper;
 
+use Drupal\Core\Database\Connection;
 use Drupal\node\NodeInterface;
 use Drupal\os2loop_subscriptions\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Helper for os2loop_subscriptions.
@@ -18,10 +20,18 @@ class Helper {
   private $config;
 
   /**
+   * The database (connection).
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  private $database;
+
+  /**
    * Constructor.
    */
-  public function __construct(Settings $settings) {
+  public function __construct(Settings $settings, Connection $database) {
     $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME);
+    $this->database = $database;
   }
 
   /**
@@ -42,6 +52,25 @@ class Helper {
     }
 
     return FALSE;
+  }
+
+  /**
+   * Get ids of users with a subscription on a term.
+   *
+   * @param \Drupal\taxonomy\Entity\Term $term
+   *   The term.
+   *
+   * @return array
+   *   The user ids.
+   */
+  public function getSubscribedUserIds(Term $term): array {
+    return $this->database
+      ->select('flagging', 'f')
+      ->fields('f', ['uid'])
+      ->condition('flag_id', 'os2loop_subscription_term')
+      ->condition('entity_id', $term->id())
+      ->execute()
+      ->fetchCol();
   }
 
 }

@@ -15,6 +15,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\Core\Utility\Token;
 use Drupal\node\NodeInterface;
+use Drupal\os2loop_subscriptions\Helper\Helper as SubscriptionHelper;
 use Drupal\taxonomy\Entity\Term;
 
 /**
@@ -68,15 +69,23 @@ class Helper {
   private $token;
 
   /**
+   * The subscription helper.
+   *
+   * @var \Drupal\os2loop_subscriptions\Helper\Helper
+   */
+  protected $subscriptionHelper;
+
+  /**
    * Constructor.
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, ConfigFactoryInterface $configFactory, Connection $database, MailManagerInterface $mailManager, LanguageManagerInterface $languageManager, Token $token) {
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, ConfigFactoryInterface $configFactory, Connection $database, MailManagerInterface $mailManager, LanguageManagerInterface $languageManager, Token $token, SubscriptionHelper $subscriptionHelper) {
     $this->nodeTypeStorage = $entityTypeManager->getStorage('node_type');
     $this->configFactory = $configFactory;
     $this->database = $database;
     $this->mailManager = $mailManager;
     $this->languageManager = $languageManager;
     $this->token = $token;
+    $this->subscriptionHelper = $subscriptionHelper;
   }
 
   /**
@@ -127,39 +136,56 @@ class Helper {
    *   The number of users.
    */
   public function getNumberOfUsers(): int {
-    return (int) $this->database->query('SELECT count(*) FROM {users_field_data} WHERE status = 1')->fetchField();
+    return count($this->getUserEmails());
   }
 
   /**
    * Get mail address of all active users.
    *
+   * @param array|null $userIds
+   *   The user ids or null to get all users' mail addresses.
+   *
    * @return array
    *   The mail addresses.
    */
-  public function getAllUserEmails(): array {
-    return $this->database->query('SELECT mail FROM {users_field_data} WHERE status = 1')->fetchCol();
+  public function getUserEmails(array $userIds = NULL): array {
+    $query = $this->database
+      ->select('users_field_data', 'u')
+      ->fields('u', ['mail'])
+      // Active users.
+      ->condition('status', 1)
+      // With a mail (address).
+      ->isNotNull('mail');
+
+    if (NULL !== $userIds) {
+      $query->condition('uid', $userIds ?: [-1], 'IN');
+    }
+
+    return $query
+      ->execute()
+      ->fetchCol();
   }
 
   /**
-   * Get number of subscribers on a subject.
+   * Get number of subscribers on a term.
    *
    * @return int
    *   The number of subscribers.
    */
-  public function getNumberOfSubscribers(Term $subject): int {
-    // @todo Move this to os2loop_notifications helper
-    return $this->getNumberOfUsers();
+  public function getNumberOfSubscribers(Term $term): int {
+    return count($this->getAllSubscriberEmails($term));
   }
 
   /**
-   * Get mail address of all subscribers on a subject.
+   * Get mail address of all subscribers on a term.
    *
    * @return array
    *   The mail addresses.
    */
-  public function getAllSubscriberEmails(Term $subject): array {
-    // @todo Move this to os2loop_notifications helper
-    return $this->getAllUserEmails();
+  public function getAllSubscriberEmails(Term $term): array {
+    $userIds = $this->subscriptionHelper->getSubscribedUserIds($term);
+
+    return $this->getUserEmails($userIds);
   }
 
   /**

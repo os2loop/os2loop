@@ -234,7 +234,7 @@ class AlertForm extends FormBase {
     $recipients = $form_state->getValue('recipients');
     switch ($recipients) {
       case 'all_users':
-        return $this->helper->getAllUserEmails();
+        return $this->helper->getUserEmails();
 
       case 'subject_subscribers':
         $node = $this->getNode();
