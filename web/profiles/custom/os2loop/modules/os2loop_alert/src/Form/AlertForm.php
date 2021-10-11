@@ -125,6 +125,9 @@ class AlertForm extends FormBase {
       '#url' => Url::fromRoute('entity.node.canonical', [
         'node' => $node->id(),
       ]),
+      '#attributes' => [
+        'class' => ['button'],
+      ],
     ];
 
     if ($isPreview) {

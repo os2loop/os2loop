@@ -1,18 +1,7 @@
 # OS2Loop Alert
 
-## SMTP
+Send out mails alerts on important content to all users or users subscribed to
+the subject of the content.
 
-To use [SMTP Authentication Support](https://www.drupal.org/project/smtp), you
-have to enable it in `settings.local.php`:
-
-```php
-// Requires settings
-$config['system.mail']['interface']['default'] = 'SMTPMailSystem';
-$config['smtp.settings']['smtp_on'] = true;
-// Optional settings
-// $config['smtp.settings']['smtp_host'] = '127.0.0.1';
-// $config['smtp.settings']['smtp_port'] = '25';
-
-// $config['smtp.settings']['smtp_debugging'] = true;
-
-```
+The alert mail is sent to the user sending the notification with [Blind carbon
+copy (Bcc)](https://en.wikipedia.org/wiki/Blind_carbon_copy) to the users.

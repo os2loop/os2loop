@@ -9,3 +9,4 @@ services:
       - '@language_manager'
       - '@token'
       - '@os2loop_subscriptions.helper'
+      - '@current_user'

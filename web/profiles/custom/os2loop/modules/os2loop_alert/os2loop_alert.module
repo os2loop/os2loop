@@ -41,7 +41,18 @@ function os2loop_node_view(array &$build, EntityInterface $entity, EntityViewDis
 
 /**
  * Implements hook_mail().
+ *
+ * @see \Drupal\os2loop_alert\Helper\Helper::mail()
  */
 function os2loop_alert_mail($key, &$message, $params) {
   return Drupal::service('os2loop_alert.helper')->mail($key, $message, $params);
+}
+
+/**
+ * Implements hook_mail_alter().
+ *
+ * @see \Drupal\os2loop_alert\Helper\Helper::alterMail()
+ */
+function os2loop_alert_mail_alter(&$message) {
+  return Drupal::service('os2loop_alert.helper')->alterMail($message);
 }

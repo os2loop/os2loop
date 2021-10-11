@@ -11,6 +11,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Field\EntityReferenceFieldItemList;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\Core\Utility\Token;
@@ -76,9 +77,16 @@ class Helper {
   protected $subscriptionHelper;
 
   /**
+   * The current user.
+   *
+   * @var \Drupal\Core\Session\AccountProxyInterface
+   */
+  protected $currentUser;
+
+  /**
    * Constructor.
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, ConfigFactoryInterface $configFactory, Connection $database, MailManagerInterface $mailManager, LanguageManagerInterface $languageManager, Token $token, SubscriptionHelper $subscriptionHelper) {
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, ConfigFactoryInterface $configFactory, Connection $database, MailManagerInterface $mailManager, LanguageManagerInterface $languageManager, Token $token, SubscriptionHelper $subscriptionHelper, AccountProxyInterface $currentUser) {
     $this->nodeTypeStorage = $entityTypeManager->getStorage('node_type');
     $this->configFactory = $configFactory;
     $this->database = $database;
@@ -86,6 +94,7 @@ class Helper {
     $this->languageManager = $languageManager;
     $this->token = $token;
     $this->subscriptionHelper = $subscriptionHelper;
+    $this->currentUser = $currentUser;
   }
 
   /**
@@ -209,6 +218,23 @@ class Helper {
   }
 
   /**
+   * Implements hook_mail_alter().
+   */
+  public function alterMail(array &$message) {
+    if (isset($message['params']['headers'])) {
+      foreach ($message['params']['headers'] as $key => $value) {
+        $key = ucfirst($key);
+        switch ($key) {
+          case 'Cc':
+          case 'Bcc';
+            $message['headers'][$key] = $value;
+            break;
+        }
+      }
+    }
+  }
+
+  /**
    * Send alert mail.
    *
    * @param string $subject
@@ -223,10 +249,13 @@ class Helper {
   public function sendAlertMail(string $subject, string $message, array $recipients, array $tokenData) {
     $module = 'os2loop_alert';
     $key = 'os2loop_alert';
-    $to = implode(', ', $recipients);
     $params['subject'] = $subject;
     $params['message'] = $message;
     $params['token_data'] = $tokenData;
+    // Send to user sending out alert.
+    $to = $this->currentUser->getEmail();
+    // Bcc all recipients.
+    $params['headers']['bcc'] = implode(', ', $recipients);
     $langcode = $this->languageManager->getDefaultLanguage()->getId();
     $send = TRUE;
 
