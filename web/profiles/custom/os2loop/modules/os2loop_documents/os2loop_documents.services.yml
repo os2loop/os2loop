@@ -31,3 +31,7 @@ services:
     class: Drupal\os2loop_documents\EventSubscriber\EntityPrintEventSubscriber
     tags:
       - { name: event_subscriber }
+
+  Drupal\os2loop_documents\Helper\UpdateHelper:
+    arguments:
+      - '@entity_type.manager'

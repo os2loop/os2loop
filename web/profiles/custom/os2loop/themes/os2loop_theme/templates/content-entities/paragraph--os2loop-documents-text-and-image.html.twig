@@ -50,6 +50,8 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
+      {{ content.contextual_links }}
+      <h2>{{ content.os2loop_documents_title }}</h2>
       {% if paragraph.os2loop_documents_tai_position.value is same as('full_below') or paragraph.os2loop_documents_tai_position.value is same as('half_below') %}
         {{ content.os2loop_documents_tai_text }}
         {{ content.os2loop_documents_tai_image }}

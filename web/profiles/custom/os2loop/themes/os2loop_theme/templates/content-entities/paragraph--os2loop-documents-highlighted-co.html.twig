@@ -56,8 +56,8 @@ paragraph.parent_id.value is an empty array when previewing un-saved content.
 %}
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }} role="alert">
-    <h2>{{ content.os2loop_documents_hc_title }}</h2>
+    {{ content.contextual_links }}
+    <h2>{{ content.os2loop_documents_title }}</h2>
     {{ content.os2loop_documents_hc_content }}
   </div>
 {% endblock paragraph %}
-

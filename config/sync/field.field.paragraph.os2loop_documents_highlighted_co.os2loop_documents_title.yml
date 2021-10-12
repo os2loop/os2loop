@@ -1,18 +1,18 @@
-uuid: c5a2b7c4-e819-404b-a787-59ccc4e5031a
+uuid: 1ef0188d-5ff7-435e-b41d-6463a2a5e51e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.os2loop_documents_hc_title
+    - field.storage.paragraph.os2loop_documents_title
     - paragraphs.paragraphs_type.os2loop_documents_highlighted_co
-id: paragraph.os2loop_documents_highlighted_co.os2loop_documents_hc_title
-field_name: os2loop_documents_hc_title
+id: paragraph.os2loop_documents_highlighted_co.os2loop_documents_title
+field_name: os2loop_documents_title
 entity_type: paragraph
 bundle: os2loop_documents_highlighted_co
-label: 'Title (deprecated)'
+label: Title
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
