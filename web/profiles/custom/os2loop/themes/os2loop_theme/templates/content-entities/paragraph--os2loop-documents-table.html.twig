@@ -50,8 +50,10 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      {{ content.os2loop_documents_tbl_cont }}
+      {{ content.contextual_links }}
+      <h2>{{ content.os2loop_documents_title }}</h2>
       {{ content.os2loop_documents_tbl_desc }}
+      {{ content.os2loop_documents_tbl_cont }}
     {% endblock %}
   </div>
 {% endblock paragraph %}
