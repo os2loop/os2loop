@@ -1,0 +1,4 @@
+'os2loop send alert':
+  title: 'Send out alerts'
+  description: 'Send out alerts on content.'
+  restrict access: TRUE

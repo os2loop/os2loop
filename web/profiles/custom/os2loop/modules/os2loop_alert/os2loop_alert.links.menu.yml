@@ -1,0 +1,6 @@
+os2loop_alert.settings:
+  title: 'OS2Loop alert settings'
+  route_name: os2loop_alert.settings
+  description: 'Configure OS2Loop alert settings'
+  parent: os2loop.group.admin
+  weight: 10

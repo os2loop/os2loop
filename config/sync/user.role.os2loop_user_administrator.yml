@@ -162,6 +162,7 @@ permissions:
   - 'oauth authorize any consumers'
   - 'oauth register any consumers'
   - 'opt-in or out of tracking'
+  - 'os2loop send alert'
   - 'publish any os2loop_documents_collection content'
   - 'publish any os2loop_documents_document content'
   - 'revert all revisions'

@@ -1,0 +1,8 @@
+name: 'os2loop_alert'
+type: module
+description: 'OS2Loop Alert'
+core_version_requirement: ^9
+package: 'OS2Loop'
+
+dependencies:
+  - drupal:os2loop_subscriptions

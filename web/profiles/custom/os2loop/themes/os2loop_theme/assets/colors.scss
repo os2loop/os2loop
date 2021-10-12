@@ -47,6 +47,7 @@ $follow-content: $primary;
 $edit: $secondary;
 $subscribe: $primary;
 $favourite: $primary;
+$os2loop-alert: $warning;
 
 $dark-icon-base-color: darken($icon-base-color, 10%);
 $dark-delete: darken($delete, 10%);
@@ -55,6 +56,7 @@ $dark-follow-content: darken($follow-content, 10%);
 $dark-edit: darken($edit, 10%);
 $dark-subscribe: darken($subscribe, 10%);
 $dark-favourite: darken($favourite, 10%);
+$dark-os2loop-alert: darken($os2loop-alert, 10%);
 
 // Attributes
 $highlighted: lighten($primary, 40%);

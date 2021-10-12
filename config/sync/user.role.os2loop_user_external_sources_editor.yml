@@ -16,6 +16,7 @@ permissions:
   - 'delete own os2loop_external content'
   - 'edit any os2loop_external content'
   - 'edit own os2loop_external content'
+  - 'os2loop send alert'
   - 'use text format os2loop_external'
   - 'view admin path'
   - 'view os2loop_external revisions'

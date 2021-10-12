@@ -41,6 +41,7 @@ module:
   node: 0
   openid_connect: 0
   options: 0
+  os2loop_alert: 0
   os2loop_analytics: 0
   os2loop_cookie_information: 0
   os2loop_cookies: 0

@@ -20,6 +20,7 @@ permissions:
   - 'download any image files'
   - 'edit own os2loop_documents_document content'
   - 'flag os2loop_upvote_correct_answer'
+  - 'os2loop send alert'
   - 'unflag os2loop_upvote_correct_answer'
   - 'update any media'
   - 'use media wysiwyg'
