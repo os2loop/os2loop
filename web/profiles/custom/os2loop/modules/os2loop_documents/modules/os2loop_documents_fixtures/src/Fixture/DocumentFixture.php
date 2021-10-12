@@ -247,6 +247,55 @@ BODY,
     $paragraph->save();
     $document->get('os2loop_documents_document_conte')->appendItem($paragraph);
     $document->save();
+
+    $document = Node::create([
+      'type' => 'os2loop_documents_document',
+      'title' => 'Dokument med tabeller',
+      'os2loop_shared_subject' => [
+        'target_id' => $this->getReference('os2loop_subject:Diverse')->id(),
+      ],
+      'os2loop_shared_tags' => [
+        ['target_id' => $this->getReference('os2loop_tag:test')->id()],
+      ],
+    ]);
+
+    $paragraph = Paragraph::create([
+      'type' => 'os2loop_documents_table',
+      'os2loop_documents_tbl_cont' => [
+        'value' => <<<'BODY'
+<table class="loop-documents-table">
+  <thead>
+    <tr>
+      <th>A</th>
+      <th>B</th>
+      <th class="number">C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td class="number">5</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>11</td>
+      <td class="number">13</td>
+    </tr>
+  </tbody>
+</table>
+BODY,
+        'format' => 'os2loop_documents_table',
+      ],
+      'os2loop_documents_tbl_desc' => [
+        'value' => <<<'BODY'
+Dette er en tabel med tal.
+BODY,
+      ],
+    ]);
+    $paragraph->save();
+    $document->get('os2loop_documents_document_conte')->appendItem($paragraph);
+    $document->save();
   }
 
   /**
