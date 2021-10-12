@@ -23,19 +23,8 @@ settings:
             - DrupalLink
             - DrupalUnlink
         -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-            - DrupalImage
-        -
           name: Tools
           items:
-            - Source
             - Table
             - Styles
   plugins:
