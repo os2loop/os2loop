@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for the Loop documents feature.
+ */
+
+use Drupal\os2loop_documents\Helper\UpdateHelper;
+
+/**
+ * Migrate titles on Highlighted content paragraphs.
+ */
+function os2loop_documents_update_9101(array $sandbox) {
+  Drupal::service(UpdateHelper::class)->update9101($sandbox);
+}
