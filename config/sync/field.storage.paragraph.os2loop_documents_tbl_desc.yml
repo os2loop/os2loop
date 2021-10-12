@@ -4,8 +4,8 @@ status: true
 dependencies:
   module:
     - paragraphs
-id: paragraph.field_os2loop_documents_tbl_desc
-field_name: field_os2loop_documents_tbl_desc
+id: paragraph.os2loop_documents_tbl_desc
+field_name: os2loop_documents_tbl_desc
 entity_type: paragraph
 type: string_long
 settings:

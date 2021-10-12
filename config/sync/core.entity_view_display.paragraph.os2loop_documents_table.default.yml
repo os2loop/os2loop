@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.os2loop_documents_table.field_os2loop_documents_tbl_cont
-    - field.field.paragraph.os2loop_documents_table.field_os2loop_documents_tbl_desc
+    - field.field.paragraph.os2loop_documents_table.os2loop_documents_tbl_cont
+    - field.field.paragraph.os2loop_documents_table.os2loop_documents_tbl_desc
     - paragraphs.paragraphs_type.os2loop_documents_table
   module:
     - text
@@ -13,14 +13,14 @@ targetEntityType: paragraph
 bundle: os2loop_documents_table
 mode: default
 content:
-  field_os2loop_documents_tbl_cont:
+  os2loop_documents_tbl_cont:
     weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  field_os2loop_documents_tbl_desc:
+  os2loop_documents_tbl_desc:
     weight: 1
     label: visually_hidden
     settings: {  }
