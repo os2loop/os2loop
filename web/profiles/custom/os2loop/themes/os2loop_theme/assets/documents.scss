@@ -37,8 +37,22 @@ table.loop-documents-table {
     height: auto !important;
     max-width: inherit !important;
   }
+
+  th,
+  td {
+    &.number {
+      text-align: right;
+    }
+  }
 }
 
 #about-collection .header .document a {
   color: inherit;
+}
+
+// Spacing between paragraphs.
+.os2loop-documents-document-content-item {
+  & + & {
+    margin-top: 2em;
+  }
 }
