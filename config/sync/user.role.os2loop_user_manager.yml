@@ -71,5 +71,6 @@ permissions:
   - 'use text format os2loop_external'
   - 'use text format os2loop_page'
   - 'use text format os2loop_section_page'
+  - 'use text format os2loop_section_page_free_html'
   - 'view admin path'
   - 'view main menu in menu list'
