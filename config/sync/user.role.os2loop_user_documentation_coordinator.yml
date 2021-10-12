@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: os2loop_user_documentation_coordinator
-label: 'Documentation coordinator'
+label: Dokumentationskoordinator
 weight: 3
 is_admin: null
 permissions:
@@ -32,6 +32,7 @@ permissions:
   - 'use text format editor'
   - 'use text format os2loop_documents_body'
   - 'use text format os2loop_documents_rich_text'
+  - 'use text format os2loop_documents_table'
   - 'view admin path'
   - 'view os2loop_documents_document revisions'
   - 'view revisions'
