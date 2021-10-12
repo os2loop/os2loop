@@ -2,20 +2,16 @@
 
 namespace Drupal\os2loop_alert\Helper;
 
-use Drupal\Component\Utility\Html;
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Database\Connection;
-use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Field\EntityReferenceFieldItemList;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\Core\Url;
 use Drupal\Core\Utility\Token;
 use Drupal\node\NodeInterface;
+use Drupal\os2loop_alert\Form\SettingsForm;
+use Drupal\os2loop_settings\Settings;
 use Drupal\os2loop_subscriptions\Helper\Helper as SubscriptionHelper;
 use Drupal\taxonomy\Entity\Term;
 
@@ -25,21 +21,19 @@ use Drupal\taxonomy\Entity\Term;
 class Helper {
   use StringTranslationTrait;
 
-  private const PSEUDO_FIELD_ID = 'os2loop_alert';
+  /**
+   * The config.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  private $config;
 
   /**
-   * The node type storage.
+   * The site config.
    *
-   * @var \Drupal\Core\Entity\EntityStorageInterface
+   * @var \Drupal\Core\Config\ImmutableConfig
    */
-  private $nodeTypeStorage;
-
-  /**
-   * The config factory.
-   *
-   * @var \Drupal\Core\Config\ConfigFactoryInterface
-   */
-  private $configFactory;
+  private $siteConfig;
 
   /**
    * The database (connection).
@@ -86,56 +80,15 @@ class Helper {
   /**
    * Constructor.
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, ConfigFactoryInterface $configFactory, Connection $database, MailManagerInterface $mailManager, LanguageManagerInterface $languageManager, Token $token, SubscriptionHelper $subscriptionHelper, AccountProxyInterface $currentUser) {
-    $this->nodeTypeStorage = $entityTypeManager->getStorage('node_type');
-    $this->configFactory = $configFactory;
+  public function __construct(Settings $settings, Connection $database, MailManagerInterface $mailManager, LanguageManagerInterface $languageManager, Token $token, SubscriptionHelper $subscriptionHelper, AccountProxyInterface $currentUser) {
+    $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME);
+    $this->siteConfig = $settings->getConfig('system.site');
     $this->database = $database;
     $this->mailManager = $mailManager;
     $this->languageManager = $languageManager;
     $this->token = $token;
     $this->subscriptionHelper = $subscriptionHelper;
     $this->currentUser = $currentUser;
-  }
-
-  /**
-   * Implements hook_entity_extra_field_info().
-   *
-   * Adds the os2loop_alert field to all node content types.
-   */
-  public function entityExtraFieldInfo(): array {
-    $extra = [];
-
-    foreach ($this->nodeTypeStorage->loadMultiple() as $bundle) {
-      $extra['node'][$bundle->id()]['display'][self::PSEUDO_FIELD_ID] = [
-        'label' => $this->t('OS2Loop: Alert'),
-        'description' => $this->t('Send out alert about this content'),
-        'weight' => 9999,
-        'visible' => TRUE,
-      ];
-    }
-
-    return $extra;
-  }
-
-  /**
-   * Implements hook_ENTITY_TYPE_view().
-   */
-  public function nodeView(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
-    if ('node' === $entity->getEntityTypeId() && $display->getComponent(self::PSEUDO_FIELD_ID)) {
-      $build[self::PSEUDO_FIELD_ID] = [
-        '#type' => 'link',
-        '#title' => $this->t('Send out alert about @title', ['@title' => $entity->label()]),
-        '#url' => Url::fromRoute('os2loop_alert.alert_form', [
-          'node' => $entity->id(),
-        ]),
-        '#attributes' => [
-          'class' => [
-            Html::cleanCssIdentifier('os2loop_alert'),
-            Html::cleanCssIdentifier('os2loop_alert-send-alert'),
-          ],
-        ],
-      ];
-    }
   }
 
   /**
@@ -203,7 +156,7 @@ class Helper {
   public function mail(string $key, array &$message, array $params) {
     switch ($key) {
       case 'os2loop_alert':
-        $message['from'] = $this->configFactory->get('system.site')->get('mail');
+        $message['from'] = $this->siteConfig->get('mail');
         $message['subject'] = $this->token->replace(
           $params['subject'],
           $params['token_data'] ?? [],
@@ -278,6 +231,19 @@ class Helper {
     catch (\Throwable $exception) {
       return NULL;
     }
+  }
+
+  /**
+   * Implements hook_os2loop_settings_is_granted().
+   */
+  public function isGranted(string $attribute, $object = NULL): bool {
+    if ('send alert about' === $attribute && $object instanceof NodeInterface) {
+      $nodeTypes = $this->config->get('node_types');
+      return $this->currentUser->hasPermission('os2loop send alert')
+        && isset($nodeTypes[$object->bundle()]);
+    }
+
+    return FALSE;
   }
 
 }

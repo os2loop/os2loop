@@ -1,9 +1,7 @@
 services:
-  os2loop_alert.helper:
-    class: Drupal\os2loop_alert\Helper\Helper
+  Drupal\os2loop_alert\Helper\Helper:
     arguments:
-      - '@entity_type.manager'
-      - '@config.factory'
+      - '@Drupal\os2loop_settings\Settings'
       - '@database'
       - '@plugin.manager.mail'
       - '@language_manager'

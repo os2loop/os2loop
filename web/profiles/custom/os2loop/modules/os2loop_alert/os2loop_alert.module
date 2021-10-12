@@ -5,9 +5,8 @@
  * Contains os2loop_alert.module.
  */
 
-use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\os2loop_alert\Helper\Helper;
 
 /**
  * Implements hook_help().
@@ -26,26 +25,12 @@ function os2loop_alert_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
- * Implements hook_entity_extra_field_info().
- */
-function os2loop_alert_entity_extra_field_info() {
-  return Drupal::service('os2loop_alert.helper')->entityExtraFieldInfo();
-}
-
-/**
- * Implements hook_ENTITY_TYPE_view().
- */
-function os2loop_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
-  return Drupal::service('os2loop_alert.helper')->nodeView($build, $entity, $display, $view_mode);
-}
-
-/**
  * Implements hook_mail().
  *
  * @see \Drupal\os2loop_alert\Helper\Helper::mail()
  */
 function os2loop_alert_mail($key, &$message, $params) {
-  return Drupal::service('os2loop_alert.helper')->mail($key, $message, $params);
+  return Drupal::service(Helper::class)->mail($key, $message, $params);
 }
 
 /**
@@ -54,5 +39,14 @@ function os2loop_alert_mail($key, &$message, $params) {
  * @see \Drupal\os2loop_alert\Helper\Helper::alterMail()
  */
 function os2loop_alert_mail_alter(&$message) {
-  return Drupal::service('os2loop_alert.helper')->alterMail($message);
+  return Drupal::service(Helper::class)->alterMail($message);
+}
+
+/**
+ * Implements hook_os2loop_settings_is_granted().
+ *
+ * @see \Drupal\os2loop_alert\Helper\Helper::isGranted()
+ */
+function os2loop_alert_os2loop_settings_is_granted(string $attribute, $object = NULL) {
+  return Drupal::service(Helper::class)->isGranted($attribute, $object);
 }
