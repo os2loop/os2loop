@@ -1,0 +1,19 @@
+uuid: 6d266b4a-d26d-4685-9256-2bc5c43bb20f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.os2loop_documents_title
+    - paragraphs.paragraphs_type.os2loop_documents_table
+id: paragraph.os2loop_documents_table.os2loop_documents_title
+field_name: os2loop_documents_title
+entity_type: paragraph
+bundle: os2loop_documents_table
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

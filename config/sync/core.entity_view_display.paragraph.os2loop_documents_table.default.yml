@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.os2loop_documents_table.os2loop_documents_tbl_cont
     - field.field.paragraph.os2loop_documents_table.os2loop_documents_tbl_desc
+    - field.field.paragraph.os2loop_documents_table.os2loop_documents_title
     - paragraphs.paragraphs_type.os2loop_documents_table
   module:
     - text
@@ -14,18 +15,26 @@ bundle: os2loop_documents_table
 mode: default
 content:
   os2loop_documents_tbl_cont:
-    weight: 0
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   os2loop_documents_tbl_desc:
-    weight: 1
+    weight: 2
     label: visually_hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  os2loop_documents_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
 hidden:
   entity_print_view_epub: true
