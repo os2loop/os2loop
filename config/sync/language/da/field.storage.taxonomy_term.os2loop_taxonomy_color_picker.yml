@@ -1,0 +1,10 @@
+settings:
+  allowed_values:
+    -
+      label: 'Taksonomifarve 1'
+    -
+      label: 'Taksonomifarve 2'
+    -
+      label: 'Taksonomifarve 3'
+    -
+      label: 'Taksonomifarve 4'

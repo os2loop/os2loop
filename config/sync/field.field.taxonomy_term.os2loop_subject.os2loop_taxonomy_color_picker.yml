@@ -11,8 +11,8 @@ id: taxonomy_term.os2loop_subject.os2loop_taxonomy_color_picker
 field_name: os2loop_taxonomy_color_picker
 entity_type: taxonomy_term
 bundle: os2loop_subject
-label: os2loop
-description: ''
+label: Color
+description: 'Pick a color for this term.'
 required: false
 translatable: false
 default_value: {  }
