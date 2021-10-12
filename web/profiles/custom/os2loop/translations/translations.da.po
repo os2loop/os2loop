@@ -29812,4 +29812,8 @@ msgstr "Vedhæft"
 msgid "Which profession do you think can answer your question?"
 msgstr "Hvilke(n) faggruppe(r) tror du kan svare på dit spørgsmål?"
 
+msgid "Show steps"
+msgstr "Vis underpunkter"
 
+msgid "Hide steps"
+msgstr "Skjul underpunkter"

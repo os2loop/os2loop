@@ -5,8 +5,8 @@ dependencies:
   module:
     - paragraphs
     - text
-id: paragraph.field_os2loop_documents_tbl_cont
-field_name: field_os2loop_documents_tbl_cont
+id: paragraph.os2loop_documents_tbl_cont
+field_name: os2loop_documents_tbl_cont
 entity_type: paragraph
 type: text_long
 settings: {  }
