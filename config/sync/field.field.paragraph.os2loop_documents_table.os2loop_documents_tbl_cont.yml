@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_os2loop_documents_tbl_cont
+    - field.storage.paragraph.os2loop_documents_tbl_cont
     - paragraphs.paragraphs_type.os2loop_documents_table
   module:
     - better_formats
@@ -57,8 +57,8 @@ third_party_settings:
           weight: '0'
         os2loop_section_page:
           weight: '0'
-id: paragraph.os2loop_documents_table.field_os2loop_documents_tbl_cont
-field_name: field_os2loop_documents_tbl_cont
+id: paragraph.os2loop_documents_table.os2loop_documents_tbl_cont
+field_name: os2loop_documents_tbl_cont
 entity_type: paragraph
 bundle: os2loop_documents_table
 label: Table
