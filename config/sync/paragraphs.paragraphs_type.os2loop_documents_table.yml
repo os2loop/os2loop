@@ -1,0 +1,10 @@
+uuid: 277be55c-84ab-40c9-82af-85760d554551
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_documents_table
+label: Table
+icon_uuid: null
+icon_default: null
+description: 'A paragraph with a table'
+behavior_plugins: {  }

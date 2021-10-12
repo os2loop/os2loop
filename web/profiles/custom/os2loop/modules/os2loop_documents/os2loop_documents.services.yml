@@ -1,4 +1,9 @@
 services:
+  os2loop_documents.helper:
+    class: Drupal\os2loop_documents\Helper\Helper
+    arguments:
+      - '@module_handler'
+
   os2loop_documents.collection_helper:
     class: Drupal\os2loop_documents\Helper\CollectionHelper
     arguments:

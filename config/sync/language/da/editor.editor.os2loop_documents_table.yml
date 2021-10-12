@@ -1,0 +1,4 @@
+settings:
+  plugins:
+    stylescombo:
+      styles: "table.loop-documents-table|Loop-tabel\r\nth.number|Tal (overskrift)\r\ntd.number|Tal\r\n"

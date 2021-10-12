@@ -26,6 +26,7 @@ permissions:
   - 'use media wysiwyg'
   - 'use text format os2loop_documents_body'
   - 'use text format os2loop_documents_rich_text'
+  - 'use text format os2loop_documents_table'
   - 'view admin path'
   - 'view any unpublished os2loop_documents_document content'
   - 'view os2loop_documents_document revisions'

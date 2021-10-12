@@ -1,0 +1,19 @@
+uuid: 1cda0af2-b305-4a9d-be90-cacc39b4b68a
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_os2loop_documents_tbl_cont
+field_name: field_os2loop_documents_tbl_cont
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
