@@ -29,7 +29,7 @@ settings:
             - Styles
   plugins:
     stylescombo:
-      styles: "table.loop-documents-table|Loop table\r\nth.number|Number (header)\r\ntd.number|Number\r\n"
+      styles: "th.left|Left (header) \r\nth.center|Center (header)\r\nth.right|Right (header)\r\ntd.left|Left \r\ntd.center|Center\r\ntd.right|Right"
     language:
       language_list: un
     tokenbrowser:

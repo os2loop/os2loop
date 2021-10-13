@@ -26,10 +26,14 @@ class Helper {
   /**
    * Implements hook_ckeditor_css_alter().
    *
-   * Injects custom css into CKEditor instances.
+   * Injects custom css into CKEditor instances based on text format.
    */
   public function alterCkeditorCss(array &$css, Editor $editor) {
-    $css[] = $this->moduleHandler->getModule('os2loop_documents')->getPath() . '/css/ckeditor.css';
+    $format = $editor->getFilterFormat()->id();
+    $cssPath = $this->moduleHandler->getModule('os2loop_documents')->getPath() . '/ckeditor/' . $format . '.css';
+    if (file_exists($cssPath)) {
+      $css[] = $cssPath;
+    }
   }
 
 }
