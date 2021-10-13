@@ -91,14 +91,18 @@ class AlertForm extends FormBase {
 
     $numberOfUsers = $this->helper->getNumberOfUsers();
     $options = [
-      'all_users' => $this->formatPlural($numberOfUsers, 'One user', 'All @count users'),
+      'all_users' => $this->formatPlural(
+        $numberOfUsers,
+        'All users on the site (one user)',
+        'All users on the site (@count users)'
+      ),
     ];
     if (NULL !== $subject) {
       $numberOfUsers = $this->helper->getNumberOfSubscribers($subject);
       $options['subject_subscribers'] = $this->formatPlural(
         $numberOfUsers,
-        'One subscriber on the subject %subject',
-        '@count subscribers on the subject %subject',
+        'All subscribers on the subject %subject (one user)',
+        'All subscribers on the subject %subject (@count users)',
         [
           '%subject' => $subject->getName(),
           '@count' => $numberOfUsers,
@@ -110,6 +114,12 @@ class AlertForm extends FormBase {
       '#title' => $this->t('Recipients'),
       '#options' => $options,
       '#required' => TRUE,
+      '#description' => $this->t(
+        'Select recipients of the message. The message will be sent as an email to you and to each recipient via <a href="@bcc_wiki_url">Blind carbon copy</a> to prevent disclosing the recipient list.',
+        [
+          '@bcc_wiki_url' => 'https://en.wikipedia.org/wiki/Blind_carbon_copy',
+        ]
+      ),
     ];
 
     $form['actions']['#type'] = 'actions';
