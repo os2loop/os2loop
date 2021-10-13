@@ -43,37 +43,37 @@
     'counter',
     'counter-wrapper-second-number',
     'paragraph-step',
-    content.os2loop_documents_steps ? 'indented-step',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
 
-{# TODO: Only apply the `indented-step` class on steps that are actually indentet - eg. not on the first step.  #}
-
 {% block paragraph %}
-    {% block content %}
-      <li {{ attributes.addClass(classes) }}>
-        <div class="row">
-          <div class="col offset-1">
-            {{ content.os2loop_documents_step_text }}
-          </div>
-          <div class="col-auto">
-            {{ content.os2loop_documents_step_image }}
-          </div>
+  {% block content %}
+    <li {{ attributes.addClass(classes) }}>
+      <div class="row">
+        <div class="col">
+          {{ content.os2loop_documents_step_text }}
         </div>
-        {% if content.os2loop_documents_steps['#title'] is not null %}
-          <button class="d-print-none btn btn-sm my-2 btn-primary collapsed step--collapse-toggle" type="button" data-toggle="collapse" data-target="#paragraph-id-{{ paragraph.id() }}">
-            <span class="show-steps"><span>{{ 'Show steps'|t }}</span><i class="bi bi-caret-down-fill ml-1"></i></span>
-            <span class="hide-steps"><span>{{ 'Hide steps'|t }}</span><i class="bi bi-caret-up-fill ml-1"></i></span>
-          </button>
-          <div class="step collapse" id="paragraph-id-{{ paragraph.id() }}">
-            <ol class="indented">
+        <div class="col-auto">
+          {{ content.os2loop_documents_step_image }}
+        </div>
+      </div>
+      {% if content.os2loop_documents_steps['#title'] is not null %}
+        <div class="steps">
+          <a class="d-print-none btn btn-sm btn-block collapsed step--collapse-toggle" type="button" data-toggle="collapse" data-target="#paragraph-id-{{ paragraph.id() }}">
+            <span class="show-steps">{{ 'Show steps'|t }}</span>
+            <span class="hide-steps">{{ 'Hide steps'|t }}</span>
+            <i class="collapse-caret bi bi-caret-up-fill ml-1"></i>
+          </a>
+          <div class="steps collapse" id="paragraph-id-{{ paragraph.id() }}">
+            <ol class="os2loop-documents-steps">
               {{ content.os2loop_documents_steps }}
             </ol>
           </div>
-        {% endif %}
-      </li>
-    {% endblock %}
+        </div>
+      {% endif %}
+    </li>
+  {% endblock %}
 {% endblock paragraph %}
