@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.os2loop_page.os2loop_page_content
     - field.field.node.os2loop_page.os2loop_page_image
-    - field.field.node.os2loop_page.os2loop_shared_category
     - field.field.node.os2loop_page.os2loop_shared_rev_date
     - node.type.os2loop_page
   module:
@@ -40,16 +39,6 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-    region: content
-  os2loop_shared_category:
-    weight: 31
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   os2loop_shared_rev_date:
     weight: 27
