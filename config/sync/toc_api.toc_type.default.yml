@@ -20,7 +20,7 @@ options:
   top_max: 1
   top_label: 'Back to top'
   default:
-    number_type: decimal
+    number_type: none
     number_prefix: ''
     number_suffix: ') '
   number_path_separator: .
