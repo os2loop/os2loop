@@ -1,14 +1,27 @@
 /* Cherry pick some styling from os2loop_theme/assets/documents.scss. */
-table.loop-documents-table {
+table {
   width: 100%;
 }
 
-table.loop-documents-table th {
+th {
   background: #ccc;
   text-align: center;
 }
 
-table.loop-documents-table th.number,
-table.loop-documents-table td.number {
+th,
+td {
+  vertical-align: top;
+}
+
+.number,
+.right {
   text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
 }
