@@ -95,7 +95,7 @@ abstract class TaxonomyTermFixture extends AbstractFixture implements FixtureGro
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function createTerm(string $name, int $weight, Term $parent = NULL) {
+  protected function createTerm(string $name, int $weight, Term $parent = NULL) {
     $term = Term::create([
       'vid' => static::$vocabularyId,
       'weight' => $weight,
