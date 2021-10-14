@@ -1,0 +1,24 @@
+uuid: a5ff3790-3c87-466e-9c0d-5c7f808dc8e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.os2loop_category
+id: taxonomy_term.os2loop_category.default
+targetEntityType: taxonomy_term
+bundle: os2loop_category
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  status: true

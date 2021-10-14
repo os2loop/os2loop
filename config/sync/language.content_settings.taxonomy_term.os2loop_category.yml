@@ -1,0 +1,11 @@
+uuid: 3d1bab29-89b9-427c-9258-7607018c3a07
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.os2loop_category
+id: taxonomy_term.os2loop_category
+target_entity_type_id: taxonomy_term
+target_bundle: os2loop_category
+default_langcode: site_default
+language_alterable: false
