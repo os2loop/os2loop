@@ -1,80 +1,122 @@
+@use "sass:list";
+
 /**
  * @file
  * The step-by-step paragraph, complete with numbering.
  */
 .counter {
-  color: $text-on-primary;
-  position: relative;
-  margin-bottom: $spacer * 1.5;
+  $step-indent: 3em;
+  $room-for-number-border: 0.2em;
 
   ol {
     list-style-type: none;
     counter-reset: item;
+    // We use padding for indent because we have a background color on the list.
     margin: 0;
-    padding: 0;
+    padding: {
+      top: $room-for-number-border;
+      bottom: 0;
+      left: $step-indent;
+      right: 0;
+    }
   }
 
-  li {
-    &.paragraph-step {
-      counter-increment: item;
-      width: 100%;
+  li.paragraph-step {
+    counter-increment: item;
 
+    &::before {
+      position: absolute;
+      top: -$room-for-number-border;
+      left: -$step-indent + 0.5em;
+      min-width: 2em;
+      height: 2em;
+      border-radius: 50%;
+      border: solid 0.1em $primary;
+      line-height: 2em - (2 * 0.1em);
+      font-family: $font-family-base;
+      content: counters(item, ".") " ";
+      text-align: center;
+    }
+
+    li.paragraph-step {
       &::before {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        left: -$spacer/2;
-        padding: $spacer * 1.25;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background-color: $primary;
-        font-size: 1.2em;
-        font-weight: bold;
-        font-family: $font-family-base;
-        content: counters(item, ".") " ";
+        border-color: $gray-500;
       }
     }
-    li {
-      &.paragraph-step {
-        &::before {
-          content: counters(item, ".") " ";
-          padding: $spacer * 1.1;
-          font-size: 1em;
-          background-color: $gray-500;
-          left: 0;
-        }
-      }
-    }
+  }
+}
+
+$steps-level-colors: $gray-100, $gray-200, $gray-300, $gray-400, $gray-500;
+
+.os2loop-documents-steps {
+  // @todo: find a way to automatically generate these selectors.
+  & .step--collapse-toggle,
+  & & {
+    background-color: list.nth($steps-level-colors, 1);
+  }
+
+  & & .step--collapse-toggle,
+  & & & {
+    background-color: list.nth($steps-level-colors, 2);
+  }
+
+  & & & .step--collapse-toggle,
+  & & & & {
+    background-color: list.nth($steps-level-colors, 3);
+  }
+
+  & & & & .step--collapse-toggle,
+  & & & & & {
+    background-color: list.nth($steps-level-colors, 4);
+  }
+
+  & & & & & .step--collapse-toggle,
+  & & & & & & {
+    background-color: list.nth($steps-level-colors, 5);
   }
 }
 
 .step {
-  min-height: $spacer * 4;
-  padding: $spacer/2 $spacer/2 $spacer/2 $spacer;
-  background-color: $light-background;
-  margin-bottom: $spacer/2;
+  // min-height: $spacer * 4;
+  // padding: $spacer/2 $spacer/2 $spacer/2 $spacer;
+  // background-color: $light-background;
+  // margin-bottom: $spacer/2;
 
   &--collapse-toggle {
+    .show-steps,
+    .hide-steps {
+      width: 10em;
+    }
+
     .show-steps {
       display: none;
     }
     .hide-steps {
-      display: block;
+      display: inline-block;
     }
+    .collapse-caret {
+      position: absolute;
+      // Match Bootstrap's collapse transition duration (cf.
+      // node_modules/bootstrap/scss//_variables.scss).
+      transition: transform 0.35s;
+    }
+
     &.collapsed {
       .show-steps {
-        display: block;
+        display: inline-block;
       }
       .hide-steps {
         display: none;
+      }
+
+      .collapse-caret {
+        transform: rotate(180deg);
       }
     }
   }
 }
 
-.indented-step {
+x.indented-step {
   padding-left: $spacer * 1.1;
 
   img {

@@ -53,4 +53,13 @@ img {
   max-width: 100%;
 }
 
+// Handle step by step.
+.d-print-none {
+  display: none !important;
+}
+
+.collapse {
+  display: initial !important;
+}
+
 @import "layout";
