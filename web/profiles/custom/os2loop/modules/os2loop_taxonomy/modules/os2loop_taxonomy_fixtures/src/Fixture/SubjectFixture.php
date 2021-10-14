@@ -34,4 +34,17 @@ class SubjectFixture extends TaxonomyTermFixture {
     'Stamdata / oplysninger',
   ];
 
+  /**
+   * {@inheritdoc}
+   */
+  public function load() {
+    parent::load();
+
+    foreach (range(1, 4) as $color) {
+      $this->createTerm('Subject color ' . $color, 100)
+        ->set('os2loop_taxonomy_color_picker', 'taxonomy-color-' . $color)
+        ->save();
+    }
+  }
+
 }
