@@ -1,0 +1,18 @@
+uuid: cd8b4408-c1ca-48da-b46a-60f095889aca
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.os2loop_category
+id: taxonomy_term.os2loop_category.default
+targetEntityType: taxonomy_term
+bundle: os2loop_category
+mode: default
+content: {  }
+hidden:
+  description: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true
