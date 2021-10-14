@@ -74,7 +74,7 @@
 #}
 {% set view_id = view is defined ? view.id %}
 
-<div class="container list-group-item bg-light border-top mb-2">
+<div class="{{ os2loop_container_class }} list-group-item bg-light border-top mb-2">
   <article class="row">
     <div class="col-auto icon-list {{ node.bundle }}"></div>
     <div class="col">
