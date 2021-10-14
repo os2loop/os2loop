@@ -4,6 +4,11 @@ services:
     tags:
       - { name: content_fixture }
 
+  os2loop_documents_fixtures.document_color_fixture:
+    class: Drupal\os2loop_documents_fixtures\Fixture\DocumentColorFixture
+    tags:
+      - { name: content_fixture }
+
   os2loop_documents_fixtures.collection_fixture:
     class: Drupal\os2loop_documents_fixtures\Fixture\CollectionFixture
     arguments: ['@os2loop_documents.collection_helper']
