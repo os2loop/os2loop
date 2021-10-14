@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.os2loop_question.os2loop_question_answers
     - field.field.node.os2loop_question.os2loop_question_content
     - field.field.node.os2loop_question.os2loop_question_file
+    - field.field.node.os2loop_question.os2loop_shared_category
     - field.field.node.os2loop_question.os2loop_shared_profession
     - field.field.node.os2loop_question.os2loop_shared_subject
     - field.field.node.os2loop_question.os2loop_shared_tags
@@ -21,12 +22,12 @@ bundle: os2loop_question
 mode: default
 content:
   flag_os2loop_favourite:
-    weight: 10
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   flag_os2loop_subscription_node:
-    weight: 10
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -53,10 +54,18 @@ content:
     region: content
   os2loop_question_file:
     type: entity_reference_entity_id
-    weight: 11
+    weight: 9
     label: above
     settings: {  }
     third_party_settings: {  }
+    region: content
+  os2loop_shared_category:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   os2loop_shared_profession:
     label: above
@@ -73,7 +82,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-    weight: 3
+    weight: 4
   os2loop_shared_tags:
     label: above
     settings:
@@ -81,7 +90,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-    weight: 4
+    weight: 5
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true

@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.os2loop_section_page.os2loop_section_page_paragraph
+    - field.field.node.os2loop_section_page.os2loop_shared_category
     - field.field.node.os2loop_section_page.os2loop_shared_rev_date
     - node.type.os2loop_section_page
   module:
     - datetime
     - paragraphs
+    - path
 id: node.os2loop_section_page.default
 targetEntityType: node
 bundle: os2loop_section_page
@@ -31,6 +33,16 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
+    region: content
+  os2loop_shared_category:
+    weight: 31
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   os2loop_shared_rev_date:
     weight: 26

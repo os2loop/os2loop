@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.os2loop_post.os2loop_post_comments
     - field.field.node.os2loop_post.os2loop_post_content
     - field.field.node.os2loop_post.os2loop_post_file
+    - field.field.node.os2loop_post.os2loop_shared_category
     - field.field.node.os2loop_post.os2loop_shared_profession
     - field.field.node.os2loop_post.os2loop_shared_rev_date
     - field.field.node.os2loop_post.os2loop_shared_subject
@@ -24,15 +25,15 @@ bundle: os2loop_post
 mode: list_display
 content:
   flag_os2loop_favourite:
-    weight: 10
+    weight: 8
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   flag_os2loop_subscription_node:
-    weight: 10
+    weight: 9
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   links:
     weight: 0
     region: content
@@ -54,8 +55,16 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  os2loop_shared_profession:
+  os2loop_shared_category:
+    type: entity_reference_label
     weight: 4
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  os2loop_shared_profession:
+    weight: 5
     label: inline
     settings:
       link: true

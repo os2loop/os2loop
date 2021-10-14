@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.os2loop_page.os2loop_page_content
     - field.field.node.os2loop_page.os2loop_page_image
+    - field.field.node.os2loop_page.os2loop_shared_category
     - field.field.node.os2loop_page.os2loop_shared_rev_date
     - node.type.os2loop_page
   module:
@@ -41,6 +42,14 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  os2loop_shared_category:
+    weight: 13
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   os2loop_shared_rev_date:
     weight: 12

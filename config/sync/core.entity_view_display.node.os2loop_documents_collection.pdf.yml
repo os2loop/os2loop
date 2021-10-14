@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.os2loop_documents_collection.os2loop_documents_info_box
     - field.field.node.os2loop_documents_collection.os2loop_shared_approval_date
     - field.field.node.os2loop_documents_collection.os2loop_shared_approver
+    - field.field.node.os2loop_documents_collection.os2loop_shared_category
     - field.field.node.os2loop_documents_collection.os2loop_shared_owner
     - field.field.node.os2loop_documents_collection.os2loop_shared_profession
     - field.field.node.os2loop_documents_collection.os2loop_shared_rev_date
@@ -83,6 +84,7 @@ hidden:
   langcode: true
   os2loop_shared_approval_date: true
   os2loop_shared_approver: true
+  os2loop_shared_category: true
   os2loop_shared_owner: true
   os2loop_shared_rev_date: true
   os2loop_shared_version: true

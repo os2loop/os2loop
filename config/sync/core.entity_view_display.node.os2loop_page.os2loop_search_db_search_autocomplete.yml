@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.os2loop_search_db_search_autocomplete
     - field.field.node.os2loop_page.os2loop_page_content
     - field.field.node.os2loop_page.os2loop_page_image
+    - field.field.node.os2loop_page.os2loop_shared_category
     - field.field.node.os2loop_page.os2loop_shared_rev_date
     - node.type.os2loop_page
   module:
@@ -33,4 +34,5 @@ hidden:
   links: true
   os2loop_page_content: true
   os2loop_page_image: true
+  os2loop_shared_category: true
   os2loop_shared_rev_date: true
