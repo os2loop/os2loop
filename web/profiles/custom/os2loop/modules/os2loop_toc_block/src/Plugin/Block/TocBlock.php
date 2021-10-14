@@ -11,6 +11,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\toc_api\TocBuilder;
 use Drupal\toc_api\TocManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\os2loop_toc_block\Helper\Helper;
 
 /**
  * Provides a 'Table of Contents' Block.
@@ -59,6 +60,13 @@ class TocBlock extends BlockBase implements ContainerFactoryPluginInterface {
   protected $renderer;
 
   /**
+   * The helper service.
+   *
+   * @var \Drupal\os2loop_toc_block\Helper\Helper
+   */
+  protected $helper;
+
+  /**
    * Block constructor for table of contents.
    *
    * @param array $configuration
@@ -77,14 +85,17 @@ class TocBlock extends BlockBase implements ContainerFactoryPluginInterface {
    *   The entity manager.
    * @param \Drupal\Core\Render\RendererInterface $renderer
    *   Drupals renderer service.
+   * @param \Drupal\os2loop_toc_block\Helper\Helper $helper
+   *   Helper service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, TocManagerInterface $tocManager, TocBuilder $tocBuilder, RouteMatchInterface $routeMatch, EntityTypeManagerInterface $entityTypeManager, RendererInterface $renderer) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, TocManagerInterface $tocManager, TocBuilder $tocBuilder, RouteMatchInterface $routeMatch, EntityTypeManagerInterface $entityTypeManager, RendererInterface $renderer, Helper $helper) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->tocManager = $tocManager;
     $this->tocBuilder = $tocBuilder;
     $this->routeMatch = $routeMatch;
     $this->entityTypeManager = $entityTypeManager;
     $this->renderer = $renderer;
+    $this->helper = $helper;
   }
 
   /**
@@ -111,6 +122,7 @@ class TocBlock extends BlockBase implements ContainerFactoryPluginInterface {
       $container->get('current_route_match'),
       $container->get('entity_type.manager'),
       $container->get('renderer'),
+      $container->get(Helper::class)
     );
   }
 
@@ -118,12 +130,25 @@ class TocBlock extends BlockBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function build() {
+    // Add lock to prevent the renderer from calling it self indefinitely.
     $lock = &drupal_static(__FUNCTION__, FALSE);
     $build = [];
 
     if (!$lock) {
       $lock = TRUE;
-      $node = $this->routeMatch->getParameter('node');
+      $routeName = $this->routeMatch->getRouteName();
+      switch ($routeName) {
+        case 'entity_print.view.debug':
+        case 'entity_print.view':
+          $nodeId = $this->routeMatch->getParameter('entity_id');
+          $node = $this->entityTypeManager->getStorage('node')->load($nodeId);
+          break;
+
+        default:
+          $node = $this->routeMatch->getParameter('node');
+          break;
+      }
+
       if (!($node instanceof NodeInterface)) {
         return $build;
       }
@@ -134,14 +159,7 @@ class TocBlock extends BlockBase implements ContainerFactoryPluginInterface {
       // Get the completely render node HTML.
       $node_html = (string) $this->renderer->render($node_view);
 
-      // Get 'default' TOC type options.
-      $entity_storage = $this->entityTypeManager->getStorage('toc_type');
-
-      /** @var \Drupal\toc_api\Entity\TocType|null $toc_type */
-      $toc_type = $entity_storage->load('default');
-      $options = !is_null($toc_type) ? $toc_type->getOptions() : [];
-
-      $toc = $this->tocManager->create('toc_filter', $node_html, $options);
+      $toc = $this->helper->createToc($node_html);
 
       // If the TOC is visible (ie has more than X headers),
       // prepare the block build.
