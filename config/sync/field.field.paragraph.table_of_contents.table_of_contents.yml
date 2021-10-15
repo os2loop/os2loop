@@ -1,0 +1,25 @@
+uuid: bd28a88c-b7de-4d87-b046-cf3de4fd99f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.table_of_contents
+    - paragraphs.paragraphs_type.table_of_contents
+  module:
+    - block_field
+id: paragraph.table_of_contents.table_of_contents
+field_name: table_of_contents
+entity_type: paragraph
+bundle: table_of_contents
+label: 'Table of contents'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids:
+      os2loop_toc_block: os2loop_toc_block
+field_type: block_field

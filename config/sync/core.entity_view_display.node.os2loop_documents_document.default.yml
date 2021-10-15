@@ -39,7 +39,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   os2loop_documents_document_autho:
-    weight: 4
+    weight: 5
     label: inline
     settings:
       link_to_entity: false
@@ -47,7 +47,7 @@ content:
     type: string
     region: content
   os2loop_documents_document_body:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -55,7 +55,7 @@ content:
     region: content
   os2loop_documents_document_conte:
     type: entity_reference_revisions_entity_view
-    weight: 3
+    weight: 4
     label: visually_hidden
     settings:
       view_mode: default
@@ -63,7 +63,7 @@ content:
     third_party_settings: {  }
     region: content
   os2loop_documents_info_box:
-    weight: 1
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -78,7 +78,7 @@ content:
     type: entity_reference_label
     region: content
   os2loop_shared_profession:
-    weight: 5
+    weight: 6
     label: above
     settings:
       link: true
@@ -95,7 +95,7 @@ content:
     type: datetime_default
     region: content
   os2loop_shared_subject:
-    weight: 6
+    weight: 7
     label: above
     settings:
       link: true

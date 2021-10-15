@@ -17,6 +17,7 @@ use Drupal\user\Entity\User;
  */
 function os2loop_theme_preprocess(&$variables) {
   $variables['logopath'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+  $variables['os2loop_container_class'] = theme_get_setting('container_class') ?: 'container-fluid';
 };
 
 /**
@@ -144,6 +145,22 @@ function os2loop_theme_form_system_theme_settings_alter(&$form, FormStateInterfa
   if (isset($form_id)) {
     return;
   }
+
+  $form['layout'] = [
+    '#type' => 'details',
+    '#title' => t('Layout'),
+    '#open' => TRUE,
+  ];
+
+  $form['layout']['container_class'] = [
+    '#type' => 'select',
+    '#title' => t('Page width'),
+    '#options' => [
+      'container' => t('Narrow'),
+      'container-fluid' => t('Full'),
+    ],
+    '#default_value' => theme_get_setting('container_class') ?: 'container-fluid',
+  ];
 
   $form['colors'] = [
     '#type' => 'details',

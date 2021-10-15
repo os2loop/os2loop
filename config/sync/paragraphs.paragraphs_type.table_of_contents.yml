@@ -1,0 +1,10 @@
+uuid: 3f4bd8ff-bac5-4d4c-aab3-a4a9cb3291bf
+langcode: en
+status: true
+dependencies: {  }
+id: table_of_contents
+label: 'Table of contents'
+icon_uuid: null
+icon_default: null
+description: 'A table of contents'
+behavior_plugins: {  }
