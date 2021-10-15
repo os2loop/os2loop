@@ -240,7 +240,7 @@ class Helper {
     if ('send alert about' === $attribute && $object instanceof NodeInterface) {
       $nodeTypes = $this->config->get('node_types');
       return $this->currentUser->hasPermission('os2loop send alert')
-        && isset($nodeTypes[$object->bundle()]);
+        && ($nodeTypes[$object->bundle()] ?? FALSE);
     }
 
     return FALSE;
