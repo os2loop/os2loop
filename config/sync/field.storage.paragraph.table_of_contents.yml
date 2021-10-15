@@ -1,0 +1,19 @@
+uuid: 291713f1-996b-432c-a0b5-2cd8175129f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_field
+    - paragraphs
+id: paragraph.table_of_contents
+field_name: table_of_contents
+entity_type: paragraph
+type: block_field
+settings: {  }
+module: block_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

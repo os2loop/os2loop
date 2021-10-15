@@ -9,6 +9,7 @@ dependencies:
   module:
     - datetime
     - paragraphs
+    - path
 id: node.os2loop_section_page.default
 targetEntityType: node
 bundle: os2loop_section_page

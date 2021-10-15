@@ -1,0 +1,29 @@
+uuid: 74f45bd2-8c32-4485-aacb-98b3617aeec0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_shared_category
+    - node.type.os2loop_documents_document
+    - taxonomy.vocabulary.os2loop_category
+id: node.os2loop_documents_document.os2loop_shared_category
+field_name: os2loop_shared_category
+entity_type: node
+bundle: os2loop_documents_document
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      os2loop_category: os2loop_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

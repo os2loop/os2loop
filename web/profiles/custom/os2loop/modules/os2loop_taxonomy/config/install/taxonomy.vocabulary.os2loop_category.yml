@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Category
+vid: os2loop_category
+description: ''
+weight: 0

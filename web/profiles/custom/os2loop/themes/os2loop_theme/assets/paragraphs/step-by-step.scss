@@ -1,24 +1,23 @@
 @use "sass:list";
 
+$step-indent: 3em;
+
 /**
  * @file
  * The step-by-step paragraph, complete with numbering.
  */
 .counter {
-  $step-indent: 3em;
-  $room-for-number-border: 0.2em;
-
   ol {
     list-style-type: none;
     counter-reset: item;
     // We use padding for indent because we have a background color on the list.
-    margin: 0;
-    padding: {
-      top: $room-for-number-border;
+    margin: {
+      top: 0;
       bottom: 0;
       left: $step-indent;
       right: 0;
     }
+    padding: 0;
   }
 
   li.paragraph-step {
@@ -26,7 +25,6 @@
 
     &::before {
       position: absolute;
-      top: -$room-for-number-border;
       left: -$step-indent + 0.5em;
       min-width: 2em;
       height: 2em;
@@ -44,44 +42,34 @@
       }
     }
   }
+
+  img {
+    margin-bottom: 1em;
+  }
 }
 
 $steps-level-colors: $gray-100, $gray-200, $gray-300, $gray-400, $gray-500;
 
 .os2loop-documents-steps {
-  // @todo: find a way to automatically generate these selectors.
-  & .step--collapse-toggle,
-  & & {
-    background-color: list.nth($steps-level-colors, 1);
-  }
+  // Add background color to .steps and use negative margin and padding for
+  // making background take up full line width.
+  @for $i from 1 through list.length($steps-level-colors) {
+    $selector: "";
+    @for $j from 1 through $i {
+      $selector: $selector + " .steps";
+    }
+    #{$selector} {
+      margin-left: -$i * $step-indent;
+      background-color: list.nth($steps-level-colors, $i);
 
-  & & .step--collapse-toggle,
-  & & & {
-    background-color: list.nth($steps-level-colors, 2);
-  }
-
-  & & & .step--collapse-toggle,
-  & & & & {
-    background-color: list.nth($steps-level-colors, 3);
-  }
-
-  & & & & .step--collapse-toggle,
-  & & & & & {
-    background-color: list.nth($steps-level-colors, 4);
-  }
-
-  & & & & & .step--collapse-toggle,
-  & & & & & & {
-    background-color: list.nth($steps-level-colors, 5);
+      .steps-content {
+        padding-left: $i * $step-indent;
+      }
+    }
   }
 }
 
 .step {
-  // min-height: $spacer * 4;
-  // padding: $spacer/2 $spacer/2 $spacer/2 $spacer;
-  // background-color: $light-background;
-  // margin-bottom: $spacer/2;
-
   &--collapse-toggle {
     .show-steps,
     .hide-steps {
@@ -97,7 +85,7 @@ $steps-level-colors: $gray-100, $gray-200, $gray-300, $gray-400, $gray-500;
     .collapse-caret {
       position: absolute;
       // Match Bootstrap's collapse transition duration (cf.
-      // node_modules/bootstrap/scss//_variables.scss).
+      // node_modules/bootstrap/scss/_variables.scss).
       transition: transform 0.35s;
     }
 

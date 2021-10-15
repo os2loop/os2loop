@@ -149,6 +149,9 @@ class Helper {
         'os2loop_user_professions',
         'os2loop_shared_profession',
       ],
+      'os2loop_category' => [
+        'os2loop_shared_category',
+      ],
     ];
 
     foreach ($vocabularyFields as $vocabularyName => $fieldNames) {

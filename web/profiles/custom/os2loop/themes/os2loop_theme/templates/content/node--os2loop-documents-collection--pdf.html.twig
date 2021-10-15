@@ -104,7 +104,7 @@
   {% endif %}
 {% endmacro %}
 
-<article{{ attributes.addClass("container") }}>
+<article{{ attributes.addClass(os2loop_container_class) }}>
   {{ title_prefix }}
   {% if label  %}
     <h1{{ title_attributes }}>
