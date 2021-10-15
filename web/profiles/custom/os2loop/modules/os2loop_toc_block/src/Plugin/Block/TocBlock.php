@@ -4,6 +4,7 @@ namespace Drupal\os2loop_toc_block\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\NodeInterface;
@@ -124,6 +125,29 @@ class TocBlock extends BlockBase implements ContainerFactoryPluginInterface {
       $container->get('renderer'),
       $container->get(Helper::class)
     );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
+    $form = parent::buildConfigurationForm($form, $form_state);
+
+    // Make block title optional.
+    $form['label']['#required'] = FALSE;
+    $form['label_display']['#type'] = 'hidden';
+    $form['label_display']['#value'] = 'visible';
+
+    return $form;
+  }
+
+  /**
+   * {@inheritdoc}
+   *
+   * Allow empty title.
+   */
+  public function label() {
+    return $this->configuration['label'] ?: '';
   }
 
   /**
