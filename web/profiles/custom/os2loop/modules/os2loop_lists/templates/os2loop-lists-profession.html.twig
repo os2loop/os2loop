@@ -9,14 +9,14 @@
 #}
 <div class="list-group">
   {% if data is empty %}
-    <div class="container list-group-item bg-light border-top mb-2 js-view-empty">
+    <div class="{{ os2loop_container_class }} list-group-item bg-light border-top mb-2 js-view-empty">
       <article class="row">
         {{ 'No content related to your user'|t }}
       </article>
     </div>
   {% else %}
     {% for node in data %}
-      <div class="container list-group-item bg-light border-top mb-2">
+      <div class="{{ os2loop_container_class }} list-group-item bg-light border-top mb-2">
         <article class="row">
           <div class="col-4 col-sm-3 col-md-2 col-lg-1">
             {{ drupal_field('os2loop_user_image', 'user', node.uid.target_id) }}
