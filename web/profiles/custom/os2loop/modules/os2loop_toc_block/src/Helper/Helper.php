@@ -4,6 +4,7 @@ namespace Drupal\os2loop_toc_block\Helper;
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Field\EntityReferenceFieldItemList;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\node\NodeInterface;
 use Drupal\toc_api\TocBuilder;
@@ -62,7 +63,7 @@ class Helper {
   }
 
   /**
-   * Implements hook_ckeditor_css_alter().
+   * Implements hook_node_view().
    *
    * Adds Ids to headers related to table of contents.
    *
@@ -83,22 +84,25 @@ class Helper {
     $lock = &drupal_static(__FUNCTION__, FALSE);
     if (!$lock) {
       $lock = TRUE;
-      if ($view_mode == 'full') {
+      if ('full' === $view_mode) {
         $hasToc = FALSE;
-        $paragraphs_content = $node->get('os2loop_documents_document_conte')->getValue();
-        $paragraph_storage = $this->entityTypeManager->getStorage('paragraph');
-        foreach ($paragraphs_content as $paragraph) {
-          if ('table_of_contents' == $paragraph_storage->load($paragraph['target_id'])->bundle()) {
-            $hasToc = TRUE;
+        if ($node->hasField('os2loop_documents_document_conte')) {
+          $paragraphsContent = $node->get('os2loop_documents_document_conte');
+          assert($paragraphsContent instanceof EntityReferenceFieldItemList);
+          $paragraphs = $paragraphsContent->referencedEntities();
+
+          foreach ($paragraphs as $paragraph) {
+            if ('table_of_contents' == $paragraph->bundle()) {
+              $hasToc = TRUE;
+              break;
+            }
           }
-        }
-        if ($hasToc) {
-          $node_html = (string) $this->renderer->render($build);
-
-          $toc = $this->createToc($node_html);
-
-          if ($toc->isVisible()) {
-            $build['#markup'] = $this->tocBuilder->buildContent($toc)['#markup'];
+          if ($hasToc) {
+            $node_html = (string) $this->renderer->render($build);
+            $toc = $this->createToc($node_html);
+            if ($toc->isVisible()) {
+              $build['#markup'] = $this->tocBuilder->buildContent($toc)['#markup'];
+            }
           }
         }
       }
