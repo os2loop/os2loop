@@ -11,7 +11,7 @@ dependencies:
 id: os2loop_search_db_tags
 theme: os2loop_theme
 region: content
-weight: 3
+weight: 4
 provider: null
 plugin: 'facet_block:os2loop_search_db_tags'
 settings:

@@ -13,7 +13,7 @@ url_alias: os2loop_search_db_category
 weight: 0
 min_count: 1
 show_only_one_result: false
-field_identifier: os2loop_shared_category_name
+field_identifier: os2loop_shared_category
 facet_source_id: 'search_api:views_page__os2loop_search_db__page_search'
 widget:
   type: checkbox
@@ -33,26 +33,19 @@ expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 hard_limit: 0
 exclude: false
-only_visible_when_facet_source_is_visible: true
+only_visible_when_facet_source_is_visible: false
 processor_configs:
-  active_widget_order:
-    processor_id: active_widget_order
-    weights:
-      sort: 20
-    settings:
-      sort: DESC
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: 30
-    settings:
-      sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
       sort: 40
     settings:
       sort: ASC
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
