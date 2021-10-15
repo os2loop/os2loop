@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.os2loop_external.os2loop_external_descripti
     - field.field.node.os2loop_external.os2loop_external_url
+    - field.field.node.os2loop_external.os2loop_shared_category
     - field.field.node.os2loop_external.os2loop_shared_profession
     - field.field.node.os2loop_external.os2loop_shared_rev_date
     - field.field.node.os2loop_external.os2loop_shared_subject
@@ -42,6 +43,16 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  os2loop_shared_category:
+    weight: 31
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   os2loop_shared_profession:
     weight: 10

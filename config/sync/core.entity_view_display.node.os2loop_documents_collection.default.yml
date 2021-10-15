@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.os2loop_documents_collection.os2loop_documents_info_box
     - field.field.node.os2loop_documents_collection.os2loop_shared_approval_date
     - field.field.node.os2loop_documents_collection.os2loop_shared_approver
+    - field.field.node.os2loop_documents_collection.os2loop_shared_category
     - field.field.node.os2loop_documents_collection.os2loop_shared_owner
     - field.field.node.os2loop_documents_collection.os2loop_shared_profession
     - field.field.node.os2loop_documents_collection.os2loop_shared_rev_date
@@ -24,12 +25,12 @@ bundle: os2loop_documents_collection
 mode: default
 content:
   flag_os2loop_favourite:
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   flag_os2loop_subscription_node:
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -53,7 +54,7 @@ content:
     type: text_default
     region: content
   os2loop_shared_approval_date:
-    weight: 9
+    weight: 10
     label: inline
     settings:
       format_type: medium
@@ -62,14 +63,6 @@ content:
     type: datetime_default
     region: content
   os2loop_shared_approver:
-    weight: 10
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  os2loop_shared_owner:
     weight: 11
     label: inline
     settings:
@@ -77,8 +70,24 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  os2loop_shared_category:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  os2loop_shared_owner:
+    weight: 12
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   os2loop_shared_profession:
-    weight: 5
+    weight: 6
     label: above
     settings:
       link: true
@@ -86,7 +95,7 @@ content:
     type: entity_reference_label
     region: content
   os2loop_shared_rev_date:
-    weight: 8
+    weight: 9
     label: inline
     settings:
       format_type: medium
@@ -103,7 +112,7 @@ content:
     type: entity_reference_label
     region: content
   os2loop_shared_tags:
-    weight: 4
+    weight: 5
     label: above
     settings:
       link: true
@@ -111,7 +120,7 @@ content:
     type: entity_reference_label
     region: content
   os2loop_shared_version:
-    weight: 12
+    weight: 13
     label: inline
     settings:
       link_to_entity: false

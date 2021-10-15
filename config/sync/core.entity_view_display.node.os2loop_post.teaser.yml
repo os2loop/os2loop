@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.os2loop_post.os2loop_post_comments
     - field.field.node.os2loop_post.os2loop_post_content
     - field.field.node.os2loop_post.os2loop_post_file
+    - field.field.node.os2loop_post.os2loop_shared_category
     - field.field.node.os2loop_post.os2loop_shared_profession
     - field.field.node.os2loop_post.os2loop_shared_rev_date
     - field.field.node.os2loop_post.os2loop_shared_subject
@@ -62,6 +63,7 @@ hidden:
   os2loop_post_comments: true
   os2loop_post_content: true
   os2loop_post_file: true
+  os2loop_shared_category: true
   os2loop_shared_profession: true
   os2loop_shared_rev_date: true
   os2loop_shared_subject: true

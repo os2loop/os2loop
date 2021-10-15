@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.os2loop_documents_document.os2loop_documents_document_body
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
     - field.field.node.os2loop_documents_document.os2loop_documents_info_box
+    - field.field.node.os2loop_documents_document.os2loop_shared_category
     - field.field.node.os2loop_documents_document.os2loop_shared_profession
     - field.field.node.os2loop_documents_document.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_document.os2loop_shared_subject
@@ -22,22 +23,22 @@ bundle: os2loop_documents_document
 mode: list_display
 content:
   flag_os2loop_favourite:
-    weight: 10
+    weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   flag_os2loop_subscription_node:
-    weight: 10
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   links:
-    weight: 100
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   os2loop_documents_document_autho:
-    weight: 102
+    weight: 4
     label: above
     settings:
       link_to_entity: false
@@ -46,15 +47,23 @@ content:
     region: content
   os2loop_documents_document_conte:
     type: entity_reference_revisions_entity_view
-    weight: 101
+    weight: 3
     label: visually_hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
+  os2loop_shared_category:
+    type: entity_reference_label
+    weight: 7
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   os2loop_shared_profession:
-    weight: 105
+    weight: 5
     label: above
     settings:
       link: true
@@ -62,7 +71,7 @@ content:
     type: entity_reference_label
     region: content
   os2loop_shared_subject:
-    weight: 106
+    weight: 6
     label: above
     settings:
       link: true
@@ -70,7 +79,7 @@ content:
     type: entity_reference_label
     region: content
   os2loop_shared_tags:
-    weight: 107
+    weight: 8
     label: above
     settings:
       link: true

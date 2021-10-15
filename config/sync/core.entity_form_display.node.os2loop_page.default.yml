@@ -10,6 +10,7 @@ dependencies:
   module:
     - datetime
     - media_library
+    - path
     - text
 id: node.os2loop_page.default
 targetEntityType: node

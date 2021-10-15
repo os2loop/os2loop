@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.os2loop_documents_collection.os2loop_documents_info_box
     - field.field.node.os2loop_documents_collection.os2loop_shared_approval_date
     - field.field.node.os2loop_documents_collection.os2loop_shared_approver
+    - field.field.node.os2loop_documents_collection.os2loop_shared_category
     - field.field.node.os2loop_documents_collection.os2loop_shared_owner
     - field.field.node.os2loop_documents_collection.os2loop_shared_profession
     - field.field.node.os2loop_documents_collection.os2loop_shared_rev_date
@@ -79,6 +80,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  os2loop_shared_category:
+    weight: 31
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   os2loop_shared_owner:
     weight: 26
