@@ -22,6 +22,7 @@ dependencies:
     - field.storage.node.os2loop_post_content
     - field.storage.node.os2loop_question_answers
     - field.storage.node.os2loop_question_content
+    - field.storage.node.os2loop_shared_category
     - field.storage.node.os2loop_shared_profession
     - field.storage.node.os2loop_shared_subject
     - search_api.server.os2loop_search_db_server
@@ -167,6 +168,25 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.os2loop_question_content
+  os2loop_shared_category:
+    label: Category
+    datasource_id: 'entity:node'
+    property_path: os2loop_shared_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.os2loop_shared_category
+  os2loop_shared_category_name:
+    label: 'Category » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_shared_category:entity:name'
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.os2loop_shared_category
+      module:
+        - taxonomy
   os2loop_shared_profession:
     label: Profession
     datasource_id: 'entity:node'
@@ -269,6 +289,7 @@ processor_settings:
       - os2loop_post_content
       - os2loop_question_answers
       - os2loop_question_content
+      - os2loop_shared_category_name
       - os2loop_shared_subject_name
       - processed_answer
       - processed_comment
@@ -301,6 +322,7 @@ processor_settings:
       - os2loop_post_content
       - os2loop_question_answers
       - os2loop_question_content
+      - os2loop_shared_category_name
       - os2loop_shared_subject_name
       - processed_answer
       - processed_comment
@@ -326,6 +348,7 @@ processor_settings:
       - os2loop_external_descripti
       - os2loop_post_content
       - os2loop_question_content
+      - os2loop_shared_category_name
       - os2loop_shared_subject_name
       - processed_answer
       - processed_comment

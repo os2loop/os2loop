@@ -12,7 +12,7 @@ dependencies:
 id: os2loop_search_db_search
 theme: os2loop_theme
 region: content
-weight: 0
+weight: -1
 provider: null
 plugin: 'views_exposed_filter_block:os2loop_search_db-page_search'
 settings:
