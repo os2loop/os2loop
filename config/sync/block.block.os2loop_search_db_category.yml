@@ -1,0 +1,23 @@
+uuid: 2769c848-ac93-4a2e-b97c-18f1075605d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.os2loop_search_db_category
+  module:
+    - facets
+  theme:
+    - os2loop_theme
+id: os2loop_search_db_category
+theme: os2loop_theme
+region: content
+weight: 3
+provider: null
+plugin: 'facet_block:os2loop_search_db_category'
+settings:
+  id: 'facet_block:os2loop_search_db_category'
+  label: Category
+  provider: facets
+  label_display: visible
+  block_id: os2loop_search_db_category
+visibility: {  }

@@ -100,12 +100,19 @@ class Settings {
   }
 
   /**
-   * Get taxonomy vocabularies.
+   * Get content taxonomy vocabularies.
    */
   public function getTaxonomyVocabularies(): array {
     return $this->entityTypeManager
       ->getStorage('taxonomy_vocabulary')
-      ->loadMultiple();
+      ->loadByProperties([
+        'vid' => [
+          'os2loop_category',
+          'os2loop_profession',
+          'os2loop_subject',
+          'os2loop_tag',
+        ],
+      ]);
   }
 
   /**

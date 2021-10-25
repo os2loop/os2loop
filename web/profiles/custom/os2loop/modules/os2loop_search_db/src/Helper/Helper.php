@@ -93,6 +93,7 @@ class Helper {
 
       // Vocabulary name => Block id.
       $vocabularyBlocks = [
+        'os2loop_category' => 'os2loop_search_db_category',
         'os2loop_subject' => 'os2loop_search_db_subject',
         'os2loop_tag' => 'os2loop_search_db_tags',
         'os2loop_profession' => 'os2loop_search_db_profession',
