@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.os2loop_documents_text_and_image.os2loop_documents_tai_image
     - field.field.paragraph.os2loop_documents_text_and_image.os2loop_documents_tai_position
     - field.field.paragraph.os2loop_documents_text_and_image.os2loop_documents_tai_text
+    - field.field.paragraph.os2loop_documents_text_and_image.os2loop_documents_title
     - paragraphs.paragraphs_type.os2loop_documents_text_and_image
   module:
     - media_library
@@ -17,24 +18,32 @@ mode: default
 content:
   os2loop_documents_tai_image:
     type: media_library_widget
-    weight: 1
+    weight: 2
     settings:
       media_types: {  }
     third_party_settings: {  }
     region: content
   os2loop_documents_tai_position:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   os2loop_documents_tai_text:
-    weight: 0
+    weight: 1
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  os2loop_documents_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
 hidden:
   created: true

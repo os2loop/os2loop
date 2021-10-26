@@ -1,63 +1,113 @@
+@use "sass:list";
+
+$step-indent: 3em;
+
 /**
  * @file
  * The step-by-step paragraph, complete with numbering.
  */
 .counter {
-  color: $text-on-primary;
-  position: relative;
-  margin-bottom: $spacer * 1.5;
-
   ol {
     list-style-type: none;
     counter-reset: item;
-    margin: 0;
+    // We use padding for indent because we have a background color on the list.
+    margin: {
+      top: 0;
+      bottom: 0;
+      left: $step-indent;
+      right: 0;
+    }
     padding: 0;
   }
 
-  li {
-    &.paragraph-step {
-      counter-increment: item;
-      width: 100%;
+  li.paragraph-step {
+    counter-increment: item;
 
+    &::before {
+      position: absolute;
+      left: -$step-indent + 0.5em;
+      min-width: 2em;
+      height: 2em;
+      border-radius: 50%;
+      border: solid 0.1em $primary;
+      line-height: 2em - (2 * 0.1em);
+      font-family: $font-family-base;
+      content: counters(item, ".") " ";
+      text-align: center;
+    }
+
+    li.paragraph-step {
       &::before {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: $spacer/2;
-        left: -$spacer/2;
-        padding: $spacer * 1.5;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background-color: $primary;
-        font-size: 1.2em;
-        font-weight: bold;
-        font-family: $font-family-base;
-        content: counters(item, ".") " ";
+        border-color: $gray-500;
       }
     }
-    li {
-      &.paragraph-step {
-        &::before {
-          content: counters(item, ".") " ";
-          padding: $spacer * 1.25;
-          font-size: 1em;
-          background-color: $gray-500;
-          left: 0;
-        }
+  }
+
+  img {
+    margin-bottom: 1em;
+  }
+}
+
+$steps-level-colors: $gray-100, $gray-200, $gray-300, $gray-400, $gray-500;
+
+.os2loop-documents-steps {
+  // Add background color to .steps and use negative margin and padding for
+  // making background take up full line width.
+  @for $i from 1 through list.length($steps-level-colors) {
+    $selector: "";
+    @for $j from 1 through $i {
+      $selector: $selector + " .steps";
+    }
+    #{$selector} {
+      margin-left: -$i * $step-indent;
+      background-color: list.nth($steps-level-colors, $i);
+
+      .steps-content {
+        padding-left: $i * $step-indent;
       }
     }
   }
 }
 
-.indented-step {
-  padding-left: $spacer * 1.5;
+.step {
+  &--collapse-toggle {
+    .show-steps,
+    .hide-steps {
+      width: 10em;
+    }
+
+    .show-steps {
+      display: none;
+    }
+    .hide-steps {
+      display: inline-block;
+    }
+    .collapse-caret {
+      position: absolute;
+      // Match Bootstrap's collapse transition duration (cf.
+      // node_modules/bootstrap/scss/_variables.scss).
+      transition: transform 0.35s;
+    }
+
+    &.collapsed {
+      .show-steps {
+        display: inline-block;
+      }
+      .hide-steps {
+        display: none;
+      }
+
+      .collapse-caret {
+        transform: rotate(180deg);
+      }
+    }
+  }
 }
 
-.step {
-  min-height: $spacer * 4;
-  padding: $spacer/2 $spacer/2 $spacer/2 $spacer;
-  background-color: $light-background;
-  margin-bottom: $spacer/2;
+x.indented-step {
+  padding-left: $spacer * 1.1;
+
+  img {
+    margin-bottom: 2em;
+  }
 }

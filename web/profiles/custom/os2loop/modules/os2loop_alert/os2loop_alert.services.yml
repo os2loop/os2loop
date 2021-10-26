@@ -1,0 +1,10 @@
+services:
+  Drupal\os2loop_alert\Helper\Helper:
+    arguments:
+      - '@Drupal\os2loop_settings\Settings'
+      - '@database'
+      - '@plugin.manager.mail'
+      - '@language_manager'
+      - '@token'
+      - '@os2loop_subscriptions.helper'
+      - '@current_user'

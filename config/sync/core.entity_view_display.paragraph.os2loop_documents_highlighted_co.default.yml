@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.os2loop_documents_highlighted_co.os2loop_documents_hc_content
     - field.field.paragraph.os2loop_documents_highlighted_co.os2loop_documents_hc_title
+    - field.field.paragraph.os2loop_documents_highlighted_co.os2loop_documents_title
     - paragraphs.paragraphs_type.os2loop_documents_highlighted_co
   module:
     - text
@@ -20,7 +21,7 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  os2loop_documents_hc_title:
+  os2loop_documents_title:
     weight: 0
     label: hidden
     settings:
@@ -32,4 +33,5 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
+  os2loop_documents_hc_title: true
   search_api_excerpt: true

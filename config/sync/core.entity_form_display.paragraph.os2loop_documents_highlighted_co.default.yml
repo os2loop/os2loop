@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.os2loop_documents_highlighted_co.os2loop_documents_hc_content
     - field.field.paragraph.os2loop_documents_highlighted_co.os2loop_documents_hc_title
+    - field.field.paragraph.os2loop_documents_highlighted_co.os2loop_documents_title
     - paragraphs.paragraphs_type.os2loop_documents_highlighted_co
   module:
     - text
@@ -21,7 +22,7 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
-  os2loop_documents_hc_title:
+  os2loop_documents_title:
     weight: 0
     settings:
       size: 60
@@ -31,4 +32,5 @@ content:
     region: content
 hidden:
   created: true
+  os2loop_documents_hc_title: true
   status: true

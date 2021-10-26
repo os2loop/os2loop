@@ -1,0 +1,8 @@
+services:
+  Drupal\os2loop_toc_block\Helper\Helper:
+    class: Drupal\os2loop_toc_block\Helper\Helper
+    arguments:
+      - '@toc_api.manager'
+      - '@toc_api.builder'
+      - '@entity_type.manager'
+      - '@renderer'

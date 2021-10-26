@@ -1,0 +1,27 @@
+/* Cherry pick some styling from os2loop_theme/assets/documents.scss. */
+table {
+  width: 100%;
+}
+
+th {
+  background: #ccc;
+  text-align: center;
+}
+
+th,
+td {
+  vertical-align: top;
+}
+
+.number,
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}

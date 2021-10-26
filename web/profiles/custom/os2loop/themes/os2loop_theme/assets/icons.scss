@@ -121,6 +121,10 @@ $search-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'
       @include link-icon("\f406", $upvote, $dark-upvote);
     }
 
+    &.os2loop-alert {
+      @include link-icon("\f33b", $os2loop-alert, $dark-os2loop-alert);
+    }
+
     i {
       color: $white;
       font-size: 1.2em;

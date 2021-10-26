@@ -1,0 +1,21 @@
+os2loop_alert.settings:
+  path: '/admin/config/os2loop/os2loop_alert/settings'
+  defaults:
+    _form: '\Drupal\os2loop_alert\Form\SettingsForm'
+    _title: 'OS2Loop alert settings'
+  requirements:
+    _permission: 'administer os2loop settings'
+
+os2loop_alert.alert_form:
+  path: '/os2loop_alert/alert/node/{node}'
+  defaults:
+    _title: 'Alert form'
+    _title_callback: 'Drupal\os2loop_alert\Form\AlertForm::getTitle'
+    _form: 'Drupal\os2loop_alert\Form\AlertForm'
+  requirements:
+    _permission: 'os2loop send alert'
+  options:
+    parameters:
+      node:
+        type: entity:node
+    _admin_route: TRUE

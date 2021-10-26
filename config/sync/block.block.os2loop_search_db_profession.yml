@@ -11,7 +11,7 @@ dependencies:
 id: os2loop_search_db_profession
 theme: os2loop_theme
 region: content
-weight: 4
+weight: 5
 provider: null
 plugin: 'facet_block:os2loop_search_db_profession'
 settings:

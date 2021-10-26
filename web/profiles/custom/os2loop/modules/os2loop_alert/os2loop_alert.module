@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Contains os2loop_alert.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\os2loop_alert\Helper\Helper;
+
+/**
+ * Implements hook_help().
+ */
+function os2loop_alert_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the os2loop_alert module.
+    case 'help.page.os2loop_alert':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('OS2Loop Alert') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_mail().
+ *
+ * @see \Drupal\os2loop_alert\Helper\Helper::mail()
+ */
+function os2loop_alert_mail($key, &$message, $params) {
+  return Drupal::service(Helper::class)->mail($key, $message, $params);
+}
+
+/**
+ * Implements hook_mail_alter().
+ *
+ * @see \Drupal\os2loop_alert\Helper\Helper::alterMail()
+ */
+function os2loop_alert_mail_alter(&$message) {
+  return Drupal::service(Helper::class)->alterMail($message);
+}
+
+/**
+ * Implements hook_os2loop_settings_is_granted().
+ *
+ * @see \Drupal\os2loop_alert\Helper\Helper::isGranted()
+ */
+function os2loop_alert_os2loop_settings_is_granted(string $attribute, $object = NULL) {
+  return Drupal::service(Helper::class)->isGranted($attribute, $object);
+}

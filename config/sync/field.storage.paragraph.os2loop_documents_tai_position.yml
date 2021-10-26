@@ -17,6 +17,18 @@ settings:
     -
       value: right
       label: Right
+    -
+      value: full_above
+      label: 'Full width above content'
+    -
+      value: full_below
+      label: 'Full width below content'
+    -
+      value: half_above
+      label: 'Half width above content, centered'
+    -
+      value: half_below
+      label: 'Half width below content, centered'
   allowed_values_function: ''
 module: options
 locked: false

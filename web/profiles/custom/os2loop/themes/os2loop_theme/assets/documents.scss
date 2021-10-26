@@ -9,6 +9,7 @@
   color: color-yiq($info-box-background);
 }
 
+.paragraph--type--os2loop-documents-table table,
 table.loop-documents-table {
   @extend .table, .table-hover, .table-bordered;
 
@@ -37,8 +38,37 @@ table.loop-documents-table {
     height: auto !important;
     max-width: inherit !important;
   }
+
+  th,
+  td {
+    &.left {
+      text-align: left;
+    }
+  }
+
+  th,
+  td {
+    &.center {
+      text-align: center;
+    }
+  }
+
+  th,
+  td {
+    &.number,
+    &.right {
+      text-align: right;
+    }
+  }
 }
 
 #about-collection .header .document a {
   color: inherit;
+}
+
+// Spacing between paragraphs.
+.os2loop-documents-document-content-item {
+  & + & {
+    margin-top: 2em;
+  }
 }

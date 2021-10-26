@@ -8,6 +8,7 @@ module:
   config_filter: 0
   config_ignore: 0
   config_translation: 0
+  contextual: 0
   convert_media_tags_to_markup: 0
   csv_serialization: 0
   ctools: 0
@@ -41,6 +42,7 @@ module:
   node: 0
   openid_connect: 0
   options: 0
+  os2loop_alert: 0
   os2loop_analytics: 0
   os2loop_cookie_information: 0
   os2loop_cookies: 0
@@ -64,10 +66,12 @@ module:
   os2loop_shared: 0
   os2loop_subscriptions: 0
   os2loop_taxonomy: 0
+  os2loop_toc_block: 0
   os2loop_upvote: 0
   os2loop_user: 0
   os2loop_user_login: 0
   page_cache: 0
+  paragraphs_edit: 0
   path: 0
   path_alias: 0
   rest: 0
@@ -84,6 +88,7 @@ module:
   taxonomy: 0
   text: 0
   theme_switcher: 0
+  toc_api: 0
   token: 0
   token_filter: 0
   toolbar: 0

@@ -41,7 +41,7 @@ class DocumentFixture extends AbstractFixture implements DependentFixtureInterfa
 
     $paragraph = Paragraph::create([
       'type' => 'os2loop_documents_highlighted_co',
-      'os2loop_documents_hc_title' => 'Important note',
+      'os2loop_documents_title' => 'Important note',
       'os2loop_documents_hc_content' => [
         'value' => <<<'BODY'
     This is an <strong>important</strong> message.
@@ -54,6 +54,7 @@ class DocumentFixture extends AbstractFixture implements DependentFixtureInterfa
 
     $paragraph = Paragraph::create([
       'type' => 'os2loop_documents_text_and_image',
+      'os2loop_documents_title' => 'Text with image',
       'os2loop_documents_tai_image' => [
         'target_id' => $this->getReference('os2loop_image:image-001.jpg')->id(),
         'alt' => 'Look! An image!',
@@ -70,6 +71,7 @@ class DocumentFixture extends AbstractFixture implements DependentFixtureInterfa
 
     $paragraph = Paragraph::create([
       'type' => 'os2loop_documents_step_by_step',
+      'os2loop_documents_title' => 'Step by step',
       'os2loop_documents_description' => [
         'value' => <<<'BODY'
 These are the steps you need to perform.
@@ -185,7 +187,7 @@ BODY,
 
       $paragraph = Paragraph::create([
         'type' => 'os2loop_documents_highlighted_co',
-        'os2loop_documents_hc_title' => sprintf('Important note on %s', $document->getTitle()),
+        'os2loop_documents_title' => sprintf('Important note on %s', $document->getTitle()),
         'os2loop_documents_hc_content' => [
           'value' => sprintf('<p>This is the content of %s</p>', $document->getTitle()),
           'format' => 'os2loop_documents_rich_text',
@@ -242,6 +244,56 @@ BODY,
 Der skal være styr på cyklens grej.
 BODY,
         'format' => 'os2loop_documents_rich_text',
+      ],
+    ]);
+    $paragraph->save();
+    $document->get('os2loop_documents_document_conte')->appendItem($paragraph);
+    $document->save();
+
+    $document = Node::create([
+      'type' => 'os2loop_documents_document',
+      'title' => 'Dokument med tabeller',
+      'os2loop_shared_subject' => [
+        'target_id' => $this->getReference('os2loop_subject:Diverse')->id(),
+      ],
+      'os2loop_shared_tags' => [
+        ['target_id' => $this->getReference('os2loop_tag:test')->id()],
+      ],
+    ]);
+
+    $paragraph = Paragraph::create([
+      'type' => 'os2loop_documents_table',
+      'os2loop_documents_title' => 'En tabel siger mere end 1000 ord',
+      'os2loop_documents_tbl_cont' => [
+        'value' => <<<'BODY'
+<table class="loop-documents-table">
+  <thead>
+    <tr>
+      <th>A</th>
+      <th>B</th>
+      <th class="number">C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td class="number">5</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>11</td>
+      <td class="number">13</td>
+    </tr>
+  </tbody>
+</table>
+BODY,
+        'format' => 'os2loop_documents_table',
+      ],
+      'os2loop_documents_tbl_desc' => [
+        'value' => <<<'BODY'
+Dette er en tabel med tal.
+BODY,
       ],
     ]);
     $paragraph->save();

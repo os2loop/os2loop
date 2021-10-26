@@ -9,7 +9,7 @@ id: paragraph.os2loop_documents_highlighted_co.os2loop_documents_hc_title
 field_name: os2loop_documents_hc_title
 entity_type: paragraph
 bundle: os2loop_documents_highlighted_co
-label: Title
+label: 'Title (deprecated)'
 description: ''
 required: false
 translatable: false

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.os2loop_external.os2loop_external_descripti
     - field.field.node.os2loop_external.os2loop_external_url
+    - field.field.node.os2loop_external.os2loop_shared_category
     - field.field.node.os2loop_external.os2loop_shared_profession
     - field.field.node.os2loop_external.os2loop_shared_rev_date
     - field.field.node.os2loop_external.os2loop_shared_subject
@@ -28,7 +29,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   os2loop_external_descripti:
-    weight: 6
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
@@ -36,15 +37,25 @@ content:
     type: text_textarea
     region: content
   os2loop_external_url:
-    weight: 7
+    weight: 5
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
     region: content
+  os2loop_shared_category:
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   os2loop_shared_profession:
-    weight: 10
+    weight: 9
     settings:
       match_limit: '0'
       min_length: 0
@@ -61,13 +72,13 @@ content:
     type: autocomplete_deluxe
     region: content
   os2loop_shared_rev_date:
-    weight: 11
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   os2loop_shared_subject:
-    weight: 8
+    weight: 7
     settings:
       match_limit: '0'
       min_length: 0
@@ -84,7 +95,7 @@ content:
     type: autocomplete_deluxe
     region: content
   os2loop_shared_tags:
-    weight: 9
+    weight: 8
     settings:
       min_length: 0
       delimiter: ''
@@ -102,7 +113,7 @@ content:
     region: content
   path:
     type: path
-    weight: 30
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -110,7 +121,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 3
     region: content
     third_party_settings: {  }
   title:

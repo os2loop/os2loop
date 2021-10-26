@@ -3,6 +3,8 @@ services:
     class: Drupal\os2loop_subscriptions\Helper\Helper
     arguments:
       - '@Drupal\os2loop_settings\Settings'
+      - '@database'
+
   os2loop_subscriptions.flag_subscriber:
     class: Drupal\os2loop_subscriptions\EventSubscriber\SubscriptionFlagSubscriber
     tags:

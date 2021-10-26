@@ -1,0 +1,26 @@
+uuid: 5f97f68b-d969-428b-a7c5-5b4b2410662d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.table_of_contents.table_of_contents
+    - paragraphs.paragraphs_type.table_of_contents
+  module:
+    - block_field
+id: paragraph.table_of_contents.default
+targetEntityType: paragraph
+bundle: table_of_contents
+mode: default
+content:
+  table_of_contents:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

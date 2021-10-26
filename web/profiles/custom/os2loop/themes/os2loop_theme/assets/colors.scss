@@ -15,10 +15,10 @@ $dark: #343a40 !default;
 $blue: #0a58ca !default;
 
 // Taxonomy colors
-$taxonomy-color-1: hsl(60, 54%, 35%) !default;
-$taxonomy-color-2: hsl(120, 54%, 35%) !default;
-$taxonomy-color-3: hsl(230, 54%, 35%) !default;
-$taxonomy-color-4: hsl(0, 0%, 13%) !default;
+$taxonomy-color-1: #efbb00 !default;
+$taxonomy-color-2: #068711 !default;
+$taxonomy-color-3: #2a398b !default;
+$taxonomy-color-4: #222222 !default;
 
 // Black and white
 $black: #000;
@@ -47,6 +47,7 @@ $follow-content: $primary;
 $edit: $secondary;
 $subscribe: $primary;
 $favourite: $primary;
+$os2loop-alert: $warning;
 
 $dark-icon-base-color: darken($icon-base-color, 10%);
 $dark-delete: darken($delete, 10%);
@@ -55,6 +56,7 @@ $dark-follow-content: darken($follow-content, 10%);
 $dark-edit: darken($edit, 10%);
 $dark-subscribe: darken($subscribe, 10%);
 $dark-favourite: darken($favourite, 10%);
+$dark-os2loop-alert: darken($os2loop-alert, 10%);
 
 // Attributes
 $highlighted: lighten($primary, 40%);

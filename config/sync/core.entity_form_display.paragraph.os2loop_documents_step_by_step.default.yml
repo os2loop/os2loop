@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.os2loop_documents_step_by_step.os2loop_documents_description
     - field.field.paragraph.os2loop_documents_step_by_step.os2loop_documents_steps
+    - field.field.paragraph.os2loop_documents_step_by_step.os2loop_documents_title
     - paragraphs.paragraphs_type.os2loop_documents_step_by_step
   module:
     - paragraphs
@@ -15,7 +16,7 @@ bundle: os2loop_documents_step_by_step
 mode: default
 content:
   os2loop_documents_description:
-    weight: 0
+    weight: 1
     settings:
       rows: 5
       placeholder: ''
@@ -33,6 +34,14 @@ content:
       default_paragraph_type: _none
     third_party_settings: {  }
     type: entity_reference_paragraphs
+    region: content
+  os2loop_documents_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
 hidden:
   created: true

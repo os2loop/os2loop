@@ -1,0 +1,8 @@
+node_types:
+  os2loop_post: os2loop_post
+  os2loop_documents_collection: 0
+  os2loop_documents_document: 0
+  os2loop_external: 0
+  os2loop_page: 0
+  os2loop_question: 0
+  os2loop_section_page: 0

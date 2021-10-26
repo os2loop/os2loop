@@ -87,12 +87,6 @@
       <div{{ content_attributes }}>
         {{ content.os2loop_documents_info_box }}
         {{ content.os2loop_documents_dc_content }}
-        {% if os2loop_documents_collection_tree|default(false) %}
-          <div>
-            <h2>{{ 'Documents in collection'|t }}</h2>
-            {{ macros.table_of_contents(os2loop_documents_collection_tree, node) }}
-          </div>
-        {% endif %}
       </div>
     </div>
     <div class="tab-pane" id="about-collection" role="tabpanel" aria-labelledby="about-collection-tab">
@@ -100,6 +94,7 @@
       <div{{ content_attributes.addClass("bg-secondary-loop") }}>
         <div>{{ content.os2loop_shared_subject }}</div>
         <div>{{ content.os2loop_shared_profession }}</div>
+        <div>{{ content.os2loop_shared_category }}</div>
         <div>{{ content.os2loop_shared_tags }}</div>
         <div>{{ content.os2loop_shared_approver }}</div>
         <div>{{ content.os2loop_shared_approval_date }}</div>
@@ -107,6 +102,13 @@
         <div>{{ content.os2loop_shared_owner }}</div>
         <div>{{ content.os2loop_shared_version }}</div>
       </div>
+
+      {% if os2loop_documents_collection_tree|default(false) %}
+        <div>
+          <h2>{{ 'Documents in collection'|t }}</h2>
+          {{ macros.table_of_contents(os2loop_documents_collection_tree, node) }}
+        </div>
+      {% endif %}
     </div>
   </div>
 </article>

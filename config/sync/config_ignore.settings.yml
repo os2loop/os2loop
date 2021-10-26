@@ -1,6 +1,7 @@
 ignored_config_entities:
   - os2loop.settings
   - os2loop_analytics.settings
+  - os2loop_alert.settings
   - os2loop_cookies.settings
   - os2loop_documents.settings
   - os2loop_flag_content.settings
