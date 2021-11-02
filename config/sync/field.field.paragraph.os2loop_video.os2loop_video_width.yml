@@ -1,0 +1,23 @@
+uuid: 9f7aface-2428-47de-97c3-c265ea0ec25d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.os2loop_video_width
+    - paragraphs.paragraphs_type.os2loop_video
+  module:
+    - options
+id: paragraph.os2loop_video.os2loop_video_width
+field_name: os2loop_video_width
+entity_type: paragraph
+bundle: os2loop_video
+label: WIdth
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: half_width
+default_value_callback: ''
+settings: {  }
+field_type: list_string

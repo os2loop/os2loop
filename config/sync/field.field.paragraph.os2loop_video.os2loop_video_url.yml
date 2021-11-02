@@ -1,0 +1,23 @@
+uuid: ddebfc7b-9774-4fbd-a720-e6807a0e666a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.os2loop_video_url
+    - paragraphs.paragraphs_type.os2loop_video
+  module:
+    - link
+id: paragraph.os2loop_video.os2loop_video_url
+field_name: os2loop_video_url
+entity_type: paragraph
+bundle: os2loop_video
+label: 'Share link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

@@ -1,0 +1,19 @@
+uuid: 53276e37-2997-40e6-b3be-1d4b23cfb6ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.os2loop_video_iframe
+    - paragraphs.paragraphs_type.os2loop_video
+id: paragraph.os2loop_video.os2loop_video_iframe
+field_name: os2loop_video_iframe
+entity_type: paragraph
+bundle: os2loop_video
+label: 'Iframe embed kode'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

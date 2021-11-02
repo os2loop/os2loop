@@ -1,0 +1,19 @@
+uuid: 8c0a1e9e-6a51-4f0e-868f-6c0e0db977a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.os2loop_video_title
+    - paragraphs.paragraphs_type.os2loop_video
+id: paragraph.os2loop_video.os2loop_video_title
+field_name: os2loop_video_title
+entity_type: paragraph
+bundle: os2loop_video
+label: 'Video title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

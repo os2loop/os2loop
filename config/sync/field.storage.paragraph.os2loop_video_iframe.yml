@@ -1,0 +1,19 @@
+uuid: 6ce4b882-7375-47b6-8f10-ebb0cdadf9ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.os2loop_video_iframe
+field_name: os2loop_video_iframe
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
