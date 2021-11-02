@@ -2,6 +2,8 @@
 
 namespace Drupal\os2loop_oembed\Helper;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Helper class for oembed module.
  */
@@ -38,12 +40,12 @@ class Helper {
    *
    * @param array $element
    *   The element being altered.
-   * @param array $form_state
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The state of the form the element belongs to.
-   * @param string $context
+   * @param array $context
    *   The context of the alteration.
    */
-  public function paragraphsFormAlter(array &$element, array &$form_state, string $context) {
+  public function paragraphsFormAlter(array &$element, FormStateInterface &$form_state, array $context) {
     if ('os2loop_video' === $element['#paragraph_type']) {
       $sourceTypeField = ':input[name="os2loop_section_page_paragraph[' . $element['#delta'] . '][subform][os2loop_video_source_type]"]';
       $element['subform']['os2loop_video_url']['#states']['visible'] = [
