@@ -1,0 +1,13 @@
+{#
+ /**
+ * @file
+ * Create an iframe containing a video.
+ *
+ * Available variables:
+ * - video: information about the video.
+ */
+#}
+
+{% if (video['iframe']) %}
+  {{ video['iframe']|raw }}
+{% endif %}
