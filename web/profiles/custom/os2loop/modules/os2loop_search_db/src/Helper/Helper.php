@@ -200,6 +200,7 @@ class Helper {
   public function formAlter(array &$form, FormStateInterface $form_state, $form_id) {
     if ('views_exposed_form' === $form_id
       && 'views-exposed-form-os2loop-search-db-page-search' === ($form['#id'] ?? NULL)) {
+      $form['#attached']['library'][] = 'os2loop_search_db/hide-filters';
       // Add facet filter query to form to keep the filters when submitting
       // search form.
       $request = $this->requestStack->getCurrentRequest();
