@@ -1,0 +1,27 @@
+uuid: bce2732a-91eb-4df4-9175-9c89568106e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.os2loop_content_anonymous_author
+field_name: os2loop_content_anonymous_author
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'Yes'
+    -
+      value: '0'
+      label: 'No'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: eafb1645-94e9-4883-8151-cf89c486123e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_content_anonymous_author
+    - node.type.os2loop_question
+  module:
+    - options
+id: node.os2loop_question.os2loop_content_anonymous_author
+field_name: os2loop_content_anonymous_author
+entity_type: node
+bundle: os2loop_question
+label: 'Anonymous author?'
+description: 'Choose if you want to show your name when people view your question.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.os2loop_search_db_search_autocomplete
+    - field.field.node.os2loop_question.os2loop_content_anonymous_author
     - field.field.node.os2loop_question.os2loop_question_answers
     - field.field.node.os2loop_question.os2loop_question_content
     - field.field.node.os2loop_question.os2loop_question_file
@@ -47,6 +48,7 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
+  os2loop_content_anonymous_author: true
   os2loop_question_answers: true
   os2loop_question_content: true
   os2loop_question_file: true
