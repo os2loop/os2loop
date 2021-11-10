@@ -1,0 +1,19 @@
+uuid: 5e4c50d9-75dc-4c0c-8618-87d62079d9d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.message.os2loop_revision_message
+    - message.template.os2loop_message_collection_upd
+id: message.os2loop_message_collection_upd.os2loop_revision_message
+field_name: os2loop_revision_message
+entity_type: message
+bundle: os2loop_message_collection_upd
+label: 'Revision message'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
