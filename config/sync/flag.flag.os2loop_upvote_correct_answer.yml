@@ -14,10 +14,10 @@ global: true
 weight: 0
 flag_short: 'Marker dette som det rigtige svar'
 flag_long: ''
-flag_message: ''
+flag_message: 'Marked content as correct'
 unflag_short: 'Fjern markering af dette som det rigtige svar'
 unflag_long: ''
-unflag_message: ''
+unflag_message: 'Removed correct mark from content'
 unflag_denied_text: ''
 flag_type: 'entity:comment'
 link_type: reload

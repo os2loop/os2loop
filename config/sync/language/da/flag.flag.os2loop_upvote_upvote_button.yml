@@ -1,2 +1,4 @@
 flag_short: 'Stem på dette'
 unflag_short: 'Fjern stemme'
+flag_message: 'Stemte indhold op'
+unflag_message: 'Fjernede stemme på indhold'

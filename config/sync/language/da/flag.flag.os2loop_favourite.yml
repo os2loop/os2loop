@@ -1,3 +1,5 @@
 label: Favorit
 flag_short: 'Marker som favorit'
 unflag_short: 'Fjern som favorit'
+flag_message: 'Indhold tilføjet til favoritter'
+unflag_message: 'Indhold fjernet fra favoritter'
