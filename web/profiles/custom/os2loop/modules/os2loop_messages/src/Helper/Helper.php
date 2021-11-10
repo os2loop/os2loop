@@ -7,6 +7,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\message\Entity\Message;
 use Drupal\node\NodeInterface;
+use Drupal\os2loop_settings\Settings;
 
 /**
  * Os2Loop messages helper.
@@ -14,6 +15,19 @@ use Drupal\node\NodeInterface;
  * Helper class for creating messages.
  */
 class Helper extends ControllerBase {
+  /**
+   * The config.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  protected $config;
+
+  /**
+   * Constructor.
+   */
+  public function __construct(Settings $settings) {
+    $this->config = $settings->getConfig('os2loop_subscriptions.settings');
+  }
 
   /**
    * Implements hook_entity_insert().
@@ -48,7 +62,13 @@ class Helper extends ControllerBase {
     if (NULL !== $template) {
       $message = Message::create(['template' => $template]);
       if ($entity instanceof NodeInterface) {
+        if ($entity->hasField('os2loop_notify_users') && FALSE == $entity->get('os2loop_notify_users')->getValue()[0]['value']) {
+          return;
+        }
         $message->set('os2loop_message_node_refer', $entity);
+        if (isset($entity->revision_log->value)) {
+          $message->set('os2loop_revision_message', $entity->revision_log->value);
+        }
       }
       elseif ($entity instanceof CommentInterface) {
         $node_storage = $this->entityTypeManager()->getStorage('node');
@@ -92,6 +112,35 @@ class Helper extends ControllerBase {
     }
 
     return $template;
+  }
+
+  /**
+   * Implements hook_form_alter().
+   *
+   * If subscription is enabled on documents/document collections
+   * show notify checkbox on content.
+   */
+  public function formAlter(&$form, $form_id) {
+    // Forms that may contain notify checkbox.
+    $contentTypes = [
+      'os2loop_documents_document' => [
+        'node_os2loop_documents_document_form',
+        'node_os2loop_documents_document_edit_form',
+      ],
+      'os2loop_documents_collection' => [
+        'node_os2loop_documents_collection_form',
+        'node_os2loop_documents_collection_edit_form',
+      ],
+    ];
+    foreach ($contentTypes as $contentType => $possibleCheckboxForm) {
+      if (in_array($form_id, $possibleCheckboxForm)) {
+        $form['os2loop_notify_users']['widget']['value']['#default_value'] = 1;
+        $nodeSubscriptions = $this->config->get('subscribe_node_types');
+        if ($nodeSubscriptions[$contentType] !== $contentType) {
+          $form['os2loop_notify_users']['#access'] = FALSE;
+        }
+      }
+    }
   }
 
 }
