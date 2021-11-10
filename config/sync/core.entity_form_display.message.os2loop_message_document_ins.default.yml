@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.message.os2loop_message_document_ins.os2loop_message_node_refer
+    - field.field.message.os2loop_message_document_ins.os2loop_revision_message
     - message.template.os2loop_message_document_ins
 id: message.os2loop_message_document_ins.default
 targetEntityType: message
@@ -19,5 +20,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  os2loop_revision_message:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
 hidden: {  }
