@@ -4,4 +4,4 @@ os2loop_question.settings:
     _form: '\Drupal\os2loop_question\Form\SettingsForm'
     _title: 'OS2Loop Question settings'
   requirements:
-    _permission: 'administer OS2Loop settings'
+    _permission: 'administer os2loop settings'
