@@ -7,7 +7,8 @@
  * - user: The user to display info about.
  */
 #}
-{% set display_author = entity is empty or is_granted('view author', entity) %}
+{# Display author if not anonymous #}
+{% set display_author = not entity or not(entity.os2loop_content_anonymous_author.value or entity.os2loop_comment_anonymous_author.value) %}
 {% if display_author %}
 
   <div class="user rounded-top">

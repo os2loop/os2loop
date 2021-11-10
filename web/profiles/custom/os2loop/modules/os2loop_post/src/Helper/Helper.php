@@ -2,7 +2,6 @@
 
 namespace Drupal\os2loop_post\Helper;
 
-use Drupal\comment\CommentInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\os2loop_post\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
@@ -80,21 +79,6 @@ class Helper {
     }
 
     return $form_element;
-  }
-
-  /**
-   * Implements hook_os2loop_settings_is_granted().
-   */
-  public function isGranted(string $attribute, $object = NULL): bool {
-    if ('view author' === $attribute) {
-      if ($object instanceof CommentInterface) {
-        if ($object->hasField('os2loop_comment_anonymous_author')) {
-          return FALSE === (bool) $object->get('os2loop_comment_anonymous_author')->getString();
-        }
-      }
-    }
-
-    return FALSE;
   }
 
 }

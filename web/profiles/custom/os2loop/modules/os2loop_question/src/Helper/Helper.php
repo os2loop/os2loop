@@ -2,9 +2,7 @@
 
 namespace Drupal\os2loop_question\Helper;
 
-use Drupal\comment\CommentInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\NodeInterface;
 use Drupal\os2loop_question\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
 
@@ -137,26 +135,6 @@ class Helper {
     }
 
     return $form_element;
-  }
-
-  /**
-   * Implements hook_os2loop_settings_is_granted().
-   */
-  public function isGranted(string $attribute, $object = NULL): bool {
-    if ('view author' === $attribute) {
-      if ($object instanceof NodeInterface) {
-        if ($object->hasField('os2loop_content_anonymous_author')) {
-          return FALSE === (bool) $object->get('os2loop_content_anonymous_author')->getString();
-        }
-      }
-      elseif ($object instanceof CommentInterface) {
-        if ($object->hasField('os2loop_comment_anonymous_author')) {
-          return FALSE === (bool) $object->get('os2loop_comment_anonymous_author')->getString();
-        }
-      }
-    }
-
-    return FALSE;
   }
 
 }
