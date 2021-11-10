@@ -109,6 +109,9 @@ class MailHelper {
         if (NULL !== $text
         && preg_match('@^(?P<heading>[^<]+?)(:\s*)?(?P<content><a.+</a>)@', $text, $matches)) {
           [$heading, $content] = [$matches['heading'], $matches['content']];
+          if ($message->hasField('os2loop_revision_message') && !empty($message->get('os2loop_revision_message')->getValue())) {
+            $content .= ' (Revision message: ' . $message->get('os2loop_revision_message')->getValue()[0]['value'] . ')';
+          }
           $messageSections[$heading][] = $content;
         }
       }
