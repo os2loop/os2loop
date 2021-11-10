@@ -2,13 +2,10 @@
 
 namespace Drupal\os2loop_oembed\TwigExtension;
 
-use Drupal\Component\Render\MarkupInterface;
 use Drupal\Component\Serialization\Json;
-use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\media\OEmbed\UrlResolverInterface;
 use GuzzleHttp\ClientInterface;
-use Symfony\Component\Serializer\SerializerInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Drupal\Core\Messenger\MessengerInterface;
@@ -42,20 +39,6 @@ class TwigExtension extends AbstractExtension {
   protected $messenger;
 
   /**
-   * The serializer service.
-   *
-   * @var \Symfony\Component\Serializer\SerializerInterface
-   */
-  protected $serializer;
-
-  /**
-   * Drupal\Core\Render\RendererInterface definition.
-   *
-   * @var \Drupal\Core\Render\RendererInterface
-   */
-  protected $renderer;
-
-  /**
    * The settings.
    *
    * @var \Drupal\os2loop_settings\Settings
@@ -71,19 +54,13 @@ class TwigExtension extends AbstractExtension {
    *   The Url resolver service.
    * @param \Drupal\Core\Messenger\MessengerInterface $messenger
    *   The messenger service.
-   * @param \Symfony\Component\Serializer\SerializerInterface $serializer
-   *   The serializer service.
-   * @param \Drupal\Core\Render\RendererInterface $renderer
-   *   Drupals renderer service.
    * @param \Drupal\os2loop_settings\Settings $settings
    *   Loop settings.
    */
-  public function __construct(ClientInterface $http_client, UrlResolverInterface $urlResolver, MessengerInterface $messenger, SerializerInterface $serializer, RendererInterface $renderer, Settings $settings) {
+  public function __construct(ClientInterface $http_client, UrlResolverInterface $urlResolver, MessengerInterface $messenger, Settings $settings) {
     $this->httpClient = $http_client;
     $this->urlResolver = $urlResolver;
     $this->messenger = $messenger;
-    $this->serializer = $serializer;
-    $this->renderer = $renderer;
     $this->settings = $settings;
   }
 
@@ -92,7 +69,7 @@ class TwigExtension extends AbstractExtension {
    */
   public function getFilters(): array {
     return [
-      new TwigFilter('create_video', [$this, 'createVideo']),
+      new TwigFilter('create_video', [$this, 'createVideo'], ['is_safe' => ['html']]),
     ];
   }
 
@@ -102,15 +79,15 @@ class TwigExtension extends AbstractExtension {
    * @param array $text
    *   The input text that the filter was applied to.
    *
-   * @return \Drupal\Component\Render\MarkupInterface
+   * @return string
    *   The rendered html.
    *
    * @throws \GuzzleHttp\Exception\GuzzleException
    *   An exception if guzzle fails.
    * @throws \Exception
-   *   The genral exception.
+   *   The general exception.
    */
-  public function createVideo(array $text): MarkupInterface {
+  public function createVideo(array $text): string {
     // Set string depending on field type.
     $string = isset($text['#plain_text']) ? $text['#plain_text'] : $text['#context']['value'];
     if (!empty($this->findIframe($string))) {
@@ -119,12 +96,7 @@ class TwigExtension extends AbstractExtension {
     $videoArray = $this->createVideoFromUrl($string);
     $videoArray = $this->applyCookieConsent($videoArray);
 
-    $render = [
-      '#theme' => 'os2loop_video_iframe',
-      '#video' => $videoArray,
-    ];
-
-    return $this->renderer->render($render);
+    return $videoArray['iframe'];
   }
 
   /**

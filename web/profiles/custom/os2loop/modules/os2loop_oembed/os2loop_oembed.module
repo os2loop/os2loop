@@ -6,15 +6,6 @@
  */
 
 /**
- * Implements hook_theme().
- *
- * @see \Drupal\os2loop_oembed\Helper\Helper::theme()
- */
-function os2loop_oembed_theme($existing, $type, $theme, $path) {
-  return \Drupal::service('os2loop_oembed.helper')->theme($existing, $type, $theme, $path);
-}
-
-/**
  * Implements hook_field_widget_WIDGET_TYPE_form_alter().
  *
  * @see \Drupal\os2loop_oembed\Helper\Helper::paragraphsFormAlter()

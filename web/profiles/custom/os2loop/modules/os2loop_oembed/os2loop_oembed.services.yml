@@ -7,8 +7,6 @@ services:
       - '@http_client'
       - '@media.oembed.url_resolver'
       - '@messenger'
-      - '@serializer'
-      - '@renderer'
       - '@Drupal\os2loop_settings\Settings'
 
   os2loop_oembed.helper:

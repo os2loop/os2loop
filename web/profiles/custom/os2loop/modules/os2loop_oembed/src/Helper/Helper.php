@@ -10,32 +10,6 @@ use Drupal\Core\Form\FormStateInterface;
 class Helper {
 
   /**
-   * Implements hook_theme().
-   *
-   * @param array $existing
-   *   An array of existing implementations that may be used for override
-   *   purposes.
-   * @param string $type
-   *   Whether a theme, module, etc. is being processed.
-   * @param string $theme
-   *   The actual name of theme, module, etc.
-   * @param string $path
-   *   The directory path of the theme or module.
-   *
-   * @return array
-   *   An associative array of information about theme implementations.
-   */
-  public function theme(array $existing, string $type, string $theme, string $path) {
-    return [
-      'os2loop_video_iframe' => [
-        'variables' => [
-          'video' => NULL,
-        ],
-      ],
-    ];
-  }
-
-  /**
    * Implements hook_field_widget_WIDGET_TYPE_form_alter().
    *
    * @param array $element
