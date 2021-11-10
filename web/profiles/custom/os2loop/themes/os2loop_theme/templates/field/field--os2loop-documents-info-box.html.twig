@@ -22,7 +22,15 @@
  * @ingroup themeable
  */
 #}
-<div{{ attributes.addClass("os2loop-documents-info-box") }}>
+{# Get highlight color from subject on parent node #}
+{% set node_id = element['#object'].nid.value|default(null) %}
+{% set highlight_color = node_id ? drupal_field('os2loop_shared_subject', 'node', node_id)['0']['#options'].entity.os2loop_taxonomy_color_picker.value|default('') %}
+{% set classes = [
+'os2loop-documents-info-box',
+highlight_color
+]
+%}
+<div{{ attributes.addClass(classes) }}>
   {% for item in items %}
     <div{{ item.attributes }}>{{ item.content }}</div>
   {% endfor %}
