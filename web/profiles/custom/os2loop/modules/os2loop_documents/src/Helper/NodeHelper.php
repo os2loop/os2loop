@@ -43,7 +43,7 @@ class NodeHelper {
    *
    * @var \Drupal\Core\Messenger\MessengerInterface
    */
-  private $messenger;
+  protected $messenger;
 
   /**
    * Constructor.

@@ -131,7 +131,7 @@ class Helper {
     $now = new DrupalDateTime('now', 'UTC');
     $lastRunAt = $this->getLastRunAt();
 
-    if ($now->getTimestamp() - $lastRunAt->getTimestamp() < static::CRON_INTERVAL) {
+    if ($now->getTimestamp() - $lastRunAt->getTimestamp() < self::CRON_INTERVAL) {
       return;
     }
 
@@ -209,7 +209,7 @@ class Helper {
    */
   private function getUserLastNotifiedAt(UserInterface $user) {
     if (NULL === $this->userLastNotifiedAt) {
-      $this->userLastNotifiedAt = $this->userData->get(static::MODULE, NULL, static::USER_LAST_NOTIFIED_AT);
+      $this->userLastNotifiedAt = $this->userData->get(static::MODULE, NULL, self::USER_LAST_NOTIFIED_AT);
     }
 
     return $this->userLastNotifiedAt[$user->id()] ?? new DrupalDateTime('@0');
@@ -224,7 +224,7 @@ class Helper {
    *   The notification time.
    */
   private function setUserLastNotifiedAt(UserInterface $user, DrupalDateTime $notifiedAt) {
-    $this->userData->set(static::MODULE, $user->id(), static::USER_LAST_NOTIFIED_AT, $notifiedAt);
+    $this->userData->set(static::MODULE, $user->id(), self::USER_LAST_NOTIFIED_AT, $notifiedAt);
   }
 
   /**
@@ -266,7 +266,7 @@ class Helper {
       ->getStorage('message');
     $ids = $storage
       ->getQuery()
-      ->condition('template', static::$messageTemplateNames, 'IN')
+      ->condition('template', self::$messageTemplateNames, 'IN')
       ->condition('created', [$from->getTimestamp(), $to->getTimestamp()], 'BETWEEN')
       ->sort('created', 'DESC')
       ->execute();
@@ -288,14 +288,14 @@ class Helper {
     $subscriptionUserIds = $this->database
       ->select('flagging', 'f')
       ->fields('f', ['uid'])
-      ->condition('flag_id', static::$subscriptionFlagNames, 'IN')
+      ->condition('flag_id', self::$subscriptionFlagNames, 'IN')
       ->execute()
       ->fetchAllKeyed(0, 0);
 
     $notificationUserIds = $this->entityTypeManager
       ->getStorage('user')
       ->getQuery()
-      ->condition(static::USER_NOTIFICATION_INTERVAL_FIELD_NAME, 0, '>')
+      ->condition(self::USER_NOTIFICATION_INTERVAL_FIELD_NAME, 0, '>')
       ->execute();
 
     // Group users by notification interval.
@@ -440,7 +440,7 @@ class Helper {
    *   How often the user will receive notifications.
    */
   private function getNotificationInterval(User $user): int {
-    return (int) ($user->get(static::USER_NOTIFICATION_INTERVAL_FIELD_NAME)->getValue()[0]['value'] ?: 0);
+    return (int) ($user->get(self::USER_NOTIFICATION_INTERVAL_FIELD_NAME)->getValue()[0]['value'] ?: 0);
   }
 
   /**
@@ -450,7 +450,7 @@ class Helper {
    *   The time.
    */
   private function getLastRunAt(): DrupalDateTime {
-    return $this->getStateValue(static::STATE_LAST_RUN_AT, new DrupalDateTime('@0'));
+    return $this->getStateValue(self::STATE_LAST_RUN_AT, new DrupalDateTime('@0'));
   }
 
   /**
@@ -460,7 +460,7 @@ class Helper {
    *   The time.
    */
   private function setLastRunAt(DrupalDateTime $time) {
-    $this->setStateValue(static::STATE_LAST_RUN_AT, $time);
+    $this->setStateValue(self::STATE_LAST_RUN_AT, $time);
   }
 
   /**

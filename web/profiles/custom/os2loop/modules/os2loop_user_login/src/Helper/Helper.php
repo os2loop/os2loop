@@ -54,7 +54,7 @@ class Helper {
    *
    * @var \Symfony\Component\HttpFoundation\RequestStack
    */
-  private $requestStack;
+  protected $requestStack;
 
   /**
    * The module handler service.

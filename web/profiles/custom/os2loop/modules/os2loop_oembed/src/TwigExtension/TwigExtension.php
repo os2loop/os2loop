@@ -157,10 +157,10 @@ class TwigExtension extends AbstractExtension {
     $video = [];
     if (filter_var($text, FILTER_VALIDATE_URL)) {
       $url = parse_url($text);
-      if (array_key_exists($url['host'], static::ALLOWED_PROVIDERS)) {
+      if (array_key_exists($url['host'], self::ALLOWED_PROVIDERS)) {
         $video['host'] = $url['host'];
         // Use oembed to create iframe if possible.
-        if ('Oembed' === static::ALLOWED_PROVIDERS[$url['host']]['type']) {
+        if ('Oembed' === self::ALLOWED_PROVIDERS[$url['host']]['type']) {
           try {
             $url = $this->urlResolver->getResourceUrl($text);
             $request = $this->httpClient->request('GET', $url);
@@ -178,7 +178,7 @@ class TwigExtension extends AbstractExtension {
           }
         }
         // If oembed is not an option create iframe from a url.
-        elseif ('custom' === static::ALLOWED_PROVIDERS[$url['host']]['type']) {
+        elseif ('custom' === self::ALLOWED_PROVIDERS[$url['host']]['type']) {
           $video['custom']['src'] = $text;
           $video['iframe'] = '<iframe src="' . $text . '"></iframe>';
         }
@@ -214,7 +214,7 @@ class TwigExtension extends AbstractExtension {
   private function applyCookieConsent(array $videoArray): array {
     $config = $this->settings->getConfig('os2loop_cookies.settings');
     $cookieInformationScriptCode = $config->get('os2loop_cookie_information_script');
-    $requiredCookies = static::ALLOWED_PROVIDERS[$videoArray['host']]['requiredCookies'];
+    $requiredCookies = self::ALLOWED_PROVIDERS[$videoArray['host']]['requiredCookies'];
     if (!empty($cookieInformationScriptCode) && !empty($requiredCookies)) {
       if (isset($videoArray['iframe'])) {
         $videoArray['iframe'] = str_replace(' src="', ' src="" data-category-consent="' . $requiredCookies . '" data-consent-src="', $videoArray['iframe']);
