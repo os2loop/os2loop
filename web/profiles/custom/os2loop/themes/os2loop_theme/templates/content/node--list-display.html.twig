@@ -83,7 +83,9 @@
         <h3 class="h6"><a href="{{ url }}">{{ label }}</a></h3>
       </div>
       <div class="d-flex">
-        {{ body_text }}
+        <div class="line-clamp-3">
+          {{ body_text }}
+        </div>
         {% if view_id == 'os2loop_subscriptions_node' %}
           <div class="ml-auto">{{ content.flag_os2loop_subscription_node }}</div>
         {% endif %}

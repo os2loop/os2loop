@@ -1,0 +1,10 @@
+// Add line clamp helper class up to .line-clamp-10 (Ellipsis after 10 lines)
+@for $line from 1 through 10 {
+  .line-clamp-#{$line} {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
