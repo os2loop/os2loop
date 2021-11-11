@@ -1,0 +1,10 @@
+uuid: 5335c930-a584-4ff1-98f4-efc78df2d6cc
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_video
+label: Video
+icon_uuid: null
+icon_default: null
+description: 'A paragraph to display a video.'
+behavior_plugins: {  }

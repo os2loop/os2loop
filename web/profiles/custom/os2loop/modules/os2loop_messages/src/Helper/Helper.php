@@ -106,7 +106,7 @@ class Helper extends ControllerBase {
    *   The message template name if any.
    */
   private function getMessageTemplate(EntityInterface $entity, string $operation) {
-    $template = static::BUNDLE_MESSAGE_TYPES[$entity->bundle()] ?? NULL;
+    $template = self::BUNDLE_MESSAGE_TYPES[$entity->bundle()] ?? NULL;
     if (NULL !== $template) {
       $template .= '_' . $operation;
     }

@@ -1,0 +1,19 @@
+uuid: bdc01526-640d-42e5-903f-07e1643d2329
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.os2loop_video_description
+field_name: os2loop_video_description
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

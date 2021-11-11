@@ -55,6 +55,7 @@ module:
   os2loop_member_list: 0
   os2loop_menu: 0
   os2loop_messages: 0
+  os2loop_oembed: 0
   os2loop_page: 0
   os2loop_post: 0
   os2loop_question: 0
