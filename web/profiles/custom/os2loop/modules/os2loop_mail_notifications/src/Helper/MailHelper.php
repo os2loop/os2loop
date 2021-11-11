@@ -56,7 +56,7 @@ class MailHelper {
    */
   public function mail($key, &$message, $params) {
     switch ($key) {
-      case static::NOTIFICATION_MAIL:
+      case self::NOTIFICATION_MAIL:
         $body_template = $this->config->get('template_body');
         $subject_template = $this->config->get('template_subject');
         $data = [
@@ -123,7 +123,7 @@ class MailHelper {
     $params['messages'] = implode(PHP_EOL . PHP_EOL, $sections);
     $params['user'] = $user;
 
-    $result = $this->mailer->mail(Helper::MODULE, static::NOTIFICATION_MAIL, $user->getEmail(), $lang_code, $params, NULL, TRUE);
+    $result = $this->mailer->mail(Helper::MODULE, self::NOTIFICATION_MAIL, $user->getEmail(), $lang_code, $params, NULL, TRUE);
 
     return TRUE === $result['result'];
   }

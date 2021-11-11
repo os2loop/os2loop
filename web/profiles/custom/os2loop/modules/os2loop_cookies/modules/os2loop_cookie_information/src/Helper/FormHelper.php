@@ -75,8 +75,9 @@ class FormHelper {
    *   The state of the form being submitted.
    */
   public function cookieInformationFormSubmit(array $form, FormStateInterface $form_state) {
+    $script = !empty($form_state->getValue('os2loop_cookie_information_script')) ? $form_state->getValue('os2loop_cookie_information_script') : NULL;
     $this->settings->getEditableConfig(static::SETTINGS_NAME)
-      ->set('os2loop_cookie_information_script', $form_state->getValue('os2loop_cookie_information_script'))
+      ->set('os2loop_cookie_information_script', $script)
       ->save();
   }
 

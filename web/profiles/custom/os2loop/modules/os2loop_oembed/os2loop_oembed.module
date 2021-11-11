@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Contains os2loop_oembed.module.
+ */
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ *
+ * @see \Drupal\os2loop_oembed\Helper\Helper::paragraphsFormAlter()
+ */
+function os2loop_oembed_field_widget_entity_reference_paragraphs_form_alter(&$element, &$form_state, $context) {
+  return \Drupal::service('os2loop_oembed.helper')->paragraphsFormAlter($element, $form_state, $context);
+}

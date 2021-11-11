@@ -1,0 +1,27 @@
+uuid: c3479363-3de6-4539-8494-147e4bb75375
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.os2loop_video_source_type
+field_name: os2loop_video_source_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: iframe
+      label: 'Skyfish iframe'
+    -
+      value: url
+      label: Other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
