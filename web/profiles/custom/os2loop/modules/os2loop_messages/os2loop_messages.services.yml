@@ -1,3 +1,5 @@
 services:
   os2loop_messages.helper:
     class: Drupal\os2loop_messages\Helper\Helper
+    arguments:
+      - '@Drupal\os2loop_settings\Settings'

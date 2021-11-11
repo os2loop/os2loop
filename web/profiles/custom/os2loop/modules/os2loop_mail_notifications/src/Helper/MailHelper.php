@@ -109,10 +109,14 @@ class MailHelper {
         if (NULL !== $text
         && preg_match('@^(?P<heading>[^<]+?)(:\s*)?(?P<content><a.+</a>)@', $text, $matches)) {
           [$heading, $content] = [$matches['heading'], $matches['content']];
+          if ($message->hasField('os2loop_revision_message') && !empty($message->get('os2loop_revision_message')->getValue())) {
+            $content .= ' (' . $this->t('Revision message: @revision_message', ['@revision_message' => $message->get('os2loop_revision_message')->getString()]) . ')';
+          }
           $messageSections[$heading][] = $content;
         }
       }
     }
+
     $messagesWithHeadings = '';
     foreach ($messageSections as $heading => $content) {
       $messagesWithHeadings .= $heading . PHP_EOL . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $content) . PHP_EOL . PHP_EOL;

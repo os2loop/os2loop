@@ -29817,3 +29817,6 @@ msgstr "Vis underpunkter"
 
 msgid "Hide steps"
 msgstr "Skjul underpunkter"
+
+msgid "Revision message: @revision_message"
+msgstr "Revisionsbesked: @revision_message"
