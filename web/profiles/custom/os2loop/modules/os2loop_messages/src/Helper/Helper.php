@@ -62,7 +62,7 @@ class Helper extends ControllerBase {
     if (NULL !== $template) {
       $message = Message::create(['template' => $template]);
       if ($entity instanceof NodeInterface) {
-        if ($entity->hasField('os2loop_notify_users') && FALSE == $entity->get('os2loop_notify_users')->getValue()[0]['value']) {
+        if ($entity->hasField('os2loop_notify_users') && FALSE == (bool) $entity->get('os2loop_notify_users')->getString()) {
           return;
         }
         $message->set('os2loop_message_node_refer', $entity);
@@ -119,8 +119,13 @@ class Helper extends ControllerBase {
    *
    * If subscription is enabled on documents/document collections
    * show notify checkbox on content.
+   *
+   * @param array $form
+   *   The form array.
+   * @param string $form_id
+   *   The id of the form.
    */
-  public function formAlter(&$form, $form_id) {
+  public function formAlter(array &$form, string $form_id) {
     // Forms that may contain notify checkbox.
     $contentTypes = [
       'os2loop_documents_document' => [
