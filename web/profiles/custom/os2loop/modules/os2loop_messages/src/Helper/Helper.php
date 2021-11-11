@@ -62,7 +62,7 @@ class Helper extends ControllerBase {
     if (NULL !== $template) {
       $message = Message::create(['template' => $template]);
       if ($entity instanceof NodeInterface) {
-        if ($entity->hasField('os2loop_notify_users') && FALSE == (bool) $entity->get('os2loop_notify_users')->getString()) {
+        if ($entity->hasField('os2loop_notify_users') && !(bool) $entity->get('os2loop_notify_users')->getString()) {
           return;
         }
         $message->set('os2loop_message_node_refer', $entity);
