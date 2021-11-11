@@ -71,5 +71,4 @@
  */
 #}
 {# // Remove whitespace added when user copy/pastes content in form. #}
-{% set body_text = node.os2loop_question_content.value|replace({'&nbsp;': ' '})|striptags|raw %}
-{% include 'node--list-display.html.twig' with {'body_text': body_text|length > 250 ? body_text|slice(0, 250) ~ '...' : body_text} %}
+{% include 'node--list-display.html.twig' with {'body_text': content.os2loop_question_content} %}
