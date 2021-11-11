@@ -6,32 +6,29 @@ dependencies:
     - core.entity_view_mode.media.media_library
     - field.field.media.os2loop_media_file.field_media_file
     - field.field.media.os2loop_media_file.field_media_library
-    - image.style.medium
     - media.type.os2loop_media_file
   module:
-    - image
+    - os2loop_media
 id: media.os2loop_media_file.media_library
 targetEntityType: media
 bundle: os2loop_media_file
 mode: media_library
 content:
-  thumbnail:
-    type: image
-    label: hidden
-    settings:
-      image_style: medium
-      image_link: ''
+  field_media_file:
+    type: 'File image formatter'
     weight: 0
-    third_party_settings: {  }
     region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
-  field_media_file: true
   field_media_library: true
   langcode: true
   name: true
   search_api_excerpt: true
+  thumbnail: true
   uid: true

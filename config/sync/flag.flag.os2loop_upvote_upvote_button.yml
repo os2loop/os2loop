@@ -14,10 +14,10 @@ global: false
 weight: 0
 flag_short: Upvote
 flag_long: ''
-flag_message: ''
+flag_message: 'Upvoted content'
 unflag_short: 'Remove upvote'
 unflag_long: ''
-unflag_message: ''
+unflag_message: 'Removed upvote from content'
 unflag_denied_text: ''
 flag_type: 'entity:comment'
 link_type: reload
