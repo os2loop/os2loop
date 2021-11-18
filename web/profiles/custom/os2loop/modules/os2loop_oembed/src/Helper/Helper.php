@@ -21,7 +21,8 @@ class Helper {
    */
   public function paragraphsFormAlter(array &$element, FormStateInterface &$form_state, array $context) {
     if ('os2loop_video' === $element['#paragraph_type']) {
-      $sourceTypeField = ':input[name="os2loop_section_page_paragraph[' . $element['#delta'] . '][subform][os2loop_video_source_type]"]';
+      $fieldName = $context['items']->getFieldDefinition()->getName();
+      $sourceTypeField = ':input[name="' . $fieldName . '[' . $element['#delta'] . '][subform][os2loop_video_source_type]"]';
       $element['subform']['os2loop_video_url']['#states']['visible'] = [
         $sourceTypeField => ['value' => 'url'],
       ];
