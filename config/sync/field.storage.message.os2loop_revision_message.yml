@@ -1,0 +1,19 @@
+uuid: 1ead58e1-dc81-42d6-b753-c063a24cb8ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - message
+id: message.os2loop_revision_message
+field_name: os2loop_revision_message
+entity_type: message
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

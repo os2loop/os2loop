@@ -1,0 +1,4 @@
+hide-filters:
+  version: 1.x
+  js:
+    assets/js/hideFilters.js: {}

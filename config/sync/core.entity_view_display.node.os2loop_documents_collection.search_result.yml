@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.search_result
     - field.field.node.os2loop_documents_collection.os2loop_documents_dc_content
     - field.field.node.os2loop_documents_collection.os2loop_documents_info_box
+    - field.field.node.os2loop_documents_collection.os2loop_notify_users
     - field.field.node.os2loop_documents_collection.os2loop_shared_approval_date
     - field.field.node.os2loop_documents_collection.os2loop_shared_approver
     - field.field.node.os2loop_documents_collection.os2loop_shared_category
@@ -54,6 +55,7 @@ hidden:
   links: true
   os2loop_documents_dc_content: true
   os2loop_documents_info_box: true
+  os2loop_notify_users: true
   os2loop_shared_approval_date: true
   os2loop_shared_approver: true
   os2loop_shared_category: true

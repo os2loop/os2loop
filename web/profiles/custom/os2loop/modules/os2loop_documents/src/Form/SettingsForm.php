@@ -29,7 +29,7 @@ class SettingsForm extends ConfigFormBase {
    *
    * @var \Drupal\os2loop_settings\Settings
    */
-  private $settings;
+  protected $settings;
 
   /**
    * The file storage.

@@ -1,0 +1,66 @@
+uuid: 21b948cc-2cf7-4bca-86bc-03441516d026
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.os2loop_video.os2loop_video_description
+    - field.field.paragraph.os2loop_video.os2loop_video_iframe
+    - field.field.paragraph.os2loop_video.os2loop_video_source_type
+    - field.field.paragraph.os2loop_video.os2loop_video_title
+    - field.field.paragraph.os2loop_video.os2loop_video_url
+    - field.field.paragraph.os2loop_video.os2loop_video_width
+    - paragraphs.paragraphs_type.os2loop_video
+  module:
+    - link
+id: paragraph.os2loop_video.default
+targetEntityType: paragraph
+bundle: os2loop_video
+mode: default
+content:
+  os2loop_video_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  os2loop_video_iframe:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  os2loop_video_source_type:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  os2loop_video_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  os2loop_video_url:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  os2loop_video_width:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true

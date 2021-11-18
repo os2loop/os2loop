@@ -1,0 +1,23 @@
+uuid: e0389bb7-d6e2-4d0f-8a84-17891bce3616
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_notify_users
+    - node.type.os2loop_documents_collection
+id: node.os2loop_documents_collection.os2loop_notify_users
+field_name: os2loop_notify_users
+entity_type: node
+bundle: os2loop_documents_collection
+label: 'Notify users of this change'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Notify users of this change'
+  off_label: 'Do not notify users of this change'
+field_type: boolean

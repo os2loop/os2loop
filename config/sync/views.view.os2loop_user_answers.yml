@@ -283,7 +283,36 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-      sorts: {  }
+      sorts:
+        comment_type:
+          id: comment_type
+          table: comment_field_data
+          field: comment_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: comment
+          entity_field: comment_type
+          plugin_id: standard
+        created:
+          id: created
+          table: comment_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: comment
+          entity_field: created
+          plugin_id: date
       title: 'My replies'
       header: {  }
       footer: {  }

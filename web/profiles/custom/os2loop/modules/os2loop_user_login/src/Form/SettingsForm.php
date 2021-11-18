@@ -108,20 +108,17 @@ class SettingsForm extends ConfigFormBase {
       ),
     ];
 
-    $options = [];
     $options['oidc'] = $this->t('OpenID Connect');
     // @todo handle SAML
     // $options['saml'] = $this->t('SAML');
-    if (!empty($options)) {
-      $form['default_login_method'] = [
-        '#type' => 'select',
-        '#title' => $this->t('Default login method'),
-        '#options' => $options,
-        '#empty_value' => '',
-        '#default_value' => $config->get('default_login_method'),
-        '#description' => $this->t('The default login method to use. If specified, anonymous users will automatically be logged in with this method.'),
-      ];
-    }
+    $form['default_login_method'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Default login method'),
+      '#options' => $options,
+      '#empty_value' => '',
+      '#default_value' => $config->get('default_login_method'),
+      '#description' => $this->t('The default login method to use. If specified, anonymous users will automatically be logged in with this method.'),
+    ];
 
     $form['hide_logout_menu_item'] = [
       '#type' => 'checkbox',

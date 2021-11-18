@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.message.os2loop_message_document_upd.os2loop_message_node_refer
+    - field.field.message.os2loop_message_document_upd.os2loop_revision_message
     - message.template.os2loop_message_document_upd
 id: message.os2loop_message_document_upd.default
 targetEntityType: message
@@ -22,6 +23,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  os2loop_revision_message:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   partial_0:
     weight: 0

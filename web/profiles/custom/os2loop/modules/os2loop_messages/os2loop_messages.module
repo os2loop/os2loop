@@ -24,3 +24,12 @@ function os2loop_messages_entity_insert(EntityInterface $entity) {
 function os2loop_messages_entity_update(EntityInterface $entity) {
   Drupal::service('os2loop_messages.helper')->entityUpdate($entity);
 }
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @see \Drupal\os2loop_messages\Helper\Helper::formAlter()
+ */
+function os2loop_messages_form_alter(&$form, &$form_state, $form_id) {
+  Drupal::service('os2loop_messages.helper')->formAlter($form, $form_id);
+}
