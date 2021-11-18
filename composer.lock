@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6697a3e54ba0251a501c919b5c61888a",
+    "content-hash": "8a3801c9b162e258c65fb3bb14a85102",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3980,11 +3980,17 @@
         },
         {
             "name": "drupal/openid_connect",
-            "version": "dev-2.x",
+            "version": "2.0.0-alpha11",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/openid_connect.git",
-                "reference": "220a1f1f7f7026548e1a66998c2184d550ef416d"
+                "reference": "2.0.0-alpha11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/openid_connect-2.0.0-alpha11.zip",
+                "reference": "2.0.0-alpha11",
+                "shasum": "431b68ea89c50c5f0751a65abd108dad81e67531"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9",
@@ -3994,15 +4000,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
                 "drupal": {
-                    "version": "2.x-dev",
-                    "datestamp": "1631654844",
+                    "version": "2.0.0-alpha11",
+                    "datestamp": "1631655050",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -15647,7 +15650,6 @@
         "drupal/gin_toolbar": 10,
         "drupal/inline_entity_form": 5,
         "drupal/masquerade": 10,
-        "drupal/openid_connect": 20,
         "drupal/paragraphs_edit": 15,
         "drupal/theme_switcher": 20,
         "drupal/views_flag_refresh": 20
