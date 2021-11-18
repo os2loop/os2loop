@@ -9,6 +9,7 @@ dependencies:
     - paragraphs.paragraphs_type.os2loop_documents_step_by_step
     - paragraphs.paragraphs_type.os2loop_documents_table
     - paragraphs.paragraphs_type.os2loop_documents_text_and_image
+    - paragraphs.paragraphs_type.os2loop_video
     - paragraphs.paragraphs_type.table_of_contents
   module:
     - entity_reference_revisions
@@ -32,6 +33,7 @@ settings:
       os2loop_documents_text_and_image: os2loop_documents_text_and_image
       os2loop_documents_table: os2loop_documents_table
       table_of_contents: table_of_contents
+      os2loop_video: os2loop_video
     target_bundles_drag_drop:
       os2loop_documents_highlighted_co:
         enabled: true
@@ -60,6 +62,9 @@ settings:
       os2loop_section_page_views_refer:
         weight: 16
         enabled: false
+      os2loop_video:
+        enabled: true
+        weight: 21
       table_of_contents:
         enabled: true
         weight: 20
