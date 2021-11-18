@@ -80,12 +80,12 @@ class MailHelper {
    *   True if mail is sent.
    */
   public function sendNotification(User $user, array $groupedMessages) {
-    $lang_code = $user->getPreferredLangcode();
+    $langcode = $user->getPreferredLangcode();
 
     $sections = [];
     foreach ($groupedMessages as $type => $messages) {
-      $section = array_map(static function (Message $message) use ($lang_code) {
-        return $message->getText($lang_code)[0] ?? NULL;
+      $section = array_map(function (Message $message) use ($langcode) {
+        return $this->getMessageContent($message, $langcode);
       }, $messages);
       $section = implode(PHP_EOL, $section);
       $sections[$type] = $section;
@@ -96,22 +96,22 @@ class MailHelper {
     //
     // A message on the form
     //
-    //   Something new: <a href="…">New stuff</a>.
+    //   Something new: <a href="…">New stuff</a> (Revision message: Updated
+    //   stuff.)
     //
-    // will be put under the heading "Something new" (colon and space are
-    // removed) as <a href="…">New stuff</a> (only a element is used).
+    // will be put under the heading 'Something new' (colon and space are
+    // removed) with content
+    //
+    //   <a href="…">New stuff</a> (Revision message: Updated
+    //   stuff.)
     $messageSections = [];
     foreach ($groupedMessages as $messages) {
       foreach ($messages as $message) {
-        $text = $message->getText($lang_code)[0] ?? NULL;
-        // Use text before a element as heading and keep only the a element as
-        // text.
-        if (NULL !== $text
-        && preg_match('@^(?P<heading>[^<]+?)(:\s*)?(?P<content><a.+</a>)@', $text, $matches)) {
-          [$heading, $content] = [$matches['heading'], $matches['content']];
-          if ($message->hasField('os2loop_revision_message') && !empty($message->get('os2loop_revision_message')->getValue())) {
-            $content .= ' (' . $this->t('Revision message: @revision_message', ['@revision_message' => $message->get('os2loop_revision_message')->getString()]) . ')';
-          }
+        $content = $this->getMessageContent($message, $langcode);
+        // Use text before colon as heading.
+        $parts = preg_split('/:\s*/', $content, 2);
+        if (2 === count($parts)) {
+          [$heading, $content] = array_map('trim', $parts);
           $messageSections[$heading][] = $content;
         }
       }
@@ -127,7 +127,7 @@ class MailHelper {
     $params['messages'] = implode(PHP_EOL . PHP_EOL, $sections);
     $params['user'] = $user;
 
-    $result = $this->mailer->mail(Helper::MODULE, self::NOTIFICATION_MAIL, $user->getEmail(), $lang_code, $params, NULL, TRUE);
+    $result = $this->mailer->mail(Helper::MODULE, self::NOTIFICATION_MAIL, $user->getEmail(), $langcode, $params, NULL, TRUE);
 
     return TRUE === $result['result'];
   }
@@ -184,6 +184,20 @@ class MailHelper {
         ],
       ],
     ];
+  }
+
+  /**
+   * Get content of a message including any revision message.
+   */
+  private function getMessageContent(Message $message, string $langCode): string {
+    $content = $message->getText($langCode)[0] ?? '';
+
+    // Append any revision message.
+    if ($message->hasField('os2loop_revision_message') && !empty($message->get('os2loop_revision_message')->getValue())) {
+      $content .= ' (' . $this->t('Revision message: @revision_message', ['@revision_message' => $message->get('os2loop_revision_message')->getString()]) . ')';
+    }
+
+    return $content;
   }
 
 }
