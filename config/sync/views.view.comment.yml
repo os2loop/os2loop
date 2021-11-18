@@ -1,6 +1,6 @@
 uuid: ff2c6227-a206-4a9e-80ef-2d14a300bac2
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - comment
