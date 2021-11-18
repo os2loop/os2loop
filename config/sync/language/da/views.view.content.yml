@@ -5,7 +5,6 @@ display:
     display_options:
       exposed_form:
         options:
-          submit_button: Filter
           reset_button_label: Gendan
           exposed_sorts_label: 'Sortér efter'
           sort_asc_label: Stigende
@@ -17,16 +16,18 @@ display:
             next: 'Næste ›'
             first: '« Første'
             last: 'Sidste »'
+          expose:
+            items_per_page_label: 'Antal pr. side'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Begyndelse
       fields:
         title:
           label: Titel
         type:
           label: Indholdstype
-          separator: ', '
         name:
           label: Forfatter
         status:
-          label: Status
           settings:
             format_custom_true: Udgivet
             format_custom_false: 'Ikke udgivet'
@@ -34,6 +35,10 @@ display:
           label: Opdateret
         operations:
           label: Handlinger
+        os2loop_shared_subject:
+          label: Emne
+        os2loop_shared_tags:
+          label: Nøgleord
       filters:
         title:
           expose:
@@ -42,8 +47,7 @@ display:
           expose:
             label: Indholdstype
         status:
-          expose:
-            label: Status
+          expose: {  }
           group_info:
             label: Publiceringsstatus
             group_items:
@@ -51,10 +55,21 @@ display:
                 title: Udgivet
               2:
                 title: 'Ikke udgivet'
+        tid:
+          admin_label: Emne
+          expose:
+            label: Emne
+        tid_1:
+          admin_label: Nøgleord
+          expose:
+            label: Nøgleord
       title: Indhold
       empty:
         area_text_custom:
           content: 'Der er intet indhold at vise.'
+      header:
+        result:
+          content: 'Viser @start - @end af @total'
     display_title: Standard
   page_1:
     display_options:
@@ -64,3 +79,63 @@ display:
         title: Indhold
         description: 'Find og håndtér indhold'
     display_title: Side
+  page_2:
+    display_options:
+      menu:
+        title: Spørgsmål/Indlæg
+      title: Spørgsmål/Indlæg
+      filters:
+        title:
+          expose:
+            label: Titel
+        type:
+          expose:
+            label: Indholdstype
+        status:
+          group_info:
+            label: Publiseringsstatus
+            group_items:
+              1:
+                title: Publiseret
+              2:
+                title: 'Ikke publiseret'
+        tid:
+          admin_label: Emne
+          expose:
+            label: Emne
+        tid_1:
+          admin_label: Nøgleord
+          expose:
+            label: Nøgleord
+        comment_count:
+          expose:
+            label: Besvaret/Ubesvaret
+          group_info:
+            label: Besvaret/Ubesvaret
+            group_items:
+              2:
+                title: Besvaret
+              3:
+                title: Ubesvaret
+      fields:
+        title:
+          label: Titel
+        type:
+          label: Indholdstype
+        name:
+          label: Forfatter
+        status:
+          settings:
+            format_custom_true: Publiseret
+            format_custom_false: 'Ikke publiseret'
+        changed:
+          label: Opdateret
+        os2loop_shared_subject:
+          label: Emne
+        os2loop_shared_tags:
+          label: Nøgleord
+        comment_count:
+          label: 'Antal kommentarer'
+        operations:
+          label: Handlinger
+    display_title: Spørgsmål/Indlæg
