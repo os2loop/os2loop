@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: os2loop_section_page_info_block
-label: 'Info block'
+label: 'Highlighted content'
 icon_uuid: null
 icon_default: null
 description: 'Info block for section pages'
