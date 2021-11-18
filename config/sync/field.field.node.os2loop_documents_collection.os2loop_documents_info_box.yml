@@ -58,7 +58,7 @@ id: node.os2loop_documents_collection.os2loop_documents_info_box
 field_name: os2loop_documents_info_box
 entity_type: node
 bundle: os2loop_documents_collection
-label: Quickbox
+label: 'Highlighted content'
 description: ''
 required: false
 translatable: true
