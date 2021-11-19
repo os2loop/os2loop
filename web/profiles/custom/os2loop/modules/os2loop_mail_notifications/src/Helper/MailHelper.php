@@ -87,7 +87,7 @@ class MailHelper {
       $section = array_map(function (Message $message) use ($langcode) {
         return $this->getMessageContent($message, $langcode);
       }, $messages);
-      $section = implode(PHP_EOL, $section);
+      $section = implode('<br>', $section);
       $sections[$type] = $section;
       $params[$type] = $section;
     }
@@ -119,12 +119,12 @@ class MailHelper {
 
     $messagesWithHeadings = '';
     foreach ($messageSections as $heading => $content) {
-      $messagesWithHeadings .= $heading . PHP_EOL . PHP_EOL . '* ' . implode(PHP_EOL . '* ', $content) . PHP_EOL . PHP_EOL;
+      $messagesWithHeadings .= $heading . '<br><br>' . implode('<br>', $content) . '<br><br>';
     }
     $params['messages_with_headings'] = $messagesWithHeadings;
 
     $sections = array_filter($sections);
-    $params['messages'] = implode(PHP_EOL . PHP_EOL, $sections);
+    $params['messages'] = implode('<br><br>', $sections);
     $params['user'] = $user;
 
     $result = $this->mailer->mail(Helper::MODULE, self::NOTIFICATION_MAIL, $user->getEmail(), $langcode, $params, NULL, TRUE);
