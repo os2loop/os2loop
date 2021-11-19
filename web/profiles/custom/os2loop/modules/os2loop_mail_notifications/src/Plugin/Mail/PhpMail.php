@@ -27,8 +27,8 @@ class PhpMail extends PhpMailBase implements MailInterface {
    *   The formatted $message.
    */
   public function format(array $message) {
-    $message['body'] = implode("\n\n", $message['body']);
-
+    $message['body'] = implode(PHP_EOL . PHP_EOL, $message['body']);
+    $message['body'] = nl2br($message['body']);
     $message['body'] = $this->makeUrlsAbsolute($message['body']);
 
     return $message;
