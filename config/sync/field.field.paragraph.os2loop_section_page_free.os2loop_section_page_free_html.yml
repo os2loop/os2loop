@@ -19,6 +19,7 @@ third_party_settings:
       os2loop_post_comment_rich_text: 0
       os2loop_documents_body: 0
       os2loop_documents_rich_text: 0
+      os2loop_documents_table: 0
       os2loop_external: 0
       os2loop_message_message: 0
       os2loop_page: 0
@@ -41,6 +42,8 @@ third_party_settings:
           weight: '0'
         os2loop_documents_rich_text:
           weight: '0'
+        os2loop_documents_table:
+          weight: '0'
         os2loop_external:
           weight: '0'
         os2loop_message_message:
@@ -61,7 +64,7 @@ id: paragraph.os2loop_section_page_free.os2loop_section_page_free_html
 field_name: os2loop_section_page_free_html
 entity_type: paragraph
 bundle: os2loop_section_page_free
-label: 'Free HTML'
+label: 'Information block'
 description: 'Add any HTML to the page. This may be used for creating advanced content.'
 required: false
 translatable: false
