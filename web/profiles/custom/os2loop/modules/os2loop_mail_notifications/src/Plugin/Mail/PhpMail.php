@@ -26,7 +26,7 @@ class PhpMail extends PhpMailBase implements MailInterface {
    *   The formatted $message.
    */
   public function format(array $message) {
-    $message['body'] = $message['params']['messages_with_headings'];
+    $message['body'] = implode("\n\n", $message['body']);
 
     return $message;
   }
