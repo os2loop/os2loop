@@ -44,7 +44,7 @@ class PhpMail extends PhpMailBase implements MailInterface {
    * @see \Drupal\Core\Mail\MailManagerInterface::mail()
    */
   public function mail(array $message) {
-    $message['headers']['Content-Type'] = 'text/html; charset=iso-8859-1;';
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8;';
     return parent::mail($message);
   }
 
