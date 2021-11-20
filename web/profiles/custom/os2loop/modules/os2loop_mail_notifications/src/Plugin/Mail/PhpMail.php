@@ -2,9 +2,9 @@
 
 namespace Drupal\os2loop_mail_notifications\Plugin\Mail;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Mail\MailInterface;
 use Drupal\Core\Mail\Plugin\Mail\PhpMail as PhpMailBase;
-use Drupal\Core\Url;
 
 /**
  * Copy of the default Drupal mail backend, using PHP's native mail() function.
@@ -29,7 +29,7 @@ class PhpMail extends PhpMailBase implements MailInterface {
   public function format(array $message) {
     $message['body'] = implode(PHP_EOL . PHP_EOL, $message['body']);
     $message['body'] = nl2br($message['body']);
-    $message['body'] = $this->makeUrlsAbsolute($message['body']);
+    $message['body'] = Html::transformRootRelativeUrlsToAbsolute($message['body'], \Drupal::request()->getSchemeAndHttpHost());
 
     return $message;
   }
@@ -49,31 +49,6 @@ class PhpMail extends PhpMailBase implements MailInterface {
   public function mail(array $message) {
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8;';
     return parent::mail($message);
-  }
-
-  /**
-   * Convert relative urls (paths) in html to absolute urls.
-   */
-  private function makeUrlsAbsolute(string $html) {
-    return preg_replace_callback(
-      '/\s(href|src)\s*=\s*(?:\'([^\']+)\'|"([^"]+)")/',
-      static function ($matches) {
-        $name = $matches[1];
-        $value = $matches[2] ?: $matches[3];
-        $scheme = parse_url($value, PHP_URL_SCHEME);
-        if (NULL === $scheme) {
-          // We have a local path.
-          try {
-            $value = Url::fromUri('internal:/' . ltrim($value, '/'), ['absolute' => TRUE])->toString();
-          }
-          catch (\InvalidArgumentException $exception) {
-          }
-        }
-
-        return sprintf(' %s="%s"', $name, htmlspecialchars($value));
-      },
-      $html
-    );
   }
 
 }
