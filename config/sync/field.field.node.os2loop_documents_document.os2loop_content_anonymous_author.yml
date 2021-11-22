@@ -1,0 +1,21 @@
+uuid: 623298b0-b959-4657-a32e-b5ad1d083777
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_content_anonymous_author
+    - node.type.os2loop_documents_document
+  module:
+    - options
+id: node.os2loop_documents_document.os2loop_content_anonymous_author
+field_name: os2loop_content_anonymous_author
+entity_type: node
+bundle: os2loop_documents_document
+label: 'Anonymous author?'
+description: 'Choose whether you want to show your name or not when people see the document.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

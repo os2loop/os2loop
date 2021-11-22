@@ -1,1 +1,3 @@
 enable_rich_text: 0
+allow_anonymous_question_author: 0
+allow_anonymous_answer_author: 0

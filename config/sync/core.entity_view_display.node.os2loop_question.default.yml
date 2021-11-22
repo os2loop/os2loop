@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.os2loop_question_answer.default
+    - field.field.node.os2loop_question.os2loop_content_anonymous_author
     - field.field.node.os2loop_question.os2loop_question_answers
     - field.field.node.os2loop_question.os2loop_question_content
     - field.field.node.os2loop_question.os2loop_question_file
@@ -14,6 +15,7 @@ dependencies:
     - node.type.os2loop_question
   module:
     - comment
+    - options
     - text
     - user
 id: node.os2loop_question.default
@@ -36,6 +38,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  os2loop_content_anonymous_author:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   os2loop_question_answers:
     weight: 6
     label: above

@@ -47,4 +47,5 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
+  os2loop_comment_anonymous_author: true
   search_api_excerpt: true

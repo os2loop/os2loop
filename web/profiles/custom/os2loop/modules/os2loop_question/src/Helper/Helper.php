@@ -39,6 +39,7 @@ class Helper {
 
       case 'node_os2loop_question_edit_form':
       case 'node_os2loop_question_form':
+        $this->alterContentForm($form, $form_state, $form_id);
         $this->handleTextFormats($form, $form_state, $form_id);
         break;
     }
@@ -73,6 +74,25 @@ class Helper {
   }
 
   /**
+   * Alter content form.
+   *
+   * @param array $form
+   *   The form being altered.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The state of the form.
+   * @param string $form_id
+   *   The id of the the form.
+   */
+  private function alterContentForm(array &$form, FormStateInterface $form_state, string $form_id) {
+    $allowAnonymousAuthor = (bool) $this->config->get('allow_anonymous_question_author');
+    if (!$allowAnonymousAuthor) {
+      $form['os2loop_content_anonymous_author']['#access'] = FALSE;
+      $form['os2loop_content_anonymous_author']['widget']['#required'] = FALSE;
+      $form['os2loop_content_anonymous_author']['widget']['#default_value'] = 0;
+    }
+  }
+
+  /**
    * Hide preview button in form.
    *
    * @param array $form
@@ -86,6 +106,14 @@ class Helper {
     $form['actions']['preview']['#access'] = FALSE;
     $form['os2loop_question_answer']['widget']['#after_build'][] =
         [$this, 'fieldAfterBuild'];
+
+    $allowAnonymousAuthor = (bool) $this->config->get('allow_anonymous_answer_author');
+    if (!$allowAnonymousAuthor) {
+      $form['os2loop_comment_anonymous_author']['#access'] = FALSE;
+      $form['os2loop_comment_anonymous_author']['widget']['#required'] = FALSE;
+      $form['os2loop_comment_anonymous_author']['widget']['#default_value'] = 0;
+    }
+
   }
 
   /**
