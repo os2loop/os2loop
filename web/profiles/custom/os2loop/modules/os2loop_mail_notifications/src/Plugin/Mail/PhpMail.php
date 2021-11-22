@@ -2,6 +2,7 @@
 
 namespace Drupal\os2loop_mail_notifications\Plugin\Mail;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Mail\MailInterface;
 use Drupal\Core\Mail\Plugin\Mail\PhpMail as PhpMailBase;
 
@@ -26,7 +27,9 @@ class PhpMail extends PhpMailBase implements MailInterface {
    *   The formatted $message.
    */
   public function format(array $message) {
-    $message['body'] = $message['params']['messages_with_headings'];
+    $message['body'] = implode(PHP_EOL . PHP_EOL, $message['body']);
+    $message['body'] = nl2br($message['body']);
+    $message['body'] = Html::transformRootRelativeUrlsToAbsolute($message['body'], \Drupal::request()->getSchemeAndHttpHost());
 
     return $message;
   }
