@@ -20,8 +20,7 @@
         <i class="bi bi-person-circle"></i>
       {% endif %}
     </div>
-    <div class="col">user</div>
-      {% if user['#user'].os2loop_user_job_title.value %}
+    {% if user['#user'].os2loop_user_job_title.value %}
       <div class="col">
         <div>
           {% set user_url = user['#user'].id is not empty ? url('entity.user.canonical', {'user': user['#user'].id}) : '#' %}
