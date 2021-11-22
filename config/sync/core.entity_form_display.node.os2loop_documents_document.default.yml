@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.os2loop_documents_document.os2loop_content_anonymous_author
     - field.field.node.os2loop_documents_document.os2loop_documents_document_autho
     - field.field.node.os2loop_documents_document.os2loop_documents_document_body
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
@@ -32,12 +31,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  os2loop_content_anonymous_author:
-    weight: 26
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   os2loop_documents_document_autho:
     weight: 7
     settings:

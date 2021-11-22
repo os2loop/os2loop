@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.pdf
-    - field.field.node.os2loop_documents_document.os2loop_content_anonymous_author
     - field.field.node.os2loop_documents_document.os2loop_documents_document_autho
     - field.field.node.os2loop_documents_document.os2loop_documents_document_body
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
@@ -100,7 +99,6 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
-  os2loop_content_anonymous_author: true
   os2loop_notify_users: true
   os2loop_shared_category: true
   os2loop_shared_rev_date: true
