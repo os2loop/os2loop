@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_result
-    - field.field.node.os2loop_documents_document.os2loop_content_anonymous_author
     - field.field.node.os2loop_documents_document.os2loop_documents_document_autho
     - field.field.node.os2loop_documents_document.os2loop_documents_document_body
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
@@ -52,7 +51,6 @@ hidden:
   entity_print_view_word_docx: true
   langcode: true
   links: true
-  os2loop_content_anonymous_author: true
   os2loop_documents_document_autho: true
   os2loop_documents_document_body: true
   os2loop_documents_document_conte: true

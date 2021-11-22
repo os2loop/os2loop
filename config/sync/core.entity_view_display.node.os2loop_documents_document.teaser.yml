@@ -4,7 +4,6 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.os2loop_documents_document.os2loop_content_anonymous_author
     - field.field.node.os2loop_documents_document.os2loop_documents_document_autho
     - field.field.node.os2loop_documents_document.os2loop_documents_document_body
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
@@ -45,7 +44,6 @@ hidden:
   flag_os2loop_favourite: true
   langcode: true
   links: true
-  os2loop_content_anonymous_author: true
   os2loop_documents_document_autho: true
   os2loop_documents_document_body: true
   os2loop_documents_document_conte: true
