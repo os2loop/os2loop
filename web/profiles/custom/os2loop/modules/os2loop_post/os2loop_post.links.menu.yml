@@ -1,0 +1,6 @@
+os2loop_post.settings:
+  title: 'OS2Loop post settings'
+  route_name: os2loop_post.settings
+  description: 'Configure OS2Loop post settings'
+  parent: os2loop.group.admin
+  weight: 10

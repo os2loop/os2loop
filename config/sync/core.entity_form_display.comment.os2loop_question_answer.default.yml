@@ -5,6 +5,7 @@ dependencies:
   config:
     - comment.type.os2loop_question_answer
     - core.entity_form_mode.media.inline_media_form
+    - field.field.comment.os2loop_question_answer.os2loop_comment_anonymous_author
     - field.field.comment.os2loop_question_answer.os2loop_question_answer
     - field.field.comment.os2loop_question_answer.os2loop_question_answer_media
   module:
@@ -20,8 +21,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  os2loop_question_answer:
+  os2loop_comment_anonymous_author:
+    type: options_select
     weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  os2loop_question_answer:
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -30,7 +37,7 @@ content:
     region: content
   os2loop_question_answer_media:
     type: inline_entity_form_simple
-    weight: 2
+    weight: 3
     settings:
       form_mode: inline_media_form
       label_singular: ''
