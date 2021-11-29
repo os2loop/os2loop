@@ -72,9 +72,12 @@
 {% set comment_value = elements['#comment'].os2loop_question_answer.value is defined ? elements['#comment'].os2loop_question_answer.value : elements['#comment'].os2loop_post_comment.value %}
 {% set node_value_truncated = node_value|length > 200 ? true : false %}
 {% set comment_value_truncated = comment_value|length > 200 ? true : false %}
-  <div class="list-group">
+<div class="list-group">
   <article class="list-group-item mb-2 bg-light border-top">
     <div class="small">
+      <span>{{ 'Created'|t }}</span>: {{ created }}
+    </div>
+    <div>
       {% if node_value_truncated %}
         {{ node_value|truncate(200, true)|raw }}
         <span>...</span>
