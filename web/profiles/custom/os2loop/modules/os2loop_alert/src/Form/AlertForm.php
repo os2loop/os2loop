@@ -8,6 +8,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
 use Drupal\os2loop_alert\Helper\Helper;
+use Drupal\os2loop_settings\Settings;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -27,10 +28,18 @@ class AlertForm extends FormBase {
   protected $helper;
 
   /**
+   * The config.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  protected $config;
+
+  /**
    * Constructor.
    */
-  public function __construct(Helper $helper) {
+  public function __construct(Helper $helper, Settings $settings) {
     $this->helper = $helper;
+    $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME);
   }
 
   /**
@@ -38,7 +47,8 @@ class AlertForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get(Helper::class)
+      $container->get(Helper::class),
+      $container->get(Settings::class)
     );
   }
 
@@ -64,7 +74,6 @@ class AlertForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $isPreview = $form_state->getTemporaryValue('is_preview');
     $node = $this->getNode();
     $subject = $this->helper->getSubject($node);
 
@@ -87,6 +96,7 @@ class AlertForm extends FormBase {
       '#required' => TRUE,
       '#placeholder' => $this->t('Write the message you want to send.'),
       '#description' => $this->t('Use <code>[node:url]</code> to insert the content url (required) and <code>[node:title]</code> to insert the content title. Other useful tokens: <code>[site:name]</code> <code>[site:url]</code>'),
+      '#default_value' => $this->config->get('message_template') ?: SettingsForm::DEFAULT_MESSAGE_TEMPLATE,
     ];
 
     $numberOfUsers = $this->helper->getNumberOfUsers();
@@ -140,6 +150,12 @@ class AlertForm extends FormBase {
       ],
     ];
 
+    // For some reason the customer does not want to waste time previewing an
+    // important message before sending it …
+    // $isPreview = $form_state->getTemporaryValue('is_preview');.
+    $isPreview = TRUE;
+
+    // @phpstan-ignore-next-line
     if ($isPreview) {
       $form['actions']['send'] = [
         '#name' => 'send',
