@@ -1,0 +1,7 @@
+os2loop_post.settings:
+  path: '/admin/config/os2loop/os2loop_post/settings'
+  defaults:
+    _form: '\Drupal\os2loop_post\Form\SettingsForm'
+    _title: 'OS2Loop post settings'
+  requirements:
+    _permission: 'administer os2loop settings'

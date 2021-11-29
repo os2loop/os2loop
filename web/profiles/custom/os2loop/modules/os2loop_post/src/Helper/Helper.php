@@ -3,11 +3,26 @@
 namespace Drupal\os2loop_post\Helper;
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\os2loop_post\Form\SettingsForm;
+use Drupal\os2loop_settings\Settings;
 
 /**
  * Helper for posts.
  */
 class Helper {
+  /**
+   * The config.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  private $config;
+
+  /**
+   * The constructor.
+   */
+  public function __construct(Settings $settings) {
+    $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME);
+  }
 
   /**
    * Implements hook_form_alter().
@@ -36,6 +51,13 @@ class Helper {
     $form['actions']['preview']['#access'] = FALSE;
     $form['os2loop_post_comment']['widget']['#after_build'][] =
       [$this, 'fieldAfterBuild'];
+
+    $allowAnonymousAuthor = (bool) $this->config->get('allow_anonymous_comment_author');
+    if (!$allowAnonymousAuthor) {
+      $form['os2loop_comment_anonymous_author']['#access'] = FALSE;
+      $form['os2loop_comment_anonymous_author']['widget']['#required'] = FALSE;
+      $form['os2loop_comment_anonymous_author']['widget']['#default_value'] = 0;
+    }
   }
 
   /**

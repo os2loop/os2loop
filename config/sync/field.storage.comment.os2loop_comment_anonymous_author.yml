@@ -1,0 +1,27 @@
+uuid: c026eea2-d5d2-47c9-b6c1-ea344b2cd99d
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - options
+id: comment.os2loop_comment_anonymous_author
+field_name: os2loop_comment_anonymous_author
+entity_type: comment
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'Yes'
+    -
+      value: '0'
+      label: 'No'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

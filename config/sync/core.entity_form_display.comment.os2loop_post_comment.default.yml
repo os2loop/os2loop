@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - comment.type.os2loop_post_comment
+    - field.field.comment.os2loop_post_comment.os2loop_comment_anonymous_author
     - field.field.comment.os2loop_post_comment.os2loop_post_comment
   module:
     - text
@@ -17,8 +18,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  os2loop_post_comment:
+  os2loop_comment_anonymous_author:
+    type: options_select
     weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  os2loop_post_comment:
+    weight: 2
     settings:
       rows: 5
       placeholder: ''

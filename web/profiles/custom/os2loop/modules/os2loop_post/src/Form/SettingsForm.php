@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\os2loop_question\Form;
+namespace Drupal\os2loop_post\Form;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
@@ -10,7 +10,7 @@ use Drupal\os2loop_settings\Settings;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Configure question settings for this site.
+ * Configure post settings for this site.
  */
 class SettingsForm extends ConfigFormBase {
   use StringTranslationTrait;
@@ -20,7 +20,7 @@ class SettingsForm extends ConfigFormBase {
    *
    * @var string
    */
-  public const SETTINGS_NAME = 'os2loop_question.settings';
+  public const SETTINGS_NAME = 'os2loop_post.settings';
 
   /**
    * The settings.
@@ -69,25 +69,11 @@ class SettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->settings->getConfig(static::SETTINGS_NAME);
 
-    $form['enable_rich_text'] = [
+    $form['allow_anonymous_comment_author'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Enable rich text in questions'),
-      '#description' => $this->t('<strong>Note</strong>: This has effect for new questions only. Existing questions will keep their current text format.'),
-      '#default_value' => $config->get('enable_rich_text'),
-    ];
-
-    $form['allow_anonymous_question_author'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Allow anonymous question author'),
-      '#description' => $this->t('If set, question authors can choose to hide their name when a question is viewed.'),
-      '#default_value' => $config->get('allow_anonymous_question_author'),
-    ];
-
-    $form['allow_anonymous_answer_author'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Allow anonymous answer author'),
-      '#description' => $this->t('If set, answer authors can choose to hide their name when an answer is viewed.'),
-      '#default_value' => $config->get('allow_anonymous_answer_author'),
+      '#title' => $this->t('Allow anonymous comment author'),
+      '#description' => $this->t('If set, comment authors can choose to hide their name when a comment is viewed.'),
+      '#default_value' => $config->get('allow_anonymous_comment_author'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -98,9 +84,7 @@ class SettingsForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->configFactory->getEditable(static::SETTINGS_NAME)
-      ->set('enable_rich_text', $form_state->getValue('enable_rich_text'))
-      ->set('allow_anonymous_question_author', $form_state->getValue('allow_anonymous_question_author'))
-      ->set('allow_anonymous_answer_author', $form_state->getValue('allow_anonymous_answer_author'))
+      ->set('allow_anonymous_comment_author', $form_state->getValue('allow_anonymous_comment_author'))
       ->save();
 
     parent::submitForm($form, $form_state);

@@ -25,5 +25,6 @@ hidden:
   flag_os2loop_upvote_upvote_button: true
   langcode: true
   links: true
+  os2loop_comment_anonymous_author: true
   os2loop_question_answer: true
   os2loop_question_answer_media: true

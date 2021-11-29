@@ -90,7 +90,7 @@
       </h1>
     {% endif %}
     {{ title_suffix }}
-    {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created} %}
+    {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created, entity: comment} %}
   </div>
   {#
     Indicate the semantic relationship between parent and child comments for

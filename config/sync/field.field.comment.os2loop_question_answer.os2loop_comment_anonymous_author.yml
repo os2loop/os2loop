@@ -1,0 +1,21 @@
+uuid: a6a78056-1352-4a30-ae52-50c9cb97477d
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.os2loop_question_answer
+    - field.storage.comment.os2loop_comment_anonymous_author
+  module:
+    - options
+id: comment.os2loop_question_answer.os2loop_comment_anonymous_author
+field_name: os2loop_comment_anonymous_author
+entity_type: comment
+bundle: os2loop_question_answer
+label: 'Anonymous author?'
+description: 'Choose if you want to show your name when people view your answer.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
