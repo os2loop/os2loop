@@ -5,6 +5,7 @@ namespace Drupal\os2loop_messages\Helper;
 use Drupal\comment\CommentInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\message\Entity\Message;
 use Drupal\node\NodeInterface;
 use Drupal\os2loop_settings\Settings;
@@ -23,10 +24,18 @@ class Helper extends ControllerBase {
   protected $config;
 
   /**
+   * The current user.
+   *
+   * @var \Drupal\Core\Session\AccountProxyInterface
+   */
+  protected $currentUser;
+
+  /**
    * Constructor.
    */
-  public function __construct(Settings $settings) {
+  public function __construct(Settings $settings, AccountProxyInterface $currentUser) {
     $this->config = $settings->getConfig('os2loop_subscriptions.settings');
+    $this->currentUser = $currentUser;
   }
 
   /**
@@ -143,6 +152,11 @@ class Helper extends ControllerBase {
         $nodeSubscriptions = $this->config->get('subscribe_node_types');
         if ($nodeSubscriptions[$contentType] !== $contentType) {
           $form['os2loop_notify_users']['#access'] = FALSE;
+        }
+
+        // Hide field if user does not have permission to see it.
+        if (!$this->currentUser->hasPermission('os2loop see notify users option')) {
+          $form['os2loop_notify_users']['widget']['value']['#access'] = FALSE;
         }
       }
     }
