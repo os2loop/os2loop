@@ -180,7 +180,7 @@ class TwigExtension extends AbstractExtension {
         // If oembed is not an option create iframe from a url.
         elseif ('custom' === self::ALLOWED_PROVIDERS[$url['host']]['type']) {
           $video['custom']['src'] = $text;
-          $video['iframe'] = '<iframe src="' . $text . '"></iframe>';
+          $video['iframe'] = '<iframe allowfullscreen src="' . $text . '"></iframe>';
         }
       }
     }
