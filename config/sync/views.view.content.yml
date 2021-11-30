@@ -81,7 +81,6 @@ display:
           summary: ''
           description: ''
           columns:
-            node_bulk_form: node_bulk_form
             title: title
             type: type
             name: name
@@ -89,13 +88,9 @@ display:
             changed: changed
             os2loop_shared_subject: os2loop_shared_subject
             os2loop_shared_tags: os2loop_shared_tags
+            comment_count: comment_count
             operations: operations
           info:
-            node_bulk_form:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             title:
               sortable: true
               default_sort_order: asc
@@ -139,6 +134,13 @@ display:
               empty_column: false
               responsive: ''
             os2loop_shared_tags:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            comment_count:
+              sortable: true
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
@@ -3308,11 +3310,18 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items:
-              2:
-                title: 'Has comments'
+              1:
+                title: 'Multiple comments'
                 operator: '>'
                 value:
-                  value: '0'
+                  value: '1'
+                  min: ''
+                  max: ''
+              2:
+                title: 'One comment'
+                operator: '='
+                value:
+                  value: '1'
                   min: ''
                   max: ''
               3:

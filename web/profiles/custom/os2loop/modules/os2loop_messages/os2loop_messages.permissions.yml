@@ -1,0 +1,4 @@
+'os2loop see notify users option':
+  title: 'See notify users option'
+  description: 'Whether the user can see notify users option on content'
+  restrict access: TRUE

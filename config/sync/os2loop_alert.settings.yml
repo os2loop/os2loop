@@ -6,3 +6,4 @@ node_types:
   os2loop_page: 0
   os2loop_question: 0
   os2loop_section_page: 0
+message_template: 'Se mere: [node:url]'
