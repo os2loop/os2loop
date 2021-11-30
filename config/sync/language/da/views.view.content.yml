@@ -1,26 +1,22 @@
-label: Indhold
-description: 'Find og håndtér indhold.'
 display:
   default:
     display_options:
-      exposed_form:
-        options:
-          reset_button_label: Gendan
-          exposed_sorts_label: 'Sortér efter'
-          sort_asc_label: Stigende
-          sort_desc_label: Faldende
       pager:
         options:
+          expose:
+            items_per_page_label: 'Antal pr. side'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Begyndelse
           tags:
             previous: '‹ Forrige'
             next: 'Næste ›'
             first: '« Første'
             last: 'Sidste »'
-          expose:
-            items_per_page_label: 'Antal pr. side'
-            items_per_page_options_all_label: '- Alle -'
-            offset_label: Begyndelse
       fields:
+        os2loop_shared_subject:
+          label: Emne
+        os2loop_shared_tags:
+          label: Nøgleord
         title:
           label: Titel
         type:
@@ -35,11 +31,15 @@ display:
           label: Opdateret
         operations:
           label: Handlinger
-        os2loop_shared_subject:
-          label: Emne
-        os2loop_shared_tags:
-          label: Nøgleord
       filters:
+        tid:
+          admin_label: Emne
+          expose:
+            label: Emne
+        tid_1:
+          admin_label: Nøgleord
+          expose:
+            label: Nøgleord
         title:
           expose:
             label: Titel
@@ -55,30 +55,20 @@ display:
                 title: Udgivet
               2:
                 title: 'Ikke udgivet'
-        tid:
-          admin_label: Emne
-          expose:
-            label: Emne
-        tid_1:
-          admin_label: Nøgleord
-          expose:
-            label: Nøgleord
+      header:
+        result:
+          content: 'Viser @start - @end af @total'
+      exposed_form:
+        options:
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
       title: Indhold
       empty:
         area_text_custom:
           content: 'Der er intet indhold at vise.'
-      header:
-        result:
-          content: 'Viser @start - @end af @total'
     display_title: Standard
-  page_1:
-    display_options:
-      menu:
-        title: Indhold
-      tab_options:
-        title: Indhold
-        description: 'Find og håndtér indhold'
-    display_title: Side
   page_2:
     display_options:
       menu:
@@ -109,14 +99,16 @@ display:
             label: Nøgleord
         comment_count:
           expose:
-            label: Besvaret/Ubesvaret
+            label: Besvarelser
           group_info:
-            label: Besvaret/Ubesvaret
+            label: Besvarelser
             group_items:
               2:
-                title: Besvaret
+                title: 'Et svar'
               3:
                 title: Ubesvaret
+              1:
+                title: 'Flere svar'
       fields:
         title:
           label: Titel
@@ -139,3 +131,13 @@ display:
         operations:
           label: Handlinger
     display_title: Spørgsmål/Indlæg
+  page_1:
+    display_options:
+      menu:
+        title: Indhold
+      tab_options:
+        title: Indhold
+        description: 'Find og håndtér indhold'
+    display_title: Side
+label: Indhold
+description: 'Find og håndtér indhold.'
