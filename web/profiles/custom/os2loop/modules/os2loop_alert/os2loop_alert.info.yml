@@ -6,3 +6,4 @@ package: 'OS2Loop'
 
 dependencies:
   - drupal:os2loop_subscriptions
+  - drupal:os2loop_settings
