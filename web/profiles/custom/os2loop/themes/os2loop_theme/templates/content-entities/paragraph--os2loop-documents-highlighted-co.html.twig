@@ -48,6 +48,7 @@ paragraph.parent_id.value is an empty array when previewing un-saved content.
 {% set classes = [
     'paragraph',
     'os2loop-highlighted-container',
+    'os2loop-documents-info-box',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',

@@ -10,8 +10,7 @@
 {# Display author if not anonymous #}
 {% set display_author = not entity or not(entity.os2loop_content_anonymous_author.value or entity.os2loop_comment_anonymous_author.value) %}
 {% if display_author %}
-
-  <div class="user rounded-top">
+  <div class="rounded-top d-flex">
     <div class="col-auto">
       {% set image = user['#user'].id is not empty ? drupal_field('os2loop_user_image', 'user', user['#user'].id, 'compact') %}
       {% if image['#items'] is not empty %}
@@ -32,7 +31,7 @@
       </div>
     {% endif %}
     {% if date %}
-      <div class="col">
+      <div class="col col-sm-auto">
         <span class="small">{{ 'Posted'|t }}: {{ date }}</span>
       </div>
     {% endif %}
