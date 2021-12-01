@@ -9,8 +9,8 @@ id: paragraph.os2loop_video.os2loop_video_iframe
 field_name: os2loop_video_iframe
 entity_type: paragraph
 bundle: os2loop_video
-label: 'Iframe embed kode'
-description: ''
+label: 'iframe embed kode'
+description: 'Insert full iframe embed code. Supported video providers: skyfish.com and microsoftstream.com'
 required: false
 translatable: false
 default_value: {  }
