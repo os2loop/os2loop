@@ -150,20 +150,15 @@ class AlertForm extends FormBase {
       ],
     ];
 
-    // For some reason the customer does not want to waste time previewing an
-    // important message before sending it …
-    // $isPreview = $form_state->getTemporaryValue('is_preview');.
-    $isPreview = TRUE;
+    $form['actions']['send'] = [
+      '#name' => 'send',
+      '#type' => 'submit',
+      '#value' => $this->t('Send alert'),
+      '#button_type' => 'primary',
+    ];
 
-    // @phpstan-ignore-next-line
+    $isPreview = $form_state->getTemporaryValue('is_preview');
     if ($isPreview) {
-      $form['actions']['send'] = [
-        '#name' => 'send',
-        '#type' => 'submit',
-        '#value' => $this->t('Send alert'),
-        '#button_type' => 'primary',
-      ];
-
       $this->buildMessagePreview($form, $form_state);
     }
 
