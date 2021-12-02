@@ -78,7 +78,7 @@
   <article class="row">
     <div class="col-auto icon-list {{ node.bundle }}"></div>
     <div class="col">
-      <div class="small">{{ node.type.entity.label }}</div>
+      <div class="small">{{ node.type.entity.label }} - {{ node.createdtime|format_date('medium') }}</div>
       <div class="d-flex">
         <h3 class="h6"><a href="{{ url }}">{{ label }}</a></h3>
       </div>

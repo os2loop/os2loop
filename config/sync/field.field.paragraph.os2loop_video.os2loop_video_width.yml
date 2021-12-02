@@ -11,7 +11,7 @@ id: paragraph.os2loop_video.os2loop_video_width
 field_name: os2loop_video_width
 entity_type: paragraph
 bundle: os2loop_video
-label: WIdth
+label: Width
 description: ''
 required: true
 translatable: false

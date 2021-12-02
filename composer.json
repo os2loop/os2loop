@@ -197,6 +197,9 @@
             },
             "drupal/autocomplete_deluxe": {
                 "Fix bug in limitation": "patches/autocomplete_deluxe_fix_limitation_bug.patch"
+            },
+            "drupal/inline_entity_form": {
+                "Fix bug in inline entity form": "https://www.drupal.org/files/issues/2020-11-18/inline_entity_form-required_fields_optional_ief-3099844-15.patch"
             }
         }
     },

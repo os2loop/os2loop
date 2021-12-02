@@ -13,10 +13,10 @@ settings:
   allowed_values:
     -
       value: iframe
-      label: 'Skyfish iframe'
+      label: 'Iframe embed code'
     -
       value: url
-      label: Other
+      label: 'Share link'
   allowed_values_function: ''
 module: options
 locked: false
