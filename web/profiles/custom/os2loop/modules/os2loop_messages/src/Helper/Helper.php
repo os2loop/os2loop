@@ -69,8 +69,10 @@ class Helper extends ControllerBase {
   private function createMessage(EntityInterface $entity, string $operation) {
     $template = $this->getMessageTemplate($entity, $operation);
     if (NULL !== $template) {
+      $node = NULL;
       $message = Message::create(['template' => $template]);
       if ($entity instanceof NodeInterface) {
+        $node = $entity;
         if ($entity->hasField('os2loop_notify_users') && !(bool) $entity->get('os2loop_notify_users')->getString()) {
           return;
         }
@@ -85,7 +87,11 @@ class Helper extends ControllerBase {
         $message->set('os2loop_message_node_refer', $node);
         $message->set('os2loop_message_comment_refer', $entity);
       }
-      $message->save();
+
+      // Only save message on published content.
+      if ($node instanceof NodeInterface && $node->isPublished()) {
+        $message->save();
+      }
     }
   }
 
