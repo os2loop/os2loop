@@ -81,16 +81,11 @@
     server which comments are new for the user. Rendering the final "new"
     indicator here would break the render cache.
   #}
-  <div class="d-flex align-items-center">
-    {% include '@os2loop_theme/navigation/comment-tasks.html.twig' with {node: drupal_entity('node', comment.entity_id.target_id)} %}
-    {{ title_prefix }}
-    {% if label %}
-      <h1{{ title_attributes }}>
-        {{ label }}
-      </h1>
-    {% endif %}
-    {{ title_suffix }}
-    {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created, entity: comment} %}
+  <div class="d-flex align-items-center row no-gutters">
+    <div class="entity-header row no-gutters">
+      {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created, entity: comment} %}
+      {% include '@os2loop_theme/navigation/comment-tasks.html.twig' with {node: drupal_entity('node', comment.entity_id.target_id)} %}
+    </div>
   </div>
   {#
     Indicate the semantic relationship between parent and child comments for

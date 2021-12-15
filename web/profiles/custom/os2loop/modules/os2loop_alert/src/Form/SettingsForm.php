@@ -24,6 +24,13 @@ class SettingsForm extends ConfigFormBase {
   public const SETTINGS_NAME = 'os2loop_alert.settings';
 
   /**
+   * The default message template.
+   *
+   * @var string
+   */
+  public const DEFAULT_MESSAGE_TEMPLATE = 'Se mere: [node:url]';
+
+  /**
    * The settings.
    *
    * @var \Drupal\os2loop_settings\Settings
@@ -83,6 +90,13 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('node_types') ?: [],
     ];
 
+    $form['message_template'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Message template'),
+      '#description' => $this->t('The default message template'),
+      '#default_value' => $config->get('message_template') ?: self::DEFAULT_MESSAGE_TEMPLATE,
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -92,6 +106,7 @@ class SettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->configFactory->getEditable(static::SETTINGS_NAME)
       ->set('node_types', $form_state->getValue('node_types'))
+      ->set('message_template', $form_state->getValue('message_template'))
       ->save();
 
     drupal_flush_all_caches();

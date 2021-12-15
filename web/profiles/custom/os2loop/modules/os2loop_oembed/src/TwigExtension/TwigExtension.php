@@ -79,7 +79,7 @@ class TwigExtension extends AbstractExtension {
    * @param array $text
    *   The input text that the filter was applied to.
    *
-   * @return string
+   * @return string|null
    *   The rendered html.
    *
    * @throws \GuzzleHttp\Exception\GuzzleException
@@ -87,7 +87,7 @@ class TwigExtension extends AbstractExtension {
    * @throws \Exception
    *   The general exception.
    */
-  public function createVideo(array $text): string {
+  public function createVideo(array $text): ?string {
     // Set string depending on field type.
     $string = isset($text['#plain_text']) ? $text['#plain_text'] : $text['#context']['value'];
     if (!empty($this->findIframe($string))) {
@@ -96,7 +96,7 @@ class TwigExtension extends AbstractExtension {
     $videoArray = $this->createVideoFromUrl($string);
     $videoArray = $this->applyCookieConsent($videoArray);
 
-    return isset($videoArray['iframe']) ? $videoArray['iframe'] : '';
+    return $videoArray['iframe'] ?? NULL;
   }
 
   /**
@@ -161,7 +161,7 @@ class TwigExtension extends AbstractExtension {
     $video = [];
     if (filter_var($text, FILTER_VALIDATE_URL)) {
       $url = parse_url($text);
-      if (array_key_exists($url['host'], self::ALLOWED_PROVIDERS)) {
+      if (isset($url['host'], self::ALLOWED_PROVIDERS[$url['host']])) {
         $video['host'] = $url['host'];
         // Use oembed to create iframe if possible.
         if ('Oembed' === self::ALLOWED_PROVIDERS[$url['host']]['type']) {
@@ -184,7 +184,7 @@ class TwigExtension extends AbstractExtension {
         // If oembed is not an option create iframe from a url.
         elseif ('custom' === self::ALLOWED_PROVIDERS[$url['host']]['type']) {
           $video['custom']['src'] = $text;
-          $video['iframe'] = '<iframe src="' . $text . '"></iframe>';
+          $video['iframe'] = '<iframe allow="fullscreen" src="' . $text . '"></iframe>';
         }
       }
     }
@@ -198,12 +198,15 @@ class TwigExtension extends AbstractExtension {
    * @param string $text
    *   The iframe code.
    *
-   * @return string
+   * @return string|null
    *   The iframe source.
    */
-  private function handleIframe(string $text): string {
-    preg_match('/src="([^"]+)"/', $text, $matches);
-    return $matches[1];
+  private function handleIframe(string $text): ?string {
+    // Get attribute value inclosed in either double or single quotes.
+    preg_match('/src=(?:"([^"]+)"|\'([^\']+)\')/', $text, $matches);
+
+    // Return first non-empty value found (if any).
+    return $matches[1] ?: $matches[2] ?: NULL;
   }
 
   /**
@@ -216,14 +219,17 @@ class TwigExtension extends AbstractExtension {
    *   The altered array.
    */
   private function applyCookieConsent(array $videoArray): array {
-    $config = $this->settings->getConfig('os2loop_cookies.settings');
-    $cookieInformationScriptCode = $config->get('os2loop_cookie_information_script');
-    $requiredCookies = isset($videoArray['host']) ? self::ALLOWED_PROVIDERS[$videoArray['host']]['requiredCookies'] : NULL;
-    if (!empty($cookieInformationScriptCode) && !empty($requiredCookies)) {
-      if (isset($videoArray['iframe'])) {
-        $videoArray['iframe'] = str_replace(' src="', ' src="" data-category-consent="' . $requiredCookies . '" data-consent-src="', $videoArray['iframe']);
+    if (isset($videoArray['host'])) {
+      $config = $this->settings->getConfig('os2loop_cookies.settings');
+      $cookieInformationScriptCode = $config->get('os2loop_cookie_information_script');
+      $requiredCookies = self::ALLOWED_PROVIDERS[$videoArray['host']]['requiredCookies'];
+      if (!empty($cookieInformationScriptCode) && !empty($requiredCookies)) {
+        if (isset($videoArray['iframe'])) {
+          $videoArray['iframe'] = str_replace(' src="', ' src="" data-category-consent="' . $requiredCookies . '" data-consent-src="', $videoArray['iframe']);
+        }
       }
     }
+
     return $videoArray;
   }
 
