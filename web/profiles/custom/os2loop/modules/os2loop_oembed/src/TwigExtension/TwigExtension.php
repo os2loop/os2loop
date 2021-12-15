@@ -96,7 +96,7 @@ class TwigExtension extends AbstractExtension {
     $videoArray = $this->createVideoFromUrl($string);
     $videoArray = $this->applyCookieConsent($videoArray);
 
-    return $videoArray['iframe'];
+    return isset($videoArray['iframe']) ? $videoArray['iframe'] : '';
   }
 
   /**
@@ -123,6 +123,10 @@ class TwigExtension extends AbstractExtension {
       'type' => 'Oembed',
       'provider' => 'Microsoft Stream',
       'requiredCookies' => NULL,
+    ],
+    'dreambroker.com' => [
+      'type' => 'custom',
+      'requiredCookies' => 'cookie_cat_statistic',
     ],
 
   ];
@@ -214,7 +218,7 @@ class TwigExtension extends AbstractExtension {
   private function applyCookieConsent(array $videoArray): array {
     $config = $this->settings->getConfig('os2loop_cookies.settings');
     $cookieInformationScriptCode = $config->get('os2loop_cookie_information_script');
-    $requiredCookies = self::ALLOWED_PROVIDERS[$videoArray['host']]['requiredCookies'];
+    $requiredCookies = isset($videoArray['host']) ? self::ALLOWED_PROVIDERS[$videoArray['host']]['requiredCookies'] : NULL;
     if (!empty($cookieInformationScriptCode) && !empty($requiredCookies)) {
       if (isset($videoArray['iframe'])) {
         $videoArray['iframe'] = str_replace(' src="', ' src="" data-category-consent="' . $requiredCookies . '" data-consent-src="', $videoArray['iframe']);
