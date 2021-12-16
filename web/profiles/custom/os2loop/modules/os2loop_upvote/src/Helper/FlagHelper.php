@@ -106,7 +106,7 @@ class FlagHelper {
    */
   public function preprocessComment(array &$variables) {
     if (isset($variables['elements']['#top'])) {
-      $variables['attributes'] += ['class' => ['top-comment']];
+      $variables['attributes']['class'][] = 'top-comment';
     }
   }
 
