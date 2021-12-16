@@ -124,6 +124,10 @@ class TwigExtension extends AbstractExtension {
       'provider' => 'Microsoft Stream',
       'requiredCookies' => NULL,
     ],
+    'dreambroker.com' => [
+      'type' => 'custom',
+      'requiredCookies' => 'cookie_cat_statistic',
+    ],
 
   ];
 

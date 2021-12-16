@@ -200,6 +200,9 @@
             },
             "drupal/inline_entity_form": {
                 "Fix bug in inline entity form": "https://www.drupal.org/files/issues/2020-11-18/inline_entity_form-required_fields_optional_ief-3099844-15.patch"
+            },
+            "drupal/masquerade": {
+                "https://www.drupal.org/project/masquerade/issues/2962970#comment-13391256": "https://www.drupal.org/files/issues/2019-12-13/temporary%20unmask%20workaround-2962970-8.patch"
             }
         }
     },
