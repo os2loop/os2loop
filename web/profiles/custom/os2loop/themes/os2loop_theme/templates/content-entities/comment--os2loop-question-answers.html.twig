@@ -67,8 +67,7 @@
  */
 #}
 {% set background_class = [
-    attributes.hasClass('top-comment') ? 'top-comment-background',
-    not attributes.hasClass('top-comment') ? 'bg-secondary-loop',
+    attributes.hasClass('top-comment') ? 'top-comment-background' : 'bg-secondary-loop',
   ]
 %}
 {# Remove comment id from element id on top comment #}
