@@ -9,8 +9,8 @@
 #}
 {# Display author if not anonymous #}
 {% set display_author = not entity or not(entity.os2loop_content_anonymous_author.value or entity.os2loop_comment_anonymous_author.value) %}
-{% if display_author %}
-  <div class="rounded-top d-flex">
+<div class="rounded-top d-flex">
+  {% if display_author %}
     <div class="col-auto">
       {% set image = user['#user'].id is not empty ? drupal_field('os2loop_user_image', 'user', user['#user'].id, 'compact') %}
       {% if image['#items'] is not empty %}
@@ -35,11 +35,9 @@
         <span class="small">{{ 'Posted'|t }}: {{ date }}</span>
       </div>
     {% endif %}
-  </div>
 
-{% else %}
+  {% else %}
 
-  <div class="user rounded-top">
     <div class="col-auto">
       <i class="bi bi-person-circle"></i>
     </div>
@@ -48,6 +46,6 @@
         <span class="small">{{ 'Posted'|t }}: {{ date }}</span>
       </div>
     {% endif %}
-  </div>
 
-{% endif %}
+  {% endif %}
+</div>
