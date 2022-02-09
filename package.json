@@ -2,15 +2,16 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
+    "markdownlint": "^0.25.1",
     "markdownlint-cli": "^0.26.0",
     "prettier": "^2.2.1"
   },
   "scripts": {
     "coding-standards-check/markdownlint": "markdownlint README.md 'docs/**/*.md' 'web/profiles/custom/os2loop/**/*.md' --ignore 'web/profiles/custom/os2loop/**/node_modules/**/*.md'",
-    "coding-standards-check/prettier": "prettier --check 'web/profiles/custom/os2loop/themes/os2loop_theme/assets/**/*.{js,scss}'",
+    "coding-standards-check/prettier": "prettier --check web/profiles/custom/os2loop/themes/os2loop_theme/assets/**/*.{js,scss}",
     "coding-standards-check": "yarn coding-standards-check/markdownlint && yarn coding-standards-check/prettier",
     "coding-standards-apply/markdownlint": "markdownlint --fix README.md 'docs/**/*.md' 'web/profiles/custom/os2loop/**/*.md' --ignore 'web/profiles/custom/os2loop/**/node_modules/**/*.md'",
-    "coding-standards-apply/prettier": "prettier --write 'web/profiles/custom/os2loop/themes/os2loop_theme/assets/**/*.{js,scss}'",
+    "coding-standards-apply/prettier": "prettier --write web/profiles/custom/os2loop/themes/os2loop_theme/assets/**/*.{js,scss}",
     "coding-standards-apply": "yarn coding-standards-apply/markdownlint && yarn coding-standards-apply/prettier"
   }
 }
