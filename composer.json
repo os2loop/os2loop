@@ -95,10 +95,10 @@
             "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
         ],
         "coding-standards-check/drupal-check": [
-            "vendor/bin/drupal-check --deprecations --analysis web/profiles/custom/os2loop"
+            "php vendor/bin/drupal-check --deprecations --analysis web/profiles/custom/os2loop"
         ],
         "coding-standards-check/phpcs": [
-            "vendor/bin/phpcs --standard=phpcs.xml.dist"
+            "php vendor/bin/phpcs --standard=phpcs.xml.dist"
         ],
         "coding-standards-check/twigcs": [
             "twigcs web/profiles/custom/os2loop/themes/os2loop_theme/templates"
