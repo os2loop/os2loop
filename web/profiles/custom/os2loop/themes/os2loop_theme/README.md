@@ -15,14 +15,14 @@ Encore](https://symfony.com/doc/current/frontend/encore/installation.html#instal
 Build assets (JavaScript and CSS) by running
 
 ```sh
-docker run --volume ${PWD}:/app --workdir /app node:latest yarn install
-docker run --volume ${PWD}:/app --workdir /app node:latest yarn build
+docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn install
+docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn build
 ```
 
 Watch for changes:
 
 ```sh
-docker run --interactive --tty --volume ${PWD}:/app --workdir /app node:latest yarn watch
+docker run --interactive --tty --volume ${PWD}:/app --workdir /app node:16.13.2 yarn watch
 ```
 
 During development you may want to run it with your locally installed
