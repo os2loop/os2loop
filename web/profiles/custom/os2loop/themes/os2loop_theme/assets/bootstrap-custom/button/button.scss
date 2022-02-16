@@ -1,1 +1,28 @@
-@import "../../colors.scss";
+@import "../../colors-signifly.scss";
+
+// Decides colors
+.btn {
+  color: $loop-white;
+  background-color: $loop_green;
+  &:hover, &.active {
+    background-color:  $loop-green-400;
+  }
+}
+
+.btn {
+  &.disabled {
+    background-color: $loop-green-200;
+  }
+}
+
+// Decides sizes
+
+// No indicator needed for btn-lg as theres no change from
+// the regular btn
+
+.btn-sm {
+  background-color: $loop-green-400;
+  &:hover, &.active {
+    background-color: $loop-green-300;
+  }
+}
