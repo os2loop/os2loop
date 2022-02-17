@@ -3,6 +3,7 @@
   <div class="d-block ml-5">
     <h2 class="h5"><a href="{{ url }}">{{ label }}</a></h2>
     <div class="small">{{ 'Type'|t }}: {{ node.type.entity.label }} - {{ 'Posted'|t }}: {{ node.createdtime|format_date('medium') }}</div>
+    <span class="badge badge-primary badge-{{ node.getType }}">{{ node.type.entity.label }}</span>
     {% if (searchedComment.comment) %}
       <div class="search_api_excerpt ml-3 border bg-light p-3">
         <div class="small">{{ searchedComment.comment.bundle == 'os2loop_question_answer' ? 'Reply'|t : 'Comment'|t }}:</div>
