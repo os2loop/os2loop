@@ -1,0 +1,38 @@
+@import "../../colors";
+@import "../../colors-signifly";
+@import "../../variables-signifly.scss";
+
+// Padding
+$navbar-padding-y: 15px;
+
+$navbar-brand-padding-x: 0;
+$navbar-brand-padding-y: 0;
+
+$navbar-nav-link-padding-x: 15px;
+$navbar-nav-link-padding-y: 3px;
+
+// Design changes
+.navbar {
+  .brand-logo {
+    max-height: $logo-height;
+  }
+
+  .navbar-nav {
+    .nav-item + .nav-item {
+      margin-left: 10px;
+    }
+
+    a.nav-link {
+      color: $white;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: $loop-green-400;
+      }
+
+      &.active {
+        background-color: $loop-green-600;
+      }
+    }
+  }
+}
