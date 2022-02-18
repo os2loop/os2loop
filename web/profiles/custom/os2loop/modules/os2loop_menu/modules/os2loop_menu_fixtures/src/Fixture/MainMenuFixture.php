@@ -20,7 +20,7 @@ class MainMenuFixture extends AbstractFixture implements DependentFixtureInterfa
    */
   public function load() {
     MenuLinkContent::create([
-      'title' => 'Ask a question',
+      'title' => 'Opret spørgsmål',
       'link' => ['uri' => 'internal:/node/add/os2loop_question'],
       'menu_name' => 'main',
       'expanded' => TRUE,
@@ -29,7 +29,7 @@ class MainMenuFixture extends AbstractFixture implements DependentFixtureInterfa
 
     $page = $this->getReference('os2loop_section_page:The first section page');
     $menuLink = MenuLinkContent::create([
-      'title' => 'The first section page',
+      'title' => 'Om loop',
       'link' => ['uri' => 'internal:/node/' . $page->id()],
       'menu_name' => 'main',
       'expanded' => TRUE,
