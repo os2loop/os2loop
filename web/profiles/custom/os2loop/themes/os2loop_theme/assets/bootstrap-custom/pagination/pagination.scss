@@ -1,0 +1,12 @@
+@import "../../colors-signifly.scss";
+
+$pagination-hover-bg: #eff5f4; // this color is not defined in the design guide
+
+$pagination-disabled-color: $loop-green-200;
+
+.page-link {
+  &:focus,
+  &:active {
+    background-color: $pagination-hover-bg;
+  }
+}
