@@ -30,7 +30,7 @@
 @import "taxonomy-colors";
 @import "colored-checkboxes";
 @import "collapse";
-@import "_user.scss";
+@import "_user";
 
 // Generel overrides
 body {
@@ -68,4 +68,5 @@ img {
   height: auto;
 }
 
-@import "../assets/bootstrap-custom/bootstrap-custom-index.scss";
+// Novataris components
+@import "bootstrap-custom/bootstrap-custom-index.scss";

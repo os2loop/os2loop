@@ -41,16 +41,3 @@
     }
   }
 }
-
-.nav-item a {
-  &.is-active {
-    background: inherit;
-    color: inherit;
-    text-decoration: underline;
-  }
-
-  &:active {
-    background: inherit;
-    color: inherit;
-  }
-}
