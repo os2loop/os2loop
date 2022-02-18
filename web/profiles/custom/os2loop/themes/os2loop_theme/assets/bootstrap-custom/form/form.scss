@@ -1,1 +1,32 @@
 @import "../../form.scss";
+@import "../../colors-signifly.scss";
+
+.autocomplete-deluxe-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $gray-300;
+  color: $gray-600;
+
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  line-height: 1;
+
+  .autocomplete-deluxe-item-delete {
+    position: static;
+    margin-left: 10px;
+
+    height: $badge-font-size;
+    width: $badge-font-size;
+
+    background-image: none;
+    background-color: $gray-600;
+    -webkit-mask-image: url("../../../node_modules/bootstrap-icons/icons/x.svg");
+    mask-image: url("../../../node_modules/bootstrap-icons/icons/x.svg");
+  }
+}
