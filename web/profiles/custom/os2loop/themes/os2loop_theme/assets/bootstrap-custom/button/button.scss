@@ -1,28 +1,34 @@
 @import "../../colors-signifly.scss";
 
+$input-btn-padding-x: 30px;
+$input-btn-padding-x-sm: 20px;
+
 // Decides colors
-.btn {
+.btn,
+.btn-primary {
   color: $loop-white;
   background-color: $loop_green;
-  &:hover, &.active {
-    background-color:  $loop-green-400;
+  border-color: $loop_green;
+  padding-right: 30px;
+  padding-left: 30px;
+  &:hover,
+  &.active {
+    background-color: $loop-green-400;
+    border-color: $loop-green-400;
   }
-}
-
-.btn {
+  &.btn-sm {
+    background-color: $loop-green-400;
+    border-color: $loop-green-400;
+    padding-right: 20px;
+    padding-left: 20px;
+    &:hover,
+    &.active {
+      background-color: $loop-green-300;
+      border-color: $loop-green-300;
+    }
+  }
   &.disabled {
     background-color: $loop-green-200;
-  }
-}
-
-// Decides sizes
-
-// No indicator needed for btn-lg as theres no change from
-// the regular btn
-
-.btn-sm {
-  background-color: $loop-green-400;
-  &:hover, &.active {
-    background-color: $loop-green-300;
+    border-color: $loop-green-200;
   }
 }
