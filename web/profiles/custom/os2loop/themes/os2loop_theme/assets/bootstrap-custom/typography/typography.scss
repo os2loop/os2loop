@@ -1,0 +1,25 @@
+@import "../../../node_modules/bootstrap/scss/_variables.scss";
+@import "../../colors-signifly.scss";
+
+$font-family-base: Helvetica, $font-family-base;
+
+$body-color: $gray-900;
+
+$link-color: $loop-green;
+$link-hover-color: $loop-green;
+
+$badge-font-weight: 500;
+$badge-font-size: $font-size-sm;
+
+.text-sm {
+  color: $gray-600;
+}
+
+ul {
+  padding-left: 25px;
+}
+
+li {
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
