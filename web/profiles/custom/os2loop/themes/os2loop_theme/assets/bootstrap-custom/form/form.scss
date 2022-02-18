@@ -17,6 +17,10 @@
   font-weight: $badge-font-weight;
   line-height: 1;
 
+  + .autocomplete-deluxe-item {
+    margin-left: 15px;
+  }
+
   .autocomplete-deluxe-item-delete {
     position: static;
     margin-left: 10px;
