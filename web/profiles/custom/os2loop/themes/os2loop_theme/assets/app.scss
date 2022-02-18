@@ -32,7 +32,7 @@
 @import "os2loop-user-login";
 @import "colored-checkboxes";
 @import "collapse";
-@import "_user.scss";
+@import "_user";
 
 // Generel overrides
 body {
@@ -70,4 +70,5 @@ img {
   height: auto;
 }
 
+// Novataris components
 @import "bootstrap-custom/bootstrap-custom-index.scss";

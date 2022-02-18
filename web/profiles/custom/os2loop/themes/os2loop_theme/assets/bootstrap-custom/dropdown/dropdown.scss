@@ -1,0 +1,34 @@
+@import "../../colors-signifly.scss";
+@import "../../variables-signifly.scss";
+@import "../navbar/navbar.scss";
+
+$dropdown-border-color: $gray-400;
+$dropdown-border-radius: 8px;
+
+$dropdown-padding-y: 16px;
+$dropdown-padding-x: 20px;
+
+$dropdown-item-padding-y: 0;
+$dropdown-item-padding-x: 0;
+
+$dropdown-divider-bg: $gray-400;
+$dropdown-divider-margin-y: 0;
+
+.navbar-nav .dropdown-menu {
+  top: calc((100% + #{$logo-height}) / 2 + #{$navbar-padding-y});
+}
+
+// TODO: This should probably be set with a class in the HTML
+.dropdown-item:last-child {
+  color: $invalid-red;
+}
+
+.dropdown-item,
+.dropdown-divider {
+  + .dropdown-item {
+    margin-top: 9px;
+  }
+  + .dropdown-divider {
+    margin-top: 9px;
+  }
+}
