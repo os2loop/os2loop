@@ -6,31 +6,31 @@ $badge-padding-y: 4px;
 $badge-border-radius: 4px;
 
 $content-types-colors: (
-  "os2loop_documents_collection": $tag-blue,
-  "os2loop_documents_document": $tag-green,
-  "os2loop_post": $tag-purple,
-  "os2loop_question": $tag-orange,
+	"os2loop_documents_collection": $tag-blue,
+	"os2loop_documents_document": $tag-green,
+	"os2loop_post": $tag-purple,
+	"os2loop_question": $tag-orange,
 );
 
 .badge + .badge {
-  margin-left: 15px;
+	margin-left: 15px;
 }
 
 .badge {
-  &.badge-primary {
-    color: $loop-green;
-    background-color: $loop-green-200;
-  }
+	&.badge-primary {
+		color: $loop-green;
+		background-color: $loop-green-200;
+	}
 
-  &.badge-secondary {
-    background-color: $gray-300;
-    color: $gray-600;
-  }
+	&.badge-secondary {
+		background-color: $gray-300;
+		color: $gray-600;
+	}
 
-  @each $content-type, $color in $content-types-colors {
-    &.badge-#{$content-type} {
-      @include badge-variant($color);
-      color: $loop-white;
-    }
-  }
+	@each $content-type, $color in $content-types-colors {
+		&.badge-#{$content-type} {
+			@include badge-variant($color);
+			color: $loop-white;
+		}
+	}
 }

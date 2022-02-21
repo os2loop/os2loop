@@ -4,25 +4,25 @@
 // This is due to all these fields being a sub-components of the form-group.
 
 .form-group {
-  & .label {
-    color: $gray-600;
-    // TODO: something about sizing
-  }
-  & .form-control {
-    padding-left: 15px;
-    padding-right: 15px;
-    &.no-background-image {
-      background-image: none;
-    }
-    // green if valid or focused
-    &:focus,
-    & .is-valid {
-      // no styling applied as of yet.
-    }
-    // red if not valid
-    & .is-invalid,
-    & .invalid-feedback {
-      color: $loop-red;
-    }
-  }
+	& .label {
+		color: $gray-600;
+		// TODO: something about sizing
+	}
+	& .form-control {
+		padding-left: 15px;
+		padding-right: 15px;
+		&.no-background-image {
+			background-image: none;
+		}
+		// green if valid or focused
+		&:focus,
+		& .is-valid {
+			// no styling applied as of yet.
+		}
+		// red if not valid
+		& .is-invalid,
+		& .invalid-feedback {
+			color: $loop-red;
+		}
+	}
 }
