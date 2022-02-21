@@ -6,7 +6,7 @@ root = true
 
 # All files.
 [*]
-end_of_line = LF
+end_of_line = CRLF
 indent_style = space
 indent_size = 2
 charset = utf-8

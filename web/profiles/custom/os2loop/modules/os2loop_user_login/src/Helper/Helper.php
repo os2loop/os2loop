@@ -113,7 +113,7 @@ class Helper {
           '#title' => $this->t('Log in with SAML'),
           '#url' => Url::fromRoute('samlauth.saml_controller_login'),
           '#attributes' => [
-            'class' => ['os2loop-user-login-button'],
+            'class' => ['btn', 'btn-primary'],
           ],
         ];
       }
