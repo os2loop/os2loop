@@ -40,26 +40,26 @@
 html,
 body,
 .page {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 #document-tabs,
 .icon-container {
-  display: none;
+	display: none;
 }
 
 img {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 // Handle step by step.
 .d-print-none {
-  display: none !important;
+	display: none !important;
 }
 
 .collapse {
-  display: initial !important;
+	display: initial !important;
 }
 
 @import "layout";

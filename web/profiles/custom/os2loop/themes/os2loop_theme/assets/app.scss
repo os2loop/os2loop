@@ -34,39 +34,40 @@
 
 // Generel overrides
 body {
-  background-color: $gray-100;
+	background-color: $gray-100;
 }
 
 a {
-  color: $link-color;
-  &:hover {
-    color: darken($link-color, 10%);
-  }
+	color: $link-color;
+	&:hover {
+		color: darken($link-color, 10%);
+	}
 }
 
 .bg-white-loop {
-  background-color: $white;
-  margin-bottom: $spacer * 2;
+	background-color: $white;
+	margin-bottom: $spacer * 2;
 }
 
 .bg-secondary-loop {
-  border-radius: 3px;
-  margin-bottom: $spacer * 2;
+	border-radius: 3px;
+	margin-bottom: $spacer * 2;
 }
 
 i {
-  font-size: 1.2em;
+	font-size: 1.2em;
 }
 
 .os2loop-content {
-  position: relative;
+	position: relative;
 }
 
 img {
-  max-width: 100%;
-  object-fit: contain;
-  height: auto;
+	max-width: 100%;
+	object-fit: contain;
+	height: auto;
 }
 
 // Novataris components
 @import "bootstrap-custom/bootstrap-custom-index.scss";
+@import "custom/custom-index.scss";
