@@ -20,7 +20,7 @@ $dropdown-divider-margin-y: 0;
 
 // TODO: This should probably be set with a class in the HTML
 .dropdown-item:last-child {
-  color: $invalid-red;
+  color: $loop-red;
 }
 
 .dropdown-item,

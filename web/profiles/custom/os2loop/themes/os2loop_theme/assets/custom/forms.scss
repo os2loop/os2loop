@@ -1,0 +1,39 @@
+/*
+This file is created to revert some of the "changes" to the form-control
+that the "original" forms.scss style sheet changed.
+
+See os2loop_theme/assets/forms.scss for original functionality
+ */
+
+div.autocomplete-deluxe-multiple,
+div.autocomplete-deluxe-container {
+  padding: 0;
+  border: none;
+  @extend .w-100;
+  @extend .d-block;
+  @extend .form-group;
+
+  input.autocomplete-deluxe-form-single,
+  input.autocomplete-deluxe-multiple {
+    margin-left: 0;
+    @extend .w-100;
+    @extend .d-block;
+    @extend .form-control;
+  }
+}
+
+input.form-autocomplete {
+  &.ui-autocomplete-loading {
+    &.no-background-image {
+      background-image: none;
+    }
+  }
+}
+
+div.autocomplete-deluxe-throbber {
+  &.autocomplete-deluxe-closed,
+  &.autocomplete-deluxe-open {
+    display: none;
+    background: none;
+  }
+}
