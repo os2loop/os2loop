@@ -1,4 +1,4 @@
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/bootstrap.scss";
 
 @import "typography/typography.scss";
 @import "variables/variables.scss";
@@ -9,6 +9,7 @@
 @import "form/form.scss";
 @import "navbar/navbar.scss";
 @import "navbar/nav.scss";
+@import "button/button.scss";
 @import "pagination/pagination.scss";
 
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/bootstrap.scss";

@@ -7,6 +7,9 @@
 # repository root directory. Drupal avoids making any assumptions about where it
 # is installed.
 
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
 # Define text file attributes.
 # - Treat them as text.
 # - Ensure no CRLF line-endings, neither on checkout nor on checkin.
