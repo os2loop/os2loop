@@ -71,3 +71,5 @@ any of these are necessary, but I could be wrong.
 Make sure you don't have the latest version of `node` (v17). This causes issues with building, as the standard hasing algorithm is no longer supported...
 
 I also had issues with `prettier` not installing, despite it being in the `devDependencies`. I got around it by installing it globally (`npm install -g prettier`).
+
+To access a normal login, append your localhost path with `/user/login#drupal-login`.

@@ -33,6 +33,11 @@
   .user-contact-information {
     display: flex;
 
+    i,
+    p {
+      margin: 0;
+    }
+
     i {
       font-size: $user-contact-icon-size;
       line-height: 1;
