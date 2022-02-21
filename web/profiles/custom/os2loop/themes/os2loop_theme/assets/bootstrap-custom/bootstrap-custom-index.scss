@@ -1,12 +1,15 @@
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/bootstrap.scss";
 
 @import "typography/typography.scss";
 
+@import "badge/badge.scss";
 @import "button-group/button-group.scss";
 @import "dropdown/dropdown.scss";
+@import "form/form.scss";
 @import "navbar/navbar.scss";
 @import "navbar/nav.scss";
+@import "button/button.scss";
 @import "pagination/pagination.scss";
 @import "form-control/form-control.scss";
 
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/bootstrap.scss";
