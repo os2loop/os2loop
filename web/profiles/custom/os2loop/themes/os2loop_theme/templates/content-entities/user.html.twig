@@ -26,7 +26,7 @@
   {% set street_address = ((user.os2loop_user_address.value is not empty ? user.os2loop_user_address.value : '') ~ ', ' ~ (user.os2loop_user_postal_code.value is not empty ? user.os2loop_user_postal_code.value : '') ~ (user.os2loop_user_city.value is not empty ? ' ' ~ user.os2loop_user_city.value : ''))|trim(', ', 'left') %}
     <div class="row">
       <div class="col-2 order-1">
-        <div class="user-profile-image">
+        <div class="user-image">
           {{ (user.os2loop_user_image.value is not empty) ? content.os2loop_user_image : initials }}
         </div>
       </div>
