@@ -6,50 +6,50 @@
 @import "../variables-signifly.scss";
 
 $icon-content-map: (
-  print: "\f501",
-  edit: "\f4ca",
-  delete: "\f5de",
-  os2loop-alert: "\f33b",
-  subscribe: "\f18A",
-  unsubscribe: "\f189",
-  fav: "\f1A2",
-  unfav: "\f195",
-  share: "\f6C0",
-  flag: "\f692",
+	print: "\f501",
+	edit: "\f4ca",
+	delete: "\f5de",
+	os2loop-alert: "\f33b",
+	subscribe: "\f18A",
+	unsubscribe: "\f189",
+	fav: "\f1A2",
+	unfav: "\f195",
+	share: "\f6C0",
+	flag: "\f692",
 );
 
 .icon-container {
-  .icon {
-    margin: 0;
+	.icon {
+		margin: 0;
 
-    min-width: $icon-link-size;
-    height: $icon-link-size;
+		min-width: $icon-link-size;
+		height: $icon-link-size;
 
-    border-radius: $icon-link-border-radius;
+		border-radius: $icon-link-border-radius;
 
-    + .icon {
-      margin-left: 10px;
-    }
+		+ .icon {
+			margin-left: 10px;
+		}
 
-    @each $name, $glyph in $icon-content-map {
-      &.#{$name} {
-        @include link-icon($glyph, $loop-green-400, $loop-green-400);
+		@each $name, $glyph in $icon-content-map {
+			&.#{$name} {
+				@include link-icon($glyph, $loop-green-400, $loop-green-400);
 
-        a {
-          padding: $icon-link-padding;
-          line-height: 1;
+				a {
+					padding: $icon-link-padding;
+					line-height: 1;
 
-          &::before,
-          &:focus-visible,
-          &.visually-hidden {
-            color: $loop-white;
-          }
+					&::before,
+					&:focus-visible,
+					&.visually-hidden {
+						color: $loop-white;
+					}
 
-          &::before {
-            font-size: $icon-link-size - 2 * $icon-link-padding;
-          }
-        }
-      }
-    }
-  }
+					&::before {
+						font-size: $icon-link-size - 2 * $icon-link-padding;
+					}
+				}
+			}
+		}
+	}
 }

@@ -1,52 +1,47 @@
 /* Hide the default checkbox */
 .facet-item input[type="checkbox"] {
-  position: absolute;
-  visibility: visible;
-
-  @extend .custom-control-input;
-
-  opacity: 1 !important;
-  position: static !important;
+	position: absolute;
+	visibility: hidden;
 }
 
 /* Creating a custom checkbox
 based on demand */
 .colored-check {
-  cursor: pointer;
-  position: absolute;
-  top: 3px;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: $white;
-  border: 1px solid $primary;
-  border-radius: 0.3em;
+	cursor: pointer;
+	position: absolute;
+	top: 3px;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background-color: $white;
+	border: 1px solid $primary;
+	border-radius: 0.3em;
 }
 
 /* Checkmark to be shown in checkbox */
 /* It is not be shown when not checked */
 
 .colored-check:after {
-  content: "";
-  position: absolute;
-  display: none;
+	content: "";
+	position: absolute;
+	display: none;
 }
 
 .facet-item > label {
-  position: relative;
+	position: relative;
 }
 
 .facet-item input:checked ~ label .colored-check {
-  background: $primary;
+	background: $primary;
 }
 
 .facet-item__value {
-  margin-left: 30px;
+	margin-left: 30px;
 }
 
 /* Display checkmark when checked */
 .facet-item input:checked ~ label .colored-check:after {
-  display: block;
+	display: block;
 }
 
 /* Styling the checkmark using webkit */
@@ -54,13 +49,13 @@ based on demand */
 showing only two border to make it look
 like a tickmark */
 .facet-item .colored-check:after {
-  left: 7px;
-  bottom: 5px;
-  width: 6px;
-  height: 12px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+	left: 7px;
+	bottom: 5px;
+	width: 6px;
+	height: 12px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
 }

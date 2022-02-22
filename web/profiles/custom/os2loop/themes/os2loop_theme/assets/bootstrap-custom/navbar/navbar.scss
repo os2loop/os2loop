@@ -13,27 +13,27 @@ $navbar-nav-link-padding-y: 6px;
 
 // Design changes
 .navbar {
-  .brand-logo {
-    max-height: $logo-height;
-  }
+	.brand-logo {
+		max-height: $logo-height;
+	}
 
-  .navbar-nav {
-    .nav-item + .nav-item {
-      margin-left: 10px;
-    }
+	.navbar-nav {
+		.nav-item + .nav-item {
+			margin-left: 10px;
+		}
 
-    .nav-link {
-      color: $loop-white;
-      border-radius: 8px;
-      line-height: 1;
+		.nav-link {
+			color: $loop-white;
+			border-radius: 8px;
+			line-height: 1;
 
-      &:hover {
-        background-color: $loop-green-400;
-      }
+			&:hover {
+				background-color: $loop-green-400;
+			}
 
-      &.active {
-        background-color: $loop-green-600;
-      }
-    }
-  }
+			&.active {
+				background-color: $loop-green-600;
+			}
+		}
+	}
 }

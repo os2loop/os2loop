@@ -39,8 +39,14 @@
  */
 #}
 <p class="font-weight-bold mb-10">{{ label }}</p>
-<span>
-{% for item in items %}
-  {{ item.content }}
-{% endfor %}
-</span>
+{% if multiple %}
+  <div class="user-profile-badge-container">
+    {% for item in items %}
+      <span class="badge badge-secondary">{{ item.content }}</span>
+    {% endfor %}
+  </div>
+{% else %}
+  {% for item in items %}
+    <span>{{ item.content }}</span>
+  {% endfor %}
+{% endif %}

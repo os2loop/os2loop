@@ -2,6 +2,7 @@
 
 @import "variables/variables.scss";
 @import "typography/typography.scss";
+@import "variables/variables.scss";
 
 @import "badge/badge.scss";
 @import "button-group/button-group.scss";
@@ -11,5 +12,6 @@
 @import "navbar/nav.scss";
 @import "button/button.scss";
 @import "pagination/pagination.scss";
+@import "form-control/form-control.scss";
 
 @import "~bootstrap/scss/bootstrap.scss";

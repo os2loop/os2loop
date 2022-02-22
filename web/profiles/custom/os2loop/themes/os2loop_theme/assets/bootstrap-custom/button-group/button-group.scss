@@ -1,28 +1,28 @@
 @import "../../colors-signifly.scss";
 
 .btn-group {
-  > .btn {
-    font-size: $font-size-sm;
-    border: solid 1px $gray-300;
+	> .btn {
+		font-size: $font-size-sm;
+		border: solid 1px $gray-300;
 
-    &.active {
-      background-color: $loop-green;
-      color: $loop-white;
-    }
+		&.active {
+			background-color: $loop-green;
+			color: $loop-white;
+		}
 
-    &:hover,
-    &:active,
-    &:focus {
-      color: $body-color;
-      background-color: #eff5f4; // This is not currently defined in the design guide!
-    }
+		&:hover,
+		&:active,
+		&:focus {
+			color: $body-color;
+			background-color: #eff5f4; // This is not currently defined in the design guide!
+		}
 
-    &.disabled {
-      color: $gray-300;
-    }
-  }
+		&.disabled {
+			color: $gray-300;
+		}
+	}
 
-  &.btn-group-sm {
-    height: 28px;
-  }
+	&.btn-group-sm {
+		height: 28px;
+	}
 }

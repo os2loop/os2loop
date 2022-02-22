@@ -4,34 +4,34 @@
  */
 
 .tabs {
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 50px;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-  background-color: $light-background;
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 50px;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+	background-color: $light-background;
 
-  .tab {
-    padding: $spacer;
-    margin: 10px;
-  }
+	.tab {
+		padding: $spacer;
+		margin: 10px;
+	}
 
-  a {
-    color: $text-color;
-    text-decoration: none;
-  }
+	a {
+		color: $text-color;
+		text-decoration: none;
+	}
 
-  .active {
-    border-bottom: 3px solid $primary;
-  }
+	.active {
+		border-bottom: 3px solid $primary;
+	}
 }
 
 .tab-content {
-  margin: 15px;
+	margin: 15px;
 
-  h1 {
-    color: $text-color;
-  }
+	h1 {
+		color: $text-color;
+	}
 }
