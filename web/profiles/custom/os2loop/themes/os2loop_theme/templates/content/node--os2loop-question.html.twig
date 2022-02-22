@@ -74,26 +74,33 @@
 
 <article{{ attributes.addClass("os2loop-content os2loop-question") }}>
   {{ macros.title(label, "question", node, content, false) }}
-  <div class="entity-header">{% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}</div>
-  <div{{ content_attributes.addClass('mt-3 mb-5 px-3') }}>
-    {{ content.os2loop_question_content }}
-    <div class="row mt-3 mt-md-5 py-2 bg-light">
-      <div class="col-12 col-md-auto">
-        {{ content.os2loop_shared_tags }}
-      </div>
-      <div class="col-12 col-md-auto">
-        {{ content.os2loop_shared_subject }}
-      </div>
-      <div class="col-12 col-md-auto">
-        {{ content.os2loop_shared_category }}
-      </div>
-      <div class="col-12 col-md-auto">
-        {{ content.os2loop_shared_profession }}
-      </div>
+  <div class="title row align-middle">
+    <div class="col-12 col-md-auto pl-0">
+      <div class="badge badge-{{ node.getType }}">{{ 'Question'|t }}</div>
     </div>
-    <div class="row border-top pt-2 pb-3 bg-light rounded-bottom">
-      <div class="col">
-        {{ content.os2loop_question_file }}
+    <div class="col-12 col-md-auto pl-0">
+      {{ content.os2loop_shared_subject }}
+    </div>
+    <div class="col-12 col-md-auto pl-0">
+      {{ content.os2loop_shared_profession }}
+    </div>
+    <div class="col-12 col-md-auto pl-0">
+      {{ content.os2loop_shared_category }}
+    </div>
+  </div>
+  <div class="entity-header">{% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}</div>
+  <div class="entity-body p-30 pr-130 mb-30">
+    <div{{ content_attributes.addClass('p-0 mb-30') }}>
+      {{ content.os2loop_question_content }}
+      <div class="row border-top pt-2 pb-3 bg-light rounded-bottom">
+        <div class="col">
+          {{ content.os2loop_question_file }}
+        </div>
+      </div>
+      <div class="row mt-3 mt-md-5 py-2 bg-light">
+        <div class="col-12 col-md-auto">
+          {{ content.os2loop_shared_tags }}
+        </div>
       </div>
     </div>
   </div>

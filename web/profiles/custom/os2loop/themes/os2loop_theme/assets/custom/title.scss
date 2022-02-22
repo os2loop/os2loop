@@ -1,0 +1,53 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+@import "../variables-signifly.scss";
+
+$content-types: "collection", "document", "post", "question";
+
+.title {
+  margin-left: $title-margin-left;
+
+  .header {
+    align-items: normal;
+
+    @each $content-type in $content-types {
+      &.#{$content-type} {
+        display: flex;
+
+        &::before {
+          display: inline-block;
+
+          height: auto;
+          width: $title-margin-left;
+          margin-left: -1 * $title-margin-left;
+
+          background: url("../svg/#{$content-type}.svg") no-repeat 0 0;
+          background-size: auto $title-icon-height;
+          content: "";
+        }
+      }
+    }
+  }
+
+  :not(.header) {
+    span {
+      margin-right: 15px;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+.entity-header,
+.entity-body {
+  border: 1px solid $gray-500;
+}
+
+.entity-header {
+  border-radius: 10px 10px 0 0;
+  background-color: $gray-200;
+}
+
+.entity-body {
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+}

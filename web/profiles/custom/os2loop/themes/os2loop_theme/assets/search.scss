@@ -222,6 +222,7 @@ input[type="search"]::-webkit-search-results-decoration {
   }
   .facets-checkbox {
     @extend .form-check-input;
+    visibility: visible;
   }
 }
 

@@ -9,45 +9,32 @@
 #}
 {# Display author if not anonymous #}
 {% set display_author = not entity or not(entity.os2loop_content_anonymous_author.value or entity.os2loop_comment_anonymous_author.value) %}
-{% if display_author %}
-  <div class="rounded-top d-flex">
-    <div class="col-auto">
-      {% set image = user['#user'].id is not empty ? drupal_field('os2loop_user_image', 'user', user['#user'].id, 'compact') %}
-      {% if image['#items'] is not empty %}
-        <div class="user-image">{{ image }}</div>
-      {% else %}
-        <i class="bi bi-person-circle"></i>
-      {% endif %}
-    </div>
-    {% if user['#user'].os2loop_user_job_title.value %}
-      <div class="col">
-        <div>
-          {% set user_url = user['#user'].id is not empty ? url('entity.user.canonical', {'user': user['#user'].id}) : '#' %}
-          <a href="{{ user_url }}">{{ user['#user'].os2loop_user_given_name.value }} {{ user['#user'].os2loop_user_family_name.value }}</a>
-        </div>
-        <div>
-          <span class="small">{{ user['#user'].os2loop_user_job_title.value }}, {{ user['#user'].os2loop_user_place.value }}</span>
-        </div>
-      </div>
-    {% endif %}
-    {% if date %}
-      <div class="col col-sm-auto">
-        <span class="small">{{ 'Posted'|t }}: {{ date }}</span>
-      </div>
-    {% endif %}
+{% set image = display_author and user['#user'].id is not empty ? drupal_field('os2loop_user_image', 'user', user['#user'].id, 'compact') %}
+<div>
+  {% if image['#items'] is not empty %}
+    <div class="user-image">{{ image }}</div>
+  {% else %}
+    <i class="bi bi-person-circle"></i>
+  {% endif %}
+</div>
+<div>
+  {% if display_author and user['#user'].os2loop_user_job_title.value %}
+  <div>
+    {% set user_url = user['#user'].id is not empty ? url('entity.user.canonical', {'user': user['#user'].id}) : '#' %}
+    <a href="{{ user_url }}">{{ user['#user'].os2loop_user_given_name.value }} {{ user['#user'].os2loop_user_family_name.value }}</a>
   </div>
-
-{% else %}
-
-  <div class="user rounded-top">
-    <div class="col-auto">
-      <i class="bi bi-person-circle"></i>
-    </div>
-    {% if date %}
-      <div class="col">
-        <span class="small">{{ 'Posted'|t }}: {{ date }}</span>
-      </div>
-    {% endif %}
+  <div>
+    <span class="small">{{ user['#user'].os2loop_user_job_title.value }}, {{ user['#user'].os2loop_user_place.value }}</span>
   </div>
-
+  {% else %}
+  <div>
+    <span>{{ 'Anonymous user'|t }}</span>
+  </div>
+  {% endif %}
+</div>
+{% if date %}
+{# {% set dateTime = date(date) %} #}
+<div class="ml-auto">
+  <span class="small">{{ date|striptags|trim|slice(5, 10)|replace({'/': '-'}) }}</span>
+</div>
 {% endif %}

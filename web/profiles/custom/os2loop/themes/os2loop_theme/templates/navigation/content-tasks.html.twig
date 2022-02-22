@@ -17,20 +17,6 @@
         </a>
       </div>
     {% endif %}
-    {% if is_granted('contact editorial office', node) %}
-      <div class="icon flag" data-toggle="tooltip" title="{{ 'contact editorial office'|t }}">
-        <a aria-label="{{ 'Contact editorial staff'|t }}" href="{{ path('os2loop_flag_content.flag_content', {node: node.id}) }}">
-          <span class="visually-hidden">{{ 'Contact editorial staff'|t }}</span>
-        </a>
-      </div>
-    {% endif %}
-    {% if is_granted('share with a friend', node) %}
-      <div class="icon share" data-toggle="tooltip" title="{{ 'Share with a friend'|t }}">
-        <a aria-label="{{ 'Share with a friend'|t }}" href="{{ path('os2loop_share_with_a_friend.share_with_a_friend', {node: node.id}) }}">
-          <span class="visually-hidden">{{ 'Share with a friend'|t }}</span>
-        </a>
-      </div>
-    {% endif %}
     {% if is_granted('update', node) %}
       <div class="icon edit" data-toggle="tooltip" title="{{ 'Edit document'|t }}">
         <a aria-label="{{ 'Edit document'|t }}" href="{{ path('entity.node.edit_form', {node: node.id}) }}">
@@ -45,18 +31,32 @@
         </a>
       </div>
     {% endif %}
-    {% if is_granted('favourite', node) %}
-      {{ content.flag_os2loop_favourite }}
-    {% endif %}
-    {% if is_granted('subscribe', node) %}
-      {{ content.flag_os2loop_subscription_node }}
-    {% endif %}
     {% if is_granted('send alert about', node) %}
       {% set url = path('os2loop_alert.alert_form', {node: node.id}) %}
       {% set title = 'Send out alert about @title'|t({'@title': node.label}) %}
       <div class="icon os2loop-alert" data-toggle="tooltip" title="{{ title }}">
         <a aria-label="{{ title }}" href="{{ url }}">
           <span class="visually-hidden">{{ title }}</span>
+        </a>
+      </div>
+    {% endif %}
+    {% if is_granted('subscribe', node) %}
+      {{ content.flag_os2loop_subscription_node }}
+    {% endif %}
+    {% if is_granted('favourite', node) %}
+      {{ content.flag_os2loop_favourite }}
+    {% endif %}
+    {% if is_granted('share with a friend', node) %}
+      <div class="icon share" data-toggle="tooltip" title="{{ 'Share with a friend'|t }}">
+        <a aria-label="{{ 'Share with a friend'|t }}" href="{{ path('os2loop_share_with_a_friend.share_with_a_friend', {node: node.id}) }}">
+          <span class="visually-hidden">{{ 'Share with a friend'|t }}</span>
+        </a>
+      </div>
+    {% endif %}
+    {% if is_granted('contact editorial office', node) %}
+      <div class="icon flag" data-toggle="tooltip" title="{{ 'contact editorial office'|t }}">
+        <a aria-label="{{ 'Contact editorial staff'|t }}" href="{{ path('os2loop_flag_content.flag_content', {node: node.id}) }}">
+          <span class="visually-hidden">{{ 'Contact editorial staff'|t }}</span>
         </a>
       </div>
     {% endif %}

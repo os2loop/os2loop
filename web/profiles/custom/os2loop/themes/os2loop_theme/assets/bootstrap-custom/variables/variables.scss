@@ -1,0 +1,15 @@
+@import "../../colors-signifly.scss";
+
+// Custom spacers
+$spacers: (
+  10: 10px,
+  15: 15px,
+  30: 30px,
+  40: 40px,
+  130: 130px,
+  140: 140px,
+);
+
+$body-bg: $gray-100;
+
+$border-radius-lg: 10px;

@@ -11,22 +11,20 @@
  */
 #}
 {% macro title(title, class, node, content, show_subject=true, options={}) %}
-  <div class="title d-flex justify-content-between align-items-center my-3 row no-gutters">
-    <div class="header">
-      {{ title_prefix }}
-      <h1{{ title_attributes }} class="{{ class }}">
-        {% if options.link|default(false) %}
-          {% set url = path('entity.node.canonical', {node: node.id}) %}
-          <a href="{{ url }}">{{ title }}</a>
-        {% else %}
-          {{ title }}
-        {% endif %}
-      </h1>
-      {{ title_suffix }}
-      {% if show_subject %}
-        {{ content.os2loop_shared_subject }}
+  <div class="title row d-flex justify-content-between align-items-top no-gutters mb-15">
+    {{ title_prefix }}
+    <h2{{ title_attributes }} class="header {{ class }}">
+      {% if options.link|default(false) %}
+        {% set url = path('entity.node.canonical', {node: node.id}) %}
+        <a href="{{ url }}">{{ title }}</a>
+      {% else %}
+        {{ title }}
       {% endif %}
-    </div>
+    </h2>
+    {{ title_suffix }}
+    {% if show_subject %}
+      {{ content.os2loop_shared_subject }}
+    {% endif %}
     <div>
     {% include '@os2loop_theme/navigation/content-tasks.html.twig' %}
     </div>

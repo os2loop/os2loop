@@ -1,7 +1,12 @@
 /* Hide the default checkbox */
 .facet-item input[type="checkbox"] {
   position: absolute;
-  visibility: hidden;
+  visibility: visible;
+
+  @extend .custom-control-input;
+
+  opacity: 1 !important;
+  position: static !important;
 }
 
 /* Creating a custom checkbox
