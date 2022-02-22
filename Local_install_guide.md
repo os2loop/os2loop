@@ -31,7 +31,7 @@
     8. Run `vendor/bin/drush --yes content-fixtures:load` to load the fixtures.
     9. Run `vendor/bin/drush --yes pm:uninstall content_fixtures` to uninstall all fixture modules.
     10. Run `vendor/bin/drush --yes pm:enable entity_reference_integrity_enforce`.
-	11. Run `(cd web && ../vendor/bin/drush locale:import --type=customized --override=none da profiles/custom/os2loop/translations/translations.da.po)` to load translations.
+    11. Run `(cd web && ../vendor/bin/drush locale:import --type=customized --override=none da profiles/custom/os2loop/translations/translations.da.po)` to load translations.
     12. Run `exit` to return to command prompt/PowerShell.
 5. Run `cd .\web\profiles\custom\os2loop\themes\os2loop_theme\` to switch to **theme directory**.
 6. Run `yarn install`.
