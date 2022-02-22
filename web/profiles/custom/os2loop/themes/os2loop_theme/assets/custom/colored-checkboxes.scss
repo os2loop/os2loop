@@ -1,0 +1,62 @@
+@import "../colors-signifly.scss";
+
+// extending custom checkbox containers
+li.facet-item {
+	@extend .custom-control;
+	@extend .custom-checkbox;
+}
+
+// extending checkbox input
+.facet-item input[type="checkbox"] {
+	@extend .custom-control-input;
+}
+
+// extending checkbox label
+.facet-item > label {
+	@extend .custom-control-label;
+}
+
+@mixin set-background-and-border-color($color1: null, $color2: null) {
+	background-color: $color1;
+	@if ($color2) {
+		border-color: $color2;
+	} @else {
+		border-color: $color1;
+	}
+}
+
+// UNCHECKED label styling - is applied to the checkbox item
+.facet-item > label:before {
+	@include set-background-and-border-color($loop-white, $loop-green);
+	border-radius: 4px;
+}
+// CHECKED label styling - is applied to the checkbox item
+.facet-item input[type="checkbox"]:checked ~ label:before {
+	@include set-background-and-border-color($loop-green);
+}
+
+// CHECKED label styling - is applied to the checkbox item (icon only)
+.facet-item input[type="checkbox"]:checked ~ label:after {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='white' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+
+// DISABLED and UNCHECKED
+.facet-item input[type="checkbox"]:disabled ~ label:before {
+	@include set-background-and-border-color($loop-white, $loop-green);
+}
+
+// DISABLED and CHECKED
+.facet-item input[type="checkbox"]:checked:disabled ~ label:before {
+	@include set-background-and-border-color($loop-green-200);
+}
+
+// FOCUS and UNCHECKED
+.facet-item input[type="checkbox"]:focus ~ label:before {
+	@include set-background-and-border-color($loop-white, $loop-green);
+	box-shadow: 0 0 0 4px $loop-green-200;
+}
+
+.facet-item input[type="checkbox"]:focus:checked ~ label:before {
+	@include set-background-and-border-color($loop-green);
+	box-shadow: 0 0 0 4px $loop-green-200;
+}
