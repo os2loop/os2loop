@@ -32,3 +32,8 @@ $input-btn-padding-x-sm: 20px;
 		border-color: $loop-green-200;
 	}
 }
+
+button {
+	@extend .btn;
+	@extend .btn-primary;
+}

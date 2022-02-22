@@ -3,6 +3,28 @@
 // This "component" will contain all that has to do with inputfields, textareas and selectors.
 // This is due to all these fields being a sub-components of the form-group.
 
+@mixin set-valid-border-color($color) {
+	&:focus,
+	& .is-valid {
+		border-color: $color;
+		box-shadow: none;
+	}
+}
+
+@mixin set-invalid-border-color($color) {
+	& .is-invalid,
+	& .is-invalid-feedback {
+		border-color: $color;
+		box-shadow: none;
+	}
+}
+
+// no-background-image was added to add precedence to the form-control element
+.form-control.no-background-image {
+	@include set-valid-border-color($loop-green-400);
+	@include set-invalid-border-color($loop-red);
+}
+
 .form-group {
 	& .label {
 		color: $gray-600;
@@ -14,15 +36,11 @@
 		&.no-background-image {
 			background-image: none;
 		}
-		// green if valid or focused
-		&:focus,
-		& .is-valid {
-			// no styling applied as of yet.
-		}
-		// red if not valid
-		& .is-invalid,
-		& .invalid-feedback {
-			color: $loop-red;
-		}
+		@include set-valid-border-color($loop-green-400);
+		@include set-invalid-border-color($loop-red);
+	}
+	& textarea.form-control {
+		@include set-valid-border-color($loop-green-400);
+		@include set-invalid-border-color($loop-red);
 	}
 }
