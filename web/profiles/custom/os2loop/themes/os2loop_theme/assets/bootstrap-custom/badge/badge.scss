@@ -12,11 +12,17 @@ $content-types-colors: (
 	"os2loop_question": $tag-orange,
 );
 
-.badge + .badge {
-	margin-left: 15px;
-}
-
 .badge {
+	margin-right: 15px;
+
+	&.user-profile-badge-container {
+		margin-right: 10px;
+
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+
 	&.badge-primary {
 		color: $loop-green;
 		background-color: $loop-green-200;
@@ -31,6 +37,16 @@ $content-types-colors: (
 		&.badge-#{$content-type} {
 			@include badge-variant($color);
 			color: $loop-white;
+		}
+	}
+
+	> a {
+		color: inherit;
+		font: inherit;
+
+		&:hover {
+			color: inherit;
+			text-decoration: none;
 		}
 	}
 }
