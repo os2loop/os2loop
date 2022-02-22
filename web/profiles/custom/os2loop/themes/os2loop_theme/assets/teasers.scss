@@ -1,49 +1,49 @@
 .teaser {
-  padding: $spacer;
-  margin-bottom: 0.5 * $spacer;
-  background-color: $light-background;
-  border-bottom: 1px solid $dark-background;
-  color: $text-color;
-  $icon-size: 25px;
-  $margin-right: 0.5 * $spacer;
-  .icon-container {
-    padding-left: 15px;
-    align-items: center;
+	padding: $spacer;
+	margin-bottom: 0.5 * $spacer;
+	background-color: $light-background;
+	border-bottom: 1px solid $dark-background;
+	color: $text-color;
+	$icon-size: 25px;
+	$margin-right: 0.5 * $spacer;
+	.icon-container {
+		padding-left: 15px;
+		align-items: center;
 
-    &.external {
-      @include icon("\f471", $icon-size, $margin-right);
-    }
+		&.external {
+			@include icon("\f471", $icon-size, $margin-right);
+		}
 
-    &.post {
-      @include icon("\f383", $icon-size, $margin-right);
-    }
+		&.post {
+			@include icon("\f383", $icon-size, $margin-right);
+		}
 
-    &.question {
-      @include icon("\f50b", $icon-size, $margin-right);
-    }
-    &.collection {
-      @include icon("\f3c2", $icon-size, $margin-right);
-    }
-    &.document {
-      @include icon("\f3b9", $icon-size, $margin-right);
-    }
-  }
+		&.question {
+			@include icon("\f50b", $icon-size, $margin-right);
+		}
+		&.collection {
+			@include icon("\f3c2", $icon-size, $margin-right);
+		}
+		&.document {
+			@include icon("\f3b9", $icon-size, $margin-right);
+		}
+	}
 
-  a {
-    color: $text-color;
-  }
+	a {
+		color: $text-color;
+	}
 
-  h2 {
-    font-size: 1em;
-  }
+	h2 {
+		font-size: 1em;
+	}
 
-  .created {
-    font-size: 12px;
-    margin-bottom: 0.5 * $spacer;
-  }
+	.created {
+		font-size: 12px;
+		margin-bottom: 0.5 * $spacer;
+	}
 
-  .count {
-    display: flex;
-    @include icon("\f253");
-  }
+	.count {
+		display: flex;
+		@include icon("\f253");
+	}
 }

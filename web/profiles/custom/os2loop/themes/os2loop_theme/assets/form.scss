@@ -1,49 +1,49 @@
 .form-check {
-  label {
-    @extend .form-check-label;
-  }
+	label {
+		@extend .form-check-label;
+	}
 }
 
 .form-required::after {
-  // https://icons.getbootstrap.com/icons/circle-fill/
-  content: "\f287";
-  font-family: bootstrap-icons;
-  font-size: 30%;
-  vertical-align: super;
-  padding: 0 ($spacer * 0.25);
-  color: $danger;
+	// https://icons.getbootstrap.com/icons/circle-fill/
+	content: "\f287";
+	font-family: bootstrap-icons;
+	font-size: 30%;
+	vertical-align: super;
+	padding: 0 ($spacer * 0.25);
+	color: $danger;
 }
 
 #edit-account {
-  background: lighten($danger, 40%);
-  padding: 1em;
-  margin-bottom: 1em;
+	background: lighten($danger, 40%);
+	padding: 1em;
+	margin-bottom: 1em;
 }
 
 div.autocomplete-deluxe-multiple,
 div.autocomplete-deluxe-container {
-  @extend .w-100;
-  @extend .d-block;
+	@extend .w-100;
+	@extend .d-block;
 
-  background: none;
-  border-color: #aaaaaa;
-  padding: 5px;
+	background: none;
+	border-color: #aaaaaa;
+	padding: 5px;
 
-  input.autocomplete-deluxe-form-single,
-  input.autocomplete-deluxe-multiple {
-    height: 2em;
-    background: none;
-    box-shadow: none;
-  }
+	input.autocomplete-deluxe-form-single,
+	input.autocomplete-deluxe-multiple {
+		height: 2em;
+		background: none;
+		box-shadow: none;
+	}
 }
 
 .autocomplete-deluxe-item {
-  margin-top: 0.6em;
-  margin-bottom: 0.4em;
+	margin-top: 0.6em;
+	margin-bottom: 0.4em;
 }
 
 .autocomplete-deluxe-throbber {
-  position: absolute;
-  top: 25%;
-  right: 0;
+	position: absolute;
+	top: 25%;
+	right: 0;
 }
