@@ -31,7 +31,8 @@
     8. Run `vendor/bin/drush --yes content-fixtures:load` to load the fixtures.
     9. Run `vendor/bin/drush --yes pm:uninstall content_fixtures` to uninstall all fixture modules.
     10. Run `vendor/bin/drush --yes pm:enable entity_reference_integrity_enforce`.
-    11. Run `exit` to return to command prompt/PowerShell.
+    11. Run `(cd web && ../vendor/bin/drush locale:import --type=customized --override=none da profiles/custom/os2loop/translations/translations.da.po)` to load translations.
+    12. Run `exit` to return to command prompt/PowerShell.
 5. Run `cd .\web\profiles\custom\os2loop\themes\os2loop_theme\` to switch to **theme directory**.
 6. Run `yarn install`.
 7. Run `yarn build`.
@@ -70,3 +71,5 @@ any of these are necessary, but I could be wrong.
 Make sure you don't have the latest version of `node` (v17). This causes issues with building, as the standard hasing algorithm is no longer supported...
 
 I also had issues with `prettier` not installing, despite it being in the `devDependencies`. I got around it by installing it globally (`npm install -g prettier`).
+
+To access a normal login, append your localhost path with `/user/login#drupal-login`.

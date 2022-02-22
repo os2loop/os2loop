@@ -3,6 +3,7 @@ global-styling:
   css:
     theme:
       build/app.css: {}
+      
 global-scripts:
   version: 1.x
   js:
