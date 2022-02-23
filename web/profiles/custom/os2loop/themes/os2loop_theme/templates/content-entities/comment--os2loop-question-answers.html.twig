@@ -66,14 +66,11 @@
  * @ingroup themeable
  */
 #}
-{% set background_class = [
-    attributes.hasClass('top-comment') ? 'top-comment-background' : 'bg-secondary-loop',
-  ]
-%}
 {# Remove comment id from element id on top comment #}
 {% if attributes.hasClass('top-comment') %}
   {% set attributes = attributes.setAttribute('id', 'top-comment') %}
 {% endif %}
+
 <article{{ attributes.addClass('js-comment os2loop-comment') }}>
   {#
     Hide the "new" indicator by default, let a piece of JavaScript ask the
@@ -82,8 +79,8 @@
   #}
   <div class="d-flex align-items-center row no-gutters">
     <div class="entity-header row no-gutters">
-      {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created, entity: comment} %}
-      {% include '@os2loop_theme/navigation/comment-tasks.html.twig' with {node: drupal_entity('node', comment.entity_id.target_id)} %}
+    {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created, entity: comment, attributes: attributes} %}
+    {% include '@os2loop_theme/navigation/comment-tasks.html.twig' with {node: drupal_entity('node', comment.entity_id.target_id)} %}
     </div>
   </div>
   {#
@@ -91,16 +88,20 @@
     accessibility. The list is difficult to navigate in a screen reader
     without this information.
   #}
-  <div{{ content_attributes.addClass(background_class) }}>
+  <div{{ content_attributes.addClass('entity-body mb-30') }}>
     <div class="row">
-      <div class="col-12 pb-3">
+      <div class="col-12">
         {% if parent %}
         <p class="visually-hidden">{{ parent }}</p>
         {% endif %}
         {{ content.os2loop_question_answer }}
       </div>
-      <div class="col">{{ content.os2loop_question_answer_media }}</div>
-      <div class="col-auto mt-auto">{{ content.flag_os2loop_upvote_correct_answer }}</div>
+    </div>
+    <div class="row align-items-end">
+      {% if content.os2loop_question_answer_media['#items'] is not empty %}
+      <div class="col mt-30">{{ content.os2loop_question_answer_media }}</div>
+      {% endif %}
+      <div class="col-auto ml-auto">{{ content.flag_os2loop_upvote_correct_answer }}</div>
     </div>
   </div>
 </article>

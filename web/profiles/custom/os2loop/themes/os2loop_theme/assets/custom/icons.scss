@@ -1,53 +1,62 @@
-@import "~bootstrap/scss/bootstrap.scss";
-
-@import "../icons.scss";
-@import "../mixins.scss";
+@import "mixins.scss";
 @import "../colors-signifly.scss";
 @import "../variables-signifly.scss";
 
 $icon-content-map: (
-	print: "\f501",
-	edit: "\f4ca",
-	delete: "\f5de",
-	os2loop-alert: "\f33b",
-	subscribe: "\f18A",
-	unsubscribe: "\f189",
-	fav: "\f1A2",
-	unfav: "\f195",
-	share: "\f6C0",
-	flag: "\f692",
+	"print": "\f501",
+	"edit": "\f4ca",
+	"delete": "\f5de",
+	"os2loop-alert": "\f33b",
+	"subscribe": "\f18A",
+	"unsubscribe": "\f189",
+	"fav": "\f1A2",
+	"unfav": "\f195",
+	"share": "\f6C0",
+	"contact": "\f692",
+	"upvote": "\f407",
+	"reply": "\f51f",
 );
 
 .icon-container {
 	.icon {
 		margin: 0;
 
-		min-width: $icon-link-size;
-		height: $icon-link-size;
+		min-width: $icon-size;
+		height: $icon-size;
 
-		border-radius: $icon-link-border-radius;
+		border-radius: $icon-border-radius;
 
 		+ .icon {
 			margin-left: 10px;
 		}
 
-		@each $name, $glyph in $icon-content-map {
-			&.#{$name} {
-				@include link-icon($glyph, $loop-green-400, $loop-green-400);
+		@each $class-name, $glyph in $icon-content-map {
+			&.#{$class-name} {
+				@include new-link-icon($glyph);
+			}
+		}
 
-				a {
-					padding: $icon-link-padding;
-					line-height: 1;
+		&.upvote {
+			padding-left: 2 * $icon-padding;
+			padding-right: 2 * $icon-padding;
 
-					&::before,
-					&:focus-visible,
-					&.visually-hidden {
-						color: $loop-white;
-					}
+			span {
+				background-color: inherit;
+				color: inherit;
 
-					&::before {
-						font-size: $icon-link-size - 2 * $icon-link-padding;
-					}
+				font-size: $font-size-sm;
+				line-height: $icon-size;
+
+				padding: 0;
+				margin: 0 0 0 8px;
+			}
+
+			&.unflag {
+				color: $loop-green;
+				background-color: $loop-green-200;
+
+				a::before {
+					content: "\f406";
 				}
 			}
 		}

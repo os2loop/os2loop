@@ -4,12 +4,61 @@
 $spacers: (
 	10: 10px,
 	15: 15px,
+	20: 20px,
 	30: 30px,
 	40: 40px,
 	130: 130px,
 	140: 140px,
 );
 
+// Layout
 $body-bg: $gray-100;
-
 $border-radius-lg: 10px;
+
+// Typography
+$font-family-base: Helvetica, $font-family-base;
+$body-color: $gray-900;
+
+$link-color: $loop-green;
+$link-hover-color: $loop-green;
+
+$badge-font-weight: 500;
+$badge-font-size: $font-size-sm;
+
+// Badge
+$badge-padding-x: 8px;
+$badge-padding-y: 4px;
+$badge-border-radius: 4px;
+
+// Button
+$input-btn-padding-x: 30px;
+$input-btn-padding-x-sm: 20px;
+
+// Dropdown
+$dropdown-border-color: $gray-400;
+$dropdown-border-radius: 8px;
+
+$dropdown-padding-y: 16px;
+$dropdown-padding-x: 20px;
+
+$dropdown-item-padding-y: 0;
+$dropdown-item-padding-x: 0;
+
+$dropdown-divider-bg: $gray-400;
+$dropdown-divider-margin-y: 0;
+
+// Navbar
+$nav-link-padding-x: 15px;
+$nav-link-padding-y: 6px;
+
+$navbar-padding-y: 15px;
+
+$navbar-brand-padding-x: 0;
+$navbar-brand-padding-y: 0;
+
+$navbar-nav-link-padding-x: $nav-link-padding-x;
+$navbar-nav-link-padding-y: $nav-link-padding-y;
+
+// Pagination
+$pagination-hover-bg: #eff5f4; // this color is not defined in the design guide
+$pagination-disabled-color: $loop-green-200;

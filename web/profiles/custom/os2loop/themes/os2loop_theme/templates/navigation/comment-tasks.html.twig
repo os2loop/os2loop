@@ -8,7 +8,7 @@
  * - @see drupal/core/node/templates/node.html.twig
  */
 #}
-<div class="icon-container ml-3 mr-2 my-2">
+<div class="icon-container ml-20">
   {{ content.flag_os2loop_upvote_upvote_button }}
   {% if is_granted('update', comment) %}
     <div class="icon edit" data-toggle="tooltip" title="{{ 'Edit reply'|t }}">
@@ -24,7 +24,7 @@
       </a>
     </div>
   {% endif %}
-  <div class="icon comment-reply" data-toggle="reply-to-reply" title="{{ 'Reply to reply'|t }}">
+  <div class="icon reply" data-toggle="reply-to-reply" title="{{ 'Reply to reply'|t }}">
     <a href="{{ path('comment.reply', {entity_type: 'node', entity: node['#node'].id, field_name: comment.field_name.value, pid: comment.id}) }}" aria-label="{{ 'Reply to reply'|t }}">
       <span class="visually-hidden">{{ 'Reply to reply'|t }}</span>
     </a>

@@ -54,7 +54,7 @@
       </div>
     {% endif %}
     {% if is_granted('contact editorial office', node) %}
-      <div class="icon flag" data-toggle="tooltip" title="{{ 'contact editorial office'|t }}">
+      <div class="icon contact" data-toggle="tooltip" title="{{ 'contact editorial office'|t }}">
         <a aria-label="{{ 'Contact editorial staff'|t }}" href="{{ path('os2loop_flag_content.flag_content', {node: node.id}) }}">
           <span class="visually-hidden">{{ 'Contact editorial staff'|t }}</span>
         </a>
