@@ -1,0 +1,25 @@
+@import "../colors-signifly.scss";
+
+$block-color-map: (
+	"primary-green": $loop-green-200,
+	"primary-light-green": $loop-green-100,
+	"primary-gray": $gray-200,
+	"primary-white": $loop-white,
+	"secondary-white": $loop-white,
+	"secondary-gray": $gray-100,
+);
+
+.block {
+	border-radius: 10px;
+	padding: 30px;
+
+	@each $block, $color in $block-color-map {
+		&.#{$block} {
+			background-color: $color;
+		}
+	}
+
+	&.primary-white {
+		box-shadow: 0px 4px 60px 5px rgba(108, 117, 125, 0.08);
+	}
+}
