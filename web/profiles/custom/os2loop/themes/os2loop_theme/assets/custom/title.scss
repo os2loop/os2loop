@@ -107,7 +107,7 @@ $content-types: "collection", "document", "post", "question";
 		}
 	}
 
-	&.most-votes {
+	&.most-upvotes {
 		.badge-primary {
 			@include inline-icon("\f406", 8px);
 		}
