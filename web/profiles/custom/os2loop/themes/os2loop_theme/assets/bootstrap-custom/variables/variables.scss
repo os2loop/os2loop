@@ -7,6 +7,7 @@ $spacers: (
 	20: 20px,
 	30: 30px,
 	40: 40px,
+	90: 90px,
 	130: 130px,
 	140: 140px,
 );
@@ -62,3 +63,6 @@ $navbar-nav-link-padding-y: $nav-link-padding-y;
 // Pagination
 $pagination-hover-bg: #eff5f4; // this color is not defined in the design guide
 $pagination-disabled-color: $loop-green-200;
+
+// Forms
+$input-color: $body-color;

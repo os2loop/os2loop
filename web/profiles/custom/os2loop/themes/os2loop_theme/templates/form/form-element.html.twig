@@ -58,6 +58,7 @@
     type == 'checkbox' ? 'form-check' : 'form-type-' ~ type|clean_class,
     'form-group'
   ] %}
+
 {% set description_classes = [
     'description',
     description_display == 'invisible' ? 'visually-hidden',
@@ -70,7 +71,7 @@
     <span class="field-prefix">{{ prefix }}</span>
   {% endif %}
   {% if description_display == 'before' and description.content %}
-    <div{{ description.attributes }}>
+    <div{{ description.attributes.addClass(description_classes) }}>
       {{ description.content }}
     </div>
   {% endif %}
@@ -79,7 +80,13 @@
     <span class="field-suffix">{{ suffix }}</span>
   {% endif %}
   {% if label_display == 'after' %}
-    {{ label }}
+    {% if type == 'managed_file' %}
+    <div class='btn btn-primary upload-button'>
+      {{ label }}
+    </div>
+    {% else %}
+      {{ label }}
+    {% endif %}
   {% endif %}
   {% if errors %}
     <div class="form-item--error-message">

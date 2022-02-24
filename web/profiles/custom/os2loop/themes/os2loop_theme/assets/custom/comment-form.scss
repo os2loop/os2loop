@@ -1,0 +1,91 @@
+.comment-form {
+	label,
+	legend,
+	span {
+		font-size: $font-size-base;
+		margin: 0;
+	}
+
+	.form-required::after {
+		content: "*";
+		color: $loop-red;
+	}
+
+	.description {
+		font-size: $font-size-sm;
+		color: $gray-600;
+	}
+
+	// TODO: this should probably not be hard-coded using id's
+	#edit-os2loop-comment-anonymous-author {
+		display: inline-flex;
+
+		// reverse order and align to left
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+
+		> div {
+			// corresponds to value 0 (Nej)
+			#edit-os2loop-comment-anonymous-author-0 + label {
+				border-radius: $border-radius 0 0 $border-radius;
+			}
+
+			// corresponds to value 1 (Ja)
+			#edit-os2loop-comment-anonymous-author-1 + label {
+				border-radius: 0 $border-radius $border-radius 0;
+				border-left: none;
+			}
+
+			input {
+				// hide the radio buttons
+				position: absolute !important;
+				height: 1px;
+				width: 1px;
+				border: 0;
+				overflow: hidden;
+
+				// handle switching between the radio buttons
+				&:checked {
+					&#edit-os2loop-comment-anonymous-author-0 + label,
+					&#edit-os2loop-comment-anonymous-author-1 + label {
+						background-color: $loop-green;
+						color: $loop-white;
+					}
+				}
+			}
+
+			label {
+				// styled to match .btn (-ish)
+				background-color: $loop-white;
+				border: 1px solid $gray-400;
+				transition: $btn-transition;
+
+				min-width: 50px;
+				padding: $btn-padding-y $btn-padding-x;
+				text-align: center;
+
+				font-size: $font-size-sm;
+				line-height: 1;
+
+				&:hover {
+					cursor: pointer;
+					// TODO: add this to variables
+					background-color: #eff5f4;
+				}
+			}
+		}
+	}
+
+	.upload-button {
+		@include inline-icon("\f603", 10px);
+
+		label:hover {
+			cursor: pointer;
+		}
+	}
+
+	#edit-submit {
+		display: flex;
+		margin-left: auto;
+	}
+}

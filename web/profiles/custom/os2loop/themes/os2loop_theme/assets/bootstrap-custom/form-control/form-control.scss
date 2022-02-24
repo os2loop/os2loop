@@ -26,11 +26,11 @@
 }
 
 .form-group {
-	& .label {
+	.label {
 		color: $gray-600;
 		// TODO: something about sizing
 	}
-	& .form-control {
+	.form-control {
 		padding-left: 15px;
 		padding-right: 15px;
 		&.no-background-image {
@@ -39,8 +39,14 @@
 		@include set-valid-border-color($loop-green-400);
 		@include set-invalid-border-color($loop-red);
 	}
-	& textarea.form-control {
+	textarea.form-control {
 		@include set-valid-border-color($loop-green-400);
 		@include set-invalid-border-color($loop-red);
+	}
+}
+
+.block.primary-gray {
+	.form-control {
+		border-color: transparent;
 	}
 }

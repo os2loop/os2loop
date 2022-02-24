@@ -72,35 +72,37 @@
 #}
 {% import '@os2loop_theme/macros.html.twig' as macros %}
 
-<article{{ attributes.addClass("os2loop-content os2loop-question") }}>
-  {{ macros.title(label, "question", node, content, false) }}
-  <div class="title row align-baseline mb-30">
-    <div class="col-12 col-md-auto pl-0">
-      <div class="badge badge-{{ node.getType }}">{{ 'Question'|t }}</div>
-    </div>
-    <div class="col-12 col-md-auto pl-0">
-      {{ content.os2loop_shared_subject }}
-    </div>
-    <div class="col-12 col-md-auto pl-0">
-      {{ content.os2loop_shared_profession }}
-    </div>
-    <div class="col-12 col-md-auto pl-0">
-      {{ content.os2loop_shared_category }}
-    </div>
-  </div>
-  <div class="entity-header d-flex align-items-top">{% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}</div>
-  <div{{ content_attributes.addClass('entity-body mb-30') }}>
-    {{ content.os2loop_question_content }}
-    <div class="row mt-30">
-      <div class="col">
-        {{ content.os2loop_question_file }}
+{# This tag is closed by </article> in 'field--node--os2loop-question-answers.html.twig' #}
+<article{{ attributes.addClass("os2loop-content os2loop-question mb-90") }}>
+  {# This tag is closed by </div> in 'field--node--os2loop-question-answers.html.twig' #}
+  <div class="block primary-white">
+    {{ macros.title(label, "question", node, content, false) }}
+    <div class="title row align-baseline mb-30">
+      <div class="col-12 col-md-auto pl-0">
+        <div class="badge badge-{{ node.getType }}">{{ 'Question'|t }}</div>
+      </div>
+      <div class="col-12 col-md-auto pl-0">
+        {{ content.os2loop_shared_subject }}
+      </div>
+      <div class="col-12 col-md-auto pl-0">
+        {{ content.os2loop_shared_profession }}
+      </div>
+      <div class="col-12 col-md-auto pl-0">
+        {{ content.os2loop_shared_category }}
       </div>
     </div>
-    <div class="row mt-30">
-      <div class="col-12 col-md-auto">
-        {{ content.os2loop_shared_tags }}
+    <div class="entity-header d-flex align-items-top">{% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}</div>
+    <div{{ content_attributes.addClass('entity-body mb-30') }}>
+      {{ content.os2loop_question_content }}
+      <div class="row mt-30">
+        <div class="col">
+          {{ content.os2loop_question_file }}
+        </div>
+      </div>
+      <div class="row mt-30">
+        <div class="col-12 col-md-auto">
+          {{ content.os2loop_shared_tags }}
+        </div>
       </div>
     </div>
-  </div>
-  {{ content.os2loop_question_answers }}
-</article>
+    {{ content.os2loop_question_answers }}
