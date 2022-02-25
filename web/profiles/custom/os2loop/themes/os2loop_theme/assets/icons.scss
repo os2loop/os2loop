@@ -59,49 +59,24 @@ $search-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'
 		margin: 0 5px 5px 0;
 		font-size: 1em;
 		border-radius: 2px;
-		color: $white;
 
-		&.comment-edit,
-		&.edit {
+		&.comment-edit {
 			@include link-icon("\f4ca", $edit, $dark-edit);
 		}
 
-		&.print {
-			@include link-icon("\f501");
-		}
-
-		&.fav {
-			@include link-icon("\f37d", $follow-content, $dark-follow-content);
-		}
-		&.unfav {
-			@include link-icon("\f37c", $follow-content, $dark-follow-content);
-		}
-
-		&.comment-share,
-		&.share {
+		&.comment-share {
 			@include link-icon("\f110");
 		}
 
-		&.comment-flag,
-		&.flag {
+		&.comment-flag {
 			@include link-icon("\f3cc");
 		}
 
-		&.comment-reply,
-		&.reply {
+		&.comment-reply {
 			@include link-icon("\f51f");
 		}
 
-		&.subscribe {
-			@include link-icon("\f18a", $subscribe, $dark-subscribe);
-		}
-
-		&.unsubscribe {
-			@include link-icon("\f189", $subscribe, $dark-subscribe);
-		}
-
-		&.comment-delete,
-		&.delete {
+		&.comment-delete {
 			@include link-icon("\f5de", $delete, $dark-delete);
 		}
 
@@ -111,18 +86,6 @@ $search-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'
 
 		&.view {
 			@include link-icon("\f341");
-		}
-
-		&.upvote.flag {
-			@include link-icon("\f407", $upvote, $dark-upvote);
-		}
-
-		&.upvote.unflag {
-			@include link-icon("\f406", $upvote, $dark-upvote);
-		}
-
-		&.os2loop-alert {
-			@include link-icon("\f33b", $os2loop-alert, $dark-os2loop-alert);
 		}
 
 		i {

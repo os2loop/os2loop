@@ -4,16 +4,6 @@
 	}
 }
 
-.form-required::after {
-	// https://icons.getbootstrap.com/icons/circle-fill/
-	content: "\f287";
-	font-family: bootstrap-icons;
-	font-size: 30%;
-	vertical-align: super;
-	padding: 0 ($spacer * 0.25);
-	color: $danger;
-}
-
 #edit-account {
 	background: lighten($danger, 40%);
 	padding: 1em;

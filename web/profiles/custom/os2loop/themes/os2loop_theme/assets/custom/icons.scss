@@ -1,0 +1,64 @@
+@import "mixins.scss";
+@import "../colors-signifly.scss";
+@import "../variables-signifly.scss";
+
+$icon-content-map: (
+	"print": "\f501",
+	"edit": "\f4ca",
+	"delete": "\f5de",
+	"os2loop-alert": "\f33b",
+	"subscribe": "\f18A",
+	"unsubscribe": "\f189",
+	"fav": "\f1A2",
+	"unfav": "\f195",
+	"share": "\f6C0",
+	"contact": "\f692",
+	"upvote": "\f407",
+	"reply": "\f51f",
+);
+
+.icon-container {
+	.icon {
+		margin: 0;
+
+		min-width: $icon-size;
+		height: $icon-size;
+
+		border-radius: $icon-border-radius;
+
+		+ .icon {
+			margin-left: 10px;
+		}
+
+		@each $class-name, $glyph in $icon-content-map {
+			&.#{$class-name} {
+				@include new-link-icon($glyph);
+			}
+		}
+
+		&.upvote {
+			padding-left: 2 * $icon-padding;
+			padding-right: 2 * $icon-padding;
+
+			span {
+				background-color: inherit;
+				color: inherit;
+
+				font-size: $font-size-sm;
+				line-height: $icon-size;
+
+				padding: 0;
+				margin: 0 0 0 8px;
+			}
+
+			&.unflag {
+				color: $loop-green;
+				background-color: $loop-green-200;
+
+				a::before {
+					content: "\f406";
+				}
+			}
+		}
+	}
+}

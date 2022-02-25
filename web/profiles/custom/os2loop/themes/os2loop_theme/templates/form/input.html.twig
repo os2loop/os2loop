@@ -16,6 +16,6 @@
 {% elseif attributes['type'] == 'image' %}
   <button {{ attributes.addClass('btn') }}><img src={{ attributes.src }}></button>
 {% else %}
-  <input{{ attributes.addClass('form-control') }}/>
+  <input{{ attributes.addClass(attributes['type'] == 'file' ? 'd-none' : 'form-control') }}/>
 {% endif %}
 {{ children }}

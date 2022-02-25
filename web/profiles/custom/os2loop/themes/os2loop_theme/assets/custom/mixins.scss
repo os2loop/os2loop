@@ -1,0 +1,41 @@
+@import "../variables-signifly.scss";
+
+@mixin new-link-icon($content) {
+	a {
+		display: flex;
+		align-items: center;
+
+		width: 100%;
+		height: 100%;
+
+		color: inherit;
+		text-decoration: none;
+		text-align: center;
+
+		padding: $icon-padding;
+		line-height: 1;
+
+		@include inline-icon($content);
+
+		&::before {
+			font-size: $icon-font-size;
+		}
+	}
+}
+
+@mixin inline-icon($content, $margin: 0, $position: before) {
+	&::#{$position} {
+		font-family: bootstrap-icons !important;
+		font-size: inherit;
+		color: inherit;
+
+		@if ($position == before) {
+			margin-right: $margin;
+		} @else {
+			margin-left: $margin;
+		}
+
+		vertical-align: middle;
+		content: $content;
+	}
+}
