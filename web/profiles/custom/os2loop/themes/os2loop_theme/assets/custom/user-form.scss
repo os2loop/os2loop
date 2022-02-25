@@ -1,0 +1,10 @@
+.user-form {
+	.form-wrapper {
+		padding: 0;
+	}
+
+	legend,
+	#edit-account {
+		@extend .d-none;
+	}
+}
