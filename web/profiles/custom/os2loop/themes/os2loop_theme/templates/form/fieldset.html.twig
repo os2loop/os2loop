@@ -31,16 +31,26 @@
   ] %}
 
 <fieldset{{ attributes.addClass(classes) }}>
+  {# TODO: this attribute should come from the backend instead of hard-coding here #}
+  {% set legend_position = attributes.id == 'edit-os2loop-comment-anonymous-author--wrapper' ? 'inline' : 'before' %}
   {% set legend_span_classes = [
       'fieldset-legend',
       required ? 'js-form-required',
       required ? 'form-required',
     ] %}
   {#  Always wrap fieldset legends in a <span> for CSS positioning. #}
-  <legend{{ legend.attributes }}>
-    <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
+  {% if legend_position == 'before' %}
+  <legend{{ legend.attributes.addClass('legend-before') }}>
+    <div class="legend-text">
+      <span{{ legend_span.attriutes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
+    </div>
   </legend>
+  {% endif %}
   <div class="fieldset-wrapper">
+    {% if legend_position == 'inline' %}
+    {# create a flexbox around fields and legend #}
+    <div class="d-flex align-items-middle field-legend-wrapper">
+    {% endif %}
     {% if errors %}
       <div>
         {{ errors }}
@@ -53,8 +63,17 @@
     {% if suffix %}
       <span class="field-suffix">{{ suffix }}</span>
     {% endif %}
+    {% if legend_position == 'inline' %}
+      <legend{{ legend.attributes.addClass('legend-inline') }}>
+        <div class="legend-text">
+          <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
+        </div>
+      </legend>
+    {# close flexbox created earlier #}
+    </div>
+    {% endif %}
     {% if description.content %}
-      <div{{ description.attributes.addClass('description') }}>{{ description.content }}</div>
+    <div{{ description.attributes.addClass('description') }}>{{ description.content }}</div>
     {% endif %}
   </div>
 </fieldset>

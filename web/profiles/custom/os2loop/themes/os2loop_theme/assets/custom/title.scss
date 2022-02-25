@@ -113,3 +113,17 @@ $content-types: "collection", "document", "post", "question";
 		}
 	}
 }
+
+.os2loop-comment {
+	+ .os2loop-comment,
+	+ .indented {
+		@extend .mt-30;
+	}
+}
+
+.indented {
+	+ .os2loop-comment,
+	+ .indented {
+		@extend .mt-30;
+	}
+}
