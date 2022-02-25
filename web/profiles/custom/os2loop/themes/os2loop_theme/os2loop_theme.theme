@@ -247,3 +247,13 @@ function os2loop_theme_preprocess_views_view(&$variables) {
     $variables['total_rows'] = $variables['view']->query->query()->countQuery()->execute()->fetchField();
   }
 }
+
+/**
+ * Implements hook_preprocess_form_element().
+ */
+function os2loop_theme_preprocess_form_element(&$variables) {
+  if ($variables['element']['#type'] == 'managed_file') {
+    $variables['description_display'] = 'before';
+    $variables['label_display'] = 'after';
+  }
+}

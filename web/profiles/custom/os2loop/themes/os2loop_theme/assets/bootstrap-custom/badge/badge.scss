@@ -1,10 +1,5 @@
 @import "../../colors-signifly.scss";
 
-$badge-padding-x: 8px;
-$badge-padding-y: 4px;
-
-$badge-border-radius: 4px;
-
 $content-types-colors: (
 	"os2loop_documents_collection": $tag-blue,
 	"os2loop_documents_document": $tag-green,
@@ -13,6 +8,7 @@ $content-types-colors: (
 );
 
 .badge {
+	// TODO: Figure out why this is overridden by standard settings...
 	margin-right: 15px;
 
 	&.user-profile-badge-container {
