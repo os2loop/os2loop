@@ -15,9 +15,11 @@
 {% if 'search_api_autocomplete' == element['#type'] %}
   {% set attributes = attributes.removeClass('form-text').setAttribute('type', 'search') %}
 {% endif %}
-<div class="container-lg">
-  <div class="row">
-    <input{{ attributes.addClass('form-control no-background-image col') }}/>
-    <button class="btn btn-primary btn-lg col-md-auto ml-20" data-search-api-autocomplete-search="os2loop_search_db">{{ 'Search'|t }}</button>
+<div>
+  <div class="input-group">
+    <input{{ attributes.addClass('form-control no-background-image') }}/>
+    <span class="input-group-btn">
+      <button class="btn btn-primary btn-lg ml-20" data-search-api-autocomplete-search="os2loop_search_db">{{ 'Search'|t }}</button>
+    </span>
   </div>
 </div>

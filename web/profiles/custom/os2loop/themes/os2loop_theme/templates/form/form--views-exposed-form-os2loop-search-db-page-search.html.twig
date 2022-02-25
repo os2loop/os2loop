@@ -13,8 +13,8 @@
   */
   #}
 {# @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Search_role#examples #}
-<div class="container-lg ">
-  <h4>
+<div class="block secondary-gray">
+  <h4 class="mb-20">
     {{ 'Search'|t }}
   </h4>
   <form{{ attributes.setAttribute('role', 'search') }} class="form">
@@ -23,11 +23,11 @@
     </div>
     <div class="col-12" id="js-search-filters">
       <div class="row">
-        <div class="col ml-2 border-bottom">
-          <h6 class="d-inline align-middle p-0">{{ 'Search filters'|t }}</h6>
+        <div class="col">
+{#          {% embed 'facets-item-list--os2loop-search-db-document.html.twig' %}#}
         </div>
-        <div class="mr-2 border-bottom">
-          <button class="btn btn-sm btn-dark mb-2" type="button" data-toggle="collapse" data-target=".search-filters-collapse" aria-expanded="true"
+        <div>
+          <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target=".search-filters-collapse" aria-expanded="true"
                   aria-controls="searchFilterCollapseFacets searchFilterCollapseOrder">
             <span class="less">{{ 'Hide'|t }}</span><span class="more">{{ 'Show'|t }}</span> {{ 'filters'|t }}
           </button>
