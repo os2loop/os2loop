@@ -32,7 +32,11 @@
 {# Set nofollow to prevent search bots from crawling anonymous flag links #}
 {% set attributes = attributes.setAttribute('rel', 'nofollow') %}
 
-<li class="{{ classes|join(' ') }}" data-toggle="tooltip" title='{{ title }}'>
-  <a{{ attributes }} aria-label='{{ title }}'></a><span class="badge badge-light badge-pill mr-2">{{ upvotes }}</span> {#TODO: Place this span(badge) inside `<a></a>`to provide link funtionality on badge and the whole btn area. As for now it is not possible to align the badge correct inside the `<a></a>`. We should consider using bootstrap buttons for this.#}
-</li>
+<div class="{{ classes|join(' ') }}" data-toggle="tooltip" title='{{ title }}'>
+  <a{{ attributes }} aria-label='{{ title }}'>
+  {% if upvotes is not empty %}
+    <span>{{ upvotes }}</span>
+  {% endif %}
+  </a>
+</div>
 {% endspaceless %}

@@ -10,9 +10,14 @@
  * @see template_preprocess_input()
  */
 #}
+{% set classes = [
+    'form-control',
+    'rounded'
+  ]
+%}
 
 {# Apparently using hook_form_alter to set the input type to "search" breaks autocompleting #}
 {% if 'search_api_autocomplete' == element['#type'] %}
   {% set attributes = attributes.removeClass('form-text').setAttribute('type', 'search') %}
 {% endif %}
-<input{{ attributes.addClass('form-control no-background-image') }}/>
+<input{{ attributes.addClass(classes) }}/>
