@@ -36,20 +36,22 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
     empty ? 'js-view-empty'
   ] %}
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes).addClass('block primary-white mt-30') }} >
   {{ title_prefix }}
   {{ title }}
   {{ title_suffix }}
 
-  {% if header %}
+  {% if header and rows %}
     <header>
-      <div class="row mx-2">
-        <div class="col-md-4 pl-0">{{ header }}</div>
-        <div class="col-md-8">
-          <div class="row justify-content-end">
-            <div class="btn-group my-2">
+      <div class="row">
+        <div class="col-md-5">
+          <h2>{{ 'Search results'|t }}</h2>
+        </div>
+        <div class="col-md-7 d-flex justify-content-end align-items-center">
+          <div>
+            <div class="btn-group bnt-group-smd">
               {% for sort in sortLinks %}
-                <a class="search-sort-btn btn {{ sort.active ? 'active' }}" href="{{ sort.url }}">{{ sort.label }}</a>
+                <a class="search-sort-btn btn btn-sm {{ sort.active ? 'active' }}" href="{{ sort.url }}">{{ sort.label }}</a>
               {% endfor %}
             </div>
           </div>

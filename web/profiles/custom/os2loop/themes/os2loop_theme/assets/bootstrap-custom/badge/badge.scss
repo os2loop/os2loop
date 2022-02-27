@@ -9,7 +9,6 @@ $content-types-colors: (
 
 .badge {
 	// TODO: Figure out why this is overridden by standard settings...
-	display: flex !important;
 	margin-right: 15px;
 
 	&.user-profile-badge-container {

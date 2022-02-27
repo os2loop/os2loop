@@ -25,12 +25,23 @@
 	@include set-invalid-border-color($loop-red);
 }
 
+input {
+	&.form-autocomplete,
+	&.form-control {
+		height: 48px;
+	}
+}
+
 .form-group {
-	.label {
+	label {
 		color: $gray-600;
 		// TODO: something about sizing
 	}
+	input.form-control,
+	input.form-autocomplete,
+	.form-autocomplete,
 	.form-control {
+		height: 48px;
 		padding-left: 15px;
 		padding-right: 15px;
 		&.no-background-image {

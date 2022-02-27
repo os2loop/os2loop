@@ -1,24 +1,27 @@
 {% set node = elements['#node'] %}
-<div class="my-3 search-result search-result--node search-result--node--{{ node.bundle }}">
-  <div class="d-block ml-5">
-    <h2 class="h5"><a href="{{ url }}">{{ label }}</a></h2>
-    <div class="small">{{ 'Type'|t }}: {{ node.type.entity.label }} - {{ 'Posted'|t }}: {{ node.createdtime|format_date('medium') }}</div>
-    <span class="badge badge-primary badge-{{ node.getType }}">{{ node.type.entity.label }}</span>
+<div class="search-result search-result--node search-result--node--{{ node.bundle }} d-flex w-100">
+  <div class="d-block w-100">
+    <div class="d-flex justify-content-between align-items-start">
+      <h2 class="h5 search-header"><a href="{{ url }}">{{ label }}</a></h2>
+      <div class="text-sm ">{{ (node.createdtime|date("d-m-Y")) }}</div>
+    </div>
     {% if (searchedComment.comment) %}
-      <div class="search_api_excerpt ml-3 border bg-light p-3">
-        <div class="small">{{ searchedComment.comment.bundle == 'os2loop_question_answer' ? 'Reply'|t : 'Comment'|t }}:</div>
+      <div class="search_api_excerpt border">
+        <div class="text-sm">{{ searchedComment.comment.bundle == 'os2loop_question_answer' ? 'Reply'|t : 'Comment'|t }}:</div>
         {{ searchedComment.comment_text|raw }}
       </div>
     {% else %}
       <div class="search_api_excerpt mb-0">{{ elements['#search_api_excerpt']|raw }}</div>
     {% endif %}
-    <span class="subject">{{ elements['os2loop_shared_subject'] }}</span>
-    {% if (node.os2loop_question_answers) %}
-      <span class="subject">{{ 'Replies'|t }}:  <span class="badge badge-light">{{ node.get('os2loop_question_answers').comment_count }}</span></span>
-    {% endif %}
-    {% if (node.os2loop_post_comments) %}
-      <span class="subject">{{ 'Comments'|t }}:  <span class="badge badge-light">{{ node.get('os2loop_post_comments').comment_count }}</span></span>
-    {% endif %}
+    <div class="d-flex align-items-center">
+      <span class="badge badge-primary badge-{{ node.getType }}">{{ node.type.entity.label }}</span>
+      {% if (node.os2loop_question_answers) %}
+        <span class="d-flex align-items-center subject answer text-sm font-weight-bold">{{ node.get('os2loop_question_answers').comment_count }}</span>
+      {% endif %}
+      {% if (node.os2loop_post_comments) %}
+        <span class="d-flex align-items-center subject comment text-sm font-weight-bold">{{ node.get('os2loop_post_comments').comment_count }}</span>
+      {% endif %}
+    </div>
   </div>
 </div>
 

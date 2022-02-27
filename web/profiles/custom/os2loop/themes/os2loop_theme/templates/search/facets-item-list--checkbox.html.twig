@@ -44,7 +44,7 @@
     {%- endif -%}
   {%- endif %}
 
-{% if facet.widget.type == "dropdown" %}
-  <label id="facet_{{ facet.id }}_label">{{ 'Facet'|t }} {{ facet.label }}</label>
-{%- endif %}
+  {% if facet.widget.type == "dropdown" %}
+    <label id="facet_{{ facet.id }}_label">{{ 'Facet'|t }} {{ facet.label }}</label>
+  {%- endif %}
 </div>
