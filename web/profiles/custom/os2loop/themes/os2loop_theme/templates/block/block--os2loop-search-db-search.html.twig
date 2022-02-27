@@ -27,12 +27,13 @@
  * @ingroup themeable
  */
 #}
-
-<div{{ attributes.addClass('search-filters-collapse collapse show block primary-gray mt-n20') }}>
-  <div class="col block secondary-white">
-    <label class="font-weight-bold">{{ label }}</label>
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-  </div>
+<div{{ attributes }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
 </div>

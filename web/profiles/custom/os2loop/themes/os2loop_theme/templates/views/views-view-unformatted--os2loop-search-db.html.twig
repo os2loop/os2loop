@@ -23,7 +23,8 @@
 {% for row in rows %}
   {% set row_classes = [
       default_row_class ? 'views-row',
-      'search-result--wrapper'
+      'search-result--wrapper',
+      'block secondary-gray'
     ] %}
   <div{{ row.attributes.addClass(row_classes) }}>
     {{- row.content -}}
