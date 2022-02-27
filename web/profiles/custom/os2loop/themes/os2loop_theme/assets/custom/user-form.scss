@@ -7,4 +7,33 @@
 	#edit-account {
 		@extend .d-none;
 	}
+
+	.field-group-fieldset > .fieldset-wrapper {
+		display: inline-flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+		> div.field--type-string,
+		> div.field--type-string-long,
+		> div.field--type-list-integer,
+		> div.field--type-entity-reference {
+			width: 100%;
+
+			&:not(:only-child) {
+				width: 48%;
+			}
+		}
+	}
+
+	.field--type-entity-reference {
+		@extend .form-group;
+		margin-bottom: 0;
+	}
+
+	.form-submit {
+		display: flex;
+		margin-left: auto;
+	}
 }

@@ -1,0 +1,88 @@
+div.autocomplete-deluxe-multiple,
+div.autocomplete-deluxe-container {
+	@extend .w-100;
+	@extend .d-block;
+	@extend .input-group;
+
+	background: $input-bg;
+	min-height: 48px;
+
+	margin-top: $form-check-input-margin-y;
+	padding: $input-padding-y $input-padding-x;
+
+	box-sizing: border-box;
+	box-shadow: none;
+
+	border: 1px solid transparent;
+	border-radius: $input-border-radius;
+
+	div {
+		@extend .d-flex;
+		@extend .align-items-center;
+	}
+
+	&:focus-within {
+		border: 1px solid $loop-green-400;
+	}
+
+	.form-group {
+		margin-bottom: 0;
+	}
+
+	input.ui-autocomplete-input {
+		&.autocomplete-deluxe-form-single,
+		&.autocomplete-deluxe-multiple {
+			min-height: initial;
+			height: 100%;
+
+			font-size: $font-size-base;
+			color: $body-color;
+
+			padding: 0;
+			margin: 0 15px;
+
+			// TODO: figure out vertical alignment
+			vertical-align: middle;
+		}
+
+		~ div.autocomplete-deluxe-throbber,
+		~ div.autocomplete-deluxe-closed {
+			@extend .d-none;
+		}
+	}
+}
+
+.autocomplete-deluxe-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: $gray-300;
+	color: $gray-600;
+
+	border: none;
+	border-radius: 4px;
+	padding: 6px 8px;
+
+	font-size: $badge-font-size;
+	font-weight: $badge-font-weight;
+	line-height: 1;
+
+	+ .autocomplete-deluxe-item {
+		margin-left: 15px;
+	}
+
+	.autocomplete-deluxe-item-delete {
+		position: static;
+		margin-left: 10px;
+
+		height: $badge-font-size;
+		width: $badge-font-size;
+
+		background-image: none;
+		background-color: $gray-600;
+
+		mask-image: url("~bootstrap-icons/icons/x.svg");
+		-webkit-mask-image: url("~bootstrap-icons/icons/x.svg");
+	}
+}

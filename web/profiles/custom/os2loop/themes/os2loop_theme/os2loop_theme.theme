@@ -56,9 +56,15 @@ function os2loop_theme_preprocess_block(&$variables) {
   // Set page title for user/[uid] pages.
   if ('page_title_block' == $variables['plugin_id']) {
     $path = \Drupal::routeMatch()->getRouteObject()->getPath();
-    if ('/user/{user}' === $path) {
-      $user = \Drupal::routeMatch()->getParameter('user');
-      $variables['content']['#title'] = $user->os2loop_user_given_name->value . ' ' . $user->os2loop_user_family_name->value;
+
+    switch ($path) {
+      case '/user/{user}':
+        $variables['content']['#title'] = 'Profile';
+        break;
+
+      case '/user/{user}/edit':
+        $variables['content']['#title'] = 'Edit profile';
+        break;
     }
   }
 }
