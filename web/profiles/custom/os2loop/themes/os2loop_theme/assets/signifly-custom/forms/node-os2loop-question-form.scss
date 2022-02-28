@@ -1,0 +1,60 @@
+.node-os2loop-question-form {
+	@include anonymous-author-fieldset(
+		"edit-os2loop-content-anonymous-author--wrapper"
+	);
+
+	.legend-text {
+		font-size: $font-size-base;
+
+		height: 100%;
+		margin: 0;
+	}
+
+	.legend-inline {
+		margin-bottom: 0;
+
+		span {
+			line-height: 1;
+			vertical-align: middle;
+		}
+	}
+
+	.field-legend-wrapper {
+		margin-bottom: 7px;
+
+		legend {
+			margin-left: 8px;
+		}
+	}
+
+	.form-required::after {
+		content: "*";
+		color: $loop-red;
+	}
+
+	.description {
+		font-size: $font-size-sm;
+		color: $gray-600;
+	}
+
+	.field--type-entity-reference {
+		@extend .form-group;
+	}
+
+	.upload-button {
+		@include inline-icon("\f603", 10px);
+
+		label {
+			color: inherit;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	#edit-submit {
+		display: flex;
+		margin-left: auto;
+	}
+}

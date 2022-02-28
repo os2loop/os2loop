@@ -32,12 +32,14 @@
 
 <fieldset{{ attributes.addClass(classes) }}>
   {# TODO: this attribute should come from the backend instead of hard-coding here #}
-  {% set legend_position = attributes.id == 'edit-os2loop-comment-anonymous-author--wrapper' ? 'inline' : 'before' %}
+  {% set legend_position = attributes.id == 'edit-os2loop-comment-anonymous-author--wrapper' or attributes.id == 'edit-os2loop-content-anonymous-author--wrapper' ? 'inline' : 'before' %}
+
   {% set legend_span_classes = [
       'fieldset-legend',
       required ? 'js-form-required',
       required ? 'form-required',
     ] %}
+
   {#  Always wrap fieldset legends in a <span> for CSS positioning. #}
   {% if legend_position == 'before' %}
   <legend{{ legend.attributes.addClass('legend-before') }}>

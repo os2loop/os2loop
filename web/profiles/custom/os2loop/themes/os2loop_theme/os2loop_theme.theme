@@ -26,6 +26,7 @@ function os2loop_theme_preprocess(&$variables) {
 function os2loop_theme_preprocess_html(&$variables) {
   // Set page head title.
   $path = \Drupal::routeMatch()->getRouteObject()->getPath();
+
   if ('/user/{user}' === $path) {
     $user = \Drupal::routeMatch()->getParameter('user');
     $variables['head_title']['title'] = $user->os2loop_user_given_name->value . ' ' . $user->os2loop_user_family_name->value;
@@ -39,6 +40,7 @@ function os2loop_theme_preprocess_html(&$variables) {
  */
 function os2loop_theme_preprocess_node(&$variables) {
   $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+
   if ($variables['view_mode'] === 'teaser') {
     if ($variables['node']->getType() === 'os2loop_question') {
       $variables['comment_count'] = $variables['node']->get('os2loop_question_answers')->comment_count;

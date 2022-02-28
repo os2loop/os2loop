@@ -12,6 +12,12 @@
  * @ingroup themeable
  */
 #}
-<form{{ attributes.addClass(element['#form_id']) }}>
-  {{ children }}
-</form>
+{% set background_color_class = [
+  element['#form_id'] == 'node_os2loop_question_form' ? 'primary-gray'
+] %}
+
+<div class="form-wrapper block {{ background_color_class|first }}">
+  <form{{ attributes.addClass(element['#form_id']) }}>
+    {{ children }}
+  </form>
+</div>

@@ -1,0 +1,10 @@
+div#searchFilterCollapseFacets {
+	position: relative;
+
+	> div {
+		position: absolute;
+		top: -60px;
+		padding-left: 30px;
+		z-index: 1;
+	}
+}

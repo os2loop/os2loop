@@ -1,6 +1,3 @@
-@import "mixins.scss";
-@import "../variables-signifly.scss";
-
 $content-types: "collection", "document", "post", "question";
 
 .title {
@@ -21,7 +18,7 @@ $content-types: "collection", "document", "post", "question";
 					width: $title-margin-left;
 					margin-left: -1 * $title-margin-left;
 
-					background: url("../svg/#{$content-type}.svg") no-repeat 0 0;
+					background: url("../../svg/#{$content-type}.svg") no-repeat 0 0;
 					background-size: auto $title-icon-height;
 					content: "";
 				}
