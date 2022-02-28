@@ -44,13 +44,19 @@
  */
 #}
 
+{# TODO: shouldn't use page title this way #}
+{% if page['#title'] == 'user' %}
+  {% set page_class = 'block primary-gray' %}
+{% elseif page['#title'] == 'Kontaktliste' %}
+  {% set page_class = 'block primary-white' %}
+{% endif %}
+
 {{ page.header }}
 {# <main role="main" class="bg-secondary-white"> #}
 <main role="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-  {# TODO: shouldn't use page title this way #}
-  <div class="{{ os2loop_container_class }} {{ page['#title'] == 'user' ? 'block primary-gray' }} my-90">
+  <div class="{{ os2loop_container_class }} {{ page_class }} my-90">
     {{ page.content }}
   </div>{# /.layout-content #}
 

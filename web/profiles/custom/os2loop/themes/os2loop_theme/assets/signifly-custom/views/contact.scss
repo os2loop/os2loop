@@ -1,0 +1,48 @@
+.views-view-contact {
+	.search {
+		.form-group {
+			@extend .mb-0;
+		}
+
+		.form-item-combine {
+			@extend .flex-grow-1;
+		}
+
+		.btn {
+			@extend .ml-20;
+
+			box-sizing: border-box;
+
+			height: 48px;
+			width: 72px;
+		}
+	}
+
+	.user-name {
+		margin-bottom: 3px;
+	}
+
+	.card-body {
+		.user-image {
+			@extend .mr-40;
+
+			width: $user-image-card-size;
+			height: $user-image-card-size;
+
+			font-size: 40px;
+
+			img {
+				min-width: $user-image-card-size;
+				min-height: $user-image-card-size;
+			}
+		}
+	}
+
+	.user-card:not(:first-of-type) + .user-card {
+		@extend .mt-30;
+	}
+
+	.user-contact-information + .user-contact-information {
+		@extend .mt-10;
+	}
+}
