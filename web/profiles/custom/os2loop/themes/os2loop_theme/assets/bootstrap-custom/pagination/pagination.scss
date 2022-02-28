@@ -1,4 +1,12 @@
-@import "../../colors-signifly.scss";
+@import "../../signifly-variables/colors.scss";
+
+ul.pagination {
+	@extend .m-0, .p-0;
+
+	li {
+		@extend .m-0, .p-0;
+	}
+}
 
 .page-link {
 	&:focus,

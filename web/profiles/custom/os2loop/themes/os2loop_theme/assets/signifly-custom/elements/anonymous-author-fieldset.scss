@@ -1,0 +1,70 @@
+// TODO: this should probably not be be using id's
+@mixin anonymous-author-fieldset($wrapper-id) {
+	$base-id: str-slice($wrapper-id, 1, -10);
+
+	fieldset##{$wrapper-id} {
+		div##{$base-id} {
+			@extend .d-inline-flex;
+
+			> div {
+				@extend .mb-0;
+
+				// _should_ correspond to value 1 (Ja)
+				&:first-child {
+					@extend .order-2;
+
+					label {
+						border-radius: 0 $border-radius $border-radius 0;
+						border-left: none;
+					}
+				}
+
+				// _should_ correspond to value 0 (Ja)
+				&:last-child {
+					@extend .order-1;
+
+					label {
+						border-radius: $border-radius 0 0 $border-radius;
+					}
+				}
+
+				input {
+					// hide the radio buttons
+					position: absolute !important;
+					height: 1px;
+					width: 1px;
+					border: 0;
+					overflow: hidden;
+
+					// handle switching between the radio buttons
+					&:checked {
+						+ label {
+							background-color: $loop-green;
+							color: $loop-white;
+						}
+					}
+				}
+
+				label {
+					// styled to match .btn (-ish)
+					background-color: $loop-white;
+					border: 1px solid $gray-400;
+					transition: $btn-transition;
+
+					min-width: 50px;
+					padding: $btn-padding-y $btn-padding-x;
+					text-align: center;
+
+					font-size: $font-size-sm;
+					line-height: 1;
+
+					&:hover {
+						cursor: pointer;
+						// TODO: add this to variables
+						background-color: #eff5f4;
+					}
+				}
+			}
+		}
+	}
+}
