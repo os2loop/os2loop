@@ -31,12 +31,15 @@
 		color: inherit;
 		margin: 0;
 
-		font-size: $font-size-base;
-		font-weight: $badge-font-weight;
-
 		+ span {
 			margin-top: 7px;
 		}
+	}
+
+	:not(.h5) > a,
+	:not(.h5) > p {
+		font-size: $font-size-base;
+		font-weight: $badge-font-weight;
 	}
 
 	a:hover {
