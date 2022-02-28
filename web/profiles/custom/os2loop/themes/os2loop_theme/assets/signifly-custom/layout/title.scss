@@ -94,6 +94,8 @@ $content-types: "collection", "document", "post", "question";
 	}
 
 	.badge-primary {
+		@extend .ml-30;
+		
 		font-size: $font-size-base;
 		padding: 6px 12px;
 	}
