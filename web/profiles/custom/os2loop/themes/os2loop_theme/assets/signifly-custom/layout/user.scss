@@ -58,6 +58,20 @@
 .user-profile {
 	background-color: $gray-100;
 
+	&.icon-container {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+
+		background-color: transparent;
+
+		.icon {
+			background-color: $loop-green-400;
+			color: $loop-white;
+			font-size: $font-size-base;
+		}
+	}
+
 	.user-image {
 		width: $user-image-profile-size;
 		height: $user-image-profile-size;

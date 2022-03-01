@@ -18,7 +18,14 @@
  * @ingroup themeable
  */
 #}
-<h2>{{ 'profile'|t|capitalize }}</h2>
+
+<div class="user-profile icon-container">
+  <div class="icon edit" data-toggle="tooltip" title data-original-title="Rediger profil">
+    <a aria-label="Rediger profil" href={{ path('<current>') ~ '/edit' }}>
+      <span class="visually-hidden">{{ 'Rediger svar' }}</span>
+    </a>
+  </div>
+</div>
 <article{{ attributes.addClass('user-profile', 'rounded-lg', 'p-30') }}>
   {% if content %}
   {% set initials = (user.os2loop_user_given_name.value|first ~ user.os2loop_user_family_name.value|first)|upper %}
