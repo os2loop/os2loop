@@ -46,7 +46,7 @@
 
 {# TODO: shouldn't use page title this way #}
 {% if page['#title'] == 'user' %}
-  {% set page_class = 'block primary-gray' %}
+  {% set page_class = 'block primary-white' %}
 {% elseif page['#title'] == 'Kontaktliste' %}
   {% set page_class = 'block primary-white' %}
 {% endif %}
@@ -56,7 +56,7 @@
 <main role="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-  <div class="{{ os2loop_container_class }} {{ page_class }} my-90">
+  <div class="{{ os2loop_container_class }} {{ page_class }} position-relative my-90">
     {{ page.content }}
   </div>{# /.layout-content #}
 
