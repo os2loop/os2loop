@@ -66,6 +66,7 @@
  * @ingroup themeable
  */
 #}
+
 {# Remove comment id from element id on top comment #}
 {% if attributes.hasClass('top-comment') %}
   {% set attributes = attributes.setAttribute('id', 'top-comment') %}
@@ -79,8 +80,8 @@
   #}
   <div class="d-flex align-items-center row no-gutters">
     <div class="entity-header row no-gutters">
-    {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created, entity: comment, attributes: attributes} %}
-    {% include '@os2loop_theme/navigation/comment-tasks.html.twig' with {node: drupal_entity('node', comment.entity_id.target_id)} %}
+      {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created, entity: comment, attributes: attributes} %}
+      {% include '@os2loop_theme/navigation/comment-tasks.html.twig' with {node: drupal_entity('node', comment.entity_id.target_id)} %}
     </div>
   </div>
   {#
