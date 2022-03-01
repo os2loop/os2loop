@@ -15,7 +15,9 @@ label: 'Anonymous author?'
 description: 'Choose if you want to show your name when people view your question.'
 required: true
 translatable: true
-default_value: {  }
+default_value:
+  -
+    value: '1'
 default_value_callback: ''
 settings: {  }
 field_type: list_string

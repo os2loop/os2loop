@@ -2,15 +2,15 @@ cancel_confirm:
   body: |-
     [user:display-name],
 
-    En anmodning om at opsige din konto er foretaget på [site:name].
+    A request to cancel your account has been made at [site:name].
 
-    Du kan nu opsige din konto på [site:url-brief] ved at klikke på linket eller kopiere det ind i din browser:
+    You may now cancel your account on [site:url-brief] by clicking this link or copying and pasting it into your browser:
 
     [user:cancel-url]
 
-    BEMÆRK: Opsigelse af kontoen kan ikke fortrydes.
+    NOTE: The cancellation of your account is not reversible.
 
-    Dette link udløber om 24 timer og intet vil ske hvis det ikke bliver brugt.
+    This link expires in one day and nothing will happen if it is not used.
 
     --  [site:name] team
   subject: 'Anmodning om opsigelse af konto for [user:display-name] på [site:name]'

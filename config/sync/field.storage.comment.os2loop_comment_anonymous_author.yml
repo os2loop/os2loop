@@ -13,10 +13,10 @@ settings:
   allowed_values:
     -
       value: '1'
-      label: 'Yes'
+      label: Nej
     -
       value: '0'
-      label: 'No'
+      label: Ja
   allowed_values_function: ''
 module: options
 locked: false

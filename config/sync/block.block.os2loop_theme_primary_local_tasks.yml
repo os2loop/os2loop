@@ -2,6 +2,8 @@ uuid: a32a1e68-3a4a-4f83-8f73-7d387b19cc30
 langcode: en
 status: true
 dependencies:
+  module:
+    - user
   theme:
     - os2loop_theme
 _core:
@@ -19,4 +21,11 @@ settings:
   label_display: '0'
   primary: true
   secondary: false
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      os2loop_user_administrator: os2loop_user_administrator
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

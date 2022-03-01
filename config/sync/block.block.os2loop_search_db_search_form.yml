@@ -36,5 +36,5 @@ visibility:
       node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: "# Show only on node view page (works with \"Hide for the listed pages\" and selected content types)\r\n/node/*/*"
+    pages: "# Show only on node view page (works with \"Hide for the listed pages\" and selected content types)\r\n/node/*"
     negate: true
