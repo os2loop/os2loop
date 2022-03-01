@@ -28,12 +28,11 @@ third_party_settings:
   field_group:
     group_user_personal_information:
       children:
-        - os2loop_user_image
         - os2loop_user_given_name
         - os2loop_user_family_name
         - os2loop_user_phone_number
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: fieldset
       region: content
       format_settings:
@@ -42,37 +41,11 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Personlig information'
-    group_profession:
-      children:
-        - os2loop_user_professions
-      parent_name: ''
-      weight: 3
-      format_type: fieldset
-      region: content
-      format_settings:
-        description: ''
-        required_fields: true
-        id: ''
-        classes: ''
-      label: Profession
-    group_areas_of_expertise:
-      children:
-        - os2loop_user_areas_of_expertise
-      parent_name: ''
-      weight: 4
-      format_type: fieldset
-      region: content
-      format_settings:
-        description: ''
-        required_fields: true
-        id: ''
-        classes: ''
-      label: Kompetencer
     group_description:
       children:
         - os2loop_user_biography
       parent_name: ''
-      weight: 6
+      weight: 4
       format_type: fieldset
       region: content
       format_settings:
@@ -88,7 +61,7 @@ third_party_settings:
         - os2loop_user_postal_code
         - os2loop_user_city
       parent_name: ''
-      weight: 5
+      weight: 3
       format_type: fieldset
       region: content
       format_settings:
@@ -100,6 +73,8 @@ third_party_settings:
     group_job_title:
       children:
         - os2loop_user_job_title
+        - os2loop_user_areas_of_expertise
+        - os2loop_user_professions
       parent_name: ''
       weight: 2
       format_type: fieldset
@@ -115,7 +90,7 @@ third_party_settings:
         - os2loop_user_internal_list
         - os2loop_user_external_list
       parent_name: ''
-      weight: 7
+      weight: 5
       format_type: fieldset
       region: content
       format_settings:
@@ -128,7 +103,7 @@ third_party_settings:
       children:
         - os2loop_mail_notifications_intvl
       parent_name: ''
-      weight: 8
+      weight: 6
       format_type: fieldset
       region: content
       format_settings:
@@ -142,20 +117,15 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  account:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   os2loop_mail_notifications_intvl:
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   os2loop_user_address:
     type: string_textfield
-    weight: 1
+    weight: 20
     region: content
     settings:
       size: 60
@@ -163,7 +133,7 @@ content:
     third_party_settings: {  }
   os2loop_user_areas_of_expertise:
     type: autocomplete_deluxe
-    weight: 0
+    weight: 20
     region: content
     settings:
       match_limit: '0'
@@ -180,7 +150,7 @@ content:
     third_party_settings: {  }
   os2loop_user_biography:
     type: string_textarea
-    weight: 0
+    weight: 10
     region: content
     settings:
       rows: 5
@@ -188,14 +158,14 @@ content:
     third_party_settings: {  }
   os2loop_user_city:
     type: string_textfield
-    weight: 3
+    weight: 40
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   os2loop_user_external_list:
-    weight: 12
+    weight: 20
     settings:
       display_label: true
     third_party_settings: {  }
@@ -203,7 +173,7 @@ content:
     region: content
   os2loop_user_family_name:
     type: string_textfield
-    weight: 4
+    weight: 20
     region: content
     settings:
       size: 60
@@ -211,7 +181,7 @@ content:
     third_party_settings: {  }
   os2loop_user_given_name:
     type: string_textfield
-    weight: 3
+    weight: 10
     region: content
     settings:
       size: 60
@@ -219,7 +189,7 @@ content:
     third_party_settings: {  }
   os2loop_user_image:
     type: inline_entity_form_simple
-    weight: 2
+    weight: 1
     settings:
       form_mode: inline_media_form
       label_singular: ''
@@ -231,7 +201,7 @@ content:
     third_party_settings: {  }
     region: content
   os2loop_user_internal_list:
-    weight: 11
+    weight: 10
     settings:
       display_label: true
     third_party_settings: {  }
@@ -239,7 +209,7 @@ content:
     region: content
   os2loop_user_job_title:
     type: string_textfield
-    weight: 0
+    weight: 10
     region: content
     settings:
       size: 60
@@ -247,7 +217,7 @@ content:
     third_party_settings: {  }
   os2loop_user_phone_number:
     type: string_textfield
-    weight: 5
+    weight: 30
     region: content
     settings:
       size: 60
@@ -255,7 +225,7 @@ content:
     third_party_settings: {  }
   os2loop_user_place:
     type: string_textfield
-    weight: 0
+    weight: 10
     region: content
     settings:
       size: 60
@@ -263,7 +233,7 @@ content:
     third_party_settings: {  }
   os2loop_user_postal_code:
     type: string_textfield
-    weight: 2
+    weight: 30
     region: content
     settings:
       size: 60
@@ -271,7 +241,7 @@ content:
     third_party_settings: {  }
   os2loop_user_professions:
     type: autocomplete_deluxe
-    weight: 9
+    weight: 30
     region: content
     settings:
       match_limit: '0'
@@ -287,6 +257,7 @@ content:
       selection_handler: default
     third_party_settings: {  }
 hidden:
+  account: true
   langcode: true
   language: true
   timezone: true

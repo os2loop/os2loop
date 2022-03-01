@@ -9,7 +9,7 @@ settings:
   username: ''
   password: ''
   binary_location: /usr/local/bin/wkhtmltopdf
-  zoom: '1'
+  zoom: !!float 1
   toc_generate: false
   toc_enable_back_links: false
   toc_disable_dotted_lines: false
