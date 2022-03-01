@@ -91,7 +91,9 @@
         {{ content.os2loop_shared_category }}
       </div>
     </div>
-    <div class="entity-header d-flex align-items-top">{% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}</div>
+    <div class="entity-header d-flex align-items-top">
+      {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}
+    </div>
     <div{{ content_attributes.addClass('entity-body mb-30') }}>
       {{ content.os2loop_question_content }}
       <div class="row mt-30">

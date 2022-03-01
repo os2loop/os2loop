@@ -27,20 +27,21 @@
  */
 #}
 
-  <section{{ attributes }}>
-    {% if comments and not label_hidden %}
-      {{ title_prefix }}
-      <h3{{ title_attributes }}>{{ label }}</h3>
-      {{ title_suffix }}
-    {% endif %}
-    {{ comments }}
-  </section>
-{# This tag closes the <div> opened in 'node--os2loop-question.html.twig' #}
-</div>
-{% if comment_form %}
-<div class="block primary-gray mt-30">
-  {{ comment_form }}
-</div>
-{% endif %}
+    <section{{ attributes }}>
+      {% if comments and not label_hidden %}
+        {{ title_prefix }}
+        <h3{{ title_attributes }}>{{ label }}</h3>
+        {{ title_suffix }}
+      {% endif %}
+      {{ comments }}
+    </section>
+  {# This tag closes the <div> opened in 'node--os2loop-question.html.twig' #}
+  </div>
+  {% if comment_form %}
+  <div class="block primary-gray mt-30">
+    <h4{{ content_attributes }}>{{ 'Add new answer'|t }}</h4>
+    {{ comment_form }}
+  </div>
+  {% endif %}
 {# This tag closes the <article> opened in 'node--os2loop-question.html.twig' #}
 </article>
