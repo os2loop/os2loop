@@ -6,6 +6,7 @@ dependencies:
     - convert_media_tags_to_markup
     - editor
     - media
+    - toc_filter
     - token_filter
 name: 'Document body (legacy)'
 format: os2loop_documents_body
@@ -91,3 +92,12 @@ filters:
     weight: -42
     settings:
       replace_empty: '0'
+  toc_filter:
+    id: toc_filter
+    provider: toc_filter
+    status: true
+    weight: 0
+    settings:
+      type: default
+      auto: ''
+      block: '0'

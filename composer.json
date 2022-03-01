@@ -75,6 +75,7 @@
         "drupal/snowball_stemmer": "^2.0",
         "drupal/theme_switcher": "dev-8.x-1.x",
         "drupal/toc_api": "^1.1",
+        "drupal/toc_filter": "^2.0",
         "drupal/token": "^1.9",
         "drupal/token_filter": "^1.2",
         "drupal/twig_tweak": "^3.0",
@@ -121,7 +122,15 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal/console-extend-plugin": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true
+        }
     },
     "extra": {
         "drupal-scaffold": {
