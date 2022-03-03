@@ -1,56 +1,56 @@
 @mixin link-icon(
-  $content: null,
-  $color: $icon-base-color,
-  $hover-color: $dark-icon-base-color
+	$content: null,
+	$color: $icon-base-color,
+	$hover-color: $dark-icon-base-color
 ) {
-  background-color: $color;
+	background-color: $color;
 
-  &:hover {
-    background-color: $hover-color;
-  }
+	&:hover {
+		background-color: $hover-color;
+	}
 
-  a {
-    @if $content {
-      width: 100%;
-      height: 100%;
-      padding: 4px;
-      text-align: center;
+	a {
+		@if $content {
+			width: 100%;
+			height: 100%;
+			padding: 4px;
+			text-align: center;
 
-      &:hover {
-        text-decoration: none;
-      }
+			&:hover {
+				text-decoration: none;
+			}
 
-      &::before {
-        color: contrast-color($color);
-        font-size: 1.2em;
-        font-family: bootstrap-icons !important;
-        content: $content;
-      }
-      &:focus-visible {
-        .visually-hidden {
-          position: relative !important;
-          color: contrast-color($color);
-        }
-      }
-    }
-  }
+			&::before {
+				color: contrast-color($color);
+				font-size: 1.2em;
+				font-family: bootstrap-icons !important;
+				content: $content;
+			}
+			&:focus-visible {
+				.visually-hidden {
+					position: relative !important;
+					color: contrast-color($color);
+				}
+			}
+		}
+	}
 }
 
 @mixin icon(
-  $content: null,
-  $font-size: 1em,
-  $margin-right: $spacer,
-  $icon-position: middle
+	$content: null,
+	$font-size: 1em,
+	$margin-right: $spacer,
+	$icon-position: middle
 ) {
-  @if $content {
-    &::before {
-      color: $icon-base-color;
-      font-size: $font-size;
-      margin-right: $margin-right;
-      font-family: bootstrap-icons !important;
-      content: $content;
-      vertical-align: $icon-position;
-      float: left;
-    }
-  }
+	@if $content {
+		&::before {
+			color: $icon-base-color;
+			font-size: $font-size;
+			margin-right: $margin-right;
+			font-family: bootstrap-icons !important;
+			content: $content;
+			vertical-align: $icon-position;
+			float: left;
+		}
+	}
 }

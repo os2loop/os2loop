@@ -1,0 +1,15 @@
+@import "../../signifly-variables/colors.scss";
+
+.text-sm {
+	color: $gray-600;
+	font-size: 14px;
+}
+
+ul {
+	padding-left: 25px;
+}
+
+li {
+	padding-left: 25px;
+	margin-bottom: 10px;
+}

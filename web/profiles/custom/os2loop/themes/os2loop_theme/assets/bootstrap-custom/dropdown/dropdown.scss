@@ -1,0 +1,22 @@
+@import "../../signifly-variables/colors.scss";
+@import "../../signifly-variables/variables.scss";
+
+.navbar-nav .dropdown-menu {
+	margin-top: 0;
+	top: calc((100% + #{$logo-height}) / 2 + #{$navbar-padding-y});
+}
+
+// TODO: This should probably be set with a class in the HTML
+.dropdown-item:last-child {
+	color: $loop-red;
+}
+
+.dropdown-item,
+.dropdown-divider {
+	+ .dropdown-item {
+		margin-top: 9px;
+	}
+	+ .dropdown-divider {
+		margin-top: 9px;
+	}
+}

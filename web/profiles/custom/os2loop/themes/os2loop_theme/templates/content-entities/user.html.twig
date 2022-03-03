@@ -18,76 +18,70 @@
  * @ingroup themeable
  */
 #}
-<article{{ attributes.addClass('') }}>
+
+<div class="user-profile icon-container">
+  <div class="icon edit" data-toggle="tooltip" title data-original-title="Rediger profil">
+    <a aria-label="Rediger profil" href={{ path('<current>') ~ '/edit' }}>
+      <span class="visually-hidden">{{ 'Rediger svar' }}</span>
+    </a>
+  </div>
+</div>
+<article{{ attributes.addClass('user-profile', 'rounded-lg', 'p-30') }}>
   {% if content %}
-    <div class="row mt-5">
-      <div class="col order-2 order-md-1">
-        <div class="row">
-          <div class="col-lg-4">
-            <p class="small p-0 m-0">{{ 'User name'|t }}</p>
-            <p>{{ user.name.value }}</p>
-          </div>
-          <div class="col-lg-4">
-            <p class="small p-0 m-0">{{ 'Email'|t }}</p>
-            <p>{{ user.mail.value }}</p>
-          </div>
-          <div class="col-lg-4">
-            {{ content.os2loop_user_phone_number }}
-          </div>
+  {% set initials = (user.os2loop_user_given_name.value|first ~ user.os2loop_user_family_name.value|first)|upper %}
+  {% set full_name = user.os2loop_user_given_name.value ~ ' ' ~ user.os2loop_user_family_name.value %}
+  {% set street_address = ((user.os2loop_user_address.value is not empty ? user.os2loop_user_address.value : '') ~ ', ' ~ (user.os2loop_user_postal_code.value is not empty ? user.os2loop_user_postal_code.value : '') ~ (user.os2loop_user_city.value is not empty ? ' ' ~ user.os2loop_user_city.value : ''))|trim(', ', 'left') %}
+    <div class="row">
+      <div class="col-2 order-1">
+        <div class="user-image">
+          {{ (user.os2loop_user_image.value is not empty) ? content.os2loop_user_image : initials }}
         </div>
+      </div>
+      <div class="col-10 order-2">
         <div class="row">
           <div class="col">
-            <h2 class="h4 border-bottom pb-2 mt-3 mt-md-5">{{ 'Job profile'|t }}</h2>
+            <h5 class="m-0">{{ full_name }}</h5>
+            <p class="m-0">{{ user.os2loop_user_job_title.value }}</p>
+          </div>
+        </div>
+        <div class="row mt-30">
+          <div class="col">
             <div class="row">
-              <div class="col-lg-4">
-                {{ content.os2loop_user_job_title }}
+              <div class="col-3">
+              {% if user.os2loop_user_phone_number.value is not empty %}
+                <div class="user-contact-information mb-10">
+                  <i class="bi bi-telephone"></i>
+                  <p>{{ user.os2loop_user_phone_number.value }}</p>
+                </div>
+              {% endif %}
+                <div class="user-contact-information">
+                  <i class="bi bi-envelope"></i>
+                  <p>{{ user.mail.value }}</p>
+                </div>
               </div>
-              <div class="col-lg-4">
-                {{ content.os2loop_user_areas_of_expertise }}
-              </div>
-              <div class="col-lg-4">
-                {{ content.os2loop_user_professions }}
+              <div class="col-6">
+                <div class="user-contact-information">
+                  <i class="bi bi-geo-alt"></i>
+                  <div>
+                    <p>{{ user.os2loop_user_place.value }}</p>
+                    <p>{{ street_address }}</p>
+                  <div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row mt-40">
           <div class="col">
-            <h2 class="h4 border-bottom pb-2 mt-3 mt-md-5">{{ 'Location'|t }}</h2>
-            <div class="row">
-              <div class="col-lg-3">
-                {{ content.os2loop_user_place }}
-              </div>
-              <div class="col-lg-3">
-                {{ content.os2loop_user_address }}
-              </div>
-              <div class="col-lg-3">
-                {{ content.os2loop_user_postal_code }}
-              </div>
-              <div class="col-lg-3">
-                {{ content.os2loop_user_city }}
-              </div>
-            </div>
+            {{ content.os2loop_user_areas_of_expertise }}
           </div>
         </div>
-        <div class="row">
-          <div class="col">
+        <div class="row mt-30">
+          <div class="col pr-140">
             {{ content.os2loop_user_biography }}
           </div>
-        </div>
-      </div>
-      <div class="col-auto order-1 order-md-2 mb-3 mb-md-0">
-        <div class="bg-light border rounded p-3">
-          {% if user.os2loop_user_image.value is not empty %}
-          <div class="user-profile-image">
-            {{ content.os2loop_user_image }}
-          </div>
-          {% else %}
-          <i class="bi bi-person-circle display-1"></i>
-          {% endif %}
-          <p class="small mt-2">{{ user.os2loop_user_given_name.value }} {{ user.os2loop_user_family_name.value }}</p>
-        </div>
       </div>
     </div>
+  </div>
   {% endif %}
 </article>

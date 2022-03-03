@@ -1,0 +1,68 @@
+.comment-form {
+	@include anonymous-author-fieldset(
+		"edit-os2loop-comment-anonymous-author--wrapper"
+	);
+
+	label,
+	.legend-text {
+		font-size: $font-size-base;
+		margin: 0;
+	}
+
+	.legend-text {
+		height: 100%;
+	}
+
+	.legend-inline {
+		margin-bottom: 0;
+
+		span {
+			line-height: 1;
+			vertical-align: middle;
+		}
+	}
+
+	.form-required::after {
+		content: "*";
+		color: $loop-red;
+	}
+
+	.description {
+		font-size: $font-size-sm;
+		color: $gray-600;
+	}
+
+	// TODO: handle layout in Twig file instead
+	label[for="edit-os2loop-question-answer-0-value"] {
+		margin-bottom: 12px;
+	}
+
+	.field-legend-wrapper {
+		margin-bottom: 7px;
+
+		legend {
+			margin-left: 8px;
+		}
+	}
+
+	.form-wrapper + .form-wrapper:not(:last-child) {
+		margin-top: 20px;
+	}
+
+	.upload-button {
+		@include inline-icon("\f603", 10px);
+
+		label {
+			color: inherit;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	#edit-submit {
+		display: flex;
+		margin-left: auto;
+	}
+}

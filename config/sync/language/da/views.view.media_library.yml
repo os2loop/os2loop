@@ -60,10 +60,9 @@ display:
         display_link_table:
           label: Tabel
   widget_table:
+    display_title: 'Widget (table)'
     display_options:
       fields:
-        thumbnail__target_id:
-          label: Thumbnail
         name:
           label: Navn
         uid:

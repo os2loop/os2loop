@@ -1,7 +1,7 @@
 .user-profile-image {
-  img {
-    max-width: 300px;
-    @extend .rounded;
-    @extend .overflow-hidden;
-  }
+	img {
+		max-width: 300px;
+		@extend .rounded;
+		@extend .overflow-hidden;
+	}
 }

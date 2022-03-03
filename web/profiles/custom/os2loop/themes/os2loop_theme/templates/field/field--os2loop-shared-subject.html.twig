@@ -40,7 +40,7 @@
 #}
 {% import '@os2loop_theme/macros.html.twig' as macros %}
 
-<div{{ attributes }}>
+<div{{ attributes }} class="d-inline-flex align-middle">
   <span{{ title_attributes }}>{{ label }}:</span>
   {% for item in items %}
     {% set color_picker_value = item.content['#options'].entity.os2loop_taxonomy_color_picker.value|default('') %}

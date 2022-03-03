@@ -3,68 +3,70 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css"; // Import bootstrap icons
 
 // Colors
-@import "colors";
-@import "bootstrap-contrast-fixes";
+@import "colors.scss";
+@import "signifly-variables/colors.scss";
+
+// Variables
+@import "signifly-variables/variables.scss";
 
 // Components
-@import "mixins";
-@import "helper-classes";
-@import "./comment";
-@import "./teasers";
-@import "./documents";
-@import "./title";
-@import "./tabs";
-@import "./fields";
-@import "./form";
-@import "./icons";
-@import "./search";
-@import "./terms";
-@import "./navbar";
-@import "./toc";
-@import "./member-view";
-@import "./media-library";
-@import "./paragraphs/step-by-step";
-@import "./paragraphs/highlighted-content";
-@import "./paragraphs/text-and-image";
-@import "./paragraphs/info-block";
-@import "./taxonomy-colors";
-@import "./os2loop-user-login";
-@import "./colored-checkboxes";
-@import "collapse";
+@import "mixins.scss";
+@import "helper-classes.scss";
+@import "comment.scss";
+@import "teasers.scss";
+@import "documents.scss";
+@import "tabs.scss";
+@import "fields.scss";
+@import "icons.scss";
+@import "search.scss";
+@import "navbar.scss";
+@import "toc.scss";
+@import "member-view.scss";
+@import "media-library.scss";
+@import "paragraphs/step-by-step.scss";
+@import "paragraphs/highlighted-content.scss";
+@import "paragraphs/text-and-image.scss";
+@import "paragraphs/info-block.scss";
+@import "taxonomy-colors.scss";
+@import "collapse.scss";
 @import "_user.scss";
 
 // Generel overrides
 body {
-  background-color: $gray-100;
+	background-color: $gray-100;
 }
 
 a {
-  color: $link-color;
-  &:hover {
-    color: darken($link-color, 10%);
-  }
+	color: $link-color;
+	&:hover {
+		color: darken($link-color, 10%);
+	}
 }
 
 .bg-white-loop {
-  background-color: $white;
-  margin-bottom: $spacer * 2;
+	background-color: $white;
+	margin-bottom: $spacer * 2;
 }
 
 .bg-secondary-loop {
-  border-radius: 3px;
-  margin-bottom: $spacer * 2;
+	border-radius: 3px;
+	margin-bottom: $spacer * 2;
 }
 
 i {
-  font-size: 1.2em;
+	font-size: 1.2em;
 }
 
 .os2loop-content {
-  position: relative;
+	position: relative;
 }
 
 img {
-  max-width: 100%;
-  object-fit: contain;
-  height: auto;
+	max-width: 100%;
+	object-fit: contain;
+	height: auto;
 }
+
+// Novataris components from Signifly redesign
+@import "bootstrap-custom/bootstrap-custom-index.scss";
+@import "signifly-custom/custom-index.scss";

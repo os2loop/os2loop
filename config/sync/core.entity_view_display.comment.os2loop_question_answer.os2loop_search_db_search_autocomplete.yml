@@ -5,6 +5,7 @@ dependencies:
   config:
     - comment.type.os2loop_question_answer
     - core.entity_view_mode.comment.os2loop_search_db_search_autocomplete
+    - field.field.comment.os2loop_question_answer.os2loop_comment_anonymous_author
     - field.field.comment.os2loop_question_answer.os2loop_question_answer
     - field.field.comment.os2loop_question_answer.os2loop_question_answer_media
 id: comment.os2loop_question_answer.os2loop_search_db_search_autocomplete

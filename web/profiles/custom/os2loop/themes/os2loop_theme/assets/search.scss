@@ -24,173 +24,173 @@ $search-icon: bg-icon($search-icon-bg, $icon-color);
 #block-os2loop-search-db-search-form,
 #block-os2loop-search-db-search,
 #views-exposed-form-os2loop-search-db-page-search-form {
-  // Hide submit button and search field label.
-  .form-actions,
-  .form-type-search-api-autocomplete label {
-    display: none;
-  }
+	// Hide submit button and search field label.
+	.form-actions,
+	.form-type-search-api-autocomplete label {
+		display: none;
+	}
 
-  .form-autocomplete {
-    @extend .form-control-lg;
-    border-radius: 1em;
+	.form-autocomplete {
+		@extend .form-control-lg;
+		border-radius: 1em;
 
-    // Make room for background images
-    padding-left: 50px;
-    padding-right: 50px;
+		// Make room for background images
+		padding-left: 50px;
+		padding-right: 50px;
 
-    background: {
-      image: $search-icon;
-      position: $search-icon-padding center;
-      size: 24px 24px;
-      repeat: no-repeat;
-    }
+		background: {
+			image: $search-icon;
+			position: $search-icon-padding center;
+			size: 24px 24px;
+			repeat: no-repeat;
+		}
 
-    &:focus {
-      border-color: $gray-400;
-      box-shadow: 0 0 0.5em $gray-500;
-    }
-  }
+		&:focus {
+			border-color: $gray-400;
+			box-shadow: 0 0 0.5em $gray-500;
+		}
+	}
 
-  .search-api-autocomplete-has-suggestions {
-    .form-autocomplete {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-  }
+	.search-api-autocomplete-has-suggestions {
+		.form-autocomplete {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
 }
 
 .search-api-autocomplete-search.ui-widget.ui-widget-content {
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-  border-top: none;
-  border-color: $gray-400;
-  box-shadow: 0 0 0.5em $gray-500;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+	border-top: none;
+	border-color: $gray-400;
+	box-shadow: 0 0 0.5em $gray-500;
 }
 
 // See search_api_autocomplete/css/search_api_autocomplete.css for hints on how
 // to override the default styling of the autocomplete suggestions.
 
 .search-api-autocomplete-search .ui-menu-item:hover {
-  background: none;
+	background: none;
 }
 
 $search-highlight-color: $light;
 
 .search-api-autocomplete-search .ui-menu-item-wrapper {
-  display: block;
-  padding: 0.5em 0;
+	display: block;
+	padding: 0.5em 0;
 
-  &:hover {
-    background: $search-highlight-color;
-  }
+	&:hover {
+		background: $search-highlight-color;
+	}
 
-  &.ui-state-active {
-    background: $search-highlight-color;
-  }
+	&.ui-state-active {
+		background: $search-highlight-color;
+	}
 }
 
 .icon-list,
 .search-result,
 .search-autocomplete {
-  @each $content-type in $content-types {
-    &.#{$content-type},
-    &.search-result--node--#{$content-type},
-    &.search-autocomplete--node--#{$content-type} {
-      @include icon(
-        map.get($icons-content-types, $content-type),
-        $search-icon-size - $search-icon-padding,
-        $margin-right: $search-icon-padding,
-        $icon-position: top
-      );
-    }
-  }
+	@each $content-type in $content-types {
+		&.#{$content-type},
+		&.search-result--node--#{$content-type},
+		&.search-autocomplete--node--#{$content-type} {
+			@include icon(
+				map.get($icons-content-types, $content-type),
+				$search-icon-size - $search-icon-padding,
+				$margin-right: $search-icon-padding,
+				$icon-position: top
+			);
+		}
+	}
 
-  @each $comment-type in $comment-types {
-    &.#{$comment-type},
-    &.search-result--comment--#{$comment-type},
-    &.search-autocomplete--comment--#{$comment-type} {
-      @include icon(
-        map.get($icons-comment-types, $comment-type),
-        $search-icon-size - $search-icon-padding,
-        $margin-right: $search-icon-padding,
-        $icon-position: top
-      );
-    }
-  }
+	@each $comment-type in $comment-types {
+		&.#{$comment-type},
+		&.search-result--comment--#{$comment-type},
+		&.search-autocomplete--comment--#{$comment-type} {
+			@include icon(
+				map.get($icons-comment-types, $comment-type),
+				$search-icon-size - $search-icon-padding,
+				$margin-right: $search-icon-padding,
+				$icon-position: top
+			);
+		}
+	}
 
-  padding-left: $search-icon-padding;
-  padding-right: $search-icon-padding;
-  padding-top: $spacer/2;
-  padding-bottom: $spacer/2;
+	padding-left: $search-icon-padding;
+	padding-right: $search-icon-padding;
+	padding-top: $spacer/2;
+	padding-bottom: $spacer/2;
 
-  .prefix {
-    font-weight: bold;
-    font-style: italic;
-  }
+	.prefix {
+		font-weight: bold;
+		font-style: italic;
+	}
 }
 
 .search-autocomplete {
-  @each $content-type in $content-types {
-    &.search-result--node--#{$content-type},
-    &.search-autocomplete--node--#{$content-type} {
-      @include icon(
-        map.get($icons-content-types, $content-type),
-        $search-icon-size-sm - $search-icon-padding,
-        $margin-right: $search-icon-padding,
-        $icon-position: top
-      );
-    }
-  }
+	@each $content-type in $content-types {
+		&.search-result--node--#{$content-type},
+		&.search-autocomplete--node--#{$content-type} {
+			@include icon(
+				map.get($icons-content-types, $content-type),
+				$search-icon-size-sm - $search-icon-padding,
+				$margin-right: $search-icon-padding,
+				$icon-position: top
+			);
+		}
+	}
 
-  @each $comment-type in $comment-types {
-    &.search-result--comment--#{$comment-type},
-    &.search-autocomplete--comment--#{$comment-type} {
-      @include icon(
-        map.get($icons-comment-types, $comment-type),
-        $search-icon-size-sm - $search-icon-padding,
-        $margin-right: $search-icon-padding,
-        $icon-position: top
-      );
-    }
-  }
+	@each $comment-type in $comment-types {
+		&.search-result--comment--#{$comment-type},
+		&.search-autocomplete--comment--#{$comment-type} {
+			@include icon(
+				map.get($icons-comment-types, $comment-type),
+				$search-icon-size-sm - $search-icon-padding,
+				$margin-right: $search-icon-padding,
+				$icon-position: top
+			);
+		}
+	}
 
-  padding-left: $search-icon-padding;
-  padding-right: $search-icon-padding;
-  padding-top: $spacer/4;
-  padding-bottom: $spacer/4;
+	padding-left: $search-icon-padding;
+	padding-right: $search-icon-padding;
+	padding-top: $spacer/4;
+	padding-bottom: $spacer/4;
 
-  .search-autocomplete-suggestion {
-    display: inline-block;
-    vertical-align: middle;
+	.search-autocomplete-suggestion {
+		display: inline-block;
+		vertical-align: middle;
 
-    h2 {
-      font-size: 1em;
-      font-weight: bold;
-      color: $link-color;
-      margin-bottom: 0;
-    }
-  }
+		h2 {
+			font-size: 1em;
+			font-weight: bold;
+			color: $link-color;
+			margin-bottom: 0;
+		}
+	}
 }
 
 .search-result--wrapper {
-  min-height: 45px;
+	min-height: 45px;
 }
 
 // Override hover effect on see all results.
 .search-api-autocomplete-search {
-  .ui-menu-item:last-child .ui-menu-item-wrapper {
-    @extend .btn;
-    @extend .btn-secondary;
-    @extend .btn-sm;
+	.ui-menu-item:last-child .ui-menu-item-wrapper {
+		@extend .btn;
+		@extend .btn-secondary;
+		@extend .btn-sm;
 
-    background-color: $secondary;
-    margin: 1em;
-    transition: none;
+		background-color: $secondary;
+		margin: 1em;
+		transition: none;
 
-    .search-api-autocomplete-suggestion {
-      background: none !important;
-    }
-  }
+		.search-api-autocomplete-suggestion {
+			background: none !important;
+		}
+	}
 }
 
 // @see https://blog.maximerouiller.com/post/remove-the-x-from-internet-explorer-and-chrome-input-type-search/
@@ -199,47 +199,43 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
-  display: none;
+	display: none;
 }
 
 // Adding a highligt color for search_api_excerpt
 .search_api_excerpt strong {
-  background-color: $warning;
-  padding-left: 1px;
-  padding-right: 1px;
+	background-color: $warning;
+	padding-left: 1px;
+	padding-right: 1px;
 }
 
 // Hide title on content type filters on search results page
 .block-facet--os2loop-search-db-document {
-  h2 {
-    @include sr-only;
-  }
+	h2 {
+		@include sr-only;
+	}
 }
 
 .facets-widget-os2loop_search_db_document {
-  label {
-    @extend .form-check-label;
-  }
-  .facets-checkbox {
-    @extend .form-check-input;
-  }
+	label {
+		@extend .form-check-label;
+	}
+	.facets-checkbox {
+		@extend .form-check-input;
+	}
 }
 
 // Hide empty facets.
 .facet-empty.facet-hidden {
-  display: none;
+	display: none;
 }
 
 .block-facet--checkbox {
-  .dropdown-menu {
-    min-width: 200px;
-  }
+	.dropdown-menu {
+		min-width: 200px;
+	}
 
-  .facet-item {
-    margin: 0 0.5em;
-  }
-}
-
-.search-sort-btn.active {
-  text-decoration: underline;
+	.facet-item {
+		margin: 0 0.5em;
+	}
 }

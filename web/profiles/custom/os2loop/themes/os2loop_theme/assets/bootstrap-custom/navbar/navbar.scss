@@ -1,0 +1,28 @@
+@import "../..//signifly-variables/colors.scss";
+@import "../../signifly-variables/variables.scss";
+
+.navbar {
+	.brand-logo {
+		max-height: $logo-height;
+	}
+
+	.navbar-nav {
+		.nav-item + .nav-item {
+			margin-left: 10px;
+		}
+
+		.nav-link {
+			color: $loop-white;
+			border-radius: 8px;
+			line-height: 1;
+
+			&:hover {
+				background-color: $loop-green-400;
+			}
+
+			&.active {
+				background-color: $loop-green-600;
+			}
+		}
+	}
+}

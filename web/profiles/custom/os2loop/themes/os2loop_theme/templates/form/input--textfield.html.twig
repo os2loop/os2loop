@@ -10,9 +10,26 @@
  * @see template_preprocess_input()
  */
 #}
+{% set classes = [
+    'form-control',
+    'rounded',
+    'no-background-image'
+  ]
+%}
 
 {# Apparently using hook_form_alter to set the input type to "search" breaks autocompleting #}
 {% if 'search_api_autocomplete' == element['#type'] %}
   {% set attributes = attributes.removeClass('form-text').setAttribute('type', 'search') %}
+  {% set show_search_button = TRUE %}
 {% endif %}
-<input{{ attributes.addClass('form-control') }}/>
+
+<div>
+  <div class="input-group">
+    <input{{ attributes.addClass(classes) }}/>
+    {% if show_search_button %}
+    <span class="input-group-btn">
+      <button class="btn btn-primary btn-lg ml-20" data-search-api-autocomplete-search="os2loop_search_db">{{ 'Search'|t }}</button>
+    </span>
+    {% endif %}
+  </div>
+</div>

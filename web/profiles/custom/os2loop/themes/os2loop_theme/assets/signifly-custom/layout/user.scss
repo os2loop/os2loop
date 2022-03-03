@@ -1,0 +1,120 @@
+.user-image {
+	@extend .rounded-circle;
+	@extend .overflow-hidden;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: $user-image-size;
+	height: $user-image-size;
+
+	background-color: $gray-400;
+	color: $gray-800;
+
+	font-size: $font-size-sm;
+	font-weight: 500;
+
+	img {
+		min-width: $user-image-size;
+		min-height: $user-image-size;
+
+		object-fit: cover;
+	}
+}
+
+.user-name {
+	line-height: 1;
+
+	a,
+	p {
+		color: inherit;
+		margin: 0;
+
+		+ span {
+			margin-top: 7px;
+		}
+	}
+
+	:not(.h5) > a,
+	:not(.h5) > p {
+		font-size: $font-size-base;
+		font-weight: $badge-font-weight;
+	}
+
+	a:hover {
+		text-decoration: inherit;
+		color: inherit;
+	}
+
+	span {
+		color: inherit;
+		margin: 0;
+
+		font-size: $font-size-sm;
+	}
+}
+
+.user-profile {
+	background-color: $gray-100;
+
+	&.icon-container {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+
+		background-color: transparent;
+
+		.icon {
+			background-color: $loop-green-400;
+			color: $loop-white;
+			font-size: $font-size-base;
+		}
+	}
+
+	.user-image {
+		width: $user-image-profile-size;
+		height: $user-image-profile-size;
+
+		font-size: 40px;
+
+		img {
+			min-width: $user-image-profile-size;
+			min-height: $user-image-profile-size;
+		}
+	}
+
+	.user-contact-information {
+		display: flex;
+
+		i,
+		p {
+			margin: 0;
+		}
+
+		i {
+			font-size: $user-contact-icon-size;
+			line-height: 1;
+
+			// hack to align icon with first row of multi-line text
+			padding-top: calc(
+				(#{$font-size-base} * #{$line-height-base} - #{$user-contact-icon-size}) /
+					2
+			);
+			margin-right: $user-contact-icon-spacer;
+		}
+
+		div {
+			display: block;
+		}
+	}
+
+	.user-profile-badge-container {
+		display: flex;
+		flex-wrap: wrap;
+
+		.badge-secondary {
+			margin-right: 10px;
+		}
+	}
+}

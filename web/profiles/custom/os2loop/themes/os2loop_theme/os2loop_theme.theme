@@ -26,6 +26,7 @@ function os2loop_theme_preprocess(&$variables) {
 function os2loop_theme_preprocess_html(&$variables) {
   // Set page head title.
   $path = \Drupal::routeMatch()->getRouteObject()->getPath();
+
   if ('/user/{user}' === $path) {
     $user = \Drupal::routeMatch()->getParameter('user');
     $variables['head_title']['title'] = $user->os2loop_user_given_name->value . ' ' . $user->os2loop_user_family_name->value;
@@ -39,6 +40,7 @@ function os2loop_theme_preprocess_html(&$variables) {
  */
 function os2loop_theme_preprocess_node(&$variables) {
   $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+
   if ($variables['view_mode'] === 'teaser') {
     if ($variables['node']->getType() === 'os2loop_question') {
       $variables['comment_count'] = $variables['node']->get('os2loop_question_answers')->comment_count;
@@ -56,9 +58,15 @@ function os2loop_theme_preprocess_block(&$variables) {
   // Set page title for user/[uid] pages.
   if ('page_title_block' == $variables['plugin_id']) {
     $path = \Drupal::routeMatch()->getRouteObject()->getPath();
-    if ('/user/{user}' === $path) {
-      $user = \Drupal::routeMatch()->getParameter('user');
-      $variables['content']['#title'] = $user->os2loop_user_given_name->value . ' ' . $user->os2loop_user_family_name->value;
+
+    switch ($path) {
+      case '/user/{user}':
+        $variables['content']['#title'] = 'Profile';
+        break;
+
+      case '/user/{user}/edit':
+        $variables['content']['#title'] = 'Edit profile';
+        break;
     }
   }
 }
@@ -245,5 +253,15 @@ function os2loop_theme_preprocess_views_view(&$variables) {
   if ('os2loop_messages' == $variables['view']->id()) {
     // Execute the query without pager limitations.
     $variables['total_rows'] = $variables['view']->query->query()->countQuery()->execute()->fetchField();
+  }
+}
+
+/**
+ * Implements hook_preprocess_form_element().
+ */
+function os2loop_theme_preprocess_form_element(&$variables) {
+  if ($variables['element']['#type'] == 'managed_file') {
+    $variables['description_display'] = 'before';
+    $variables['label_display'] = 'after';
   }
 }

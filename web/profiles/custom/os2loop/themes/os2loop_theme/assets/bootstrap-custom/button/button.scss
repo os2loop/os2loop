@@ -1,0 +1,58 @@
+@import "../../signifly-variables/colors.scss";
+
+$input-btn-padding-x-lg: 30px;
+$input-btn-padding-x-md: 20px;
+$input-btn-padding-x-sm: 16px;
+
+// Decides colors
+button,
+button.btn,
+button.btn-primary,
+.btn,
+.btn-primary {
+	color: $loop-white;
+	background-color: $loop-green-400;
+	border-color: $loop-green-400;
+	padding-right: 30px;
+	padding-left: 30px;
+	height: 38px;
+	font-size: 16px;
+	line-height: 24px;
+	&:hover,
+	&.active,
+	&:focus {
+		box-shadow: none;
+		background-color: $loop-green-300;
+		border-color: $loop-green-300;
+	}
+	&.btn-sm {
+		height: 28px;
+		font-size: 14px;
+		& * {
+			font-size: 14px;
+		}
+	}
+	&.btn-lg {
+		background-color: $loop_green;
+		border-color: $loop_green;
+		padding-right: 30px;
+		padding-left: 30px;
+		height: 48px;
+		&:hover,
+		&.active,
+		&:focus {
+			background-color: $loop-green-400;
+			border-color: $loop-green-400;
+			box-shadow: none;
+		}
+	}
+	&.disabled {
+		background-color: $loop-green-200;
+		border-color: $loop-green-200;
+	}
+}
+
+button {
+	@extend .btn;
+	@extend .btn-primary;
+}

@@ -1,0 +1,128 @@
+$content-types: "collection", "document", "post", "question";
+
+.title {
+	display: flex;
+	margin-left: $title-margin-left;
+
+	.header {
+		align-items: normal;
+
+		@each $content-type in $content-types {
+			&.#{$content-type} {
+				display: flex;
+
+				&::before {
+					display: inline-block;
+
+					height: auto;
+					width: $title-margin-left;
+					margin-left: -1 * $title-margin-left;
+
+					background: url("../../svg/#{$content-type}.svg") no-repeat 0 0;
+					background-size: auto $title-icon-height;
+					content: "";
+				}
+			}
+		}
+	}
+
+	.icon {
+		background-color: $loop-green-400;
+		color: $loop-white;
+	}
+
+	:not(.header) {
+		span {
+			margin-right: 15px;
+			font-size: $font-size-sm;
+		}
+	}
+}
+
+.entity-header,
+.entity-body {
+	width: 100%;
+	border: 1px solid $gray-500;
+
+	p {
+		margin: 0;
+	}
+
+	.small {
+		font-size: $font-size-sm;
+		line-height: 1;
+	}
+}
+
+.entity-header {
+	border-radius: 10px 10px 0 0;
+	padding: 20px 30px;
+
+	background-color: $gray-200;
+
+	.user-image {
+		margin-right: 21px;
+	}
+}
+
+.entity-body {
+	border-radius: 0 0 10px 10px;
+	border-top: none;
+	padding: 30px;
+	padding-right: 130px;
+}
+
+.top-comment {
+	.entity-header,
+	.entity-body {
+		border-color: $loop-green-400;
+	}
+
+	.entity-header {
+		background-color: $loop-green-200;
+
+		.icon:not(.upvote.flag),
+		.badge-primary {
+			background-color: $loop-green-400;
+			color: $loop-white;
+		}
+
+		.upvote.flag {
+			color: $loop-green-400;
+			background-color: $loop-green-200;
+		}
+	}
+
+	.badge-primary {
+		@extend .ml-30;
+
+		font-size: $font-size-base;
+		padding: 6px 12px;
+	}
+
+	&.correct-answer {
+		.badge-primary {
+			@include inline-icon("\f586", 8px);
+		}
+	}
+
+	&.most-upvotes {
+		.badge-primary {
+			@include inline-icon("\f406", 8px);
+		}
+	}
+}
+
+.os2loop-comment {
+	+ .os2loop-comment,
+	+ .indented {
+		@extend .mt-30;
+	}
+}
+
+.indented {
+	+ .os2loop-comment,
+	+ .indented {
+		@extend .mt-30;
+	}
+}

@@ -27,18 +27,21 @@
  */
 #}
 
-<section{{ attributes }}>
-  {% if comments and not label_hidden %}
-    {{ title_prefix }}
-    <h3{{ title_attributes }}>{{ label }}</h3>
-    {{ title_suffix }}
-  {% endif %}
-  {{ comments }}
+    <section{{ attributes }}>
+      {% if comments and not label_hidden %}
+        {{ title_prefix }}
+        <h3{{ title_attributes }}>{{ label }}</h3>
+        {{ title_suffix }}
+      {% endif %}
+      {{ comments }}
+    </section>
+  {# This tag closes the <div> opened in 'node--os2loop-question.html.twig' #}
+  </div>
   {% if comment_form %}
-    <h3{{ content_attributes.addClass('h5') }}>{{ 'Add new answer'|t }}</h3>
-    <div class="entity-header">{% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', user.account.id)} %}</div>
-    <div class="bg-secondary-loop comment-write-reply">
-      {{ comment_form }}
-    </div>
+  <div class="block primary-gray mt-30">
+    <h4{{ content_attributes }}>{{ 'Add new answer'|t }}</h4>
+    {{ comment_form }}
+  </div>
   {% endif %}
-</section>
+{# This tag closes the <article> opened in 'node--os2loop-question.html.twig' #}
+</article>

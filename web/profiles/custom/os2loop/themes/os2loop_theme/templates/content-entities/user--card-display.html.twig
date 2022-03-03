@@ -19,30 +19,46 @@
  */
 #}
 
+{% set show_location = user.os2loop_user_place.value or user.os2loop_user_address.value or user.os2loop_user_city.value %}
+{% set initials = (user.os2loop_user_given_name.value|first ~ user.os2loop_user_family_name.value|first)|upper %}
+{% set street_address = ((user.os2loop_user_address.value is not empty ? user.os2loop_user_address.value : '') ~ ', ' ~ (user.os2loop_user_postal_code.value is not empty ? user.os2loop_user_postal_code.value : '') ~ (user.os2loop_user_city.value is not empty ? ' ' ~ user.os2loop_user_city.value : ''))|trim(', ', 'left') %}
+
 <div class="card-body">
-  <h2 class="card-title h4">
-    <a href="{{ url('entity.user.canonical', {'user': user.id}) }}">
-      {{ user.os2loop_user_given_name.value }} {{ user.os2loop_user_family_name.value }}
-    </a>
-  </h2>
-  <div class="card-text">
-    <div class="row">
-      <div class="col-3">
-        {% if user.os2loop_user_image.value is not empty %}
-          <div class="rounded-circle bg-white text-center overflow-hidden">
-            {{ content.os2loop_user_image }}
-          </div>
-          {% else %}
-            <i class="bi bi-person-circle display-2"></i>
-          {% endif %}
+  <div class="card-text d-inline-flex">
+    <div class="user-image">
+      {{ user.os2loop_user_image.value is not empty ? content.os2loop_user_image : initials }}
+    </div>
+    <div class="user-profile">
+      <h5 class="card-title user-name">
+        <a href="{{ url('entity.user.canonical', {'user': user.id}) }}">
+          {{ user.os2loop_user_given_name.value }} {{ user.os2loop_user_family_name.value }}
+        </a>
+      </h5>
+      <div class="user-job">
+        <p>{{ user.os2loop_user_job_title.value }}</p>
       </div>
-      <div class="col">
-        <p class="mb-0">{{ user.os2loop_user_job_title.value }}</p>
-        <p class="mb-0">{{ user.email }}</p>
-        <p class="mb-0">{{ user.os2loop_user_phone_number.value }}</p>
-        <p class="mb-0 mt-2">{{ user.os2loop_user_place.value }}</p>
-        <p class="mb-0">{{ user.os2loop_user_address.value }}</p>
-        <p class="mb-0">{{ user.os2loop_user_city.value }} {% if user.os2loop_user_city.value %}-{% endif %} {{ user.os2loop_user_postal_code.value }}  </p>
+      <div class="mt-30">
+        {% if user.os2loop_user_phone_number.value %}
+        <div class="user-contact-information">
+          <i class="bi bi-telephone"></i>
+          <p class="mb-0">{{ user.os2loop_user_phone_number.value }}</p>
+        </div>
+        {% endif %}
+        {% if user.email %}
+        <div class="user-contact-information">
+          <i class="bi bi-envelope"></i>
+          <p class="mb-0">{{ user.email }}</p>
+        </div>
+        {% endif %}
+        {% if show_location %}
+        <div class="user-contact-information">
+          <i class="bi bi-geo-alt"></i>
+          <div>
+            <p class="mb-0">{{ user.os2loop_user_place.value }}</p>
+            <p class="mb-0">{{ street_address }}</p>
+          </div>
+        </div>
+        {% endif %}
       </div>
     </div>
   </div>
