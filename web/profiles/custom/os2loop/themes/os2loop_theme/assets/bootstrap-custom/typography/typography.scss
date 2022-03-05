@@ -13,3 +13,8 @@ li {
 	padding-left: 25px;
 	margin-bottom: 10px;
 }
+
+li:last-of-type,
+p:last-of-type {
+	margin-bottom: 0px;
+}

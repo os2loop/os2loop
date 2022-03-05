@@ -1,10 +1,10 @@
 @import "../../signifly-variables/colors.scss";
 
 $content-types-colors: (
-	"os2loop_documents_collection": $tag-blue,
-	"os2loop_documents_document": $tag-green,
-	"os2loop_post": $tag-purple,
-	"os2loop_question": $tag-orange,
+	"os2loop-documents-collection": $tag-blue,
+	"os2loop-documents-document": $tag-green,
+	"os2loop-post": $tag-purple,
+	"os2loop-question": $tag-orange,
 );
 
 .badge {

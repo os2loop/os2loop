@@ -28,7 +28,7 @@ $icon-content-map: (
 
 		@each $class-name, $glyph in $icon-content-map {
 			&.#{$class-name} {
-				@include new-link-icon($glyph);
+				@include link-icon($glyph);
 			}
 		}
 
