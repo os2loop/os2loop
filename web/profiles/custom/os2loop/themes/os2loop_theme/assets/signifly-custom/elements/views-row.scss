@@ -1,0 +1,10 @@
+.views-row {
+	.list-group-item {
+		@extend .block-secondary-gray;
+		@extend .py-20;
+	}
+}
+
+.views-row + .views-row {
+	@extend .mt-20;
+}
