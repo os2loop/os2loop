@@ -1,4 +1,4 @@
-$icon-content-map: (
+$bootstrap-icon-map: (
 	"print": "\f501",
 	"edit": "\f4ca",
 	"delete": "\f5de",
@@ -26,7 +26,7 @@ $icon-content-map: (
 			margin-left: 10px;
 		}
 
-		@each $class-name, $glyph in $icon-content-map {
+		@each $class-name, $glyph in $bootstrap-icon-map {
 			&.#{$class-name} {
 				@include link-icon($glyph);
 			}
@@ -55,6 +55,25 @@ $icon-content-map: (
 					content: "\f406";
 				}
 			}
+		}
+	}
+}
+
+$svg-icon-map: (
+	"os2loop-documents-collection": url("../../svg/collection.svg"),
+	"os2loop-documents-document": url("../../svg/document.svg"),
+	"os2loop-post": url("../../svg/post.svg"),
+	"os2loop-question": url("../../svg/question.svg"),
+);
+
+.icon-list {
+	padding: 0;
+	font-size: 34px;
+
+	@each $class-name, $svg in $svg-icon-map {
+		&.#{$class-name} {
+			@include inline-icon($svg);
+			margin-left: 0.5em;
 		}
 	}
 }

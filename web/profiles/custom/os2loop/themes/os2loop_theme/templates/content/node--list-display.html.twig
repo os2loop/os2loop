@@ -74,24 +74,31 @@
 #}
 {% set view_id = view is defined ? view.id %}
 
-<div class="list-group-item">
+<div class="{{ os2loop_container_class }} list-group-item">
   <article class="row align-items-top">
     {# icon #}
-    <div class="col-auto icon-list {{ node.bundle }}"></div>
+    <div class="col-auto icon-list {{ node.bundle|clean_class }}"></div>
     {# description #}
-    <div class="col">
-      <h5>
-        <a href="{{ url }}">{{ label }}</a>
+    <div class="col pl-30">
+      <h5 class="m-0">
+        <a class="link-unstyled" href="{{ url }}">{{ label }}</a>
       </h5>
+      {% if body_text %}
       <div class="line-clamp-3">
         {{ body_text }}
       </div>
+      {% endif %}
       {% if view_id == 'os2loop_subscriptions_node' %}
       <div class="ml-auto">
         {{ content.flag_os2loop_subscription_node }}
       </div>
       {% endif %}
-      <span class="badge badge-primary badge-{{ node.getType|clean_class }}">{{ node.type.entity.label }}</span>
+      <div class="d-inline-flex mt-10">
+        <span class="badge badge-primary badge-{{ node.getType|clean_class }}">{{ node.type.entity.label }}</span>
+        {{ content.os2loop_shared_subject }}
+        {{ content.os2loop_shared_profession }}
+        {{ content.os2loop_shared_category }}
+      </div>
     </div>
     {# date #}
     <div class="col-auto small">
