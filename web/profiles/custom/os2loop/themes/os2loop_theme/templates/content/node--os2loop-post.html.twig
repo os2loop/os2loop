@@ -79,7 +79,7 @@
     {{ macros.title(label, "post", node, content, false) }}
     <div class="title row align-baseline mb-30">
       <div class="col-12 col-md-auto pl-0">
-        <div class="badge badge-{{ node.getType }}">{{ 'Post'|t }}</div>
+        <div class="badge badge-{{ node.getType|clean_class }}">{{ 'Post'|t }}</div>
       </div>
       <div class="col-12 col-md-auto pl-0">
         {{ content.os2loop_shared_subject }}

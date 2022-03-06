@@ -14,7 +14,7 @@
       <div class="search_api_excerpt mb-0">{{ elements['#search_api_excerpt']|raw }}</div>
     {% endif %}
     <div class="d-flex align-items-center">
-      <span class="badge badge-primary badge-{{ node.getType }}">{{ node.type.entity.label }}</span>
+      <span class="badge badge-primary badge-{{ node.getType|clean_class }}">{{ node.type.entity.label }}</span>
       {% if (node.os2loop_question_answers) %}
         <span class="d-flex align-items-center subject answer text-sm font-weight-bold">{{ node.get('os2loop_question_answers').comment_count }}</span>
       {% endif %}

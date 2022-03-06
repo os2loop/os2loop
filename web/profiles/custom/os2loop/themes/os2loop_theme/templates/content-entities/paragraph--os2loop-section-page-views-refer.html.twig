@@ -38,6 +38,7 @@
  * @ingroup themeable
  */
 #}
+
 {% set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
@@ -46,6 +47,7 @@
     paragraph.fields.os2loop_section_page_block[0].plugin_id is defined ? 'paragraph--type--' ~ paragraph.bundle|clean_class ~ '--' ~ paragraph.fields.os2loop_section_page_block[0].plugin_id|clean_class
   ]
 %}
+
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}

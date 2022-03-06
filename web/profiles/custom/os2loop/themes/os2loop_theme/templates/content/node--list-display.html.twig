@@ -74,22 +74,35 @@
 #}
 {% set view_id = view is defined ? view.id %}
 
-<div class="{{ os2loop_container_class }} list-group-item bg-light border-top mb-2">
-  <article class="row">
-    <div class="col-auto icon-list {{ node.bundle }}"></div>
-    <div class="col">
-      <div class="small">{{ node.type.entity.label }} - {{ node.createdtime|format_date('medium') }}</div>
-      <div class="d-flex">
-        <h3 class="h6"><a href="{{ url }}">{{ label }}</a></h3>
+<div class="{{ os2loop_container_class }} list-group-item">
+  <article class="row align-items-top">
+    {# icon #}
+    <div class="col-auto icon-list {{ node.bundle|clean_class }}"></div>
+    {# description #}
+    <div class="col pl-30">
+      <h5 class="m-0">
+        <a class="link-unstyled" href="{{ url }}">{{ label }}</a>
+      </h5>
+      {% if body_text %}
+      <div class="line-clamp-3">
+        {{ body_text }}
       </div>
-      <div class="d-flex">
-        <div class="line-clamp-3">
-          {{ body_text }}
-        </div>
-        {% if view_id == 'os2loop_subscriptions_node' %}
-          <div class="ml-auto">{{ content.flag_os2loop_subscription_node }}</div>
-        {% endif %}
+      {% endif %}
+      {% if view_id == 'os2loop_subscriptions_node' %}
+      <div class="ml-auto">
+        {{ content.flag_os2loop_subscription_node }}
       </div>
+      {% endif %}
+      <div class="d-inline-flex mt-10">
+        <span class="badge badge-primary badge-{{ node.getType|clean_class }}">{{ node.type.entity.label }}</span>
+        {{ content.os2loop_shared_subject }}
+        {{ content.os2loop_shared_profession }}
+        {{ content.os2loop_shared_category }}
+      </div>
+    </div>
+    {# date #}
+    <div class="col-auto small">
+      {{ node.createdtime|date('Y-m-d') }}
     </div>
   </article>
 </div>

@@ -5,11 +5,41 @@
 	font-size: 14px;
 }
 
-ul {
+.link-unstyled {
+	&,
+	&:visited,
+	&:hover,
+	&:active,
+	&:focus,
+	&:active:hover {
+		font-style: inherit;
+		color: inherit;
+		background-color: transparent;
+		font-size: inherit;
+		text-decoration: none;
+		font-variant: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+		font-family: inherit;
+		border-radius: inherit;
+		border: inherit;
+		outline: inherit;
+		box-shadow: inherit;
+		padding: inherit;
+		vertical-align: inherit;
+	}
+}
+
+ul:not(.menu-item) {
 	padding-left: 25px;
 }
 
-li {
+li:not(.menu-item) {
 	padding-left: 25px;
 	margin-bottom: 10px;
+}
+
+li:last-of-type,
+p:last-of-type {
+	margin-bottom: 0px;
 }
