@@ -49,9 +49,9 @@
   os2loop_container_class,
   is_front ? 'front-page',
   path('<current>') == '/user/messages' ? 'notification-page',
-  page['#title'] == 'user' ? 'block-primary-white',
-  page['#title'] == 'Kontaktliste' ? 'block-primary-white',
-  'position-relative',
+  path('<current>') == '/contacts' ? 'contact-page',
+  path('<current>') matches '/^\\/user\\/\\d+$/' ? 'view-profile-page',
+  path('<current>') matches '/^\\/user\\/\\d+\\/edit$/' ? 'edit-profile-page',  
   'my-90'
 ] %}
 
