@@ -3,68 +3,7 @@
 		@extend .mt-30;
 	}
 
-	.paragraph {
-		@extend .block-primary-white;
-
-		&.paragraph--type--os2loop-section-page-info-block {
-			@extend .bg-primary-green;
-		}
-
-		&.paragraph--type--os2loop-section-page-search {
-			@extend .bg-primary-gray;
-		}
-
-		&.paragraph--type--os2loop-section-page-views-refer--views-blockos2loop-messages-block-1 {
-			@extend .bg-primary-light-green;
-
-			.views-row {
-				.list-group-item {
-					@extend .bg-primary-white;
-					@extend .py-15;
-
-					border-radius: $border-radius;
-				}
-
-				.icon-container {
-					border: none;
-
-					.icon {
-						min-width: unset;
-						height: 22px;
-
-						> a {
-							font-size: 22px;
-							line-height: 1;
-							text-decoration: none;
-
-							@include inline-icon("\f623");
-
-							&:hover {
-								@include inline-icon("\f622");
-							}
-						}
-					}
-				}
-			}
-
-			.views-row + .views-row {
-				@extend .mt-10;
-			}
-		}
-
-		.views-row {
-			.list-group-item {
-				@extend .block-secondary-gray;
-				@extend .py-20;
-			}
-		}
-
-		.views-row + .views-row {
-			@extend .mt-20;
-		}
-
-		.line-clamp-3 {
-			margin-top: 5px;
-		}
+	.line-clamp-3 {
+		margin-top: 5px;
 	}
 }

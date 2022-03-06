@@ -7,11 +7,19 @@
 @import "layout/user.scss";
 @import "layout/container-fluid-addition.scss"; // TODO: move this to bootstrap
 
+// blocks
+@import "blocks/page-title.scss";
+@import "blocks/notifications.scss";
+@import "blocks/info-block.scss";
+@import "blocks/paragraph.scss";
+@import "blocks/search.scss";
+
 // elements
 @import "elements/icons.scss";
 @import "elements/anonymous-author-fieldset.scss";
 @import "elements/autocomplete-deluxe.scss";
 @import "elements/btn-file-attachment.scss";
+@import "elements/views-row.scss";
 
 // forms
 @import "forms/comment-form.scss";

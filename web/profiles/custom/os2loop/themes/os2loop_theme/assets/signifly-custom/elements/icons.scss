@@ -56,6 +56,23 @@ $bootstrap-icon-map: (
 				}
 			}
 		}
+
+		&.flag-message-read {
+			min-width: unset;
+			height: 22px;
+
+			> a {
+				font-size: 22px;
+				line-height: 1;
+				text-decoration: none;
+
+				@include inline-icon("\f623");
+
+				&:hover {
+					@include inline-icon("\f622");
+				}
+			}
+		}
 	}
 }
 
