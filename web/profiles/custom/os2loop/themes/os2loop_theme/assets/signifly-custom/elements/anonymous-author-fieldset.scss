@@ -14,7 +14,7 @@
 					@extend .order-2;
 
 					label {
-						border-radius: 0 $border-radius $border-radius 0;
+						border-radius: 0 $border-radius-sm $border-radius-sm 0;
 						border-left: none;
 					}
 				}
@@ -24,7 +24,7 @@
 					@extend .order-1;
 
 					label {
-						border-radius: $border-radius 0 0 $border-radius;
+						border-radius: $border-radius-sm 0 0 $border-radius-sm;
 					}
 				}
 
@@ -47,6 +47,7 @@
 
 				label {
 					// styled to match .btn (-ish)
+					box-sizing: border-box;
 					background-color: $loop-white;
 					border: 1px solid $gray-400;
 					transition: $btn-transition;

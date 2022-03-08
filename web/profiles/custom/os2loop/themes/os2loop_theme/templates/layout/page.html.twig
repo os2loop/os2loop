@@ -44,7 +44,6 @@
  */
 #}
 
-{# TODO: shouldn't use page title this way #}
 {% set classes = [
   os2loop_container_class,
   is_front ? 'front-page',
@@ -52,6 +51,7 @@
   path('<current>') == '/contacts' ? 'contact-page',
   path('<current>') matches '/^\\/user\\/\\d+$/' ? 'view-profile-page',
   path('<current>') matches '/^\\/user\\/\\d+\\/edit$/' ? 'edit-profile-page',
+  node.bundle ? node.bundle|clean_class,
   'my-90'
 ] %}
 

@@ -13,20 +13,32 @@
 {% macro title(title, class, node, content, show_subject=true, options={}) %}
   <div class="title row d-flex justify-content-between align-items-top no-gutters mb-15">
     {{ title_prefix }}
-    <h2{{ title_attributes }} class="header {{ class }}">
+    {# h1 used instead of h2 to be compatible with TOC API module #}
+    <h1{{ title_attributes }} class="header h2 {{ class }}">
       {% if options.link|default(false) %}
         {% set url = path('entity.node.canonical', {node: node.id}) %}
         <a href="{{ url }}">{{ title }}</a>
       {% else %}
         {{ title }}
       {% endif %}
-    </h2>
+    </h1>
     {{ title_suffix }}
-    {% if show_subject %}
-      {{ content.os2loop_shared_subject }}
-    {% endif %}
     <div>
     {% include '@os2loop_theme/navigation/content-tasks.html.twig' %}
+    </div>
+  </div>
+  <div class="title row align-baseline mb-30">
+    <div class="col-12 col-md-auto pl-0">
+      <div class="badge badge-{{ node.getType|clean_class }}">{{ class|capitalize|t }}</div>
+    </div>
+    <div class="col-12 col-md-auto pl-0">
+      {{ content.os2loop_shared_subject }}
+    </div>
+    <div class="col-12 col-md-auto pl-0">
+      {{ content.os2loop_shared_profession }}
+    </div>
+    <div class="col-12 col-md-auto pl-0">
+      {{ content.os2loop_shared_category }}
     </div>
   </div>
 {% endmacro %}

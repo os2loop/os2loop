@@ -14,8 +14,11 @@ $bootstrap-icon-map: (
 );
 
 .icon-container {
+	@extend .d-inline-flex;
+
 	.icon {
 		margin: 0;
+		box-sizing: border-box;
 
 		min-width: $icon-size;
 		height: $icon-size;

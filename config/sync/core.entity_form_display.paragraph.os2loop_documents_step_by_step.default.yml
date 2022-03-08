@@ -16,7 +16,7 @@ bundle: os2loop_documents_step_by_step
 mode: default
 content:
   os2loop_documents_description:
-    weight: 1
+    weight: 10
     settings:
       rows: 5
       placeholder: ''
@@ -24,7 +24,7 @@ content:
     type: text_textarea
     region: content
   os2loop_documents_steps:
-    weight: 2
+    weight: 20
     settings:
       title: step
       title_plural: steps
