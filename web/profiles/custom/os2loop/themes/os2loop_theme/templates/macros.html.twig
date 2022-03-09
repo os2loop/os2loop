@@ -74,7 +74,7 @@
 #}
 {% macro table_of_contents(items, collection, current_node_id=null) %}
   {% if items %}
-    <div class="list-group document-collection-list rounded-0">
+    <div class="list-group document-collection-list">
       {% for item in items %}
         {% set document = item.document %}
         {% if current_node_id is same as(document.id) %}
