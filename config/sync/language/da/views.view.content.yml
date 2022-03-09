@@ -8,31 +8,31 @@ display:
             items_per_page_options_all_label: '- Alle -'
             offset_label: Begyndelse
           tags:
-            previous: '‹ Forrige'
-            next: 'Næste ›'
-            first: '« Første'
-            last: 'Sidste »'
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
       fields:
         os2loop_shared_subject:
           label: Emne
         os2loop_shared_tags:
           label: Nøgleord
         title:
-          label: Titel
+          label: Title
         type:
-          label: Indholdstype
+          label: 'Content type'
           separator: ', '
         name:
-          label: Forfatter
+          label: Author
         status:
           label: Status
           settings:
             format_custom_true: Udgivet
             format_custom_false: 'Ikke udgivet'
         changed:
-          label: Opdateret
+          label: Updated
         operations:
-          label: Handlinger
+          label: Operations
       filters:
         tid:
           admin_label: Emne
@@ -44,10 +44,10 @@ display:
             label: Nøgleord
         title:
           expose:
-            label: Titel
+            label: Title
         type:
           expose:
-            label: Indholdstype
+            label: 'Content type'
         status:
           expose:
             label: Status
@@ -64,15 +64,15 @@ display:
       exposed_form:
         options:
           submit_button: Filter
-          reset_button_label: Gendan
-          exposed_sorts_label: 'Sortér efter'
-          sort_asc_label: Stigende
-          sort_desc_label: Faldende
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       title: Indhold
       empty:
         area_text_custom:
           content: 'Der er intet indhold at vise.'
-    display_title: Standard
+    display_title: Default
   page_2:
     display_options:
       menu:
@@ -142,6 +142,6 @@ display:
       tab_options:
         title: Indhold
         description: 'Find og håndtér indhold'
-    display_title: Side
+    display_title: Page
 label: Indhold
 description: 'Find og håndtér indhold.'

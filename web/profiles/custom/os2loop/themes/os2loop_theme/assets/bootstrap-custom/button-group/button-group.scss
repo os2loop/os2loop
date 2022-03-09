@@ -3,22 +3,30 @@
 .btn-group {
 	> .btn {
 		font-size: $font-size-sm;
-		border: solid 1px $gray-300;
+		font-weight: normal;
 
-		&.active {
-			background-color: $loop-green;
-			color: $loop-white;
-		}
+		border-radius: $border-radius-sm;
 
-		&:hover,
-		&:active,
-		&:focus {
-			color: $body-color;
-			background-color: #eff5f4; // This is not currently defined in the design guide!
-		}
+		&.btn-primary {
+			background-color: $loop-white;
+			color: inherit;
+			border: solid 1px $gray-300;
 
-		&.disabled {
-			color: $gray-300;
+			&.active {
+				background-color: $loop-green;
+				color: $loop-white;
+				border-color: transparent;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: #eff5f4; // This is not currently defined in the design guide!
+			}
+
+			&.disabled {
+				color: $gray-300;
+			}
 		}
 	}
 

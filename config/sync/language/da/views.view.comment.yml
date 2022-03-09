@@ -2,15 +2,15 @@ label: Kommentarer
 description: 'Find og administrér kommentarer.'
 display:
   default:
-    display_title: Standard
+    display_title: Default
     display_options:
       exposed_form:
         options:
           submit_button: Filter
-          reset_button_label: Gendan
-          exposed_sorts_label: 'Sortér efter'
-          sort_asc_label: Stigende
-          sort_desc_label: Faldende
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       pager:
         options:
           tags:
@@ -19,9 +19,9 @@ display:
             first: '« første'
             last: 'sidste »'
           expose:
-            items_per_page_label: 'Antal elementer'
-            items_per_page_options_all_label: '- Alle -'
-            offset_label: Forskydning
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
       fields:
         comment_bulk_form:
           action_title: Handling
@@ -31,16 +31,16 @@ display:
         uid:
           separator: ', '
         name:
-          label: Forfatter
+          label: Author
           separator: ', '
         entity_id:
           label: 'Indsendt til'
           separator: ', '
         changed:
-          label: Opdateret
+          label: Updated
           separator: ', '
         operations:
-          label: Handlinger
+          label: Operations
         name_1:
           separator: ', '
       filters:
@@ -52,7 +52,7 @@ display:
             label: Forfatternavn
         langcode:
           expose:
-            label: Sprog
+            label: Language
       title: Kommentarer
       empty:
         area_text_custom:
@@ -81,7 +81,7 @@ display:
             label: Forfatternavn
         langcode:
           expose:
-            label: Sprog
+            label: Language
       fields:
         comment_bulk_form:
           action_title: Handling
@@ -91,15 +91,15 @@ display:
         uid:
           separator: ', '
         name:
-          label: Forfatter
+          label: Author
           separator: ', '
         entity_id:
           label: 'Indsendt til'
           separator: ', '
         changed:
-          label: Opdateret
+          label: Updated
           separator: ', '
         operations:
-          label: Handlinger
+          label: Operations
         name_1:
           separator: ', '

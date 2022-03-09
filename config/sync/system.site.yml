@@ -3,9 +3,9 @@ name: OS2Loop
 mail: admin@example.com
 slogan: ''
 page:
+  front: /node/2
   403: ''
   404: ''
-  front: /front-page
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en
