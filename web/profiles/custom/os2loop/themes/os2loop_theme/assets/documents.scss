@@ -14,8 +14,9 @@ table.loop-documents-table {
 	@extend .table, .table-hover, .table-bordered;
 
 	th {
-		background: #ccc;
-		text-align: center;
+		background: $gray-200;
+		font-weight: $font-weight-base;
+		border-bottom-width: 1px !important;
 	}
 
 	th,
@@ -30,7 +31,6 @@ table.loop-documents-table {
 	&-steps {
 		td:first-child {
 			width: 10%;
-			text-align: center;
 		}
 	}
 

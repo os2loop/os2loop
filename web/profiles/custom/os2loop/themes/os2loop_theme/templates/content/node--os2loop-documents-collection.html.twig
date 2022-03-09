@@ -88,6 +88,12 @@
         {{ content.os2loop_documents_info_box }}
         {{ content.os2loop_documents_dc_content }}
       </div>
+      {% if os2loop_documents_collection_tree|default(false) %}
+      <div>
+        <h2>{{ 'Documents in collection'|t }}</h2>
+        {{ macros.table_of_contents(os2loop_documents_collection_tree, node) }}
+      </div>
+      {% endif %}
     </div>
     <div class="tab-pane" id="about-collection" role="tabpanel" aria-labelledby="about-collection-tab">
       {{ macros.title("About collection"|t, "collection", node, content, false) }}
@@ -102,13 +108,6 @@
         <div>{{ content.os2loop_shared_owner }}</div>
         <div>{{ content.os2loop_shared_version }}</div>
       </div>
-
-      {% if os2loop_documents_collection_tree|default(false) %}
-        <div>
-          <h2>{{ 'Documents in collection'|t }}</h2>
-          {{ macros.table_of_contents(os2loop_documents_collection_tree, node) }}
-        </div>
-      {% endif %}
     </div>
   </div>
 </article>
