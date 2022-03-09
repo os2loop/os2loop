@@ -44,19 +44,23 @@
  */
 #}
 
-{# TODO: shouldn't use page title this way #}
-{% if page['#title'] == 'user' %}
-  {% set page_class = 'block primary-white' %}
-{% elseif page['#title'] == 'Kontaktliste' %}
-  {% set page_class = 'block primary-white' %}
-{% endif %}
+{% set classes = [
+  os2loop_container_class,
+  is_front ? 'front-page',
+  path('<current>') == '/user/messages' ? 'notification-page',
+  path('<current>') == '/contacts' ? 'contact-page',
+  path('<current>') matches '/^\\/user\\/\\d+$/' ? 'view-profile-page',
+  path('<current>') matches '/^\\/user\\/\\d+\\/edit$/' ? 'edit-profile-page',
+  node.bundle ? node.bundle|clean_class,
+  'my-90'
+] %}
 
 {{ page.header }}
 {# <main role="main" class="bg-secondary-white"> #}
 <main role="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-  <div class="{{ os2loop_container_class }} {{ page_class }} position-relative my-90">
+  <div class="{{ classes|filter(c => c is not empty)|join(' ') }}">
     {{ page.content }}
   </div>{# /.layout-content #}
 

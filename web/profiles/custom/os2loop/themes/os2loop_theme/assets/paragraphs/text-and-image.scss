@@ -1,11 +1,6 @@
 .paragraph-text-and-image {
-	margin: 1em 0;
 	width: 100%;
 	display: inline-block;
-
-	img {
-		margin-bottom: 1em;
-	}
 
 	&.image-position-left img {
 		max-height: 400px;
@@ -30,7 +25,7 @@
 	&.image-position-full_above img,
 	&.image-position-full_below img {
 		display: block;
-		margin: 0 auto 1em;
+		margin: 0 auto;
 	}
 
 	&.image-position-half_above img,

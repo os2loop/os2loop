@@ -39,7 +39,7 @@
 #}
 {% import '@os2loop_theme/macros.html.twig' as macros %}
 
-<div{{ attributes }} class="d-inline-flex align-middle">
+<div{{ attributes }} class="d-inline-flex align-items-center">
   <span{{ title_attributes }} class="d-none">{{ label }}:</span>
   {% for item in items %}
     {{ macros.term(item.content['#type']|default(''), item.content) }}

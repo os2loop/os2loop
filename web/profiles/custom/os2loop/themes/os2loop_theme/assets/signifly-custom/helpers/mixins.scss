@@ -1,4 +1,4 @@
-@mixin new-link-icon($content) {
+@mixin link-icon($content) {
 	a {
 		display: flex;
 		align-items: center;
@@ -23,17 +23,33 @@
 
 @mixin inline-icon($content, $margin: 0, $position: before) {
 	&::#{$position} {
-		font-family: bootstrap-icons !important;
 		font-size: inherit;
-		color: inherit;
 
+		// handle content
+		@if (str-index($content, "url")) {
+			// svg files
+			display: inline-block;
+
+			height: 1em;
+			width: 1em;
+
+			background: $content no-repeat 0 0;
+			background-size: contain;
+			content: "";
+		} @else {
+			// glyph (i.e. bootstrap-icons)
+			font-family: bootstrap-icons !important;
+			color: inherit;
+
+			vertical-align: middle;
+			content: $content;
+		}
+
+		// handle margin and position
 		@if ($position == before) {
 			margin-right: $margin;
 		} @else {
 			margin-left: $margin;
 		}
-
-		vertical-align: middle;
-		content: $content;
 	}
 }

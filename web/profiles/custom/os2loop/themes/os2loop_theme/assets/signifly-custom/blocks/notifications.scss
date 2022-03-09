@@ -1,0 +1,19 @@
+.notification-page > .content-wrapper {
+	@extend .block-primary-light-green;
+}
+
+.notification-page > .content-wrapper,
+.paragraph.paragraph--type--os2loop-section-page-views-refer--views-blockos2loop-messages-block-1 {
+	.views-row {
+		.list-group-item {
+			@extend .bg-primary-white;
+			@extend .py-15;
+
+			border-radius: $border-radius;
+		}
+	}
+
+	.views-row + .views-row {
+		@extend .mt-10;
+	}
+}

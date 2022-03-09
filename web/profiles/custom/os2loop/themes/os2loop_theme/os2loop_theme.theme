@@ -18,7 +18,7 @@ use Drupal\user\Entity\User;
 function os2loop_theme_preprocess(&$variables) {
   $variables['logopath'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
   $variables['os2loop_container_class'] = theme_get_setting('container_class') ?: 'container-fluid';
-};
+}
 
 /**
  * Implements hook_preprocess_html().

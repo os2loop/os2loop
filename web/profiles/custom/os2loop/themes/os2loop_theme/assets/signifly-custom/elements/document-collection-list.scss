@@ -1,0 +1,14 @@
+h2 ~ .document-collection-list {
+	@extend .block-primary-gray;
+
+	.list-group-item {
+		@extend .block-primary-white;
+	}
+
+	.list-group + .list-group,
+	.list-group + .list-group-item,
+	.list-group-item + .list-group,
+	.list-group-item + .list-group-item {
+		@extend .mt-20;
+	}
+}

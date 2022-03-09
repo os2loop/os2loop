@@ -5,11 +5,44 @@
 	font-size: 14px;
 }
 
-ul {
+.link-unstyled {
+	&,
+	&:visited,
+	&:hover,
+	&:active,
+	&:focus,
+	&:active:hover {
+		background-color: transparent;
+		color: inherit;
+
+		font-style: inherit;
+		font-size: inherit;
+		font-variant: inherit;
+		font-weight: inherit;
+		font-family: inherit;
+
+		text-decoration: none;
+		line-height: inherit;
+		vertical-align: inherit;
+	}
+}
+
+ul:not(.menu-item) {
 	padding-left: 25px;
 }
 
-li {
+li:not(.menu-item) {
 	padding-left: 25px;
 	margin-bottom: 10px;
+}
+
+li:last-of-type,
+p:last-of-type {
+	margin-bottom: 0px;
+}
+
+ol,
+ul,
+li {
+	list-style-position: inside;
 }

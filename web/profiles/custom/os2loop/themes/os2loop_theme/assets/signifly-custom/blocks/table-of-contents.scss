@@ -1,0 +1,26 @@
+.paragraph--type--table-of-contents {
+	h3 {
+		font-size: $font-size-base;
+		font-weight: bold;
+	}
+
+	ol,
+	li {
+		padding-left: 0;
+		margin-left: 0;
+	}
+
+	li > li {
+		margin-left: 1em;
+	}
+
+	ol.none {
+		@extend .mb-0;
+
+		list-style-type: decimal;
+
+		a {
+			@extend .link-unstyled;
+		}
+	}
+}

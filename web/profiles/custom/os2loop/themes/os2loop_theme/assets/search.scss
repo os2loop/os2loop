@@ -89,6 +89,7 @@ $search-highlight-color: $light;
 	}
 }
 
+// TODO: this all needs to be refactored...
 .icon-list,
 .search-result,
 .search-autocomplete {
@@ -96,12 +97,10 @@ $search-highlight-color: $light;
 		&.#{$content-type},
 		&.search-result--node--#{$content-type},
 		&.search-autocomplete--node--#{$content-type} {
-			@include icon(
-				map.get($icons-content-types, $content-type),
-				$search-icon-size - $search-icon-padding,
-				$margin-right: $search-icon-padding,
-				$icon-position: top
-			);
+			&:before {
+				margin-left: -20px;
+				margin-right: 20px !important;
+			}
 		}
 	}
 

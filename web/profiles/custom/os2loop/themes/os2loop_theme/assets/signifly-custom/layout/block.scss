@@ -1,4 +1,4 @@
-$block-color-map: (
+$color-map: (
 	"primary-green": $loop-green-200,
 	"primary-light-green": $loop-green-100,
 	"primary-gray": $gray-200,
@@ -8,7 +8,7 @@ $block-color-map: (
 );
 
 @mixin background-modifiers {
-	@each $name, $color in $block-color-map {
+	@each $name, $color in $color-map {
 		&-#{$name} {
 			background-color: $color;
 		}
@@ -20,10 +20,12 @@ $block-color-map: (
 }
 
 .block {
-	border-radius: 10px;
-	padding: 30px !important;
+	@extend .border-0;
+	@extend .p-30;
 
-	@each $block, $color in $block-color-map {
+	border-radius: $border-radius-lg;
+
+	@each $block, $color in $color-map {
 		&.#{$block} {
 			background-color: $color;
 		}
@@ -31,5 +33,30 @@ $block-color-map: (
 
 	&.primary-white {
 		box-shadow: 0px 4px 60px 5px rgba(108, 117, 125, 0.08);
+	}
+}
+
+.block-base {
+	@extend .border-0;
+
+	padding: 30px;
+	border-radius: $border-radius-lg;
+}
+
+@each $name, $color in $color-map {
+	.bg-#{$name} {
+		background-color: $color;
+	}
+
+	.block-#{$name} {
+		@extend .block-base;
+
+		background-color: $color;
+
+		@if $name == "primary-white" {
+			box-shadow: 0px 4px 60px 5px rgba(108, 117, 125, 0.08);
+		} @else {
+			box-shadow: none;
+		}
 	}
 }

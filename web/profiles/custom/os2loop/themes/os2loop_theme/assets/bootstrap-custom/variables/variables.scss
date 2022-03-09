@@ -14,6 +14,9 @@ $spacers: (
 
 // Layout
 $body-bg: $gray-100;
+
+$border-radius: 8px;
+$border-radius-sm: 4px;
 $border-radius-lg: 10px;
 
 // Typography
@@ -32,8 +35,16 @@ $badge-padding-y: 4px;
 $badge-border-radius: 4px;
 
 // Button
-$input-btn-padding-x: 30px;
-$input-btn-padding-x-sm: 20px;
+$btn-border-radius: 8px;
+$btn-border-radius-lg: $btn-border-radius;
+
+$input-btn-padding-x: 20px;
+$input-btn-padding-x-lg: 30px;
+
+$input-btn-padding-y: 7px;
+$input-btn-padding-y-lg: 12px;
+
+$btn-font-weight: bold;
 
 // Dropdown
 $dropdown-border-color: $gray-400;
@@ -66,7 +77,8 @@ $pagination-disabled-color: $loop-green-200;
 
 // Forms
 $input-color: $body-color;
-$form-group-margin-bottom: 20px;
+$form-group-margin-bottom: 0px; // should this be set here?
+$input-border-color: transparent;
 
 // Card
 $card-bg: $gray-100;
@@ -75,3 +87,10 @@ $card-border-color: transparent;
 $card-border-radius: $border-radius-lg;
 
 $card-spacer-x: 20px;
+
+// List-group
+$list-group-border-radius: 8px;
+$list-group-border-color: transparent;
+
+// Table
+$table-border-color: $gray-500;

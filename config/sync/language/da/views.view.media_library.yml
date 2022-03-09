@@ -2,21 +2,21 @@ label: 'Medie bibliotek'
 description: 'Find og håndtér mediefiler.'
 display:
   default:
-    display_title: Standard
+    display_title: Default
     display_options:
       exposed_form:
         options:
           submit_button: 'Tilføj filtre'
-          reset_button_label: Gendan
-          exposed_sorts_label: 'Sortér efter'
-          sort_asc_label: Stigende
-          sort_desc_label: Faldende
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       pager:
         options:
           expose:
-            items_per_page_label: 'Antal elementer'
-            items_per_page_options_all_label: '- Alle -'
-            offset_label: Forskydning
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
           tags:
             previous: ‹‹
             next: ››
@@ -34,7 +34,7 @@ display:
         area_text_custom:
           content: 'Ingen tilgængelige media.'
   page:
-    display_title: Side
+    display_title: Page
     display_options:
       fields:
         media_bulk_form:
@@ -66,9 +66,9 @@ display:
         name:
           label: Navn
         uid:
-          label: Forfatter
+          label: Author
         changed:
-          label: Opdateret
+          label: Updated
       header:
         display_link_grid:
           label: Gitter

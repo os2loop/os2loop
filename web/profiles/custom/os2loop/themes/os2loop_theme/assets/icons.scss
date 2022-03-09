@@ -1,25 +1,14 @@
-$content-types: "os2loop_documents_collection", "os2loop_documents_document",
-	"os2loop_external", "os2loop_page", "os2loop_post", "os2loop_question",
-	"os2loop_section_page";
+$content-types: "os2loop-documents-collection", "os2loop-documents-document",
+	"os2loop-external", "os2loop-page", "os2loop-post", "os2loop-question",
+	"os2loop-section-page";
 
-// Run
-// `grep «icon name» ../node_modules/bootstrap-icons/font/bootstrap-icons.css`,
-// e.g. `grep question-square ../node_modules/bootstrap-icons/font/bootstrap-icons.css`,
-// to get the font index for an icon.
 $icons-content-types: (
-	// https://icons.getbootstrap.com/icons/files/
-	"os2loop_documents_collection": "\f3c2",
-	// https://icons.getbootstrap.com/icons/file-text/
-	"os2loop_documents_document": "\f3b9",
-	// https://icons.getbootstrap.com/icons/link/
+	"os2loop_documents_collection": url("svg/collection.svg"),
+	"os2loop_documents_document": url("svg/document.svg"),
 	"os2loop_external": "\f471",
-	// https://icons.getbootstrap.com/icons/globe/
 	"os2loop_page": "\f3ee",
-	// https://icons.getbootstrap.com/icons/file-earmark-richtext/
-	"os2loop_post": "\f383",
-	// https://icons.getbootstrap.com/icons/question-square/
-	"os2loop_question": "\f50b",
-	// "os2loop_section_page": "",
+	"os2loop_post": url("svg/post.svg"),
+	"os2loop_question": url("svg/question.svg"),
 );
 
 $comment-types: "os2loop_post_comment", "os2loop_question_answer";
@@ -43,56 +32,6 @@ $search-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'
 	}
 
 	@return $icon;
-}
-
-.icon-container {
-	display: flex;
-	margin: 0;
-	padding: 0;
-
-	.icon {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		min-width: 35px;
-		height: 35px;
-		margin: 0 5px 5px 0;
-		font-size: 1em;
-		border-radius: 2px;
-
-		&.comment-edit {
-			@include link-icon("\f4ca", $edit, $dark-edit);
-		}
-
-		&.comment-share {
-			@include link-icon("\f110");
-		}
-
-		&.comment-flag {
-			@include link-icon("\f3cc");
-		}
-
-		&.comment-reply {
-			@include link-icon("\f51f");
-		}
-
-		&.comment-delete {
-			@include link-icon("\f5de", $delete, $dark-delete);
-		}
-
-		&.revisions {
-			@include link-icon("\f4b3");
-		}
-
-		&.view {
-			@include link-icon("\f341");
-		}
-
-		i {
-			color: $white;
-			font-size: 1.2em;
-		}
-	}
 }
 
 // When it is in a comment, it should leave a little margin.

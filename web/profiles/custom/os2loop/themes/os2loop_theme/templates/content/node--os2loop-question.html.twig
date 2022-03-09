@@ -77,20 +77,6 @@
   {# This tag is closed by </div> in 'field--node--os2loop-question-answers.html.twig' #}
   <div class="block primary-white">
     {{ macros.title(label, "question", node, content, false) }}
-    <div class="title row align-baseline mb-30">
-      <div class="col-12 col-md-auto pl-0">
-        <div class="badge badge-{{ node.getType }}">{{ 'Question'|t }}</div>
-      </div>
-      <div class="col-12 col-md-auto pl-0">
-        {{ content.os2loop_shared_subject }}
-      </div>
-      <div class="col-12 col-md-auto pl-0">
-        {{ content.os2loop_shared_profession }}
-      </div>
-      <div class="col-12 col-md-auto pl-0">
-        {{ content.os2loop_shared_category }}
-      </div>
-    </div>
     <div class="entity-header d-flex align-items-top">
       {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}
     </div>
