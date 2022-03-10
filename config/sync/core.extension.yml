@@ -91,6 +91,7 @@ module:
   text: 0
   theme_switcher: 0
   toc_api: 0
+  toc_filter: 0
   token: 0
   token_filter: 0
   toolbar: 0
