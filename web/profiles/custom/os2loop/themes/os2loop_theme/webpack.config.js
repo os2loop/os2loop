@@ -33,6 +33,7 @@ Encore
   .addEntry("green", "./assets/color-templates/green.scss")
   .addEntry("red", "./assets/color-templates/red.scss")
   .addEntry("yellow", "./assets/color-templates/yellow.scss")
+  .addEntry("lightblue", "./assets/color-templates/lightblue.scss")
 
   // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
   //.splitEntryChunks()
