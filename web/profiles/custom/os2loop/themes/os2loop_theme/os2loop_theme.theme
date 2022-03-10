@@ -175,6 +175,7 @@ function os2loop_theme_form_system_theme_settings_alter(&$form, FormStateInterfa
     'green.css' => t('Green'),
     'red.css' => t('Red'),
     'yellow.css' => t('Yellow'),
+    'lightblue.css' => t('lightblue'),
   ];
 
   $form['colors']['color_scheme'] = [
