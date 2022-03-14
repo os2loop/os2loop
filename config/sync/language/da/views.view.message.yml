@@ -4,47 +4,33 @@ display:
     display_options:
       exposed_form:
         options:
-          submit_button: Apply
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          submit_button: Udfør
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
       pager:
         options:
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Antal elementer'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Forskydning
           tags:
             previous: '‹ forrige'
             next: 'næste ›'
             first: '« første'
             last: 'sidste »'
       fields:
-        message_bulk_form_1:
-          action_title: 'With selection'
         mid:
           separator: ', '
         template:
           separator: ', '
-        get_text:
-          label: 'Message text'
         uid:
-          label: Author
+          label: Forfatter
           separator: ', '
-        created:
-          label: 'Published date'
-      filters:
-        template:
-          expose:
-            label: Template
       title: Meddelelse
-      empty:
-        area:
-          content:
-            value: 'No messages created yet'
   page_1:
-    display_title: Page
+    display_title: Side
     display_options:
       menu:
         title: Meddelelse
