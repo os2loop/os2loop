@@ -77,8 +77,15 @@ $pagination-disabled-color: $loop-green-200;
 
 // Forms
 $input-color: $body-color;
-$form-group-margin-bottom: 0px; // should this be set here?
+$input-placeholder-color: $gray-400;
+
 $input-border-color: transparent;
+$input-border-radius: $border-radius;
+
+$input-padding-y: 12px;
+$input-padding-x: 15px;
+
+$form-group-margin-bottom: 0px; // should this be set here?
 
 // Card
 $card-bg: $gray-100;

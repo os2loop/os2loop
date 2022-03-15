@@ -31,23 +31,13 @@ $search-icon: bg-icon($search-icon-bg, $icon-color);
 	}
 
 	.form-autocomplete {
-		@extend .form-control-lg;
-		border-radius: 1em;
-
-		// Make room for background images
-		padding-left: 50px;
-		padding-right: 50px;
+		padding-left: 53px;
 
 		background: {
-			image: $search-icon;
-			position: $search-icon-padding center;
-			size: 24px 24px;
+			image: bg-icon($search-icon-bg, $input-placeholder-color);
+			position: 20px center;
+			size: 23px 23px;
 			repeat: no-repeat;
-		}
-
-		&:focus {
-			border-color: $gray-400;
-			box-shadow: 0 0 0.5em $gray-500;
 		}
 	}
 
