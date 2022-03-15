@@ -11,7 +11,6 @@
 @import "blocks/page-title.scss";
 @import "blocks/notifications.scss";
 @import "blocks/section.scss";
-@import "blocks/form.scss";
 @import "blocks/table-of-contents.scss";
 
 // elements
@@ -39,6 +38,7 @@
 
 // pages
 @import "pages/section-page.scss";
+@import "pages/add-question-page.scss";
 @import "pages/view-profile-page.scss";
 @import "pages/edit-profile-page.scss";
 @import "pages/contact-page.scss";

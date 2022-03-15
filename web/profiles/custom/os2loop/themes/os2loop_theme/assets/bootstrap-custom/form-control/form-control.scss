@@ -20,7 +20,8 @@
 }
 
 input,
-textarea {
+textarea,
+select {
 	&.form-control {
 		@include set-valid-border-color($loop-green-400);
 		@include set-invalid-border-color($loop-red);

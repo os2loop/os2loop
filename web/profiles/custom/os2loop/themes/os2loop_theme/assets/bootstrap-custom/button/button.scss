@@ -7,6 +7,10 @@
 
 	color: $loop-white;
 	transition: all 0.5s ease;
+
+	label {
+		@extend .mb-0;
+	}
 }
 
 .btn-primary {
