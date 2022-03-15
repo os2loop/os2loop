@@ -1,58 +1,43 @@
 div.autocomplete-deluxe-multiple,
 div.autocomplete-deluxe-container {
-	@extend .w-100;
 	@extend .d-block;
-	@extend .input-group;
 
-	background: $input-bg;
-	min-height: 48px;
+	background-image: none;
+	background-color: $input-bg;
 
-	margin-top: $form-check-input-margin-y;
-	padding: $input-padding-y $input-padding-x;
-
-	box-sizing: border-box;
-	box-shadow: none;
-
-	border: 1px solid transparent;
+	border: $input-border-width solid transparent;
 	border-radius: $input-border-radius;
 
-	div {
-		@extend .d-flex;
-		@extend .align-items-center;
-	}
+	padding: 0;
 
 	&:focus-within {
-		border: 1px solid $loop-green-400;
+		border-color: $loop-green-400;
+		transition: $input-transition;
 	}
 
-	.form-group {
-		margin-bottom: 0;
-	}
+	> div.form-group > div {
+		@extend .w-100, .d-inline-flex, .flex-wrap, .align-items-center;
 
-	input.ui-autocomplete-input {
-		&.autocomplete-deluxe-form-single,
-		&.autocomplete-deluxe-multiple {
-			min-height: initial;
-			height: 100%;
+		input.ui-autocomplete-input {
+			flex: 1;
+			background: none;
 
-			font-size: $font-size-base;
-			color: $body-color;
-
-			padding: 0;
-			margin: 0 15px;
-
-			// TODO: figure out vertical alignment
-			vertical-align: middle;
+			padding: $input-padding-y $input-padding-x;
+			margin: 0;
 		}
 
-		~ div.autocomplete-deluxe-throbber,
-		~ div.autocomplete-deluxe-closed {
+		// hide "throbber" and such
+		div.autocomplete-deluxe-throbber,
+		div.autocomplete-deluxe-closed {
 			@extend .d-none;
 		}
 	}
 }
 
 .autocomplete-deluxe-item {
+	@extend .ml-15;
+	height: 26px;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -61,16 +46,12 @@ div.autocomplete-deluxe-container {
 	color: $gray-600;
 
 	border: none;
-	border-radius: 4px;
-	padding: 6px 8px;
+	border-radius: $border-radius-sm;
+	padding: $autocomplete-deluxe-padding-y $autocomplete-deluxe-padding-x;
 
 	font-size: $badge-font-size;
 	font-weight: $badge-font-weight;
 	line-height: 1;
-
-	+ .autocomplete-deluxe-item {
-		margin-left: 15px;
-	}
 
 	.autocomplete-deluxe-item-delete {
 		position: static;
