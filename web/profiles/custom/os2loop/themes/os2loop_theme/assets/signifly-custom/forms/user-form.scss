@@ -1,4 +1,21 @@
 .user-form {
+	// add space between sections
+	fieldset.form-wrapper + fieldset.form-wrapper,
+	input[type="hidden"] + fieldset.form-wrapper:not(:first-of-type) {
+		@extend .mt-20;
+	}
+
+	#edit-os2loop-user-image-0 {
+		@extend .my-20;
+	}
+
+	// add space between "rows"
+	.fieldset-wrapper {
+		div.form-wrapper:nth-child(n + 3) {
+			@extend .mt-20;
+		}
+	}
+
 	.form-wrapper {
 		padding: 0;
 	}
