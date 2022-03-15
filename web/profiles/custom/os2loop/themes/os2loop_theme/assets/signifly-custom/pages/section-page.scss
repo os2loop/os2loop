@@ -1,0 +1,5 @@
+.os2loop-section-page {
+	.section + .section {
+		@extend .mt-30;
+	}
+}
