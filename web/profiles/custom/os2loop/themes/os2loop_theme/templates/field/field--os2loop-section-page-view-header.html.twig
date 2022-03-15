@@ -39,5 +39,5 @@
  */
 #}
 {% for item in items %}
-  <h3{{ attributes }}>{{ item.content }}</h3>
+  <h3{{ attributes.addClass('mb-20') }}>{{ item.content }}</h3>
 {% endfor %}
