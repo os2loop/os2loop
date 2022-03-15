@@ -19,15 +19,18 @@
 	}
 }
 
-input.form-control {
-	@include set-valid-border-color($loop-green-400);
-	@include set-invalid-border-color($loop-red);
+input,
+textarea {
+	&.form-control {
+		@include set-valid-border-color($loop-green-400);
+		@include set-invalid-border-color($loop-red);
 
-	box-sizing: border-box;
-	min-height: 48px;
+		box-sizing: border-box;
+		min-height: 48px;
 
-	// remove "throbber" and such added by autocomplete-deluxe
-	&.form-autocomplete {
-		background-image: none;
+		// remove "throbber" and such added by autocomplete-deluxe
+		&.form-autocomplete {
+			background-image: none;
+		}
 	}
 }
