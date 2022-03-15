@@ -1,0 +1,6 @@
+form {
+	.form-wrapper + .form-wrapper,
+	input[type="hidden"] + .form-wrapper:not(:first-of-type) {
+		@extend .mt-20;
+	}
+}
