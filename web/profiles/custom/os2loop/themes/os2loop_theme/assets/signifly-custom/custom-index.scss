@@ -10,7 +10,7 @@
 // blocks
 @import "blocks/page-title.scss";
 @import "blocks/notifications.scss";
-@import "blocks/paragraph.scss";
+@import "blocks/section.scss";
 @import "blocks/table-of-contents.scss";
 
 // elements
@@ -38,7 +38,7 @@
 @import "search/search-result-item.scss";
 
 // pages
-@import "pages/front-page.scss";
+@import "pages/section-page.scss";
 @import "pages/view-profile-page.scss";
 @import "pages/edit-profile-page.scss";
 @import "pages/contact-page.scss";
