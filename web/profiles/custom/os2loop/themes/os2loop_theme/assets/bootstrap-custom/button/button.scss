@@ -1,35 +1,51 @@
 @import "../../signifly-variables/colors.scss";
 
-// Decides colors
-.btn {
+.btn,
+.btn-lg {
 	box-sizing: border-box;
 	border: none;
 
 	color: $loop-white;
 	transition: all 0.5s ease;
 
+	a,
+	span,
 	label {
-		@extend .mb-0;
+		@extend .m-0;
 	}
 }
 
 .btn-primary {
-	background-color: $loop-green-400;
+	border-color: none;
 
-	&:hover,
-	&.active,
-	&:focus {
-		box-shadow: none;
-		background-color: $loop-green-300;
-	}
-
-	&.btn-lg {
-		background-color: $loop-green;
+	&.btn {
+		background-color: $loop-green-400;
 
 		&:hover,
 		&.active,
 		&:focus {
+			background-color: $loop-green-300;
+		}
+
+		&.disabled,
+		&:disabled {
+			background-color: $loop-green-200;
+		}
+	}
+
+	&.btn-lg {
+		background-color: $loop-green;
+		font-weight: bold;
+
+		&:hover,
+		&.focus,
+		&:focus {
 			background-color: $loop-green-400;
+		}
+
+		&.disabled,
+		&:disabled {
+			background-color: $loop-green-200;
 		}
 	}
 }

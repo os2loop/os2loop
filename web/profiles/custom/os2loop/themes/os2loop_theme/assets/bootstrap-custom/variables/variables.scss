@@ -38,13 +38,19 @@ $badge-border-radius: 4px;
 $btn-border-radius: 8px;
 $btn-border-radius-lg: $btn-border-radius;
 
+$input-btn-padding-y: 7px;
 $input-btn-padding-x: 20px;
+
+$input-btn-padding-y-lg: 12px;
 $input-btn-padding-x-lg: 30px;
 
-$input-btn-padding-y: 7px;
-$input-btn-padding-y-lg: 12px;
+$btn-font-weight: $badge-font-weight;
 
-$btn-font-weight: bold;
+$input-btn-font-size-lg: $input-btn-font-size;
+$input-btn-line-height-lg: $input-btn-line-height;
+
+$btn-active-box-shadow: none;
+$input-btn-focus-box-shadow: none;
 
 // Dropdown
 $dropdown-border-color: $gray-400;
