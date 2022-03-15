@@ -2,8 +2,17 @@
 	> .paragraph {
 		@extend .block-primary-white;
 
+		.views-row > .list-group-item {
+			@extend .block-secondary-gray;
+			@extend .py-20;
+		}
+
+		.views-row + .views-row {
+			@extend .mt-20;
+		}
+
 		&.os2loop-highlighted-container,
-		&.paragraph--type--os2loop-section-page-views-refer.paragraph--type--os2loop-section-page-views-refer--views-blockos2loop-messages-block-1 {
+		&.paragraph--type--os2loop-section-page-views-refer--views-blockos2loop-messages-block-1 {
 			@extend .block-primary-light-green;
 		}
 
@@ -12,8 +21,13 @@
 			@extend .block-secondary-gray;
 		}
 
-		&.paragraph--type--os2loop-section-page-search {
+		&.paragraph--type--os2loop-section-page-search,
+		&.paragraph--type--os2loop-section-page-views-refer--views-blockos2loop-section-page-user-favourites-block-1 {
 			@extend .block-primary-gray;
+
+			.views-row > .list-group-item {
+				@extend .block-secondary-white;
+			}
 		}
 
 		&.paragraph--type--os2loop-section-page-info-block {
