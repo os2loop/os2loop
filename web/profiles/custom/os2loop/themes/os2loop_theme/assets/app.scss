@@ -17,7 +17,6 @@
 @import "documents.scss";
 @import "fields.scss";
 @import "icons.scss";
-@import "search.scss";
 @import "navbar.scss";
 @import "member-view.scss";
 @import "media-library.scss";
@@ -67,3 +66,4 @@ img {
 // Novataris components from Signifly redesign
 @import "bootstrap-custom/bootstrap-custom-index.scss";
 @import "signifly-custom/custom-index.scss";
+@import "search.scss";
