@@ -1,0 +1,33 @@
+.btn.btn-search-filter {
+	@extend .btn-sm;
+
+	background-color: $loop-white;
+	border-radius: $border-radius-sm;
+
+	color: inherit;
+
+	&:hover,
+	&.focus,
+	&:focus {
+		background-color: #eff5f4; // This is not currently defined in the design guide!
+		color: inherit;
+	}
+
+	&:not(:disabled):not(.disabled):active {
+		background-color: $loop-white;
+		color: inherit;
+	}
+
+	> i {
+		float: right;
+		transition: transform 0.35s;
+
+		font-size: $font-size-sm;
+		line-height: $line-height-sm;
+		color: inherit;
+	}
+
+	&.collapsed > i {
+		transform: rotate(-180deg);
+	}
+}

@@ -1,36 +1,45 @@
 @import "../../signifly-variables/colors.scss";
 
-.btn-group {
+.btn-group,
+.btn-group-sm {
 	> .btn {
+		border-radius: $border-radius-sm;
+		padding-top: 11px;
+		padding-bottom: 11px;
+
 		font-size: $font-size-sm;
 		font-weight: normal;
-
-		border-radius: $border-radius-sm;
+		line-height: $line-height-sm;
 
 		&.btn-primary {
 			background-color: $loop-white;
 			color: inherit;
 			border: solid 1px $gray-300;
 
-			&.active {
+			&:not(:disabled):not(.disabled).active {
 				background-color: $loop-green;
 				color: $loop-white;
 				border-color: transparent;
 			}
 
 			&:hover,
-			&:active,
-			&:focus {
+			&.focus,
+			&:focus,
+			&:not(:disabled):not(.disabled):active {
 				background-color: #eff5f4; // This is not currently defined in the design guide!
+				color: inherit;
+				border: solid 1px $gray-300;
 			}
 
-			&.disabled {
+			&.disabled,
+			&:disabled {
+				background-color: $loop-white;
 				color: $gray-300;
 			}
 		}
-	}
 
-	&.btn-group-sm {
-		height: 28px;
+		&.btn-block {
+			@extend .mt-0;
+		}
 	}
 }

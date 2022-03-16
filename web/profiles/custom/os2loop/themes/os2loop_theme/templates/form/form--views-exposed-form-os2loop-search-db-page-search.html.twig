@@ -18,18 +18,12 @@
     <div class="row">
       {{ children }}
     </div>
-    <div class="col-12" id="js-search-filters">
-      <div class="row">
-        <div class="col">
-{#          {% embed 'facets-item-list--os2loop-search-db-document.html.twig' %}#}
-        </div>
-        <div>
-          <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target=".search-filters-collapse" aria-expanded="true"
-                  aria-controls="searchFilterCollapseFacets searchFilterCollapseOrder">
-            <span class="less">{{ 'Hide'|t }}</span><span class="more">{{ 'Show'|t }}</span> {{ 'filters'|t }}
-          </button>
-        </div>
-      </div>
+    <div class="d-flex w-25 ml-auto mt-20" id="js-search-filters">
+      <button class="btn btn-search-filter btn-block" type="button" data-toggle="collapse" data-target=".search-filters-collapse" aria-expanded="true"
+              aria-controls="searchFilterCollapseFacets searchFilterCollapseOrder">
+        <span class="less">{{ 'Hide'|t }}</span><span class="more">{{ 'Show'|t }}</span> {{ 'filters'|t }}
+        <i class="bi bi-caret-up-fill"></i>
+      </button>
     </div>
   </form>
 </div>
