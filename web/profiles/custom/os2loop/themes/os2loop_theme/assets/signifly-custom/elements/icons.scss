@@ -93,7 +93,10 @@ $svg-icon-map: (
 	@each $class-name, $svg in $svg-icon-map {
 		&.#{$class-name} {
 			@include inline-icon($svg);
-			margin-left: 0.5em;
+
+			+ .icon-list.#{$class-name} {
+				margin-left: 0.5em;
+			}
 		}
 	}
 }

@@ -3,6 +3,11 @@
 		"edit-os2loop-content-anonymous-author--wrapper"
 	);
 
+	.form-wrapper + .form-wrapper,
+	input[type="hidden"] + .form-wrapper:not(:first-of-type) {
+		@extend .mt-20;
+	}
+
 	.legend-text {
 		font-size: $font-size-base;
 

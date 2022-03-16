@@ -10,7 +10,7 @@
 // blocks
 @import "blocks/page-title.scss";
 @import "blocks/notifications.scss";
-@import "blocks/paragraph.scss";
+@import "blocks/section.scss";
 @import "blocks/table-of-contents.scss";
 
 // elements
@@ -18,7 +18,7 @@
 @import "elements/anonymous-author-fieldset.scss";
 @import "elements/autocomplete-deluxe.scss";
 @import "elements/btn-file-attachment.scss";
-@import "elements/views-row.scss";
+@import "elements/btn-search-filter.scss";
 @import "elements/tabs.scss";
 @import "elements/step-by-step.scss";
 @import "elements/document-collection-list.scss";
@@ -34,11 +34,11 @@
 // search
 @import "search/filter-types.scss";
 @import "search/search-input.scss";
-@import "search/search-result-wrapper.scss";
 @import "search/search-result-item.scss";
 
 // pages
-@import "pages/front-page.scss";
+@import "pages/section-page.scss";
+@import "pages/add-question-page.scss";
 @import "pages/view-profile-page.scss";
 @import "pages/edit-profile-page.scss";
 @import "pages/contact-page.scss";

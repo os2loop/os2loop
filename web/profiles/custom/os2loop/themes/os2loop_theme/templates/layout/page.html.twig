@@ -49,6 +49,7 @@
   is_front ? 'front-page',
   path('<current>') == '/user/messages' ? 'notification-page',
   path('<current>') == '/contacts' ? 'contact-page',
+  path('<current>') == '/node/add/os2loop_question' ? 'add-question-page',
   path('<current>') matches '/^\\/user\\/\\d+$/' ? 'view-profile-page',
   path('<current>') matches '/^\\/user\\/\\d+\\/edit$/' ? 'edit-profile-page',
   node.bundle ? node.bundle|clean_class,

@@ -75,14 +75,15 @@
 {% set view_id = view is defined ? view.id %}
 
 <div class="{{ os2loop_container_class }} list-group-item">
-  <article class="row align-items-top">
+  <article class="d-flex align-items-top">
     {# icon #}
-    <div class="col-auto icon-list {{ node.bundle|clean_class }}"></div>
+    <div class="icon-list {{ node.bundle|clean_class }}"></div>
     {# description #}
-    <div class="col pl-30">
+    <div class="ml-30 {{ view_id == 'os2loop_section_page_user_favourites' ? 'd-inline-flex align-items-top' }}">
       <h5 class="m-0">
         <a class="link-unstyled" href="{{ url }}">{{ label }}</a>
       </h5>
+      {% if view_id != 'os2loop_section_page_user_favourites' %}
       {% if body_text %}
       <div class="line-clamp-3">
         {{ body_text }}
@@ -99,9 +100,14 @@
         {{ content.os2loop_shared_profession }}
         {{ content.os2loop_shared_category }}
       </div>
+      {% else %}
+      <div>
+        <span class="ml-20 badge badge-primary badge-{{ node.getType|clean_class }}">{{ node.type.entity.label }}</span>
+      </div>
+      {% endif %}
     </div>
     {# date #}
-    <div class="col-auto small">
+    <div class="ml-auto small">
       {{ node.createdtime|date('Y-m-d') }}
     </div>
   </article>

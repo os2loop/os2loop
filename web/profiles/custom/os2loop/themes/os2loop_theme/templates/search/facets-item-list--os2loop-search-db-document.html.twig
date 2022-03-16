@@ -36,9 +36,14 @@
         <h3>{{ title }}</h3>
       {%- endif -%}
       {%- if items -%}
-        <div class="btn-group btn-group-sm">
+        <div class="btn-group btn-group-sm w-50">
           {% for item in items %}
-            {% set classes = item.value['#attributes']['class'][0] == 'is-active' ? 'search-sort-btn btn active' : 'search-sort-btn btn' %}
+            {% set classes = [
+              'btn',
+              'btn-primary',
+              'btn-block',
+              item.value['#attributes']['class'][0] == 'is-active' ? 'active'
+            ] %}
             <a{{ item.attributes.addClass(classes) }} href="{{ item.value['#url'] }}">{{ item.value['#title'] }}</a>
           {%- endfor -%}
         </div>

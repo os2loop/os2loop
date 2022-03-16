@@ -7,39 +7,10 @@ $color-map: (
 	"secondary-gray": $gray-100,
 );
 
-@mixin background-modifiers {
-	@each $name, $color in $color-map {
-		&-#{$name} {
-			background-color: $color;
-		}
-	}
-}
-
-.bg {
-	@include background-modifiers;
-}
-
-.block {
-	@extend .border-0;
-	@extend .p-30;
-
-	border-radius: $border-radius-lg;
-
-	@each $block, $color in $color-map {
-		&.#{$block} {
-			background-color: $color;
-		}
-	}
-
-	&.primary-white {
-		box-shadow: 0px 4px 60px 5px rgba(108, 117, 125, 0.08);
-	}
-}
-
 .block-base {
-	@extend .border-0;
-
 	padding: 30px;
+
+	border: none;
 	border-radius: $border-radius-lg;
 }
 
