@@ -4,3 +4,9 @@
 		text-decoration: none;
 	}
 }
+
+.search-result {
+	.search_api_excerpt {
+		font-size: $font-size-base;
+	}
+}
