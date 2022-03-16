@@ -75,7 +75,7 @@
 {# This tag is closed by </article> in 'field--node--os2loop-post-comments.html.twig' #}
 <article{{ attributes.addClass("os2loop-content os2loop-post mb-90") }}>
   {# This tag is closed by </div> in 'field--node--os2loop-post-comments.html.twig' #}
-  <div class="block primary-white">
+  <div class="block-primary-white">
     {{ macros.title(label, "post", node, content, false) }}
     <div class="entity-header d-flex align-items-top">
       {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}
