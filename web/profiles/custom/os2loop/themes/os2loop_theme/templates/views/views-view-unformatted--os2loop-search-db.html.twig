@@ -24,7 +24,8 @@
   {% set row_classes = [
       default_row_class ? 'views-row',
       'search-result--wrapper',
-      'block secondary-gray'
+      'block-secondary-gray',
+      'mb-20'
     ] %}
   <div{{ row.attributes.addClass(row_classes) }}>
     {{- row.content -}}
