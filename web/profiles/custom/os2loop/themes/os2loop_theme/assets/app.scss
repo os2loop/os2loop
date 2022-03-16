@@ -23,7 +23,6 @@
 @import "paragraphs/highlighted-content.scss";
 @import "paragraphs/text-and-image.scss";
 @import "paragraphs/info-block.scss";
-@import "taxonomy-colors.scss";
 @import "collapse.scss";
 @import "_user.scss";
 
@@ -66,4 +65,6 @@ img {
 // Novataris components from Signifly redesign
 @import "bootstrap-custom/bootstrap-custom-index.scss";
 @import "signifly-custom/custom-index.scss";
+
+// moved to end to load correctly
 @import "search.scss";
