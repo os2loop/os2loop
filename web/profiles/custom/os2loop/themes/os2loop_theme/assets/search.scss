@@ -31,23 +31,13 @@ $search-icon: bg-icon($search-icon-bg, $icon-color);
 	}
 
 	.form-autocomplete {
-		@extend .form-control-lg;
-		border-radius: 1em;
-
-		// Make room for background images
-		padding-left: 50px;
-		padding-right: 50px;
+		padding-left: 53px;
 
 		background: {
-			image: $search-icon;
-			position: $search-icon-padding center;
-			size: 24px 24px;
+			image: bg-icon($search-icon-bg, $input-placeholder-color);
+			position: 20px center;
+			size: 23px 23px;
 			repeat: no-repeat;
-		}
-
-		&:focus {
-			border-color: $gray-400;
-			box-shadow: 0 0 0.5em $gray-500;
 		}
 	}
 
@@ -117,11 +107,6 @@ $search-highlight-color: $light;
 		}
 	}
 
-	padding-left: $search-icon-padding;
-	padding-right: $search-icon-padding;
-	padding-top: $spacer/2;
-	padding-bottom: $spacer/2;
-
 	.prefix {
 		font-weight: bold;
 		font-style: italic;
@@ -175,23 +160,6 @@ $search-highlight-color: $light;
 	min-height: 45px;
 }
 
-// Override hover effect on see all results.
-.search-api-autocomplete-search {
-	.ui-menu-item:last-child .ui-menu-item-wrapper {
-		@extend .btn;
-		@extend .btn-secondary;
-		@extend .btn-sm;
-
-		background-color: $secondary;
-		margin: 1em;
-		transition: none;
-
-		.search-api-autocomplete-suggestion {
-			background: none !important;
-		}
-	}
-}
-
 // @see https://blog.maximerouiller.com/post/remove-the-x-from-internet-explorer-and-chrome-input-type-search/
 // clears the 'X' from Chrome
 input[type="search"]::-webkit-search-decoration,
@@ -212,15 +180,6 @@ input[type="search"]::-webkit-search-results-decoration {
 .block-facet--os2loop-search-db-document {
 	h2 {
 		@include sr-only;
-	}
-}
-
-.facets-widget-os2loop_search_db_document {
-	label {
-		@extend .form-check-label;
-	}
-	.facets-checkbox {
-		@extend .form-check-input;
 	}
 }
 
