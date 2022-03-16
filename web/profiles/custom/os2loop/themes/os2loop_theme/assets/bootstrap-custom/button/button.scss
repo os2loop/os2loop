@@ -3,7 +3,6 @@
 .btn,
 .btn-lg {
 	box-sizing: border-box;
-	border: none;
 
 	color: $loop-white;
 	transition: all 0.5s ease;
@@ -16,14 +15,14 @@
 }
 
 .btn-primary {
-	border-color: none;
-
 	&.btn {
 		background-color: $loop-green-400;
+		border: none;
 
 		&:hover,
-		&.active,
+		&.focus,
 		&:focus {
+			@extend .shadow-none;
 			background-color: $loop-green-300;
 		}
 
@@ -35,6 +34,7 @@
 
 	&.btn-lg {
 		background-color: $loop-green;
+		border: none;
 		font-weight: bold;
 
 		&:hover,

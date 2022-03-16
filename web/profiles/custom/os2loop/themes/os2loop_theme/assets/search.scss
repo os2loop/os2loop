@@ -160,23 +160,6 @@ $search-highlight-color: $light;
 	min-height: 45px;
 }
 
-// Override hover effect on see all results.
-.search-api-autocomplete-search {
-	.ui-menu-item:last-child .ui-menu-item-wrapper {
-		@extend .btn;
-		@extend .btn-secondary;
-		@extend .btn-sm;
-
-		background-color: $secondary;
-		margin: 1em;
-		transition: none;
-
-		.search-api-autocomplete-suggestion {
-			background: none !important;
-		}
-	}
-}
-
 // @see https://blog.maximerouiller.com/post/remove-the-x-from-internet-explorer-and-chrome-input-type-search/
 // clears the 'X' from Chrome
 input[type="search"]::-webkit-search-decoration,
@@ -197,15 +180,6 @@ input[type="search"]::-webkit-search-results-decoration {
 .block-facet--os2loop-search-db-document {
 	h2 {
 		@include sr-only;
-	}
-}
-
-.facets-widget-os2loop_search_db_document {
-	label {
-		@extend .form-check-label;
-	}
-	.facets-checkbox {
-		@extend .form-check-input;
 	}
 }
 
