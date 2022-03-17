@@ -89,7 +89,7 @@ class TwigExtension extends AbstractExtension {
    */
   public function createVideo(array $text): ?string {
     // Set string depending on field type.
-    $string = isset($text['#plain_text']) ? $text['#plain_text'] : $text['#context']['value'];
+    $string = $text['#plain_text'] ?? $text['#context']['value'];
     if (!empty($this->findIframe($string))) {
       $string = $this->handleIframe($string);
     }

@@ -48,7 +48,7 @@ class SetRevisionDate extends ActionBase {
    *   The next time the node should be revisioned.
    */
   private function getNextRevisionDate(): DrupalDateTime {
-    $extend = isset($this->configuration['time_span']) ? $this->configuration['time_span'] : 'now';
+    $extend = $this->configuration['time_span'] ?? 'now';
     return new DrupalDateTime($extend, date_default_timezone_get());
   }
 
