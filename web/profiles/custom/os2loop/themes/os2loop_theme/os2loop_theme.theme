@@ -196,7 +196,7 @@ function os2loop_theme_form_system_theme_settings_alter(&$form, FormStateInterfa
       'file_validate_extensions' => ['css'],
       'file_validate_size' => [10000000],
     ],
-    '#default_value' => isset($uploaded_file) ? $uploaded_file : NULL,
+    '#default_value' => $uploaded_file ?? NULL,
     '#upload_location' => 'public://custom_color_scheme/',
   ];
 
