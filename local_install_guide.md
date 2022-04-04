@@ -19,7 +19,7 @@
     3. Type `git checkout development` to switch to development.
 3. Run `docker ps` to confirm everything is running.
     1. Note the port for `os2loop_ngingx_1`. This is where your site will spin up (ex. `0.0.0.0:53960` => `http://localhost:53960`).
-4. Run `docker exec -it os2loop-phpfpm-1 bash` to open terminal on `phpfpm`.
+4. Run `docker exec -it os2loop_phpfpm_1 bash` to open terminal on `phpfpm`.
     1. Run `composer install`.
     2. Run `mkdir web/sites/default/files/`.
     3. Run `chmod 777 web/sites/default/files/` to allow access to folder (workaround for install issue).
