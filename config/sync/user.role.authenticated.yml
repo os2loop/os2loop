@@ -65,5 +65,4 @@ permissions:
   - 'view files'
   - 'view media'
   - 'view own unpublished content'
-  - 'view post access counter'
   - 'view the administration theme'
