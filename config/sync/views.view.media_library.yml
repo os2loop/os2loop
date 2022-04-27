@@ -446,7 +446,23 @@ display:
           empty: true
           content: 'No media available.'
           tokenize: false
-      sorts: {  }
+      sorts:
+        created:
+          id: created
+          table: media_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: media
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
       filters:
         combine:
           id: combine
