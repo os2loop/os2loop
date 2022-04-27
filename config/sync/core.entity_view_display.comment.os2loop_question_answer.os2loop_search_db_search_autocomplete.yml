@@ -13,10 +13,10 @@ bundle: os2loop_question_answer
 mode: os2loop_search_db_search_autocomplete
 content:
   search_api_excerpt:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true

@@ -17,39 +17,39 @@ bundle: os2loop_page
 mode: default
 content:
   flag_os2loop_subscription_node:
+    settings: {  }
+    third_party_settings: {  }
     weight: 10
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
-  links:
     weight: 0
     region: content
-    settings: {  }
-    third_party_settings: {  }
   os2loop_page_content:
-    weight: 1
+    type: text_default
     label: visually_hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 1
     region: content
   os2loop_page_image:
     type: entity_reference_entity_view
-    weight: 11
     label: visually_hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+    weight: 11
     region: content
   os2loop_shared_rev_date:
-    weight: 12
+    type: datetime_default
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    weight: 12
     region: content
 hidden:
   entity_print_view_epub: true

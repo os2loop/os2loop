@@ -13,7 +13,6 @@ bundles:
   - os2loop_question
 entity_type: node
 global: false
-weight: 0
 flag_short: Favourite
 flag_long: ''
 flag_message: 'Content added to favourites'
@@ -21,6 +20,7 @@ unflag_short: 'Remove as favourite'
 unflag_long: ''
 unflag_message: 'Content removed from favourites'
 unflag_denied_text: ''
+weight: 0
 flag_type: 'entity:node'
 link_type: reload
 flagTypeConfig:

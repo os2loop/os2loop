@@ -1,7 +1,33 @@
 uuid: 77bc872d-82ed-4b75-9aa7-043b385c6f80
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.os2loop_external
+    - filter.format.os2loop_page
+    - filter.format.os2loop_section_page
+    - filter.format.os2loop_section_page_free_html
+    - node.type.os2loop_documents_document
+    - node.type.os2loop_external
+    - node.type.os2loop_page
+    - node.type.os2loop_post
+    - node.type.os2loop_question
+    - node.type.os2loop_section_page
+    - taxonomy.vocabulary.os2loop_profession
+    - taxonomy.vocabulary.os2loop_subject
+    - taxonomy.vocabulary.os2loop_tag
+  module:
+    - comment
+    - contextual
+    - filter
+    - locale
+    - media
+    - node
+    - path
+    - simple_menu_permissions
+    - system
+    - taxonomy
+    - toolbar
 id: os2loop_user_manager
 label: Manager
 weight: 4

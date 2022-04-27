@@ -13,13 +13,13 @@ bundle: os2loop_section_page_free
 mode: default
 content:
   os2loop_section_page_free_html:
+    type: text_textarea
     weight: 0
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
 hidden:
   created: true
   status: true

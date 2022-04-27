@@ -25,13 +25,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   os2loop_post_comment:
+    type: text_textarea
     weight: 2
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
 hidden:
   langcode: true
   subject: true

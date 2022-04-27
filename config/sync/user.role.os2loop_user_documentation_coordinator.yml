@@ -1,7 +1,26 @@
 uuid: d05bbf94-89b2-4f75-86af-91d618090288
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.os2loop_documents_body
+    - filter.format.os2loop_documents_rich_text
+    - filter.format.os2loop_documents_table
+    - node.type.os2loop_documents_collection
+    - node.type.os2loop_documents_document
+    - node.type.os2loop_question
+    - taxonomy.vocabulary.os2loop_tag
+  module:
+    - comment
+    - filter
+    - flag
+    - media
+    - node
+    - os2loop_alert
+    - paragraphs
+    - system
+    - taxonomy
+    - toolbar
 id: os2loop_user_documentation_coordinator
 label: Dokumentationskoordinator
 weight: 3

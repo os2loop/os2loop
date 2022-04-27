@@ -1,7 +1,22 @@
 uuid: 48b30557-0841-4c19-a16b-d83e06a1686a
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.os2loop_documents_body
+    - filter.format.os2loop_documents_rich_text
+    - filter.format.os2loop_documents_table
+    - node.type.os2loop_documents_collection
+    - node.type.os2loop_documents_document
+  module:
+    - filter
+    - flag
+    - media
+    - node
+    - os2loop_alert
+    - paragraphs
+    - system
+    - toolbar
 id: os2loop_user_document_author
 label: 'Document author'
 weight: 7
