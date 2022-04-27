@@ -1,5 +1,5 @@
+label: 'Kommentar redigeret'
 text:
   -
     value: 'En kommentar til indlægget <a href="/node/[message:os2loop_message_node_refer:entity:nid]#comment-[message:os2loop_message_comment_refer:target_id]">[message:os2loop_message_node_refer:entity:title]</a> er blevet ændret'
     format: os2loop_message_message
-label: 'Kommentar redigeret'

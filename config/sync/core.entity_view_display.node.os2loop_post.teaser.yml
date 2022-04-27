@@ -24,35 +24,35 @@ bundle: os2loop_post
 mode: teaser
 content:
   flag_os2loop_favourite:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   flag_os2loop_subscription_node:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   links:
-    weight: 100
     settings: {  }
+    weight: 100
     region: content
   os2loop_post_comments:
     type: comment_default
-    weight: 1
-    region: content
     label: above
     settings:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
+    weight: 1
+    region: content
   os2loop_post_content:
     type: text_default
-    weight: 0
-    region: content
     label: visually_hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true

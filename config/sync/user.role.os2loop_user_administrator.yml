@@ -1,7 +1,55 @@
 uuid: 052139ec-aab4-42a7-a100-06c13f816986
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.os2loop_documents_body
+    - filter.format.os2loop_documents_rich_text
+    - filter.format.os2loop_documents_table
+    - filter.format.os2loop_external
+    - filter.format.os2loop_message_message
+    - filter.format.os2loop_page
+    - filter.format.os2loop_post
+    - filter.format.os2loop_post_comment_plain_text
+    - filter.format.os2loop_post_comment_rich_text
+    - filter.format.os2loop_question_answer_plain_text
+    - filter.format.os2loop_question_answer_rich_text
+    - filter.format.os2loop_question_plain_text
+    - filter.format.os2loop_question_rich_text
+    - filter.format.os2loop_section_page
+    - filter.format.os2loop_section_page_free_html
+    - node.type.os2loop_documents_collection
+    - node.type.os2loop_documents_document
+    - node.type.os2loop_external
+    - node.type.os2loop_page
+    - node.type.os2loop_post
+    - node.type.os2loop_question
+    - node.type.os2loop_section_page
+    - taxonomy.vocabulary.os2loop_category
+    - taxonomy.vocabulary.os2loop_media_library
+    - taxonomy.vocabulary.os2loop_profession
+    - taxonomy.vocabulary.os2loop_subject
+    - taxonomy.vocabulary.os2loop_tag
+  module:
+    - comment
+    - contextual
+    - entity_usage
+    - filter
+    - flag
+    - language
+    - locale
+    - media
+    - node
+    - os2loop_alert
+    - os2loop_messages
+    - os2loop_settings
+    - paragraphs
+    - path
+    - pathauto
+    - simple_menu_permissions
+    - system
+    - taxonomy
+    - toolbar
 id: os2loop_user_administrator
 label: Administrator
 weight: 2

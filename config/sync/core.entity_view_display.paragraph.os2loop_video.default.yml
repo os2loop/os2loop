@@ -18,29 +18,29 @@ bundle: os2loop_video
 mode: default
 content:
   os2loop_video_description:
-    weight: 1
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 1
     region: content
   os2loop_video_iframe:
-    weight: 3
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 3
     region: content
   os2loop_video_title:
-    weight: 0
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
   os2loop_video_url:
-    weight: 2
+    type: link
     label: hidden
     settings:
       trim_length: null
@@ -49,7 +49,7 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    type: link
+    weight: 2
     region: content
 hidden:
   entity_print_view_epub: true

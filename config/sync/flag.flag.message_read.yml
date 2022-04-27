@@ -9,7 +9,6 @@ label: 'Message read'
 bundles: {  }
 entity_type: message
 global: false
-weight: 0
 flag_short: 'Mark as read'
 flag_long: ''
 flag_message: ''
@@ -17,6 +16,7 @@ unflag_short: 'Mark as unread'
 unflag_long: ''
 unflag_message: ''
 unflag_denied_text: Læst
+weight: 0
 flag_type: 'entity:message'
 link_type: reload
 flagTypeConfig:

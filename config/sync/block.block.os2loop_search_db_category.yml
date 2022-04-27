@@ -17,7 +17,7 @@ plugin: 'facet_block:os2loop_search_db_category'
 settings:
   id: 'facet_block:os2loop_search_db_category'
   label: Category
-  provider: facets
   label_display: visible
+  provider: facets
   block_id: os2loop_search_db_category
 visibility: {  }

@@ -19,22 +19,22 @@ plugin: 'views_exposed_filter_block:os2loop_search_db-page_search_form'
 settings:
   id: 'views_exposed_filter_block:os2loop_search_db-page_search_form'
   label: ''
-  provider: views
   label_display: '0'
+  provider: views
   views_label: ''
 visibility:
   node_type:
     id: node_type
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
     bundles:
       os2loop_documents_collection: os2loop_documents_collection
       os2loop_documents_document: os2loop_documents_document
       os2loop_external: os2loop_external
       os2loop_post: os2loop_post
       os2loop_question: os2loop_question
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: "# Show only on node view page (works with \"Hide for the listed pages\" and selected content types)\r\n/node/*/*"
     negate: true
+    pages: "# Show only on node view page (works with \"Hide for the listed pages\" and selected content types)\r\n/node/*/*"
