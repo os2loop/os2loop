@@ -67,7 +67,7 @@ required: true
 translatable: false
 default_value:
   -
-    value: "<table class=\"loop-documents-table\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>A</th>\r\n\t\t\t<th>B</th>\r\n\t\t\t<th class=\"number\">C</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td class=\"number\">5</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>11</td>\r\n\t\t\t<td class=\"number\">13</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n"
+    value: "<table class=\"loop-documents-table\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th class=\"left\">A</th>\r\n\t\t\t<th class=\"left\">B</th>\r\n\t\t\t<th class=\"left\">C</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td class=\"left\">5</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>11</td>\r\n\t\t\t<td class=\"left\">13</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n"
     format: os2loop_documents_table
 default_value_callback: ''
 settings: {  }
