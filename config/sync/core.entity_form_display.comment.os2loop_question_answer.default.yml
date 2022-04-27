@@ -28,26 +28,26 @@ content:
     settings: {  }
     third_party_settings: {  }
   os2loop_question_answer:
+    type: text_textarea
     weight: 2
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   os2loop_question_answer_media:
     type: inline_entity_form_simple
     weight: 3
+    region: content
     settings:
       form_mode: inline_media_form
+      override_labels: false
       label_singular: ''
       label_plural: ''
-      revision: false
-      override_labels: false
       collapsible: false
       collapsed: false
+      revision: false
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true
   subject: true

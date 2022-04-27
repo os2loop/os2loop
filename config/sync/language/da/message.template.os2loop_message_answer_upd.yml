@@ -1,5 +1,5 @@
+label: 'Svar til spørgsmål redigeret'
 text:
   -
     value: 'Et svar du følger er blevet opdateret: <a href="/node/[message:os2loop_message_node_refer:entity:nid]#comment-[message:os2loop_message_comment_refer:target_id]">[message:os2loop_message_node_refer:entity:title]</a>'
     format: os2loop_message_message
-label: 'Svar til spørgsmål redigeret'

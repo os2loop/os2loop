@@ -24,68 +24,68 @@ bundle: os2loop_documents_document
 mode: list_display
 content:
   flag_os2loop_favourite:
+    settings: {  }
+    third_party_settings: {  }
     weight: 1
     region: content
+  flag_os2loop_subscription_node:
     settings: {  }
     third_party_settings: {  }
-  flag_os2loop_subscription_node:
     weight: 0
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
-  links:
     weight: 2
     region: content
-    settings: {  }
-    third_party_settings: {  }
   os2loop_documents_document_autho:
-    weight: 4
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 4
     region: content
   os2loop_documents_document_conte:
     type: entity_reference_revisions_entity_view
-    weight: 3
     label: visually_hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 3
     region: content
   os2loop_shared_category:
     type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
     weight: 7
     region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
   os2loop_shared_profession:
-    weight: 5
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 5
     region: content
   os2loop_shared_subject:
-    weight: 6
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 6
     region: content
   os2loop_shared_tags:
-    weight: 8
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 8
     region: content
 hidden:
   entity_print_view_epub: true

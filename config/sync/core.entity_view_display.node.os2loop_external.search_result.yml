@@ -20,23 +20,23 @@ bundle: os2loop_external
 mode: search_result
 content:
   flag_os2loop_subscription_node:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   os2loop_shared_subject:
     type: entity_reference_label
-    weight: 1
-    region: content
     label: visually_hidden
     settings:
       link: false
     third_party_settings: {  }
-  search_api_excerpt:
-    weight: 0
+    weight: 1
     region: content
+  search_api_excerpt:
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true

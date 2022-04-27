@@ -10,10 +10,10 @@ bundle: os2loop_profession
 mode: default
 content:
   flag_os2loop_subscription_term:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   description: true
   entity_print_view_epub: true

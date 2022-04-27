@@ -20,60 +20,12 @@ base_table: message_field_data
 base_field: mid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: none
-        options: {  }
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: mini
-        options:
-          items_per_page: 0
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-      style:
-        type: default
-      row:
-        type: 'entity:message'
-        options:
-          relationship: none
-          view_mode: default
+      title: Messages
       fields:
         template:
           id: template
@@ -82,6 +34,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: message
+          entity_field: template
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -137,9 +92,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: message
-          entity_field: template
-          plugin_id: field
         get_text:
           id: get_text
           table: message
@@ -147,6 +99,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: message
+          plugin_id: get_text
           label: ''
           exclude: false
           alter:
@@ -189,8 +143,72 @@ display:
           empty_zero: false
           hide_alter_empty: true
           delta: null
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 0
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'You have no messages.'
+            format: os2loop_question_answer_plain_text
+          tokenize: false
+      sorts:
+        created:
+          id: created
+          table: message_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: message
-          plugin_id: get_text
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created
+          exposed: false
+          granularity: second
+      arguments: {  }
       filters:
         flagged:
           id: flagged
@@ -199,6 +217,8 @@ display:
           relationship: flag_relationship
           group_type: group
           admin_label: ''
+          entity_type: flagging
+          plugin_id: flag_filter
           operator: '='
           value: '0'
           group: 1
@@ -229,8 +249,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: flagging
-          plugin_id: flag_filter
         flagged_1:
           id: flagged_1
           table: flagging
@@ -238,6 +256,8 @@ display:
           relationship: flag_relationship_2
           group_type: group
           admin_label: ''
+          entity_type: flagging
+          plugin_id: flag_filter
           operator: '='
           value: '1'
           group: 2
@@ -268,8 +288,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: flagging
-          plugin_id: flag_filter
         flagged_3:
           id: flagged_3
           table: flagging
@@ -277,6 +295,8 @@ display:
           relationship: flag_relationship_3
           group_type: group
           admin_label: ''
+          entity_type: flagging
+          plugin_id: flag_filter
           operator: '='
           value: '1'
           group: 2
@@ -307,8 +327,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: flagging
-          plugin_id: flag_filter
         flagged_2:
           id: flagged_2
           table: flagging
@@ -316,6 +334,8 @@ display:
           relationship: flag_relationship_1
           group_type: group
           admin_label: ''
+          entity_type: flagging
+          plugin_id: flag_filter
           operator: '='
           value: '1'
           group: 2
@@ -346,41 +366,26 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: flagging
-          plugin_id: flag_filter
-      sorts:
-        created:
-          id: created
-          table: message_field_data
-          field: created
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+          2: OR
+      style:
+        type: default
+      row:
+        type: 'entity:message'
+        options:
           relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-          entity_type: message
-          entity_field: created
-          plugin_id: date
-      title: Messages
-      header: {  }
-      footer: {  }
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: 'You have no messages.'
-            format: os2loop_question_answer_plain_text
-          plugin_id: text
+          view_mode: default
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
       relationships:
         flag_relationship:
           id: flag_relationship
@@ -389,11 +394,11 @@ display:
           relationship: none
           group_type: group
           admin_label: 'Flag -  Message read'
+          entity_type: message
+          plugin_id: flag_relationship
           required: false
           flag: message_read
           user_scope: current
-          entity_type: message
-          plugin_id: flag_relationship
         os2loop_message_node_refer:
           id: os2loop_message_node_refer
           table: message__os2loop_message_node_refer
@@ -401,8 +406,8 @@ display:
           relationship: none
           group_type: group
           admin_label: 'os2loop_message_node_refer: Content'
-          required: false
           plugin_id: standard
+          required: false
         flag_relationship_1:
           id: flag_relationship_1
           table: node_field_data
@@ -410,11 +415,11 @@ display:
           relationship: os2loop_message_node_refer
           group_type: group
           admin_label: 'Flag - Subscription node'
+          entity_type: node
+          plugin_id: flag_relationship
           required: false
           flag: os2loop_subscription_node
           user_scope: current
-          entity_type: node
-          plugin_id: flag_relationship
         os2loop_shared_profession:
           id: os2loop_shared_profession
           table: node__os2loop_shared_profession
@@ -422,8 +427,8 @@ display:
           relationship: os2loop_message_node_refer
           group_type: group
           admin_label: 'os2loop_shared_profession: Taxonomy term'
-          required: false
           plugin_id: standard
+          required: false
         os2loop_shared_subject:
           id: os2loop_shared_subject
           table: node__os2loop_shared_subject
@@ -431,8 +436,8 @@ display:
           relationship: os2loop_message_node_refer
           group_type: group
           admin_label: 'os2loop_shared_subject: Taxonomy term'
-          required: false
           plugin_id: standard
+          required: false
         flag_relationship_2:
           id: flag_relationship_2
           table: taxonomy_term_field_data
@@ -440,11 +445,11 @@ display:
           relationship: os2loop_shared_profession
           group_type: group
           admin_label: 'Flag - Profession term'
+          entity_type: taxonomy_term
+          plugin_id: flag_relationship
           required: false
           flag: os2loop_subscription_term
           user_scope: current
-          entity_type: taxonomy_term
-          plugin_id: flag_relationship
         flag_relationship_3:
           id: flag_relationship_3
           table: taxonomy_term_field_data
@@ -452,20 +457,16 @@ display:
           relationship: os2loop_shared_subject
           group_type: group
           admin_label: 'Flag - Subject term'
+          entity_type: taxonomy_term
+          plugin_id: flag_relationship
           required: false
           flag: os2loop_subscription_term
           user_scope: current
-          entity_type: taxonomy_term
-          plugin_id: flag_relationship
-      arguments: {  }
-      display_extenders: {  }
       use_ajax: false
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-          2: OR
       group_by: true
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -474,41 +475,33 @@ display:
         - url.query_args
       tags: {  }
   attachment_1:
-    display_plugin: attachment
     id: attachment_1
     display_title: 'Messages read attachment'
+    display_plugin: attachment
     position: 2
     display_options:
-      display_extenders:
-        views_flag_refresh:
-          flags:
-            message_read: message_read
-          noscrolltop: 1
-      style:
-        type: default
-      defaults:
-        style: false
-        row: false
-        pager: false
-        link_display: false
-        link_url: false
-        filters: false
-        filter_groups: false
-        title: false
-        sorts: false
-        header: false
-      row:
-        type: 'entity:message'
+      enabled: false
+      title: 'Messages read'
       pager:
         type: some
         options:
-          items_per_page: 10
           offset: 0
-      display_description: ''
-      link_display: page_1
-      link_url: ''
-      displays:
-        page_1: page_1
+          items_per_page: 10
+      sorts:
+        last_updated:
+          id: last_updated
+          table: flag_counts
+          field: last_updated
+          relationship: flag_relationship
+          group_type: group
+          admin_label: ''
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: last_updated
+          exposed: false
+          granularity: second
       filters:
         flagged:
           id: flagged
@@ -517,6 +510,8 @@ display:
           relationship: flag_relationship
           group_type: group
           admin_label: ''
+          entity_type: flagging
+          plugin_id: flag_filter
           operator: '='
           value: '1'
           group: 1
@@ -547,8 +542,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: flagging
-          plugin_id: flag_filter
         flagged_1:
           id: flagged_1
           table: flagging
@@ -556,6 +549,8 @@ display:
           relationship: flag_relationship_1
           group_type: group
           admin_label: ''
+          entity_type: flagging
+          plugin_id: flag_filter
           operator: '='
           value: '1'
           group: 2
@@ -586,8 +581,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: flagging
-          plugin_id: flag_filter
         flagged_3:
           id: flagged_3
           table: flagging
@@ -595,6 +588,8 @@ display:
           relationship: flag_relationship_2
           group_type: group
           admin_label: ''
+          entity_type: flagging
+          plugin_id: flag_filter
           operator: '='
           value: '1'
           group: 2
@@ -625,8 +620,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: flagging
-          plugin_id: flag_filter
         flagged_2:
           id: flagged_2
           table: flagging
@@ -634,6 +627,8 @@ display:
           relationship: flag_relationship_3
           group_type: group
           admin_label: ''
+          entity_type: flagging
+          plugin_id: flag_filter
           operator: '='
           value: '1'
           group: 2
@@ -664,32 +659,39 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: flagging
-          plugin_id: flag_filter
       filter_groups:
         operator: AND
         groups:
           1: AND
           2: OR
+      style:
+        type: default
+      row:
+        type: 'entity:message'
+      defaults:
+        title: false
+        pager: false
+        link_display: false
+        link_url: false
+        style: false
+        row: false
+        sorts: false
+        filters: false
+        filter_groups: false
+        header: false
+      display_description: ''
+      link_display: page_1
+      link_url: ''
+      header: {  }
+      display_extenders:
+        views_flag_refresh:
+          flags:
+            message_read: message_read
+          noscrolltop: 1
+      displays:
+        page_1: page_1
       attachment_position: after
       inherit_arguments: false
-      title: 'Messages read'
-      sorts:
-        last_updated:
-          id: last_updated
-          table: flag_counts
-          field: last_updated
-          relationship: flag_relationship
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-          plugin_id: date
-      header: {  }
-      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -697,34 +699,34 @@ display:
         - 'languages:language_interface'
       tags: {  }
   block_1:
-    display_plugin: block
     id: block_1
     display_title: 'Messages block'
+    display_plugin: block
     position: 2
     display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 0
+      style:
+        type: default
+      row:
+        type: 'entity:message'
+      defaults:
+        pager: false
+        link_display: false
+        link_url: false
+        style: false
+        row: false
+      display_description: ''
+      link_display: page_1
+      link_url: ''
       display_extenders:
         views_flag_refresh:
           flags:
             message_read: message_read
           noscrolltop: 0
-      style:
-        type: default
-      defaults:
-        style: false
-        row: false
-        pager: false
-        link_display: false
-        link_url: false
-      row:
-        type: 'entity:message'
-      pager:
-        type: some
-        options:
-          items_per_page: 0
-          offset: 0
-      display_description: ''
-      link_display: page_1
-      link_url: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -732,21 +734,21 @@ display:
         - 'languages:language_interface'
       tags: {  }
   page_1:
-    display_plugin: page
     id: page_1
     display_title: 'Messages page'
+    display_plugin: page
     position: 1
     display_options:
+      title: Messages
+      defaults:
+        title: false
+      display_description: ''
       display_extenders:
         views_flag_refresh:
           flags:
             message_read: message_read
           noscrolltop: 1
       path: user/messages
-      display_description: ''
-      title: Messages
-      defaults:
-        title: false
     cache_metadata:
       max-age: -1
       contexts:

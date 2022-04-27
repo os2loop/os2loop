@@ -16,13 +16,13 @@ bundle: os2loop_media_image
 mode: full
 content:
   field_media_image:
-    label: hidden
-    weight: 0
-    settings:
-      image_style: wide
-      image_link: ''
-    third_party_settings: {  }
     type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: wide
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true
