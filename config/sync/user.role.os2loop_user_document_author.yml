@@ -33,6 +33,8 @@ permissions:
   - 'create os2loop_documents_collection content'
   - 'create os2loop_documents_document content'
   - 'download any image files'
+  - 'edit any os2loop_documents_collection content'
+  - 'edit any os2loop_documents_document content'
   - 'edit own os2loop_documents_document content'
   - 'flag os2loop_upvote_correct_answer'
   - 'os2loop send alert'
