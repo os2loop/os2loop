@@ -12,8 +12,8 @@ admin_theme: os2loop_theme
 visibility:
   node_type:
     id: node_type
-    bundles:
-      os2loop_question: os2loop_question
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      os2loop_question: os2loop_question

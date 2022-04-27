@@ -16,30 +16,30 @@ bundle: os2loop_section_page_views_refer
 mode: default
 content:
   os2loop_section_page_block:
+    type: block_field_default
     weight: 3
+    region: content
     settings:
       plugin_id: ''
       settings: {  }
       configuration_form: full
     third_party_settings: {  }
-    type: block_field_default
-    region: content
   os2loop_section_page_view_header:
+    type: string_textfield
     weight: 0
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   os2loop_section_page_view_text:
+    type: text_textarea
     weight: 1
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
 hidden:
   created: true
   status: true

@@ -17,7 +17,7 @@ plugin: 'facet_block:os2loop_search_db_subject'
 settings:
   id: 'facet_block:os2loop_search_db_subject'
   label: Subject
-  provider: facets
   label_display: visible
+  provider: facets
   block_id: os2loop_search_db_subject
 visibility: {  }

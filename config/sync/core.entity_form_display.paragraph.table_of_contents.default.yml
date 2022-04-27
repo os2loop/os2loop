@@ -13,14 +13,14 @@ bundle: table_of_contents
 mode: default
 content:
   table_of_contents:
+    type: block_field_default
     weight: 0
+    region: content
     settings:
       plugin_id: ''
       settings: {  }
       configuration_form: full
     third_party_settings: {  }
-    type: block_field_default
-    region: content
 hidden:
   created: true
   status: true
