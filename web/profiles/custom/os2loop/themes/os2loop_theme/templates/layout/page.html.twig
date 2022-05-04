@@ -53,6 +53,7 @@
   path('<current>') matches '/^\\/user\\/\\d+$/' ? 'view-profile-page',
   path('<current>') matches '/^\\/user\\/\\d+\\/edit$/' ? 'edit-profile-page',
   node.bundle ? node.bundle|clean_class,
+  path('<current>')|clean_class|preg_replace('/[0-9]+[-]?/', '')|trim('-'),
   'my-90'
 ] %}
 

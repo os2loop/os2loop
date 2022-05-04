@@ -4,12 +4,12 @@
  * Display lists of user subscriptions.
  */
 #}
-<h2 class="h4 mt-3 mt-md-5">{{ 'Content subscriptions'|t }}</h2>
-<div class="mb-3 mb-md-5">
+<h2 class="h4 my-30">{{ 'Content subscriptions'|t }}</h2>
+<div class="os2loop-subscriptions-node mb-30">
   {{ drupal_view('os2loop_subscriptions_node', 'block_1') }}
 </div>
 
-<h2 class="h4">{{ 'Taxonomy term subscriptions'|t }}</h2>
-<div class="mb-3 mb-md-5">
+<h2 class="h4 my-30">{{ 'Taxonomy term subscriptions'|t }}</h2>
+<div class="os2loop-subscription-term">
   {{ drupal_view('os2loop_subscription_term', 'block_1') }}
 </div>
