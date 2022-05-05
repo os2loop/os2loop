@@ -8,7 +8,6 @@
 @import "layout/container-fluid-addition.scss"; // TODO: move this to bootstrap
 
 // blocks
-@import "blocks/page-title.scss";
 @import "blocks/notifications.scss";
 @import "blocks/section.scss";
 @import "blocks/table-of-contents.scss";
@@ -44,3 +43,6 @@
 @import "pages/contact-page.scss";
 @import "pages/document-page.scss";
 @import "pages/document-collection-page.scss";
+
+@import "pages/user-questions.scss";
+@import "pages/user-subscriptions.scss";
