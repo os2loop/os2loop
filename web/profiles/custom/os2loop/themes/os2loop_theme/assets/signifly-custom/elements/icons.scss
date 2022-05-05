@@ -89,6 +89,7 @@ $svg-icon-map: (
 .icon-list {
 	padding: 0;
 	font-size: 34px;
+	line-height: 1;
 
 	@each $class-name, $svg in $svg-icon-map {
 		&.#{$class-name} {
