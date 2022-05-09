@@ -6,6 +6,7 @@
 @import "layout/title.scss";
 @import "layout/user.scss";
 @import "layout/container-fluid-addition.scss"; // TODO: move this to bootstrap
+@import "layout/body.scss";
 
 // blocks
 @import "blocks/notifications.scss";
@@ -20,7 +21,7 @@
 @import "elements/btn-search-filter.scss";
 @import "elements/tabs.scss";
 @import "elements/step-by-step.scss";
-@import "elements/document-collection-list.scss";
+@import "elements/tab-pane.scss";
 
 // forms
 @import "forms/comment-form.scss";
@@ -41,8 +42,8 @@
 @import "pages/view-profile-page.scss";
 @import "pages/edit-profile-page.scss";
 @import "pages/contact-page.scss";
-@import "pages/document-page.scss";
-@import "pages/document-collection-page.scss";
+@import "pages/document.scss";
+@import "pages/document-collection.scss";
 
 @import "pages/user-questions.scss";
 @import "pages/user-subscriptions.scss";

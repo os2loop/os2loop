@@ -1,0 +1,20 @@
+.tab-pane {
+	.os2loop-title-text-inline {
+		font-weight: $badge-font-weight;
+	}
+
+	.documents-in-collection {
+		@extend .block-secondary-gray;
+	}
+
+	.document-collection-item {
+		@extend .block-secondary-white, .py-20;
+	}
+
+	.document-collection-list + .document-collection-list,
+	.document-collection-list + .document-collection-item,
+	.document-collection-item + .document-collection-list,
+	.document-collection-item + .document-collection-item {
+		@extend .mt-20;
+	}
+}

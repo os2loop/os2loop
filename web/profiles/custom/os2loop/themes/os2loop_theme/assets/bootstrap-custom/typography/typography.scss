@@ -12,18 +12,8 @@
 	&:active,
 	&:focus,
 	&:active:hover {
-		background-color: transparent;
 		color: inherit;
-
-		font-style: inherit;
-		font-size: inherit;
-		font-variant: inherit;
-		font-weight: inherit;
-		font-family: inherit;
-
-		text-decoration: none;
-		line-height: inherit;
-		vertical-align: inherit;
+		text-decoration: inherit;
 	}
 }
 
