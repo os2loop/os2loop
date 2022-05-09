@@ -77,20 +77,20 @@
 
 <article{{ attributes }}>
   {% set tabs = [
-    {'id': 'collection', 'name': 'Collection'|t},
+    {'id': 'collection', 'name': 'Document collection'|t},
     {'id': 'about-collection', 'name': 'About collection'|t},
-    {'id': 'documents-in-collection', 'name': 'Documents in collection'|t}
+    {'id': 'documents-in-collection', 'name': 'Documents'|t}
   ] %}
   {% include '@os2loop_theme/navigation/content-tabs.html.twig' with {'tabs': tabs, 'id': 'document-tabs'} %}
   <div class="tab-content" id="document-tabs-content">
-    <div class="tab-pane show" id="collection" role="tabpanel" aria-labelledby="collection-tab">
+    <div class="tab-pane show active" id="collection" role="tabpanel" aria-labelledby="collection-tab">
       {{ macros.title(label, "collection", node, content) }}
       <div{{ content_attributes }}>
         {{ content.os2loop_documents_info_box }}
         {{ content.os2loop_documents_dc_content }}
       </div>
     </div>
-    <div class="tab-pane active" id="about-collection" role="tabpanel" aria-labelledby="about-collection-tab">
+    <div class="tab-pane" id="about-collection" role="tabpanel" aria-labelledby="about-collection-tab">
       {{ macros.title("About collection"|t, "collection", node, content, false) }}
       <div{{ content_attributes.addClass("block-secondary-gray") }}>
         <div>{{ content.os2loop_shared_owner }}</div>
