@@ -17,7 +17,7 @@
     <h1{{ title_attributes }} class="header h2 {{ class }}">
       {% if options.link|default(false) %}
         {% set url = path('entity.node.canonical', {node: node.id}) %}
-        <a href="{{ url }}">{{ title }}</a>
+        <a href="{{ url }}" class="link-unstyled">{{ title }}</a>
       {% else %}
         {{ title }}
       {% endif %}
@@ -29,7 +29,7 @@
   </div>
   <div class="title row align-baseline mb-30">
     <div class="col-12 col-md-auto pl-0">
-      <div class="badge badge-{{ node.getType|clean_class }}">{{ class|capitalize|t }}</div>
+      <div class="badge badge-os2loop-documents-{{ class }}">{{ class|capitalize|t }}</div>
     </div>
     <div class="col-12 col-md-auto pl-0">
       {{ content.os2loop_shared_subject }}
@@ -77,15 +77,27 @@
     <div class="list-group document-collection-list">
       {% for item in items %}
         {% set document = item.document %}
-        {% if current_node_id is same as(document.id) %}
-          <a href="{{ path('entity.node.canonical', {node: document.id, collection: collection.id}) }}" class="list-group-item list-group-item-action document-collection-item active">
-            {{ document.title.value }} <span class="badge badge-dark badge-pill float-right mt-1">{{ 'Currently open'|t }}</span>
-          </a>
-        {% else %}
-          <a href="{{ path('entity.node.canonical', {node: document.id, collection: collection.id}) }}" class="list-group-item list-group-item-action document-collection-item">
-            {{ document.title.value }}
-          </a>
-        {% endif %}
+        {% set is_active_document = current_node_id is same as(document.id) %}
+        <div class="list-group-item list-group-item-action document-collection-item d-inline-flex">
+          {# icon #}
+          <div class="list-group-icon">
+            {{ source("#{active_theme_path()}/assets/svg/#{document.getType|clean_class}.svg", ignore_missing=true) }}
+          </div>
+          {# description #}
+          <div class="d-inline-flex align-items-start">
+            <a href="{{ path('entity.node.canonical', {node: document.id, collection: collection.id}) }}" class="h5 link-unstyled ml-30">
+              {{ document.title.value }}
+            </a>
+            <span class="badge badge-primary badge-{{ document.getType|clean_class }} ml-20">{{ document.type.entity.label }}</span>
+            {% if is_active_document %}
+              <span class="badge badge-primary ml-20">{{ 'Open document'|t }}</span>
+            {% endif %}
+          </div>
+          {# date #}
+          <div class="ml-auto small">
+            {{ document.createdtime|date('d-m-Y') }}
+          </div>
+        </div>
         {{ item.children ? _self.table_of_contents(item.children, collection, current_node_id) }}
       {% endfor %}
     </div>
