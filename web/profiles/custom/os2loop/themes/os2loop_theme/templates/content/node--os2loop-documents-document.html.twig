@@ -95,7 +95,7 @@
 <article{{ attributes }}>
   {% set tabs = [
     {'id': 'document', 'name': 'Document'|t},
-    {'id': 'about-document', 'name': 'About document'|t},
+    {'id': 'about-document', 'name': 'About document'|t}
   ] %}
   {% if os2loop_documents_collection|default(false) %}
     {% set tabs = tabs|merge([
@@ -114,21 +114,17 @@
     </div>
     <div class="tab-pane" id="about-document" role="tabpanel" aria-labelledby="about-document-tab">
       {{ macros.title("About document"|t, "document", node, content, false) }}
-      <div>{{ content.os2loop_documents_document_autho }}</div>
-      <div{{ content_attributes.addClass("bg-secondary-loop") }}>
-        <div>{{ content.os2loop_shared_subject }}</div>
-        <div>{{ content.os2loop_shared_profession }}</div>
+      <div{{ content_attributes.addClass("block-secondary-gray") }}>
+        <div>{{ content.os2loop_documents_document_autho }}</div>
+        <div>{{ content.os2loop_shared_rev_date }}</div>
         <div>{{ content.os2loop_shared_tags }}</div>
-        <div>{{ content.os2loop_shared_category }}</div>
       </div>
     </div>
     {% if os2loop_documents_collection|default(false) %}
       <div class="tab-pane" id="about-collection" role="tabpanel" aria-labelledby="about-collection">
         {{ macros.title(os2loop_documents_collection.title.value, "document", os2loop_documents_collection, content, true, {link: true}) }}
         {% if os2loop_documents_collection_tree|default(false) %}
-          <div>
-            {# We use div here to prevent it from appearing in TOC #}
-            <div class="h5">{{ 'Documents in collection'|t }}</div>
+          <div class="documents-in-collection">
             {{ macros.table_of_contents(os2loop_documents_collection_tree, os2loop_documents_collection, node.id) }}
           </div>
         {% elseif os2loop_documents_collections|default(false) %}
