@@ -23,7 +23,7 @@
 #}
 <span{{ attributes }}>
   {%- for item in items -%}
-  {%- apply truncate(160, '...', true) -%}
+  {%- apply truncate(90, '...', true) -%}
     {{ item.content }}
   {%- endapply -%}
   {%- endfor -%}
