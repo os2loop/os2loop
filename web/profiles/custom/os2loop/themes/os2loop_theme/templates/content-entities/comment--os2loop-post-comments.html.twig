@@ -68,32 +68,61 @@
 #}
 
 {# Remove comment id from element id on top comment #}
+{% set is_top_comment = attributes.hasClass('top-comment') %}
 {% if attributes.hasClass('top-comment') %}
   {% set attributes = attributes.setAttribute('id', 'top-comment') %}
 {% endif %}
 
-<article{{ attributes.addClass('js-comment os2loop-comment') }}>
+{% set classes = [
+  'js-comment',
+  'os2loop-comment',
+  'entity',
+  is_top_comment ? 'top-comment'
+] %}
+
+<article{{ attributes.addClass(classes) }}>
   {#
     Hide the "new" indicator by default, let a piece of JavaScript ask the
     server which comments are new for the user. Rendering the final "new"
     indicator here would break the render cache.
   #}
-  <div class="d-flex align-items-center row no-gutters">
-    <div class="reply-header row no-gutters">
-      {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created, entity: comment} %}
-      {% include '@os2loop_theme/navigation/comment-tasks.html.twig' with {node: drupal_entity('node', comment.entity_id.target_id)} %}
-    </div>
+  <div class="container entity-header d-inline-flex align-items-top">
+    {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created, entity: comment, attributes: attributes} %}
+    {% include '@os2loop_theme/navigation/comment-tasks.html.twig' with {node: drupal_entity('node', comment.entity_id.target_id)} %}
   </div>
   {#
     Indicate the semantic relationship between parent and child comments for
     accessibility. The list is difficult to navigate in a screen reader
     without this information.
   #}
-  <div{{ content_attributes.addClass('reply-body') }}>
-    {% if parent %}
-      <p class="visually-hidden">{{ parent }}</p>
-    {% endif %}
-    {{ content.os2loop_post_comment }}
-    <div>{{ content.flag_os2loop_upvote_correct_answer }}</div>
+  <div{{ content_attributes.addClass('entity-body') }}>
+    <div class="row">
+      <div class="col">
+        {% if parent %}
+        {# TODO: the value for length (215) is arbitrary - this should be handled using JS function instead #}
+        {% set toggle_parent_comment = parent_comment.os2loop_post_comment.value|length > 215 %}
+          <p class="visually-hidden">{{ parent }}</p>
+          <div class="parent-entity" aria-hidden="true">
+            <div class="parent-entity-header row no-gutters mb-10">
+              {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', parent_comment.uid.target_id), date: parent_created, entity: parent_comment, attributes: null} %}
+            </div>
+            <div class="parent-entity-body{{ toggle_parent_comment ? ' collapse' }}" id="parent-entity-body-{{ parent_comment.id() }}">
+              {{ parent_comment.os2loop_post_comment.value }}
+            </div>
+            {% if toggle_parent_comment %}
+              <i class="bi bi-chevron-up toggle collapsed" data-toggle="collapse" href="#parent-entity-body-{{ parent_comment.id() }}" role="button"></i>
+            {% endif %}
+          </div>
+          <div class="child-entity-heading mt-30 mb-15">{{ 'Answer'|t }}</div>
+        {% endif %}
+        {{ content.os2loop_post_comment }}
+      </div>
+    </div>
+    <div class="row align-items-end">
+      {% if content.os2loop_post_comment_media['#items'] is not empty %}
+        <div class="col">{{ content.os2loop_post_comment_media }}</div>
+      {% endif %}
+      <div class="col-auto ml-auto">{{ content.flag_os2loop_upvote_correct_answer }}</div>
+    </div>
   </div>
 </article>

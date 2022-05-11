@@ -1,0 +1,10 @@
+.os2loop-post {
+	section {
+		article + article,
+		article + div.indented,
+		div.indented + article,
+		div.intendet + div.indented {
+			@extend .mt-30;
+		}
+	}
+}
