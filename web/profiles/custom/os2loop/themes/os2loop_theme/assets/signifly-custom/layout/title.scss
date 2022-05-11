@@ -1,28 +1,8 @@
-$content-types: "collection", "document", "post", "question";
-
 .title {
-	display: flex;
-	margin-left: $title-margin-left;
-
-	.header {
-		align-items: normal;
-
-		@each $content-type in $content-types {
-			&.#{$content-type} {
-				display: flex;
-
-				&::before {
-					display: inline-block;
-
-					height: auto;
-					width: $title-margin-left;
-					margin-left: -1 * $title-margin-left;
-
-					background: url("../../svg/#{$content-type}.svg") no-repeat 0 0;
-					background-size: auto $title-icon-height;
-					content: "";
-				}
-			}
+	.title-icon {
+		svg {
+			width: 50px;
+			height: 50px;
 		}
 	}
 
@@ -31,10 +11,11 @@ $content-types: "collection", "document", "post", "question";
 		color: $loop-white;
 	}
 
-	:not(.header) {
-		span {
-			margin-right: 15px;
-			font-size: $font-size-sm;
+	.title-badges {
+		div + div,
+		span + a.badge,
+		a.badge + a.badge {
+			@extend .ml-15;
 		}
 	}
 }

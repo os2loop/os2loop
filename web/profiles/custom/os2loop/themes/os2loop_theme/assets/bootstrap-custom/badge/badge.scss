@@ -8,17 +8,6 @@ $content-types-colors: (
 );
 
 .badge {
-	// TODO: Figure out why this is overridden by standard settings...
-	margin-right: 15px;
-
-	&.user-profile-badge-container {
-		margin-right: 10px;
-
-		&:last-child {
-			margin-right: 0px;
-		}
-	}
-
 	&.badge-primary {
 		color: $loop-green;
 		background-color: $loop-green-200;

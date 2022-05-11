@@ -75,49 +75,49 @@
 {% set view_id = view is defined ? view.id %}
 
 {# Show limited information (no body text and fewer tags) on following: #}
-{% set display_limited_view = view_id in [
+{% set display_inline_view = view_id in [
   'os2loop_subscriptions_node',
   'os2loop_user_questions',
   'os2loop_section_page_user_favourites'
 ] %}
 
-<div class="{{ os2loop_container_class }} list-group-item">
-  <article class="d-flex align-items-top">
-    {# icon #}
-    <div class="list-group-icon">
-      {{ source("#{directory}/assets/svg/#{node.bundle|clean_class}.svg", ignore_missing=true) }}
+{% set short_type = node.getType|split('_')|last %}
+{% set badge_class = 'badge-' ~ short_type %}
+{% set icon_source = directory ~ '/assets/svg/' ~ short_type ~ '.svg' %}
+
+<article class="{{ os2loop_container_class }} list-group-item list-display d-inline-flex align-items-top">
+  {# icon #}
+  <div class="list-display-icon">
+    {{ source(icon_source, ignore_missing=true) }}
+  </div>
+  <div class="container px-0 list-display-information">
+    <div class="row no-gutters">
+      <div class="col list-display-text{{ display_inline_view ? ' d-inline-flex' }} mx-30">
+        {# text #}
+        <div class="h5 m-0">
+          <a class="link-unstyled" href="{{ url }}">{{ label }}</a>
+          {% if display_inline_view %}
+            <div class="badge badge-primary {{ badge_class }} ml-20 align-top">{{ node.type.entity.label }}</div>
+          {% endif %}
+        </div>
+        {% if not display_inline_view %}
+          {% if body_text %}
+            <div class="line-clamp-3">
+              {{ body_text }}
+            </div>
+          {% endif %}
+          <div class="list-display-badges d-inline-flex mt-10">
+            <div class="badge badge-primary {{ badge_class }}">{{ node.type.entity.label }}</div>
+            {{ content.os2loop_shared_subject }}
+            {{ content.os2loop_shared_profession }}
+            {{ content.os2loop_shared_category }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="col-auto ml-auto list-display-date small">
+        {# date #}
+        {{ node.createdtime|date('d-m-Y') }}
+      </div>
     </div>
-    {# description #}
-    <div class="ml-30 {{ display_limited_view ? 'd-inline-flex align-items-top' }}">
-      <h5 class="m-0">
-        <a class="link-unstyled" href="{{ url }}">{{ label }}</a>
-      </h5>
-      {% if not display_limited_view %}
-      {% if body_text %}
-      <div class="line-clamp-3">
-        {{ body_text }}
-      </div>
-      {% endif %}
-      {% if view_id == 'os2loop_subscriptions_node' %}
-      <div class="ml-auto">
-        {{ content.flag_os2loop_subscription_node }}
-      </div>
-      {% endif %}
-      <div class="d-inline-flex mt-10">
-        <span class="badge badge-primary badge-{{ node.getType|clean_class }} mr-15">{{ node.type.entity.label }}</span>
-        {{ content.os2loop_shared_subject }}
-        {{ content.os2loop_shared_profession }}
-        {{ content.os2loop_shared_category }}
-      </div>
-      {% else %}
-      <div>
-        <span class="ml-20 badge badge-primary badge-{{ node.getType|clean_class }}">{{ node.type.entity.label }}</span>
-      </div>
-      {% endif %}
-    </div>
-    {# date #}
-    <div class="ml-auto small">
-      {{ node.createdtime|date('d-m-Y') }}
-    </div>
-  </article>
-</div>
+  </div>
+</article>
