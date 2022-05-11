@@ -1,58 +1,28 @@
-.user-image {
-	@extend .rounded-circle;
-	@extend .overflow-hidden;
+@mixin user-image($image-size, $font-size: $font-size-base) {
+	@extend .rounded-circle, .overflow-hidden;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	width: $user-image-size;
-	height: $user-image-size;
-
 	background-color: $gray-400;
 	color: $gray-800;
 
-	font-size: $font-size-sm;
+	width: $image-size;
+	height: $image-size;
+
+	font-size: $font-size;
 	font-weight: 500;
 
 	img {
-		min-width: $user-image-size;
-		min-height: $user-image-size;
-
+		width: $image-size;
+		height: $image-size;
 		object-fit: cover;
 	}
 }
 
 .user-name {
-	line-height: 1;
-
-	a,
-	p {
-		color: inherit;
-		margin: 0;
-
-		+ span {
-			margin-top: 7px;
-		}
-	}
-
-	:not(.h5) > a,
-	:not(.h5) > p {
-		font-size: $font-size-base;
-		font-weight: $badge-font-weight;
-	}
-
-	a:hover {
-		text-decoration: inherit;
-		color: inherit;
-	}
-
-	span {
-		color: inherit;
-		margin: 0;
-
-		font-size: $font-size-sm;
-	}
+	font-weight: $badge-font-weight;
 }
 
 .user-profile {
