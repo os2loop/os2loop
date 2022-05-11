@@ -77,7 +77,7 @@
 <article{{ attributes.addClass("os2loop-content os2loop-question mb-90") }}>
   <div class="block-primary-white">
     {{ macros.title(label, "question", node, content, false) }}
-    <div class="entity">
+    <div class="entity first-entity ">
       <div class="container entity-header d-inline-flex align-items-top">
         {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}
       </div>

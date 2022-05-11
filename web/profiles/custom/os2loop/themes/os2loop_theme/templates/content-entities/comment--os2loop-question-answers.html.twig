@@ -104,7 +104,7 @@
           <p class="visually-hidden">{{ parent }}</p>
           <div class="parent-entity" aria-hidden="true">
             <div class="parent-entity-header row no-gutters mb-10">
-              {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', parent_comment.uid.target_id), date: parent_created, entity: parent_comment, attributes: attributes} %}
+              {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', parent_comment.uid.target_id), date: parent_created, entity: parent_comment, attributes: null} %}
             </div>
             <div class="parent-entity-body{{ toggle_parent_comment ? ' collapse' }}" id="parent-entity-body-{{ parent_comment.id() }}">
               {{ parent_comment.os2loop_question_answer.value }}
