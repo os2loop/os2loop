@@ -1,0 +1,100 @@
+.entity {
+	border: 1px solid $gray-500;
+	border-radius: $border-radius-lg;
+	overflow: hidden;
+
+	.entity-header {
+		@extend .px-30, .py-20;
+		background-color: $gray-200;
+		border-bottom: 1px solid $gray-500;
+
+		.user-image {
+			@include user-image(30px);
+		}
+	}
+
+	.entity-body {
+		@extend .p-30, .pr-130;
+		background-color: $loop-white;
+
+		.child-entity-heading {
+			font-weight: $badge-font-weight;
+		}
+	}
+
+	.parent-entity {
+		@extend .block-secondary-gray, .p-20;
+		border: 1px solid $gray-500;
+		position: relative;
+
+		.parent-entity-header {
+			.user-image {
+				@include user-image(20px, 9px);
+			}
+		}
+
+		.parent-entity-body {
+			@extend .pr-100;
+
+			&.collapse:not(.show),
+			&.collapsing {
+				@extend .line-clamp-2;
+			}
+		}
+
+		// TODO: move to other template
+		.toggle {
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+
+			transition: transform 0.35s;
+
+			&.collapsed {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+}
+
+.top-comment {
+	&.entity,
+	.entity-header,
+	.entity-body {
+		border-color: $loop-green-400;
+	}
+
+	.entity-header {
+		background-color: $loop-green-200;
+
+		.icon:not(.upvote.flag),
+		.badge-primary {
+			background-color: $loop-green-400;
+			color: $loop-white;
+		}
+
+		.upvote.flag {
+			color: $loop-green-400;
+			background-color: $loop-green-200;
+		}
+	}
+
+	.badge-primary {
+		@extend .ml-30;
+
+		font-size: $font-size-base;
+		padding: 6px 12px;
+	}
+
+	&.correct-answer {
+		.badge-primary {
+			@include inline-icon("\f586", 8px);
+		}
+	}
+
+	&.most-upvotes {
+		.badge-primary {
+			@include inline-icon("\f406", 8px);
+		}
+	}
+}

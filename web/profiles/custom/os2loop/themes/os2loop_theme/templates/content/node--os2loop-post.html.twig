@@ -77,10 +77,10 @@
   {# This tag is closed by </div> in 'field--node--os2loop-post-comments.html.twig' #}
   <div class="block-primary-white">
     {{ macros.title(label, "post", node, content, false) }}
-    <div class="entity-header d-flex align-items-top">
+    <div class="reply-header d-flex align-items-top">
       {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}
     </div>
-    <div{{ content_attributes.addClass('entity-body mb-30') }}>
+    <div{{ content_attributes.addClass('reply-body mb-30') }}>
       {{ content.os2loop_post_content }}
       <div class="row mt-30">
         <div class="col">

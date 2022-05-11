@@ -79,7 +79,7 @@
     indicator here would break the render cache.
   #}
   <div class="d-flex align-items-center row no-gutters">
-    <div class="entity-header row no-gutters">
+    <div class="reply-header row no-gutters">
       {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', comment.uid.target_id), date: created, entity: comment} %}
       {% include '@os2loop_theme/navigation/comment-tasks.html.twig' with {node: drupal_entity('node', comment.entity_id.target_id)} %}
     </div>
@@ -89,7 +89,7 @@
     accessibility. The list is difficult to navigate in a screen reader
     without this information.
   #}
-  <div{{ content_attributes.addClass('entity-body') }}>
+  <div{{ content_attributes.addClass('reply-body') }}>
     {% if parent %}
       <p class="visually-hidden">{{ parent }}</p>
     {% endif %}
