@@ -67,7 +67,6 @@
  */
 #}
 
-
 {% set node_value = commented_entity.os2loop_question_content.value is defined ? commented_entity.os2loop_question_content.value : commented_entity.os2loop_post_content.value %}
 {% set comment_value = elements['#comment'].os2loop_question_answer.value is defined ? elements['#comment'].os2loop_question_answer.value : elements['#comment'].os2loop_post_comment.value %}
 {% set node_value_truncated = node_value|length > 200 ? true : false %}

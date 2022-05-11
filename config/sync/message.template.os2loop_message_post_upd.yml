@@ -9,7 +9,7 @@ label: 'Post edited'
 description: ''
 text:
   -
-    value: 'A post you follow has been changed <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a>'
+    value: 'A post you follow has been changed: <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a>'
     format: os2loop_message_message
 settings:
   'token options':

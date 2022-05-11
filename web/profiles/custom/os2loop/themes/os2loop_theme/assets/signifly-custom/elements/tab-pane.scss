@@ -5,16 +5,20 @@
 
 	.documents-in-collection {
 		@extend .block-secondary-gray;
+
+		.list-group-item {
+			@extend .block-secondary-white, .py-20;
+
+			+ .list-group {
+				padding-left: $spacer;
+			}
+		}
 	}
 
-	.document-collection-item {
-		@extend .block-secondary-white, .py-20;
-	}
-
-	.document-collection-list + .document-collection-list,
-	.document-collection-list + .document-collection-item,
-	.document-collection-item + .document-collection-list,
-	.document-collection-item + .document-collection-item {
+	.list-group + .list-group,
+	.list-group + .list-group-item,
+	.list-group-item + .list-group,
+	.list-group-item + .list-group-item {
 		@extend .mt-20;
 	}
 }

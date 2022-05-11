@@ -4,12 +4,15 @@
 // layout
 @import "layout/block.scss";
 @import "layout/title.scss";
+@import "layout/list-display.scss";
 @import "layout/user.scss";
 @import "layout/container-fluid-addition.scss"; // TODO: move this to bootstrap
 @import "layout/body.scss";
+@import "layout/entity.scss";
 
 // blocks
 @import "blocks/notifications.scss";
+@import "blocks/messages.scss";
 @import "blocks/section.scss";
 @import "blocks/table-of-contents.scss";
 
@@ -44,6 +47,8 @@
 @import "pages/contact-page.scss";
 @import "pages/document.scss";
 @import "pages/document-collection.scss";
+@import "pages/question.scss";
+@import "pages/post.scss";
 
 @import "pages/user-questions.scss";
 @import "pages/user-subscriptions.scss";
