@@ -9,7 +9,7 @@ label: 'Comment edited'
 description: ''
 text:
   -
-    value: 'A comment on the post <a href="/node/[message:os2loop_message_node_refer:entity:nid]#comment-[message:os2loop_message_comment_refer:target_id]">[message:os2loop_message_node_refer:entity:title]</a> has been changed'
+    value: 'A comment on the post: <a href="/node/[message:os2loop_message_node_refer:entity:nid]#comment-[message:os2loop_message_comment_refer:target_id]">[message:os2loop_message_node_refer:entity:title]</a> has been changed'
     format: os2loop_message_message
 settings:
   'token options':

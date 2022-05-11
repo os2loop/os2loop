@@ -1,24 +1,13 @@
 @import "../../signifly-variables/colors.scss";
 
 $content-types-colors: (
-	"os2loop-documents-collection": $tag-blue,
-	"os2loop-documents-document": $tag-green,
-	"os2loop-post": $tag-purple,
-	"os2loop-question": $tag-orange,
+	"collection": $tag-blue,
+	"document": $tag-green,
+	"post": $tag-purple,
+	"question": $tag-orange,
 );
 
 .badge {
-	// TODO: Figure out why this is overridden by standard settings...
-	margin-right: 15px;
-
-	&.user-profile-badge-container {
-		margin-right: 10px;
-
-		&:last-child {
-			margin-right: 0px;
-		}
-	}
-
 	&.badge-primary {
 		color: $loop-green;
 		background-color: $loop-green-200;
