@@ -12,16 +12,21 @@ third_party_settings:
   better_formats:
     allowed_formats_toggle: 1
     allowed_formats:
-      os2loop_post_comment_rich_text: os2loop_post_comment_rich_text
+      os2loop_post_comment_plain_text: os2loop_post_comment_plain_text
       os2loop_question_answer_plain_text: 0
       os2loop_question_answer_rich_text: 0
-      os2loop_post_comment_plain_text: 0
+      os2loop_post_comment_rich_text: 0
+      os2loop_documents_body: 0
       os2loop_documents_rich_text: 0
+      os2loop_documents_table: 0
       os2loop_external: 0
+      os2loop_message_message: 0
       os2loop_page: 0
       os2loop_post: 0
       os2loop_question_plain_text: 0
       os2loop_question_rich_text: 0
+      os2loop_section_page_free_html: 0
+      os2loop_section_page: 0
     default_order_toggle: 0
     default_order_wrapper:
       formats:
@@ -33,9 +38,15 @@ third_party_settings:
           weight: '0'
         os2loop_post_comment_rich_text:
           weight: '0'
+        os2loop_documents_body:
+          weight: '0'
         os2loop_documents_rich_text:
           weight: '0'
+        os2loop_documents_table:
+          weight: '0'
         os2loop_external:
+          weight: '0'
+        os2loop_message_message:
           weight: '0'
         os2loop_page:
           weight: '0'
@@ -44,6 +55,10 @@ third_party_settings:
         os2loop_question_plain_text:
           weight: '0'
         os2loop_question_rich_text:
+          weight: '0'
+        os2loop_section_page_free_html:
+          weight: '0'
+        os2loop_section_page:
           weight: '0'
 id: comment.os2loop_post_comment.os2loop_post_comment
 field_name: os2loop_post_comment
