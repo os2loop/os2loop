@@ -1,0 +1,29 @@
+uuid: c4d2d9dd-f398-4323-849f-e1424607fde1
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.os2loop_post_comment
+    - field.storage.comment.os2loop_post_comment_media
+    - media.type.os2loop_media_file
+id: comment.os2loop_post_comment.os2loop_post_comment_media
+field_name: os2loop_post_comment_media
+entity_type: comment
+bundle: os2loop_post_comment
+label: Upload
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      os2loop_media_file: os2loop_media_file
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,19 +1,20 @@
-uuid: a01ab977-f95a-45dd-8c50-b57e183fb3c3
+uuid: 88257a75-d41d-4bff-b60a-e63456b8fd66
 langcode: en
 status: true
 dependencies:
   config:
     - comment.type.os2loop_post_comment
+    - core.entity_view_mode.comment.list_display
     - field.field.comment.os2loop_post_comment.os2loop_comment_anonymous_author
     - field.field.comment.os2loop_post_comment.os2loop_post_comment
     - field.field.comment.os2loop_post_comment.os2loop_post_comment_media
   module:
     - options
     - text
-id: comment.os2loop_post_comment.default
+id: comment.os2loop_post_comment.list_display
 targetEntityType: comment
 bundle: os2loop_post_comment
-mode: default
+mode: list_display
 content:
   flag_os2loop_upvote_upvote_button:
     weight: 0
