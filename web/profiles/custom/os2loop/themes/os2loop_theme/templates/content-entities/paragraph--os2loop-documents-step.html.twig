@@ -51,9 +51,6 @@
 
 {% set has_title = content.os2loop_documents_step_title['#title'] is not null %}
 
-{# {{kint(content.os2loop_documents_steps['#title'])}} #}
-{# {{dump(content.os2loop_documents_step_title|keys)}} #}
-
 {% block paragraph %}
   {% block content %}
     <li {{ attributes.addClass(classes) }}>

@@ -26,3 +26,4 @@ hidden:
   links: true
   os2loop_comment_anonymous_author: true
   os2loop_post_comment: true
+  os2loop_post_comment_media: true

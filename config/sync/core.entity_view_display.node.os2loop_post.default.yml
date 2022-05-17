@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.os2loop_post_comment.default
+    - field.field.node.os2loop_post.os2loop_content_anonymous_author
     - field.field.node.os2loop_post.os2loop_post_comments
     - field.field.node.os2loop_post.os2loop_post_content
     - field.field.node.os2loop_post.os2loop_post_file
@@ -16,6 +17,7 @@ dependencies:
   module:
     - comment
     - datetime
+    - options
     - text
     - user
 id: node.os2loop_post.default
@@ -38,6 +40,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  os2loop_content_anonymous_author:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   os2loop_post_comments:
     weight: 6
     label: above

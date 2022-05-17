@@ -81,7 +81,7 @@
       <div class="container entity-header d-inline-flex align-items-top">
         {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}
       </div>
-      <div{{ content_attributes.addClass('entity-body') }}>
+      <div{{ content_attributes.addClass('entity-body mb-20') }}>
         {{ content.os2loop_question_content }}
         <div class="row">
           <div class="col">

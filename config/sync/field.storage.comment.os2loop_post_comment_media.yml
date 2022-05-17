@@ -1,13 +1,13 @@
-uuid: 6b724544-8bfa-40e0-86ed-ab61e018eac5
+uuid: 2c36f9fe-b916-4975-935c-d1b2b4d441bc
 langcode: en
 status: true
 dependencies:
   module:
+    - comment
     - media
-    - node
-id: node.os2loop_post_file
-field_name: os2loop_post_file
-entity_type: node
+id: comment.os2loop_post_comment_media
+field_name: os2loop_post_comment_media
+entity_type: comment
 type: entity_reference
 settings:
   target_type: media

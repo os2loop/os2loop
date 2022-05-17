@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.media.inline_media_form
+    - field.field.node.os2loop_post.os2loop_content_anonymous_author
     - field.field.node.os2loop_post.os2loop_post_comments
     - field.field.node.os2loop_post.os2loop_post_content
     - field.field.node.os2loop_post.os2loop_post_file
@@ -15,8 +17,7 @@ dependencies:
   module:
     - autocomplete_deluxe
     - comment
-    - datetime
-    - media_library
+    - inline_entity_form
     - path
     - text
 id: node.os2loop_post.default
@@ -30,8 +31,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  os2loop_content_anonymous_author:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   os2loop_post_comments:
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: comment_default
@@ -45,14 +52,20 @@ content:
     type: text_textarea
     region: content
   os2loop_post_file:
-    type: media_library_widget
+    type: inline_entity_form_simple
     weight: 11
     settings:
-      media_types: {  }
+      form_mode: inline_media_form
+      label_singular: ''
+      label_plural: ''
+      revision: false
+      override_labels: false
+      collapsible: false
+      collapsed: false
     third_party_settings: {  }
     region: content
   os2loop_shared_category:
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -78,14 +91,8 @@ content:
     third_party_settings: {  }
     type: autocomplete_deluxe
     region: content
-  os2loop_shared_rev_date:
-    weight: 10
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   os2loop_shared_subject:
-    weight: 6
+    weight: 7
     settings:
       match_limit: '0'
       min_length: 0
@@ -102,7 +109,7 @@ content:
     type: autocomplete_deluxe
     region: content
   os2loop_shared_tags:
-    weight: 7
+    weight: 9
     settings:
       min_length: 0
       delimiter: ''
@@ -151,5 +158,6 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
+  os2loop_shared_rev_date: true
   promote: true
   sticky: true
