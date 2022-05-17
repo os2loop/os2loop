@@ -61,11 +61,11 @@ function os2loop_theme_preprocess_block(&$variables) {
 
     switch ($path) {
       case '/user/{user}':
-        $variables['content']['#title'] = 'Profile';
+        $variables['content']['#title'] = t('Profile');
         break;
 
       case '/user/{user}/edit':
-        $variables['content']['#title'] = 'Edit profile';
+        $variables['content']['#title'] = t('Edit profile');
         break;
     }
   }

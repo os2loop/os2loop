@@ -29046,4 +29046,7 @@ msgstr "Redaktionens anbefaling"
 msgid "Most votes"
 msgstr "Flest stemmer"
 
+msgid "Profile"
+msgstr "Profil"
+
 
