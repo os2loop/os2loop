@@ -41,6 +41,7 @@ class Helper {
       case 'node_os2loop_question_form':
         $this->alterContentForm($form, $form_state, $form_id);
         $this->handleTextFormats($form, $form_state, $form_id);
+        $this->hideMetadata($form, $form_state, $form_id);
         break;
     }
   }
@@ -89,6 +90,31 @@ class Helper {
       $form['os2loop_content_anonymous_author']['#access'] = FALSE;
       $form['os2loop_content_anonymous_author']['widget']['#required'] = FALSE;
       $form['os2loop_content_anonymous_author']['widget']['#default_value'] = 0;
+    }
+  }
+
+  /**
+   * Hide metadata fields (if set) for all users.
+   *
+   * @param array $form
+   *   The form being altered.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The state of the form.
+   * @param string $form_id
+   *   The id of the the form.
+   */
+  private function hideMetadata(array &$form, FormStateInterface $form_state, string $form_id) {
+    $hiddenMetadataFields = [
+      'menu',
+      'revision_information',
+      'os2loop_question_answers',
+      'meta',
+    ];
+
+    foreach ($hiddenMetadataFields as $field) {
+      if (isset($form[$field])) {
+        unset($form[$field]);
+      }
     }
   }
 
