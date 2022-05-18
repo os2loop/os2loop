@@ -9,28 +9,25 @@ dependencies:
     - field.field.comment.os2loop_post_comment.os2loop_post_comment
     - field.field.comment.os2loop_post_comment.os2loop_post_comment_media
   module:
-    - options
     - text
 id: comment.os2loop_post_comment.list_display
 targetEntityType: comment
 bundle: os2loop_post_comment
 mode: list_display
 content:
+  flag_os2loop_upvote_correct_answer:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   flag_os2loop_upvote_upvote_button:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   links:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  os2loop_comment_anonymous_author:
-    type: list_default
     weight: 2
     region: content
-    label: hidden
     settings: {  }
     third_party_settings: {  }
   os2loop_post_comment:
@@ -40,17 +37,11 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  os2loop_post_comment_media:
-    type: entity_reference_entity_id
-    weight: 4
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
-  flag_os2loop_upvote_correct_answer: true
   langcode: true
+  os2loop_comment_anonymous_author: true
+  os2loop_question_answer_media: true
   search_api_excerpt: true

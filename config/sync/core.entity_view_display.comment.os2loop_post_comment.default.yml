@@ -15,25 +15,30 @@ targetEntityType: comment
 bundle: os2loop_post_comment
 mode: default
 content:
-  flag_os2loop_upvote_upvote_button:
+  flag_os2loop_upvote_correct_answer:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-  links:
+  flag_os2loop_upvote_upvote_button:
     weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   os2loop_comment_anonymous_author:
     type: list_default
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   os2loop_post_comment:
-    weight: 3
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -41,7 +46,7 @@ content:
     region: content
   os2loop_post_comment_media:
     type: entity_reference_entity_id
-    weight: 4
+    weight: 5
     region: content
     label: above
     settings: {  }
@@ -50,6 +55,5 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
-  flag_os2loop_upvote_correct_answer: true
   langcode: true
   search_api_excerpt: true
