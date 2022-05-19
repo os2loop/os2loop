@@ -28932,11 +28932,11 @@ msgid_plural "@count media items remaining."
 msgstr[0] "Maks. 1 fil kan vedhæftes"
 msgstr[1] "Maks. @count filer kan vedhæftes"
 
-msgid "My answers on questions"
-msgstr "Mine svar på spørgsmål"
+msgid "Answers to questions"
+msgstr "Svar på spørgsmål"
 
-msgid "My comments to posts"
-msgstr "Mine kommentarer på indlæg"
+msgid "Comments to posts"
+msgstr "Kommentarer på indlæg"
 
 msgid "contact editorial office"
 msgstr "Kontakt redaktionen"
