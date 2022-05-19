@@ -24,8 +24,8 @@
 {% set comment_type = row._entity.comment_type.target_id %}
 
 {% if comment_type == 'os2loop_question_answer' %}
-  {{ 'My answers on questions'|t }}
+  {{ 'Answers to questions'|t }}
 {% else %}
-  {{ 'My comments to posts'|t }}
+  {{ 'Comments to posts'|t }}
 {% endif %}
 
