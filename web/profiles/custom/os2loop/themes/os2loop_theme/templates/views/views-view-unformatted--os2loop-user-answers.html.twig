@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set comment_type = (rows|first).content['#row']._entity.comment_type.target_id %}
+
+{% set row_limit = 3 %}
+{% set hidden_row_ids = [] %}
+
+{% set row_classes = [
+    default_row_class ? 'views-row',
+  ]
+%}
+
+{% if title %}
+  <h3 class="views-rows-title mt-30 mb-0">{{ title }}</h3>
+{% endif %}
+<div class="views-rows-container mt-30">
+  {% for row in rows %}
+    {% set row_number = (row_number|default(0)) + 1 %}
+
+    {% if (row_number > row_limit) %}
+      {% set row_classes = row_classes|merge(['collapse', 'multi-collapse']) %}
+      {% set row_id = 'toggle-' ~ comment_type|clean_class ~ '-' ~ row_number %}
+      {% set hidden_row_ids = hidden_row_ids|merge([row_id]) %}
+    {% endif %}
+
+    <div{{ row.attributes.setAttribute('id', row_id).addClass(row_classes) }}>
+      {{- row.content -}}
+    </div>
+  {% endfor %}
+  {% if hidden_row_ids is not empty %}
+    <button class="btn btn-primary mt-20" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="{{ hidden_row_ids|join(' ') }}">
+      {{ ('Show all ' ~ comment_type|split('_')|last ~ 's')|t }}
+    </button>
+  {% endif %}
+</div>
