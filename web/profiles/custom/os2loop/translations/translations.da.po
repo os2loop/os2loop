@@ -29055,4 +29055,7 @@ msgstr "Vis alle svar"
 msgid "Show all comments"
 msgstr "Vis alle kommentarer"
 
+msgid "Post"
+msgstr "Indlæg"
+
 
