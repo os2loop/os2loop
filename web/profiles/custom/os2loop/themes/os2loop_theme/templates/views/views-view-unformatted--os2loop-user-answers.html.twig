@@ -36,9 +36,9 @@
     </div>
   {% endfor %}
   {% if hidden_rows is not empty %}
-    <div class="hidden-views-rows-container mt-20 collapse" id="toggle-{{ comment_type }}">
+    <div class="hidden-views-rows-container collapse mt-20" id="toggle-{{ comment_type }}">
       {% for row in hidden_rows %}
-        <div{{ row.attributes.setAttribute('id', row_id).addClass(row_classes) }}>
+        <div{{ row.attributes.addClass(row_classes) }}>
           {{- row.content -}}
         </div>
       {% endfor %}
