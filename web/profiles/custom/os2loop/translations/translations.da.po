@@ -29049,4 +29049,10 @@ msgstr "Flest stemmer"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Show all answers"
+msgstr "Vis alle svar"
+
+msgid "Show all comments"
+msgstr "Vis alle kommentarer"
+
 
