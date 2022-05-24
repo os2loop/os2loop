@@ -17,6 +17,11 @@
   {% set show_search_button = TRUE %}
 {% endif %}
 
+{% if 'edit-title-0-value' == element['#id'] %}
+  {% set maxlength = '90' %}
+  {% set attributes = attributes.setAttribute('maxlength', maxlength) %}
+{% endif %}
+
 <div>
   <div class="d-flex align-items-center">
     <input{{ attributes.addClass('form-control') }}/>
