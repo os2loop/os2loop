@@ -1,0 +1,67 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set row_limit = 3 %}
+{% set hidden_rows = rows[row_limit:] %}
+{% set content_type = title|striptags|trim %}
+{% set comment_type = (hidden_rows|first).content['#row']._entity.comment_type.target_id %}
+
+{% set row_classes = [
+    default_row_class ? 'views-row',
+  ]
+%}
+
+<h3 class="views-rows-title mt-30 mb-0">
+  {% if content_type == 'os2loop_question' %}
+    {{ 'Answers to questions'|t }}
+  {% elseif content_type == 'os2loop_post' %}
+    {{ 'Comments to posts'|t }}
+  {% else %}
+    {{ 'Unknown comment content_type'|t }}
+  {% endif %}
+</h3>
+{% if rows is empty %}
+  <div class="views-rows-alternate-text mt-10">
+    {% if content_type == 'os2loop_question' %}
+      {{ 'You do not have any answers yet'|t }}
+    {% else %}
+      {{ 'You do not have any comments yet'|t }}
+    {% endif %}
+  </div>
+{% else %}
+  <div class="views-rows-container mt-30">
+    {% for row in rows|slice(0, row_limit) %}
+      <div{{ row.attributes.addClass(row_classes) }}>
+        {{- row.content -}}
+      </div>
+    {% endfor %}
+    {% if hidden_rows is not empty %}
+      <div class="hidden-views-rows-container collapse mt-20" id="toggle-{{ comment_type }}">
+        {% for row in hidden_rows %}
+          <div{{ row.attributes.addClass(row_classes) }}>
+            {{- row.content -}}
+          </div>
+        {% endfor %}
+      </div>
+      <button class="btn btn-primary mt-20" content_type="button" data-toggle="collapse" data-target="#toggle-{{ comment_type }}" aria-expanded="false" aria-controls="toggle-{{ comment_type }}">
+        {{ ('Show all ' ~ comment_type|split('_')|last ~ 's')|t }}
+      </button>
+    {% endif %}
+  </div>
+{% endif %}

@@ -29049,4 +29049,19 @@ msgstr "Flest stemmer"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Show all answers"
+msgstr "Vis alle svar"
+
+msgid "Show all comments"
+msgstr "Vis alle kommentarer"
+
+msgid "Post"
+msgstr "Indlæg"
+
+msgid "You do not have any answers yet"
+msgstr "Du har endnu ingen svar"
+
+msgid "You do not have any comments yet"
+msgstr "Du har endnu ingen kommentarer"
+
 
