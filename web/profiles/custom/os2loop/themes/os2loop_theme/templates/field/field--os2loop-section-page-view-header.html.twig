@@ -38,6 +38,16 @@
  * @ingroup themeable
  */
 #}
-{% for item in items %}
-  <h3{{ attributes.addClass('mb-20') }}>{{ item.content }}</h3>
-{% endfor %}
+
+<div class="{{ field_name|clean_class }} mb-20">
+  {% for item in items %}
+    <h3{{ attributes.addClass('mb-0') }}>
+      {{ item.content }}
+    </h3>
+  {% endfor %}
+  {% if total_rows %}
+    <div class="total-row-count">
+      {{ total_rows }}
+    </div>
+  {% endif %}
+</div>
