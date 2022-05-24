@@ -7,6 +7,8 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
 use Drupal\os2loop_user\Helper\Helper;
 
 /**
@@ -23,6 +25,15 @@ function os2loop_user_help($route_name, RouteMatchInterface $route_match) {
 
     default:
   }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ *
+ * @see \Drupal\os2loop_user\Helper\Helper::queryAlter()
+ */
+function os2loop_user_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  Drupal::service(Helper::class)->queryAlter($view, $query);
 }
 
 /**
