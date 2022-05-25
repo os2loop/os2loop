@@ -6,7 +6,7 @@
 %}
 
 {% if label_display == 'inline' %}
-<span{{ attributes }}>
+  <span{{ attributes }}>
   <!-- Performing a replace of the spacing in revision date - Revisions dato -> Revisionsdato -->
     <span{{ title_attributes.addClass(title_classes) }}>{{ label|replace({' ': ''}) }}:</span>
     {% if multiple %}
