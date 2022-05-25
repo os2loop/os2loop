@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2022-02-23 10:45+0000\n"
-"PO-Revision-Date: 2022-02-23 10:45+0000\n"
+"POT-Creation-Date: 2022-05-25 06:02+0000\n"
+"PO-Revision-Date: 2022-05-25 06:02+0000\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -75,17 +75,32 @@ msgstr "Update URL alias"
 msgid "Danish"
 msgstr "Dansk"
 
+msgid "Mail System"
+msgstr "Mail System"
+
+msgid "Configure OS2Loop Member list settings"
+msgstr "Medlemliste"
+
+msgid "Subscriptions"
+msgstr "Abonnementer"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "My questions"
+msgstr "Mine spørgsmål"
+
+msgid "My replies"
+msgstr "Mine svar"
+
+msgid "Share with a friend"
+msgstr "Del med en kollega"
+
 msgid "Print document (PDF)"
 msgstr "Udskriv document (PDF)"
 
 msgid "Contact editoral staff"
 msgstr "Skriv til redaktionen"
-
-msgid "Share with a friend"
-msgstr "Del med en kollega"
-
-msgid "Configure OS2Loop Member list settings"
-msgstr "Medlemliste"
 
 msgctxt "comment_abuse:block_1:field:comment:delete_comment:label"
 msgid "Delete comment"
@@ -16217,9 +16232,6 @@ msgstr "Login/Opret"
 msgid "Log in successful for %name."
 msgstr "Login fuldført for %name."
 
-msgid "Mail System"
-msgstr "Mail System"
-
 msgid "Configure per-module Mail System settings."
 msgstr "Konfigurér modulvis opsætning af Mail System."
 
@@ -16691,9 +16703,6 @@ msgstr "SMS"
 
 msgid "Send Message via email."
 msgstr "Send besked via e-mail."
-
-msgid "Subscriptions"
-msgstr "Abonnementer"
 
 msgid "Page URL"
 msgstr "Side URL"
@@ -26678,9 +26687,6 @@ msgstr "notifikation(er)"
 msgid "My content"
 msgstr "Mit indhold"
 
-msgid "My questions"
-msgstr "Mine spørgsmål"
-
 msgid "My comments"
 msgstr "Mine svar"
 
@@ -28885,9 +28891,6 @@ msgctxt "day_name"
 msgid "Saturday"
 msgstr "Lørdag"
 
-msgid "My replies"
-msgstr "Mine svar"
-
 msgid "Job profile"
 msgstr "Jobprofil"
 
@@ -29046,8 +29049,33 @@ msgstr "Redaktionens anbefaling"
 msgid "Most votes"
 msgstr "Flest stemmer"
 
-msgid "Profile"
-msgstr "Profil"
+msgid "Send out alert about @title"
+msgstr "Udsend besked vedrørende @title"
+
+msgid "Post"
+msgstr "Indlæg"
+
+msgid "Answers to questions"
+msgstr "Svar på spørgsmål"
+
+msgid "Comments to posts"
+msgstr "Kommentarer på indlæg"
+
+msgid "answers"
+msgstr "svar"
+
+msgid "Answer"
+msgstr "Svar"
+
+msgid "Allow anonymous answer author"
+msgstr "Tillad anonym svarforfatter"
+
+msgid ""
+"If set, answer authors can choose to hide their name when an answer is "
+"viewed."
+msgstr ""
+"Hvis valgt, kan svarforfattere vælge at skjule deres navn, når et "
+"svar vises."
 
 msgid "Show all answers"
 msgstr "Vis alle svar"
@@ -29055,13 +29083,19 @@ msgstr "Vis alle svar"
 msgid "Show all comments"
 msgstr "Vis alle kommentarer"
 
-msgid "Post"
-msgstr "Indlæg"
+msgid "You do not have any comments yet"
+msgstr "Du har endnu ingen kommentarer"
 
 msgid "You do not have any answers yet"
 msgstr "Du har endnu ingen svar"
 
-msgid "You do not have any comments yet"
-msgstr "Du har endnu ingen kommentarer"
+msgid "Add answer"
+msgstr "Tilføj svar"
+
+msgid "Send out alert about %title"
+msgstr "Udsend besked vedrørende %title"
+
+msgid "answer"
+msgstr "svar"
 
 
