@@ -5,7 +5,7 @@ namespace Drupal\os2loop_user\Helper;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\views\ViewExecutable;
-use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\Plugin\views\query\Sql;
 
 /**
  * The Helper class.
@@ -31,7 +31,7 @@ class Helper {
    * Change the order of the tables in a LEFT JOIN to preserve NULLs from
    * content type.
    */
-  public function queryAlter(ViewExecutable $view, QueryPluginBase $query) {
+  public function queryAlter(ViewExecutable $view, Sql $query) {
     if ($view->id() === 'os2loop_user_answers') {
       $node_table = $query->getTableInfo('node_field_data_comment_field_data');
 
