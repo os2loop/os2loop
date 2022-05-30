@@ -32,6 +32,6 @@ highlight_color
 %}
 <div{{ attributes.addClass(classes) }}>
   {% for item in items %}
-    <div{{ item.attributes }}>{{ item.content }}</div>
+    <div class="alert alert-success" {{ item.attributes }}>{{ item.content }}</div>
   {% endfor %}
 </div>
