@@ -29080,8 +29080,14 @@ msgstr ""
 msgid "Show all answers"
 msgstr "Vis alle svar"
 
+msgid "Show fewer answers"
+msgstr "Vis færre svar"
+
 msgid "Show all comments"
 msgstr "Vis alle kommentarer"
+
+msgid "Show fewer comments"
+msgstr "Vis færre kommentarer"
 
 msgid "You do not have any comments yet"
 msgstr "Du har endnu ingen kommentarer"
