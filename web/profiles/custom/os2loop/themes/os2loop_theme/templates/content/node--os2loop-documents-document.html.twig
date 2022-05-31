@@ -113,7 +113,7 @@
       </div>
     </div>
     <div class="tab-pane" id="about-document" role="tabpanel" aria-labelledby="about-document-tab">
-      {{ macros.title("About document"|t, "document", node, content, false) }}
+      {{ macros.title(label, "document", node, content, false) }}
       <div{{ content_attributes.addClass("block-secondary-gray") }}>
         <div>{{ content.os2loop_documents_document_autho }}</div>
         <div>{{ content.os2loop_shared_rev_date }}</div>
@@ -122,7 +122,7 @@
     </div>
     {% if os2loop_documents_collection|default(false) %}
       <div class="tab-pane" id="about-collection" role="tabpanel" aria-labelledby="about-collection">
-        {{ macros.title(os2loop_documents_collection.title.value, "document", os2loop_documents_collection, content, true, {link: true}) }}
+        {{ macros.title(os2loop_documents_collection.title.value, "collection", os2loop_documents_collection, content, true, {link: true}) }}
         {% if os2loop_documents_collection_tree|default(false) %}
           <div class="documents-in-collection">
             {{ macros.table_of_contents(os2loop_documents_collection_tree, os2loop_documents_collection, node.id) }}
