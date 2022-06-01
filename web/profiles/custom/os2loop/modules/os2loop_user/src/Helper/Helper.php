@@ -6,6 +6,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\Plugin\views\query\Sql;
 
 /**
  * The Helper class.
@@ -27,19 +28,10 @@ class Helper {
 
   /**
    * Implements hook_views_query_alter().
-   *
-   * Change the order of the tables in a LEFT JOIN to preserve NULLs from
-   * content type.
    */
   public function queryAlter(ViewExecutable $view, QueryPluginBase $query) {
     if ($view->id() === 'os2loop_user_answers') {
-      $node_table = $query->getTableInfo('node_field_data_comment_field_data');
-
-      if (isset($node_table) && $node_table['join']->type === 'LEFT') {
-        $node_table['join']->type = 'RIGHT';
-        $query->where[0]['type'] = 'OR';
-        $query->addWhereExpression(0, 'comment_field_data.uid IS NULL');
-      }
+      $this->sqlQueryAlter($view, $query);
     }
   }
 
@@ -58,6 +50,22 @@ class Helper {
           ],
           $this->currentUser->getRoles()
         ));
+    }
+  }
+
+  /**
+   * Helper function for SQL queries.
+   *
+   * Change the order of the tables in a LEFT JOIN to preserve NULLs from
+   * content type.
+   */
+  private function sqlQueryAlter(ViewExecutable $view, Sql $query) {
+    $node_table = $query->getTableInfo('node_field_data_comment_field_data');
+
+    if (isset($node_table) && $node_table['join']->type === 'LEFT') {
+      $node_table['join']->type = 'RIGHT';
+      $query->where[0]['type'] = 'OR';
+      $query->addWhereExpression(0, 'comment_field_data.uid IS NULL');
     }
   }
 

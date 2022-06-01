@@ -1,0 +1,12 @@
+@import "../../signifly-variables/colors.scss";
+
+div.alert {
+	> h3,
+	> p {
+		color: $loop-black;
+	}
+	&.alert-success {
+		background-color: $loop-green-100;
+		border-color: $loop-green-100;
+	}
+}

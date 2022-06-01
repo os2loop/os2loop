@@ -19,7 +19,7 @@
     3. Type `git checkout development` to switch to development.
 3. Run `docker ps` to confirm everything is running.
     1. Note the port for `os2loop_ngingx_1`. This is where your site will spin up (ex. `0.0.0.0:53960` => `http://localhost:53960`).
-4. Run `docker exec -it os2loop_phpfpm_1 bash` to open terminal on `phpfpm`.
+4. Run `docker exec -it os2loop_phpfpm_1 bash` to open terminal on `phpfpm`. If this command doesn't work, check the name of your os2loop-phpfpm container. It might use dash \- instead of underscore \_
     1. Run `composer install`.
     2. Run `mkdir web/sites/default/files/`.
     3. Run `chmod 777 web/sites/default/files/` to allow access to folder (workaround for install issue).
@@ -45,7 +45,7 @@ Pre-commit hooks didn't work out of the box. For whatever reason, it didn't copy
 
 ### Install
 - [XAMPP](https://www.apachefriends.org/download.html)
-- [Composer](https://getcomposer.org/download/) 
+- [Composer](https://getcomposer.org/download/)
 
 for the pre-commit hook to work, install them in the written order. Remember to add PHP to your [windows environment path](https://dinocajic.medium.com/add-xampp-php-to-environment-variables-in-windows-10-af20a765b0ce).
 
