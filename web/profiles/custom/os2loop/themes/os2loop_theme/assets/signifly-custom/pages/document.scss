@@ -24,14 +24,6 @@ $taxonomy-colors: (
 		}
 
 		.os2loop-documents-info-box.taxonomy-color-#{$taxonomy-color-index} {
-			@extend .block-base;
-
-			border: solid 3px $taxonomy-color;
-			background-color: rgba($taxonomy-color, 0.1);
-			color: inherit;
-		}
-
-		.os2loop-highlighted-container:not(.taxonomy-color-#{$taxonomy-color-index}) {
 			@extend .block-primary-light-green;
 		}
 	}
