@@ -50,13 +50,12 @@
     {% for item in items %}
       <div{{ item.attributes }}>{{ item.content }}</div>
     {% endfor %}
-    {% else %}
-      <div class="alert alert-secondary">
-        {% for item in items %}
-          {{ item.content }}
-        {% endfor %}
-      </div>
-    {% endif %}
+  {% else %}
+    <div class="alert alert-secondary">
+      {% for item in items %}
+        {{ item.content }}
+      {% endfor %}
+    </div>
   {% endif %}
 {% elseif label_display == 'inline' %}
   <span{{ attributes }}>

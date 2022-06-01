@@ -27,4 +27,8 @@ $taxonomy-colors: (
 			@extend .block-primary-light-green;
 		}
 	}
+
+	.os2loop-highlighted-container {
+		@extend .block-primary-light-green;
+	}
 }
