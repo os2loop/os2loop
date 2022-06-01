@@ -37,7 +37,7 @@
   </div>
 </div>
 {% if date %}
-  <div class="ml-auto user-reply-date small">
+  <div class="ml-auto user-reply-date text-sm">
     {# date #}
     {{ date|striptags|trim|slice(5, 10)|replace({'/': '-'}) }}
   </div>

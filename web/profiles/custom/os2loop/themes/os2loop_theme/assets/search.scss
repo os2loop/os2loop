@@ -25,9 +25,13 @@ $search-icon: bg-icon($search-icon-bg, $icon-color);
 #block-os2loop-search-db-search,
 #views-exposed-form-os2loop-search-db-page-search-form {
 	// Hide submit button and search field label.
-	.form-actions,
-	.form-type-search-api-autocomplete label {
+	.form-actions {
 		display: none;
+	}
+
+	// Use label as fake header for block
+	.form-type-search-api-autocomplete label {
+		@extend .h2, .mb-20;
 	}
 
 	.form-autocomplete {
@@ -169,11 +173,26 @@ input[type="search"]::-webkit-search-results-decoration {
 	display: none;
 }
 
-// Adding a highligt color for search_api_excerpt
-.search_api_excerpt strong {
-	background-color: $warning;
-	padding-left: 1px;
-	padding-right: 1px;
+.search-api-excerpt {
+	// Add a box around results from comments
+	&.searched-comment {
+		@extend .block-base, .px-15, .py-10;
+
+		background-color: $loop-white;
+		border: 1px solid $gray-200;
+	}
+
+	// Adding a highligt color for search_api_excerpt
+	strong {
+		background-color: rgba(
+			red($loop-green-400),
+			green($loop-green-400),
+			blue($loop-green-400),
+			0.5
+		);
+		padding-left: 1px;
+		padding-right: 1px;
+	}
 }
 
 // Hide title on content type filters on search results page
