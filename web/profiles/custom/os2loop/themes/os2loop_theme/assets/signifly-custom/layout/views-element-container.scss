@@ -1,0 +1,5 @@
+.views-element-container {
+	.views-row:last-of-type {
+		@extend .mb-0;
+	}
+}
