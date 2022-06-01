@@ -9,4 +9,8 @@ div.alert {
 		background-color: $loop-green-100;
 		border-color: $loop-green-100;
 	}
+	&.alert-secondary {
+		background-color: $gray-100;
+		border-color: $gray-100;
+	}
 }
