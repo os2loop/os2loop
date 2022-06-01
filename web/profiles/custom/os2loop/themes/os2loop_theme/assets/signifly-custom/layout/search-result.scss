@@ -1,0 +1,17 @@
+.search-result {
+	.search-result-icon {
+		svg {
+			height: 35px;
+			width: 35px;
+		}
+	}
+
+	.search-api-excerpt {
+		font-size: $font-size-base;
+	}
+
+	.comment-count {
+		color: black;
+		font-weight: $badge-font-weight;
+	}
+}

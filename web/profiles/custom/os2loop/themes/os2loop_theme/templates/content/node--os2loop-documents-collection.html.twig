@@ -91,7 +91,7 @@
       </div>
     </div>
     <div class="tab-pane" id="about-collection" role="tabpanel" aria-labelledby="about-collection-tab">
-      {{ macros.title("About collection"|t, "collection", node, content, false) }}
+      {{ macros.title(label, "collection", node, content, false) }}
       <div{{ content_attributes.addClass("block-secondary-gray") }}>
         <div>{{ content.os2loop_shared_owner }}</div>
         <div>{{ content.os2loop_shared_version }}</div>

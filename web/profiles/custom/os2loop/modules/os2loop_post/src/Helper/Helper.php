@@ -5,11 +5,14 @@ namespace Drupal\os2loop_post\Helper;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\os2loop_post\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Helper for posts.
  */
 class Helper {
+  use StringTranslationTrait;
+
   /**
    * The config.
    *
@@ -48,6 +51,7 @@ class Helper {
    *   The id of the the form.
    */
   private function alterCommentForm(array &$form, FormStateInterface $form_state, string $form_id) {
+    $form['actions']['submit']['#value'] = $this->t('Add');
     $form['actions']['preview']['#access'] = FALSE;
     $form['os2loop_post_comment']['widget']['#after_build'][] =
       [$this, 'fieldAfterBuild'];

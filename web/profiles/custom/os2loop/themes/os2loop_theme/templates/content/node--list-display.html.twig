@@ -94,15 +94,12 @@
     <div class="row no-gutters">
       <div class="col list-display-text{{ display_inline_view ? ' d-inline-flex' }} mx-30">
         {# text #}
-        <div class="h5 m-0">
+        <div class="list-display-header h5 m-0">
           <a class="link-unstyled" href="{{ url }}">{{ label }}</a>
-          {% if display_inline_view %}
-            <div class="badge badge-primary {{ badge_class }} ml-20 align-top">{{ node.type.entity.label }}</div>
-          {% endif %}
         </div>
         {% if not display_inline_view %}
           {% if body_text %}
-            <div class="line-clamp-3">
+            <div class="list-display-body line-clamp-3">
               {{ body_text }}
             </div>
           {% endif %}
@@ -114,9 +111,14 @@
           </div>
         {% endif %}
       </div>
-      <div class="col-auto ml-auto list-display-date small">
+      <div class="col-auto ml-auto d-inline-flex">
+        {% if display_inline_view %}
+          <div class="badge badge-primary {{ badge_class }} mr-20 align-self-start">{{ node.type.entity.label }}</div>
+        {% endif %}
         {# date #}
-        {{ node.createdtime|date('d-m-Y') }}
+        <div class="list-display-date text-sm">
+          {{ node.createdtime|date('d-m-Y') }}
+        </div>
       </div>
     </div>
   </div>
