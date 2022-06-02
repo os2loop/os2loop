@@ -39,8 +39,6 @@
 // pages
 @import "pages/section-page.scss";
 @import "pages/node-add-osloop-question.scss";
-@import "pages/view-profile-page.scss";
-@import "pages/edit-profile-page.scss";
 @import "pages/contacts.scss";
 @import "pages/document.scss";
 @import "pages/document-collection.scss";
@@ -48,7 +46,9 @@
 @import "pages/post.scss";
 @import "pages/search.scss";
 
+@import "pages/user.scss";
 @import "pages/user-questions.scss";
 @import "pages/user-subscriptions.scss";
 @import "pages/user-replies.scss";
 @import "pages/user-messages.scss";
+@import "pages/user-edit.scss";
