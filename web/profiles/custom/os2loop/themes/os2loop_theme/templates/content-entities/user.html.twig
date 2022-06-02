@@ -20,9 +20,9 @@
 #}
 
 <div class="user-profile icon-container">
-  <div class="icon edit" data-toggle="tooltip" title data-original-title="Rediger profil">
-    <a aria-label="Rediger profil" href={{ path('<current>') ~ '/edit' }}>
-      <span class="visually-hidden">{{ 'Rediger svar' }}</span>
+  <div class="icon edit" data-toggle="tooltip" title data-original-title="{{ 'Edit profile'|t }}">
+    <a aria-label="{{ 'Edit profile'|t }}" href={{ path('<current>') ~ '/edit' }}>
+      <span class="visually-hidden">{{ 'Edit profile'|t }}</span>
     </a>
   </div>
 </div>
@@ -32,56 +32,60 @@
   {% set full_name = user.os2loop_user_given_name.value ~ ' ' ~ user.os2loop_user_family_name.value %}
   {% set street_address = ((user.os2loop_user_address.value is not empty ? user.os2loop_user_address.value : '') ~ ', ' ~ (user.os2loop_user_postal_code.value is not empty ? user.os2loop_user_postal_code.value : '') ~ (user.os2loop_user_city.value is not empty ? ' ' ~ user.os2loop_user_city.value : ''))|trim(', ', 'left') %}
     <div class="row">
-      <div class="col-2 order-1">
+      <div class="col-auto">
         <div class="user-image">
-          {{ (user.os2loop_user_image.value is not empty) ? content.os2loop_user_image : initials }}
+          {{- (user.os2loop_user_image.value is not empty) ? content.os2loop_user_image : initials -}}
         </div>
       </div>
-      <div class="col-10 order-2">
+      <div class="col-auto">
         <div class="row">
           <div class="col">
-            <h5 class="m-0">{{ full_name }}</h5>
-            <p class="m-0">{{ user.os2loop_user_job_title.value }}</p>
+            <h5 class="m-0">{{- full_name -}}</h5>
+            <p class="m-0">{{- user.os2loop_user_job_title.value -}}</p>
           </div>
         </div>
         <div class="row mt-30">
           <div class="col">
             <div class="row">
-              <div class="col-3">
+              <div class="col-auto">
               {% if user.os2loop_user_phone_number.value is not empty %}
                 <div class="user-contact-information mb-10">
                   <i class="bi bi-telephone"></i>
-                  <p>{{ user.os2loop_user_phone_number.value }}</p>
+                  <p>{{- user.os2loop_user_phone_number.value -}}</p>
                 </div>
               {% endif %}
                 <div class="user-contact-information">
                   <i class="bi bi-envelope"></i>
-                  <p>{{ user.mail.value }}</p>
+                  <p>{{- user.mail.value -}}</p>
                 </div>
               </div>
-              <div class="col-6">
+              <div class="col-auto">
                 <div class="user-contact-information">
                   <i class="bi bi-geo-alt"></i>
                   <div>
-                    <p>{{ user.os2loop_user_place.value }}</p>
-                    <p>{{ street_address }}</p>
+                    <p>{{- user.os2loop_user_place.value -}}</p>
+                    <p>{{- street_address -}}</p>
                   <div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row mt-40">
-          <div class="col">
-            {{ content.os2loop_user_areas_of_expertise }}
+        {% if content.os2loop_user_areas_of_expertise.value is not empty %}
+          <div class="row mt-40">
+            <div class="col">
+              {{- content.os2loop_user_areas_of_expertise -}}
+            </div>
           </div>
-        </div>
-        <div class="row mt-30">
-          <div class="col pr-140">
-            {{ content.os2loop_user_biography }}
+        {% endif %}
+        {% if content.os2loop_user_biography.value is not empty %}
+          <div class="row mt-30">
+            <div class="col pr-140">
+              {{- content.os2loop_user_biography -}}
+            </div>
           </div>
+        {% endif %}
       </div>
     </div>
-  </div>
   {% endif %}
 </article>
