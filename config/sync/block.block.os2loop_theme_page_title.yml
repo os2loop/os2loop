@@ -22,5 +22,5 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/node/add/*\r\n/user/*"
+    pages: "/node/add/*\r\n/user/*\r\n/contacts"
     negate: false

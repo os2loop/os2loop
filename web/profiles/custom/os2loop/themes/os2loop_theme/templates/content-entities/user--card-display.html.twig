@@ -19,46 +19,58 @@
  */
 #}
 
+{% set initials = (user.os2loop_user_given_name.value|first ~ user.os2loop_user_family_name.value|first ?: 'Anonymous user'|t|first)|upper %}
 {% set show_location = user.os2loop_user_place.value or user.os2loop_user_address.value or user.os2loop_user_city.value %}
-{% set initials = (user.os2loop_user_given_name.value|first ~ user.os2loop_user_family_name.value|first)|upper %}
 {% set street_address = ((user.os2loop_user_address.value is not empty ? user.os2loop_user_address.value : '') ~ ', ' ~ (user.os2loop_user_postal_code.value is not empty ? user.os2loop_user_postal_code.value : '') ~ (user.os2loop_user_city.value is not empty ? ' ' ~ user.os2loop_user_city.value : ''))|trim(', ', 'left') %}
 
 <div class="card-body">
-  <div class="card-text d-inline-flex">
-    <div class="user-image">
-      {{ user.os2loop_user_image.value is not empty ? content.os2loop_user_image : initials }}
-    </div>
-    <div class="user-profile">
-      <h5 class="card-title user-name">
-        <a href="{{ url('entity.user.canonical', {'user': user.id}) }}">
-          {{ user.os2loop_user_given_name.value }} {{ user.os2loop_user_family_name.value }}
-        </a>
-      </h5>
-      <div class="user-job">
-        <p>{{ user.os2loop_user_job_title.value }}</p>
+  <div class="container p-0">
+    <div class="row no-gutters">
+      <div class="col-auto user-image mr-40">
+        {{- user.os2loop_user_image.value is not empty ? content.os2loop_user_image : initials -}}
       </div>
-      <div class="mt-30">
-        {% if user.os2loop_user_phone_number.value %}
-        <div class="user-contact-information">
-          <i class="bi bi-telephone"></i>
-          <p class="mb-0">{{ user.os2loop_user_phone_number.value }}</p>
+      <div class="col-auto user-profile">
+        <h5 class="card-title user-name">
+          <a class="link-unstyled" href="{{ url('entity.user.canonical', {'user': user.id}) }}">
+            {{ user.os2loop_user_given_name.value }} {{ user.os2loop_user_family_name.value }}
+          </a>
+        </h5>
+        <div class="user-job">
+          <p>{{ user.os2loop_user_job_title.value }}</p>
         </div>
-        {% endif %}
-        {% if user.email %}
-        <div class="user-contact-information">
-          <i class="bi bi-envelope"></i>
-          <p class="mb-0">{{ user.email }}</p>
+        <div class="mt-30">
+          {% if user.os2loop_user_phone_number.value %}
+            <div class="row no-gutters align-items-center">
+              <div class="col-auto">
+                <i class="bi bi-telephone mr-20"></i>
+              </div>
+              <div class="col-auto">
+                <p class="mb-0">{{ user.os2loop_user_phone_number.value }}</p>
+              </div>
+            </div>
+          {% endif %}
+          {% if user.email %}
+            <div class="row no-gutters align-items-center">
+              <div class="col-auto">
+                <i class="bi bi-envelope mr-20"></i>
+              </div>
+              <div class="col-auto">
+                <p class="mb-0">{{ user.email }}</p>
+              </div>
+            </div>
+          {% endif %}
+          {% if show_location %}
+            <div class="row no-gutters align-items-baseline">
+              <div class="col-auto">
+                <i class="bi bi-geo-alt mr-20"></i>
+              </div>
+              <div class="col-auto">
+                <p class="mb-0">{{ user.os2loop_user_place.value }}</p>
+                <p class="mb-0">{{ street_address }}</p>
+              </div>
+            </div>
+          {% endif %}
         </div>
-        {% endif %}
-        {% if show_location %}
-        <div class="user-contact-information">
-          <i class="bi bi-geo-alt"></i>
-          <div>
-            <p class="mb-0">{{ user.os2loop_user_place.value }}</p>
-            <p class="mb-0">{{ street_address }}</p>
-          </div>
-        </div>
-        {% endif %}
       </div>
     </div>
   </div>

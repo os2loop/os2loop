@@ -50,15 +50,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
-          items_per_page: 30
+          items_per_page: 8
           offset: 0
           id: 0
           total_pages: null
           tags:
-            previous: ‹‹
-            next: ››
+            previous: '<'
+            next: '>'
+            first: ''
+            last: ''
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -67,6 +69,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       style:
         type: default
       row:
@@ -549,7 +552,7 @@ display:
           exposed: true
           expose:
             operator_id: combine_op
-            label: 'Search for name, email or phone number'
+            label: ''
             description: ''
             use_operator: false
             operator: combine_op
@@ -571,7 +574,7 @@ display:
               os2loop_user_document_collection_editor: '0'
               os2loop_user_post_author: '0'
               os2loop_user_user_administrator: '0'
-            placeholder: ''
+            placeholder: 'Search for name, email or phone number'
           is_grouped: false
           group_info:
             label: ''

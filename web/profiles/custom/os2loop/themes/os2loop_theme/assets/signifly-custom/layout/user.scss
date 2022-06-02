@@ -43,15 +43,7 @@
 	}
 
 	.user-image {
-		width: $user-image-profile-size;
-		height: $user-image-profile-size;
-
-		font-size: 40px;
-
-		img {
-			min-width: $user-image-profile-size;
-			min-height: $user-image-profile-size;
-		}
+		@include user-image($user-image-profile-size, 40px);
 	}
 
 	.user-contact-information {

@@ -9,7 +9,7 @@ display:
       filters:
         combine:
           expose:
-            label: 'Søg efter navn, e-mail eller telefonnummer'
+            placeholder: 'Søg efter navn, e-mail eller telefonnummer'
       title: Kontaktliste
       empty:
         area:
