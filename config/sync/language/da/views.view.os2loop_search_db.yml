@@ -11,7 +11,7 @@ display:
       filters:
         search_api_fulltext:
           expose:
-            label: 'Søg'
+            label: Søg
             placeholder: 'Søg efter indhold eller emner'
       title: Søg
       header:
