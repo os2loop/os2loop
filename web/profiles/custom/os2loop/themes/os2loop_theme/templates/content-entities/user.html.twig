@@ -28,7 +28,7 @@
 </div>
 <article{{ attributes.addClass('user-profile', 'rounded-lg', 'p-30') }}>
   {% if content %}
-  {% set initials = (user.os2loop_user_given_name.value|first ~ user.os2loop_user_family_name.value|first)|upper %}
+  {% set initials = (user.os2loop_user_given_name.value|first ~ user.os2loop_user_family_name.value|first ?: 'Anonymous user'|t|first)|upper %}
   {% set full_name = user.os2loop_user_given_name.value ~ ' ' ~ user.os2loop_user_family_name.value %}
   {% set street_address = ((user.os2loop_user_address.value is not empty ? user.os2loop_user_address.value : '') ~ ', ' ~ (user.os2loop_user_postal_code.value is not empty ? user.os2loop_user_postal_code.value : '') ~ (user.os2loop_user_city.value is not empty ? ' ' ~ user.os2loop_user_city.value : ''))|trim(', ', 'left') %}
     <div class="row">
