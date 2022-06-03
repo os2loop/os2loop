@@ -78,20 +78,6 @@ read on the url reported by
 echo "http://$(docker-compose port mailhog 8025)"
 ```
 
-#### Using `symfony` binary
-
-```sh
-docker-compose up --detach
-symfony composer install
-symfony php vendor/bin/drush --yes site:install os2loop --existing-config
-# Start the server
-symfony local:server:start --port=8000 --daemon
-# Get the site url
-echo "http://127.0.0.1:8000"
-# Get admin sign in url
-symfony php vendor/bin/drush --uri=https://127.0.0.1:8000 user:login
-```
-
 ### Fixtures
 
 We have fixtures for all content types.
@@ -100,15 +86,15 @@ To load all content type fixtures, run:
 
 ```sh
 # Find and enable all fixtures modules
-vendor/bin/drush --yes pm:enable $(find web/profiles/custom/os2loop/modules/ -type f -name 'os2loop_*_fixtures.info.yml' -exec basename -s .info.yml {} \;)
+docker-compose exec phpfpm vendor/bin/drush --yes pm:enable $(find web/profiles/custom/os2loop/modules/ -type f -name 'os2loop_*_fixtures.info.yml' -exec basename -s .info.yml {} \;)
 # Disable "Entity Reference Integrity Enforce" module to be able to delete (purge) content before loading fixtures.
-vendor/bin/drush --yes pm:uninstall entity_reference_integrity_enforce
+docker-compose exec phpfpm vendor/bin/drush --yes pm:uninstall entity_reference_integrity_enforce
 # Load the fixtures
-vendor/bin/drush --yes content-fixtures:load
+docker-compose exec phpfpm vendor/bin/drush --yes content-fixtures:load
 # Uninstall all fixtures modules
-vendor/bin/drush --yes pm:uninstall content_fixtures
+docker-compose exec phpfpm vendor/bin/drush --yes pm:uninstall content_fixtures
 # Enable "Entity Reference Integrity Enforce" module
-vendor/bin/drush --yes pm:enable entity_reference_integrity_enforce
+docker-compose exec phpfpm vendor/bin/drush --yes pm:enable entity_reference_integrity_enforce
 ```
 
 ## Updates
