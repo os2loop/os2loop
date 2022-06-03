@@ -32,9 +32,6 @@
 @import "forms/user-form.scss";
 @import "forms/node-os2loop-question-form.scss";
 
-// views
-@import "views/contact.scss";
-
 // search
 @import "search/filter-types.scss";
 @import "search/search-input.scss";
@@ -42,15 +39,16 @@
 // pages
 @import "pages/section-page.scss";
 @import "pages/node-add-osloop-question.scss";
-@import "pages/view-profile-page.scss";
-@import "pages/edit-profile-page.scss";
-@import "pages/contact-page.scss";
+@import "pages/contacts.scss";
 @import "pages/document.scss";
 @import "pages/document-collection.scss";
 @import "pages/question.scss";
 @import "pages/post.scss";
+@import "pages/search.scss";
 
+@import "pages/user.scss";
 @import "pages/user-questions.scss";
 @import "pages/user-subscriptions.scss";
 @import "pages/user-replies.scss";
 @import "pages/user-messages.scss";
+@import "pages/user-edit.scss";

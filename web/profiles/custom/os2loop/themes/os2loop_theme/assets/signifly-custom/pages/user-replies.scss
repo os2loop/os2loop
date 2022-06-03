@@ -2,8 +2,8 @@
 	.content-wrapper {
 		@extend .block-primary-white, .p-30;
 
-		.views-rows-container {
-			@extend .block-primary-gray, .p-30, .mt-30;
+		.user-reply-wrapper {
+			@extend .block-primary-gray, .p-30;
 		}
 
 		.views-row {

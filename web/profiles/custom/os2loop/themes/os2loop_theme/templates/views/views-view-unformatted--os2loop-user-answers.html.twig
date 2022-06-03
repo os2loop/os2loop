@@ -27,51 +27,53 @@
   ]
 %}
 
-<h3 class="views-rows-title mt-30 mb-0">
-  {% if content_type == 'os2loop_question' %}
-    {{ 'Answers to questions'|t }}
-  {% elseif content_type == 'os2loop_post' %}
-    {{ 'Comments to posts'|t }}
-  {% else %}
-    {{ 'Unknown comment content_type'|t }}
-  {% endif %}
-</h3>
-<div class="views-rows-container mt-30">
-  {% if rows is empty %}
-    <div class="views-row alternate-text">
-      {% if content_type == 'os2loop_question' %}
-        {{ 'You do not have any answers yet'|t }}
-      {% else %}
-        {{ 'You do not have any comments yet'|t }}
+<div class="user-reply-wrapper mt-30">
+  <h3 class="views-rows-title mb-0">
+    {% if content_type == 'os2loop_question' %}
+      {{ 'Answers to questions'|t }}
+    {% elseif content_type == 'os2loop_post' %}
+      {{ 'Comments to posts'|t }}
+    {% else %}
+      {{ 'Unknown comment content_type'|t }}
+    {% endif %}
+  </h3>
+  <div class="views-rows-container mt-30">
+    {% if rows is empty %}
+      <div class="views-row alternate-text">
+        {% if content_type == 'os2loop_question' %}
+          {{ 'You do not have any answers yet'|t }}
+        {% else %}
+          {{ 'You do not have any comments yet'|t }}
+        {% endif %}
+      </div>
+    {% else %}
+      {% for row in rows|slice(0, row_limit) %}
+        <div{{ row.attributes.addClass(row_classes) }}>
+          {{- row.content -}}
+        </div>
+      {% endfor %}
+      {% if hidden_rows is not empty %}
+        {% set reply_type = comment_type|split('_')|last %}
+        {% set show_all_label = ('Show all ' ~ reply_type ~ 's')|t %}
+        {% set show_fewer_label = ('Show fewer ' ~ reply_type ~ 's')|t %}
+        <div class="hidden-views-rows-container collapse mt-20" id="toggle-{{ reply_type }}">
+          {% for row in hidden_rows %}
+            <div{{ row.attributes.addClass(row_classes) }}>
+              {{- row.content -}}
+            </div>
+          {% endfor %}
+        </div>
+        <button id="button-{{ reply_type }}" class="btn btn-primary mt-20" content_type="button" data-toggle="collapse" data-target="#toggle-{{ reply_type }}" aria-expanded="false" aria-controls="toggle-{{ reply_type }}">
+          {{- show_all_label -}}
+        </button>
+        {# Change label of button when it is clicked #}
+        <script>
+          const button = document.getElementById("button-{{ reply_type }}");
+          button.addEventListener("click", function() {
+            button.innerText = button.innerText === "{{ show_all_label }}" ? "{{ show_fewer_label }}" : "{{ show_all_label }}";
+          });
+        </script>
       {% endif %}
-    </div>
-  {% else %}
-    {% for row in rows|slice(0, row_limit) %}
-      <div{{ row.attributes.addClass(row_classes) }}>
-        {{- row.content -}}
-      </div>
-    {% endfor %}
-    {% if hidden_rows is not empty %}
-      {% set reply_type = comment_type|split('_')|last %}
-      {% set show_all_label = ('Show all ' ~ reply_type ~ 's')|t %}
-      {% set show_fewer_label = ('Show fewer ' ~ reply_type ~ 's')|t %}
-      <div class="hidden-views-rows-container collapse mt-20" id="toggle-{{ reply_type }}">
-        {% for row in hidden_rows %}
-          <div{{ row.attributes.addClass(row_classes) }}>
-            {{- row.content -}}
-          </div>
-        {% endfor %}
-      </div>
-      <button id="button-{{ reply_type }}" class="btn btn-primary mt-20" content_type="button" data-toggle="collapse" data-target="#toggle-{{ reply_type }}" aria-expanded="false" aria-controls="toggle-{{ reply_type }}">
-        {{- show_all_label -}}
-      </button>
-      {# Change label of button when it is clicked #}
-      <script>
-        const button = document.getElementById("button-{{ reply_type }}");
-        button.addEventListener("click", function() {
-          button.innerText = button.innerText === "{{ show_all_label }}" ? "{{ show_fewer_label }}" : "{{ show_all_label }}";
-        });
-      </script>
     {% endif %}
   </div>
-{% endif %}
+</div>

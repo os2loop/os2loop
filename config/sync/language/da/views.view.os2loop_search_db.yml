@@ -3,15 +3,12 @@ display:
     display_options:
       pager:
         options:
-          tags:
-            first: '« Første'
-            last: 'Sidste »'
           expose:
             items_per_page_options_all_label: '- Alle -'
       filters:
         search_api_fulltext:
           expose:
-            label: 'Søg'
+            label: Søg
             placeholder: 'Søg efter indhold eller emner'
       title: Søg
       header:

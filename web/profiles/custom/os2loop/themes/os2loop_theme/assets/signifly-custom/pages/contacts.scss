@@ -1,4 +1,8 @@
-.views-view-contact {
+.contacts {
+	> .content-wrapper {
+		@extend .block-primary-white;
+	}
+
 	.search {
 		.form-group {
 			@extend .mb-0;
@@ -16,6 +20,10 @@
 			height: 48px;
 			width: 72px;
 		}
+
+		input:not(:focus) {
+			border: 1px solid $gray-300;
+		}
 	}
 
 	.user-name {
@@ -24,17 +32,7 @@
 
 	.card-body {
 		.user-image {
-			@extend .mr-40;
-
-			width: $user-image-card-size;
-			height: $user-image-card-size;
-
-			font-size: 40px;
-
-			img {
-				min-width: $user-image-card-size;
-				min-height: $user-image-card-size;
-			}
+			@include user-image($user-image-card-size, 40px);
 		}
 	}
 
@@ -44,5 +42,9 @@
 
 	.user-contact-information + .user-contact-information {
 		@extend .mt-10;
+	}
+
+	.pager {
+		@extend .mt-30;
 	}
 }

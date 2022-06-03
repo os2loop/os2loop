@@ -8,11 +8,14 @@ dependencies:
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
     - field.field.node.os2loop_documents_document.os2loop_documents_info_box
     - field.field.node.os2loop_documents_document.os2loop_notify_users
+    - field.field.node.os2loop_documents_document.os2loop_shared_approval_date
+    - field.field.node.os2loop_documents_document.os2loop_shared_approver
     - field.field.node.os2loop_documents_document.os2loop_shared_category
     - field.field.node.os2loop_documents_document.os2loop_shared_profession
     - field.field.node.os2loop_documents_document.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_document.os2loop_shared_subject
     - field.field.node.os2loop_documents_document.os2loop_shared_tags
+    - field.field.node.os2loop_documents_document.os2loop_shared_version
     - node.type.os2loop_documents_document
   module:
     - datetime
@@ -70,6 +73,23 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  os2loop_shared_approval_date:
+    weight: 14
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  os2loop_shared_approver:
+    weight: 13
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   os2loop_shared_category:
     weight: 6
     label: above
@@ -88,7 +108,7 @@ content:
     region: content
   os2loop_shared_rev_date:
     weight: 11
-    label: above
+    label: inline
     settings:
       format_type: medium
       timezone_override: ''
@@ -110,6 +130,14 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  os2loop_shared_version:
+    weight: 12
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
 hidden:
   entity_print_view_epub: true

@@ -1,0 +1,7 @@
+.user-edit > .content-wrapper {
+	@extend .block-primary-gray, .position-relative;
+
+	.image-widget {
+		@extend .d-none;
+	}
+}
