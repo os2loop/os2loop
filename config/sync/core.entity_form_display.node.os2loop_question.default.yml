@@ -92,19 +92,12 @@ content:
     weight: 8
   os2loop_shared_subject:
     settings:
-      match_limit: '0'
-      min_length: 0
-      delimiter: ''
-      not_found_message: 'The term ''@term'' will be added'
-      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
-      not_found_message_allow: false
-      new_terms: false
       match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      match_limit: 10
       size: 60
-      selection_handler: default
+      placeholder: ''
     third_party_settings: {  }
-    type: autocomplete_deluxe
+    type: entity_reference_autocomplete
     region: content
     weight: 7
   os2loop_shared_tags:

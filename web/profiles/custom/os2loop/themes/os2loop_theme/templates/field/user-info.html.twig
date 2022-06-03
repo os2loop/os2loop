@@ -11,8 +11,7 @@
 
 {# Display author if not anonymous #}
 {% set image = user['#user'].id is not empty ? drupal_field('os2loop_user_image', 'user', user['#user'].id, 'compact') %}
-{% set initials = user['#user'].os2loop_user_given_name.value|first ~ user['#user'].os2loop_user_family_name.value|first %}
-{% set initials = (initials is not empty ? initials : 'Anonymous user'|t|first)|upper %}
+{% set initials = (user['#user'].os2loop_user_given_name.value|first ~ user['#user'].os2loop_user_family_name.value|first ?: 'Anonymous user'|t|first)|upper %}
 
 {# user image #}
 <div class="d-inline-flex align-items-center">

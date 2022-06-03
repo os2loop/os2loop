@@ -40,7 +40,11 @@
       <li class="pager__item pager__item--previous page-item{{ items.previous ? '' : ' disabled' }}">
         <a href="{{ items.previous.href }}" title="{{ 'Go to previous page'|t }}" rel="prev" class="page-link"}>
           <span class="visually-hidden">{{ 'Previous page'|t }}</span>
-          <span aria-hidden="true" class="bi bi-chevron-left"></span>
+          {% if items.previous.text|default('<') == '<' %}
+            <span aria-hidden="true" class="bi bi-chevron-left"></span>
+          {% else %}
+            <span aria-hidden="true">{{- items.previous.text -}}</span>
+          {% endif %}
         </a>
       </li>
       {# Add an ellipsis if there are further previous pages. #}
@@ -68,10 +72,14 @@
         <li class="page-item pager__item pager__item--ellipsis page-item" role="presentation"><span class="page-link">&hellip;</span></li>
       {% endif %}
       {# Print next item symbol. Disabled if we are on the last page. #}
-      <li class="page-item pager__item pager__item--next{{ items.next ? '' : 'disabled' }}">
+      <li class="page-item pager__item pager__item--next{{ items.next ? '' : ' disabled' }}">
         <a href="{{ items.next.href }}" title="{{ 'Go to next page'|t }}" rel="next" class="page-link">
           <span class="visually-hidden">{{ 'Next page'|t }}</span>
-          <span aria-hidden="true" class="bi bi-chevron-right"></span>
+          {% if items.next.text|default('>') == '>' %}
+            <span aria-hidden="true" class="bi bi-chevron-right"></span>
+          {% else %}
+            <span aria-hidden="true">{{- items.next.text -}}</span>
+          {% endif %}
         </a>
       </li>
     </ul>
