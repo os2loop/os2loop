@@ -92,16 +92,19 @@
   {% endif %}
 {% endmacro %}
 
+{# Tabs for document #}
+{% set tabs = [
+  {'id': 'document', 'name': 'Document'|t},
+  {'id': 'about-document', 'name': 'About document'|t}
+] %}
+
+{% if os2loop_documents_collection|default(false) %}
+  {% set tabs = tabs|merge([
+    {'id': 'about-collection', 'name': 'Document collection'|t}
+  ]) %}
+{% endif %}
+
 <article{{ attributes }}>
-  {% set tabs = [
-    {'id': 'document', 'name': 'Document'|t},
-    {'id': 'about-document', 'name': 'About document'|t}
-  ] %}
-  {% if os2loop_documents_collection|default(false) %}
-    {% set tabs = tabs|merge([
-      {'id': 'about-collection', 'name': 'Document collection'|t}
-    ]) %}
-  {% endif %}
   {% include '@os2loop_theme/navigation/content-tabs.html.twig' with {'tabs': tabs, 'id': 'document-tabs'} %}
   <div class="tab-content" id="document-tabs-content">
     <div class="tab-pane show active" id="document" role="tabpanel" aria-labelledby="document-tab">
@@ -116,8 +119,10 @@
       {{ macros.title(label, "document", node, content, false) }}
       <div{{ content_attributes.addClass("block-secondary-gray") }}>
         <div>{{ content.os2loop_documents_document_autho }}</div>
+        <div>{{ content.os2loop_shared_version }}</div>
+        <div>{{ content.os2loop_shared_approver }}</div>
+        <div>{{ content.os2loop_shared_approval_date }}</div>
         <div>{{ content.os2loop_shared_rev_date }}</div>
-        <div>{{ content.os2loop_shared_tags }}</div>
       </div>
     </div>
     {% if os2loop_documents_collection|default(false) %}

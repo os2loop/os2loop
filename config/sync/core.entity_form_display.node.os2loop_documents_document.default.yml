@@ -8,18 +8,41 @@ dependencies:
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
     - field.field.node.os2loop_documents_document.os2loop_documents_info_box
     - field.field.node.os2loop_documents_document.os2loop_notify_users
+    - field.field.node.os2loop_documents_document.os2loop_shared_approval_date
+    - field.field.node.os2loop_documents_document.os2loop_shared_approver
     - field.field.node.os2loop_documents_document.os2loop_shared_category
     - field.field.node.os2loop_documents_document.os2loop_shared_profession
     - field.field.node.os2loop_documents_document.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_document.os2loop_shared_subject
     - field.field.node.os2loop_documents_document.os2loop_shared_tags
+    - field.field.node.os2loop_documents_document.os2loop_shared_version
     - node.type.os2loop_documents_document
   module:
     - autocomplete_deluxe
     - datetime
+    - field_group
     - paragraphs
     - path
     - text
+third_party_settings:
+  field_group:
+    group_metadata:
+      children:
+        - os2loop_shared_version
+        - os2loop_shared_approver
+        - os2loop_shared_approval_date
+        - os2loop_shared_rev_date
+      parent_name: ''
+      weight: 12
+      format_type: fieldset
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Metadata
 id: node.os2loop_documents_document.default
 targetEntityType: node
 bundle: os2loop_documents_document
@@ -68,11 +91,25 @@ content:
     type: text_textarea
     region: content
   os2loop_notify_users:
-    weight: 26
+    weight: 15
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  os2loop_shared_approval_date:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  os2loop_shared_approver:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   os2loop_shared_category:
     weight: 8
@@ -102,7 +139,7 @@ content:
     type: autocomplete_deluxe
     region: content
   os2loop_shared_rev_date:
-    weight: 12
+    weight: 29
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -141,9 +178,17 @@ content:
     third_party_settings: {  }
     type: autocomplete_deluxe
     region: content
+  os2loop_shared_version:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
