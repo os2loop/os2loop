@@ -1,0 +1,19 @@
+uuid: dd805d7c-2af5-4c9c-8522-d898f91e4ae5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.os2loop_shared_version
+    - node.type.os2loop_documents_document
+id: node.os2loop_documents_document.os2loop_shared_version
+field_name: os2loop_shared_version
+entity_type: node
+bundle: os2loop_documents_document
+label: Version
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
