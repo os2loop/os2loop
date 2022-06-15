@@ -4,4 +4,10 @@
 	.image-widget {
 		@extend .d-none;
 	}
+
+	div#edit-actions {
+		input + input {
+			@extend .mt-20;
+		}
+	}
 }

@@ -64,11 +64,16 @@ function os2loop_messages_preprocess_field(&$variables) {
     $derivative_id = $views_block->getDerivativeId();
     $derivative_id_exploded = explode('-', $derivative_id);
 
-    if ($derivative_id_exploded[0] === 'os2loop_messages') {
-      $view = Views::getView($derivative_id_exploded[0]);
-      $view->execute($derivative_id_exploded[1]);
+    $base_view_id = $derivative_id_exploded[0];
 
-      $variables['total_rows'] = (string) count($view->result);
+    switch ($base_view_id) {
+      case 'os2loop_messages':
+      case 'os2loop_section_page_user_favourites':
+        $view = Views::getView($base_view_id);
+        $view->execute($derivative_id_exploded[1]);
+
+        $variables['total_rows'] = (string) count($view->result);
+        break;
     }
   }
 }
