@@ -13,11 +13,11 @@ bundle: table_of_contents
 mode: default
 content:
   table_of_contents:
-    weight: 0
+    type: block_field
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: block_field
+    weight: 0
     region: content
 hidden:
   entity_print_view_epub: true

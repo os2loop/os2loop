@@ -6,6 +6,8 @@ id: generic
 label: generic
 plugin: generic
 settings:
+  client_id: 'file:///settings.local.php#$config[''openid_connect.client.generic''][''settings''][''client_id'']'
+  client_secret: 'file:///settings.local.php#$config[''openid_connect.client.generic''][''settings''][''client_secret'']'
   issuer_url: ''
   authorization_endpoint: 'file:///settings.local.php#$config[''openid_connect.client.generic][''settings''][''client_id'']'
   token_endpoint: 'file:///settings.local.php#$config[''openid_connect.client.generic][''settings''][token_endpoint'']'
@@ -14,5 +16,3 @@ settings:
   scopes:
     - openid
     - email
-  client_id: 'file:///settings.local.php#$config[''openid_connect.client.generic''][''settings''][''client_id'']'
-  client_secret: 'file:///settings.local.php#$config[''openid_connect.client.generic''][''settings''][''client_secret'']'

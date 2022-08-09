@@ -16,32 +16,32 @@ bundle: os2loop_section_page
 mode: default
 content:
   flag_os2loop_subscription_node:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   links:
-    weight: 100
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 100
+    region: content
   os2loop_section_page_paragraph:
     type: entity_reference_revisions_entity_view
-    weight: 101
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 101
     region: content
   os2loop_shared_rev_date:
-    weight: 102
+    type: datetime_default
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    weight: 102
     region: content
 hidden:
   entity_print_view_epub: true

@@ -13,11 +13,11 @@ bundle: os2loop_section_page_search
 mode: default
 content:
   os2loop_section_page_block:
-    weight: 0
+    type: block_field
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: block_field
+    weight: 0
     region: content
 hidden:
   entity_print_view_epub: true

@@ -15,13 +15,13 @@ plugin: user_login_block
 settings:
   id: user_login_block
   label: 'User login'
-  provider: user
   label_display: '0'
+  provider: user
 visibility:
   user_role:
     id: user_role
-    roles:
-      anonymous: anonymous
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous

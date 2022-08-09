@@ -1,5 +1,5 @@
+label: 'Dokument redigeret'
 text:
   -
     value: 'Et dokument er blevet ændret: <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a>'
     format: os2loop_message_message
-label: 'Dokument redigeret'

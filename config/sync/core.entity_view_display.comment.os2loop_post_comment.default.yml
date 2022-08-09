@@ -13,21 +13,21 @@ bundle: os2loop_post_comment
 mode: default
 content:
   flag_os2loop_upvote_upvote_button:
+    settings: {  }
+    third_party_settings: {  }
     weight: 0
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
-  links:
     weight: 1
     region: content
-    settings: {  }
-    third_party_settings: {  }
   os2loop_post_comment:
-    weight: 2
+    type: text_default
     label: visually_hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 2
     region: content
 hidden:
   entity_print_view_epub: true

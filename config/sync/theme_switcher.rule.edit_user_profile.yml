@@ -12,5 +12,5 @@ admin_theme: os2loop_theme
 visibility:
   request_path:
     id: request_path
-    pages: '/user/*/edit'
     negate: false
+    pages: '/user/*/edit'

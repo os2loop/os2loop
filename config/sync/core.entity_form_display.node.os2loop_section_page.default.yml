@@ -24,6 +24,7 @@ content:
   os2loop_section_page_paragraph:
     type: entity_reference_paragraphs
     weight: 6
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -32,13 +33,12 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
-    region: content
   os2loop_shared_rev_date:
+    type: datetime_default
     weight: 26
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   path:
     type: path
     weight: 30
@@ -47,10 +47,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 5
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -63,12 +63,12 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 1
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
 hidden:
   langcode: true

@@ -11,22 +11,22 @@ bundle: os2loop_message_question_upd
 mode: default
 content:
   flag_message_read:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   os2loop_message_node_refer:
-    weight: 1
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 1
     region: content
   partial_0:
-    weight: 0
     settings: {  }
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   entity_print_view_epub: true

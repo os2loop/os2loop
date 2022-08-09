@@ -17,7 +17,7 @@ plugin: 'facet_block:os2loop_search_db_tags'
 settings:
   id: 'facet_block:os2loop_search_db_tags'
   label: Tags
-  provider: facets
   label_display: visible
+  provider: facets
   block_id: os2loop_search_db_tags
 visibility: {  }

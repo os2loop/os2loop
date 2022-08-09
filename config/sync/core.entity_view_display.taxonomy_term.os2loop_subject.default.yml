@@ -16,15 +16,15 @@ bundle: os2loop_subject
 mode: default
 content:
   entity_print_view_pdf:
+    settings: {  }
+    third_party_settings: {  }
     weight: 4
     region: content
+  flag_os2loop_subscription_term:
     settings: {  }
     third_party_settings: {  }
-  flag_os2loop_subscription_term:
     weight: 0
     region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   description: true
   entity_print_view_epub: true

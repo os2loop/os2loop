@@ -1,5 +1,5 @@
+label: 'Dokumentsamling tilføjet'
 text:
   -
     value: 'En dokumentsamling er blevet oprettet: <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a>'
     format: os2loop_message_message
-label: 'Dokumentsamling tilføjet'

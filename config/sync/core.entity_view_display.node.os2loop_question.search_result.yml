@@ -21,28 +21,28 @@ bundle: os2loop_question
 mode: search_result
 content:
   flag_os2loop_favourite:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   flag_os2loop_subscription_node:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   os2loop_shared_subject:
+    type: entity_reference_label
     label: visually_hidden
     settings:
       link: false
     third_party_settings: {  }
-    type: entity_reference_label
-    region: content
     weight: 1
-  search_api_excerpt:
-    weight: 0
     region: content
+  search_api_excerpt:
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true

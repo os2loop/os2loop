@@ -1,5 +1,5 @@
+label: 'Spørgsmål tilføjet'
 text:
   -
     value: 'Der er kommet et nyt spørgsmål til et emne du følger: <a href="/node/[message:os2loop_message_node_refer:entity:nid]">[message:os2loop_message_node_refer:entity:title]</a>'
     format: os2loop_message_message
-label: 'Spørgsmål tilføjet'

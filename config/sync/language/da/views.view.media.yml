@@ -4,30 +4,10 @@ display:
   default:
     display_title: Standard
     display_options:
-      exposed_form:
-        options:
-          submit_button: Filter
-          reset_button_label: Gendan
-          exposed_sorts_label: 'Sortér efter'
-          sort_asc_label: Stigende
-          sort_desc_label: Faldende
-      pager:
-        options:
-          expose:
-            items_per_page_label: 'Antal elementer'
-            items_per_page_options_all_label: '- Alle -'
-            offset_label: Forskydning
-          tags:
-            previous: '‹ Forrige'
-            next: 'Næste ›'
-            first: '« Første'
-            last: 'Sidste »'
+      title: Media
       fields:
         media_bulk_form:
           action_title: Handling
-        thumbnail__target_id:
-          label: Thumbnail
-          separator: ', '
         name:
           separator: ', '
         bundle:
@@ -39,22 +19,39 @@ display:
         status:
           label: Status
           settings:
-            format_custom_true: Udgivet
             format_custom_false: 'Ikke udgivet'
+            format_custom_true: Udgivet
           separator: ', '
         changed:
           label: Opdateret
           separator: ', '
         operations:
           label: Handlinger
+      pager:
+        options:
+          tags:
+            next: 'Næste ›'
+            previous: '‹ Forrige'
+            first: '« Første'
+            last: 'Sidste »'
+          expose:
+            items_per_page_label: 'Antal elementer'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Forskydning
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
+      empty:
+        area_text_custom:
+          content: 'Ingen tilgængelige media.'
       filters:
         bundle:
           expose:
             label: Type
-      title: Media
-      empty:
-        area_text_custom:
-          content: 'Ingen tilgængelige media.'
   media_page_list:
     display_title: Media
     display_options:

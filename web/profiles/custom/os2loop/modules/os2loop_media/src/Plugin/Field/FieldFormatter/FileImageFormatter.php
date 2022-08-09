@@ -3,6 +3,7 @@
 namespace Drupal\os2loop_media\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Extension\ExtensionPathResolver;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\image\Entity\ImageStyle;
@@ -31,11 +32,19 @@ class FileImageFormatter extends FileFormatterBase implements ContainerFactoryPl
   private $entityTypeManager;
 
   /**
+   * The extension path resolver.
+   *
+   * @var \Drupal\Core\Extension\ExtensionPathResolver
+   */
+  private $extensionPathResolver;
+
+  /**
    * Constructor for a custom file formatter.
    */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, EntityTypeManagerInterface $entityTypeManager) {
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, EntityTypeManagerInterface $entityTypeManager, ExtensionPathResolver $extensionPathResolver) {
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
     $this->entityTypeManager = $entityTypeManager;
+    $this->extensionPathResolver = $extensionPathResolver;
   }
 
   /**
@@ -50,7 +59,8 @@ class FileImageFormatter extends FileFormatterBase implements ContainerFactoryPl
       $configuration['label'],
       $configuration['view_mode'],
       $configuration['third_party_settings'],
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('extension.path.resolver')
     );
   }
 
@@ -78,7 +88,7 @@ class FileImageFormatter extends FileFormatterBase implements ContainerFactoryPl
       }
       else {
         // If not an image use drupals fallback generic file icon.
-        $image_url = drupal_get_path('module', 'media') . '/images/icons/generic.png';
+        $image_url = $this->extensionPathResolver->getPath('module', 'media') . '/images/icons/generic.png';
         $image_uri = 'public://styles/media_library/public/media-icons/generic/generic.png';
         // Ensure file exists.
         $style = $this->entityTypeManager->getStorage('image_style')->load('media_library');

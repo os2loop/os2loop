@@ -16,11 +16,11 @@ mode: media_library
 content:
   field_media_file:
     type: 'File image formatter'
-    weight: 0
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
   entity_print_view_epub: true
