@@ -50,7 +50,6 @@
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
         "drupal/date_popup": "^1.1",
-        "drupal/devel": "^4.1",
         "drupal/diff": "^1.0",
         "drupal/entity_print": "^2.2",
         "drupal/entity_reference_integrity": "^1.0",
@@ -85,7 +84,6 @@
         "drupal/viewsreference": "^2.0",
         "drupal/xls_serialization": "^1.2",
         "drush/drush": "^10.4",
-        "kint-php/kint": "^4.1",
         "mikehaertl/phpwkhtmltopdf": "^2.5"
     },
     "scripts": {
@@ -228,7 +226,9 @@
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
         "drupal/coder": "^8.3",
         "drupal/core-dev": "^9.1",
+        "drupal/devel": "^4.1",
         "friendsoftwig/twigcs": "^5.0",
+        "kint-php/kint": "^4.1",
         "mglaman/drupal-check": "^1.1",
         "os2loop/os2loop_fixtures": "*",
         "phpspec/prophecy-phpunit": "^2.0"
