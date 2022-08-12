@@ -1,0 +1,55 @@
+@import "../../variables/colors.scss";
+
+// extending custom checkbox containers
+// source: https://www.w3schools.com/bootstrap4/bootstrap_forms_custom.asp
+li.facet-item {
+	@extend .custom-control;
+	@extend .custom-checkbox;
+}
+
+// extending checkbox input
+.facet-item input[type="checkbox"] {
+	@extend .custom-control-input;
+}
+
+.facet-item > label {
+	@extend .custom-control-label;
+
+	&:before {
+		border-radius: 4px;
+	}
+}
+
+.facet-item input[type="checkbox"]:checked {
+	~ label:before {
+		background-color: $loop-green;
+		border-color: $loop-green;
+	}
+
+	~ label:after {
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='white' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+	}
+}
+
+.facet-item input[type="checkbox"]:disabled ~ label:before {
+	background-color: $loop-white;
+	border-color: $loop-green;
+}
+
+.facet-item input[type="checkbox"]:checked:disabled ~ label:before {
+	background-color: $loop-green-200;
+	border-color: $loop-green-200;
+}
+
+.facet-item input[type="checkbox"]:focus ~ label:before,
+.facet-item input[type="checkbox"]:not(:disabled):active ~ label:before {
+	background-color: $loop-white;
+	border-color: $loop-green;
+	box-shadow: 0 0 0 4px $loop-green-200;
+}
+
+.facet-item input[type="checkbox"]:focus:checked ~ label:before {
+	background-color: $loop-green;
+	border-color: $loop-green;
+	box-shadow: 0 0 0 4px $loop-green-200;
+}

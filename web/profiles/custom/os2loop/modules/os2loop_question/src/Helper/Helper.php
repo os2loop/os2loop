@@ -5,11 +5,13 @@ namespace Drupal\os2loop_question\Helper;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\os2loop_question\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Helper for questions.
  */
 class Helper {
+  use StringTranslationTrait;
   public const MODULE = 'os2loop_question';
 
   /**
@@ -41,6 +43,7 @@ class Helper {
       case 'node_os2loop_question_form':
         $this->alterContentForm($form, $form_state, $form_id);
         $this->handleTextFormats($form, $form_state, $form_id);
+        $this->hideMetadata($form, $form_state, $form_id);
         break;
     }
   }
@@ -84,11 +87,40 @@ class Helper {
    *   The id of the the form.
    */
   private function alterContentForm(array &$form, FormStateInterface $form_state, string $form_id) {
+    // Hide reference ids for autocomplete components.
+    $form['#attached']['library'][] = 'os2loop_question/hide-reference-ids';
+
+    // Handle anonymous author setting.
     $allowAnonymousAuthor = (bool) $this->config->get('allow_anonymous_question_author');
     if (!$allowAnonymousAuthor) {
       $form['os2loop_content_anonymous_author']['#access'] = FALSE;
       $form['os2loop_content_anonymous_author']['widget']['#required'] = FALSE;
       $form['os2loop_content_anonymous_author']['widget']['#default_value'] = 0;
+    }
+  }
+
+  /**
+   * Hide metadata fields (if set) for all users.
+   *
+   * @param array $form
+   *   The form being altered.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The state of the form.
+   * @param string $form_id
+   *   The id of the the form.
+   */
+  private function hideMetadata(array &$form, FormStateInterface $form_state, string $form_id) {
+    $hiddenMetadataFields = [
+      'menu',
+      'revision_information',
+      'os2loop_question_answers',
+      'meta',
+    ];
+
+    foreach ($hiddenMetadataFields as $field) {
+      if (isset($form[$field])) {
+        unset($form[$field]);
+      }
     }
   }
 
@@ -103,6 +135,7 @@ class Helper {
    *   The id of the the form.
    */
   private function alterCommentForm(array &$form, FormStateInterface $form_state, string $form_id) {
+    $form['actions']['submit']['#value'] = $this->t('Add');
     $form['actions']['preview']['#access'] = FALSE;
     $form['os2loop_question_answer']['widget']['#after_build'][] =
         [$this, 'fieldAfterBuild'];

@@ -1,0 +1,38 @@
+.btn-file-attachment {
+	&.btn {
+		width: $btn-file-attachment-width;
+		height: auto;
+		padding: $btn-file-attachment-padding-y $btn-file-attachment-padding-x;
+
+		// Extra space to fit icon in ::after
+		padding-right: calc(
+			#{$btn-file-attachment-padding-x} + #{$font-size-sm} + 25px
+		);
+
+		border: 1px solid $gray-400;
+		background-color: $gray-100;
+		color: $loop-green;
+
+		display: inline-flex;
+		position: relative;
+
+		text-align: left;
+		vertical-align: middle;
+
+		.file-basename {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		font-size: $font-size-sm;
+
+		@include inline-icon("\f1C5");
+
+		&::before {
+			color: $black;
+			position: absolute;
+			right: $btn-file-attachment-padding-x;
+		}
+	}
+}

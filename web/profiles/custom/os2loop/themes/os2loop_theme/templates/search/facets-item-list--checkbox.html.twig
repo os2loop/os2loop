@@ -36,7 +36,7 @@
     {%- if items -%}
       <{{ list_type }}{{ attributes.addClass('pl-0 list-unstyled row no-gutters') }}>
         {%- for item in items -%}
-          <li{{ item.attributes.addClass('mx-0 mb-2 col-lg-4') }}>{{ item.value }}</li>
+          <li{{ item.attributes.addClass('mx-0 mb-2 pl-30 col-lg-4') }}>{{ item.value }}</li>
         {%- endfor -%}
       </{{ list_type }}>
     {%- else -%}
@@ -44,7 +44,7 @@
     {%- endif -%}
   {%- endif %}
 
-{% if facet.widget.type == "dropdown" %}
-  <label id="facet_{{ facet.id }}_label">{{ 'Facet'|t }} {{ facet.label }}</label>
-{%- endif %}
+  {% if facet.widget.type == "dropdown" %}
+    <label id="facet_{{ facet.id }}_label">{{ 'Facet'|t }} {{ facet.label }}</label>
+  {%- endif %}
 </div>

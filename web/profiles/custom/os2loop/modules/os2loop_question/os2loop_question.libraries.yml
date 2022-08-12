@@ -1,0 +1,6 @@
+hide-reference-ids:
+  version: 1.x
+  js:
+    assets/js/hideReferenceIds.js: {}
+  dependencies:
+    - core/jquery

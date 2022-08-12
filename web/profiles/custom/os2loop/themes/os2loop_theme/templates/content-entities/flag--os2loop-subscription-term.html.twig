@@ -25,7 +25,8 @@
 
 {# Set the remaining Flag CSS classes. #}
 {% set classes = [
-    'flag btn btn-sm',
+    'flag',
+    'btn',
     'flag-' ~ flag.id()|clean_class,
     'js-flag-' ~ flag.id()|clean_class ~ '-' ~ flaggable.id(),
     action_class

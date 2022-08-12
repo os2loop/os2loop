@@ -19,12 +19,66 @@ base_table: users_field_data
 base_field: uid
 display:
   default:
+    display_plugin: default
     id: default
     display_title: Master
-    display_plugin: default
     position: 0
     display_options:
-      title: 'Contact list'
+      access:
+        type: perm
+        options:
+          perm: 'access user profiles'
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: full
+        options:
+          items_per_page: 8
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '<'
+            next: '>'
+            first: ''
+            last: ''
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      style:
+        type: default
+      row:
+        type: fields
+        options:
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
       fields:
         name:
           id: name
@@ -33,9 +87,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          entity_field: name
-          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -91,6 +142,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: user
+          entity_field: name
+          plugin_id: field
         os2loop_user_given_name:
           id: os2loop_user_given_name
           table: user__os2loop_user_given_name
@@ -98,7 +152,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -154,6 +207,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
         os2loop_user_family_name:
           id: os2loop_user_family_name
           table: user__os2loop_user_family_name
@@ -161,7 +215,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -217,6 +270,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
         mail:
           id: mail
           table: users_field_data
@@ -224,9 +278,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          entity_field: mail
-          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -281,6 +332,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: user
+          entity_field: mail
+          plugin_id: field
         os2loop_user_phone_number:
           id: os2loop_user_phone_number
           table: user__os2loop_user_phone_number
@@ -288,7 +342,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -344,6 +397,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
         rendered_entity:
           id: rendered_entity
           table: users
@@ -351,8 +405,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          plugin_id: rendered_entity
           label: ''
           exclude: false
           alter:
@@ -395,84 +447,22 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view_mode: card_display
-      pager:
-        type: mini
-        options:
-          offset: 0
-          items_per_page: 30
-          total_pages: null
-          id: 0
-          tags:
-            next: ››
-            previous: ‹‹
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      access:
-        type: perm
-        options:
-          perm: 'access user profiles'
-      cache:
-        type: tag
-        options: {  }
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: true
-          content:
-            value: 'No users.'
-            format: os2loop_question_answer_plain_text
-          tokenize: false
-      sorts:
-        os2loop_user_given_name_value:
-          id: os2loop_user_given_name_value
-          table: user__os2loop_user_given_name
-          field: os2loop_user_given_name_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: standard
-          order: ASC
-          expose:
-            label: Navn
-            field_identifier: os2loop_user_given_name_value
-          exposed: false
-      arguments: {  }
+          entity_type: user
+          plugin_id: rendered_entity
       filters:
         status:
-          id: status
+          value: '1'
           table: users_field_data
           field: status
+          plugin_id: boolean
           entity_type: user
           entity_field: status
-          plugin_id: boolean
-          value: '1'
-          group: 1
+          id: status
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
+          group: 1
         os2loop_user_external_list_value:
           id: os2loop_user_external_list_value
           table: user__os2loop_user_external_list
@@ -480,7 +470,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -511,6 +500,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          plugin_id: boolean
         os2loop_user_internal_list_value:
           id: os2loop_user_internal_list_value
           table: user__os2loop_user_internal_list
@@ -518,7 +508,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -549,6 +538,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          plugin_id: boolean
         combine:
           id: combine
           table: views
@@ -556,14 +546,13 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: combine
           operator: contains
           value: ''
           group: 1
           exposed: true
           expose:
             operator_id: combine_op
-            label: 'Search for name, email or phone number'
+            label: ''
             description: ''
             use_operator: false
             operator: combine_op
@@ -585,7 +574,7 @@ display:
               os2loop_user_document_collection_editor: '0'
               os2loop_user_post_author: '0'
               os2loop_user_user_administrator: '0'
-            placeholder: ''
+            placeholder: 'Search for name, email or phone number'
           is_grouped: false
           group_info:
             label: ''
@@ -604,31 +593,44 @@ display:
             os2loop_user_family_name: os2loop_user_family_name
             mail: mail
             os2loop_user_phone_number: os2loop_user_phone_number
+          plugin_id: combine
+      sorts:
+        os2loop_user_given_name_value:
+          id: os2loop_user_given_name_value
+          table: user__os2loop_user_given_name
+          field: os2loop_user_given_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: Navn
+          plugin_id: standard
+      title: 'Contact list'
+      header: {  }
+      footer: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'No users.'
+            format: os2loop_question_answer_plain_text
+          plugin_id: text
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
-      style:
-        type: default
-      row:
-        type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
-      query:
-        type: views_query
-        options:
-          query_comment: ''
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_tags: {  }
-      relationships: {  }
-      header: {  }
-      footer: {  }
-      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -646,14 +648,11 @@ display:
         - 'config:field.storage.user.os2loop_user_given_name'
         - 'config:field.storage.user.os2loop_user_phone_number'
   page_1:
+    display_plugin: page
     id: page_1
     display_title: 'Card display'
-    display_plugin: page
     position: 1
     display_options:
-      defaults:
-        fields: true
-      display_description: ''
       display_extenders:
         views_flag_refresh:
           flags: {  }
@@ -663,11 +662,14 @@ display:
         type: none
         title: 'Contact list'
         description: ''
-        weight: 0
         expanded: false
-        menu_name: main
         parent: ''
+        weight: 0
         context: '0'
+        menu_name: main
+      display_description: ''
+      defaults:
+        fields: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -685,11 +687,40 @@ display:
         - 'config:field.storage.user.os2loop_user_given_name'
         - 'config:field.storage.user.os2loop_user_phone_number'
   page_2:
+    display_plugin: page
     id: page_2
     display_title: 'List display'
-    display_plugin: page
     position: 1
     display_options:
+      display_extenders:
+        views_flag_refresh:
+          flags: {  }
+          noscrolltop: 0
+      path: contacts-list
+      menu:
+        type: none
+        title: 'Contact list'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: main
+      display_description: ''
+      style:
+        type: default
+        options: {  }
+      defaults:
+        style: false
+        row: false
+        fields: false
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       enabled: false
       fields:
         name:
@@ -699,9 +730,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          entity_field: name
-          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -757,6 +785,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: user
+          entity_field: name
+          plugin_id: field
         os2loop_user_given_name:
           id: os2loop_user_given_name
           table: user__os2loop_user_given_name
@@ -764,7 +795,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -820,6 +850,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
         os2loop_user_family_name:
           id: os2loop_user_family_name
           table: user__os2loop_user_family_name
@@ -827,7 +858,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -883,6 +913,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
         mail:
           id: mail
           table: users_field_data
@@ -890,9 +921,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          entity_field: mail
-          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -947,6 +975,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: user
+          entity_field: mail
+          plugin_id: field
         os2loop_user_phone_number:
           id: os2loop_user_phone_number
           table: user__os2loop_user_phone_number
@@ -954,7 +985,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1010,6 +1040,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
         rendered_entity:
           id: rendered_entity
           table: users
@@ -1017,8 +1048,6 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          plugin_id: rendered_entity
           label: ''
           exclude: false
           alter:
@@ -1061,35 +1090,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view_mode: list_display
-      style:
-        type: default
-        options: {  }
-      row:
-        type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
-      defaults:
-        style: false
-        row: false
-        fields: false
-      display_description: ''
-      display_extenders:
-        views_flag_refresh:
-          flags: {  }
-          noscrolltop: 0
-      path: contacts-list
-      menu:
-        type: none
-        title: 'Contact list'
-        description: ''
-        weight: 0
-        expanded: false
-        menu_name: main
-        parent: ''
-        context: '0'
+          entity_type: user
+          plugin_id: rendered_entity
     cache_metadata:
       max-age: -1
       contexts:

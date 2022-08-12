@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.os2loop_documents_step.os2loop_documents_step_image
     - field.field.paragraph.os2loop_documents_step.os2loop_documents_step_text
+    - field.field.paragraph.os2loop_documents_step.os2loop_documents_step_title
     - field.field.paragraph.os2loop_documents_step.os2loop_documents_steps
     - paragraphs.paragraphs_type.os2loop_documents_step
   module:
@@ -17,28 +18,36 @@ mode: default
 content:
   os2loop_documents_step_image:
     type: entity_reference_entity_view
+    weight: 30
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 3
     region: content
   os2loop_documents_step_text:
-    type: text_default
+    weight: 10
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    type: text_default
+    region: content
+  os2loop_documents_step_title:
     weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   os2loop_documents_steps:
     type: entity_reference_revisions_entity_view
+    weight: 20
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 2
     region: content
 hidden:
   entity_print_view_epub: true

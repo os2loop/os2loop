@@ -26,16 +26,16 @@ import $ from "jquery";
 $(".icon-container .icon").tooltip();
 
 jQuery(() => {
-  // Add/remove search-api-autocomplete-has-suggestions class when showing/hiding search autocomplete suggestions.
-  jQuery("[data-autocomplete-path]")
-    .on("autocompleteopen", (event) =>
-      jQuery(event.target)
-        .parent()
-        .addClass("search-api-autocomplete-has-suggestions")
-    )
-    .on("autocompleteclose", (event) =>
-      jQuery(event.target)
-        .parent()
-        .removeClass("search-api-autocomplete-has-suggestions")
-    );
+	// Add/remove search-api-autocomplete-has-suggestions class when showing/hiding search autocomplete suggestions.
+	jQuery("[data-autocomplete-path]")
+		.on("autocompleteopen", (event) =>
+			jQuery(event.target)
+				.parent()
+				.addClass("search-api-autocomplete-has-suggestions")
+		)
+		.on("autocompleteclose", (event) =>
+			jQuery(event.target)
+				.parent()
+				.removeClass("search-api-autocomplete-has-suggestions")
+		);
 });

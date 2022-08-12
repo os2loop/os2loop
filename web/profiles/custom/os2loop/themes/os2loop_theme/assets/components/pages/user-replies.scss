@@ -1,0 +1,22 @@
+.user-replies {
+	.content-wrapper {
+		@extend .block-primary-white, .p-30;
+
+		.user-reply-wrapper {
+			@extend .block-primary-gray, .p-30;
+		}
+
+		.views-row {
+			@extend .block-secondary-white, .py-20, .px-30;
+
+			+ .views-row {
+				@extend .mt-20;
+			}
+
+			// TODO: move this to bootstrap-custom
+			.list-group-item {
+				@extend .p-0;
+			}
+		}
+	}
+}

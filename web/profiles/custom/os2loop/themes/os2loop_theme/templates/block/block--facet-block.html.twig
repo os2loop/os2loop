@@ -28,13 +28,11 @@
  */
 #}
 
-<div{{ attributes.addClass('search-filters-collapse collapse show') }}>
-  <div class="row">
-    <div class="col mx-4 pt-3 bg-light">
-      <label class="font-weight-bold">{{ label }}</label>
-      {% block content %}
-        {{ content }}
-      {% endblock %}
-    </div>
+<div{{ attributes.addClass('search-filters-collapse collapse show block-primary-gray mt-n20') }}>
+  <div class="col block-secondary-white">
+    <label class="font-weight-bold">{{ label }}</label>
+    {% block content %}
+      {{ content }}
+    {% endblock %}
   </div>
 </div>

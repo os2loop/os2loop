@@ -1,0 +1,128 @@
+@import "../../variables/colors.scss";
+
+// Custom spacers
+$spacers: (
+	10: 10px,
+	15: 15px,
+	20: 20px,
+	30: 30px,
+	40: 40px,
+	60: 60px,
+	90: 90px,
+	100: 100px,
+	130: 130px,
+	140: 140px,
+);
+
+// Layout
+$body-bg: $gray-100;
+
+$border-radius: 8px;
+$border-radius-sm: 4px;
+$border-radius-lg: 10px;
+
+// Typography
+$font-family-base: "Helvetica Neue", $font-family-base;
+$body-color: $gray-900;
+
+$link-color: $loop-green;
+$link-hover-color: $loop-green;
+
+$badge-font-weight: 500;
+$badge-font-size: $font-size-sm;
+
+$line-height-sm: 1.15;
+
+// Badge
+$badge-padding-x: 8px;
+$badge-padding-y: 4px;
+$badge-border-radius: 4px;
+
+// Button
+$btn-border-radius: 8px;
+$btn-border-radius-lg: $btn-border-radius;
+
+$btn-padding-y: 7px;
+$btn-padding-x: 20px;
+
+$btn-padding-y-lg: 12px;
+$btn-padding-x-lg: 30px;
+
+$btn-padding-y-sm: 6px;
+$btn-padding-x-sm: 11px;
+
+$btn-font-weight: $badge-font-weight;
+
+$btn-font-size-lg: $font-size-base;
+$btn-font-line-height-lg: $line-height-base;
+
+$btn-font-size-sm: $font-size-sm;
+$btn-line-height-sm: $line-height-sm;
+
+$btn-active-box-shadow: none;
+$btn-focus-focus-box-shadow: none;
+
+$btn-disabled-opacity: 1;
+
+// Dropdown
+$dropdown-border-color: $gray-400;
+$dropdown-border-radius: 8px;
+
+$dropdown-padding-y: 16px;
+$dropdown-padding-x: 20px;
+
+$dropdown-item-padding-y: 0;
+$dropdown-item-padding-x: 0;
+
+$dropdown-divider-bg: $gray-400;
+$dropdown-divider-margin-y: 0;
+
+// Navbar
+$nav-link-padding-x: 15px;
+$nav-link-padding-y: 6px;
+
+$navbar-padding-y: 15px;
+
+$navbar-brand-padding-x: 0;
+$navbar-brand-padding-y: 0;
+
+$navbar-nav-link-padding-x: $nav-link-padding-x;
+$navbar-nav-link-padding-y: $nav-link-padding-y;
+
+// Pagination
+$pagination-hover-bg: #eff5f4; // this color is not defined in the design guide
+$pagination-disabled-color: $loop-green-200;
+
+// Forms
+$input-color: $body-color;
+$input-placeholder-color: $gray-400;
+
+$input-border-color: transparent;
+$input-border-radius: $border-radius;
+
+$input-padding-y: 12px;
+$input-padding-x: 15px;
+
+$form-group-margin-bottom: 0px; // should this be set here?
+
+// Checkbox
+$custom-control-indicator-bg: $loop-white;
+$custom-control-indicator-border-color: $loop-green;
+
+$custom-control-indicator-active-color: $loop-green;
+$custom-control-indicator-active-bg: $loop-white;
+
+// Card
+$card-bg: $gray-100;
+
+$card-border-color: transparent;
+$card-border-radius: $border-radius-lg;
+
+$card-spacer-x: 20px;
+
+// List-group
+$list-group-border-radius: 8px;
+$list-group-border-color: transparent;
+
+// Table
+$table-border-color: $gray-500;

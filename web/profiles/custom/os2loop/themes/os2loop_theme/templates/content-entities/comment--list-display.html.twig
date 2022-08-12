@@ -67,35 +67,30 @@
  */
 #}
 
-
-{% set node_value = commented_entity.os2loop_question_content.value is defined ? commented_entity.os2loop_question_content.value : commented_entity.os2loop_post_content.value %}
+{% set comment_title = commented_entity.label %}
 {% set comment_value = elements['#comment'].os2loop_question_answer.value is defined ? elements['#comment'].os2loop_question_answer.value : elements['#comment'].os2loop_post_comment.value %}
-{% set node_value_truncated = node_value|length > 200 ? true : false %}
+{% set comment_title_truncated = comment_title|length > 90 ? true : false %}
 {% set comment_value_truncated = comment_value|length > 200 ? true : false %}
 <div class="list-group">
-  <article class="list-group-item mb-2 bg-light border-top">
+  <article class="list-group-item">
     <div class="small">
       <span>{{ 'Created'|t }}</span>: {{ created }}
     </div>
-    <div>
-      {% if node_value_truncated %}
-        {{ node_value|truncate(200, true)|raw }}
-        <span>...</span>
+    <div class="h5 mt-10 mb-0">
+      {% if comment_title_truncated %}
+        {{ comment_title|truncate(90, true, '...')|raw }}
       {% else %}
-        {{ node_value|raw }}
+        {{ comment_title|raw }}
       {% endif %}
     </div>
-    <div class="d-flex">
-      <h3 class="h6">
-        <a href="{{ path('entity.comment.canonical', {'comment': comment.id}) }}#comment-{{ comment.id }}">
-          {% if comment_value_truncated %}
-            {{ comment_value|truncate(200, true)|raw }}
-            <span>...</span>
-          {% else %}
-            {{ comment_value|raw }}
-          {% endif %}
-        </a>
-      </h3>
+    <div class="d-flex mt-10 mb-0">
+      <a href="{{ path('entity.comment.canonical', {'comment': comment.id}) }}#comment-{{ comment.id }}" class="link-unstyled">
+        {% if comment_value_truncated %}
+          {{ comment_value|truncate(200, true, '...')|raw }}
+        {% else %}
+          {{ comment_value|raw }}
+        {% endif %}
+      </a>
     </div>
   </article>
 </div>

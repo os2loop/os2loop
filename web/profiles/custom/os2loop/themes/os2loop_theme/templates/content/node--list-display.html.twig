@@ -74,22 +74,52 @@
 #}
 {% set view_id = view is defined ? view.id %}
 
-<div class="{{ os2loop_container_class }} list-group-item bg-light border-top mb-2">
-  <article class="row">
-    <div class="col-auto icon-list {{ node.bundle }}"></div>
-    <div class="col">
-      <div class="small">{{ node.type.entity.label }} - {{ node.createdtime|format_date('medium') }}</div>
-      <div class="d-flex">
-        <h3 class="h6"><a href="{{ url }}">{{ label }}</a></h3>
-      </div>
-      <div class="d-flex">
-        <div class="line-clamp-3">
-          {{ body_text }}
+{# Show limited information (no body text and fewer tags) on following: #}
+{% set display_inline_view = view_id in [
+  'os2loop_subscriptions_node',
+  'os2loop_user_questions',
+  'os2loop_section_page_user_favourites'
+] %}
+
+{% set short_type = node.getType|split('_')|last %}
+{% set badge_class = 'badge-' ~ short_type %}
+{% set icon_source = directory ~ '/assets/svg/' ~ short_type ~ '.svg' %}
+
+<article class="{{ os2loop_container_class }} list-group-item list-display d-inline-flex align-items-top">
+  {# icon #}
+  <div class="list-display-icon">
+    {{ source(icon_source, ignore_missing=true) }}
+  </div>
+  <div class="container px-0 list-display-information">
+    <div class="row no-gutters">
+      <div class="col list-display-text{{ display_inline_view ? ' d-inline-flex' }} mx-30">
+        {# text #}
+        <div class="list-display-header h5 m-0">
+          <a class="link-unstyled" href="{{ url }}">{{ label }}</a>
         </div>
-        {% if view_id == 'os2loop_subscriptions_node' %}
-          <div class="ml-auto">{{ content.flag_os2loop_subscription_node }}</div>
+        {% if not display_inline_view %}
+          {% if body_text %}
+            <div class="list-display-body line-clamp-3">
+              {{ body_text }}
+            </div>
+          {% endif %}
+          <div class="list-display-badges d-inline-flex mt-10">
+            <div class="badge badge-primary {{ badge_class }}">{{ node.type.entity.label }}</div>
+            {{ content.os2loop_shared_subject }}
+            {{ content.os2loop_shared_profession }}
+            {{ content.os2loop_shared_category }}
+          </div>
         {% endif %}
       </div>
+      <div class="col-auto ml-auto d-inline-flex">
+        {% if display_inline_view %}
+          <div class="badge badge-primary {{ badge_class }} mr-20 align-self-start">{{ node.type.entity.label }}</div>
+        {% endif %}
+        {# date #}
+        <div class="list-display-date text-sm">
+          {{ node.createdtime|date('d-m-Y') }}
+        </div>
+      </div>
     </div>
-  </article>
-</div>
+  </div>
+</article>

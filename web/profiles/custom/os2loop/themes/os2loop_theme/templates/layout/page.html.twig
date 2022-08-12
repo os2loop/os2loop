@@ -43,11 +43,33 @@
  * @see html.html.twig
  */
 #}
+
+{% set cleaned_url = path('<current>')|clean_class|preg_replace('/[0-9]+[-]?/', '')|trim('-') %}
+
+{% set classes = [
+  os2loop_container_class,
+  is_front ? 'front-page',
+  cleaned_url,
+  node.bundle ? node.bundle|clean_class,
+  path('<current>') matches '/^\\/user\\/\\d+$/' ? 'view-profile-page',
+  'my-90'
+] %}
+
+{% set pages_with_search_bar = [
+  'node-add-osloop-question'
+] %}
+
 {{ page.header }}
+{# <main role="main" class="bg-secondary-white"> #}
 <main role="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-  <div class="{{ os2loop_container_class }} bg-white-loop rounded-lg py-3 mt-3">
+  <div class="{{ classes|filter(c => c is not empty)|join(' ') }}">
+    {% if cleaned_url in pages_with_search_bar %}
+      <div class="search-wrapper block-primary-gray mb-30">
+        {{ drupal_block('views_exposed_filter_block:os2loop_search_db-page_search_form', wrapper=false) }}
+      </div>
+    {% endif %}
     {{ page.content }}
   </div>{# /.layout-content #}
 

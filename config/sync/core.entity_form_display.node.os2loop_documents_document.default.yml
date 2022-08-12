@@ -8,18 +8,41 @@ dependencies:
     - field.field.node.os2loop_documents_document.os2loop_documents_document_conte
     - field.field.node.os2loop_documents_document.os2loop_documents_info_box
     - field.field.node.os2loop_documents_document.os2loop_notify_users
+    - field.field.node.os2loop_documents_document.os2loop_shared_approval_date
+    - field.field.node.os2loop_documents_document.os2loop_shared_approver
     - field.field.node.os2loop_documents_document.os2loop_shared_category
     - field.field.node.os2loop_documents_document.os2loop_shared_profession
     - field.field.node.os2loop_documents_document.os2loop_shared_rev_date
     - field.field.node.os2loop_documents_document.os2loop_shared_subject
     - field.field.node.os2loop_documents_document.os2loop_shared_tags
+    - field.field.node.os2loop_documents_document.os2loop_shared_version
     - node.type.os2loop_documents_document
   module:
     - autocomplete_deluxe
     - datetime
+    - field_group
     - paragraphs
     - path
     - text
+third_party_settings:
+  field_group:
+    group_metadata:
+      children:
+        - os2loop_shared_version
+        - os2loop_shared_approver
+        - os2loop_shared_approval_date
+        - os2loop_shared_rev_date
+      parent_name: ''
+      weight: 12
+      format_type: fieldset
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Metadata
 id: node.os2loop_documents_document.default
 targetEntityType: node
 bundle: os2loop_documents_document
@@ -32,25 +55,24 @@ content:
     settings: {  }
     third_party_settings: {  }
   os2loop_documents_document_autho:
-    type: string_textfield
     weight: 7
-    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  os2loop_documents_document_body:
-    type: text_textarea
-    weight: 4
+    type: string_textfield
     region: content
+  os2loop_documents_document_body:
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+    type: text_textarea
+    region: content
   os2loop_documents_document_conte:
     type: entity_reference_paragraphs
     weight: 6
-    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -59,100 +81,123 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
-  os2loop_documents_info_box:
-    type: text_textarea
-    weight: 5
     region: content
+  os2loop_documents_info_box:
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  os2loop_notify_users:
-    type: boolean_checkbox
-    weight: 26
+    type: text_textarea
     region: content
+  os2loop_notify_users:
+    weight: 15
     settings:
       display_label: true
     third_party_settings: {  }
-  os2loop_shared_category:
-    type: entity_reference_autocomplete
-    weight: 8
+    type: boolean_checkbox
     region: content
+  os2loop_shared_approval_date:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  os2loop_shared_approver:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  os2loop_shared_category:
+    weight: 8
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  os2loop_shared_profession:
-    type: autocomplete_deluxe
-    weight: 11
+    type: entity_reference_autocomplete
     region: content
+  os2loop_shared_profession:
+    weight: 11
     settings:
+      match_limit: '0'
+      min_length: 0
+      delimiter: ''
+      not_found_message: 'The term ''@term'' will be added'
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+      not_found_message_allow: false
+      new_terms: false
       match_operator: CONTAINS
       autocomplete_route_name: autocomplete_deluxe.autocomplete
       size: 60
       selection_handler: default
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
-      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
-      match_limit: '0'
     third_party_settings: {  }
-  os2loop_shared_rev_date:
-    type: datetime_default
-    weight: 12
+    type: autocomplete_deluxe
     region: content
+  os2loop_shared_rev_date:
+    weight: 29
     settings: {  }
     third_party_settings: {  }
+    type: datetime_default
+    region: content
   os2loop_shared_subject:
-    type: autocomplete_deluxe
     weight: 9
-    region: content
     settings:
-      match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      size: 60
-      selection_handler: default
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
-      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
       match_limit: '0'
-    third_party_settings: {  }
-  os2loop_shared_tags:
-    type: autocomplete_deluxe
-    weight: 10
-    region: content
-    settings:
+      min_length: 0
+      delimiter: ''
+      not_found_message: 'The term ''@term'' will be added'
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+      not_found_message_allow: false
+      new_terms: false
       match_operator: CONTAINS
       autocomplete_route_name: autocomplete_deluxe.autocomplete
       size: 60
       selection_handler: default
+    third_party_settings: {  }
+    type: autocomplete_deluxe
+    region: content
+  os2loop_shared_tags:
+    weight: 10
+    settings:
       min_length: 0
       delimiter: ''
-      not_found_message_allow: false
       not_found_message: 'The term ''@term'' will be added'
       new_terms: true
       no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+      not_found_message_allow: false
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      size: 60
+      selection_handler: default
       match_limit: 10
     third_party_settings: {  }
+    type: autocomplete_deluxe
+    region: content
+  os2loop_shared_version:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 3
-    region: content
     settings:
       display_label: true
+    weight: 3
+    region: content
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -165,12 +210,12 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 1
-    region: content
     settings:
       match_operator: CONTAINS
-      match_limit: 10
       size: 60
       placeholder: ''
+      match_limit: 10
+    region: content
     third_party_settings: {  }
 hidden:
   langcode: true

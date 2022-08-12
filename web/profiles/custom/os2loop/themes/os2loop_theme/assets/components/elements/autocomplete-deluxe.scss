@@ -1,0 +1,69 @@
+div.autocomplete-deluxe-multiple,
+div.autocomplete-deluxe-container {
+	@extend .d-block;
+
+	background-image: none;
+	background-color: $input-bg;
+
+	border: $input-border-width solid transparent;
+	border-radius: $input-border-radius;
+
+	padding: 0;
+
+	&:focus-within {
+		border-color: $loop-green-400;
+		transition: $input-transition;
+	}
+
+	> div.form-group > div {
+		@extend .w-100, .d-inline-flex, .flex-wrap, .align-items-center;
+
+		input.ui-autocomplete-input {
+			flex: 1;
+			background: none;
+
+			padding: $input-padding-y $input-padding-x;
+			margin: 0;
+		}
+
+		// hide "throbber" and such
+		div.autocomplete-deluxe-throbber,
+		div.autocomplete-deluxe-closed {
+			@extend .d-none;
+		}
+	}
+}
+
+.autocomplete-deluxe-item {
+	@extend .ml-15;
+	height: 26px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: $gray-300;
+	color: $gray-600;
+
+	border: none;
+	border-radius: $border-radius-sm;
+	padding: $autocomplete-deluxe-padding-y $autocomplete-deluxe-padding-x;
+
+	font-size: $badge-font-size;
+	font-weight: $badge-font-weight;
+	line-height: 1;
+
+	.autocomplete-deluxe-item-delete {
+		position: static;
+		margin-left: 10px;
+
+		height: $badge-font-size;
+		width: $badge-font-size;
+
+		background-image: none;
+		background-color: $gray-600;
+
+		mask-image: url("~bootstrap-icons/icons/x.svg");
+		-webkit-mask-image: url("~bootstrap-icons/icons/x.svg");
+	}
+}

@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - comment.type.os2loop_question_answer
+    - field.field.comment.os2loop_question_answer.os2loop_comment_anonymous_author
     - field.field.comment.os2loop_question_answer.os2loop_question_answer
     - field.field.comment.os2loop_question_answer.os2loop_question_answer_media
   module:
+    - options
     - text
 id: comment.os2loop_question_answer.default
 targetEntityType: comment
@@ -14,38 +16,44 @@ bundle: os2loop_question_answer
 mode: default
 content:
   flag_os2loop_upvote_correct_answer:
-    settings: {  }
-    third_party_settings: {  }
     weight: 0
     region: content
-  flag_os2loop_upvote_upvote_button:
     settings: {  }
     third_party_settings: {  }
+  flag_os2loop_upvote_upvote_button:
     weight: 1
     region: content
-  links:
     settings: {  }
     third_party_settings: {  }
+  links:
     weight: 2
     region: content
-  os2loop_question_answer:
-    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+  os2loop_comment_anonymous_author:
+    type: list_default
+    weight: 3
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+  os2loop_question_answer:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   os2loop_question_answer_media:
     type: entity_reference_entity_id
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
     region: content
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
-  os2loop_comment_anonymous_author: true
   search_api_excerpt: true

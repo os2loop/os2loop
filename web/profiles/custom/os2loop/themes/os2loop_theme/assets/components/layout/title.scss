@@ -1,0 +1,21 @@
+.title {
+	.title-icon {
+		svg {
+			width: 50px;
+			height: 50px;
+		}
+	}
+
+	.icon {
+		background-color: $loop-green-400;
+		color: $loop-white;
+	}
+
+	.title-badges {
+		div + div,
+		span + a.badge,
+		a.badge + a.badge {
+			@extend .ml-15;
+		}
+	}
+}

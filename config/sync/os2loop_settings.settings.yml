@@ -3,9 +3,9 @@ node_type:
   os2loop_documents_document: os2loop_documents_document
   os2loop_external: os2loop_external
   os2loop_page: os2loop_page
+  os2loop_section_page: os2loop_section_page
   os2loop_post: os2loop_post
   os2loop_question: os2loop_question
-  os2loop_section_page: os2loop_section_page
 taxonomy_vocabulary:
   os2loop_category: os2loop_category
   os2loop_profession: os2loop_profession

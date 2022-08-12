@@ -1,0 +1,50 @@
+.contacts {
+	> .content-wrapper {
+		@extend .block-primary-white;
+	}
+
+	.search {
+		.form-group {
+			@extend .mb-0;
+		}
+
+		.form-item-combine {
+			@extend .flex-grow-1;
+		}
+
+		.btn {
+			@extend .ml-20;
+
+			box-sizing: border-box;
+
+			height: 48px;
+			width: 72px;
+		}
+
+		input:not(:focus) {
+			border: 1px solid $gray-300;
+		}
+	}
+
+	.user-name {
+		margin-bottom: 3px;
+	}
+
+	.card-body {
+		.user-image {
+			@include user-image($user-image-card-size, 40px);
+		}
+	}
+
+	.user-card:not(:first-of-type) + .user-card {
+		@extend .mt-30;
+	}
+
+	.user-contact-information + .user-contact-information {
+		@extend .mt-10;
+	}
+
+	.pager {
+		@extend .mt-30;
+	}
+}

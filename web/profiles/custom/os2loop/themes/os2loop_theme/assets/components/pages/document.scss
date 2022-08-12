@@ -1,0 +1,79 @@
+// Create list of taxonomy colors to loop through.
+// TODO: delete this if it is no longer needed
+$taxonomy-colors: (
+	"1": $taxonomy-color-1,
+	"2": $taxonomy-color-2,
+	"3": $taxonomy-color-3,
+	"4": $taxonomy-color-4,
+);
+
+.os2loop-documents-document {
+	.tab-content {
+		@extend .block-primary-white;
+	}
+
+	// Set background and text color for taxonomy term colors.
+	@each $taxonomy-color-index, $taxonomy-color in $taxonomy-colors {
+		.taxonomy-color-#{$taxonomy-color-index} {
+			background-color: $taxonomy-color;
+			color: contrast-color($taxonomy-color);
+
+			a {
+				color: contrast-color($taxonomy-color);
+			}
+		}
+
+		.os2loop-documents-info-box.taxonomy-color-#{$taxonomy-color-index} {
+			@extend .block-primary-light-green;
+		}
+	}
+
+	.os2loop-highlighted-container {
+		@extend .block-primary-light-green;
+	}
+
+	table.paragraph--type--os2loop-documents-table,
+	table.loop-documents-table {
+		@extend .w-100;
+
+		border-collapse: separate;
+		border-spacing: 0;
+
+		tr th,
+		tr td {
+			border-right: 1px solid $gray-500;
+			border-bottom: 1px solid $gray-500;
+			padding: 12px 20px;
+		}
+
+		tr th:first-child,
+		tr td:first-child {
+			border-left: 1px solid $gray-500;
+		}
+
+		tr th {
+			background: $gray-200;
+			border-top: 1px solid $gray-500;
+		}
+
+		// top-left border-radius
+		tr:first-child th:first-child {
+			border-top-left-radius: $border-radius-sm;
+		}
+
+		// top-right border-radius
+		tr:first-child th:last-child {
+			border-top-right-radius: $border-radius-sm;
+		}
+
+		// bottom-left border-radius
+		tr:last-child td:first-child {
+			border-bottom-left-radius: $border-radius-sm;
+		}
+
+		// bottom-right border-radius
+		tr:last-child td:last-child {
+			border-bottom-right-radius: $border-radius-sm;
+		}
+	}
+}

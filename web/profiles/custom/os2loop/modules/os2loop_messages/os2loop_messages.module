@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Render\Markup;
+use Drupal\views\Views;
 
 /**
  * Implements hook_entity_insert().
@@ -32,4 +34,46 @@ function os2loop_messages_entity_update(EntityInterface $entity) {
  */
 function os2loop_messages_form_alter(&$form, &$form_state, $form_id) {
   Drupal::service('os2loop_messages.helper')->formAlter($form, $form_id);
+}
+
+/**
+ * Implements hook_preprocess_page_title().
+ */
+function os2loop_messages_preprocess_page_title(&$variables) {
+  $view_id = 'os2loop_messages';
+
+  if (\Drupal::routeMatch()->getParameter('view_id') === $view_id) {
+    $view = Views::getView($view_id);
+    $view->execute('page_1');
+
+    $title_suffix = '<div class="total-row-count">' . $view->total_rows . '</div>';
+    $variables['title_suffix'] = Markup::create($title_suffix);
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ *
+ * Prepare variables for fields.
+ */
+function os2loop_messages_preprocess_field(&$variables) {
+  if ($variables['field_name'] === 'os2loop_section_page_view_header') {
+    $paragraph_fields = $variables['element']['#object']->getFields();
+    $views_block = $paragraph_fields['os2loop_section_page_block']->view()[0]['#block'];
+
+    $derivative_id = $views_block->getDerivativeId();
+    $derivative_id_exploded = explode('-', $derivative_id);
+
+    $base_view_id = $derivative_id_exploded[0];
+
+    switch ($base_view_id) {
+      case 'os2loop_messages':
+      case 'os2loop_section_page_user_favourites':
+        $view = Views::getView($base_view_id);
+        $view->execute($derivative_id_exploded[1]);
+
+        $variables['total_rows'] = (string) count($view->result);
+        break;
+    }
+  }
 }

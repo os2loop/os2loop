@@ -1,0 +1,82 @@
+@mixin user-image($image-size, $font-size: $font-size-base) {
+	@extend .rounded-circle, .overflow-hidden;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: $gray-400;
+	color: $gray-800;
+
+	width: $image-size;
+	height: $image-size;
+
+	font-size: $font-size;
+	font-weight: 500;
+
+	img {
+		width: $image-size;
+		height: $image-size;
+		object-fit: cover;
+	}
+}
+
+.user-name {
+	font-weight: $badge-font-weight;
+}
+
+.user-profile {
+	background-color: $gray-100;
+
+	&.icon-container {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+
+		background-color: transparent;
+
+		.icon {
+			background-color: $loop-green-400;
+			color: $loop-white;
+			font-size: $font-size-base;
+		}
+	}
+
+	.user-image {
+		@include user-image($user-image-profile-size, 40px);
+	}
+
+	.user-contact-information {
+		display: flex;
+
+		i,
+		p {
+			margin: 0;
+		}
+
+		i {
+			font-size: $user-contact-icon-size;
+			line-height: 1;
+
+			// hack to align icon with first row of multi-line text
+			padding-top: calc(
+				(#{$font-size-base} * #{$line-height-base} - #{$user-contact-icon-size}) /
+					2
+			);
+			margin-right: $user-contact-icon-spacer;
+		}
+
+		div {
+			display: block;
+		}
+	}
+
+	.user-profile-badge-container {
+		display: flex;
+		flex-wrap: wrap;
+
+		.badge-secondary {
+			margin-right: 10px;
+		}
+	}
+}

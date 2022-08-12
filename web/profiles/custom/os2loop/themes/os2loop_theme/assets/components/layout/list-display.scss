@@ -1,0 +1,15 @@
+.list-display {
+	.list-display-icon {
+		svg {
+			height: 35px;
+			width: 35px;
+		}
+	}
+
+	.list-display-badges {
+		div + div,
+		a.badge + a.badge {
+			@extend .ml-15;
+		}
+	}
+}

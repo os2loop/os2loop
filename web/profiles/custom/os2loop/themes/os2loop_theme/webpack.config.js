@@ -25,7 +25,7 @@ Encore
    * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
    */
   .addEntry("app", "./assets/app.js")
-  .addEntry("pdf", "./assets/pdf/pdf.scss")
+  .addEntry("pdf", "./assets/components/pdf/pdf.scss")
 
   // Color templates
   .addEntry("default", "./assets/color-templates/default.scss")

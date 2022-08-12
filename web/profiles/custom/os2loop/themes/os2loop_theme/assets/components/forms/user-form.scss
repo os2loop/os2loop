@@ -1,0 +1,56 @@
+.user-form {
+	// add space between sections
+	fieldset.form-wrapper + fieldset.form-wrapper,
+	input[type="hidden"] + fieldset.form-wrapper:not(:first-of-type) {
+		@extend .mt-20;
+	}
+
+	#edit-os2loop-user-image-0 {
+		@extend .my-20;
+	}
+
+	// add space between "rows"
+	.fieldset-wrapper {
+		div.form-wrapper:nth-child(n + 3) {
+			@extend .mt-20;
+		}
+	}
+
+	.form-wrapper {
+		padding: 0;
+	}
+
+	legend,
+	#edit-account {
+		@extend .d-none;
+	}
+
+	.field-group-fieldset > .fieldset-wrapper {
+		display: inline-flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+		> div.field--type-string,
+		> div.field--type-string-long,
+		> div.field--type-list-integer,
+		> div.field--type-entity-reference {
+			width: 100%;
+
+			&:not(:only-child) {
+				width: 48%;
+			}
+		}
+	}
+
+	.field--type-entity-reference {
+		@extend .form-group;
+		margin-bottom: 0;
+	}
+
+	.form-submit {
+		display: flex;
+		margin-left: auto;
+	}
+}

@@ -31,99 +31,92 @@ content:
     settings: {  }
     third_party_settings: {  }
   os2loop_content_anonymous_author:
-    type: options_select
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  os2loop_question_answers:
-    type: comment_default
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  os2loop_question_content:
-    type: text_textarea
     weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
+  os2loop_question_answers:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  os2loop_question_content:
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+    type: text_textarea
+    region: content
   os2loop_question_file:
     type: inline_entity_form_simple
     weight: 11
-    region: content
     settings:
       form_mode: inline_media_form
-      override_labels: false
       label_singular: ''
       label_plural: ''
+      revision: false
+      override_labels: false
       collapsible: false
       collapsed: false
-      revision: false
     third_party_settings: {  }
-  os2loop_shared_category:
-    type: entity_reference_autocomplete
-    weight: 6
     region: content
+  os2loop_shared_category:
+    weight: 6
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   os2loop_shared_profession:
-    type: autocomplete_deluxe
-    weight: 9
-    region: content
     settings:
+      match_limit: '0'
+      min_length: 0
+      delimiter: ''
+      not_found_message: 'The term ''@term'' will be added'
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+      not_found_message_allow: false
+      new_terms: false
       match_operator: CONTAINS
       autocomplete_route_name: autocomplete_deluxe.autocomplete
       size: 60
       selection_handler: default
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
-      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
-      match_limit: '0'
     third_party_settings: {  }
-  os2loop_shared_subject:
     type: autocomplete_deluxe
-    weight: 7
     region: content
-    settings:
-      match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      size: 60
-      selection_handler: default
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
-      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
-      match_limit: '0'
-    third_party_settings: {  }
-  os2loop_shared_tags:
-    type: autocomplete_deluxe
     weight: 8
-    region: content
+  os2loop_shared_subject:
     settings:
       match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      match_limit: 10
       size: 60
-      selection_handler: default
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+    weight: 7
+  os2loop_shared_tags:
+    settings:
       min_length: 0
       delimiter: ''
-      not_found_message_allow: false
       not_found_message: 'The term ''@term'' will be added'
       new_terms: true
       no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+      not_found_message_allow: false
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      size: 60
+      selection_handler: default
       match_limit: 10
     third_party_settings: {  }
+    type: autocomplete_deluxe
+    region: content
+    weight: 9
   path:
     type: path
     weight: 12
@@ -132,10 +125,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 3
-    region: content
     settings:
       display_label: true
+    weight: 3
+    region: content
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -148,12 +141,12 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 1
-    region: content
     settings:
       match_operator: CONTAINS
-      match_limit: 10
       size: 60
       placeholder: ''
+      match_limit: 10
+    region: content
     third_party_settings: {  }
 hidden:
   langcode: true

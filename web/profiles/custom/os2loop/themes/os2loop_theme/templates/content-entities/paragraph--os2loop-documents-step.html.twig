@@ -49,31 +49,37 @@
   ]
 %}
 
+{% set has_title = content.os2loop_documents_step_title['#title'] is not null %}
+
 {% block paragraph %}
   {% block content %}
     <li {{ attributes.addClass(classes) }}>
-      <div class="row">
+      <a class="d-print-none collapsed step--collapse-toggle" type="button" data-toggle="collapse" data-target="#paragraph-id-{{ paragraph.id() }}">
+        <span class="bold {{ has_title ?: 'line-clamp-1' }}">
+          {{ has_title ? content.os2loop_documents_step_title : content.os2loop_documents_step_text }}
+        </span>
+      </a>
+      <div class="row no-gutters collapse" id="paragraph-id-{{ paragraph.id() }}">
         <div class="col">
-          {{ content.os2loop_documents_step_text }}
-        </div>
-        <div class="col-auto">
-          {{ content.os2loop_documents_step_image }}
+          <div class="row no-gutters">
+            <div class="col">
+              {{ content.os2loop_documents_step_text }}
+            </div>
+            <div class="col-auto">
+              {{ content.os2loop_documents_step_image }}
+            </div>
+          </div>
+          {% if content.os2loop_documents_steps['#title'] is not null %}
+          <div class="row no-gutters steps">
+            <div class="steps-content w-100">
+              <ol class="os2loop-documents-steps">
+                {{ content.os2loop_documents_steps }}
+              </ol>
+            </div>
+          </div>
+          {% endif %}
         </div>
       </div>
-      {% if content.os2loop_documents_steps['#title'] is not null %}
-        <div class="steps">
-          <a class="d-print-none btn btn-sm btn-block collapsed step--collapse-toggle" type="button" data-toggle="collapse" data-target="#paragraph-id-{{ paragraph.id() }}">
-            <span class="show-steps">{{ 'Show steps'|t }}</span>
-            <span class="hide-steps">{{ 'Hide steps'|t }}</span>
-            <i class="collapse-caret bi bi-caret-up-fill ml-1"></i>
-          </a>
-          <div class="steps-content collapse" id="paragraph-id-{{ paragraph.id() }}">
-            <ol class="os2loop-documents-steps">
-              {{ content.os2loop_documents_steps }}
-            </ol>
-          </div>
-        </div>
-      {% endif %}
     </li>
   {% endblock %}
 {% endblock paragraph %}

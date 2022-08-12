@@ -1,0 +1,33 @@
+$color-map: (
+	"primary-green": $loop-green-200,
+	"primary-light-green": $loop-green-100,
+	"primary-gray": $gray-200,
+	"primary-white": $loop-white,
+	"secondary-white": $loop-white,
+	"secondary-gray": $gray-100,
+);
+
+.block-base {
+	padding: 30px;
+
+	border: none;
+	border-radius: $border-radius-lg;
+}
+
+@each $name, $color in $color-map {
+	.bg-#{$name} {
+		background-color: $color;
+	}
+
+	.block-#{$name} {
+		@extend .block-base;
+
+		background-color: $color;
+
+		@if $name == "primary-white" {
+			box-shadow: 0px 4px 60px 5px rgba(108, 117, 125, 0.08);
+		} @else {
+			box-shadow: none;
+		}
+	}
+}

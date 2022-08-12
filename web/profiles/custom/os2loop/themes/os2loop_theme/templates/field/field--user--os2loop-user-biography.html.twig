@@ -38,7 +38,9 @@
  * @ingroup themeable
  */
 #}
-<h2 class="h4 border-bottom pb-2 mt-3 mt-md-5">{{ label }}</h2>
+<p class="font-weight-bold mb-10">{{ label }}</p>
+<span>
 {% for item in items %}
   {{ item.content }}
 {% endfor %}
+</span>

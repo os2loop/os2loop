@@ -96,10 +96,10 @@
             "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
         ],
         "coding-standards-check/drupal-check": [
-            "vendor/bin/drupal-check --deprecations --analysis web/profiles/custom/os2loop"
+            "php vendor/bin/drupal-check --deprecations --analysis web/profiles/custom/os2loop"
         ],
         "coding-standards-check/phpcs": [
-            "vendor/bin/phpcs --standard=phpcs.xml.dist"
+            "php vendor/bin/phpcs --standard=phpcs.xml.dist"
         ],
         "coding-standards-check/twigcs": [
             "twigcs web/profiles/custom/os2loop/themes/os2loop_theme/templates"
@@ -123,10 +123,11 @@
     "prefer-stable": true,
     "config": {
         "sort-packages": true,
+        "process-timeout": 0,
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
             "composer/installers": true,
             "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/console-extend-plugin": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true
@@ -136,6 +137,9 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/development.services.yml": false
             }
         },
         "installer-paths": {
@@ -195,7 +199,8 @@
         "patches": {
             "drupal/core": {
                 "Disable forced configuration langcode (https://www.drupal.org/project/drupal/issues/3150540)": "https://www.drupal.org/files/issues/2020-06-10/locale-config-langcodes.patch",
-                "Handle undefined index when using form states (https://www.drupal.org/project/drupal/issues/2700667)": "https://www.drupal.org/files/issues/2020-03-11/2700667-104.patch"
+                "Handle undefined index when using form states (https://www.drupal.org/project/drupal/issues/2700667)": "https://www.drupal.org/files/issues/2020-03-11/2700667-104.patch",
+                "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD (https://www.drupal.org/project/drupal/issues/3007424)": "https://www.drupal.org/files/issues/2021-01-06/3007424-108.patch"
             },
             "drupal/flag": {
                 "Implement Migration Paths for Flag 7.x (https://www.drupal.org/project/flag/issues/2409901#comment-13082245)": "https://www.drupal.org/files/issues/2019-04-25/2409901_flag_migration_paths_52.patch",
@@ -212,6 +217,9 @@
             },
             "drupal/masquerade": {
                 "https://www.drupal.org/project/masquerade/issues/2962970#comment-13391256": "https://www.drupal.org/files/issues/2019-12-13/temporary%20unmask%20workaround-2962970-8.patch"
+            },
+            "drupal/devel": {
+                "Public methods are not visible in kint (https://www.drupal.org/project/devel/issues/3112201)": "https://www.drupal.org/files/issues/2022-04-26/devel_3112201_4.patch"
             }
         }
     },
@@ -219,7 +227,9 @@
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
         "drupal/coder": "^8.3",
         "drupal/core-dev": "^9.1",
+        "drupal/devel": "^4.1",
         "friendsoftwig/twigcs": "^5.0",
+        "kint-php/kint": "^4.1",
         "mglaman/drupal-check": "^1.1",
         "os2loop/os2loop_fixtures": "*",
         "phpspec/prophecy-phpunit": "^2.0"

@@ -1,14 +1,14 @@
-_core:
-  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
-langcode: en
 uuid: b783cb11-4b7f-4a49-97bd-d07966f124dc
 name: OS2Loop
 mail: admin@example.com
 slogan: ''
 page:
+  front: /user/login
   403: ''
   404: ''
-  front: /user/login
 admin_compact_mode: false
 weight_select_max: 100
-default_langcode: en
+langcode: da
+default_langcode: da
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

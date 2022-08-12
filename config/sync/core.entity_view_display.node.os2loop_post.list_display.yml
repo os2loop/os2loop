@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_display.comment.os2loop_post_comment.default
     - core.entity_view_mode.node.list_display
+    - field.field.node.os2loop_post.os2loop_content_anonymous_author
     - field.field.node.os2loop_post.os2loop_post_comments
     - field.field.node.os2loop_post.os2loop_post_content
     - field.field.node.os2loop_post.os2loop_post_file
@@ -101,5 +102,6 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
+  os2loop_content_anonymous_author: true
   os2loop_post_file: true
   search_api_excerpt: true

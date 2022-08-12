@@ -25,9 +25,9 @@
  */
 #}
 
-<div class="border-bottom bg-light col mx-4 rounded-bottom facets-widget- {{- facet.widget.type -}}">
-  <div class="row">
-    <div class="collapse show col search-filters-collapse py-3" id="searchFilterCollapseFacets">
+<div class="container">
+  <div class="secondary-gray facets-widget- {{- facet.widget.type -}}">
+    <div id="searchFilterCollapseFacets">
       {% if facet.widget.type %}
         {%- set attributes = attributes.addClass('item-list__' ~ facet.widget.type) %}
       {% endif %}
@@ -35,21 +35,25 @@
       {%- if title is not empty -%}
         <h3>{{ title }}</h3>
       {%- endif -%}
-
       {%- if items -%}
-      <{{ list_type }}{{ attributes.addClass('pl-0 list-unstyled row mb-0') }}>
-      {%- for item in items -%}
-        <li{{ item.attributes.addClass('ml-3 mb-2 mr-4') }}>{{ item.value }}</li>
-      {%- endfor -%}
-    </{{ list_type }}>
-    {%- else -%}
-      {{- empty -}}
-    {%- endif -%}
-    {%- endif %}
-
-    {% if facet.widget.type == "dropdown" %}
-      <label id="facet_{{ facet.id }}_label">{{ 'Facet'|t }} {{ facet.label }}</label>
-    {%- endif %}
+        <div class="btn-group btn-group-sm w-50">
+          {% for item in items %}
+            {% set classes = [
+              'btn',
+              'btn-primary',
+              'btn-block',
+              item.value['#attributes']['class'][0] == 'is-active' ? 'active'
+            ] %}
+            <a{{ item.attributes.addClass(classes) }} href="{{ item.value['#url'] }}">{{ item.value['#title'] }}</a>
+          {%- endfor -%}
+        </div>
+        {%- else -%}
+          {{- empty -}}
+        {%- endif -%}
+      {%- endif %}
+      {% if facet.widget.type == "dropdown" %}
+        <label id="facet_{{ facet.id }}_label">{{ 'Facet'|t }} {{ facet.label }}</label>
+      {%- endif %}
     </div>
   </div>
 </div>

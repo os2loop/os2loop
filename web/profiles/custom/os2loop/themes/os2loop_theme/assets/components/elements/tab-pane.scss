@@ -1,0 +1,24 @@
+.tab-pane {
+	.os2loop-title-text-inline {
+		font-weight: $badge-font-weight;
+	}
+
+	.documents-in-collection {
+		@extend .block-secondary-gray;
+
+		.list-group-item {
+			@extend .block-secondary-white, .py-20;
+
+			+ .list-group {
+				padding-left: $spacer;
+			}
+		}
+	}
+
+	.list-group + .list-group,
+	.list-group + .list-group-item,
+	.list-group-item + .list-group,
+	.list-group-item + .list-group-item {
+		@extend .mt-20;
+	}
+}

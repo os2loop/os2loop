@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_result
+    - field.field.node.os2loop_post.os2loop_content_anonymous_author
     - field.field.node.os2loop_post.os2loop_post_comments
     - field.field.node.os2loop_post.os2loop_post_content
     - field.field.node.os2loop_post.os2loop_post_file
@@ -49,6 +50,7 @@ hidden:
   entity_print_view_word_docx: true
   langcode: true
   links: true
+  os2loop_content_anonymous_author: true
   os2loop_post_comments: true
   os2loop_post_content: true
   os2loop_post_file: true

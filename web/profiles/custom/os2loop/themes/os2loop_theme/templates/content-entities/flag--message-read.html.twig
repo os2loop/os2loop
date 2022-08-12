@@ -19,14 +19,11 @@
 {{ attach_library('flag/flag.link') }}
 
 {# Depending on the flag action, set the appropriate action class. #}
-{% if action == 'unflag' %}
-    {% set action_class = 'action-unflag btn btn-sm btn-success' %}
-{% else %}
-    {% set action_class = 'action-flag btn btn-sm btn-outline-success' %}
-{% endif %}
+{% set action_class = action == 'unflag' ? 'action-unflag' : 'action-flag' %}
 
 {# Set the remaining Flag CSS classes. #}
 {% set classes = [
+    'icon',
     'flag',
     'flag-' ~ flag.id()|clean_class,
     'js-flag-' ~ flag.id()|clean_class ~ '-' ~ flaggable.id(),
@@ -36,7 +33,10 @@
 
 {# Set nofollow to prevent search bots from crawling anonymous flag links #}
 {% set attributes = attributes.setAttribute('rel', 'nofollow') %}
-{% set attributes = attributes.addClass(classes|join(' ')) %}
 
-<a{{ attributes }}>{{ title }}</a>
+<div class="icon-container">
+    <div class="{{ classes|join(' ') }}" data-toggle="tooltip" data-placement="right" title='{{ title }}'>
+        <a{{ attributes }} aria-label='{{ title }}'></a>
+    </div>
+</div>
 {% endspaceless %}

@@ -1,0 +1,19 @@
+uuid: fbaf09a2-3238-4f0e-997f-0f94877ba310
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.os2loop_documents_step_title
+    - paragraphs.paragraphs_type.os2loop_documents_step
+id: paragraph.os2loop_documents_step.os2loop_documents_step_title
+field_name: os2loop_documents_step_title
+entity_type: paragraph
+bundle: os2loop_documents_step
+label: Titel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

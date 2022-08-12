@@ -50,9 +50,6 @@
   {{ exposed }}
   {{ attachment_before }}
 
-  <div class="mb-2">
-    {{ 'New messages:'|t }} <span class="badge badge-pill badge-primary">{{ total_rows }}</span>
-  </div>
   {% if rows -%}
     {{ rows }}
   {% elseif empty -%}

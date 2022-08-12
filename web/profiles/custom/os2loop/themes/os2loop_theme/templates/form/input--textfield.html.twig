@@ -14,5 +14,19 @@
 {# Apparently using hook_form_alter to set the input type to "search" breaks autocompleting #}
 {% if 'search_api_autocomplete' == element['#type'] %}
   {% set attributes = attributes.removeClass('form-text').setAttribute('type', 'search') %}
+  {% set show_search_button = TRUE %}
 {% endif %}
-<input{{ attributes.addClass('form-control') }}/>
+
+{% if 'edit-title-0-value' == element['#id'] %}
+  {% set maxlength = '90' %}
+  {% set attributes = attributes.setAttribute('maxlength', maxlength) %}
+{% endif %}
+
+<div>
+  <div class="d-flex align-items-center">
+    <input{{ attributes.addClass('form-control') }}/>
+    {% if show_search_button %}
+    <button class="btn btn-primary btn-lg ml-20" data-search-api-autocomplete-search="os2loop_search_db">{{ 'Search'|t }}</button>
+    {% endif %}
+  </div>
+</div>

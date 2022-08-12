@@ -44,6 +44,7 @@
     label_display != 'inline' ? 'os2loop-title-text',
   ]
 %}
+
 {% if label_hidden %}
   {% if multiple %}
     {% for item in items %}
@@ -56,6 +57,7 @@
   {% endif %}
 {% elseif label_display == 'inline' %}
   <span{{ attributes }}>
+    {# <span{{ title_attributes.addClass(title_classes).addClass("d-none") }}>{{ label }}:</span> #}
     <span{{ title_attributes.addClass(title_classes) }}>{{ label }}:</span>
     {% if multiple %}
       <span>

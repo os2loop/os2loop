@@ -1,0 +1,55 @@
+@import "../../variables/colors.scss";
+
+.btn,
+.btn-lg {
+	box-sizing: border-box;
+
+	color: $loop-white;
+	transition: all 0.5s ease;
+
+	a,
+	span,
+	label {
+		@extend .m-0;
+	}
+}
+
+.btn-primary {
+	&.btn {
+		background-color: $loop-green-400;
+		border: none;
+
+		&:hover,
+		&.focus,
+		&:focus {
+			@extend .shadow-none;
+			background-color: $loop-green-300;
+		}
+
+		&.disabled,
+		&:disabled {
+			background-color: $loop-green-200;
+		}
+	}
+
+	&.btn-lg {
+		background-color: $loop-green;
+		border: none;
+		font-weight: bold;
+
+		&:hover,
+		&.focus,
+		&:focus {
+			background-color: $loop-green-400;
+		}
+
+		&.disabled,
+		&:disabled {
+			background-color: $loop-green-200;
+		}
+	}
+}
+
+button {
+	@extend .btn, .btn-primary;
+}

@@ -1,0 +1,38 @@
+@import "../../variables/colors.scss";
+
+.text-sm {
+	color: $gray-500;
+	font-size: 14px;
+}
+
+.link-unstyled {
+	&,
+	&:visited,
+	&:hover,
+	&:active,
+	&:focus,
+	&:active:hover {
+		color: inherit;
+		text-decoration: inherit;
+	}
+}
+
+ul:not(.menu-item) {
+	padding-left: 25px;
+}
+
+li:not(.menu-item) {
+	padding-left: 25px;
+	margin-bottom: 10px;
+}
+
+li:last-of-type,
+p:last-of-type {
+	margin-bottom: 0px;
+}
+
+ol,
+ul,
+li {
+	list-style-position: inside;
+}

@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_display.comment.os2loop_post_comment.default
     - core.entity_view_mode.node.teaser
+    - field.field.node.os2loop_post.os2loop_content_anonymous_author
     - field.field.node.os2loop_post.os2loop_post_comments
     - field.field.node.os2loop_post.os2loop_post_content
     - field.field.node.os2loop_post.os2loop_post_file
@@ -60,6 +61,7 @@ hidden:
   flag_os2loop_favourite: true
   langcode: true
   links: true
+  os2loop_content_anonymous_author: true
   os2loop_post_comments: true
   os2loop_post_content: true
   os2loop_post_file: true

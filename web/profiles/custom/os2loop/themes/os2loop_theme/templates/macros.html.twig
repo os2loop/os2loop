@@ -11,24 +11,40 @@
  */
 #}
 {% macro title(title, class, node, content, show_subject=true, options={}) %}
-  <div class="title d-flex justify-content-between align-items-center my-3 row no-gutters">
-    <div class="header">
-      {{ title_prefix }}
-      <h1{{ title_attributes }} class="{{ class }}">
-        {% if options.link|default(false) %}
-          {% set url = path('entity.node.canonical', {node: node.id}) %}
-          <a href="{{ url }}">{{ title }}</a>
-        {% else %}
-          {{ title }}
-        {% endif %}
-      </h1>
-      {{ title_suffix }}
-      {% if show_subject %}
-        {{ content.os2loop_shared_subject }}
-      {% endif %}
+  <div class="container px-0 title d-inline-flex align-items-top">
+    {# icon #}
+    <div class="title-icon mr-20">
+      {{ source("#{active_theme_path()}/assets/svg/#{class}.svg", ignore_missing=true) }}
     </div>
-    <div>
-    {% include '@os2loop_theme/navigation/content-tasks.html.twig' %}
+    <div class="container px-0 title-information">
+      <div class="row no-gutters mb-15">
+        <div class="col title-text">
+          {# text #}
+          {{ title_prefix }}
+          {# h1 used instead of h2 to be compatible with TOC API module #}
+          <h1{{ title_attributes }} class="h2 m-0">
+            {% if options.link|default(false) %}
+              <a href="{{ path('entity.node.canonical', {node: node.id}) }}" class="link-unstyled">{{ title }}</a>
+            {% else %}
+              {{ title }}
+            {% endif %}
+          </h1>
+          {{ title_suffix }}
+        </div>
+        <div class="col-auto title-navigation">
+          {# navigation #}
+          {% include '@os2loop_theme/navigation/content-tasks.html.twig' %}
+        </div>
+      </div>
+      <div class="row no-gutters mb-30">
+        <div class="col title-badges d-inline-flex">
+          {# badges #}
+          <div class="badge badge-{{ class }}">{{ class|capitalize|t }}</div>
+          {{ content.os2loop_shared_subject }}
+          {{ content.os2loop_shared_profession }}
+          {{ content.os2loop_shared_category }}
+        </div>
+      </div>
     </div>
   </div>
 {% endmacro %}
@@ -64,18 +80,37 @@
 #}
 {% macro table_of_contents(items, collection, current_node_id=null) %}
   {% if items %}
-    <div class="list-group document-collection-list rounded-0">
+    <div class="list-group list-display">
       {% for item in items %}
         {% set document = item.document %}
-        {% if current_node_id is same as(document.id) %}
-          <a href="{{ path('entity.node.canonical', {node: document.id, collection: collection.id}) }}" class="list-group-item list-group-item-action document-collection-item active">
-            {{ document.title.value }} <span class="badge badge-dark badge-pill float-right mt-1">{{ 'Currently open'|t }}</span>
-          </a>
-        {% else %}
-          <a href="{{ path('entity.node.canonical', {node: document.id, collection: collection.id}) }}" class="list-group-item list-group-item-action document-collection-item">
-            {{ document.title.value }}
-          </a>
-        {% endif %}
+        {% set short_type = document.getType|split('_')|last %}
+        {% set is_active_document = current_node_id is same as(document.id) %}
+        <div class="container list-group-item list-group-item-action d-inline-flex align-items-top">
+          {# icon #}
+          <div class="list-display-icon">
+            {{ source("#{active_theme_path()}/assets/svg/#{short_type}.svg", ignore_missing=true) }}
+          </div>
+          <div class="container px-0 list-display-information">
+            <div class="row no-gutters">
+              <div class="col list-display-text d-inline-flex mx-30">
+                {# text #}
+                <div class="h5 m-0">
+                  <a href="{{ path('entity.node.canonical', {node: document.id, collection: collection.id}) }}" class="link-unstyled">
+                    {{ document.title.value }}
+                  </a>
+                  <span class="badge badge-primary badge-{{ short_type }} align-top ml-20">{{ document.type.entity.label }}</span>
+                  {% if is_active_document %}
+                    <span class="badge badge-primary align-top ml-20">{{ 'Open document'|t }}</span>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="col-auto ml-auto list-display-date text-sm">
+                {# date #}
+                {{ document.createdtime|date('d-m-Y') }}
+              </div>
+            </div>
+          </div>
+        </div>
         {{ item.children ? _self.table_of_contents(item.children, collection, current_node_id) }}
       {% endfor %}
     </div>

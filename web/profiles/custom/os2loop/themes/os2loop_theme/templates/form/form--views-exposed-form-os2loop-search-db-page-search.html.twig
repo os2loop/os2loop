@@ -13,21 +13,19 @@
   */
   #}
 {# @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Search_role#examples #}
-<form{{ attributes.setAttribute('role', 'search') }} class="form">
-  <div class="row">
-    {{ children }}
-  </div>
-  <div class="col-12" id="js-search-filters">
+<div class="block-primary-gray">
+  <form{{ attributes.setAttribute('role', 'search') }} class="form">
     <div class="row">
-      <div class="col ml-2 border-bottom">
-        <h6 class="d-inline align-middle p-0">{{ 'Search filters'|t }}</h6>
-      </div>
-      <div class="mr-2 border-bottom">
-        <button class="btn btn-sm btn-dark mb-2" type="button" data-toggle="collapse" data-target=".search-filters-collapse" aria-expanded="true"
+      {{ children }}
+    </div>
+    <div class="row mt-20" id="js-search-filters">
+      <div class="col-3 ml-auto">
+        <button class="btn btn-search-filter btn-block" type="button" data-toggle="collapse" data-target=".search-filters-collapse" aria-expanded="true"
                 aria-controls="searchFilterCollapseFacets searchFilterCollapseOrder">
           <span class="less">{{ 'Hide'|t }}</span><span class="more">{{ 'Show'|t }}</span> {{ 'filters'|t }}
+          <i class="bi bi-caret-up-fill"></i>
         </button>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>

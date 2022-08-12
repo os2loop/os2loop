@@ -1,0 +1,37 @@
+@import "../../variables/colors.scss";
+
+// This "component" will contain all that has to do with inputfields, textareas and selectors.
+// This is due to all these fields being a sub-components of the form-group.
+
+@mixin set-valid-border-color($color) {
+	&:focus,
+	& .is-valid {
+		border-color: $color;
+		box-shadow: none;
+	}
+}
+
+@mixin set-invalid-border-color($color) {
+	& .is-invalid,
+	& .is-invalid-feedback {
+		border-color: $color;
+		box-shadow: none;
+	}
+}
+
+input,
+textarea,
+select {
+	&.form-control {
+		@include set-valid-border-color($loop-green-400);
+		@include set-invalid-border-color($loop-red);
+
+		box-sizing: border-box;
+		min-height: 48px;
+
+		// remove "throbber" and such added by autocomplete-deluxe
+		&.form-autocomplete {
+			background-image: none;
+		}
+	}
+}

@@ -12,10 +12,12 @@ field_name: os2loop_comment_anonymous_author
 entity_type: comment
 bundle: os2loop_question_answer
 label: 'Anonymous author?'
-description: 'Choose if you want to show your name when people view your answer.'
+description: '(Your name will not appear when people view your answer)'
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: '0'
 default_value_callback: ''
 settings: {  }
 field_type: list_string

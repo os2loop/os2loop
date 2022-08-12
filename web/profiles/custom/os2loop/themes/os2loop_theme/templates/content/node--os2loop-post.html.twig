@@ -70,32 +70,37 @@
  *   in different view modes.
  */
 #}
-{% import '@os2loop_theme/macros.html.twig' as macros %}
 
-<article{{ attributes.addClass("os2loop-content os2loop-post") }}>
-  {{ macros.title(label, "post", node, content, false) }}
-  <div class="entity-header">{% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}</div>
-  <div{{ content_attributes.addClass('mt-3 mb-5 px-3') }}>
-    {{ content.os2loop_post_content }}
-    <div class="row mt-3 mt-md-5 py-2 bg-light">
-      <div class="col-12 col-md-auto">
-        {{ content.os2loop_shared_subject }}
+{% import '@os2loop_theme/macros.html.twig' as macros %}
+{% set comment_form = content.os2loop_post_comments[0].comment_form %}
+
+<article{{ attributes.addClass("os2loop-content os2loop-post mb-90") }}>
+  <div class="block-primary-white">
+    {{ macros.title(label, "post", node, content, false) }}
+    <div class="entity first-entity">
+      <div class="container entity-header d-inline-flex align-items-top">
+        {% include '@os2loop_theme/field/user-info.html.twig' with {user: drupal_entity('user', node.uid.target_id), entity: node} %}
       </div>
-      <div class="col-12 col-md-auto">
-        {{ content.os2loop_shared_profession }}
-      </div>
-      <div class="col-12 col-md-auto">
-        {{ content.os2loop_shared_category }}
-      </div>
-      <div class="col-12 col-md-auto">
-        {{ content.os2loop_shared_tags }}
+      <div{{ content_attributes.addClass('entity-body mb-20') }}>
+        {{ content.os2loop_post_content }}
+        <div class="row">
+          <div class="col">
+            {{ content.os2loop_post_file }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            {{ content.os2loop_shared_tags }}
+          </div>
+        </div>
       </div>
     </div>
-    <div class="row border-top pt-2 pb-3 bg-light rounded-bottom">
-      <div class="col">
-        {{ content.os2loop_post_file }}
-      </div>
-    </div>
+    {{ content.os2loop_post_comments }}
   </div>
-  {{ content.os2loop_post_comments }}
+  {% if comment_form %}
+  <div class="block-primary-gray mt-30">
+    <h4{{ content_attributes }}>{{ 'Add new comment'|t }}</h4>
+    {{ comment_form }}
+  </div>
+  {% endif %}
 </article>

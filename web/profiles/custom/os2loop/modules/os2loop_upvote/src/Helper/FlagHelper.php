@@ -67,7 +67,7 @@ class FlagHelper {
 
       if (isset($correct_answer)) {
         // Set a top value, used to add a styling class.
-        $correct_answer['#top'] = TRUE;
+        $correct_answer['#top'] = 'correct-answer';
         // Threaded: false, to avoid indentation (styling).
         $correct_answer['#comment_threaded'] = FALSE;
         // Add to top of comment list.
@@ -75,7 +75,7 @@ class FlagHelper {
       }
       elseif (isset($upvoted_comment)) {
         // Set a top value, used to add a styling class.
-        $upvoted_comment['#top'] = TRUE;
+        $upvoted_comment['#top'] = 'most-upvotes';
         // Threaded: false, to avoid indentation (styling).
         $upvoted_comment['#comment_threaded'] = FALSE;
         // Add to top of comment list.
@@ -107,6 +107,7 @@ class FlagHelper {
   public function preprocessComment(array &$variables) {
     if (isset($variables['elements']['#top'])) {
       $variables['attributes']['class'][] = 'top-comment';
+      $variables['attributes']['class'][] = $variables['elements']['#top'];
     }
   }
 
