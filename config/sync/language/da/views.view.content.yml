@@ -8,8 +8,8 @@ display:
             items_per_page_options_all_label: '- Alle -'
             offset_label: Begyndelse
           tags:
-            previous: '‹ Forrige'
             next: 'Næste ›'
+            previous: '‹ Forrige'
             first: '« Første'
             last: 'Sidste »'
       fields:
@@ -27,8 +27,8 @@ display:
         status:
           label: Status
           settings:
-            format_custom_true: Udgivet
             format_custom_false: 'Ikke udgivet'
+            format_custom_true: Udgivet
         changed:
           label: Opdateret
         operations:
@@ -61,6 +61,7 @@ display:
       header:
         result:
           content: 'Viser @start - @end af @total'
+      title: Indhold
       exposed_form:
         options:
           submit_button: Filter
@@ -68,12 +69,12 @@ display:
           exposed_sorts_label: 'Sortér efter'
           sort_asc_label: Stigende
           sort_desc_label: Faldende
-      title: Indhold
       empty:
         area_text_custom:
           content: 'Der er intet indhold at vise.'
     display_title: Standard
   page_2:
+    display_title: Spørgsmål/Indlæg
     display_options:
       menu:
         title: Spørgsmål/Indlæg
@@ -134,14 +135,13 @@ display:
           label: 'Antal kommentarer'
         operations:
           label: Handlinger
-    display_title: Spørgsmål/Indlæg
   page_1:
+    display_title: Side
     display_options:
       menu:
         title: Indhold
       tab_options:
         title: Indhold
         description: 'Find og håndtér indhold'
-    display_title: Side
 label: Indhold
 description: 'Find og håndtér indhold.'

@@ -16,26 +16,26 @@ bundle: os2loop_question_answer
 mode: list_display
 content:
   flag_os2loop_upvote_correct_answer:
+    settings: {  }
+    third_party_settings: {  }
     weight: 1
     region: content
+  flag_os2loop_upvote_upvote_button:
     settings: {  }
     third_party_settings: {  }
-  flag_os2loop_upvote_upvote_button:
     weight: 0
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
-  links:
     weight: 2
     region: content
-    settings: {  }
-    third_party_settings: {  }
   os2loop_question_answer:
-    weight: 3
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 3
     region: content
 hidden:
   entity_print_view_epub: true

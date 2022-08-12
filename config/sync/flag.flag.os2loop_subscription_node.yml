@@ -9,7 +9,6 @@ label: 'Subscription node'
 bundles: {  }
 entity_type: node
 global: false
-weight: 0
 flag_short: Subscribe
 flag_long: ''
 flag_message: 'Subscribed to content'
@@ -17,6 +16,7 @@ unflag_short: Unsubscribe
 unflag_long: ''
 unflag_message: 'Unsubscribed from content'
 unflag_denied_text: ''
+weight: 0
 flag_type: 'entity:node'
 link_type: reload
 flagTypeConfig:

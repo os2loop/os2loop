@@ -1,5 +1,5 @@
 label: 'Abonnér node'
 flag_short: Abonnér
-unflag_short: 'Fjern abonnement'
 flag_message: 'Du abonnerer nu på dette indhold'
+unflag_short: 'Fjern abonnement'
 unflag_message: 'Fjernede abonnement på dette indhold'

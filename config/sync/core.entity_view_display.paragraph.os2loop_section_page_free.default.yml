@@ -13,11 +13,11 @@ bundle: os2loop_section_page_free
 mode: default
 content:
   os2loop_section_page_free_html:
-    weight: 0
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 0
     region: content
 hidden:
   entity_print_view_epub: true

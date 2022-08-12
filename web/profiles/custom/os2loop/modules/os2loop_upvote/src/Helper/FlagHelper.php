@@ -50,7 +50,7 @@ class FlagHelper {
           else {
             if (isset($comment_flag_counts['os2loop_upvote_upvote_button'])) {
               // If there is no upvoted comment, set it to current comment.
-              $upvoted_comment = isset($upvoted_comment) ? $upvoted_comment : $comment;
+              $upvoted_comment = $upvoted_comment ?? $comment;
 
               // Get number of upvotes for comment and upvoted comment.
               $upvoted_comment_upvotes = intval($this->flagCountManager->getEntityFlagCounts($upvoted_comment['#comment']));

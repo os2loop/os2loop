@@ -37,7 +37,7 @@ display:
       filters:
         template:
           expose:
-            label: Template
+            label: Skabelon
       title: Meddelelse
       empty:
         area:

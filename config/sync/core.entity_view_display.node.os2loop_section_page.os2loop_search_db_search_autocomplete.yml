@@ -15,15 +15,15 @@ bundle: os2loop_section_page
 mode: os2loop_search_db_search_autocomplete
 content:
   flag_os2loop_subscription_node:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   search_api_excerpt:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true

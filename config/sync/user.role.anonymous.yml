@@ -1,7 +1,9 @@
 uuid: 2d9d20f9-05f7-46e0-bbb2-5f3942c764ca
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - samlauth
 _core:
   default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
 id: anonymous

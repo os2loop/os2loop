@@ -16,18 +16,18 @@ bundle: os2loop_section_page
 mode: list_display
 content:
   flag_os2loop_subscription_node:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   os2loop_section_page_paragraph:
     type: entity_reference_revisions_entity_view
-    weight: 0
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   entity_print_view_epub: true

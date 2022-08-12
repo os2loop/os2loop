@@ -4,6 +4,19 @@ display:
   default:
     display_title: Standard
     display_options:
+      title: Media
+      fields:
+        media_bulk_form:
+          action_title: Handling
+      pager:
+        options:
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page_label: 'Antal elementer'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Forskydning
       exposed_form:
         options:
           submit_button: 'Tilføj filtre'
@@ -11,28 +24,15 @@ display:
           exposed_sorts_label: 'Sortér efter'
           sort_asc_label: Stigende
           sort_desc_label: Faldende
-      pager:
-        options:
-          expose:
-            items_per_page_label: 'Antal elementer'
-            items_per_page_options_all_label: '- Alle -'
-            offset_label: Forskydning
-          tags:
-            previous: ‹‹
-            next: ››
-      fields:
-        media_bulk_form:
-          action_title: Handling
+      empty:
+        area_text_custom:
+          content: 'Ingen tilgængelige media.'
       filters:
         bundle:
           expose:
             label: 'Medie type'
           group_info:
             label: 'Medie type'
-      title: Media
-      empty:
-        area_text_custom:
-          content: 'Ingen tilgængelige media.'
   page:
     display_title: Side
     display_options:

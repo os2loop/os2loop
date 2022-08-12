@@ -1,7 +1,18 @@
 uuid: 8bfd22ff-eb61-4e2f-be8f-845de57781c1
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.os2loop_post
+    - node.type.os2loop_post
+  module:
+    - filter
+    - flag
+    - media
+    - node
+    - os2loop_alert
+    - system
+    - toolbar
 id: os2loop_user_post_author
 label: 'Post author'
 weight: 9

@@ -11,7 +11,6 @@ bundles:
   - os2loop_question_answer
 entity_type: comment
 global: false
-weight: 0
 flag_short: Upvote
 flag_long: ''
 flag_message: 'Upvoted content'
@@ -19,6 +18,7 @@ unflag_short: 'Remove upvote'
 unflag_long: ''
 unflag_message: 'Removed upvote from content'
 unflag_denied_text: ''
+weight: 0
 flag_type: 'entity:comment'
 link_type: reload
 flagTypeConfig:
