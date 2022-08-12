@@ -3,7 +3,7 @@ name: OS2Loop
 mail: admin@example.com
 slogan: ''
 page:
-  front: /node/1
+  front: /user/login
   403: ''
   404: ''
 admin_compact_mode: false
