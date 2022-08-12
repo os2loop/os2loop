@@ -5,6 +5,7 @@ namespace Drupal\os2loop_documents\Controller;
 use Drupal\Console\Core\Utils\NestedArray;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\File\FileUrlGeneratorInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\node\NodeInterface;
 use Drupal\os2loop_documents\Form\SettingsForm;
@@ -38,12 +39,20 @@ class EntityPrintController extends ControllerBase {
   private $renderer;
 
   /**
+   * The file url generator.
+   *
+   * @var \Drupal\Core\File\FileUrlGeneratorInterface
+   */
+  private $fileUrlGenerator;
+
+  /**
    * {@inheritdoc}
    */
-  public function __construct(Settings $settings, EntityTypeManagerInterface $entityTypeManager, RendererInterface $renderer) {
+  public function __construct(Settings $settings, EntityTypeManagerInterface $entityTypeManager, RendererInterface $renderer, FileUrlGeneratorInterface $fileUrlGenerator) {
     $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME)->get('pdf');
     $this->fileStorage = $entityTypeManager->getStorage('file');
     $this->renderer = $renderer;
+    $this->fileUrlGenerator = $fileUrlGenerator;
   }
 
   /**
@@ -53,7 +62,8 @@ class EntityPrintController extends ControllerBase {
     return new static(
       $container->get(Settings::class),
       $container->get('entity_type.manager'),
-      $container->get('renderer')
+      $container->get('renderer'),
+      $container->get('file_url_generator')
     );
   }
 
@@ -101,7 +111,7 @@ class EntityPrintController extends ControllerBase {
     /** @var \Drupal\file\FileInterface|null $file */
     $file = $this->fileStorage->load($fileId);
 
-    return $file ? file_create_url($file->getFileUri()) : NULL;
+    return $file ? $this->fileUrlGenerator->generateAbsoluteString($file->getFileUri()) : NULL;
   }
 
 }

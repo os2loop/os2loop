@@ -26,121 +26,121 @@ bundle: user
 mode: default
 content:
   field_os2loop_external_list:
-    weight: 6
+    type: boolean
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 6
     region: content
   field_os2loop_internal_list:
-    weight: 7
+    type: boolean
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 7
     region: content
   os2loop_user_address:
     type: string
-    weight: 8
-    region: content
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 8
+    region: content
   os2loop_user_areas_of_expertise:
     type: entity_reference_label
-    weight: 6
-    region: content
     label: inline
     settings:
       link: true
     third_party_settings: {  }
+    weight: 6
+    region: content
   os2loop_user_biography:
     type: basic_string
-    weight: 11
-    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
+    weight: 11
+    region: content
   os2loop_user_city:
     type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 10
     region: content
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   os2loop_user_family_name:
     type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 2
     region: content
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   os2loop_user_given_name:
     type: string
-    weight: 1
-    region: content
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
   os2loop_user_image:
     type: entity_reference_entity_view
-    weight: 0
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+    weight: 0
     region: content
   os2loop_user_job_title:
     type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 4
     region: content
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   os2loop_user_phone_number:
     type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 3
     region: content
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   os2loop_user_place:
     type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 7
     region: content
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   os2loop_user_postal_code:
     type: string
-    weight: 9
-    region: content
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 9
+    region: content
   os2loop_user_professions:
     type: entity_reference_label
-    weight: 5
-    region: content
     label: inline
     settings:
       link: true
     third_party_settings: {  }
+    weight: 5
+    region: content
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true

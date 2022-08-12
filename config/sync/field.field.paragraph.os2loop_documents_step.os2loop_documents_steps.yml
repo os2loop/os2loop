@@ -20,16 +20,16 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       os2loop_documents_step: os2loop_documents_step
+    negate: 0
     target_bundles_drag_drop:
       os2loop_documents_highlighted_co:
         weight: 5
         enabled: false
       os2loop_documents_step:
-        enabled: true
         weight: 6
+        enabled: true
       os2loop_documents_step_by_step:
         weight: 7
         enabled: false

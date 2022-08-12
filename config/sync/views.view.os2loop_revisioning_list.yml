@@ -19,115 +19,12 @@ base_table: node_field_data
 base_field: nid
 display:
   default:
+    id: default
+    display_title: Master
+    display_plugin: default
+    position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'access content overview'
-      cache:
-        type: tag
-      query:
-        type: views_query
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Filter
-          reset_button: true
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: full
-        options:
-          items_per_page: 50
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: true
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '25, 50, 100'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: true
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            node_bulk_form: node_bulk_form
-            title: title
-            type: type
-            name: name
-            status: status
-            os2loop_shared_rev_date: os2loop_shared_rev_date
-            operations: operations
-          info:
-            node_bulk_form:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            title:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            type:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            name:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            status:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            os2loop_shared_rev_date:
-              sortable: true
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            operations:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: os2loop_shared_rev_date
-          empty_table: true
-      row:
-        type: fields
+      title: Content
       fields:
         node_bulk_form:
           id: node_bulk_form
@@ -136,6 +33,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: node_bulk_form
           label: ''
           exclude: false
           alter:
@@ -181,12 +80,13 @@ display:
           include_exclude: include
           selected_actions:
             - set_revision_date_action
-          entity_type: node
-          plugin_id: node_bulk_form
         title:
           id: title
           table: node_field_data
           field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: field
           label: Title
           exclude: false
           alter:
@@ -197,12 +97,9 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: node
-          entity_field: title
           type: string
           settings:
             link_to_entity: true
-          plugin_id: field
         type:
           id: type
           table: node_field_data
@@ -210,6 +107,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: field
           label: 'Content type'
           exclude: false
           alter:
@@ -265,14 +165,14 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: type
-          plugin_id: field
         name:
           id: name
           table: users_field_data
           field: name
           relationship: uid
+          entity_type: user
+          entity_field: name
+          plugin_id: field
           label: Author
           exclude: false
           alter:
@@ -283,14 +183,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: field
           type: user_name
-          entity_type: user
-          entity_field: name
         status:
           id: status
           table: node_field_data
           field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: field
           label: Status
           exclude: false
           alter:
@@ -304,11 +204,8 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: Published
             format_custom_false: Unpublished
-          plugin_id: field
-          entity_type: node
-          entity_field: status
+            format_custom_true: Published
         os2loop_shared_rev_date:
           id: os2loop_shared_rev_date
           table: node__os2loop_shared_rev_date
@@ -316,6 +213,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'Last revision date'
           exclude: false
           alter:
@@ -372,7 +270,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         operations:
           id: operations
           table: node
@@ -380,6 +277,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: entity_operations
           label: 'Operations links'
           exclude: false
           alter:
@@ -422,8 +321,53 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: false
-          entity_type: node
-          plugin_id: entity_operations
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 50
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: true
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '25, 50, 100'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Filter
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access content overview'
+      cache:
+        type: tag
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: 'No content available.'
+      sorts: {  }
+      arguments: {  }
       filters:
         type:
           id: type
@@ -432,6 +376,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
           operator: in
           value: {  }
           group: 1
@@ -442,6 +389,8 @@ display:
             description: ''
             use_operator: false
             operator: type_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: type
             required: false
             remember: false
@@ -451,8 +400,6 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -465,9 +412,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: bundle
-          entity_type: node
-          entity_field: type
         os2loop_shared_rev_date_value:
           id: os2loop_shared_rev_date_value
           table: node__os2loop_shared_rev_date
@@ -475,6 +419,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: datetime
           operator: '>='
           value:
             min: ''
@@ -507,9 +452,9 @@ display:
               os2loop_user_document_collection_editor: '0'
               os2loop_user_post_author: '0'
               os2loop_user_user_administrator: '0'
-            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -522,7 +467,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: datetime
         os2loop_shared_rev_date_value_1:
           id: os2loop_shared_rev_date_value_1
           table: node__os2loop_shared_rev_date
@@ -530,6 +474,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: datetime
           operator: '<='
           value:
             min: ''
@@ -562,9 +507,9 @@ display:
               os2loop_user_document_collection_editor: '0'
               os2loop_user_post_author: '0'
               os2loop_user_user_administrator: '0'
-            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -577,32 +522,90 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: datetime
-      sorts: {  }
-      title: Content
-      empty:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          empty: true
-          content: 'No content available.'
-          plugin_id: text_custom
-      arguments: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            node_bulk_form: node_bulk_form
+            title: title
+            type: type
+            name: name
+            status: status
+            os2loop_shared_rev_date: os2loop_shared_rev_date
+            operations: operations
+          default: os2loop_shared_rev_date
+          info:
+            node_bulk_form:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            type:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            os2loop_shared_rev_date:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            operations:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: true
+          summary: ''
+          empty_table: true
+          caption: ''
+          description: ''
+      row:
+        type: fields
+      query:
+        type: views_query
       relationships:
         uid:
           id: uid
           table: node_field_data
           field: uid
           admin_label: author
-          required: true
           plugin_id: standard
+          required: true
       show_admin_links: false
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      display_extenders: {  }
       header:
         result:
           id: result
@@ -611,14 +614,12 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: result
           empty: false
           content: 'Displaying @start - @end of @total'
-          plugin_id: result
-    display_plugin: default
-    display_title: Master
-    id: default
-    position: 0
+      display_extenders: {  }
     cache_metadata:
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -626,36 +627,36 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      max-age: 0
       tags:
         - 'config:field.storage.node.os2loop_shared_rev_date'
   page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 1
     display_options:
+      display_extenders:
+        views_flag_refresh:
+          flags: {  }
+          noscrolltop: 0
       path: admin/content/revisioning-list
       menu:
         type: tab
         title: 'Revision list'
         description: ''
-        expanded: false
-        parent: system.admin_content
         weight: -10
-        context: '0'
+        expanded: false
         menu_name: admin
+        parent: system.admin_content
+        context: '0'
       tab_options:
         type: normal
         title: Content
         description: 'Find and manage content'
-        menu_name: admin
         weight: -10
-      display_extenders:
-        views_flag_refresh:
-          flags: {  }
-          noscrolltop: 0
-    display_plugin: page
-    display_title: Page
-    id: page_1
-    position: 1
+        menu_name: admin
     cache_metadata:
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -663,6 +664,5 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      max-age: 0
       tags:
         - 'config:field.storage.node.os2loop_shared_rev_date'

@@ -26,7 +26,6 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       os2loop_documents_highlighted_co: os2loop_documents_highlighted_co
       os2loop_documents_step_by_step: os2loop_documents_step_by_step
@@ -34,22 +33,23 @@ settings:
       os2loop_documents_table: os2loop_documents_table
       table_of_contents: table_of_contents
       os2loop_video: os2loop_video
+    negate: 0
     target_bundles_drag_drop:
       os2loop_documents_highlighted_co:
-        enabled: true
         weight: 5
+        enabled: true
       os2loop_documents_step:
         weight: 6
         enabled: false
       os2loop_documents_step_by_step:
-        enabled: true
         weight: 7
+        enabled: true
       os2loop_documents_table:
-        enabled: true
         weight: 12
-      os2loop_documents_text_and_image:
         enabled: true
+      os2loop_documents_text_and_image:
         weight: 8
+        enabled: true
       os2loop_section_page_free:
         weight: 16
         enabled: false
@@ -63,9 +63,9 @@ settings:
         weight: 16
         enabled: false
       os2loop_video:
-        enabled: true
         weight: 21
-      table_of_contents:
         enabled: true
+      table_of_contents:
         weight: 20
+        enabled: true
 field_type: entity_reference_revisions

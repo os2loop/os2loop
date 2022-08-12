@@ -1,7 +1,16 @@
 uuid: 49c0d1ee-dd56-4816-918e-8dd8549656f1
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.os2loop_external
+    - node.type.os2loop_external
+  module:
+    - filter
+    - node
+    - os2loop_alert
+    - system
+    - toolbar
 id: os2loop_user_external_sources_editor
 label: 'External sources editor'
 weight: 6

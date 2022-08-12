@@ -19,11 +19,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   os2loop_taxonomy_color_picker:
+    type: options_select
     weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   path:
     type: path
     weight: 30

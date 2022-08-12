@@ -27505,6 +27505,9 @@ msgstr "Dokumentsamling"
 msgid "Document collections"
 msgstr "Dokumentsamlinger"
 
+msgid "Document is part of these collections"
+msgstr "Dokumentet indgår i disse dokumentsamlinger"
+
 msgid "Document metadata"
 msgstr "Om dokumentet"
 

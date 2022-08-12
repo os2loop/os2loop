@@ -102,6 +102,10 @@
   {% set tabs = tabs|merge([
     {'id': 'about-collection', 'name': 'Document collection'|t}
   ]) %}
+{% elseif os2loop_documents_collections|default(false) %}
+  {% set tabs = tabs|merge([
+    {'id': 'about-collections', 'name': 'Document collections'|t}
+  ]) %}
 {% endif %}
 
 <article{{ attributes }}>
@@ -132,16 +136,17 @@
           <div class="documents-in-collection">
             {{ macros.table_of_contents(os2loop_documents_collection_tree, os2loop_documents_collection, node.id) }}
           </div>
-        {% elseif os2loop_documents_collections|default(false) %}
-          <div>
-            <h2>{{ 'Document is part of these collections'|t }}</h2>
-            <ol>
-              {% for collection in os2loop_documents_collections %}
-                <li><a href="{{ path('entity.node.canonical', {node: node.id, collection: collection.id, collection: collection.id}) }}">{{ collection.title.value }}</a></li>
-              {% endfor %}
-            </ol>
-          </div>
         {% endif %}
+      </div>
+    {% elseif os2loop_documents_collections|default(false) %}
+      <div class="tab-pane" id="about-collections" role="tabpanel" aria-labelledby="about-collections">
+        {# We use div here to prevent it from appearing in TOC #}
+        <div class="h5">{{ 'Document is part of these collections'|t }}</div>
+        <ol>
+          {% for collection in os2loop_documents_collections %}
+            <li><a href="{{ path('entity.node.canonical', {node: node.id, collection: collection.id, collection: collection.id}) }}">{{ collection.title.value }}</a></li>
+          {% endfor %}
+        </ol>
       </div>
     {% endif %}
   </div>

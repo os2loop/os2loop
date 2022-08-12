@@ -1,7 +1,23 @@
 uuid: 5f7e89b7-d4f7-47e5-8da1-237f131660f9
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.os2loop_documents_body
+    - filter.format.os2loop_documents_rich_text
+    - filter.format.os2loop_documents_table
+    - node.type.os2loop_documents_collection
+    - node.type.os2loop_documents_document
+  module:
+    - filter
+    - flag
+    - media
+    - node
+    - os2loop_alert
+    - os2loop_messages
+    - paragraphs
+    - system
+    - toolbar
 id: os2loop_user_document_collection_editor
 label: 'Document collection editor'
 weight: 8

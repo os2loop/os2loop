@@ -11,13 +11,13 @@ bundle: os2loop_message_post_ins
 mode: default
 content:
   os2loop_message_node_refer:
+    type: entity_reference_autocomplete
     weight: 0
+    region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
 hidden: {  }

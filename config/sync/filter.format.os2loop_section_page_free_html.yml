@@ -22,10 +22,10 @@ filters:
     weight: 100
     settings:
       default_view_mode: default
-      allowed_media_types:
-        os2loop_media_image: os2loop_media_image
       allowed_view_modes:
         default: default
+      allowed_media_types:
+        os2loop_media_image: os2loop_media_image
   token_filter:
     id: token_filter
     provider: token_filter

@@ -6,6 +6,7 @@ use Drupal\content_fixtures\Fixture\AbstractFixture;
 use Drupal\content_fixtures\Fixture\FixtureGroupInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\file\FileRepositoryInterface;
 use Drupal\media\Entity\Media;
 
 /**
@@ -30,16 +31,26 @@ class MediaFixture extends AbstractFixture implements FixtureGroupInterface {
   protected $entityTypeManager;
 
   /**
+   * The file repository.
+   *
+   * @var \Drupal\file\FileRepositoryInterface
+   */
+  protected $fileRepository;
+
+  /**
    * MediaFixture constructor.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   Entity type manager.
    * @param \Drupal\Core\File\FileSystemInterface $fileSystem
    *   Filesystem.
+   * @param \Drupal\file\FileRepositoryInterface $fileRepository
+   *   File repository.
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, FileSystemInterface $fileSystem) {
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, FileSystemInterface $fileSystem, FileRepositoryInterface $fileRepository) {
     $this->entityTypeManager = $entityTypeManager;
     $this->fileSystem = $fileSystem;
+    $this->fileRepository = $fileRepository;
   }
 
   /**
@@ -89,8 +100,9 @@ class MediaFixture extends AbstractFixture implements FixtureGroupInterface {
       if (!is_dir(dirname($destination))) {
         $this->fileSystem->mkdir(dirname($destination), 0755, TRUE);
       }
-      $loadedFiles[] = file_save_data(
-        file_get_contents($file->uri), $destination,
+      $loadedFiles[] = $this->fileRepository->writeData(
+        file_get_contents($file->uri),
+        $destination,
         FileSystemInterface::EXISTS_REPLACE
       );
     }

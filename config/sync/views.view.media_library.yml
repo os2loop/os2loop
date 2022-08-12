@@ -11,9 +11,6 @@ dependencies:
     - field.storage.user.os2loop_user_given_name
     - image.style.media_library
     - taxonomy.vocabulary.os2loop_media_library
-  enforced:
-    module:
-      - media_library
   module:
     - image
     - media
@@ -21,6 +18,9 @@ dependencies:
     - os2loop_media
     - taxonomy
     - user
+  enforced:
+    module:
+      - media_library
 _core:
   default_config_hash: dHOSWSHbMJNke0ZBGh1O5KrnwynSOCOpQycITW-pwfs
 id: media_library
@@ -32,67 +32,12 @@ base_table: media_field_data
 base_field: mid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'access media overview'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: true
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: 'Apply filters'
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: false
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: mini
-        options:
-          items_per_page: 24
-          offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '6, 12, 24, 48'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
-      style:
-        type: default
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-      row:
-        type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
+      title: Media
       fields:
         media_bulk_form:
           id: media_bulk_form
@@ -101,6 +46,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          plugin_id: bulk_form
           label: ''
           exclude: false
           alter:
@@ -145,8 +92,6 @@ display:
           action_title: Action
           include_exclude: exclude
           selected_actions: {  }
-          entity_type: media
-          plugin_id: bulk_form
         rendered_entity:
           id: rendered_entity
           table: media
@@ -154,6 +99,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          plugin_id: rendered_entity
           label: ''
           exclude: false
           alter:
@@ -196,8 +143,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view_mode: media_library
-          entity_type: media
-          plugin_id: rendered_entity
         uid:
           id: uid
           table: media_field_data
@@ -205,6 +150,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: uid
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -260,9 +208,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: uid
-          plugin_id: field
         name:
           id: name
           table: media_field_data
@@ -270,6 +215,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -325,9 +273,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: name
-          plugin_id: field
         os2loop_user_given_name:
           id: os2loop_user_given_name
           table: user__os2loop_user_given_name
@@ -335,6 +280,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -390,7 +336,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         os2loop_user_family_name:
           id: os2loop_user_family_name
           table: user__os2loop_user_family_name
@@ -398,6 +343,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -453,7 +399,70 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 24
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '6, 12, 24, 48'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      exposed_form:
+        type: basic
+        options:
+          submit_button: 'Apply filters'
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: false
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access media overview'
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: 'No media available.'
+          tokenize: false
+      sorts:
+        created:
+          id: created
+          table: media_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: media
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
       filters:
         combine:
           id: combine
@@ -462,6 +471,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: combine
           operator: contains
           value: ''
           group: 1
@@ -508,7 +518,6 @@ display:
             name: name
             os2loop_user_given_name: os2loop_user_given_name
             os2loop_user_family_name: os2loop_user_family_name
-          plugin_id: combine
         bundle:
           id: bundle
           table: media_field_data
@@ -516,6 +525,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
           operator: in
           value: {  }
           group: 1
@@ -526,6 +538,8 @@ display:
             description: ''
             use_operator: false
             operator: bundle_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: type
             required: false
             remember: false
@@ -535,8 +549,6 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: 'Media type'
@@ -552,9 +564,6 @@ display:
               1: {  }
               2: {  }
               3: {  }
-          entity_type: media
-          entity_field: bundle
-          plugin_id: bundle
         roles_target_id:
           id: roles_target_id
           table: user__roles
@@ -562,6 +571,9 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
+          entity_type: user
+          entity_field: roles
+          plugin_id: user_roles
           operator: 'not empty'
           value: {  }
           group: 1
@@ -594,9 +606,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          entity_type: user
-          entity_field: roles
-          plugin_id: user_roles
         field_media_library_target_id:
           id: field_media_library_target_id
           table: media__field_media_library
@@ -604,6 +613,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -646,28 +656,36 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: os2loop_media_library
+          type: select
           hierarchy: true
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
-      sorts: {  }
-      title: Media
-      header: {  }
-      footer: {  }
-      empty:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: 'No media available.'
-          plugin_id: text_custom
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: true
+          replica: false
+          query_tags: {  }
       relationships:
         uid:
           id: uid
@@ -676,17 +694,15 @@ display:
           relationship: none
           group_type: group
           admin_label: User
-          required: false
           entity_type: media
           entity_field: uid
           plugin_id: standard
-      display_extenders: {  }
-      use_ajax: true
+          required: false
       css_class: ''
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
+      use_ajax: true
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: 0
       contexts:
@@ -705,13 +721,11 @@ display:
         - 'config:field.storage.user.os2loop_user_family_name'
         - 'config:field.storage.user.os2loop_user_given_name'
   page:
-    display_plugin: page
     id: page
     display_title: Page
+    display_plugin: page
     position: 1
     display_options:
-      display_extenders: {  }
-      path: admin/content/media-grid
       fields:
         media_bulk_form:
           id: media_bulk_form
@@ -720,6 +734,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          plugin_id: bulk_form
           label: ''
           exclude: false
           alter:
@@ -764,8 +780,6 @@ display:
           action_title: Action
           include_exclude: exclude
           selected_actions: {  }
-          entity_type: media
-          plugin_id: bulk_form
         name:
           id: name
           table: media_field_data
@@ -773,6 +787,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -828,9 +845,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: name
-          plugin_id: field
         edit_media:
           id: edit_media
           table: media
@@ -838,6 +852,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          plugin_id: entity_link_edit
           label: ''
           exclude: false
           alter:
@@ -882,8 +898,6 @@ display:
           text: Edit
           output_url_as_text: false
           absolute: false
-          entity_type: media
-          plugin_id: entity_link_edit
         delete_media:
           id: delete_media
           table: media
@@ -891,6 +905,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          plugin_id: entity_link_delete
           label: ''
           exclude: false
           alter:
@@ -935,8 +951,6 @@ display:
           text: Delete
           output_url_as_text: false
           absolute: false
-          entity_type: media
-          plugin_id: entity_link_delete
         rendered_entity:
           id: rendered_entity
           table: media
@@ -944,6 +958,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          plugin_id: rendered_entity
           label: ''
           exclude: false
           alter:
@@ -986,8 +1002,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view_mode: media_library
-          entity_type: media
-          plugin_id: rendered_entity
         uid:
           id: uid
           table: media_field_data
@@ -995,6 +1009,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: uid
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1050,9 +1067,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: uid
-          plugin_id: field
         os2loop_user_given_name:
           id: os2loop_user_given_name
           table: user__os2loop_user_given_name
@@ -1060,6 +1074,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1115,7 +1130,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         os2loop_user_family_name:
           id: os2loop_user_family_name
           table: user__os2loop_user_family_name
@@ -1123,6 +1137,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1178,9 +1193,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
       defaults:
         fields: false
+      display_extenders: {  }
+      path: admin/content/media-grid
     cache_metadata:
       max-age: 0
       contexts:
@@ -1199,13 +1215,11 @@ display:
         - 'config:field.storage.user.os2loop_user_family_name'
         - 'config:field.storage.user.os2loop_user_given_name'
   widget:
-    display_plugin: page
     id: widget
     display_title: Widget
+    display_plugin: page
     position: 2
     display_options:
-      display_extenders: {  }
-      path: admin/content/media-widget
       fields:
         media_library_select_form:
           id: media_library_select_form
@@ -1214,6 +1228,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          plugin_id: media_library_select_form
           label: ''
           exclude: false
           alter:
@@ -1255,8 +1271,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: media
-          plugin_id: media_library_select_form
         rendered_entity:
           id: rendered_entity
           table: media
@@ -1264,6 +1278,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          plugin_id: rendered_entity
           label: ''
           exclude: false
           alter:
@@ -1306,8 +1322,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view_mode: media_library
-          entity_type: media
-          plugin_id: rendered_entity
         os2loop_user_given_name:
           id: os2loop_user_given_name
           table: user__os2loop_user_given_name
@@ -1315,6 +1329,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1370,7 +1385,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         os2loop_user_family_name:
           id: os2loop_user_family_name
           table: user__os2loop_user_family_name
@@ -1378,6 +1392,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1433,7 +1448,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         uid:
           id: uid
           table: media_field_data
@@ -1441,6 +1455,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: uid
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1496,9 +1513,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: uid
-          plugin_id: field
         name:
           id: name
           table: media_field_data
@@ -1506,6 +1520,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -1561,42 +1578,41 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: name
-          plugin_id: field
-      defaults:
-        fields: false
-        access: false
-        filters: true
-        filter_groups: true
-        arguments: false
-        header: false
-        css_class: false
-      display_description: ''
       access:
         type: perm
         options:
           perm: 'view media'
       arguments: {  }
+      defaults:
+        access: false
+        css_class: false
+        fields: false
+        arguments: false
+        filters: true
+        filter_groups: true
+        header: false
+      css_class: ''
+      display_description: ''
       header:
         display_link_grid:
           id: display_link_grid
           table: views
           field: display_link
-          display_id: widget
-          label: Grid
           plugin_id: display_link
+          label: Grid
           empty: true
+          display_id: widget
         display_link_table:
           id: display_link_table
           table: views
           field: display_link
-          display_id: widget_table
-          label: Table
           plugin_id: display_link
+          label: Table
           empty: true
-      css_class: ''
+          display_id: widget_table
       rendering_language: '***LANGUAGE_language_interface***'
+      display_extenders: {  }
+      path: admin/content/media-widget
     cache_metadata:
       max-age: -1
       contexts:
@@ -1614,44 +1630,22 @@ display:
         - 'config:field.storage.user.os2loop_user_family_name'
         - 'config:field.storage.user.os2loop_user_given_name'
   widget_table:
-    display_plugin: page
     id: widget_table
     display_title: 'Widget (table)'
+    display_plugin: page
     position: 3
     display_options:
-      display_extenders:
-        views_flag_refresh:
-          flags: {  }
-          noscrolltop: 0
-      path: admin/content/media-widget-table
-      style:
-        type: table
-        options:
-          row_class: 'media-library-item media-library-item--table js-media-library-item js-click-to-select'
-          default_row_class: true
-      defaults:
-        style: false
-        row: false
-        fields: false
-        access: false
-        filters: true
-        filter_groups: true
-        arguments: false
-        header: false
-        css_class: false
-      row:
-        type: fields
       fields:
         media_library_select_form:
           id: media_library_select_form
-          label: ''
           table: media
           field: media_library_select_form
           relationship: none
           entity_type: media
           plugin_id: media_library_select_form
-          element_wrapper_class: ''
+          label: ''
           element_class: ''
+          element_wrapper_class: ''
         field_media_file:
           id: field_media_file
           table: media__field_media_file
@@ -1659,6 +1653,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: File
           exclude: true
           alter:
@@ -1713,7 +1708,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_media_image:
           id: field_media_image
           table: media__field_media_image
@@ -1721,6 +1715,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Image
           exclude: true
           alter:
@@ -1765,8 +1760,8 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: media_library
             image_link: ''
+            image_style: media_library
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -1777,7 +1772,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         nothing:
           id: nothing
           table: views
@@ -1785,6 +1779,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: custom
           label: 'Custom text'
           exclude: false
           alter:
@@ -1826,17 +1821,16 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
-          plugin_id: custom
         name:
           id: name
-          label: Name
           table: media_field_data
           field: name
           relationship: none
-          type: string
           entity_type: media
           entity_field: name
           plugin_id: field
+          label: Name
+          type: string
           settings:
             link_to_entity: false
         field_media_library:
@@ -1846,6 +1840,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Labels
           exclude: false
           alter:
@@ -1901,29 +1896,28 @@ display:
           multi_type: ul
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         uid:
           id: uid
-          label: Author
           table: media_field_revision
           field: uid
           relationship: none
-          type: entity_reference_label
           entity_type: media
           entity_field: uid
           plugin_id: field
+          label: Author
+          type: entity_reference_label
           settings:
             link: true
         changed:
           id: changed
-          label: Updated
           table: media_field_data
           field: changed
           relationship: none
-          type: timestamp
           entity_type: media
           entity_field: changed
           plugin_id: field
+          label: Updated
+          type: timestamp
           settings:
             date_format: short
             custom_date_format: ''
@@ -1935,6 +1929,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: uid
+          plugin_id: field
           label: 'Authored by'
           exclude: true
           alter:
@@ -1990,9 +1987,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: uid
-          plugin_id: field
         os2loop_user_given_name:
           id: os2loop_user_given_name
           table: user__os2loop_user_given_name
@@ -2000,6 +1994,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'First name'
           exclude: true
           alter:
@@ -2055,7 +2050,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         os2loop_user_family_name:
           id: os2loop_user_family_name
           table: user__os2loop_user_family_name
@@ -2063,6 +2057,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'Last name'
           exclude: true
           alter:
@@ -2118,31 +2113,52 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
       access:
         type: perm
         options:
           perm: 'view media'
       arguments: {  }
+      style:
+        type: table
+        options:
+          row_class: 'media-library-item media-library-item--table js-media-library-item js-click-to-select'
+          default_row_class: true
+      row:
+        type: fields
+      defaults:
+        access: false
+        css_class: false
+        style: false
+        row: false
+        fields: false
+        arguments: false
+        filters: true
+        filter_groups: true
+        header: false
+      css_class: ''
       header:
         display_link_grid:
           id: display_link_grid
           table: views
           field: display_link
-          display_id: widget
-          label: Grid
           plugin_id: display_link
+          label: Grid
           empty: true
+          display_id: widget
         display_link_table:
           id: display_link_table
           table: views
           field: display_link
-          display_id: widget_table
-          label: Table
           plugin_id: display_link
+          label: Table
           empty: true
-      css_class: ''
+          display_id: widget_table
       rendering_language: '***LANGUAGE_language_interface***'
+      display_extenders:
+        views_flag_refresh:
+          flags: {  }
+          noscrolltop: 0
+      path: admin/content/media-widget-table
     cache_metadata:
       max-age: -1
       contexts:
