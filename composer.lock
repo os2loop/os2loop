@@ -13883,7 +13883,7 @@
         },
         {
             "name": "os2loop/os2loop_fixtures",
-            "version": "dev-feature/BKL-64-RefactorMyAnswersPage",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "web/profiles/custom/os2loop/modules/os2loop_fixtures",

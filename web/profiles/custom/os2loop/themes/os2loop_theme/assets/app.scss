@@ -4,10 +4,10 @@
 
 // Colors
 @import "colors.scss";
-@import "signifly-variables/colors.scss";
+@import "variables/colors.scss";
 
 // Variables
-@import "signifly-variables/variables.scss";
+@import "variables/sizes.scss";
 
 // Components
 @import "mixins.scss";
@@ -18,9 +18,9 @@
 @import "navbar.scss";
 @import "member-view.scss";
 @import "media-library.scss";
-@import "paragraphs/highlighted-content.scss";
-@import "paragraphs/text-and-image.scss";
-@import "paragraphs/info-block.scss";
+@import "components/paragraphs/highlighted-content.scss";
+@import "components/paragraphs/text-and-image.scss";
+@import "components/paragraphs/info-block.scss";
 @import "collapse.scss";
 @import "_user.scss";
 
@@ -60,9 +60,9 @@ img {
 	height: auto;
 }
 
-// Novataris components from Signifly redesign
+// redesign using boostrap overriding and a component-based approach
 @import "bootstrap-custom/bootstrap-custom-index.scss";
-@import "signifly-custom/custom-index.scss";
+@import "components/components-index.scss";
 
 // moved to end to load correctly
 @import "search.scss";
