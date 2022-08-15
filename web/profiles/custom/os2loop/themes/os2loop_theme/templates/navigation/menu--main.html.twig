@@ -36,18 +36,18 @@
       {% if menu_level == 0 %}
         <ul{{ attributes.addClass(['navbar-nav mr-auto']) }}>
           {% for item in items %}
+            {% set route_name = item.url.routed ? item.url.routeName %}
             {% set classes_list_item = [
               'nav-item',
               item.below ? 'dropdown',
-            ] %}
+              ] %}
             {% set classes_link = [
               'nav-link',
-              item.is_expanded and item.url.routeName == '<nolink>' ? 'dropdown-toggle',
-              item.is_collapsed and item.url.routeName == '<nolink>' ? 'dropdown-toggle',
+              route_name == '<nolink>' ? 'dropdown-toggle',
               item.in_active_trail ? 'active',
             ] %}
             <li{{ item.attributes.addClass(classes_list_item) }}>
-              {% if item.url.routed and item.url.routeName == '<nolink>' %}
+              {% if route_name == '<nolink>' %}
                 <a class="{{ classes_link|join(' ') }}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {{ item.title }}
                 </a>
@@ -65,10 +65,11 @@
       {% endif %}
       {% if menu_level == 1 %}
         {% for item in items %}
+          {% set route_name = item.url.routed ? item.url.routeName %}
           {% set classes_link = [
-            item.url.routeName != '<nolink>' ? 'dropdown-item',
+            route_name != '<nolink>' ? 'dropdown-item',
             item.in_active_trail ? 'active',
-          ] %}
+            ] %}
           {{ link(item.title, item.url, {'class': classes_link}) }}
         {% endfor %}
       {% endif %}
