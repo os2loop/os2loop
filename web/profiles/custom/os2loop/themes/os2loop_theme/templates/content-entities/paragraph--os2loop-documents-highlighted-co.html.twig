@@ -59,9 +59,7 @@ paragraph.parent_id.value is an empty array when previewing un-saved content.
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }} role="alert">
     {{ content.contextual_links }}
-    {% if content.os2loop_documents_title is not empty %}
-    <h2 class="toc-ignore">{{ content.os2loop_documents_title }}</h2>
-    {% endif %}
+    {% include '@os2loop_theme/content-entities/os2loop_documents_title.html.twig' %}
     {{ content.os2loop_documents_hc_content }}
   </div>
 {% endblock paragraph %}

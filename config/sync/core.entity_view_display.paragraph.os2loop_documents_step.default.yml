@@ -18,36 +18,36 @@ mode: default
 content:
   os2loop_documents_step_image:
     type: entity_reference_entity_view
-    weight: 30
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+    weight: 30
     region: content
   os2loop_documents_step_text:
-    weight: 10
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 10
     region: content
   os2loop_documents_step_title:
-    weight: 0
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
   os2loop_documents_steps:
     type: entity_reference_revisions_entity_view
-    weight: 20
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 20
     region: content
 hidden:
   entity_print_view_epub: true

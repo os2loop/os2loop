@@ -49,7 +49,7 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {{ content.contextual_links }}
-    <h2>{{ content.os2loop_documents_title }}</h2>
+    {% include '@os2loop_theme/content-entities/os2loop_documents_title.html.twig' %}
     {{ content.os2loop_documents_description }}
     <ol class="os2loop-documents-steps">
       {{ content.os2loop_documents_steps }}
