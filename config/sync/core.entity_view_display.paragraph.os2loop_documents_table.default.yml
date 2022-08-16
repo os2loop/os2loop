@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.os2loop_documents_table.os2loop_documents_tbl_cont
     - field.field.paragraph.os2loop_documents_table.os2loop_documents_tbl_desc
     - field.field.paragraph.os2loop_documents_table.os2loop_documents_title
+    - field.field.paragraph.os2loop_documents_table.os2loop_documents_toc_ignore
     - paragraphs.paragraphs_type.os2loop_documents_table
   module:
     - text
@@ -40,4 +41,5 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
+  os2loop_documents_toc_ignore: true
   search_api_excerpt: true
