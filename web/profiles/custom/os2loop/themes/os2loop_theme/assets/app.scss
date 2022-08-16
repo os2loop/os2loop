@@ -66,3 +66,46 @@ img {
 
 // moved to end to load correctly
 @import "search.scss";
+
+// For testing and debugging, cf. ../test/colors.php.
+// $colors: (
+//   loop-green: $loop-green,
+//   loop-green-600: $loop-green-600,
+//   loop-green-400: $loop-green-400,
+//   loop-green-300: $loop-green-300,
+//   loop-green-200: $loop-green-200,
+//   loop-green-100: $loop-green-100,
+
+//   tag-blue: $tag-blue,
+//   tag-purple: $tag-purple,
+//   tag-green: $tag-green,
+//   tag-orange: $tag-orange,
+
+//   taxonomy-color-1: $taxonomy-color-1,
+//   taxonomy-color-2: $taxonomy-color-2,
+//   taxonomy-color-3: $taxonomy-color-3,
+//   taxonomy-color-4: $taxonomy-color-4,
+
+//   primary: $primary,
+//   secondary: $secondary,
+//   success: $success,
+//   info: $info,
+//   warning: $warning,
+//   danger: $danger
+// );
+
+// @each $name, $color in $colors {
+//   .color-#{$name} {
+//     display: block;
+//     width: 20rem;
+//     height: 2rem;
+//     content: "#{$name}";
+//     background-color: $color;
+
+//     &::before {
+//       content: "#{$name}";
+//       color: black;
+//       background: white;
+//     }
+//   }
+// }
