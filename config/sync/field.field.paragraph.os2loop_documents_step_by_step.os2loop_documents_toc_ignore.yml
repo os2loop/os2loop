@@ -1,0 +1,23 @@
+uuid: 15c97493-ebce-4042-b8d9-f164d326c0a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.os2loop_documents_toc_ignore
+    - paragraphs.paragraphs_type.os2loop_documents_step_by_step
+id: paragraph.os2loop_documents_step_by_step.os2loop_documents_toc_ignore
+field_name: os2loop_documents_toc_ignore
+entity_type: paragraph
+bundle: os2loop_documents_step_by_step
+label: 'Ignore in table of contents'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

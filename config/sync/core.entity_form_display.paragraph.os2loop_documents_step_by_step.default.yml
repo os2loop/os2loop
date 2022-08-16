@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.os2loop_documents_step_by_step.os2loop_documents_description
     - field.field.paragraph.os2loop_documents_step_by_step.os2loop_documents_steps
     - field.field.paragraph.os2loop_documents_step_by_step.os2loop_documents_title
+    - field.field.paragraph.os2loop_documents_step_by_step.os2loop_documents_toc_ignore
     - paragraphs.paragraphs_type.os2loop_documents_step_by_step
   module:
     - paragraphs
@@ -16,15 +17,17 @@ bundle: os2loop_documents_step_by_step
 mode: default
 content:
   os2loop_documents_description:
-    weight: 10
+    type: text_textarea
+    weight: 2
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   os2loop_documents_steps:
-    weight: 20
+    type: entity_reference_paragraphs
+    weight: 3
+    region: content
     settings:
       title: step
       title_plural: steps
@@ -33,16 +36,21 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
-    type: entity_reference_paragraphs
-    region: content
   os2loop_documents_title:
+    type: string_textfield
     weight: 0
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+  os2loop_documents_toc_ignore:
+    type: boolean_checkbox
+    weight: 1
     region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
 hidden:
   created: true
   status: true

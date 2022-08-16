@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.os2loop_documents_highlighted_co.os2loop_documents_hc_content
     - field.field.paragraph.os2loop_documents_highlighted_co.os2loop_documents_hc_title
     - field.field.paragraph.os2loop_documents_highlighted_co.os2loop_documents_title
+    - field.field.paragraph.os2loop_documents_highlighted_co.os2loop_documents_toc_ignore
     - paragraphs.paragraphs_type.os2loop_documents_highlighted_co
   module:
     - text
@@ -16,7 +17,7 @@ mode: default
 content:
   os2loop_documents_hc_content:
     type: text_textarea
-    weight: 1
+    weight: 2
     region: content
     settings:
       rows: 5
@@ -29,6 +30,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  os2loop_documents_toc_ignore:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
 hidden:
   created: true
