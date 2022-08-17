@@ -16,40 +16,40 @@ bundle: os2loop_question_answer
 mode: default
 content:
   flag_os2loop_upvote_correct_answer:
+    settings: {  }
+    third_party_settings: {  }
     weight: 0
     region: content
+  flag_os2loop_upvote_upvote_button:
     settings: {  }
     third_party_settings: {  }
-  flag_os2loop_upvote_upvote_button:
     weight: 1
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
-  links:
     weight: 2
     region: content
-    settings: {  }
-    third_party_settings: {  }
   os2loop_comment_anonymous_author:
     type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 3
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   os2loop_question_answer:
-    weight: 4
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 4
     region: content
   os2loop_question_answer_media:
     type: entity_reference_entity_id
-    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
+    weight: 5
     region: content
 hidden:
   entity_print_view_epub: true
