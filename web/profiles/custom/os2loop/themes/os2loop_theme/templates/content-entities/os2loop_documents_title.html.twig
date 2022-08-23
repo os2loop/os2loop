@@ -1,4 +1,6 @@
-{% if content.os2loop_documents_title is not empty %}
+{# @see https://www.previousnext.com.au/blog/right-way-check-empty-content-twig #}
+{% set rendered_title = content.os2loop_documents_title|render %}
+{% if rendered_title|trim %}
   {% set toc_ignore = paragraph.get('os2loop_documents_toc_ignore').value == 1 %}
-  <h2 class="{{ toc_ignore ? 'toc-ignore' }}">{{ content.os2loop_documents_title }}</h2>
+  <h2 class="{{ toc_ignore ? 'toc-ignore' }}">{{ rendered_title }}</h2>
 {% endif %}
