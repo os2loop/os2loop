@@ -1,9 +1,10 @@
 body {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-	overflow-y: scroll;
-
-	&::-webkit-scrollbar {
-		display: none;
-	}
+	// The design calls for no (i.e. hidden) scrollbar, but the customer doesn't want that.
+	// -ms-overflow-style: none;
+	// scrollbar-width: none;
+	// overflow-y: scroll;
+	//
+	// &::-webkit-scrollbar {
+	//  display: none;
+	// }
 }
