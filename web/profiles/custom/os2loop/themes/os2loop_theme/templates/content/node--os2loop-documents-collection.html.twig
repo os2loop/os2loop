@@ -85,7 +85,7 @@
   <div class="tab-content" id="document-tabs-content">
     <div class="tab-pane show active" id="collection" role="tabpanel" aria-labelledby="collection-tab">
       {{ macros.title(label, "collection", node, content) }}
-      <div{{ content_attributes }}>
+      <div{{ content_attributes.addClass('os2loop-main-content') }}>
         {{ content.os2loop_documents_info_box }}
         {{ content.os2loop_documents_dc_content }}
       </div>
