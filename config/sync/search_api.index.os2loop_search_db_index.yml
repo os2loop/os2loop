@@ -3,23 +3,25 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.os2loop_shared_tags
-    - field.storage.node.os2loop_documents_dc_content
-    - field.storage.node.os2loop_documents_document_conte
-    - field.storage.paragraph.os2loop_documents_description
+    - field.storage.node.os2loop_question_answers
     - field.storage.node.os2loop_documents_document_body
-    - field.storage.paragraph.os2loop_documents_hc_content
-    - field.storage.paragraph.os2loop_documents_hc_title
-    - field.storage.paragraph.os2loop_documents_step_text
-    - field.storage.paragraph.os2loop_documents_tai_text
-    - field.storage.node.os2loop_external_descripti
+    - field.storage.node.os2loop_shared_category
     - field.storage.node.os2loop_post_comments
     - field.storage.node.os2loop_post_content
-    - field.storage.node.os2loop_question_answers
     - field.storage.node.os2loop_question_content
-    - field.storage.node.os2loop_shared_category
+    - field.storage.node.os2loop_documents_dc_content
+    - field.storage.node.os2loop_documents_document_conte
+    - field.storage.paragraph.os2loop_documents_hc_content
+    - field.storage.paragraph.os2loop_documents_description
+    - field.storage.paragraph.os2loop_documents_step_text
+    - field.storage.paragraph.os2loop_documents_tai_text
+    - field.storage.paragraph.os2loop_documents_hc_title
+    - field.storage.node.os2loop_external_descripti
+    - field.storage.paragraph.os2loop_documents_step_title
+    - field.storage.paragraph.os2loop_documents_steps
     - field.storage.node.os2loop_shared_profession
     - field.storage.node.os2loop_shared_subject
+    - field.storage.node.os2loop_shared_tags
     - search_api.server.os2loop_search_db_server
   module:
     - node
@@ -115,6 +117,41 @@ field_settings:
       config:
         - field.storage.node.os2loop_documents_document_conte
         - field.storage.paragraph.os2loop_documents_step_text
+      module:
+        - paragraphs
+  os2loop_documents_step_text_1:
+    label: 'Indhold » Paragraph » Trin » Paragraph » Tekst'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_steps:entity:os2loop_documents_step_text'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_documents_document_conte
+        - field.storage.paragraph.os2loop_documents_step_text
+        - field.storage.paragraph.os2loop_documents_steps
+      module:
+        - paragraphs
+  os2loop_documents_step_title:
+    label: 'Indhold » Paragraph » Titel'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_step_title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_documents_document_conte
+        - field.storage.paragraph.os2loop_documents_step_title
+      module:
+        - paragraphs
+  os2loop_documents_step_title_1:
+    label: 'Indhold » Paragraph » Trin » Paragraph » Titel'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_steps:entity:os2loop_documents_step_title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_documents_document_conte
+        - field.storage.paragraph.os2loop_documents_step_title
+        - field.storage.paragraph.os2loop_documents_steps
       module:
         - paragraphs
   os2loop_documents_tai_text:
@@ -286,6 +323,9 @@ processor_settings:
       - os2loop_documents_hc_content
       - os2loop_documents_hc_title
       - os2loop_documents_step_text
+      - os2loop_documents_step_text_1
+      - os2loop_documents_step_title
+      - os2loop_documents_step_title_1
       - os2loop_documents_tai_text
       - os2loop_external_descripti
       - os2loop_post_comments
@@ -319,6 +359,9 @@ processor_settings:
       - os2loop_documents_hc_content
       - os2loop_documents_hc_title
       - os2loop_documents_step_text
+      - os2loop_documents_step_text_1
+      - os2loop_documents_step_title
+      - os2loop_documents_step_title_1
       - os2loop_documents_tai_text
       - os2loop_external_descripti
       - os2loop_post_comments
@@ -347,6 +390,9 @@ processor_settings:
       - os2loop_documents_hc_content
       - os2loop_documents_hc_title
       - os2loop_documents_step_text
+      - os2loop_documents_step_text_1
+      - os2loop_documents_step_title
+      - os2loop_documents_step_title_1
       - os2loop_documents_tai_text
       - os2loop_external_descripti
       - os2loop_post_content
@@ -375,4 +421,5 @@ tracker_settings:
 options:
   cron_limit: 50
   index_directly: true
+  track_changes_in_references: true
 server: os2loop_search_db_server
