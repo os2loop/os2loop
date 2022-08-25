@@ -7,9 +7,9 @@ dependencies:
     - field.storage.node.os2loop_documents_document_body
     - field.storage.node.os2loop_shared_category
     - field.storage.node.os2loop_post_comments
-    - field.storage.node.os2loop_post_content
-    - field.storage.node.os2loop_question_content
     - field.storage.node.os2loop_documents_dc_content
+    - field.storage.node.os2loop_question_content
+    - field.storage.node.os2loop_post_content
     - field.storage.node.os2loop_documents_document_conte
     - field.storage.paragraph.os2loop_documents_hc_content
     - field.storage.paragraph.os2loop_documents_description
@@ -131,6 +131,18 @@ field_settings:
         - field.storage.paragraph.os2loop_documents_steps
       module:
         - paragraphs
+  os2loop_documents_step_text_2:
+    label: 'Indhold » Paragraph » Trin » Paragraph » Trin » Paragraph » Tekst'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_steps:entity:os2loop_documents_steps:entity:os2loop_documents_step_text'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_documents_document_conte
+        - field.storage.paragraph.os2loop_documents_step_text
+        - field.storage.paragraph.os2loop_documents_steps
+      module:
+        - paragraphs
   os2loop_documents_step_title:
     label: 'Indhold » Paragraph » Titel'
     datasource_id: 'entity:node'
@@ -146,6 +158,18 @@ field_settings:
     label: 'Indhold » Paragraph » Trin » Paragraph » Titel'
     datasource_id: 'entity:node'
     property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_steps:entity:os2loop_documents_step_title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_documents_document_conte
+        - field.storage.paragraph.os2loop_documents_step_title
+        - field.storage.paragraph.os2loop_documents_steps
+      module:
+        - paragraphs
+  os2loop_documents_step_title_2:
+    label: 'Indhold » Paragraph » Trin » Paragraph » Trin » Paragraph » Titel'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_steps:entity:os2loop_documents_steps:entity:os2loop_documents_step_title'
     type: text
     dependencies:
       config:
@@ -324,8 +348,10 @@ processor_settings:
       - os2loop_documents_hc_title
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
+      - os2loop_documents_step_text_2
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
+      - os2loop_documents_step_title_2
       - os2loop_documents_tai_text
       - os2loop_external_descripti
       - os2loop_post_comments
@@ -360,8 +386,10 @@ processor_settings:
       - os2loop_documents_hc_title
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
+      - os2loop_documents_step_text_2
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
+      - os2loop_documents_step_title_2
       - os2loop_documents_tai_text
       - os2loop_external_descripti
       - os2loop_post_comments
@@ -391,8 +419,10 @@ processor_settings:
       - os2loop_documents_hc_title
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
+      - os2loop_documents_step_text_2
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
+      - os2loop_documents_step_title_2
       - os2loop_documents_tai_text
       - os2loop_external_descripti
       - os2loop_post_content
