@@ -120,7 +120,7 @@ field_settings:
       module:
         - paragraphs
   os2loop_documents_step_text_1:
-    label: 'Indhold » Paragraph » Trin » Paragraph » Tekst'
+    label: 'Content » Paragraph » Steps » Paragraph » Text'
     datasource_id: 'entity:node'
     property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_steps:entity:os2loop_documents_step_text'
     type: text
@@ -132,7 +132,7 @@ field_settings:
       module:
         - paragraphs
   os2loop_documents_step_text_2:
-    label: 'Indhold » Paragraph » Trin » Paragraph » Trin » Paragraph » Tekst'
+    label: 'Content » Paragraph » Steps » Paragraph » Steps » Paragraph » Text'
     datasource_id: 'entity:node'
     property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_steps:entity:os2loop_documents_steps:entity:os2loop_documents_step_text'
     type: text
@@ -144,7 +144,7 @@ field_settings:
       module:
         - paragraphs
   os2loop_documents_step_title:
-    label: 'Indhold » Paragraph » Titel'
+    label: 'Content » Paragraph » Title'
     datasource_id: 'entity:node'
     property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_step_title'
     type: text
@@ -155,7 +155,7 @@ field_settings:
       module:
         - paragraphs
   os2loop_documents_step_title_1:
-    label: 'Indhold » Paragraph » Trin » Paragraph » Titel'
+    label: 'Content » Paragraph » Steps » Paragraph » Title'
     datasource_id: 'entity:node'
     property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_steps:entity:os2loop_documents_step_title'
     type: text
@@ -167,7 +167,7 @@ field_settings:
       module:
         - paragraphs
   os2loop_documents_step_title_2:
-    label: 'Indhold » Paragraph » Trin » Paragraph » Trin » Paragraph » Titel'
+    label: 'Content » Paragraph » Steps » Paragraph » Steps » Paragraph » Title'
     datasource_id: 'entity:node'
     property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_steps:entity:os2loop_documents_steps:entity:os2loop_documents_step_title'
     type: text
