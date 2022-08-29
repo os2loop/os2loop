@@ -299,6 +299,44 @@ BODY,
     $paragraph->save();
     $document->get('os2loop_documents_document_conte')->appendItem($paragraph);
     $document->save();
+
+    $document = Node::create([
+      'type' => 'os2loop_documents_document',
+      'title' => 'A document with a lot of professions',
+      'os2loop_documents_document_autho' => 'Document Author',
+      'os2loop_shared_subject' => [
+        'target_id' => $this->getReference('os2loop_subject:Diverse')->id(),
+      ],
+      'os2loop_shared_tags' => [
+        ['target_id' => $this->getReference('os2loop_tag:test')->id()],
+        ['target_id' => $this->getReference('os2loop_tag:Udredning')->id()],
+      ],
+      'os2loop_shared_profession' => [
+        ['target_id' => $this->getReference('os2loop_profession:Andet')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Administrativ medarbejder')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Andet')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Borgerkonsulent')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Diætist')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Elev/studerende')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Ergoterapeut')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Frivilligkoordinator')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Fysioterapeut')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Husassistent')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:IT-koordinator')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Konsulent')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Leder')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Social- og sundhedsassistent')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Social- og sundhedshjælper')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Sundhedskonsulent')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Sygehjælper')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Sygeplejerske')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Teamleder')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Teknisk servicemedarbejder/pedel/håndværker')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Visitator/Borgerkonsulent')->id()],
+        ['target_id' => $this->getReference('os2loop_profession:Økonomaer/køkkenassistent/Ernæringsassistent')->id()],
+      ],
+    ])
+      ->save();
   }
 
   /**
