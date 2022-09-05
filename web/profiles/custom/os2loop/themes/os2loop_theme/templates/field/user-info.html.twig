@@ -27,7 +27,17 @@
         <div class="user-name user-link">
           <a href="{{ user_url }}" class="link-unstyled">{{ user['#user'].os2loop_user_given_name.value }} {{ user['#user'].os2loop_user_family_name.value }}</a>
         </div>
-        <div>{{ user['#user'].os2loop_user_job_title.value }}, {{ user['#user'].os2loop_user_place.value }}</div>
+        <div>
+          {% set job_title = user['#user'].os2loop_user_job_title.value|default('') %}
+          {% set place = user['#user'].os2loop_user_place.value|default('') %}
+          {%- if job_title -%}
+            <span class="user-job-title">{{ job_title }}</span>
+          {%- endif -%}
+          {%- if place -%}
+            {{- job_title ? ', ' -}}
+            <span class="user-place">{{ place }}</span>
+          {%- endif -%}
+        </div>
       {% endif %}
     </div>
     {% if attributes.hasClass('top-comment') %}
