@@ -80,6 +80,7 @@
         "drupal/token": "^1.9",
         "drupal/token_filter": "^1.2",
         "drupal/twig_tweak": "^3.0",
+        "drupal/view_unpublished": "^1.0",
         "drupal/views_autosubmit": "^1.4",
         "drupal/views_data_export": "^1.0",
         "drupal/views_flag_refresh": "dev-2929394-drupal-8-port",
