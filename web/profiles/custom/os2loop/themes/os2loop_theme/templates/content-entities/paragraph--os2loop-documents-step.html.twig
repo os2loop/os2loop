@@ -54,7 +54,7 @@
 {% block paragraph %}
   {% block content %}
     <li {{ attributes.addClass(classes) }}>
-      <a class="d-print-none collapsed step--collapse-toggle" type="button" data-toggle="collapse" data-target="#paragraph-id-{{ paragraph.id() }}">
+      <a class="collapsed step--collapse-toggle" type="button" data-toggle="collapse" data-target="#paragraph-id-{{ paragraph.id() }}">
         <span class="bold {{ has_title ?: 'line-clamp-1' }}">
           {{ has_title ? content.os2loop_documents_step_title : content.os2loop_documents_step_text }}
         </span>
