@@ -54,11 +54,20 @@
 {% block paragraph %}
   {% block content %}
     <li {{ attributes.addClass(classes) }}>
-      <a class="collapsed step--collapse-toggle" type="button" data-toggle="collapse" data-target="#paragraph-id-{{ paragraph.id() }}">
-        <span class="bold {{ has_title ?: 'line-clamp-1' }}">
-          {{ has_title ? content.os2loop_documents_step_title : content.os2loop_documents_step_text }}
+      {# A hack to check if we're rendering content for pdf generation #}
+      {% if 'print/pdf' in url('<current>')['#markup'] %}
+        <span class="collapsed step--collapse-toggle">
+          <span class="bold">
+            {{ has_title ? content.os2loop_documents_step_title : content.os2loop_documents_step_text }}
+          </span>
         </span>
-      </a>
+      {% else %}
+        <a class="collapsed step--collapse-toggle" type="button" data-toggle="collapse" data-target="#paragraph-id-{{ paragraph.id() }}">
+          <span class="bold {{ has_title ? 'line-clamp-1' }}">
+            {{ has_title ? content.os2loop_documents_step_title : content.os2loop_documents_step_text }}
+          </span>
+        </a>
+      {% endif %}
       <div class="row no-gutters collapse" id="paragraph-id-{{ paragraph.id() }}">
         <div class="col">
           <div class="row no-gutters">

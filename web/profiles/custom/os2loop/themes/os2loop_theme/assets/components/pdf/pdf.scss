@@ -49,4 +49,15 @@ img {
 	display: initial !important;
 }
 
+// Quick 'n' dirty solution.
+.paragraph--type--os2loop-documents-step {
+	&::marker,
+	.step--collapse-toggle {
+		font: {
+			size: 1.25rem;
+			weight: bold;
+		}
+	}
+}
+
 @import "layout";
