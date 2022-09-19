@@ -9,8 +9,8 @@
  */
 #}
 
-{# Display author if not anonymous #}
-{% set is_anonymous_user = 1 == entity.os2loop_content_anonymous_author.value %}
+{# Check if author is anonymous or not set (e.g. due to missing user) #}
+{% set is_anonymous_user = user['#user'] is empty or 1 == entity.os2loop_content_anonymous_author.value %}
 {% set image = not is_anonymous_user ? drupal_field('os2loop_user_image', 'user', user['#user'].id, 'compact') %}
 {% set initials = (is_anonymous_user ? 'Anonymous user'|t|first : (user['#user'].os2loop_user_given_name.value|first ~ user['#user'].os2loop_user_family_name.value|first))|upper %}
 
