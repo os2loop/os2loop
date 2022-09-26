@@ -28,7 +28,7 @@ taxonomies contain the terms needed for the content. Users can dynamically
 create new terms in the Tag taxonomy, but any default terms can be added if
 needed.
 
-All taxonomy terms are added and edited on '/admin/structure/taxonomy'
+All taxonomy terms are added and edited on `/admin/structure/taxonomy`
 
 Category: Is used for overall grouping of content e.g. "Vejledning" or "Instruks".
 Subject: Is used for grouping content related to similar themes (subjects)
