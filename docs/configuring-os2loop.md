@@ -32,11 +32,12 @@ All taxonomy terms are added and edited on `/admin/structure/taxonomy`
 
 <ol>
   <li>Category: Is used for overall grouping of content e.g. "Vejledning" or "Instruks"</li>
-  <li>Subject: Is used for grouping content related to similar themes (subjects) 
+  <li>Subject: Is used for grouping content related to similar themes (subjects)
     e.g. "Support" or "Administration".</li>
-  <li>Tags: Is used as inspirational words for similar content 
+  <li>Tags: Is used as inspirational words for similar content
     e.g. "Ernæringsindsats" or "Hjælpemidler".
-    As opposed to the other taxonomy terms these can also be defined by end users 
+    As opposed to the other taxonomy terms these can also
+    be defined by end users
     when submitting questions and/or answers.</li>
 </ol>
 
