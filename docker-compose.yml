@@ -1,6 +1,8 @@
 version: "3"
 
 networks:
+  frontend:
+    external: true
   app:
     driver: bridge
     internal: false
@@ -44,6 +46,7 @@ services:
     image: nginx:latest
     networks:
       - app
+      - frontend
     depends_on:
       - phpfpm
     ports:
@@ -51,6 +54,12 @@ services:
     volumes:
       - ./.docker/vhost.conf:/etc/nginx/conf.d/default.conf:ro
       - ./:/app:delegated
+    # Let the container be accessible both internally and externally on the same domain.
+    container_name: ${COMPOSE_DOMAIN}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=frontend"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${COMPOSE_DOMAIN}`)"
 
   memcached:
     image: 'memcached:latest'
@@ -65,6 +74,7 @@ services:
     image: mailhog/mailhog
     networks:
       - app
+      - frontend
     ports:
       - "1025"
       - "8025"

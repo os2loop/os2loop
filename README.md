@@ -177,4 +177,4 @@ composer coding-standards-check
 ```sh
 docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn install
 docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn encore dev
- ```
+```
