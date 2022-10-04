@@ -24,7 +24,7 @@ services:
       com.symfony.server.service-prefix: 'DATABASE'
 
   phpfpm:
-    image: itkdev/php7.4-fpm:latest
+    image: itkdev/php7.4-fpm:wkhtmltopdf
     networks:
       - app
     environment:
