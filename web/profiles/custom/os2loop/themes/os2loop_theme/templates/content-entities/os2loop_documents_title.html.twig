@@ -2,5 +2,6 @@
 {% set rendered_title = content.os2loop_documents_title|render %}
 {% if rendered_title|trim %}
   {% set toc_ignore = paragraph.get('os2loop_documents_toc_ignore').value == 1 %}
-  <h2 class="{{ toc_ignore ? 'toc-ignore' }}">{{ rendered_title }}</h2>
+  {% set header_id = 'paragraph-' ~ paragraph.id.value %}
+  <h2 id="{{ header_id }}" class="{{ toc_ignore ? 'toc-ignore' }}">{{ rendered_title }}</h2>
 {% endif %}

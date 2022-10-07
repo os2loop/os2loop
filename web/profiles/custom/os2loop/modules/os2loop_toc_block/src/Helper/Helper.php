@@ -2,11 +2,7 @@
 
 namespace Drupal\os2loop_toc_block\Helper;
 
-use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Field\EntityReferenceFieldItemList;
-use Drupal\Core\Render\RendererInterface;
-use Drupal\node\NodeInterface;
 use Drupal\toc_api\TocBuilder;
 use Drupal\toc_api\TocManagerInterface;
 
@@ -37,13 +33,6 @@ class Helper {
   protected $entityTypeManager;
 
   /**
-   * Drupal\Core\Render\RendererInterface definition.
-   *
-   * @var \Drupal\Core\Render\RendererInterface
-   */
-  protected $renderer;
-
-  /**
    * Block constructor for table of contents.
    *
    * @param \Drupal\toc_api\TocManagerInterface $tocManager
@@ -52,61 +41,11 @@ class Helper {
    *   Builder service for table of contents.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity manager.
-   * @param \Drupal\Core\Render\RendererInterface $renderer
-   *   Drupals renderer service.
    */
-  public function __construct(TocManagerInterface $tocManager, TocBuilder $tocBuilder, EntityTypeManagerInterface $entityTypeManager, RendererInterface $renderer) {
+  public function __construct(TocManagerInterface $tocManager, TocBuilder $tocBuilder, EntityTypeManagerInterface $entityTypeManager) {
     $this->tocManager = $tocManager;
     $this->tocBuilder = $tocBuilder;
     $this->entityTypeManager = $entityTypeManager;
-    $this->renderer = $renderer;
-  }
-
-  /**
-   * Implements hook_node_view().
-   *
-   * Adds Ids to headers related to table of contents.
-   *
-   * @param array $build
-   *   The node build.
-   * @param \Drupal\node\NodeInterface $node
-   *   The node entity.
-   * @param \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display
-   *   The display of the node.
-   * @param string $view_mode
-   *   The view mode of the node.
-   *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
-   */
-  public function nodeView(array &$build, NodeInterface $node, EntityViewDisplayInterface $display, $view_mode) {
-    // Add lock to prevent the renderer from calling it self indefinitely.
-    $lock = &drupal_static(__FUNCTION__, FALSE);
-    if (!$lock) {
-      $lock = TRUE;
-      if ('full' === $view_mode) {
-        $hasToc = FALSE;
-        if ($node->hasField('os2loop_documents_document_conte')) {
-          $paragraphsContent = $node->get('os2loop_documents_document_conte');
-          assert($paragraphsContent instanceof EntityReferenceFieldItemList);
-          $paragraphs = $paragraphsContent->referencedEntities();
-
-          foreach ($paragraphs as $paragraph) {
-            if ('table_of_contents' == $paragraph->bundle()) {
-              $hasToc = TRUE;
-              break;
-            }
-          }
-          if ($hasToc) {
-            $node_html = (string) $this->renderer->render($build);
-            $toc = $this->createToc($node_html);
-            if ($toc->isVisible()) {
-              $build['#markup'] = $this->tocBuilder->buildContent($toc)['#markup'];
-            }
-          }
-        }
-      }
-    }
   }
 
   /**
