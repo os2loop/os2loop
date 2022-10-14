@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - system
+    - user
 id: edit_user_profile
 label: 'Edit user profile'
 weight: -10
@@ -14,3 +15,10 @@ visibility:
     id: request_path
     negate: false
     pages: '/user/*/edit'
+  user_role:
+    id: user_role
+    negate: true
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      os2loop_user_user_administrator: os2loop_user_user_administrator
