@@ -59,21 +59,24 @@ function os2loop_messages_preprocess_page_title(&$variables) {
 function os2loop_messages_preprocess_field(&$variables) {
   if ($variables['field_name'] === 'os2loop_section_page_view_header') {
     $paragraph_fields = $variables['element']['#object']->getFields();
-    $views_block = $paragraph_fields['os2loop_section_page_block']->view()[0]['#block'];
+    $view = $paragraph_fields['os2loop_section_page_block']->view();
+    $views_block = $view[0]['#block'] ?? NULL;
 
-    $derivative_id = $views_block->getDerivativeId();
-    $derivative_id_exploded = explode('-', $derivative_id);
+    if (NULL !== $views_block) {
+      $derivative_id = $views_block->getDerivativeId();
+      $derivative_id_exploded = explode('-', $derivative_id);
 
-    $base_view_id = $derivative_id_exploded[0];
+      $base_view_id = $derivative_id_exploded[0];
 
-    switch ($base_view_id) {
-      case 'os2loop_messages':
-      case 'os2loop_section_page_user_favourites':
-        $view = Views::getView($base_view_id);
-        $view->execute($derivative_id_exploded[1]);
+      switch ($base_view_id) {
+        case 'os2loop_messages':
+        case 'os2loop_section_page_user_favourites':
+          $view = Views::getView($base_view_id);
+          $view->execute($derivative_id_exploded[1]);
 
-        $variables['total_rows'] = (string) count($view->result);
-        break;
+          $variables['total_rows'] = (string) count($view->result);
+          break;
+      }
     }
   }
 }
