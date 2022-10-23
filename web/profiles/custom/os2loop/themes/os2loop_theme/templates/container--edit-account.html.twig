@@ -1,0 +1,4 @@
+{# Only select users can edit their account details #}
+{% if is_granted('os2loop_user_manual') %}
+  {% include 'container.html.twig' %}
+{% endif %}
