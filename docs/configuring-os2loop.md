@@ -24,9 +24,20 @@ In order to make the media library work, go to
 media categories for the site.
 
 Go to `/admin/structure/taxonomy` and make sure that the Profession and Subject
-taxonomies containt the terms needed for the content. Users can dynamically
+taxonomies contain the terms needed for the content. Users can dynamically
 create new terms in the Tag taxonomy, but any default terms can be added if
 needed.
+
+All taxonomy terms are added and edited on `/admin/structure/taxonomy`
+
+1. Category: Is used for overall grouping of content e.g. "Vejledning" or "Instruks"
+2. Subject: Is used for grouping content related to similar themes (subjects)
+    e.g. "Support" or "Administration".
+3. Tags: Is used as inspirational words for similar content
+    e.g. "Ernæringsindsats" or "Hjælpemidler".
+    As opposed to the other taxonomy terms these can also
+    be defined by end users
+    when submitting questions and/or answers.
 
 ### Menu items
 
