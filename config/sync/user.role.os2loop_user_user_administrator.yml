@@ -6,6 +6,7 @@ dependencies:
     - media
     - system
     - toolbar
+    - masquerade
 id: os2loop_user_user_administrator
 label: 'User administrator'
 weight: 10
@@ -16,3 +17,4 @@ permissions:
   - 'administer users'
   - 'update any media'
   - 'view the administration theme'
+  - 'masquerade as authenticated'
