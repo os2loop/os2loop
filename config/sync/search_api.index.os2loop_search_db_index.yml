@@ -490,6 +490,9 @@ processor_settings:
         bundle_boosts:
           os2loop_documents_collection: !!float 2
           os2loop_documents_document: !!float 2
+          os2loop_external: !!float 0
+          os2loop_post: !!float 0
+          os2loop_question: !!float 0
 tracker_settings:
   default:
     indexing_order: fifo
