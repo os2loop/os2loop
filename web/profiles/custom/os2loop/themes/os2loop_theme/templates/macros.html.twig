@@ -96,6 +96,12 @@
                 <div class="col list-display-text d-inline-flex mx-30">
                   {# text #}
                   <div class="h5 m-0">
+                    {% if not document.published and is_granted('update', document) %}
+                      <div class="alert alert-danger">
+                        {{ 'Document not published'|t }}
+                        (<a href="{{ path('entity.node.edit_form', {node: document.id}) }}" class="alert-link">{{ 'Edit document'|t }}</a>)
+                      </div>
+                    {% endif %}
                     <a href="{{ path('entity.node.canonical', {node: document.id, collection: collection.id}) }}" class="link-unstyled">
                       {{ document.title.value }}
                     </a>
