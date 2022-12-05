@@ -163,4 +163,21 @@ class Helper {
     }
   }
 
+  /**
+   * Implements hook_menu_links_discovered_alter().
+   */
+  public function menuLinksDiscoveredAlter(&$links) {
+    $enabledContentTypes = $this->settings->getEnabledContentTypes();
+
+    // Remove some menu items when questions (and hence answers) are not
+    // enabled.
+    if (!isset($enabledContentTypes['os2loop_question'])) {
+      unset(
+        $links['os2loop_user.divider'],
+        $links['os2loop_user.questions'],
+        $links['os2loop_user.answers']
+      );
+    }
+  }
+
 }

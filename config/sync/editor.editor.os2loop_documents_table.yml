@@ -29,7 +29,7 @@ settings:
             - Styles
   plugins:
     stylescombo:
-      styles: "th.left|Left (header) \r\nth.center|Center (header)\r\nth.right|Right (header)\r\ntd.left|Left \r\ntd.center|Center\r\ntd.right|Right"
+      styles: "table.loop-documents-table|Loop table\r\nth.left|Venstrestillet (overskrift) \r\nth.center|Centreret (overskrift)\r\nth.right|Højrestillet (overskrift)\r\ntd.left|Venstrestillet\r\ntd.center|Centreret \r\ntd.right|Højrestillet\r\n"
     language:
       language_list: un
     tokenbrowser:

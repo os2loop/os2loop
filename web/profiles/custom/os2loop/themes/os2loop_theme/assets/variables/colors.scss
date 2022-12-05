@@ -4,18 +4,18 @@
  */
 
 // System green
-$loop-green: #60a95b;
-$loop-green-600: #448740;
-$loop-green-400: #76c076;
-$loop-green-300: #9bd89b;
-$loop-green-200: #d2ebd3;
-$loop-green-100: #e5f2e7;
+$loop-green: #60a95b !default;
+$loop-green-600: #448740 !default;
+$loop-green-400: #76c076 !default;
+$loop-green-300: #9bd89b !default;
+$loop-green-200: #d2ebd3 !default;
+$loop-green-100: #e5f2e7 !default;
 
 // Tag colors
-$tag-blue: #3d8bfd;
-$tag-purple: #8540f5;
-$tag-green: #38ab3d;
-$tag-orange: #f28e3e;
+$tag-blue: #3d8bfd !default;
+$tag-purple: #8540f5 !default;
+$tag-green: #38ab3d !default;
+$tag-orange: #f28e3e !default;
 
 // Gray tones
 $gray-900: #212529;
@@ -28,7 +28,7 @@ $gray-200: #e9ecef;
 $gray-100: #f8f9fa;
 
 // Notification colors
-$loop-red: #dc3545;
+$loop-red: #dc3545 !default;
 
 // System white
 $loop-white: #fff;

@@ -1,0 +1,14 @@
+uuid: 2676cd0e-3e8a-4297-88f9-826f4ca228dc
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.os2loop_user_manual
+  module:
+    - user
+id: user_remove_role_action.os2loop_user_manual
+label: 'Remove the os2loop_user_manual role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: os2loop_user_manual

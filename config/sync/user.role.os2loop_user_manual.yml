@@ -1,0 +1,10 @@
+uuid: 5f73a615-9184-4fd7-8dd8-0aac56a7dd78
+langcode: en
+status: true
+dependencies: {  }
+id: os2loop_user_manual
+label: Manual
+weight: 11
+is_admin: null
+permissions:
+  - 'openid connect set own password'

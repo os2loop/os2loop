@@ -11,11 +11,9 @@
 		color: $loop-white;
 	}
 
-	.title-badges {
-		div + div,
-		span + a.badge,
-		a.badge + a.badge {
-			@extend .ml-15;
-		}
+	&-badges {
+		display: flex;
+		column-gap: 15px;
+		align-items: flex-start;
 	}
 }

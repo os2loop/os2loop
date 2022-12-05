@@ -1,27 +1,27 @@
 services:
-  os2loop_documents_fixtures.document_fixture:
-    class: Drupal\os2loop_documents_fixtures\Fixture\DocumentFixture
+  Drupal\os2loop_documents_fixtures\Fixture\DocumentFixture:
     tags:
       - { name: content_fixture }
 
-  os2loop_documents_fixtures.document_color_fixture:
-    class: Drupal\os2loop_documents_fixtures\Fixture\DocumentColorFixture
+  Drupal\os2loop_documents_fixtures\Fixture\DocumentColorFixture:
     tags:
       - { name: content_fixture }
 
-  os2loop_documents_fixtures.collection_fixture:
-    class: Drupal\os2loop_documents_fixtures\Fixture\CollectionFixture
+  Drupal\os2loop_documents_fixtures\Fixture\CollectionFixture:
     arguments: ['@os2loop_documents.collection_helper']
     tags:
       - { name: content_fixture }
 
-  os2loop_documents_fixtures.document_legacy_fixture:
-    class: Drupal\os2loop_documents_fixtures\Fixture\DocumentLegacyFixture
+  Drupal\os2loop_documents_fixtures\Fixture\DocumentLegacyFixture:
     tags:
       - { name: content_fixture }
 
-  os2loop_documents_fixtures.collection_legacy_fixture:
-    class: Drupal\os2loop_documents_fixtures\Fixture\CollectionLegacyFixture
+  Drupal\os2loop_documents_fixtures\Fixture\CollectionLegacyFixture:
+    arguments: ['@os2loop_documents.collection_helper']
+    tags:
+      - { name: content_fixture }
+
+  Drupal\os2loop_documents_fixtures\Fixture\DocumentTOCFixture:
     arguments: ['@os2loop_documents.collection_helper']
     tags:
       - { name: content_fixture }

@@ -54,3 +54,10 @@ function os2loop_settings_preprocess_node(array &$variables) {
 function os2loop_settings_preprocess_user(array &$variables) {
   return Drupal::service(Helper::class)->preprocessUser($variables);
 }
+
+/**
+ * Implements hook_menu_links_discovered_alter().
+ */
+function os2loop_settings_menu_links_discovered_alter(&$links) {
+  Drupal::service(Helper::class)->menuLinksDiscoveredAlter($links);
+}
