@@ -385,9 +385,11 @@ processor_settings:
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
       - os2loop_documents_step_text_2
+      - os2loop_documents_step_text_3
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
+      - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
       - os2loop_documents_title
       - os2loop_external_descripti
@@ -424,9 +426,11 @@ processor_settings:
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
       - os2loop_documents_step_text_2
+      - os2loop_documents_step_text_3
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
+      - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
       - os2loop_documents_title
       - os2loop_external_descripti
@@ -458,9 +462,11 @@ processor_settings:
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
       - os2loop_documents_step_text_2
+      - os2loop_documents_step_text_3
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
+      - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
       - os2loop_documents_title
       - os2loop_external_descripti
