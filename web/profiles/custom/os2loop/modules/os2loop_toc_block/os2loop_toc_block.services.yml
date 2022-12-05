@@ -5,4 +5,3 @@ services:
       - '@toc_api.manager'
       - '@toc_api.builder'
       - '@entity_type.manager'
-      - '@renderer'

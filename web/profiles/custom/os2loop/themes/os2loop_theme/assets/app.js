@@ -38,4 +38,12 @@ jQuery(() => {
 				.parent()
 				.removeClass("search-api-autocomplete-has-suggestions")
 		);
+
+	// Add target="_blank" to all external links in main content.
+	jQuery(".os2loop-main-content a").each((index, el) => {
+		const $el = $(el);
+		if (/^https?:\/\//.test($el.attr("href")) && !$el.attr("target")) {
+			$el.attr("target", "_blank");
+		}
+	});
 });

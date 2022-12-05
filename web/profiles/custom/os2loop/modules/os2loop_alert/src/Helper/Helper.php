@@ -123,9 +123,12 @@ class Helper {
       $query->condition('uid', $userIds ?: [-1], 'IN');
     }
 
-    return $query
+    $emails = $query
       ->execute()
       ->fetchCol();
+
+    // Return only valid emails.
+    return array_filter($emails, fn (string $email) => filter_var($email, FILTER_VALIDATE_EMAIL));
   }
 
   /**

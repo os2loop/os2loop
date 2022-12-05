@@ -15,11 +15,11 @@ $taxonomy-colors: (
 	// Set background and text color for taxonomy term colors.
 	@each $taxonomy-color-index, $taxonomy-color in $taxonomy-colors {
 		.taxonomy-color-#{$taxonomy-color-index} {
-			background-color: $taxonomy-color;
-			color: contrast-color($taxonomy-color);
+			background-color: $taxonomy-color !important;
+			color: contrast-color($taxonomy-color) !important;
 
 			a {
-				color: contrast-color($taxonomy-color);
+				color: contrast-color($taxonomy-color) !important;
 			}
 		}
 

@@ -1,3 +1,43 @@
+$primary-color: hsl(230, 54%, 35%);
+$primary-color-base: #60a95b;
+
+// Compute theme color from base color.
+@function loop-theme-color(
+	$reference-color,
+	$source-color: $primary-color,
+	$base-color: $primary-color-base
+) {
+	$delta-hue: hue($reference-color) - hue($base-color);
+	$delta-saturation: saturation($reference-color) - saturation($base-color);
+	$delta-lightness: lightness($reference-color) - lightness($base-color);
+
+	@return adjust-color(
+		$source-color,
+		$hue: $delta-hue,
+		$saturation: $delta-saturation,
+		$lightness: $delta-lightness
+	);
+}
+
+$loop-green: loop-theme-color(#60a95b);
+$loop-green-600: loop-theme-color(#448740);
+$loop-green-400: loop-theme-color(#76c076);
+$loop-green-300: loop-theme-color(#9bd89b);
+$loop-green-200: loop-theme-color(#d2ebd3);
+$loop-green-100: loop-theme-color(#e5f2e7);
+
+// $tag-blue: loop-theme-color(#3d8bfd);
+// $tag-purple: loop-theme-color(#8540f5);
+// $tag-green: loop-theme-color(#38ab3d);
+// $tag-orange: loop-theme-color(#f28e3e);
+
+// $taxonomy-color-1: loop-theme-color(#efbb00);
+// $taxonomy-color-2: loop-theme-color(#068711);
+// $taxonomy-color-3: loop-theme-color(#2a398b);
+// $taxonomy-color-4: loop-theme-color(#222222);
+
+@import "../variables/colors.scss";
+
 $primary: hsl(230, 54%, 35%);
 $secondary: hsl(208, 7%, 46%);
 $success: lighten(hsl(110, 54%, 35%), 40%);

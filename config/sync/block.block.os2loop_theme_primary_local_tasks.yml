@@ -24,8 +24,8 @@ settings:
 visibility:
   user_role:
     id: user_role
-    roles:
-      os2loop_user_administrator: os2loop_user_administrator
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      os2loop_user_administrator: os2loop_user_administrator

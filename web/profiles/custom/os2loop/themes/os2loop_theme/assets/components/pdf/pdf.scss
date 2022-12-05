@@ -49,4 +49,51 @@ img {
 	display: initial !important;
 }
 
+.title {
+	margin-bottom: 1em;
+
+	.title-icon,
+	.title-information {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.title-icon {
+		margin-right: 1em;
+	}
+}
+
+ol.os2loop-documents-steps {
+	list-style-type: none;
+	counter-reset: item;
+	margin: 0;
+	padding: 0;
+
+	> li {
+		padding-left: 2rem;
+
+		> .step--collapse-toggle {
+			display: inline;
+			position: relative;
+
+			font: {
+				size: 1.25rem;
+				weight: bold;
+			}
+
+			counter-increment: item;
+
+			&::before {
+				content: counters(item, ".") ". ";
+				white-space: pre;
+				display: inline;
+			}
+
+			p {
+				display: inline;
+			}
+		}
+	}
+}
+
 @import "layout";

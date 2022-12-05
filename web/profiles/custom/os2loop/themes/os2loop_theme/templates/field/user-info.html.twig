@@ -9,25 +9,35 @@
  */
 #}
 
-{# Display author if not anonymous #}
-{% set image = user['#user'].id is not empty ? drupal_field('os2loop_user_image', 'user', user['#user'].id, 'compact') %}
-{% set initials = (user['#user'].os2loop_user_given_name.value|first ~ user['#user'].os2loop_user_family_name.value|first ?: 'Anonymous user'|t|first)|upper %}
+{# Check if author is anonymous or not set (e.g. due to missing user) #}
+{% set is_anonymous_user = user['#user'] is empty or 1 == entity.os2loop_content_anonymous_author.value %}
+{% set image = not is_anonymous_user ? drupal_field('os2loop_user_image', 'user', user['#user'].id, 'compact') %}
+{% set initials = (is_anonymous_user ? 'Anonymous user'|t|first : (user['#user'].os2loop_user_given_name.value|first ~ user['#user'].os2loop_user_family_name.value|first))|upper %}
 
-{# user image #}
 <div class="d-inline-flex align-items-center">
   <div class="user-image mr-20">
     <div>{{ image['#items'] is not empty ? image : initials }}</div>
   </div>
   <div class="d-inline-flex align-items-start">
     <div class="user-identity d-block">
-      {% if user['#user'].os2loop_user_job_title.value %}
+      {% if is_anonymous_user %}
+        <div class="user-name">{{ 'Anonymous user'|t }}</div>
+      {% else %}
         {% set user_url = user['#user'].id is not empty ? url('entity.user.canonical', {'user': user['#user'].id}) : '#' %}
         <div class="user-name user-link">
           <a href="{{ user_url }}" class="link-unstyled">{{ user['#user'].os2loop_user_given_name.value }} {{ user['#user'].os2loop_user_family_name.value }}</a>
         </div>
-        <div>{{ user['#user'].os2loop_user_job_title.value }}, {{ user['#user'].os2loop_user_place.value }}</div>
-      {% else %}
-        <div class="user-name">{{ 'Anonymous user'|t }}</div>
+        <div>
+          {% set job_title = user['#user'].os2loop_user_job_title.value|default('') %}
+          {% set place = user['#user'].os2loop_user_place.value|default('') %}
+          {%- if job_title -%}
+            <span class="user-job-title">{{ job_title }}</span>
+          {%- endif -%}
+          {%- if place -%}
+            {{- job_title ? ', ' -}}
+            <span class="user-place">{{ place }}</span>
+          {%- endif -%}
+        </div>
       {% endif %}
     </div>
     {% if attributes.hasClass('top-comment') %}

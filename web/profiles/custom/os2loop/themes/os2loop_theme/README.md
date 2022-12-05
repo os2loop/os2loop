@@ -22,7 +22,7 @@ docker run --volume ${PWD}:/app --workdir /app node:16 yarn build
 Watch for changes:
 
 ```sh
-docker run --interactive --tty --volume ${PWD}:/app --workdir /app node:latest yarn watch
+docker run --interactive --tty --volume ${PWD}:/app --workdir /app node:16 yarn watch
 ```
 
 During development you may want to run it with your locally installed

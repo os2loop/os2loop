@@ -1,0 +1,14 @@
+uuid: 8aef428a-7515-466d-a302-9306b5ae6f9e
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.os2loop_user_manual
+  module:
+    - user
+id: user_add_role_action.os2loop_user_manual
+label: 'Add the os2loop_user_manual role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: os2loop_user_manual
