@@ -85,33 +85,35 @@
         {% set document = item.document %}
         {% set short_type = document.getType|split('_')|last %}
         {% set is_active_document = current_node_id is same as(document.id) %}
-        <div class="container list-group-item list-group-item-action d-inline-flex align-items-top">
-          {# icon #}
-          <div class="list-display-icon">
-            {{ source("#{active_theme_path()}/assets/svg/#{short_type}.svg", ignore_missing=true) }}
-          </div>
-          <div class="container px-0 list-display-information">
-            <div class="row no-gutters">
-              <div class="col list-display-text d-inline-flex mx-30">
-                {# text #}
-                <div class="h5 m-0">
-                  <a href="{{ path('entity.node.canonical', {node: document.id, collection: collection.id}) }}" class="link-unstyled">
-                    {{ document.title.value }}
-                  </a>
-                  <span class="badge badge-primary badge-{{ short_type }} align-top ml-20">{{ document.type.entity.label }}</span>
-                  {% if is_active_document %}
-                    <span class="badge badge-primary align-top ml-20">{{ 'Open document'|t }}</span>
-                  {% endif %}
+        {% if is_granted('view', document) %}
+          <div class="container list-group-item list-group-item-action d-inline-flex align-items-top">
+            {# icon #}
+            <div class="list-display-icon">
+              {{ source("#{active_theme_path()}/assets/svg/#{short_type}.svg", ignore_missing=true) }}
+            </div>
+            <div class="container px-0 list-display-information">
+              <div class="row no-gutters">
+                <div class="col list-display-text d-inline-flex mx-30">
+                  {# text #}
+                  <div class="h5 m-0">
+                    <a href="{{ path('entity.node.canonical', {node: document.id, collection: collection.id}) }}" class="link-unstyled">
+                      {{ document.title.value }}
+                    </a>
+                    <span class="badge badge-primary badge-{{ short_type }} align-top ml-20">{{ document.type.entity.label }}</span>
+                    {% if is_active_document %}
+                      <span class="badge badge-primary align-top ml-20">{{ 'Open document'|t }}</span>
+                    {% endif %}
+                  </div>
                 </div>
-              </div>
-              <div class="col-auto ml-auto list-display-date text-sm">
-                {# date #}
-                {{ document.createdtime|date('d-m-Y') }}
+                <div class="col-auto ml-auto list-display-date text-sm">
+                  {# date #}
+                  {{ document.createdtime|date('d-m-Y') }}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        {{ item.children ? _self.table_of_contents(item.children, collection, current_node_id) }}
+          {{ item.children ? _self.table_of_contents(item.children, collection, current_node_id) }}
+        {% endif %}
       {% endfor %}
     </div>
   {% endif %}
