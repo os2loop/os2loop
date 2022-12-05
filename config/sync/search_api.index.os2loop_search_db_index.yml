@@ -19,6 +19,7 @@ dependencies:
     - field.storage.node.os2loop_external_descripti
     - field.storage.paragraph.os2loop_documents_step_title
     - field.storage.paragraph.os2loop_documents_steps
+    - field.storage.paragraph.os2loop_documents_title
     - field.storage.node.os2loop_shared_profession
     - field.storage.node.os2loop_shared_subject
     - field.storage.node.os2loop_shared_tags
@@ -213,6 +214,17 @@ field_settings:
         - field.storage.paragraph.os2loop_documents_tai_text
       module:
         - paragraphs
+  os2loop_documents_title:
+    label: 'Content » Paragraph » Title'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_documents_document_conte
+        - field.storage.paragraph.os2loop_documents_title
+      module:
+        - paragraphs
   os2loop_external_descripti:
     label: Description
     datasource_id: 'entity:node'
@@ -377,6 +389,7 @@ processor_settings:
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
       - os2loop_documents_tai_text
+      - os2loop_documents_title
       - os2loop_external_descripti
       - os2loop_post_comments
       - os2loop_post_content
@@ -415,6 +428,7 @@ processor_settings:
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
       - os2loop_documents_tai_text
+      - os2loop_documents_title
       - os2loop_external_descripti
       - os2loop_post_comments
       - os2loop_post_content
@@ -448,6 +462,7 @@ processor_settings:
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
       - os2loop_documents_tai_text
+      - os2loop_documents_title
       - os2loop_external_descripti
       - os2loop_post_content
       - os2loop_question_content
