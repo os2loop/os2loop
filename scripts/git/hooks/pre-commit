@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-if ! composer coding-standards-check; then
+if ! docker run --volume ${PWD}:/app --workdir /app itkdev/php7.4-fpm:latest composer coding-standards-check; then
   cat >&2 << EOF
 Please fix any coding standards issues before commit'ing!
 EOF
   exit 1
 fi
 
-if ! yarn coding-standards-check; then
+if ! docker run --volume ${PWD}:/app --workdir /app node:16 yarn coding-standards-check; then
   cat >&2 << EOF
 Please fix any coding standards issues before commit'ing!
 EOF

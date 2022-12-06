@@ -26629,3 +26629,6 @@ msgstr "Indholdsfortegnelse"
 
 msgid "Revision message: @revision_message"
 msgstr "Revisionsbesked: @revision_message"
+
+msgid "Document not published"
+msgstr "Dokument ikke udgivet"
