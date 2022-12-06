@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "15503226ab886cd390adf4b2f6001586",
+    "content-hash": "02f00109a6a2260d4d3b5c71cb2e4acf",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -13997,7 +13997,7 @@
         },
         {
             "name": "os2loop/os2loop_fixtures",
-            "version": "dev-feature/SUPP0RT-644-view-unpublished",
+            "version": "dev-hotfix/SUPP0RT-775-unpublished-node-access",
             "dist": {
                 "type": "path",
                 "url": "web/profiles/custom/os2loop/modules/os2loop_fixtures",
