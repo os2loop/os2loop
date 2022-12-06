@@ -46,4 +46,10 @@ jQuery(() => {
 			$el.attr("target", "_blank");
 		}
 	});
+
+	// Use scroll-padding-top to make sure that headings focused headings are not
+	// hidden behind static header.
+	jQuery("html").css({
+		"scroll-padding-top": Math.ceil(jQuery("header").height()) + "px",
+	});
 });
