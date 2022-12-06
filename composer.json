@@ -222,6 +222,9 @@
             },
             "drupal/devel": {
                 "Public methods are not visible in kint (https://www.drupal.org/project/devel/issues/3112201)": "https://www.drupal.org/files/issues/2022-04-26/devel_3112201_4.patch"
+            },
+            "drupal/view_unpublished": {
+                "Grants are not cached if the user has \"view any unpublished content\" permission (https://www.drupal.org/project/view_unpublished/issues/3226756)": "https://www.drupal.org/files/issues/2021-08-04/view_unpublished-cache_ignored-3226756-2-8.x.patch"
             }
         }
     },
