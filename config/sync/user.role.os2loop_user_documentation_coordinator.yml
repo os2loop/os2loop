@@ -34,6 +34,7 @@ permissions:
   - 'access toolbar'
   - 'access user profiles'
   - 'administer comments'
+  - 'administer nodes'
   - 'create os2loop_documents_collection content'
   - 'create os2loop_documents_document content'
   - 'delete any os2loop_question content'
