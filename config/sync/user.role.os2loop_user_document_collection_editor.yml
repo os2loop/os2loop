@@ -30,6 +30,7 @@ permissions:
   - 'access path admin'
   - 'access path admin/content'
   - 'access toolbar'
+  - 'administer nodes'
   - 'create files'
   - 'create os2loop_documents_collection content'
   - 'create os2loop_documents_document content'
