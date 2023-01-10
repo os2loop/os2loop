@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02f00109a6a2260d4d3b5c71cb2e4acf",
+    "content-hash": "8c834d7dbcf69a41d0bff0fe97df74c1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4206,30 +4206,30 @@
         },
         {
             "name": "drupal/paragraphs_edit",
-            "version": "2.0.0-alpha8",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/paragraphs_edit.git",
-                "reference": "8.x-2.0-alpha8"
+                "reference": "8.x-2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/paragraphs_edit-8.x-2.0-alpha8.zip",
-                "reference": "8.x-2.0-alpha8",
-                "shasum": "7447a72afc3ef528afa51996bbf7c8dbf3d822b8"
+                "url": "https://ftp.drupal.org/files/projects/paragraphs_edit-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "3b4a7634aecfc35bf45adf86b27d500660887df1"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^8 || ^9 || ^10",
                 "drupal/paragraphs": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.0-alpha8",
-                    "datestamp": "1592930672",
+                    "version": "8.x-2.0",
+                    "datestamp": "1651758518",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -13997,7 +13997,7 @@
         },
         {
             "name": "os2loop/os2loop_fixtures",
-            "version": "dev-hotfix/SUPP0RT-775-unpublished-node-access",
+            "version": "dev-hotfix/SUPP0RT-821-user-login",
             "dist": {
                 "type": "path",
                 "url": "web/profiles/custom/os2loop/modules/os2loop_fixtures",
@@ -16612,7 +16612,6 @@
         "drupal/gin_toolbar": 10,
         "drupal/inline_entity_form": 5,
         "drupal/masquerade": 10,
-        "drupal/paragraphs_edit": 15,
         "drupal/theme_switcher": 20,
         "drupal/views_flag_refresh": 20
     },
