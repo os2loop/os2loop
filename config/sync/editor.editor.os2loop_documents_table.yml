@@ -29,7 +29,7 @@ settings:
             - Styles
   plugins:
     stylescombo:
-      styles: "table.loop-documents-table|Loop table\r\nth.left|Venstrestillet (overskrift) \r\nth.center|Centreret (overskrift)\r\nth.right|Højrestillet (overskrift)\r\ntd.left|Venstrestillet\r\ntd.center|Centreret \r\ntd.right|Højrestillet\r\n"
+      styles: "table.loop-documents-table.cke_show_border|Loop-tabel\r\nth.left|Venstrestillet (overskrift) \r\nth.center|Centreret (overskrift)\r\nth.right|Højrestillet (overskrift)\r\ntd.left|Venstrestillet\r\ntd.center|Centreret \r\ntd.right|Højrestillet\r\n"
     language:
       language_list: un
     tokenbrowser:
