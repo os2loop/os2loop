@@ -4,6 +4,7 @@ namespace Drupal\os2loop_user_login\Helper;
 
 use Drupal\Core\Entity\EntityFieldManager;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
@@ -64,15 +65,23 @@ class Helper {
   protected $moduleHandler;
 
   /**
+   * The current path stack.
+   *
+   * @var \Drupal\Core\Path\CurrentPathStack
+   */
+  protected $currentPathStack;
+
+  /**
    * Constructor.
    */
-  public function __construct(Settings $settings, ModuleHandlerInterface $module_handler, EntityTypeManagerInterface $entity_type_manager, EntityFieldManager $entity_field_manager, MessengerInterface $messenger, RequestStack $requestStack) {
+  public function __construct(Settings $settings, ModuleHandlerInterface $module_handler, EntityTypeManagerInterface $entity_type_manager, EntityFieldManager $entity_field_manager, MessengerInterface $messenger, RequestStack $requestStack, CurrentPathStack $currentPathStack) {
     $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME);
     $this->moduleHandler = $module_handler;
     $this->entityTypeManager = $entity_type_manager;
     $this->entityFieldManager = $entity_field_manager;
     $this->messenger = $messenger;
     $this->requestStack = $requestStack;
+    $this->currentPathStack = $currentPathStack;
   }
 
   /**
@@ -125,6 +134,19 @@ class Helper {
    */
   public function preprocessBlock(array &$variables) {
     if ('userlogin' === ($variables['elements']['#id'] ?? NULL)) {
+      // Ignore default login method when resetting password.
+      // Note: CurrentPathStack::getPath() claims to return the path without
+      // leading slashes, but seems to return it with a leading slash.
+      if (preg_match('@^/?user/(reset|password)@', $this->currentPathStack->getPath())) {
+        return;
+      }
+
+      // Check of we're coming from password reset page.
+      $referer = $this->requestStack->getCurrentRequest()->headers->get('referer', '');
+      if (preg_match('@/user/password@', $referer)) {
+        return;
+      }
+
       $defaultLoginMethod = $this->config->get('default_login_method');
       switch ($defaultLoginMethod) {
         case 'oidc':
