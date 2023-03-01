@@ -214,6 +214,17 @@ field_settings:
         - field.storage.paragraph.os2loop_documents_tai_text
       module:
         - paragraphs
+  os2loop_documents_title:
+    label: 'Content » Paragraph » Title'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_documents_document_conte
+        - field.storage.paragraph.os2loop_documents_title
+      module:
+        - paragraphs
   os2loop_external_descripti:
     label: Description
     datasource_id: 'entity:node'
@@ -391,6 +402,7 @@ processor_settings:
       - os2loop_documents_step_title_2
       - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
+      - os2loop_documents_title
       - os2loop_external_descripti
       - os2loop_post_comments
       - os2loop_post_content
@@ -432,6 +444,7 @@ processor_settings:
       - os2loop_documents_step_title_2
       - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
+      - os2loop_documents_title
       - os2loop_external_descripti
       - os2loop_post_comments
       - os2loop_post_content
@@ -468,6 +481,7 @@ processor_settings:
       - os2loop_documents_step_title_2
       - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
+      - os2loop_documents_title
       - os2loop_external_descripti
       - os2loop_post_content
       - os2loop_question_content
@@ -490,6 +504,9 @@ processor_settings:
         bundle_boosts:
           os2loop_documents_collection: !!float 2
           os2loop_documents_document: !!float 2
+          os2loop_external: !!float 0
+          os2loop_post: !!float 0
+          os2loop_question: !!float 0
 tracker_settings:
   default:
     indexing_order: fifo
