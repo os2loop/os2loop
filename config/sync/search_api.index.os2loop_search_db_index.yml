@@ -14,11 +14,12 @@ dependencies:
     - field.storage.paragraph.os2loop_documents_hc_content
     - field.storage.paragraph.os2loop_documents_description
     - field.storage.paragraph.os2loop_documents_step_text
+    - field.storage.paragraph.os2loop_documents_steps
+    - field.storage.paragraph.os2loop_documents_step_title
     - field.storage.paragraph.os2loop_documents_tai_text
     - field.storage.paragraph.os2loop_documents_hc_title
     - field.storage.node.os2loop_external_descripti
-    - field.storage.paragraph.os2loop_documents_step_title
-    - field.storage.paragraph.os2loop_documents_steps
+    - field.storage.paragraph.os2loop_documents_tbl_cont
     - field.storage.node.os2loop_shared_profession
     - field.storage.node.os2loop_shared_subject
     - field.storage.node.os2loop_shared_tags
@@ -307,6 +308,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.os2loop_shared_tags
+  processed:
+    label: 'Indhold » Paragraph » Table » Processed text'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_tbl_cont:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_documents_document_conte
+        - field.storage.paragraph.os2loop_documents_tbl_cont
+      module:
+        - paragraphs
   processed_answer:
     label: Answer
     datasource_id: 'entity:node'
@@ -373,9 +385,11 @@ processor_settings:
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
       - os2loop_documents_step_text_2
+      - os2loop_documents_step_text_3
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
+      - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
       - os2loop_external_descripti
       - os2loop_post_comments
@@ -384,6 +398,7 @@ processor_settings:
       - os2loop_question_content
       - os2loop_shared_category_name
       - os2loop_shared_subject_name
+      - processed
       - processed_answer
       - processed_comment
       - title
@@ -411,9 +426,11 @@ processor_settings:
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
       - os2loop_documents_step_text_2
+      - os2loop_documents_step_text_3
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
+      - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
       - os2loop_external_descripti
       - os2loop_post_comments
@@ -422,6 +439,7 @@ processor_settings:
       - os2loop_question_content
       - os2loop_shared_category_name
       - os2loop_shared_subject_name
+      - processed
       - processed_answer
       - processed_comment
       - title
@@ -444,15 +462,18 @@ processor_settings:
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
       - os2loop_documents_step_text_2
+      - os2loop_documents_step_text_3
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
+      - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
       - os2loop_external_descripti
       - os2loop_post_content
       - os2loop_question_content
       - os2loop_shared_category_name
       - os2loop_shared_subject_name
+      - processed
       - processed_answer
       - processed_comment
       - title
