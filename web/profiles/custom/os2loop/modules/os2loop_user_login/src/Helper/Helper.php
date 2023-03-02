@@ -134,6 +134,10 @@ class Helper {
    */
   public function preprocessBlock(array &$variables) {
     if ('userlogin' === ($variables['elements']['#id'] ?? NULL)) {
+      // Disable cache on the userlogin form to prevent redirects when resetting
+      // password.
+      $variables['#cache']['max-age'] = 0;
+
       // Ignore default login method when resetting password.
       // Note: CurrentPathStack::getPath() claims to return the path without
       // leading slashes, but seems to return it with a leading slash.
