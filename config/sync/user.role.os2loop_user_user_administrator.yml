@@ -16,6 +16,6 @@ permissions:
   - 'access toolbar'
   - 'administer permissions'
   - 'administer users'
+  - 'masquerade as authenticated'
   - 'update any media'
   - 'view the administration theme'
-  - 'masquerade as authenticated'

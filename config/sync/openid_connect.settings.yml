@@ -1,14 +1,14 @@
 always_save_userinfo: true
 connect_existing_users: true
 override_registration_settings: true
+end_session_enabled: true
+user_login_display: above
+redirect_login: ''
+redirect_logout: ''
 userinfo_mappings:
   timezone: zoneinfo
   os2loop_user_family_name: family_name
   os2loop_user_given_name: given_name
-user_login_display: above
-redirect_login: ''
-redirect_logout: ''
-end_session_enabled: true
 role_mappings:
   os2loop_user_administrator:
     - administrator
