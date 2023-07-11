@@ -3,9 +3,9 @@
 namespace Drupal\os2loop_post\Helper;
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\os2loop_post\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Helper for posts.

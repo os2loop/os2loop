@@ -37,6 +37,7 @@
         }
     },
     "require": {
+        "php": "^8.1",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
         "drupal/adminimal_theme": "^1.6",
@@ -97,8 +98,11 @@
         "install-codestandards": [
             "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
         ],
-        "coding-standards-check/drupal-check": [
-            "php vendor/bin/drupal-check --deprecations --analysis web/profiles/custom/os2loop"
+        "code-analysis/phpstan": [
+          "phpstan analyse --configuration=phpstan.neon --memory-limit=2G"
+        ],
+        "code-analysis": [
+          "@code-analysis/phpstan"
         ],
         "coding-standards-check/phpcs": [
             "php vendor/bin/phpcs --standard=phpcs.xml.dist"
@@ -108,7 +112,7 @@
         ],
         "coding-standards-check": [
             "@coding-standards-check/phpcs",
-            "@coding-standards-check/drupal-check",
+            "@code-analysis",
             "@coding-standards-check/twigcs"
         ],
         "coding-standards-apply/phpcs": [
@@ -132,7 +136,8 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/console-extend-plugin": true,
             "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true
+            "drupal/core-project-message": true,
+            "phpstan/extension-installer": true
         }
     },
     "extra": {
@@ -200,9 +205,9 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
-                "Disable forced configuration langcode (https://www.drupal.org/project/drupal/issues/3150540)": "https://www.drupal.org/files/issues/2020-06-10/locale-config-langcodes.patch",
+                "Disable forced configuration langcode (https://www.drupal.org/project/drupal/issues/3150540)": "https://www.drupal.org/files/issues/2023-05-24/3150540-36.patch",
                 "Handle undefined index when using form states (https://www.drupal.org/project/drupal/issues/2700667)": "https://www.drupal.org/files/issues/2020-03-11/2700667-104.patch",
-                "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD (https://www.drupal.org/project/drupal/issues/3007424)": "https://www.drupal.org/files/issues/2021-01-06/3007424-108.patch"
+                "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD (https://www.drupal.org/project/drupal/issues/3007424)": "https://www.drupal.org/files/issues/2023-05-23/3007424-207-9.5.x.patch"
             },
             "drupal/flag": {
                 "Implement Migration Paths for Flag 7.x (https://www.drupal.org/project/flag/issues/2409901#comment-13082245)": "https://www.drupal.org/files/issues/2019-04-25/2409901_flag_migration_paths_52.patch",
@@ -235,7 +240,9 @@
         "drupal/devel": "^4.1",
         "friendsoftwig/twigcs": "^5.0",
         "kint-php/kint": "^4.1",
-        "mglaman/drupal-check": "^1.1",
+        "mglaman/phpstan-drupal": "^1.1",
+        "phpstan/extension-installer": "^1.2",
+        "phpstan/phpstan-deprecation-rules": "^1.1",
         "os2loop/os2loop_fixtures": "*",
         "phpspec/prophecy-phpunit": "^2.0"
     }

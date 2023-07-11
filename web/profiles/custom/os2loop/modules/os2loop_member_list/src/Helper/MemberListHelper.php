@@ -3,10 +3,10 @@
 namespace Drupal\os2loop_member_list\Helper;
 
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\os2loop_member_list\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
-use Drupal\os2loop_member_list\Form\SettingsForm;
 
 /**
  * Memberlist helper for creating memberlist queries.

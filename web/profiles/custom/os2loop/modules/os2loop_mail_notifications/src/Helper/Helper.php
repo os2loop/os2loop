@@ -266,6 +266,7 @@ class Helper {
       ->getStorage('message');
     $ids = $storage
       ->getQuery()
+      ->accessCheck()
       ->condition('template', self::$messageTemplateNames, 'IN')
       ->condition('created', [$from->getTimestamp(), $to->getTimestamp()], 'BETWEEN')
       ->sort('created', 'DESC')
@@ -295,6 +296,7 @@ class Helper {
     $notificationUserIds = $this->entityTypeManager
       ->getStorage('user')
       ->getQuery()
+      ->accessCheck()
       ->condition(self::USER_NOTIFICATION_INTERVAL_FIELD_NAME, 0, '>')
       ->execute();
 

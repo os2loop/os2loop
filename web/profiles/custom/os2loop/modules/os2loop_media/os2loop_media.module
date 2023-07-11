@@ -6,9 +6,9 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\os2loop_media\Helper\Helper;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
-use Drupal\os2loop_media\Helper\Helper;
 
 /**
  * Implements hook_views_query_alter().

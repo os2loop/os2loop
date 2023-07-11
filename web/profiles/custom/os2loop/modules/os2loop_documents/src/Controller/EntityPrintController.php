@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Entity print controller.
  */
-class EntityPrintController extends ControllerBase {
+final class EntityPrintController extends ControllerBase {
   /**
    * The config.
    *

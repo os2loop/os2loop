@@ -5,14 +5,14 @@ namespace Drupal\os2loop_toc_block\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\NodeInterface;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\os2loop_toc_block\Helper\Helper;
 use Drupal\toc_api\TocBuilder;
 use Drupal\toc_api\TocManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\os2loop_toc_block\Helper\Helper;
 
 /**
  * Provides a 'Table of Contents' Block.
@@ -23,7 +23,7 @@ use Drupal\os2loop_toc_block\Helper\Helper;
  *   category = @Translation("TOC block"),
  * )
  */
-class TocBlock extends BlockBase implements ContainerFactoryPluginInterface {
+final class TocBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * The toc manager interface.

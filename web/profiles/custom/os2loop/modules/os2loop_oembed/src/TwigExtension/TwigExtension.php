@@ -3,13 +3,13 @@
 namespace Drupal\os2loop_oembed\TwigExtension;
 
 use Drupal\Component\Serialization\Json;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\media\OEmbed\UrlResolverInterface;
+use Drupal\os2loop_settings\Settings;
 use GuzzleHttp\ClientInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
-use Drupal\Core\Messenger\MessengerInterface;
-use Drupal\os2loop_settings\Settings;
 
 /**
  * Custom twig functions.

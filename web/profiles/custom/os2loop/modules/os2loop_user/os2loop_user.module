@@ -7,9 +7,9 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\os2loop_user\Helper\Helper;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
-use Drupal\os2loop_user\Helper\Helper;
 
 /**
  * Implements hook_help().

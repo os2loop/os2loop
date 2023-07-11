@@ -5,10 +5,10 @@ namespace Drupal\os2loop_mail_notifications\Helper;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\Utility\Token;
 use Drupal\message\Entity\Message;
 use Drupal\os2loop_mail_notifications\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
-use Drupal\Core\Utility\Token;
 use Drupal\user\Entity\User;
 
 /**
