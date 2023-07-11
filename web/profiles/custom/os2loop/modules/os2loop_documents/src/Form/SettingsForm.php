@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Settings form.
  */
-class SettingsForm extends ConfigFormBase {
+final class SettingsForm extends ConfigFormBase {
   // @see https://drupal.stackexchange.com/a/238329
   use DependencySerializationTrait;
 

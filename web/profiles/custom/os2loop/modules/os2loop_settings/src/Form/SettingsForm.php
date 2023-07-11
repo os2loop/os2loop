@@ -2,12 +2,11 @@
 
 namespace Drupal\os2loop_settings\Form;
 
-use Drupal\Core\Path\PathValidatorInterface;
-
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
+use Drupal\Core\Path\PathValidatorInterface;
 use Drupal\Core\Url;
 use Drupal\node\Entity\NodeType;
 use Drupal\os2loop_settings\Settings;
@@ -17,7 +16,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Implements the OS2Loop settings form.
  */
-class SettingsForm extends ConfigFormBase {
+final class SettingsForm extends ConfigFormBase {
 
   /**
    * Config setting name.

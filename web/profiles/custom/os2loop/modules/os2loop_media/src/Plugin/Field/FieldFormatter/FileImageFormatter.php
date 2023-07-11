@@ -5,11 +5,11 @@ namespace Drupal\os2loop_media\Plugin\Field\FieldFormatter;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ExtensionPathResolver;
 use Drupal\Core\Field\FieldDefinitionInterface;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\file\FileInterface;
 use Drupal\file\Plugin\Field\FieldFormatter\FileFormatterBase;
+use Drupal\image\Entity\ImageStyle;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -23,7 +23,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   }
  * )
  */
-class FileImageFormatter extends FileFormatterBase implements ContainerFactoryPluginInterface {
+final class FileImageFormatter extends FileFormatterBase implements ContainerFactoryPluginInterface {
   /**
    * The entity type manager.
    *

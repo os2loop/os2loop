@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   admin_label = @Translation("Content related to user profession"),
  * )
  */
-class Os2loopListsProfessionBlock extends BlockBase implements ContainerFactoryPluginInterface {
+final class Os2loopListsProfessionBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * The helper service.

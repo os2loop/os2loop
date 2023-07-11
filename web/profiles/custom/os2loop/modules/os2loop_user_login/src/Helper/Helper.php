@@ -3,16 +3,16 @@
 namespace Drupal\os2loop_user_login\Helper;
 
 use Drupal\Core\Entity\EntityFieldManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
-use Drupal\os2loop_user_login\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
-use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\os2loop_user_login\Form\SettingsForm;
 use Drupal\user\UserInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 

@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Alert form.
  */
-class AlertForm extends FormBase {
+final class AlertForm extends FormBase {
   use StringTranslationTrait;
 
   /**
