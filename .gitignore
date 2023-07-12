@@ -197,3 +197,6 @@ private-files/
 .vscode
 node_modules/
 yarn-error.log
+
+# Ignore DS store
+.DS_Store

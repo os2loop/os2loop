@@ -112,7 +112,6 @@
         ],
         "coding-standards-check": [
             "@coding-standards-check/phpcs",
-            "@code-analysis",
             "@coding-standards-check/twigcs"
         ],
         "coding-standards-apply/phpcs": [
