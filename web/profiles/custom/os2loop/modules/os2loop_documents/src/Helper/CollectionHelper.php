@@ -455,6 +455,7 @@ class CollectionHelper {
       return $item->getCollectionId();
     }, $items);
 
+    // @phpstan-ignore-next-line
     return $this->nodeStorage->loadMultiple($collectionIds);
   }
 

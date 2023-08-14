@@ -70,7 +70,8 @@ class Helper extends ControllerBase {
    * @param string $operation
    *   The operation performed.
    * @param bool $forceNotify
-   *   If set, a message will be even when “Notify users of this change” is not set on the entity.
+   *   If set, a message will be even when “Notify users of this change” is not
+   *   set on the entity.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
@@ -101,7 +102,8 @@ class Helper extends ControllerBase {
       if ($node instanceof NodeInterface && $node->isPublished()) {
         $message->save();
 
-        // Changes on a document should also trigger a notification on collections containing the document.
+        // Changes on a document should also trigger a notification on
+        // collections containing the document.
         if (DocumentsNodeHelper::CONTENT_TYPE_DOCUMENT === $node->bundle()) {
           $collections = $this->documentsCollectionHelper->loadCollections($node);
           foreach ($collections as $collection) {
