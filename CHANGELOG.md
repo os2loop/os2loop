@@ -7,6 +7,8 @@ and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+- [PR-341](https://github.com/itk-dev/os2loop/pull/341): Notify of collection changed when document is changed.
 - [LOOP-862](https://jira.itkdev.dk/browse/LOOP-862): Added documentation for modules and hooks.
 - [LOOP-947](https://jira.itkdev.dk/browse/LOOP-947): Styling user profile page
 - [LOOP-948](https://jira.itkdev.dk/browse/LOOP-948): Fix position of user dropdown menu, that extends outside the viewport on narrow screens.
