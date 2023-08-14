@@ -1,7 +1,7 @@
 # OS2Loop Mail notifications
 
-Sends mail notifications to users when content the subscribe to has been created
-or edited.
+Sends mail notifications to users when content they subscribe to has been
+created or edited.
 
 A cron task is run daily to send out notifications.
 
