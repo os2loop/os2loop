@@ -8,6 +8,8 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\message\Entity\Message;
 use Drupal\node\NodeInterface;
+use Drupal\os2loop_documents\Helper\NodeHelper as DocumentsNodeHelper;
+use Drupal\os2loop_documents\Helper\CollectionHelper as DocumentsCollectionHelper;
 use Drupal\os2loop_settings\Settings;
 
 /**
@@ -33,7 +35,11 @@ class Helper extends ControllerBase {
   /**
    * Constructor.
    */
-  public function __construct(Settings $settings, AccountProxyInterface $currentUser) {
+  public function __construct(
+    Settings $settings,
+    AccountProxyInterface $currentUser,
+    private readonly DocumentsCollectionHelper $documentsCollectionHelper
+  ) {
     $this->config = $settings->getConfig('os2loop_subscriptions.settings');
     $this->currentUser = $currentUser;
   }
@@ -63,17 +69,21 @@ class Helper extends ControllerBase {
    *   The entity being to relate to.
    * @param string $operation
    *   The operation performed.
+   * @param bool $forceNotify
+   *   If set, a message will be even when “Notify users of this change” is not set on the entity.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function createMessage(EntityInterface $entity, string $operation) {
+  private function createMessage(EntityInterface $entity, string $operation, bool $forceNotify = FALSE) {
     $template = $this->getMessageTemplate($entity, $operation);
     if (NULL !== $template) {
       $node = NULL;
       $message = Message::create(['template' => $template]);
       if ($entity instanceof NodeInterface) {
         $node = $entity;
-        if ($entity->hasField('os2loop_notify_users') && !(bool) $entity->get('os2loop_notify_users')->getString()) {
+        if (!$forceNotify
+          && $entity->hasField('os2loop_notify_users')
+          && !(bool) $entity->get('os2loop_notify_users')->getString()) {
           return;
         }
         $message->set('os2loop_message_node_refer', $entity);
@@ -87,10 +97,17 @@ class Helper extends ControllerBase {
         $message->set('os2loop_message_node_refer', $node);
         $message->set('os2loop_message_comment_refer', $entity);
       }
-
       // Only save message on published content.
       if ($node instanceof NodeInterface && $node->isPublished()) {
         $message->save();
+
+        // Changes on a document should also trigger a notification on collections containing the document.
+        if (DocumentsNodeHelper::CONTENT_TYPE_DOCUMENT === $node->bundle()) {
+          $collections = $this->documentsCollectionHelper->loadCollections($node);
+          foreach ($collections as $collection) {
+            $this->createMessage($collection, $operation, TRUE);
+          }
+        }
       }
     }
   }

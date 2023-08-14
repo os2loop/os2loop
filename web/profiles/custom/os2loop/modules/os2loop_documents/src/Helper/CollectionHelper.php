@@ -441,6 +441,9 @@ class CollectionHelper {
    *
    * @param \Drupal\node\NodeInterface $document
    *   The document.
+   *
+   * @return \Drupal\node\NodeInterface[]
+   *   The collections.
    */
   public function loadCollections(NodeInterface $document) {
     $ids = $this->getCollectionItemQuery()
