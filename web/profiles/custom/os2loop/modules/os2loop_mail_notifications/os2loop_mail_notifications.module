@@ -7,6 +7,8 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\os2loop_mail_notifications\Helper\Helper;
+use Drupal\os2loop_mail_notifications\Helper\MailHelper;
 
 /**
  * Implements hook_cron().
@@ -14,7 +16,7 @@ use Drupal\Core\Render\BubbleableMetadata;
  * @see \Drupal\os2loop_mail_notifications\Helper\Helper::cron()
  */
 function os2loop_mail_notifications_cron() {
-  Drupal::service('os2loop_mail_notifications.helper')->cron();
+  Drupal::service(Helper::class)->cron();
 }
 
 /**
@@ -23,7 +25,7 @@ function os2loop_mail_notifications_cron() {
  * @see \Drupal\os2loop_mail_notifications\Helper\MailHelper::mail()
  */
 function os2loop_mail_notifications_mail($key, &$message, $params) {
-  Drupal::service('os2loop_mail_notifications.mail_helper')->mail($key, $message, $params);
+  Drupal::service(MailHelper::class)->mail($key, $message, $params);
 }
 
 /**
@@ -32,7 +34,7 @@ function os2loop_mail_notifications_mail($key, &$message, $params) {
  * @see \Drupal\os2loop_mail_notifications\Helper\MailHelper::tokens()
  */
 function os2loop_mail_notifications_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
-  return Drupal::service('os2loop_mail_notifications.mail_helper')->tokens($type, $tokens, $data);
+  return Drupal::service(MailHelper::class)->tokens($type, $tokens, $data);
 }
 
 /**
@@ -41,7 +43,7 @@ function os2loop_mail_notifications_tokens($type, $tokens, array $data, array $o
  * @see \Drupal\os2loop_mail_notifications\Helper\MailHelper::tokenInfo()
  */
 function os2loop_mail_notifications_token_info() {
-  return Drupal::service('os2loop_mail_notifications.mail_helper')->tokenInfo();
+  return Drupal::service(MailHelper::class)->tokenInfo();
 }
 
 /**
@@ -50,5 +52,5 @@ function os2loop_mail_notifications_token_info() {
  * @see \Drupal\os2loop_mail_notifications\Helper\Helper::userInsert()
  */
 function os2loop_mail_notifications_user_insert(EntityInterface $entity) {
-  return Drupal::service('os2loop_mail_notifications.helper')->userInsert($entity);
+  return Drupal::service(Helper::class)->userInsert($entity);
 }

@@ -8,7 +8,7 @@ services:
       - { name: content_fixture }
 
   Drupal\os2loop_documents_fixtures\Fixture\CollectionFixture:
-    arguments: ['@os2loop_documents.collection_helper']
+    arguments: ['@Drupal\os2loop_documents\Helper\CollectionHelper']
     tags:
       - { name: content_fixture }
 
@@ -17,11 +17,11 @@ services:
       - { name: content_fixture }
 
   Drupal\os2loop_documents_fixtures\Fixture\CollectionLegacyFixture:
-    arguments: ['@os2loop_documents.collection_helper']
+    arguments: ['@Drupal\os2loop_documents\Helper\CollectionHelper']
     tags:
       - { name: content_fixture }
 
   Drupal\os2loop_documents_fixtures\Fixture\DocumentTOCFixture:
-    arguments: ['@os2loop_documents.collection_helper']
+    arguments: ['@Drupal\os2loop_documents\Helper\CollectionHelper']
     tags:
       - { name: content_fixture }
