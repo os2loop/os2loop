@@ -9,6 +9,9 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
+use Drupal\os2loop_documents\Helper\FormHelper;
+use Drupal\os2loop_documents\Helper\Helper;
+use Drupal\os2loop_documents\Helper\NodeHelper;
 
 /**
  * Implements hook_help().
@@ -34,7 +37,7 @@ function os2loop_documents_help($route_name, RouteMatchInterface $route_match) {
 function os2loop_documents_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   // @todo We should use hook_event_dispatcher for this
   // https://www.drupal.org/project/hook_event_dispatcher/issues/3199174
-  \Drupal::service('os2loop_documents.form_helper')->alterForm($form, $form_state, $form_id);
+  \Drupal::service(FormHelper::class)->alterForm($form, $form_state, $form_id);
 }
 
 /**
@@ -43,7 +46,7 @@ function os2loop_documents_form_alter(array &$form, FormStateInterface $form_sta
  * @see \Drupal\os2loop_documents\Helper\NodeHelper::updateNode()
  */
 function os2loop_documents_node_update(EntityInterface $entity) {
-  \Drupal::service('os2loop_documents.node_helper')->updateNode($entity);
+  \Drupal::service(NodeHelper::class)->updateNode($entity);
 }
 
 /**
@@ -52,7 +55,7 @@ function os2loop_documents_node_update(EntityInterface $entity) {
  * @see \Drupal\os2loop_documents\Helper\NodeHelper::preprocessNode()
  */
 function os2loop_documents_preprocess_node(array &$variables) {
-  \Drupal::service('os2loop_documents.node_helper')->preprocessNode($variables);
+  \Drupal::service(NodeHelper::class)->preprocessNode($variables);
 }
 
 /**
@@ -61,7 +64,7 @@ function os2loop_documents_preprocess_node(array &$variables) {
  * @see \Drupal\os2loop_documents\Helper\NodeHelper::theme()
  */
 function os2loop_documents_theme($existing, $type, $theme, $path) {
-  return \Drupal::service('os2loop_documents.node_helper')->theme($existing, $type, $theme, $path);
+  return \Drupal::service(NodeHelper::class)->theme($existing, $type, $theme, $path);
 }
 
 /**
@@ -70,5 +73,5 @@ function os2loop_documents_theme($existing, $type, $theme, $path) {
  * @see \Drupal\os2loop_documents\Helper\Helper::alterCkeditorCss()
  */
 function os2loop_documents_ckeditor_css_alter(array &$css, Editor $editor) {
-  \Drupal::service('os2loop_documents.helper')->alterCkeditorCss($css, $editor);
+  \Drupal::service(Helper::class)->alterCkeditorCss($css, $editor);
 }
