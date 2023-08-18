@@ -137,9 +137,9 @@ composer coding-standards-apply
 ```
 
 ```sh
-docker run --rm --volume ${PWD}:/app --workdir /app node:16.13.2 yarn install
-docker run --rm --volume ${PWD}:/app --workdir /app node:16.13.2 yarn coding-standards-check
-docker run --rm --volume ${PWD}:/app --workdir /app node:16.13.2 yarn coding-standards-apply
+docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn install
+docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn coding-standards-check
+docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn coding-standards-apply
 ```
 
 ### GitHub Actions
@@ -175,6 +175,6 @@ composer coding-standards-check
 ## Build assets
 
 ```sh
-docker run --rm  --volume ${PWD}:/app --workdir /app node:16.13.2 yarn install
-docker run --rm  --volume ${PWD}:/app --workdir /app node:16.13.2 yarn encore dev
+docker run --rm  --volume ${PWD}:/app --workdir /app node:16 yarn install
+docker run --rm  --volume ${PWD}:/app --workdir /app node:16 yarn encore dev
 ```
