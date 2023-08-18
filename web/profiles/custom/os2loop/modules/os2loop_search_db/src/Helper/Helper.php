@@ -5,8 +5,10 @@ namespace Drupal\os2loop_search_db\Helper;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\os2loop_search_db\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
@@ -14,9 +16,7 @@ use Drupal\search_api\Query\Condition;
 use Drupal\search_api\Query\ConditionGroupInterface;
 use Drupal\search_api\Query\QueryInterface;
 use Drupal\search_api_autocomplete\Suggestion\Suggestion;
-use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Drupal\Core\Url;
 
 /**
  * Search Api Autocomplete Helper.
@@ -325,6 +325,7 @@ class Helper {
     $cids = $this->entityTypeManager
       ->getStorage('comment')
       ->getQuery('AND')
+      ->accessCheck()
       ->condition('entity_id', $node->id())
       ->condition('entity_type', 'node')
       ->execute();

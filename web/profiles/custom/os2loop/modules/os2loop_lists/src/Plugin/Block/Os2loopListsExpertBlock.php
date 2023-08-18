@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   admin_label = @Translation("Content related to user as expert"),
  * )
  */
-class Os2loopListsExpertBlock extends BlockBase implements ContainerFactoryPluginInterface {
+final class Os2loopListsExpertBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * The helper service.

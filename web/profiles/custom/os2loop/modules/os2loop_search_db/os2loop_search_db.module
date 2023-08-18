@@ -6,11 +6,11 @@
  */
 
 use Drupal\block\Entity\Block;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\os2loop_search_db\Helper\Helper;
 use Drupal\search_api\Query\QueryInterface;
-use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_help().

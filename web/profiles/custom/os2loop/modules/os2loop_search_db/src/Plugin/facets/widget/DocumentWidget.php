@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   description = @Translation("OS2Loop Document")
  * )
  */
-class DocumentWidget extends CheckboxWidget implements ContainerFactoryPluginInterface {
+final class DocumentWidget extends CheckboxWidget implements ContainerFactoryPluginInterface {
   /**
    * The helper.
    *

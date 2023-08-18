@@ -3,8 +3,8 @@
 namespace Drupal\os2loop_share_with_a_friend\Helper;
 
 use Drupal\node\NodeInterface;
-use Drupal\os2loop_share_with_a_friend\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
+use Drupal\os2loop_share_with_a_friend\Form\SettingsForm;
 
 /**
  * Helper for os2loop_share_with_a_friend.

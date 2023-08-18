@@ -4,8 +4,8 @@ namespace Drupal\os2loop_share_with_a_friend\Helper;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Utility\Token;
-use Drupal\os2loop_share_with_a_friend\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
+use Drupal\os2loop_share_with_a_friend\Form\SettingsForm;
 
 /**
  * MailHelper for creating mail templates.

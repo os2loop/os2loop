@@ -5,7 +5,6 @@ dependencies: {  }
 id: phpwkhtmltopdf
 settings:
   default_paper_size: a4
-  orientation: portrait
   username: ''
   password: ''
   binary_location: /usr/local/bin/wkhtmltopdf
@@ -16,3 +15,4 @@ settings:
   toc_disable_links: false
   viewport_size: _none
   remove_pdf_margins: false
+  default_paper_orientation: portrait

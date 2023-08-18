@@ -4,8 +4,8 @@ namespace Drupal\os2loop_subscriptions\Helper;
 
 use Drupal\Core\Database\Connection;
 use Drupal\node\NodeInterface;
-use Drupal\os2loop_subscriptions\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
+use Drupal\os2loop_subscriptions\Form\SettingsForm;
 use Drupal\taxonomy\Entity\Term;
 
 /**

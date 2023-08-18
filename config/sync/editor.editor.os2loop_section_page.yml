@@ -27,13 +27,7 @@ settings:
           items:
             - BulletedList
             - NumberedList
-  plugins:
-    stylescombo:
-      styles: ''
-    language:
-      language_list: un
-    tokenbrowser:
-      token_types: {  }
+  plugins: {  }
 image_upload:
   status: false
   scheme: public

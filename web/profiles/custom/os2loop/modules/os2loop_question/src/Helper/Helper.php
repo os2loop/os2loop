@@ -3,9 +3,9 @@
 namespace Drupal\os2loop_question\Helper;
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\os2loop_question\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Helper for questions.

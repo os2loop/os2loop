@@ -5,7 +5,6 @@ dependencies: {  }
 id: dompdf
 settings:
   default_paper_size: a4
-  orientation: portrait
   username: ''
   password: ''
   enable_html5_parser: true
@@ -14,3 +13,4 @@ settings:
   verify_peer: true
   verify_peer_name: true
   disable_log: 0
+  default_paper_orientation: portrait

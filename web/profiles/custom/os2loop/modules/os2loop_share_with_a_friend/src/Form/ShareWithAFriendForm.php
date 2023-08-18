@@ -4,13 +4,13 @@ namespace Drupal\os2loop_share_with_a_friend\Form;
 
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Form\FormBase;
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Routing\RouteMatchInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  *
  * @package Drupal\os2loop_share_with_a_friend\Form
  */
-class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterface {
+final class ShareWithAFriendForm extends FormBase implements ContainerInjectionInterface {
   /**
    * The route mathcer.
    *

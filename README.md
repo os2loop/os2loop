@@ -2,7 +2,7 @@
 
 [![Github](https://img.shields.io/badge/source-os2loop/os2loop-blue?style=flat-square)](https://github.com/os2loop/os2loop)
 [![Release](https://img.shields.io/github/v/release/os2loop/os2loop?sort=semver&style=flat-square)](https://github.com/os2loop/os2loop/releases)
-[![PHP Version](https://img.shields.io/badge/PHP-%5E7.4-9cf)](https://www.php.net/downloads)
+[![PHP Version](https://img.shields.io/badge/PHP-%5E8.1-9cf)](https://www.php.net/downloads)
 [![Build Status](https://img.shields.io/github/workflow/status/itk-dev/os2loop/PR%20Review?&logo=github&style=flat-square)](https://github.com/os2loop/os2loop/actions?query=workflow%3A%22Test+%26+Code+Style+Review%22)
 [![Read License](https://img.shields.io/github/license/os2loop/os2loop)](https://github.com/os2loop/os2loop/blob/master/LICENSE.txt)
 [![Github downloads](https://img.shields.io/github/downloads/os2loop/os2loop/total?style=flat-square&colorB=darkmagenta)](https://packagist.org/packages/os2loop/os2loop/stats)
@@ -137,9 +137,9 @@ composer coding-standards-apply
 ```
 
 ```sh
-docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn install
-docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn coding-standards-check
-docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn coding-standards-apply
+docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn install
+docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn coding-standards-check
+docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn coding-standards-apply
 ```
 
 ### GitHub Actions
@@ -175,6 +175,6 @@ composer coding-standards-check
 ## Build assets
 
 ```sh
-docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn install
-docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn encore dev
+docker run --rm  --volume ${PWD}:/app --workdir /app node:16 yarn install
+docker run --rm  --volume ${PWD}:/app --workdir /app node:16 yarn encore dev
 ```

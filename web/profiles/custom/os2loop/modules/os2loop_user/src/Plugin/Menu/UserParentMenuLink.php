@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * A menu link that shows the user menu.
  */
-class UserParentMenuLink extends MenuLinkDefault {
+final class UserParentMenuLink extends MenuLinkDefault {
 
   /**
    * The current user.
