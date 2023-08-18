@@ -8,8 +8,8 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\message\Entity\Message;
 use Drupal\node\NodeInterface;
-use Drupal\os2loop_documents\Helper\NodeHelper as DocumentsNodeHelper;
 use Drupal\os2loop_documents\Helper\CollectionHelper as DocumentsCollectionHelper;
+use Drupal\os2loop_documents\Helper\NodeHelper as DocumentsNodeHelper;
 use Drupal\os2loop_settings\Settings;
 
 /**
