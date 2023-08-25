@@ -6,8 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [feature/update-drupal-and-php]
 
+## [Unreleased]
+
+- [PR-341](https://github.com/itk-dev/os2loop/pull/341): Notify of collection changed when document is changed.
+
+## [feature/update-drupal-and-php] - 2023-08-25
+- Switch to dompdf
 - Upgrade drupal core (9.5.10)
 - Upgrade contrib module
 - Change code analysis tool (drupal-check -> phpstan for more configuration options)

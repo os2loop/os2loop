@@ -4,5 +4,6 @@ description: 'Create and show messages when content is created or changed'
 core_version_requirement: ^9
 package: 'OS2Loop'
 dependencies:
+  - drupal:os2loop_documents
   - drupal:os2loop_settings
   - drupal:os2loop_subscriptions

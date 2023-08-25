@@ -1,37 +1,32 @@
 services:
-  os2loop_documents.helper:
-    class: Drupal\os2loop_documents\Helper\Helper
+  Drupal\os2loop_documents\Helper\Helper:
     arguments:
       - '@module_handler'
 
-  os2loop_documents.collection_helper:
-    class: Drupal\os2loop_documents\Helper\CollectionHelper
+  Drupal\os2loop_documents\Helper\CollectionHelper:
     arguments:
       - '@entity_type.manager'
 
-  os2loop_documents.form_helper:
-    class: Drupal\os2loop_documents\Helper\FormHelper
+  Drupal\os2loop_documents\Helper\FormHelper:
     arguments:
-      - '@os2loop_documents.collection_helper'
+      - '@Drupal\os2loop_documents\Helper\CollectionHelper'
       - '@renderer'
       - '@main_content_renderer.ajax'
       - '@request_stack'
       - '@current_route_match'
       - '@messenger'
 
-  os2loop_documents.node_helper:
-    class: Drupal\os2loop_documents\Helper\NodeHelper
+  Drupal\os2loop_documents\Helper\NodeHelper:
     arguments:
-      - '@os2loop_documents.collection_helper'
+      - '@Drupal\os2loop_documents\Helper\CollectionHelper'
       - '@request_stack'
       - '@cache_tags.invalidator'
       - '@messenger'
 
-  os2loop_documents.entity_print.event_subscriber:
-    class: Drupal\os2loop_documents\EventSubscriber\EntityPrintEventSubscriber
-    arguments: ['@request_stack']
+  Drupal\os2loop_documents\EventSubscriber\EntityPrintEventSubscriber:
     tags:
       - { name: event_subscriber }
+    arguments: ['@request_stack']
 
   Drupal\os2loop_documents\Helper\UpdateHelper:
     arguments:

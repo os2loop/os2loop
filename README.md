@@ -2,7 +2,7 @@
 
 [![Github](https://img.shields.io/badge/source-os2loop/os2loop-blue?style=flat-square)](https://github.com/os2loop/os2loop)
 [![Release](https://img.shields.io/github/v/release/os2loop/os2loop?sort=semver&style=flat-square)](https://github.com/os2loop/os2loop/releases)
-[![PHP Version](https://img.shields.io/badge/PHP-%5E7.4-9cf)](https://www.php.net/downloads)
+[![PHP Version](https://img.shields.io/badge/PHP-%5E8.1-9cf)](https://www.php.net/downloads)
 [![Build Status](https://img.shields.io/github/workflow/status/itk-dev/os2loop/PR%20Review?&logo=github&style=flat-square)](https://github.com/os2loop/os2loop/actions?query=workflow%3A%22Test+%26+Code+Style+Review%22)
 [![Read License](https://img.shields.io/github/license/os2loop/os2loop)](https://github.com/os2loop/os2loop/blob/master/LICENSE.txt)
 [![Github downloads](https://img.shields.io/github/downloads/os2loop/os2loop/total?style=flat-square&colorB=darkmagenta)](https://packagist.org/packages/os2loop/os2loop/stats)
@@ -55,13 +55,13 @@ modules.
 See [docs/development](docs/development/README.md) for details on development.
 
 ```sh
-docker-compose up --detach
-docker-compose exec phpfpm composer install
-docker-compose exec phpfpm vendor/bin/drush --yes site:install os2loop --existing-config
+docker compose up --detach
+docker compose exec phpfpm composer install
+docker compose exec phpfpm vendor/bin/drush --yes site:install os2loop --existing-config
 # Get the site url
-echo "http://$(docker-compose port nginx 80)"
+echo "http://$(docker compose port nginx 8080)"
 # Get admin sign in url
-docker-compose exec phpfpm vendor/bin/drush --yes --uri="http://$(docker-compose port nginx 80)" user:login
+docker compose exec phpfpm vendor/bin/drush --yes --uri="http://$(docker compose port nginx 8080)" user:login
 ```
 
 ### Modules
@@ -71,11 +71,11 @@ is not yet available on drupal.org
 
 #### Mails
 
-Mails are caught by [MailHog](https://github.com/mailhog/MailHog) and can be
+Mails are caught by [Mailpit](https://github.com/axllent/mailpit) and can be
 read on the url reported by
 
 ```sh
-echo "http://$(docker-compose port mailhog 8025)"
+echo "http://$(docker compose port mail 8025)"
 ```
 
 ### Fixtures
@@ -86,15 +86,15 @@ To load all content type fixtures, run:
 
 ```sh
 # Find and enable all fixtures modules
-docker-compose exec phpfpm vendor/bin/drush --yes pm:enable $(find web/profiles/custom/os2loop/modules/ -type f -name 'os2loop_*_fixtures.info.yml' -exec basename -s .info.yml {} \;)
+docker compose exec phpfpm vendor/bin/drush --yes pm:enable $(find web/profiles/custom/os2loop/modules/ -type f -name 'os2loop_*_fixtures.info.yml' -exec basename -s .info.yml {} \;)
 # Disable "Entity Reference Integrity Enforce" module to be able to delete (purge) content before loading fixtures.
-docker-compose exec phpfpm vendor/bin/drush --yes pm:uninstall entity_reference_integrity_enforce
+docker compose exec phpfpm vendor/bin/drush --yes pm:uninstall entity_reference_integrity_enforce
 # Load the fixtures
-docker-compose exec phpfpm vendor/bin/drush --yes content-fixtures:load
+docker compose exec phpfpm vendor/bin/drush --yes content-fixtures:load
 # Uninstall all fixtures modules
-docker-compose exec phpfpm vendor/bin/drush --yes pm:uninstall content_fixtures
+docker compose exec phpfpm vendor/bin/drush --yes pm:uninstall content_fixtures
 # Enable "Entity Reference Integrity Enforce" module
-docker-compose exec phpfpm vendor/bin/drush --yes pm:enable entity_reference_integrity_enforce
+docker compose exec phpfpm vendor/bin/drush --yes pm:enable entity_reference_integrity_enforce
 ```
 
 ## Updates
@@ -137,9 +137,9 @@ composer coding-standards-apply
 ```
 
 ```sh
-docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn install
-docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn coding-standards-check
-docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn coding-standards-apply
+docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn install
+docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn coding-standards-check
+docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn coding-standards-apply
 ```
 
 ### GitHub Actions
@@ -175,6 +175,6 @@ composer coding-standards-check
 ## Build assets
 
 ```sh
-docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn install
-docker run --volume ${PWD}:/app --workdir /app node:16.13.2 yarn encore dev
+docker run --rm  --volume ${PWD}:/app --workdir /app node:16 yarn install
+docker run --rm  --volume ${PWD}:/app --workdir /app node:16 yarn encore dev
 ```
