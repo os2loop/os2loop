@@ -24,7 +24,7 @@ content:
     region: content
   os2loop_documents_tbl_desc:
     type: basic_string
-    label: visually_hidden
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 2

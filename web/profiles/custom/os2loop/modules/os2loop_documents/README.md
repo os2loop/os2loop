@@ -14,18 +14,16 @@ We use [Entity Print](https://www.drupal.org/project/entity_print) for
 printing documents and collections, i.e converting them to PDF.
 
 Entity Print is configured to use
-[`phpwkhtmltopdf`](https://github.com/mikehaertl/phpwkhtmltopdf) for converting
-HTML to PDF, and in order to make this work you need a working installation of
-wkhtmltopdf 0.12.6 (see
-<https://github.com/mikehaertl/phpwkhtmltopdf#installation-of-wkhtmltopdf>)
-available as `/usr/local/bin/wkhtmltopdf`.
+[`dompdf`](https://github.com/dompdf/dompdf) for converting
+HTML to PDF.
 
-If need be, you can override the path to the `wkhtmltopdf` binary in
-`settings.local.php`, e.g.:
-
+### Assets in Docker
+When using docker we need to help phpfpm locate assets. We use an event subscriber to alter the pdf
+and use our custom base url. The base url is defined in settings.php
 ```php
-$config['entity_print.print_engine.phpwkhtmltopdf']['settings']['binary_location'] = '/opt/wkhtmltopdf/wkhtmltopdf';
+$settings['pdf_custom_base_url'] = 'http://nginx:8080/';
 ```
+
 
 ### Debugging entity print input
 
@@ -39,3 +37,4 @@ vendor/bin/drush --yes pm:enable os2loop_documents_fixtures
 vendor/bin/drush --yes content-fixtures:load --groups=os2loop_documents,os2loop_file,os2loop_taxonomy
 vendor/bin/drush --yes pm:uninstall content_fixtures
 ```
+

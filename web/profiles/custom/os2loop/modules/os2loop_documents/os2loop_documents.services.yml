@@ -29,6 +29,7 @@ services:
 
   os2loop_documents.entity_print.event_subscriber:
     class: Drupal\os2loop_documents\EventSubscriber\EntityPrintEventSubscriber
+    arguments: ['@request_stack']
     tags:
       - { name: event_subscriber }
 
