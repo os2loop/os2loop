@@ -3,8 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.os2loop_documents_body
+    - filter.format.os2loop_documents_rich_text
+    - filter.format.os2loop_documents_table
     - filter.format.os2loop_external
     - filter.format.os2loop_page
+    - filter.format.os2loop_post
     - filter.format.os2loop_section_page
     - filter.format.os2loop_section_page_free_html
     - node.type.os2loop_documents_collection
@@ -21,14 +25,19 @@ dependencies:
     - comment
     - contextual
     - filter
+    - flag
     - locale
     - media
     - node
+    - os2loop_alert
+    - os2loop_messages
+    - paragraphs
     - path
     - simple_menu_permissions
     - system
     - taxonomy
     - toolbar
+    - view_unpublished
 id: os2loop_user_manager
 label: Manager
 weight: 4

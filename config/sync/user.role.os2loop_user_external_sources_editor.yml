@@ -12,7 +12,7 @@ dependencies:
     - system
     - toolbar
 id: os2loop_user_external_sources_editor
-label: 'External sources editor'
+label: 'Eksterne kilder redaktør'
 weight: 6
 is_admin: null
 permissions:

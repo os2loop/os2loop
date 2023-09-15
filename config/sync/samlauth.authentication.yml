@@ -40,9 +40,6 @@ idp_entity_id: 'file://settings.local.php/$config[''samlauth.authentication'']['
 idp_single_sign_on_service: 'file://settings.local.php/$config[''samlauth.authentication''][''idp_single_sign_on_service'']'
 idp_single_log_out_service: ''
 idp_change_password_service: ''
-idp_cert_type: single
-idp_x509_certificate: 'file://settings.local.php/$config[''samlauth.authentication''][''idp_x509_certificate'']'
-idp_x509_certificate_multi: ''
 unique_id_attribute: upn
 map_users: false
 map_users_name: true
@@ -73,3 +70,5 @@ debug_log_saml_in: false
 debug_log_in: false
 debug_phpsaml: false
 langcode: da
+idp_certs:
+  - 'file://settings.local.php/$config[''samlauth.authentication''][''idp_x509_certificate'']'

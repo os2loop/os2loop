@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - media
+    - toc_filter
     - token_filter
 name: 'Section (Free HTML)'
 format: os2loop_section_page_free_html
@@ -39,6 +40,16 @@ filters:
     status: false
     weight: -10
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <h1> <pre> <img src alt data-entity-type data-entity-uuid> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr>'
+      allowed_html: ''
       filter_html_help: true
       filter_html_nofollow: false
+  toc_filter:
+    id: toc_filter
+    provider: toc_filter
+    status: false
+    weight: 0
+    settings:
+      type: default
+      auto: ''
+      block: '0'
+      exclude_above: '0'

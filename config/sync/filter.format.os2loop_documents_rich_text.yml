@@ -6,6 +6,7 @@ dependencies:
     - convert_media_tags_to_markup
     - editor
     - media
+    - toc_filter
     - token_filter
 name: 'Documents (rich text)'
 format: os2loop_documents_rich_text
@@ -17,7 +18,7 @@ filters:
     status: true
     weight: -41
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h3 id> <p>'
+      allowed_html: '<br> <p> <h3 id> <cite> <dl> <dt> <dd> <a hreflang href> <blockquote cite> <ul type> <ol type start> <strong> <em> <code> <li>'
       filter_html_help: true
       filter_html_nofollow: false
   convert_legacy_media_tags_to_markup:
@@ -91,3 +92,13 @@ filters:
     weight: -44
     settings:
       replace_empty: '0'
+  toc_filter:
+    id: toc_filter
+    provider: toc_filter
+    status: false
+    weight: 0
+    settings:
+      type: default
+      auto: ''
+      block: '0'
+      exclude_above: '0'

@@ -14,7 +14,7 @@ dependencies:
     - system
     - toolbar
 id: os2loop_user_post_author
-label: 'Post author'
+label: Indlægsforfatter
 weight: 9
 is_admin: null
 permissions:

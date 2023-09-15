@@ -8,9 +8,11 @@ dependencies:
   module:
     - search_api
 id: os2loop_search_db_tags
-name: Tags
+name: Nøgleord
 weight: 0
 min_count: 1
+missing: false
+missing_label: others
 url_alias: os2loop_search_db_tags
 facet_source_id: 'search_api:views_page__os2loop_search_db__page_search'
 field_identifier: os2loop_shared_tags
@@ -19,6 +21,9 @@ hard_limit: 0
 exclude: false
 use_hierarchy: false
 keep_hierarchy_parents_active: false
+hierarchy:
+  type: taxonomy
+  config: {  }
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 widget:

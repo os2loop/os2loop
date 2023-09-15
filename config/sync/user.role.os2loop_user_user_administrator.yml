@@ -2,13 +2,15 @@ uuid: 85d9f1f3-18a7-4f00-81a1-4c42f821c247
 langcode: en
 status: true
 dependencies:
+  config:
+    - user.role.authenticated
   module:
+    - masquerade
     - media
     - system
     - toolbar
-    - masquerade
 id: os2loop_user_user_administrator
-label: 'User administrator'
+label: Brugeradministrator
 weight: 10
 is_admin: null
 permissions:

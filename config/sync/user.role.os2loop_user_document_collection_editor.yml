@@ -18,8 +18,9 @@ dependencies:
     - paragraphs
     - system
     - toolbar
+    - view_unpublished
 id: os2loop_user_document_collection_editor
-label: 'Document collection editor'
+label: 'Dokumentsamling redaktør'
 weight: 8
 is_admin: null
 permissions:

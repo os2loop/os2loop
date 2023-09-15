@@ -1,35 +1,80 @@
-uuid: e112eb77-5247-4da8-b2e0-6f6f9c43b82c
-langcode: en
+uuid: 9dac6f30-6e2a-433c-a704-332f1bc50fe4
+langcode: da
 status: true
 dependencies:
   config:
     - filter.format.os2loop_documents_table
   module:
-    - ckeditor
+    - ckeditor5
 format: os2loop_documents_table
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Tools
-          items:
-            - Table
-            - Styles
+    items:
+      - bold
+      - italic
+      - '|'
+      - link
+      - '|'
+      - insertTable
+      - style
+      - '|'
+      - blockQuote
+      - code
+      - bulletedList
+      - numberedList
+      - heading
+      - sourceEditing
   plugins:
-    stylescombo:
-      styles: "table.loop-documents-table.cke_show_border|Loop-tabel\r\nth.left|Venstrestillet (overskrift) \r\nth.center|Centreret (overskrift)\r\nth.right|Højrestillet (overskrift)\r\ntd.left|Venstrestillet\r\ntd.center|Centreret \r\ntd.right|Højrestillet\r\n"
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_style:
+      styles:
+        -
+          label: Loop-tabel
+          element: '<table class="loop-documents-table cke_show_border">'
+        -
+          label: 'Venstrestillet (overskrift)'
+          element: '<th class="left">'
+        -
+          label: 'Centreret (overskrift)'
+          element: '<th class="center">'
+        -
+          label: 'Højrestillet (overskrift)'
+          element: '<th class="right">'
+        -
+          label: Venstrestillet
+          element: '<td class="left">'
+        -
+          label: Centreret
+          element: '<td class="center">'
+        -
+          label: Højrestillet
+          element: '<td class="right">'
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<cite>'
+        - '<dl>'
+        - '<dt>'
+        - '<dd>'
+        - '<blockquote cite>'
+        - '<ul type>'
+        - '<ol type>'
+        - '<h2 id>'
+        - '<h3 id>'
+        - '<h4 id>'
+        - '<h5 id>'
+        - '<h6 id>'
+        - '<img src alt data-entity-type data-entity-uuid>'
+        - '<a hreflang>'
+    ckeditor5_list:
+      reversed: false
+      startIndex: true
 image_upload:
   status: false
   scheme: public

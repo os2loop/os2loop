@@ -4,15 +4,11 @@ display:
   default:
     display_title: Standard
     display_options:
-      title: Media
       fields:
         media_bulk_form:
           action_title: Handling
       pager:
         options:
-          tags:
-            next: ››
-            previous: ‹‹
           expose:
             items_per_page_label: 'Antal elementer'
             items_per_page_options_all_label: '- Alle -'
@@ -39,8 +35,6 @@ display:
       fields:
         media_bulk_form:
           action_title: Handling
-        name:
-          separator: ', '
         edit_media:
           alter:
             text: 'Redigér {{ name }}'
@@ -52,7 +46,6 @@ display:
             alt: 'Slet {{ name }}'
           text: Slet
   widget:
-    display_title: Widget
     display_options:
       header:
         display_link_grid:
@@ -60,7 +53,6 @@ display:
         display_link_table:
           label: Tabel
   widget_table:
-    display_title: 'Widget (table)'
     display_options:
       fields:
         name:

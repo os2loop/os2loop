@@ -1,42 +1,48 @@
-uuid: 8a51a05d-86b1-42af-9e25-3b204549dd6a
-langcode: en
+uuid: 5932107e-9b8c-424f-b824-dd4cc99e0bdd
+langcode: da
 status: true
 dependencies:
   config:
     - filter.format.os2loop_documents_rich_text
   module:
-    - ckeditor
+    - ckeditor5
 format: os2loop_documents_rich_text
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Format
-            - Bold
-            - Italic
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-        -
-          name: Tools
-          items:
-            - Source
-  plugins: {  }
+    items:
+      - heading
+      - bold
+      - italic
+      - '|'
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - '|'
+      - blockQuote
+      - '|'
+      - sourceEditing
+      - '|'
+      - code
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading3
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<cite>'
+        - '<dl>'
+        - '<dt>'
+        - '<dd>'
+        - '<a hreflang>'
+        - '<blockquote cite>'
+        - '<ul type>'
+        - '<ol type>'
+        - '<h3 id>'
+    ckeditor5_list:
+      reversed: false
+      startIndex: true
 image_upload:
   status: false
   scheme: public

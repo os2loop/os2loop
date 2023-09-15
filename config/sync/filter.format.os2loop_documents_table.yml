@@ -15,7 +15,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt data-entity-type data-entity-uuid> <caption> <tbody> <thead> <tfoot> <tr> <p> <table class=" loop-documents-table cke_show_border"> <th class=" left center right"> <td class=" left center right">'
+      allowed_html: '<br> <p> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <table class="loop-documents-table cke_show_border"> <th class="left center right" rowspan colspan> <td class="left center right" rowspan colspan> <cite> <dl> <dt> <dd> <blockquote cite> <ul type> <ol type start> <img src alt data-entity-type data-entity-uuid> <a hreflang href> <strong> <em> <code> <li> <tr> <thead> <tbody> <tfoot> <caption>'
       filter_html_help: true
       filter_html_nofollow: false
   token_filter:
@@ -34,3 +34,4 @@ filters:
       type: default
       auto: ''
       block: '0'
+      exclude_above: '0'

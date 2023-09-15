@@ -1,33 +1,33 @@
-uuid: 86abbc66-e33a-4482-9ebf-129f66841866
-langcode: en
+uuid: 08d1ecba-0730-4aae-9b4b-de3a14fcddf0
+langcode: da
 status: true
 dependencies:
   config:
     - filter.format.os2loop_section_page
   module:
-    - ckeditor
+    - ckeditor5
 format: os2loop_section_page
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-  plugins: {  }
+    items:
+      - bold
+      - italic
+      - '|'
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - sourceEditing
+  plugins:
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<a hreflang>'
+        - '<ul type>'
+        - '<ol type>'
+    ckeditor5_list:
+      reversed: false
+      startIndex: true
 image_upload:
   status: false
   scheme: public

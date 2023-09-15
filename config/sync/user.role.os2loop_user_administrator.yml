@@ -46,10 +46,12 @@ dependencies:
     - paragraphs
     - path
     - pathauto
+    - redirect
     - simple_menu_permissions
     - system
     - taxonomy
     - toolbar
+    - view_unpublished
 id: os2loop_user_administrator
 label: Administrator
 weight: 2
