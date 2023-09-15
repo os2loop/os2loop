@@ -14,7 +14,7 @@ $taxonomy-colors: (
 
 .os2loop-documents-document {
 	.tab-content {
-		@extend .block-primary-white !optional;
+		@extend .block-primary-white;
 	}
 
 	// Set background and text color for taxonomy term colors.
