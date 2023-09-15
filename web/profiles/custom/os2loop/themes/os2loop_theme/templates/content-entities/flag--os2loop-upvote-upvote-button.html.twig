@@ -14,7 +14,7 @@
  * - flaggable: The flaggable entity.
  */
 #}
-{% spaceless %}
+{% apply spaceless %}
 
 {# Depending on the flag action, set the appropriate action class. #}
 {% set action_class = action == 'unflag' ? 'unflag' : 'flag' %}
@@ -39,4 +39,4 @@
   {% endif %}
   </a>
 </div>
-{% endspaceless %}
+{% endapply %}

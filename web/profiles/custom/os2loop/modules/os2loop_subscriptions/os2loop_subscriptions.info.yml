@@ -1,7 +1,7 @@
 name: 'os2loop_subscriptions'
 type: module
 description: 'Show subscriptions on user page and provide info on subscribers'
-core_version_requirement: ^9
+core_version_requirement: ^9 || ^10
 package: 'OS2Loop'
 dependencies:
   - drupal:flag
