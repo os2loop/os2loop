@@ -4,7 +4,7 @@ namespace Drupal\os2loop_documents\Controller;
 
 use Drupal\Console\Core\Utils\NestedArray;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\File\FileUrlGeneratorInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\node\NodeInterface;
@@ -22,37 +22,26 @@ final class EntityPrintController extends ControllerBase {
    *
    * @var \Drupal\Core\Config\ImmutableConfig
    */
-  private $config;
+  private mixed $config;
 
   /**
    * The file storage.
    *
    * @var \Drupal\Core\Entity\EntityStorageInterface
    */
-  private $fileStorage;
-
-  /**
-   * The renderer.
-   *
-   * @var \Drupal\Core\Render\RendererInterface
-   */
-  private $renderer;
-
-  /**
-   * The file url generator.
-   *
-   * @var \Drupal\Core\File\FileUrlGeneratorInterface
-   */
-  private $fileUrlGenerator;
+  private EntityStorageInterface $fileStorage;
 
   /**
    * {@inheritdoc}
    */
-  public function __construct(Settings $settings, EntityTypeManagerInterface $entityTypeManager, RendererInterface $renderer, FileUrlGeneratorInterface $fileUrlGenerator) {
+  public function __construct(
+    public Settings $settings,
+    public $entityTypeManager,
+    public RendererInterface $renderer,
+    private readonly FileUrlGeneratorInterface $fileUrlGenerator) {
     $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME)->get('pdf');
     $this->fileStorage = $entityTypeManager->getStorage('file');
-    $this->renderer = $renderer;
-    $this->fileUrlGenerator = $fileUrlGenerator;
+
   }
 
   /**

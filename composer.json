@@ -53,7 +53,7 @@
         "drupal/core-recommended": "^9.1",
         "drupal/date_popup": "^1.1",
         "drupal/diff": "^1.0",
-        "drupal/entity_print": "^2.13",
+        "drupal/entity_print": "^2.2",
         "drupal/entity_reference_integrity": "^1.0",
         "drupal/entity_usage": "^2.0@beta",
         "drupal/facets": "^1.7",

@@ -18,12 +18,14 @@ Entity Print is configured to use
 HTML to PDF.
 
 ### Assets in Docker
-When using docker we need to help phpfpm locate assets. We use an event subscriber to alter the pdf
-and use our custom base url. The base url is defined in settings.php
+
+When using docker we need to help phpfpm locate assets. We use an event
+subscriber to alter the pdf and use our custom base url. The base url is defined
+in settings.php
+
 ```php
 $settings['pdf_custom_base_url'] = 'http://nginx:8080/';
 ```
-
 
 ### Debugging entity print input
 
@@ -37,4 +39,3 @@ vendor/bin/drush --yes pm:enable os2loop_documents_fixtures
 vendor/bin/drush --yes content-fixtures:load --groups=os2loop_documents,os2loop_file,os2loop_taxonomy
 vendor/bin/drush --yes pm:uninstall content_fixtures
 ```
-

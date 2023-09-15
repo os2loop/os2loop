@@ -2,16 +2,10 @@
 
 namespace Drupal\os2loop_documents\EventSubscriber;
 
-use Drupal\Component\Utility\Html;
-use Drupal\Core\Url;
-use Drupal\entity_print\Event\PreSendPrintEvent;
+use Drupal\Core\Site\Settings;
 use Drupal\entity_print\Event\PrintEvents;
 use Drupal\entity_print\Event\PrintHtmlAlterEvent;
-use Drupal\entity_print\Plugin\EntityPrint\PrintEngine\DomPdf;
-use Drupal\node\NodeInterface;
-use Drupal\os2loop_documents\Helper\NodeHelper;
 use Masterminds\HTML5;
-use Drupal\Core\Site\Settings;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
