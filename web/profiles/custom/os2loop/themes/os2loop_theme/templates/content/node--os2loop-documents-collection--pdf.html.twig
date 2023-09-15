@@ -77,7 +77,7 @@
     <ol>
       {% for item in items %}
         {% set document = item.document %}
-        <li>
+        <li id="toc-entry-{{ document.id }}">
           <a href="#node/{{ document.id }}" class="document-title">{{ document.title.value }}</a>
           {{ item.children ? _self.table_of_contents(item.children, collection) }}
         </li>
@@ -90,13 +90,10 @@
   {% if items %}
     {% for item in items %}
       {% set document = item.document %}
-      {% set tag_name = 'h' ~ level %}
       <article class="os2loop-documents--collection-documents--document" id="node/{{ document.id }}">
-        <{{ tag_name }} class="os2loop-documents--document-title">{{ document.title.value }}</{{ tag_name }}>
-
         {# Render document content (cf. https://www.drupal.org/docs/contributed-modules/twig-tweak-2x/cheat-sheet#s-drupal-entity). #}
         {# Note that we must use `pdf_content` to make the template renderer pick up the `…-pdf-content` template (!) #}
-        {{ drupal_entity('node', document.id, 'pdf_content') }}
+        {{ drupal_entity('node', document.id, 'pdf') }}
 
         {{ item.children ? _self.document_content(item.children, level + 1) }}
       </article>
@@ -104,7 +101,7 @@
   {% endif %}
 {% endmacro %}
 
-<article{{ attributes.addClass(os2loop_container_class) }}>
+<article>
   {{ title_prefix }}
   {% if label  %}
     <h1{{ title_attributes }}>
@@ -115,28 +112,27 @@
 
   <div{{ content_attributes }}>
     <div class="row">
-      <div class="col-md-9">
+      <div class="pdf-wrapper w-60 float-left d-block px-3">
         {{ content.os2loop_documents_dc_content }}
-
-        {% if os2loop_documents_collection_tree|default(false) %}
-          <fieldset class="os2loop-documents--collection-toc">
-            <legend>{{ 'Documents in collection'|trans }}</legend>
-            {{ _self.table_of_contents(os2loop_documents_collection_tree, node) }}
-          </fieldset>
-          <div class="os2loop-documents--collection-documents">
-            {{ _self.document_content(os2loop_documents_collection_tree) }}
-          </div>
-        {% endif %}
       </div>
-      <div class="col-md-3">
+      <div class="pdf-wrapper w-25 float-right d-block pl-3">
         <div class="bg-secondary-loop">
           <div> {{ content.os2loop_shared_profession }}</div>
           <div> {{ content.os2loop_shared_tags }}</div>
           <div> {{ content.os2loop_shared_subject }}</div>
           <div> {{ content.os2loop_documents_document_autho }}</div>
-          <div> {{ content.flag_os2loop_favourite }}</div>
         </div>
       </div>
     </div>
   </div>
+
+  {% if os2loop_documents_collection_tree|default(false) %}
+    <fieldset class="os2loop-documents--collection-toc">
+      <h2>{{ 'Documents in collection'|trans }}</h2>
+      {{ _self.table_of_contents(os2loop_documents_collection_tree, node) }}
+    </fieldset>
+    <div class="os2loop-documents--collection-documents">
+      {{ _self.document_content(os2loop_documents_collection_tree) }}
+    </div>
+  {% endif %}
 </article>

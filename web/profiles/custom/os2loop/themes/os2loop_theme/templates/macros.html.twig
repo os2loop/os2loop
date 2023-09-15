@@ -13,7 +13,7 @@
 {% macro title(title, class, node, content, show_subject=true, options={}) %}
   <div class="container px-0 title d-inline-flex align-items-top">
     {# icon #}
-    <div class="title-icon mr-20">
+    <div class="title-icon mr-20 d-print-none">
       {{ source("#{active_theme_path()}/assets/svg/#{class}.svg", ignore_missing=true) }}
     </div>
     <div class="container px-0 title-information">
@@ -31,7 +31,7 @@
           </h1>
           {{ title_suffix }}
         </div>
-        <div class="col-auto title-navigation">
+        <div class="col-auto title-navigation d-print-none">
           {# navigation #}
           {% include '@os2loop_theme/navigation/content-tasks.html.twig' %}
         </div>
@@ -62,7 +62,7 @@
 #}
 {% macro term(type, content, use_color_picker=false, color_picker_value='') %}
   {% if type is same as 'link' %}
-    <a class="badge badge-secondary {{ use_color_picker ? color_picker_value }}" href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': content['#options'].entity.id}) }}">{{ content['#options'].entity.name.value }}</a>
+    <a style="vertical-align:top;" class="badge badge-secondary {{ use_color_picker ? color_picker_value }}" href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': content['#options'].entity.id}) }}">{{ content['#options'].entity.name.value }}</a>
   {% else %}
     <span class="badge badge-light badge-pill">{{ content['#plain_text'] }}</span>
   {% endif %}

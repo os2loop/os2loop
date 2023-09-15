@@ -1,0 +1,57 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ title }}</title>
+  {{ entity_print_css }}
+  <style>
+
+  </style>
+</head>
+<body>
+<header>
+  <div class="metadata">
+    <div class="item">
+      <div class="label">{{ 'Owner'|t }}</div>
+      <div class="value">{{ node.os2loop_shared_owner.value }}</div>
+    </div>
+
+    <div class="item">
+      <div class="label">{{ 'Version'|t }}</div>
+      <div class="value">{{ node.os2loop_shared_version.value }}</div>
+    </div>
+
+    <div class="item">
+      <div class="label">{{ 'Approver'|t }}</div>
+      <div class="value">{{ node.os2loop_shared_approver.value }}</div>
+    </div>
+
+    <div class="item">
+      <div class="label">{{ 'Approval date'|t }}</div>
+      <div class="value">{{ node.os2loop_shared_approval_date.value ? node.os2loop_shared_approval_date.value|date('j/n - Y') }}</div>
+    </div>
+
+    <div class="item">
+      <div class="label">{{ 'Revision date'|t }}</div>
+      <div class="value">{{ node.os2loop_shared_rev_date.value ? node.os2loop_shared_rev_date.value|date('j/n - Y') }}</div>
+    </div>
+  </div>
+</header>
+<footer>
+  <div class="page-numbers">
+    <span>{{ 'Page'|t }}</span>
+    <span class="page-number">
+      {# Page number inserted by css. #}
+    </span>
+    <span>{{ 'of'|t }}</span>
+    <span class="page-count">
+      {# String replace is done by by entity_print_module #}
+      {{ '@@PC' }}
+    </span>
+  </div>
+</footer>
+
+<div class="page">
+  {{ content }}
+</div>
+</body>
+</html>

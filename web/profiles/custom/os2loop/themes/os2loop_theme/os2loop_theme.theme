@@ -287,3 +287,16 @@ function os2loop_theme_preprocess_form_element(&$variables) {
     $variables['label_display'] = 'after';
   }
 }
+
+/**
+ * Implements hook_preprocess().
+ */
+function os2loop_theme_preprocess_entity_print(&$variables) {
+  $routeName = \Drupal::routeMatch()->getRouteName();
+  if ('entity_print.view.debug' === $routeName && isset($variables['content'][0][0]['#node'])) {
+    $variables['node'] = $variables['content'][0][0]['#node'];
+  }
+  else {
+    $variables['node'] = $variables['content'][0]['#node'] ?? NULL;
+  }
+}

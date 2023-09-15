@@ -1,4 +1,9 @@
+// Colors
+@import "../../colors.scss";
+@import "../../variables/colors.scss";
+
 // Create list of taxonomy colors to loop through.
+
 // TODO: delete this if it is no longer needed
 $taxonomy-colors: (
 	"1": $taxonomy-color-1,
@@ -24,17 +29,17 @@ $taxonomy-colors: (
 		}
 
 		.os2loop-documents-info-box.taxonomy-color-#{$taxonomy-color-index} {
-			@extend .block-primary-light-green;
+			@extend .block-primary-light-green !optional;
 		}
 	}
 
 	.os2loop-highlighted-container {
-		@extend .block-primary-light-green;
+		@extend .block-primary-light-green !optional;
 	}
 
 	table.paragraph--type--os2loop-documents-table,
 	table.loop-documents-table {
-		@extend .w-100;
+		@extend .w-100 !optional;
 
 		border-collapse: separate;
 		border-spacing: 0;

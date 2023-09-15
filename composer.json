@@ -40,6 +40,7 @@
         "php": "^8.1",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
+        "dompdf/dompdf": "^2.0.1",
         "drupal/adminimal_theme": "^1.6",
         "drupal/autocomplete_deluxe": "2.0.0",
         "drupal/better_formats": "1.x-dev",
@@ -87,8 +88,7 @@
         "drupal/views_flag_refresh": "dev-2929394-drupal-8-port",
         "drupal/viewsreference": "^2.0",
         "drupal/xls_serialization": "^1.2",
-        "drush/drush": "^10.4",
-        "mikehaertl/phpwkhtmltopdf": "^2.5"
+        "drush/drush": "^10.4"
     },
     "scripts": {
         "post-install-cmd": [
@@ -229,6 +229,9 @@
             },
             "drupal/view_unpublished": {
                 "Grants are not cached if the user has \"view any unpublished content\" permission (https://www.drupal.org/project/view_unpublished/issues/3226756)": "https://www.drupal.org/files/issues/2021-08-04/view_unpublished-cache_ignored-3226756-2-8.x.patch"
+            },
+            "drupal/entity_print": {
+              "Add page count https://www.drupal.org/project/entity_print/issues/2823430": "https://www.drupal.org/files/issues/2023-07-10/entity_print-dompdf_page_count-2823430-14.patch"
             }
         }
     },

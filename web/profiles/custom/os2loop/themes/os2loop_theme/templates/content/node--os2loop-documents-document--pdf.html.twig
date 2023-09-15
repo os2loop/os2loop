@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Display of document content when rendering collection including document content.
+#}
+<h1>{{ label }}</h1>
+<div class="os2loop-documents-document">
+  <div class="os2loop-documents--document-content">
+    <div class="">
+      {% if content.os2loop_shared_subject %}
+        {{ content.os2loop_shared_subject }}
+      {% endif %}
+
+      {% if content.os2loop_shared_tags %}
+        {{ content.os2loop_shared_tags }}
+      {% endif %}
+    </div>
+    {% if content.os2loop_shared_profession %}
+      {{ content.os2loop_shared_profession }}
+    {% endif %}
+    <div class="os2loop-document-info-box">{{ content.os2loop_documents_info_box }}</div>
+    <div class="os2loop-document-body">{{ content.os2loop_documents_document_body }}</div>
+    <div class="os2loop-document-content">{{ content.os2loop_documents_document_conte }}</div>
+  </div>
+</div>

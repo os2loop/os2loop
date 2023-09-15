@@ -1,34 +1,94 @@
-// @see https://getbootstrap.com/docs/5.0/customize/sass/#importing
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/buttons";
-@import "~bootstrap/scss/transitions";
-@import "~bootstrap/scss/dropdown";
-@import "~bootstrap/scss/button-group";
-@import "~bootstrap/scss/input-group";
-@import "~bootstrap/scss/custom-forms";
-@import "~bootstrap/scss/nav";
-@import "~bootstrap/scss/navbar";
-@import "~bootstrap/scss/card";
-@import "~bootstrap/scss/breadcrumb";
-@import "~bootstrap/scss/pagination";
-@import "~bootstrap/scss/list-group";
-@import "~bootstrap/scss/utilities";
-@import "~bootstrap/scss/print";
+@import "../../app";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-html,
-body,
-.page {
-	margin: 0;
-	padding: 0;
+$font-family-base: "Roboto", "Arial", $font-family-base;
+
+// Set PDF
+@page {
+	margin: 100px 25px;
+}
+
+// PDF specific styling
+body {
+	margin-top: 50px;
+	background-color: $white;
+	font-size: 14px;
+	font-family: $font-family-base;
+	font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-family-base;
+	font-weight: 700;
+	line-height: normal;
+
+	h2,
+	h3 {
+		font-weight: 400;
+	}
+
+	span {
+		font-weight: 700;
+		font-family: $font-family-base !important;
+	}
+}
+
+.badge {
+	font-weight: 400;
+	font-size: 12px;
+	font-family: $font-family-base !important;
+}
+
+// Ensure header on every page.
+header {
+	position: fixed;
+	top: -60px;
+	left: 0;
+	right: 0;
+	height: 80px;
+
+	.metadata .item {
+		display: inline-block;
+		width: 45%;
+	}
+
+	.metadata .label,
+	.metadata .value {
+		display: inline-block;
+	}
+
+	.metadata .label::after {
+		content: ":";
+	}
+}
+
+// Ensure footer on every page.
+footer {
+	position: fixed;
+	bottom: -60px;
+	left: 0;
+	right: 0;
+	height: 50px;
+
+	.page-numbers {
+		text-align: right;
+
+		.page-number:after {
+			content: counter(page);
+		}
+	}
+}
+
+.os2loop-documents--collection-toc {
+	legend {
+		padding: 0;
+		margin: 0;
+	}
 }
 
 #document-tabs,
@@ -60,40 +120,38 @@ img {
 
 	.title-icon {
 		margin-right: 1em;
+		height: 30px;
+		width: 20px;
 	}
 }
 
-ol.os2loop-documents-steps {
-	list-style-type: none;
-	counter-reset: item;
-	margin: 0;
+.paragraph--type--os2loop-video {
 	padding: 0;
-
-	> li {
-		padding-left: 2rem;
-
-		> .step--collapse-toggle {
-			display: inline;
-			position: relative;
-
-			font: {
-				size: 1.25rem;
-				weight: bold;
-			}
-
-			counter-increment: item;
-
-			&::before {
-				content: counters(item, ".") ". ";
-				white-space: pre;
-				display: inline;
-			}
-
-			p {
-				display: inline;
-			}
-		}
-	}
 }
 
-@import "layout";
+.os2loop-documents--collection-toc {
+	// Move collection table of contents to a new page
+	page-break-before: always;
+}
+
+// Documents start a new page
+.os2loop-documents--collection-documents--document {
+	page-break-before: always;
+}
+
+.w-60 {
+	width: 60% !important;
+}
+
+.pdf-wrapper {
+	box-sizing: border-box;
+}
+
+.pdf-term-label {
+	padding-bottom: 1em;
+	vertical-align: text-top;
+}
+
+.element-invisible {
+	display: none;
+}
