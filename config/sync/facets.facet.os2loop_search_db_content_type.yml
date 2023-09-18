@@ -35,7 +35,7 @@ widget:
       show_less_label: 'Show less'
       show_more_label: 'Show more'
     show_reset_link: 1
-    reset_text: 'Alt indhold'
+    reset_text: 'All content'
     hide_reset_when_no_selection: 0
 empty_behavior:
   behavior: none

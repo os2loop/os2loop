@@ -10,7 +10,7 @@ dependencies:
     - system
     - toolbar
 id: os2loop_user_user_administrator
-label: Brugeradministrator
+label: 'User administrator'
 weight: 10
 is_admin: null
 permissions:

@@ -5,7 +5,7 @@ dependencies:
   module:
     - openid_connect
 id: os2loop_user_manual
-label: 'Login med brugernavn og adgangskode'
+label: Manual
 weight: 11
 is_admin: null
 permissions:

@@ -8,7 +8,7 @@ dependencies:
   module:
     - search_api
 id: os2loop_search_db_category
-name: Kategori
+name: Category
 weight: 0
 min_count: 1
 missing: false
