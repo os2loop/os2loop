@@ -1,4 +1,4 @@
-(function ($, Drupal) {
+(function ($, Drupal, once) {
     'use strict';
     /**
      * Remove entity reference ID from "entity_autocomplete" field.
@@ -46,7 +46,7 @@
       $(event.target).data('real-value', autocomplete.originalValues.join(', '));
       event.target.value = autocomplete.labelValues.join(', ');
 
-      return false;
+      return FALSE;
     }
 
-  })(jQuery, Drupal);
+})(jQuery, Drupal, once);
