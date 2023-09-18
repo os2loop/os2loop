@@ -9,4 +9,3 @@ dependencies:
   - drupal:openid_connect
   - drupal:os2loop_settings
   - drupal:os2loop_user
-
