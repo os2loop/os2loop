@@ -72,7 +72,6 @@
         "drupal/paragraphs_edit": "^2.0",
         "drupal/pathauto": "^1.8",
         "drupal/redirect": "^1.8",
-        "drupal/samlauth": "^3.9",
         "drupal/search_api": "^1.19",
         "drupal/search_api_autocomplete": "^1.4",
         "drupal/simple_menu_permissions": "^2.0",
