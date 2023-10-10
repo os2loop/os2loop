@@ -3,7 +3,7 @@ base theme: false
 name: 'os2loop'
 description: 'A theme for os2loop.'
 logo: logo.png
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^10
 screenshot: loop.png
 
 # This breaks `drush site:install` (maybe related to

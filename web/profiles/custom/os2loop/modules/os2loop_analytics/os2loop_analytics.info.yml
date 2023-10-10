@@ -1,5 +1,5 @@
 name: 'Os2loop analytics'
 type: module
 description: 'OS2Loop analytics'
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10
 package: 'OS2Loop'

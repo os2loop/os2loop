@@ -2,7 +2,7 @@ name: 'OS2Loop toc block'
 type: module
 description: 'Adds table of contents block'
 core: 8.x
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^10
 package: 'OS2Loop'
 
 dependencies:

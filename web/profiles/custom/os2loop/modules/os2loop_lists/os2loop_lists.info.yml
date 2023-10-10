@@ -1,7 +1,7 @@
 name: 'os2loop_lists'
 type: module
 description: 'Complex db queries that should not be covered by views module output in blocks'
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10
 package: 'OS2Loop'
 dependencies:
   - drupal:twig_tweak

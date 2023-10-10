@@ -2,7 +2,7 @@
 name: OS2Loop
 type: profile
 description: 'The OS2Loop profile'
-core_version_requirement: '^8.8 || ^9 || ^10'
+core_version_requirement: ^10
 
 # Optional: Declare your installation profile as a distribution
 # This will make the installer auto-select this installation profile.

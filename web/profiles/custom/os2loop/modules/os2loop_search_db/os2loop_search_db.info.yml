@@ -1,7 +1,7 @@
 name: 'OS2Loop Search DB'
 type: module
 description: 'OS2Loop Search DB'
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10
 package: 'OS2Loop'
 dependencies:
   - drupal:os2loop_settings
