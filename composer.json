@@ -99,10 +99,10 @@
             "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
         ],
         "code-analysis/phpstan": [
-          "phpstan analyse --configuration=phpstan.neon --memory-limit=2G"
+            "phpstan analyse --configuration=phpstan.neon --memory-limit=2G"
         ],
         "code-analysis": [
-          "@code-analysis/phpstan"
+            "@code-analysis/phpstan"
         ],
         "coding-standards-check/phpcs": [
             "php vendor/bin/phpcs --standard=phpcs.xml.dist"
@@ -202,11 +202,10 @@
             ]
         },
         "enable-patching": true,
-        "//patches": {
+        "patches": {
             "drupal/core": {
                 "Disable forced configuration langcode (https://www.drupal.org/project/drupal/issues/3150540)": "https://www.drupal.org/files/issues/2023-05-24/3150540-36.patch",
-                "Handle undefined index when using form states (https://www.drupal.org/project/drupal/issues/2700667)": "https://www.drupal.org/files/issues/2020-03-11/2700667-104.patch",
-                "Multiple usages of FieldPluginBase::getEntity do not check for NULL, leading to WSOD (https://www.drupal.org/project/drupal/issues/3007424)": "https://www.drupal.org/files/issues/2023-05-23/3007424-207-9.5.x.patch"
+                "Handle undefined index when using form states (https://www.drupal.org/project/drupal/issues/2700667)": "https://www.drupal.org/files/issues/2020-03-11/2700667-104.patch"
             },
             "drupal/flag": {
                 "Implement Migration Paths for Flag 7.x (https://www.drupal.org/project/flag/issues/2409901#comment-13082245)": "https://www.drupal.org/files/issues/2019-04-25/2409901_flag_migration_paths_52.patch",
@@ -214,9 +213,6 @@
             },
             "drupal/openid_connect": {
                 "Revoking group access does not reflect on applied roles (https://www.drupal.org/project/openid_connect/issues/3224128)": "https://git.drupalcode.org/project/openid_connect/-/merge_requests/31.diff"
-            },
-            "drupal/inline_entity_form": {
-                "Fix bug in inline entity form": "https://www.drupal.org/files/issues/2020-11-18/inline_entity_form-required_fields_optional_ief-3099844-15.patch"
             },
             "drupal/masquerade": {
                 "https://www.drupal.org/project/masquerade/issues/2962970#comment-13391256": "https://www.drupal.org/files/issues/2019-12-13/temporary%20unmask%20workaround-2962970-8.patch"
@@ -228,10 +224,10 @@
                 "Grants are not cached if the user has \"view any unpublished content\" permission (https://www.drupal.org/project/view_unpublished/issues/3226756)": "https://www.drupal.org/files/issues/2021-08-04/view_unpublished-cache_ignored-3226756-2-8.x.patch"
             },
             "drupal/entity_print": {
-              "Add page count https://www.drupal.org/project/entity_print/issues/2823430": "https://www.drupal.org/files/issues/2023-07-10/entity_print-dompdf_page_count-2823430-14.patch"
+                "Add page count https://www.drupal.org/project/entity_print/issues/2823430": "https://www.drupal.org/files/issues/2023-07-10/entity_print-dompdf_page_count-2823430-14.patch"
             },
             "drupal/entity_reference_integrity": {
-              "https://www.drupal.org/project/entity_reference_integrity/issues/3380250": "https://www.drupal.org/files/issues/2023-08-29/entity_reference_integrity-3380250-5.patch"
+                "https://www.drupal.org/project/entity_reference_integrity/issues/3380250": "https://www.drupal.org/files/issues/2023-08-29/entity_reference_integrity-3380250-5.patch"
             }
         }
     },
