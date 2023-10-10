@@ -10,6 +10,7 @@ label: 'Edit user profile'
 weight: -10
 theme: os2loop_theme
 admin_theme: os2loop_theme
+conjunction: and
 visibility:
   request_path:
     id: request_path
