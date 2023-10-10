@@ -23,8 +23,12 @@ settings:
   provider: views
   views_label: ''
 visibility:
-  node_type:
-    id: node_type
+  request_path:
+    id: request_path
+    negate: true
+    pages: "# Show only on node view page (works with \"Hide for the listed pages\" and selected content types)\r\n/node/*"
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
@@ -34,7 +38,3 @@ visibility:
       os2loop_external: os2loop_external
       os2loop_post: os2loop_post
       os2loop_question: os2loop_question
-  request_path:
-    id: request_path
-    negate: true
-    pages: "# Show only on node view page (works with \"Hide for the listed pages\" and selected content types)\r\n/node/*"
