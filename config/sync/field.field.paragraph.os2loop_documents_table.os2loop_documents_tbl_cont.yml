@@ -10,7 +10,7 @@ dependencies:
     - text
 third_party_settings:
   better_formats:
-    allowed_formats_toggle: 1
+    allowed_formats_toggle: true
     allowed_formats:
       os2loop_documents_table: os2loop_documents_table
       os2loop_question_answer_plain_text: 0
@@ -26,7 +26,7 @@ third_party_settings:
       os2loop_question_plain_text: 0
       os2loop_question_rich_text: 0
       os2loop_section_page: 0
-    default_order_toggle: 0
+    default_order_toggle: false
     default_order_wrapper:
       formats:
         os2loop_question_answer_plain_text:
@@ -70,5 +70,6 @@ default_value:
     value: "<table class=\"loop-documents-table\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th class=\"left\">A</th>\r\n\t\t\t<th class=\"left\">B</th>\r\n\t\t\t<th class=\"left\">C</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td class=\"left\">5</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>7</td>\r\n\t\t\t<td>11</td>\r\n\t\t\t<td class=\"left\">13</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n"
     format: os2loop_documents_table
 default_value_callback: ''
-settings: {  }
+settings:
+  allowed_formats: {  }
 field_type: text_long
