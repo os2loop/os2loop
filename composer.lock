@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "732e5fa4883f082a3b1d5276a6645578",
+    "content-hash": "be0d1f0ddbfa096ebff316e31d24e0e0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -11515,35 +11515,38 @@
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
-            "version": "v0.7.2",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
-                "reference": "1c968e542d8843d7cd71de3c5c9c3ff3ad71a1db"
+                "url": "https://github.com/PHPCSStandards/composer-installer.git",
+                "reference": "4be43904336affa5c2f70744a348312336afd0da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/1c968e542d8843d7cd71de3c5c9c3ff3ad71a1db",
-                "reference": "1c968e542d8843d7cd71de3c5c9c3ff3ad71a1db",
+                "url": "https://api.github.com/repos/PHPCSStandards/composer-installer/zipball/4be43904336affa5c2f70744a348312336afd0da",
+                "reference": "4be43904336affa5c2f70744a348312336afd0da",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.0 || ^2.0",
-                "php": ">=5.3",
+                "php": ">=5.4",
                 "squizlabs/php_codesniffer": "^2.0 || ^3.1.0 || ^4.0"
             },
             "require-dev": {
                 "composer/composer": "*",
+                "ext-json": "*",
+                "ext-zip": "*",
                 "php-parallel-lint/php-parallel-lint": "^1.3.1",
-                "phpcompatibility/php-compatibility": "^9.0"
+                "phpcompatibility/php-compatibility": "^9.0",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "composer-plugin",
             "extra": {
-                "class": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
+                "class": "PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
             },
             "autoload": {
                 "psr-4": {
-                    "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
+                    "PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11559,7 +11562,7 @@
                 },
                 {
                     "name": "Contributors",
-                    "homepage": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer/graphs/contributors"
+                    "homepage": "https://github.com/PHPCSStandards/composer-installer/graphs/contributors"
                 }
             ],
             "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
@@ -11583,10 +11586,10 @@
                 "tests"
             ],
             "support": {
-                "issues": "https://github.com/dealerdirect/phpcodesniffer-composer-installer/issues",
-                "source": "https://github.com/dealerdirect/phpcodesniffer-composer-installer"
+                "issues": "https://github.com/PHPCSStandards/composer-installer/issues",
+                "source": "https://github.com/PHPCSStandards/composer-installer"
             },
-            "time": "2022-02-04T12:51:07+00:00"
+            "time": "2023-01-05T11:28:13+00:00"
         },
         {
             "name": "doctrine/common",
@@ -12168,30 +12171,32 @@
         },
         {
             "name": "friendsoftwig/twigcs",
-            "version": "5.2.0",
+            "version": "6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/friendsoftwig/twigcs.git",
-                "reference": "5123655a918d232788da4d7b0545c9f75b08023a"
+                "reference": "da697cc1bf6bf22feb1d8dbefcbdb1451e6a35f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/friendsoftwig/twigcs/zipball/5123655a918d232788da4d7b0545c9f75b08023a",
-                "reference": "5123655a918d232788da4d7b0545c9f75b08023a",
+                "url": "https://api.github.com/repos/friendsoftwig/twigcs/zipball/da697cc1bf6bf22feb1d8dbefcbdb1451e6a35f6",
+                "reference": "da697cc1bf6bf22feb1d8dbefcbdb1451e6a35f6",
                 "shasum": ""
             },
             "require": {
                 "ext-ctype": "*",
+                "ext-hash": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "ext-simplexml": "*",
-                "php": "^7.4 || ^8.0",
+                "php": "~8.0.0 || ~8.1.0 || ~8.2.0",
                 "symfony/console": "^4.4 || ^5.3 || ^6.0",
                 "symfony/filesystem": "^4.4 || ^5.3 || ^6.0",
                 "symfony/finder": "^4.4 || ^5.3 || ^6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.5.20"
+                "phpunit/phpunit": "^9.5.27",
+                "symfony/phpunit-bridge": "^6.2.3"
             },
             "bin": [
                 "bin/twigcs"
@@ -12215,9 +12220,9 @@
             "description": "Checkstyle automation for Twig",
             "support": {
                 "issues": "https://github.com/friendsoftwig/twigcs/issues",
-                "source": "https://github.com/friendsoftwig/twigcs/tree/5.2.0"
+                "source": "https://github.com/friendsoftwig/twigcs/tree/6.2.0"
             },
-            "time": "2022-04-28T11:29:58+00:00"
+            "time": "2023-01-13T16:02:00+00:00"
         },
         {
             "name": "instaclick/php-webdriver",
@@ -12354,28 +12359,28 @@
         },
         {
             "name": "kint-php/kint",
-            "version": "4.2.3",
+            "version": "5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kint-php/kint.git",
-                "reference": "7601bfd95ccc50a1b903c2764b31d00919e8edd9"
+                "reference": "a700653a77250b122920799b10c94e904c9b78c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kint-php/kint/zipball/7601bfd95ccc50a1b903c2764b31d00919e8edd9",
-                "reference": "7601bfd95ccc50a1b903c2764b31d00919e8edd9",
+                "url": "https://api.github.com/repos/kint-php/kint/zipball/a700653a77250b122920799b10c94e904c9b78c7",
+                "reference": "a700653a77250b122920799b10c94e904c9b78c7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.0",
+                "friendsofphp/php-cs-fixer": "^3",
                 "phpspec/prophecy-phpunit": "^2",
-                "phpunit/phpunit": "^9.0",
-                "seld/phar-utils": "^1.0",
-                "symfony/finder": "^3.0 || ^4.0 || ^5.0",
-                "vimeo/psalm": "^4.0"
+                "phpunit/phpunit": "^9",
+                "seld/phar-utils": "^1",
+                "symfony/finder": "^4.0 || ^5.0 || ^6.0",
+                "vimeo/psalm": "^5@dev"
             },
             "suggest": {
                 "kint-php/kint-helpers": "Provides extra helper functions",
@@ -12413,9 +12418,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kint-php/kint/issues",
-                "source": "https://github.com/kint-php/kint/tree/4.2.3"
+                "source": "https://github.com/kint-php/kint/tree/5.0.7"
             },
-            "time": "2022-10-01T20:16:33+00:00"
+            "time": "2023-06-26T19:25:00+00:00"
         },
         {
             "name": "mikey179/vfsstream",
