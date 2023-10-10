@@ -15,26 +15,12 @@ Encore](https://symfony.com/doc/current/frontend/encore/installation.html#instal
 Build assets (JavaScript and CSS) by running
 
 ```sh
-docker run --volume ${PWD}:/app --workdir /app node:16 yarn install
-docker run --volume ${PWD}:/app --workdir /app node:16 yarn build
+docker compose run --rm node yarn --cwd web/profiles/custom/os2loop/themes/os2loop_theme install
+docker compose run --rm node yarn --cwd web/profiles/custom/os2loop/themes/os2loop_theme build
 ```
 
 Watch for changes:
 
 ```sh
-docker run --interactive --tty --volume ${PWD}:/app --workdir /app node:16 yarn watch
-```
-
-During development you may want to run it with your locally installed
-[`yarn`](https://classic.yarnpkg.com/en/docs/install/) binary:
-
-```sh
-yarn install
-yarn build
-```
-
-and maybe even watch for changes:
-
-```sh
-yarn watch
+docker compose run --rm node yarn --cwd web/profiles/custom/os2loop/themes/os2loop_theme watch
 ```

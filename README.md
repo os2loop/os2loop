@@ -100,11 +100,11 @@ docker compose exec phpfpm vendor/bin/drush --yes pm:enable entity_reference_int
 ## Updates
 
 ```sh
-composer install --no-dev --optimize-autoloader
-vendor/bin/drush --yes updatedb
-vendor/bin/drush --yes config:import
-vendor/bin/drush --yes locale:update
-vendor/bin/drush --yes cache:rebuild
+docker compose exec phpfpm composer install --no-dev --optimize-autoloader
+docker compose exec phpfpm vendor/bin/drush --yes updatedb
+docker compose exec phpfpm vendor/bin/drush --yes config:import
+docker compose exec phpfpm vendor/bin/drush --yes locale:update
+docker compose exec phpfpm vendor/bin/drush --yes cache:rebuild
 ```
 
 ## Translations
@@ -132,14 +132,14 @@ for further details.
 ## Coding standards
 
 ```sh
-composer coding-standards-check
-composer coding-standards-apply
+docker compose exec phpfpm composer coding-standards-check
+docker compose exec phpfpm composer coding-standards-apply
 ```
 
 ```sh
-docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn install
-docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn coding-standards-check
-docker run --rm --volume ${PWD}:/app --workdir /app node:16 yarn coding-standards-apply
+docker compose run --rm node yarn install
+docker compose run --rm node yarn coding-standards-check
+docker compose run --rm node yarn coding-standards-apply
 ```
 
 ### GitHub Actions
@@ -163,18 +163,16 @@ act -P ubuntu-latest=shivammathur/node:focal pull_request
 To run only twigcs:
 
 ```sh
-composer coding-standards-check/twigcs
+docker compose exec phpfpm composer coding-standards-check/twigcs
 ```
 
 But this is also a part of
 
 ```sh
-composer coding-standards-check
+docker compose exec phpfpm composer coding-standards-check
 ```
 
-## Build assets
+## Build theme assets
 
-```sh
-docker run --rm  --volume ${PWD}:/app --workdir /app node:16 yarn install
-docker run --rm  --volume ${PWD}:/app --workdir /app node:16 yarn encore dev
-```
+See
+[os2loop_theme/README.md](web/profiles/custom/os2loop/themes/os2loop_theme/README.md).
