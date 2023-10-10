@@ -93,9 +93,9 @@ class UpvoteFlagSubscriber implements EventSubscriberInterface {
       $comment_ids = $this->entityTypeManager
         ->getStorage('comment')
         ->getQuery('AND')
-        ->accessCheck()
         ->condition('entity_id', $nid)
         ->condition('entity_type', 'node')
+        ->accessCheck()
         ->execute();
 
       return $this->entityTypeManager

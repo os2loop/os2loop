@@ -328,6 +328,7 @@ class Helper {
       ->accessCheck()
       ->condition('entity_id', $node->id())
       ->condition('entity_type', 'node')
+      ->accessCheck()
       ->execute();
     foreach ($cids as $cid) {
       $comment = $this->commentStorage->load($cid);

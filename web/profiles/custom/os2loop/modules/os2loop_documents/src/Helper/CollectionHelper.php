@@ -104,6 +104,7 @@ class CollectionHelper {
   public function updateCollection(NodeInterface $node, array $data) {
     $ids = $this->getCollectionItemQuery()
       ->condition('collection_id', $node->id())
+      ->accessCheck(FALSE)
       ->execute();
     $items = DocumentCollectionItem::loadMultiple($ids);
     foreach ($items as $item) {
