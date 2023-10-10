@@ -55,6 +55,7 @@ modules.
 See [docs/development](docs/development/README.md) for details on development.
 
 ```sh
+docker compose pull
 docker compose up --detach
 docker compose exec phpfpm composer install
 docker compose exec phpfpm vendor/bin/drush --yes site:install os2loop --existing-config
