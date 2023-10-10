@@ -51,10 +51,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
       - name: Install Dependencies
         run: |
-          # Using `--no-scripts` breaks something with mglaman/drupal-check.
           composer install --no-interaction --no-progress
-          # @see https://github.com/Dealerdirect/phpcodesniffer-composer-installer#calling-the-plugin-directly
-          composer run-script install-codestandards
       - name: PHPCS
         run: |
           composer coding-standards-check

@@ -1,13 +1,9 @@
 {
-    "name": "drupal/recommended-project",
-    "description": "Project template for Drupal 9 projects with a relocated document root",
+    "name": "os2loop/os2loop",
+    "description": "OS2Loop",
     "type": "project",
     "license": "GPL-2.0-or-later",
-    "homepage": "https://www.drupal.org/project/drupal",
-    "support": {
-        "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
-        "chat": "https://www.drupal.org/node/314178"
-    },
+    "homepage": "https://github.com/os2loop/os2loop",
     "repositories": {
         "drupal": {
             "type": "composer",
@@ -93,13 +89,6 @@
         "drush/drush": "^12.2"
     },
     "scripts": {
-        "post-install-cmd": [
-            "ln -sf ../../scripts/git/hooks/pre-commit .git/hooks/pre-commit",
-            "@install-codestandards"
-        ],
-        "install-codestandards": [
-            "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
-        ],
         "code-analysis/phpstan": [
             "phpstan analyse --configuration=phpstan.neon --memory-limit=2G"
         ],
