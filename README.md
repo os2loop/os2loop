@@ -10,6 +10,33 @@
 OS2loop is a question-answering system built on Drupal 9. See [os2.eu/produkt/os2loop](https://os2.eu/produkt/os2loop)
 (in Danish) for more information.
 
+## Upgrading to Drupal 10
+
+Upgrading to [Drupal 10](https://www.drupal.org/about/10) is a two-step process:
+first the site must be prepared for the upgrade ([tag:
+d-10-prepare](/releases/tag/d-10-prepare)) and then the actual upgrade must be
+performed.
+
+```sh
+# Backup the database
+
+# Prepare for the upgrade
+git checkout d-10-prepare
+composer install --no-dev --optimize-autoloader
+vendor/bin/drush --yes deploy
+vendor/bin/drush --yes locale:update
+vendor/bin/drush --yes cache:rebuild
+
+# Check that site still works
+
+# Upgrade to Drupal 10
+git checkout «release tag»
+composer install --no-dev --optimize-autoloader
+vendor/bin/drush --yes deploy
+vendor/bin/drush --yes locale:update
+vendor/bin/drush --yes cache:rebuild
+```
+
 ## Installation
 
 ### Production
