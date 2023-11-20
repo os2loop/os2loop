@@ -23,6 +23,7 @@ performed.
 # Prepare for the upgrade
 git checkout d-10-prepare
 composer install --no-dev --optimize-autoloader
+vendor/bin/drush --yes pm:uninstall samlauth
 vendor/bin/drush --yes deploy
 vendor/bin/drush --yes locale:update
 vendor/bin/drush --yes cache:rebuild
