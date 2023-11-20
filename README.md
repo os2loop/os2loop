@@ -81,15 +81,15 @@ modules.
 
 See [docs/development](docs/development/README.md) for details on development.
 
+[Install Task](https://taskfile.dev/installation/) and run
+
 ```sh
-docker compose pull
-docker compose up --detach
-docker compose exec phpfpm composer install
-docker compose exec phpfpm vendor/bin/drush --yes site:install os2loop --existing-config
+task dev:up
+task dev:install-site --yes
 # Get the site url
 echo "http://$(docker compose port nginx 8080)"
 # Get admin sign in url
-docker compose exec phpfpm vendor/bin/drush --yes --uri="http://$(docker compose port nginx 8080)" user:login
+task dev:drush -- --yes --uri="http://$(docker compose port nginx 8080)" user:login
 ```
 
 ### Modules
