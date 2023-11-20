@@ -4,3 +4,31 @@
  * @file
  * Install, update and uninstall functions for the os2loop install profile.
  */
+
+/**
+ * Fix visibility config.
+ */
+function os2loop_update_10001() {
+  // @see https://www.drupal.org/project/drupal/issues/3356728#comment-15189593.
+  $config_factory = \Drupal::service('config.factory');
+  $config_types = [
+    'block.block',
+    'theme_switcher',
+  ];
+
+  foreach ($config_types as $config_type) {
+    $block_configurations = $config_factory->listAll($config_type);
+
+    foreach ($block_configurations as $config_name) {
+      // Load the configuration.
+      $config = $config_factory->getEditable($config_name);
+
+      // Check for a value and update it if needed.
+      if (is_array($config->get('visibility.node_type'))
+          && $config->get('visibility.node_type')['id'] === 'node_type') {
+        $config->set('visibility.node_type.id', 'entity_bundle:node');
+        $config->save();
+      }
+    }
+  }
+}
