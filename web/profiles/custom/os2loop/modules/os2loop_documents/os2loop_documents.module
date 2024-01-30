@@ -8,7 +8,6 @@
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\editor\Entity\Editor;
 use Drupal\os2loop_documents\Helper\FormHelper;
 use Drupal\os2loop_documents\Helper\Helper;
 use Drupal\os2loop_documents\Helper\NodeHelper;
@@ -68,10 +67,10 @@ function os2loop_documents_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implements hook_ckeditor_css_alter().
+ * Implements hook_page_attachments().
  *
- * @see \Drupal\os2loop_documents\Helper\Helper::alterCkeditorCss()
+ * @see \Drupal\os2loop_documents\Helper\Helper::pageAttachments()
  */
-function os2loop_documents_ckeditor_css_alter(array &$css, Editor $editor) {
-  \Drupal::service(Helper::class)->alterCkeditorCss($css, $editor);
+function os2loop_documents_page_attachments(array &$attachments) {
+  \Drupal::service(Helper::class)->pageAttachments($attachments);
 }

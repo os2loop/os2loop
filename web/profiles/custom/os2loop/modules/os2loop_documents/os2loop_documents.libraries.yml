@@ -1,0 +1,6 @@
+# @see https://www.drupal.org/docs/contributed-themes/gin-admin-theme/custom-theming#s-module-recommended-way.
+ckeditor:
+  version: 1.x
+  css:
+    theme:
+      ckeditor/os2loop_documents_table.css: {}

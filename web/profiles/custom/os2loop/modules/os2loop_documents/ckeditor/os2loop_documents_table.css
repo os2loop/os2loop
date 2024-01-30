@@ -1,27 +1,29 @@
-/* Cherry pick some styling from os2loop_theme/assets/documents.scss. */
-table {
+/* Cherry pick some styling from os2loop_theme/assets/documents.scss and prefix
+ * with .ck-editor to only target content in CKEditor
+ */
+.ck-content table {
   width: 100%;
 }
 
-th {
+.ck-content th {
   background: #ccc;
   text-align: center;
 }
 
-th,
-td {
+.ck-content th,
+.ck-content td {
   vertical-align: top;
 }
 
-.number,
-.right {
+.ck-content .number,
+.ck-content .right {
   text-align: right;
 }
 
-.left {
+.ck-content .left {
   text-align: left;
 }
 
-.center {
+.ck-content .center {
   text-align: center;
 }
