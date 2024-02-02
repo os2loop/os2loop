@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.os2loop_search_db
   module:
-    - node
     - system
     - views
   theme:
@@ -27,14 +26,3 @@ visibility:
     id: request_path
     negate: false
     pages: /search
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
-    bundles:
-      os2loop_documents_collection: os2loop_documents_collection
-      os2loop_documents_document: os2loop_documents_document
-      os2loop_external: os2loop_external
-      os2loop_post: os2loop_post
-      os2loop_question: os2loop_question
