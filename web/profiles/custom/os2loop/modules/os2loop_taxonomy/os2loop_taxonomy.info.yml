@@ -1,7 +1,6 @@
 name: 'OS2Loop taxonomy'
 type: module
 description: 'OS2Loop taxonomy'
-core: 8.x
 core_version_requirement: ^10
 package: 'OS2Loop'
 

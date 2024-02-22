@@ -1,6 +1,5 @@
 name: 'OS2Loop Section page'
 type: module
 description: 'OS2Loop Section page'
-core: 8.x
 core_version_requirement: ^10
 package: 'OS2Loop'
