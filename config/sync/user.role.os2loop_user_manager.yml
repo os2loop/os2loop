@@ -24,6 +24,7 @@ dependencies:
   module:
     - comment
     - contextual
+    - entity_usage
     - filter
     - flag
     - locale
@@ -46,6 +47,7 @@ permissions:
   - 'access administration pages'
   - 'access content overview'
   - 'access contextual links'
+  - 'access entity usage statistics'
   - 'access media overview'
   - 'access toolbar'
   - 'access user profiles'

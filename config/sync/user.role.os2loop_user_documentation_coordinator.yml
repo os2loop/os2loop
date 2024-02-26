@@ -12,6 +12,7 @@ dependencies:
     - taxonomy.vocabulary.os2loop_tag
   module:
     - comment
+    - entity_usage
     - filter
     - flag
     - media
@@ -26,6 +27,7 @@ label: Dokumentationskoordinator
 weight: 3
 is_admin: null
 permissions:
+  - 'access entity usage statistics'
   - 'access media overview'
   - 'access toolbar'
   - 'access user profiles'

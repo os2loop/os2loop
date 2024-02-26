@@ -5,6 +5,7 @@ dependencies:
   config:
     - user.role.authenticated
   module:
+    - entity_usage
     - masquerade
     - media
     - system
@@ -14,6 +15,7 @@ label: 'User administrator'
 weight: 10
 is_admin: null
 permissions:
+  - 'access entity usage statistics'
   - 'access media overview'
   - 'access toolbar'
   - 'administer permissions'

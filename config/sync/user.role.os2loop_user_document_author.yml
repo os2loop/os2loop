@@ -9,6 +9,7 @@ dependencies:
     - node.type.os2loop_documents_collection
     - node.type.os2loop_documents_document
   module:
+    - entity_usage
     - filter
     - flag
     - media
@@ -24,6 +25,7 @@ weight: 7
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access entity usage statistics'
   - 'access media overview'
   - 'access toolbar'
   - 'create os2loop_documents_collection content'

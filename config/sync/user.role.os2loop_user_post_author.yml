@@ -6,6 +6,7 @@ dependencies:
     - filter.format.os2loop_post
     - node.type.os2loop_post
   module:
+    - entity_usage
     - filter
     - flag
     - media
@@ -19,6 +20,7 @@ weight: 9
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access entity usage statistics'
   - 'access media overview'
   - 'access toolbar'
   - 'create os2loop_post content'
