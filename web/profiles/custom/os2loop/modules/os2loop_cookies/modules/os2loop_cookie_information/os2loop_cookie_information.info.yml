@@ -1,7 +1,7 @@
 name: 'Os2loop cookie information'
 type: module
 description: 'OS2Loop cookie information'
-core_version_requirement: ^9
+core_version_requirement: ^10
 package: 'OS2Loop'
 dependencies:
   - drupal:os2loop_cookies

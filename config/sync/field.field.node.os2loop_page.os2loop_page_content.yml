@@ -10,10 +10,10 @@ dependencies:
     - text
 third_party_settings:
   better_formats:
-    allowed_formats_toggle: 1
+    allowed_formats_toggle: true
     allowed_formats:
       os2loop_page: os2loop_page
-    default_order_toggle: 0
+    default_order_toggle: false
     default_order_wrapper:
       formats:
         os2loop_page:
@@ -31,4 +31,5 @@ default_value_callback: ''
 settings:
   display_summary: false
   required_summary: false
+  allowed_formats: {  }
 field_type: text_with_summary

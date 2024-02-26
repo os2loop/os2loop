@@ -69,7 +69,7 @@
 
 {# Remove comment id from element id on top comment #}
 {% set is_top_comment = attributes.hasClass('top-comment') %}
-{% if attributes.hasClass('top-comment') %}
+{% if is_top_comment %}
   {% set attributes = attributes.setAttribute('id', 'top-comment') %}
 {% endif %}
 

@@ -11,6 +11,6 @@
     ],
     "require": {
         "php": ">=7.0.0",
-        "drupal/content_fixtures": "^2.0"
+        "drupal/content_fixtures": "^3.1"
     }
 }

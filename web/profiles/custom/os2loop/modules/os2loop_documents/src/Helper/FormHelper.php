@@ -370,7 +370,7 @@ class FormHelper {
     if (NULL !== $documentId) {
       $document = $this->collectionHelper->loadDocument($documentId);
       if ($document && !isset($data[$document->id()])) {
-        $weight = (int) max(array_column($data, 'weight'));
+        $weight = (int) (empty($data) ? 0 : max(array_column($data, 'weight')));
         $data[$document->id()] = [
           'weight' => $weight + 1,
           'id' => $document->id(),

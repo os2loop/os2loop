@@ -1,5 +1,5 @@
 {% set node = elements['#node'] %}
-{% spaceless %}
+{% apply spaceless %}
   <div class="search-autocomplete search-autocomplete--node search-autocomplete--node--{{ node.bundle }}">
     <div class="search-autocomplete-suggestion">
       <h2 class="content-title font-weight-bold">{{ label }}</h2>
@@ -7,4 +7,4 @@
       <span class="subject">{{ elements['os2loop_shared_subject'] }}</span>
     </div>
   </div>
-{% endspaceless %}
+{% endapply %}

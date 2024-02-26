@@ -10,7 +10,6 @@ use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\Core\Url;
 use Drupal\os2loop_settings\Settings;
 use Drupal\os2loop_user_login\Form\SettingsForm;
 use Drupal\user\UserInterface;
@@ -114,18 +113,6 @@ class Helper {
           '#attributes' => ['id' => 'drupal-login'],
         ];
       }
-
-      if ($this->config->get('show_saml_login')) {
-        $form['saml_login'] = [
-          '#weight' => -100,
-          '#type' => 'link',
-          '#title' => $this->t('Log in with SAML'),
-          '#url' => Url::fromRoute('samlauth.saml_controller_login'),
-          '#attributes' => [
-            'class' => ['btn', 'btn-primary'],
-          ],
-        ];
-      }
     }
   }
 
@@ -155,10 +142,6 @@ class Helper {
       switch ($defaultLoginMethod) {
         case 'oidc':
           $variables['default_login_form_id'] = 'openid-connect-login-form';
-          break;
-
-        case 'saml':
-          // @todo Handle SAML redirect
           break;
       }
     }

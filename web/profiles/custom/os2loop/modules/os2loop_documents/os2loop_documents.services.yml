@@ -1,7 +1,7 @@
 services:
   Drupal\os2loop_documents\Helper\Helper:
     arguments:
-      - '@module_handler'
+      - '@current_route_match'
 
   Drupal\os2loop_documents\Helper\CollectionHelper:
     arguments:

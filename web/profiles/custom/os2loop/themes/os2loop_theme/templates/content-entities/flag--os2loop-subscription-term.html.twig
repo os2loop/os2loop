@@ -14,7 +14,7 @@
  * - flaggable: The flaggable entity.
  */
 #}
-{% spaceless %}
+{% apply spaceless %}
 
 {# Depending on the flag action, set the appropriate action class. #}
 {% if action == 'unflag' %}
@@ -38,4 +38,4 @@
 {% set attributes = attributes.addClass(classes) %}
 
 <a{{ attributes }}>{{ title }}</a>
-{% endspaceless %}
+{% endapply %}

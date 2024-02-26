@@ -6,20 +6,14 @@ display:
     display_options:
       title: Filer
       fields:
-        fid:
-          label: Fid
         filename:
           label: Navn
-          separator: ', '
-        filemime:
-          label: 'MIME type'
         filesize:
           label: Størrelse
         status:
           label: Status
           settings:
             format_custom_false: Midlertidig
-            format_custom_true: Permanent
         created:
           label: Upload-dato
         changed:
@@ -37,7 +31,6 @@ display:
             offset_label: Forskydning
       exposed_form:
         options:
-          submit_button: Filter
           reset_button_label: Gendan
           exposed_sorts_label: 'Sortér efter'
           sort_asc_label: Stigende
@@ -49,9 +42,6 @@ display:
         filename:
           expose:
             label: Filnavn
-        filemime:
-          expose:
-            label: 'MIME type'
         status:
           expose:
             label: Status
@@ -61,19 +51,14 @@ display:
       menu:
         title: Filer
   page_2:
-    display_title: 'File usage'
     display_options:
-      title: 'File usage'
       fields:
-        entity_label:
-          label: Entity
         type:
           label: Entity-type
         module:
           label: 'Registrerer modul'
         count:
           label: 'Brug antal'
-          format_plural_string: !!binary MQNAY291bnQ=
       pager:
         options:
           tags:

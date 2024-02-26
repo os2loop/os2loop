@@ -1,7 +1,9 @@
 uuid: 5f73a615-9184-4fd7-8dd8-0aac56a7dd78
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - openid_connect
 id: os2loop_user_manual
 label: Manual
 weight: 11

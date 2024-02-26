@@ -17,8 +17,6 @@ weight: 6
 is_admin: null
 permissions:
   - 'access content overview'
-  - 'access path admin'
-  - 'access path admin/content'
   - 'access toolbar'
   - 'create os2loop_external content'
   - 'delete any os2loop_external content'
@@ -27,6 +25,5 @@ permissions:
   - 'edit own os2loop_external content'
   - 'os2loop send alert'
   - 'use text format os2loop_external'
-  - 'view admin path'
   - 'view os2loop_external revisions'
   - 'view the administration theme'

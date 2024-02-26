@@ -1,4 +1,4 @@
-# itk-version: 3.1.0
+# itk-version: 3.1.1
 version: "3"
 
 networks:
@@ -10,7 +10,7 @@ networks:
 
 services:
   phpfpm:
-    image: itkdev/php8.1-fpm:alpine
+    image: itkdev/php8.2-fpm:alpine
     restart: unless-stopped
     networks:
       - app

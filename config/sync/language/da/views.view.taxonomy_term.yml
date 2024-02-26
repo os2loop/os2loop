@@ -6,9 +6,6 @@ display:
     display_options:
       pager:
         options:
-          tags:
-            next: ››
-            previous: ‹‹
           expose:
             items_per_page_label: 'Antal elementer'
             items_per_page_options_all_label: '- Alle -'
@@ -24,8 +21,5 @@ display:
         tid:
           exception:
             title: Alle
-          title: '{{ arguments.tid }}'
-  feed_1:
-    display_title: Feed
   page_1:
     display_title: Side

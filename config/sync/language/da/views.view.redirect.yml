@@ -1,11 +1,8 @@
-label: Redirect
 display:
   default:
-    display_title: Master
     display_options:
       exposed_form:
         options:
-          submit_button: Filter
           reset_button_label: Gendan
           exposed_sorts_label: 'Sortér efter'
           sort_asc_label: Stigende
@@ -22,11 +19,8 @@ display:
             items_per_page_options_all_label: '- Alle -'
             offset_label: Forskydning
       fields:
-        redirect_bulk_form:
-          action_title: 'With selection'
         redirect_source__path:
           label: Fra
-          separator: ', '
         created:
           label: Oprettet
       filters:
@@ -56,6 +50,5 @@ display:
         language:
           expose:
             label: 'Originalt sprog'
-      title: Redirect
   page_1:
     display_title: Side

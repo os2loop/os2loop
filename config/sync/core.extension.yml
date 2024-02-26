@@ -5,7 +5,7 @@ module:
   block: 0
   block_field: 0
   breakpoint: 0
-  ckeditor: 0
+  ckeditor5: 0
   comment: 0
   config_filter: 0
   config_ignore: 0
@@ -82,8 +82,6 @@ module:
   path_alias: 0
   redirect: 0
   rest: 0
-  samlauth: 0
-  samlauth_user_roles: 0
   search_api: 0
   search_api_autocomplete: 0
   search_api_db: 0
