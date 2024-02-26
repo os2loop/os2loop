@@ -6,6 +6,8 @@ dependencies:
     - filter.format.os2loop_documents_body
     - filter.format.os2loop_documents_rich_text
     - filter.format.os2loop_documents_table
+    - media.type.os2loop_media_file
+    - media.type.os2loop_media_image
     - node.type.os2loop_documents_collection
     - node.type.os2loop_documents_document
   module:
@@ -32,8 +34,12 @@ permissions:
   - 'create os2loop_documents_document content'
   - 'delete any os2loop_documents_collection content'
   - 'delete any os2loop_documents_document content'
+  - 'delete own os2loop_media_file media'
+  - 'delete own os2loop_media_image media'
   - 'edit any os2loop_documents_collection content'
   - 'edit any os2loop_documents_document content'
+  - 'edit any os2loop_media_file media'
+  - 'edit any os2loop_media_image media'
   - 'edit own os2loop_documents_document content'
   - 'flag os2loop_upvote_correct_answer'
   - 'os2loop see notify users option'

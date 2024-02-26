@@ -16,7 +16,6 @@ weight: 10
 is_admin: null
 permissions:
   - 'access entity usage statistics'
-  - 'access media overview'
   - 'access toolbar'
   - 'administer permissions'
   - 'administer users'

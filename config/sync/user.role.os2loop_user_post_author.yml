@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - filter.format.os2loop_post
+    - media.type.os2loop_media_file
+    - media.type.os2loop_media_image
     - node.type.os2loop_post
   module:
     - entity_usage
@@ -26,7 +28,11 @@ permissions:
   - 'create os2loop_post content'
   - 'delete any os2loop_post content'
   - 'delete os2loop_post revisions'
+  - 'delete own os2loop_media_file media'
+  - 'delete own os2loop_media_image media'
   - 'delete own os2loop_post content'
+  - 'edit any os2loop_media_file media'
+  - 'edit any os2loop_media_image media'
   - 'edit any os2loop_post content'
   - 'edit own os2loop_post content'
   - 'flag os2loop_upvote_correct_answer'
