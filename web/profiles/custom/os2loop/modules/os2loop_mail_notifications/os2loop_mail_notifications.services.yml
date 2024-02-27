@@ -14,3 +14,4 @@ services:
       - '@Drupal\os2loop_settings\Settings'
       - '@token'
       - '@plugin.manager.mail'
+      - '@language.default'
