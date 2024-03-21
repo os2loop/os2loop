@@ -2,37 +2,34 @@
 
 namespace Drupal\os2loop_documents\Helper;
 
-use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\editor\Entity\Editor;
+use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
  * A helper.
  */
 class Helper {
-  /**
-   * The module handler.
-   *
-   * @var \Drupal\Core\Extension\ModuleHandlerInterface
-   */
-  private $moduleHandler;
 
   /**
    * Constructor.
    */
-  public function __construct(ModuleHandlerInterface $moduleHandler) {
-    $this->moduleHandler = $moduleHandler;
+  public function __construct(
+    private readonly RouteMatchInterface $routeMatch
+  ) {
   }
 
   /**
-   * Implements hook_ckeditor_css_alter().
+   * Implements hook_page_attachments().
    *
-   * Injects custom css into CKEditor instances based on text format.
+   * Injects custom CSS into CKEditor5 the Gin way (cf.
+   * https://www.drupal.org/docs/contributed-themes/gin-admin-theme/custom-theming#s-module-recommended-way).
    */
-  public function alterCkeditorCss(array &$css, Editor $editor) {
-    $format = $editor->getFilterFormat()->id();
-    $cssPath = $this->moduleHandler->getModule('os2loop_documents')->getPath() . '/ckeditor/' . $format . '.css';
-    if (file_exists($cssPath)) {
-      $css[] = $cssPath;
+  public function pageAttachments(array &$attachments) {
+    if (in_array($this->routeMatch->getRouteName(), [
+      'node.add',
+      'entity.node.edit_form',
+      'paragraphs_edit.edit_form',
+    ], TRUE)) {
+      $attachments['#attached']['library'][] = 'os2loop_documents/ckeditor';
     }
   }
 

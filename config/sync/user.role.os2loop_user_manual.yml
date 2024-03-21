@@ -1,10 +1,14 @@
 uuid: 5f73a615-9184-4fd7-8dd8-0aac56a7dd78
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - entity_usage
+    - openid_connect
 id: os2loop_user_manual
 label: Manual
 weight: 11
 is_admin: null
 permissions:
+  - 'access entity usage statistics'
   - 'openid connect set own password'

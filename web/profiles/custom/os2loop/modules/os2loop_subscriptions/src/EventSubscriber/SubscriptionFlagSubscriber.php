@@ -2,14 +2,14 @@
 
 namespace Drupal\os2loop_subscriptions\EventSubscriber;
 
-use Drupal\flag\FlagInterface;
-use Drupal\flag\FlagServiceInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Drupal\flag\Event\FlagEvents;
-use Drupal\flag\Event\FlaggingEvent;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\flag\Event\FlagEvents;
+use Drupal\flag\Event\FlaggingEvent;
+use Drupal\flag\FlagInterface;
+use Drupal\flag\FlagServiceInterface;
 use Drupal\views\Views;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Event subscriber for flagging content or terms with subscribe.

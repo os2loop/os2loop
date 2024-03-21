@@ -3,11 +3,11 @@
 namespace Drupal\os2loop_upvote\EventSubscriber;
 
 use Drupal\comment\Entity\Comment;
-use Drupal\flag\FlagServiceInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\flag\Event\FlagEvents;
 use Drupal\flag\Event\FlaggingEvent;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\flag\FlagServiceInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Event subscriber for flagging content or terms with subscribe.
@@ -95,6 +95,7 @@ class UpvoteFlagSubscriber implements EventSubscriberInterface {
         ->getQuery('AND')
         ->condition('entity_id', $nid)
         ->condition('entity_type', 'node')
+        ->accessCheck()
         ->execute();
 
       return $this->entityTypeManager

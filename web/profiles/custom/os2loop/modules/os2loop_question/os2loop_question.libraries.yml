@@ -4,3 +4,4 @@ hide-reference-ids:
     assets/js/hideReferenceIds.js: {}
   dependencies:
     - core/jquery
+    - core/once

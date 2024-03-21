@@ -1,18 +1,17 @@
 services:
-  os2loop_mail_notifications.helper:
-    class: Drupal\os2loop_mail_notifications\Helper\Helper
+  Drupal\os2loop_mail_notifications\Helper\Helper:
     arguments:
       - '@Drupal\os2loop_settings\Settings'
       - '@state'
       - '@user.data'
       - '@entity_type.manager'
       - '@database'
-      - '@os2loop_mail_notifications.mail_helper'
+      - '@Drupal\os2loop_mail_notifications\Helper\MailHelper'
       - '@logger.factory'
 
-  os2loop_mail_notifications.mail_helper:
-    class: Drupal\os2loop_mail_notifications\Helper\MailHelper
+  Drupal\os2loop_mail_notifications\Helper\MailHelper:
     arguments:
       - '@Drupal\os2loop_settings\Settings'
       - '@token'
       - '@plugin.manager.mail'
+      - '@language.default'

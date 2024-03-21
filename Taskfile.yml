@@ -1,0 +1,13 @@
+version: '3'
+
+dotenv:
+  - '.env.docker.local'
+
+includes:
+  dev:
+    taskfile: task/
+
+  server:
+    taskfile: task/
+    vars:
+      DOCKER_COMPOSE: itkdev-docker-compose-server

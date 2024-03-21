@@ -90,6 +90,7 @@ class CollectionHelper {
     $ids = $this->getCollectionItemQuery()
       ->condition('collection_id', $collection->id())
       ->sort('weight')
+      ->accessCheck(FALSE)
       ->execute();
 
     $items = DocumentCollectionItem::loadMultiple($ids ?: []);
@@ -103,6 +104,7 @@ class CollectionHelper {
   public function updateCollection(NodeInterface $node, array $data) {
     $ids = $this->getCollectionItemQuery()
       ->condition('collection_id', $node->id())
+      ->accessCheck(FALSE)
       ->execute();
     $items = DocumentCollectionItem::loadMultiple($ids);
     foreach ($items as $item) {
@@ -441,10 +443,14 @@ class CollectionHelper {
    *
    * @param \Drupal\node\NodeInterface $document
    *   The document.
+   *
+   * @return \Drupal\node\NodeInterface[]
+   *   The collections.
    */
   public function loadCollections(NodeInterface $document) {
     $ids = $this->getCollectionItemQuery()
       ->condition('document_id', $document->id())
+      ->accessCheck(FALSE)
       ->execute();
     $items = DocumentCollectionItem::loadMultiple($ids);
 
@@ -452,6 +458,7 @@ class CollectionHelper {
       return $item->getCollectionId();
     }, $items);
 
+    // @phpstan-ignore-next-line
     return $this->nodeStorage->loadMultiple($collectionIds);
   }
 

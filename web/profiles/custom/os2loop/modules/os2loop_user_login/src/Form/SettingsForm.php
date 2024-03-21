@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Configure os2loop_user_login.
  */
-class SettingsForm extends ConfigFormBase {
+final class SettingsForm extends ConfigFormBase {
   use StringTranslationTrait;
 
   /**
@@ -96,21 +96,7 @@ class SettingsForm extends ConfigFormBase {
       ),
     ];
 
-    $form['show_saml_login'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Show SAML login'),
-      '#default_value' => $config->get('show_saml_login'),
-      '#description' => $this->t(
-        'Show SAML login button on user login page. Set up proper <a href="@config_url">SAML configuration</a> before enabling this.',
-        [
-          '@config_url' => Url::fromRoute('samlauth.samlauth_configure_form')->toString(),
-        ]
-      ),
-    ];
-
     $options['oidc'] = $this->t('OpenID Connect');
-    // @todo handle SAML
-    // $options['saml'] = $this->t('SAML');
     $form['default_login_method'] = [
       '#type' => 'select',
       '#title' => $this->t('Default login method'),
@@ -137,7 +123,6 @@ class SettingsForm extends ConfigFormBase {
     $this->configFactory->getEditable(static::SETTINGS_NAME)
       ->set('show_drupal_login', $form_state->getValue('show_drupal_login'))
       ->set('show_oidc_login', $form_state->getValue('show_oidc_login'))
-      ->set('show_saml_login', $form_state->getValue('show_saml_login'))
       ->set('default_login_method', $form_state->getValue('default_login_method'))
       ->set('hide_logout_menu_item', $form_state->getValue('hide_logout_menu_item'))
       ->save();

@@ -5,10 +5,10 @@
  * Enables modules and site configuration for a standard site installation.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\node\NodeInterface;
 use Drupal\os2loop_settings\Helper\Helper;
-use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_entity_create_access().

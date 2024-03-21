@@ -8,3 +8,4 @@ services:
       - '@entity_field.manager'
       - '@messenger'
       - '@request_stack'
+      - '@path.current'

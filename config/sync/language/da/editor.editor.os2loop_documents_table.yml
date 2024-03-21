@@ -1,4 +1,0 @@
-settings:
-  plugins:
-    stylescombo:
-      styles: "table.loop-documents-table|Loop-tabel\r\nth.left|Venstrestillet (overskrift) \r\nth.center|Centreret (overskrift)\r\nth.right|Højrestillet (overskrift)\r\ntd.left|Venstrestillet\r\ntd.center|Centreret \r\ntd.right|Højrestillet\r\n"

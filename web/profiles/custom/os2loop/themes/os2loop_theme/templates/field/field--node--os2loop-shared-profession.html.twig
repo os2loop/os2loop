@@ -40,7 +40,7 @@
 {% import '@os2loop_theme/macros.html.twig' as macros %}
 
 <div{{ attributes }} class="align-items-center">
-  <span{{ title_attributes.addClass(element['#view_mode'] == 'list_display' ? 'd-none') }}>
+  <span{{ title_attributes.addClass(element['#view_mode'] == 'list_display' ? 'd-none', 'pdf-term-label') }}>
     {{ label }}:
   </span>
   {% for item in items %}

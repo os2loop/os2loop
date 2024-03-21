@@ -1,0 +1,62 @@
+version: '3'
+
+vars:
+  DOCKER_COMPOSE: docker compose
+
+tasks:
+  up:
+    desc: Update (pull and up) docker compose setup and run composer install
+    cmds:
+      - "{{.DOCKER_COMPOSE}} pull"
+      - "{{.DOCKER_COMPOSE}} up --detach"
+      - "{{.DOCKER_COMPOSE}} exec phpfpm composer install --no-dev --optimize-autoloader"
+
+  deploy:
+    desc: Deploy site
+    deps: [up]
+    cmds:
+      - task: drush
+        vars:
+          CLI_ARGS: --yes deploy
+      - task: drush
+        vars:
+          CLI_ARGS: --yes locale:update
+      - task: drush
+        vars:
+          CLI_ARGS: --yes locale:import --type=customized --override=none da profiles/custom/os2loop/translations/translations.da.po
+
+  clear-cache:
+    cmds:
+      # Restart phpfpm to read all changed files.
+      - "{{.DOCKER_COMPOSE}} restart phpfpm"
+      - task: drush
+        vars:
+          CLI_ARGS: cache:rebuild
+
+  install-site:
+    desc: Install site from scrath
+    prompt: Do you really want to install the site from scratch?
+    deps: [up]
+    cmds:
+      - task: drush
+        vars:
+          CLI_ARGS: --yes site:install os2loop --existing-config
+      - task: deploy
+
+  build-theme:
+    desc: Build OS2Loop theme
+    cmds:
+      # The theme must always be built with `docker compose`
+      - docker compose run --rm node yarn --cwd web/profiles/custom/os2loop/themes/os2loop_theme install
+      - docker compose run --rm node yarn --cwd web/profiles/custom/os2loop/themes/os2loop_theme build
+
+  drush:
+    desc: Run drush. Pass arguments after --, e.g. task server:drush -- sql:connect
+    vars:
+      DOCKER_COMPOSE_SITE_DOMAIN:
+        # TODO: Evaluate this only when $COMPOSE_SERVER_DOMAIN is not set.
+        sh: echo "$(docker compose port nginx 8080 2> /dev/null|| true)"
+    env:
+      DRUSH_OPTIONS_URI: 'http://{{default .DOCKER_COMPOSE_SITE_DOMAIN .COMPOSE_SERVER_DOMAIN}}'
+    cmds:
+      - "{{.DOCKER_COMPOSE}} exec --env DRUSH_OPTIONS_URI=$DRUSH_OPTIONS_URI phpfpm vendor/bin/drush {{.CLI_ARGS}}"

@@ -2,13 +2,14 @@
 
 namespace Drupal\os2loop_mail_notifications\Helper;
 
+use Drupal\Core\Language\LanguageDefault;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\Utility\Token;
 use Drupal\message\Entity\Message;
 use Drupal\os2loop_mail_notifications\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
-use Drupal\Core\Utility\Token;
 use Drupal\user\Entity\User;
 
 /**
@@ -27,26 +28,15 @@ class MailHelper {
   private $config;
 
   /**
-   * The token.
-   *
-   * @var \Drupal\Core\Utility\Token
-   */
-  private $token;
-
-  /**
-   * The mail manager.
-   *
-   * @var \Drupal\Core\Mail\MailManagerInterface
-   */
-  private $mailer;
-
-  /**
    * Helper constructor.
    */
-  public function __construct(Settings $settings, Token $token, MailManagerInterface $mailer) {
+  public function __construct(
+    Settings $settings,
+    private readonly Token $token,
+    private readonly MailManagerInterface $mailer,
+    private readonly LanguageDefault $defaultLanguage
+  ) {
     $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME);
-    $this->token = $token;
-    $this->mailer = $mailer;
   }
 
   /**
@@ -80,7 +70,7 @@ class MailHelper {
    *   True if mail is sent.
    */
   public function sendNotification(User $user, array $groupedMessages) {
-    $langcode = $user->getPreferredLangcode();
+    $langcode = $this->defaultLanguage->get()->getId();
 
     $sections = [];
     foreach ($groupedMessages as $type => $messages) {
@@ -194,7 +184,12 @@ class MailHelper {
 
     // Append any revision message.
     if ($message->hasField('os2loop_revision_message') && !empty($message->get('os2loop_revision_message')->getValue())) {
-      $content .= ' (' . $this->t('Revision message: @revision_message', ['@revision_message' => $message->get('os2loop_revision_message')->getString()]) . ')';
+      $revisionMessage = $this->t(
+        'Revision message: @revision_message',
+        ['@revision_message' => $message->get('os2loop_revision_message')->getString()],
+        ['langcode' => $langCode]
+      );
+      $content .= ' (' . $revisionMessage . ')';
     }
 
     return $content;

@@ -129,6 +129,9 @@
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
 
+# We want all custom site settings in settings.local.php, so we don't ignore settings.php.
+!/web/sites/*/settings.php
+
 # Ignore paths that may contain user-generated content
 /web/sites/*/files
 /web/sites/*/public
@@ -183,10 +186,6 @@
 
 # ------------------------------------------------------------------------------
 
-# We want all custom site settings in settings.local.php
-/web/sites/*/settings.local.php
-!/web/sites/*/settings.php
-
 # Ignore PhpStorm
 .idea
 
@@ -197,3 +196,8 @@ private-files/
 .vscode
 node_modules/
 yarn-error.log
+
+# Ignore DS store
+.DS_Store
+
+.env*.local

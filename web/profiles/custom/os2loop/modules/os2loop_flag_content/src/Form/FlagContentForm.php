@@ -4,14 +4,14 @@ namespace Drupal\os2loop_flag_content\Form;
 
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Form\FormBase;
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Routing\RouteMatchInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\os2loop_flag_content\Services\ConfigService;
 use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
+use Drupal\os2loop_flag_content\Services\ConfigService;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  *
  * @package Drupal\os2loop_flag_content\Form
  */
-class FlagContentForm extends FormBase implements ContainerInjectionInterface {
+final class FlagContentForm extends FormBase implements ContainerInjectionInterface {
   /**
    * The route mathcer.
    *

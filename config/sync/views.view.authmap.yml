@@ -1,13 +1,12 @@
-uuid: 2785920a-03d0-4809-be88-fa5ed05e734b
+uuid: c87426f6-6a69-489b-aca6-bfc8b53ca348
 langcode: en
 status: true
 dependencies:
   module:
     - externalauth
-    - samlauth
     - user
-id: samlauth_map
-label: 'SAML Authentication Links'
+id: authmap
+label: 'External authentication links'
 module: views
 description: ''
 tag: ''
@@ -20,8 +19,57 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'SAML Authentication Links'
+      title: 'External authentication links'
       fields:
+        provider_field:
+          id: provider_field
+          table: authmap
+          field: provider_field
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
         authname:
           id: authname
           table: authmap
@@ -30,7 +78,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          label: 'SAML IdP Unique ID'
+          label: 'Authentication Name'
           exclude: false
           alter:
             alter_text: false
@@ -193,14 +241,14 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        delete:
-          id: delete
+        delete_link:
+          id: delete_link
           table: authmap
-          field: delete
+          field: delete_link
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: entity_link_delete
+          plugin_id: authmap_link_delete
           label: delete
           exclude: false
           alter:
@@ -276,7 +324,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'configure saml'
+          perm: 'view authmap'
       cache:
         type: none
         options: {  }
@@ -290,10 +338,49 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No links (from SAML Authentication ID to Drupal user)  found.'
+          content: 'No links (from Authentication name to Drupal user) found.'
           tokenize: false
       sorts: {  }
-      arguments: {  }
+      arguments:
+        provider_field:
+          id: provider_field
+          table: authmap
+          field: provider_field
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          default_action: ignore
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: 'Links for {{ arguments.provider_field }}'
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: false
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          glossary: false
+          limit: 0
+          case: none
+          path_case: none
+          transform_dash: false
+          break_phrase: false
       filters:
         authname:
           id: authname
@@ -309,7 +396,7 @@ display:
           exposed: true
           expose:
             operator_id: authname_op
-            label: 'SAML IdP Unique ID'
+            label: 'Authentication name'
             description: ''
             use_operator: false
             operator: authname_op
@@ -371,45 +458,6 @@ display:
               role3: '0'
               role4: '0'
             reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        provider_field:
-          id: provider_field
-          table: authmap
-          field: provider_field
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: string
-          operator: '='
-          value: samlauth
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -509,15 +557,15 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/config/people/saml/authmap
+      path: admin/people/authmap
       menu:
         type: tab
-        title: Links
+        title: External
         description: ''
-        weight: 7
+        weight: 20
         expanded: false
         menu_name: admin
-        parent: samlauth.samlauth_configure_form
+        parent: entity.user.collection
         context: '0'
     cache_metadata:
       max-age: -1

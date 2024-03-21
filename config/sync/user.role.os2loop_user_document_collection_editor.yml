@@ -6,6 +6,8 @@ dependencies:
     - filter.format.os2loop_documents_body
     - filter.format.os2loop_documents_rich_text
     - filter.format.os2loop_documents_table
+    - media.type.os2loop_media_file
+    - media.type.os2loop_media_image
     - node.type.os2loop_documents_collection
     - node.type.os2loop_documents_document
   module:
@@ -18,48 +20,37 @@ dependencies:
     - paragraphs
     - system
     - toolbar
+    - view_unpublished
 id: os2loop_user_document_collection_editor
 label: 'Document collection editor'
 weight: 8
 is_admin: null
 permissions:
-  - 'access ckeditor link'
   - 'access content overview'
-  - 'access media browser'
   - 'access media overview'
-  - 'access path admin'
-  - 'access path admin/content'
   - 'access toolbar'
-  - 'create files'
+  - 'administer nodes'
   - 'create os2loop_documents_collection content'
   - 'create os2loop_documents_document content'
-  - 'delete any image files'
   - 'delete any os2loop_documents_collection content'
   - 'delete any os2loop_documents_document content'
-  - 'download any image files'
-  - 'edit any image files'
+  - 'delete own os2loop_media_file media'
+  - 'delete own os2loop_media_image media'
   - 'edit any os2loop_documents_collection content'
   - 'edit any os2loop_documents_document content'
+  - 'edit any os2loop_media_file media'
+  - 'edit any os2loop_media_image media'
   - 'edit own os2loop_documents_document content'
   - 'flag os2loop_upvote_correct_answer'
-  - 'menu view unpublished'
   - 'os2loop see notify users option'
   - 'os2loop send alert'
-  - 'publish any os2loop_documents_collection content'
-  - 'publish any os2loop_documents_document content'
-  - 'set revision date for content'
   - 'unflag os2loop_upvote_correct_answer'
-  - 'unpublish any os2loop_documents_collection content'
-  - 'unpublish any os2loop_documents_document content'
   - 'update any media'
-  - 'use media wysiwyg'
   - 'use text format os2loop_documents_body'
   - 'use text format os2loop_documents_rich_text'
   - 'use text format os2loop_documents_table'
-  - 'view admin path'
   - 'view any unpublished os2loop_documents_collection content'
   - 'view any unpublished os2loop_documents_document content'
-  - 'view document admin menu'
   - 'view os2loop_documents_collection revisions'
   - 'view the administration theme'
   - 'view unpublished paragraphs'

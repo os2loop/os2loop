@@ -6,9 +6,12 @@ dependencies:
     - filter.format.os2loop_documents_body
     - filter.format.os2loop_documents_rich_text
     - filter.format.os2loop_documents_table
+    - media.type.os2loop_media_file
+    - media.type.os2loop_media_image
     - node.type.os2loop_documents_collection
     - node.type.os2loop_documents_document
   module:
+    - entity_usage
     - filter
     - flag
     - media
@@ -17,34 +20,32 @@ dependencies:
     - paragraphs
     - system
     - toolbar
+    - view_unpublished
 id: os2loop_user_document_author
 label: 'Document author'
 weight: 7
 is_admin: null
 permissions:
-  - 'access ckeditor link'
   - 'access content overview'
-  - 'access media browser'
+  - 'access entity usage statistics'
   - 'access media overview'
-  - 'access path admin'
-  - 'access path admin/content'
   - 'access toolbar'
-  - 'create files'
   - 'create os2loop_documents_collection content'
   - 'create os2loop_documents_document content'
-  - 'download any image files'
+  - 'delete own os2loop_media_file media'
+  - 'delete own os2loop_media_image media'
   - 'edit any os2loop_documents_collection content'
   - 'edit any os2loop_documents_document content'
+  - 'edit any os2loop_media_file media'
+  - 'edit any os2loop_media_image media'
   - 'edit own os2loop_documents_document content'
   - 'flag os2loop_upvote_correct_answer'
   - 'os2loop send alert'
   - 'unflag os2loop_upvote_correct_answer'
   - 'update any media'
-  - 'use media wysiwyg'
   - 'use text format os2loop_documents_body'
   - 'use text format os2loop_documents_rich_text'
   - 'use text format os2loop_documents_table'
-  - 'view admin path'
   - 'view any unpublished os2loop_documents_document content'
   - 'view os2loop_documents_document revisions'
   - 'view the administration theme'

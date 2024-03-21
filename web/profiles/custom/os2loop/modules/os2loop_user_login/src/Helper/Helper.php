@@ -3,15 +3,15 @@
 namespace Drupal\os2loop_user_login\Helper;
 
 use Drupal\Core\Entity\EntityFieldManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\Core\Url;
-use Drupal\os2loop_user_login\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
-use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\os2loop_user_login\Form\SettingsForm;
 use Drupal\user\UserInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -64,15 +64,23 @@ class Helper {
   protected $moduleHandler;
 
   /**
+   * The current path stack.
+   *
+   * @var \Drupal\Core\Path\CurrentPathStack
+   */
+  protected $currentPathStack;
+
+  /**
    * Constructor.
    */
-  public function __construct(Settings $settings, ModuleHandlerInterface $module_handler, EntityTypeManagerInterface $entity_type_manager, EntityFieldManager $entity_field_manager, MessengerInterface $messenger, RequestStack $requestStack) {
+  public function __construct(Settings $settings, ModuleHandlerInterface $module_handler, EntityTypeManagerInterface $entity_type_manager, EntityFieldManager $entity_field_manager, MessengerInterface $messenger, RequestStack $requestStack, CurrentPathStack $currentPathStack) {
     $this->config = $settings->getConfig(SettingsForm::SETTINGS_NAME);
     $this->moduleHandler = $module_handler;
     $this->entityTypeManager = $entity_type_manager;
     $this->entityFieldManager = $entity_field_manager;
     $this->messenger = $messenger;
     $this->requestStack = $requestStack;
+    $this->currentPathStack = $currentPathStack;
   }
 
   /**
@@ -105,18 +113,6 @@ class Helper {
           '#attributes' => ['id' => 'drupal-login'],
         ];
       }
-
-      if ($this->config->get('show_saml_login')) {
-        $form['saml_login'] = [
-          '#weight' => -100,
-          '#type' => 'link',
-          '#title' => $this->t('Log in with SAML'),
-          '#url' => Url::fromRoute('samlauth.saml_controller_login'),
-          '#attributes' => [
-            'class' => ['btn', 'btn-primary'],
-          ],
-        ];
-      }
     }
   }
 
@@ -125,14 +121,27 @@ class Helper {
    */
   public function preprocessBlock(array &$variables) {
     if ('userlogin' === ($variables['elements']['#id'] ?? NULL)) {
+      // Disable cache on the userlogin form to prevent redirects when resetting
+      // password.
+      $variables['#cache']['max-age'] = 0;
+
+      // Ignore default login method when resetting password.
+      // Note: CurrentPathStack::getPath() claims to return the path without
+      // leading slashes, but seems to return it with a leading slash.
+      if (preg_match('@^/?user/(reset|password)@', $this->currentPathStack->getPath())) {
+        return;
+      }
+
+      // Check of we're coming from password reset page.
+      $referer = $this->requestStack->getCurrentRequest()->headers->get('referer', '');
+      if (preg_match('@/user/password@', $referer)) {
+        return;
+      }
+
       $defaultLoginMethod = $this->config->get('default_login_method');
       switch ($defaultLoginMethod) {
         case 'oidc':
           $variables['default_login_form_id'] = 'openid-connect-login-form';
-          break;
-
-        case 'saml':
-          // @todo Handle SAML redirect
           break;
       }
     }

@@ -3,9 +3,9 @@
 namespace Drupal\os2loop_question\Helper;
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\os2loop_question\Form\SettingsForm;
 use Drupal\os2loop_settings\Settings;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Helper for questions.
@@ -72,8 +72,13 @@ class Helper {
       $form["os2loop_question_content"]["widget"][0]["#format"] = 'os2loop_question_plain_text';
     }
 
-    $form['os2loop_question_content']['widget']['#after_build'][] =
-      [$this, 'fieldAfterBuild'];
+    // We must use a static callback here to prevent “LogicException: The
+    // database connection is not serializable” here. The exception only occurs
+    // when not using English as site language.
+    $form['os2loop_question_answer']['widget']['#after_build'][] = [
+      $this::class,
+      'fieldAfterBuild',
+    ];
   }
 
   /**
@@ -137,8 +142,13 @@ class Helper {
   private function alterCommentForm(array &$form, FormStateInterface $form_state, string $form_id) {
     $form['actions']['submit']['#value'] = $this->t('Add');
     $form['actions']['preview']['#access'] = FALSE;
-    $form['os2loop_question_answer']['widget']['#after_build'][] =
-        [$this, 'fieldAfterBuild'];
+    // We must use a static callback here to prevent “LogicException: The
+    // database connection is not serializable” here. The exception only occurs
+    // when not using English as site language.
+    $form['os2loop_question_answer']['widget']['#after_build'][] = [
+      $this::class,
+      'fieldAfterBuild',
+    ];
 
     $allowAnonymousAuthor = (bool) $this->config->get('allow_anonymous_answer_author');
     if (!$allowAnonymousAuthor) {
@@ -160,7 +170,7 @@ class Helper {
    * @return array
    *   The altered form element.
    */
-  public function fieldAfterBuild(array $form_element, FormStateInterface $form_state) {
+  public static function fieldAfterBuild(array $form_element, FormStateInterface $form_state) {
     if (isset($form_element[0]['format'])) {
       // Hide "about text formats and formatter rules." text.
       unset($form_element[0]['format']['guidelines']);

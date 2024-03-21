@@ -269,6 +269,7 @@ class Helper {
       ->condition('template', self::$messageTemplateNames, 'IN')
       ->condition('created', [$from->getTimestamp(), $to->getTimestamp()], 'BETWEEN')
       ->sort('created', 'DESC')
+      ->accessCheck()
       ->execute();
 
     // @phpstan-ignore-next-line
@@ -296,6 +297,7 @@ class Helper {
       ->getStorage('user')
       ->getQuery()
       ->condition(self::USER_NOTIFICATION_INTERVAL_FIELD_NAME, 0, '>')
+      ->accessCheck()
       ->execute();
 
     // Group users by notification interval.

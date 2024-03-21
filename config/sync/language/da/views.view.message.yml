@@ -21,28 +21,13 @@ display:
             first: '« første'
             last: 'sidste »'
       fields:
-        message_bulk_form_1:
-          action_title: 'With selection'
-        mid:
-          separator: ', '
-        template:
-          separator: ', '
-        get_text:
-          label: 'Message text'
         uid:
           label: Forfatter
-          separator: ', '
-        created:
-          label: 'Published date'
       filters:
         template:
           expose:
             label: Skabelon
       title: Meddelelse
-      empty:
-        area:
-          content:
-            value: 'No messages created yet'
   page_1:
     display_title: Side
     display_options:

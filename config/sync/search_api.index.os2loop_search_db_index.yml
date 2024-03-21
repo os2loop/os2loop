@@ -14,11 +14,12 @@ dependencies:
     - field.storage.paragraph.os2loop_documents_hc_content
     - field.storage.paragraph.os2loop_documents_description
     - field.storage.paragraph.os2loop_documents_step_text
+    - field.storage.paragraph.os2loop_documents_steps
+    - field.storage.paragraph.os2loop_documents_step_title
     - field.storage.paragraph.os2loop_documents_tai_text
     - field.storage.paragraph.os2loop_documents_hc_title
     - field.storage.node.os2loop_external_descripti
-    - field.storage.paragraph.os2loop_documents_step_title
-    - field.storage.paragraph.os2loop_documents_steps
+    - field.storage.paragraph.os2loop_documents_tbl_cont
     - field.storage.node.os2loop_shared_profession
     - field.storage.node.os2loop_shared_subject
     - field.storage.node.os2loop_shared_tags
@@ -213,6 +214,17 @@ field_settings:
         - field.storage.paragraph.os2loop_documents_tai_text
       module:
         - paragraphs
+  os2loop_documents_title:
+    label: 'Content » Paragraph » Title'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_documents_document_conte
+        - field.storage.paragraph.os2loop_documents_title
+      module:
+        - paragraphs
   os2loop_external_descripti:
     label: Description
     datasource_id: 'entity:node'
@@ -266,7 +278,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: 'os2loop_shared_category:entity:name'
     type: text
-    boost: !!float 2
+    boost: 2.0
     dependencies:
       config:
         - field.storage.node.os2loop_shared_category
@@ -293,7 +305,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: 'os2loop_shared_subject:entity:name'
     type: text
-    boost: !!float 2
+    boost: 2.0
     dependencies:
       config:
         - field.storage.node.os2loop_shared_subject
@@ -307,6 +319,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.os2loop_shared_tags
+  processed:
+    label: 'Indhold » Paragraph » Table » Processed text'
+    datasource_id: 'entity:node'
+    property_path: 'os2loop_documents_document_conte:entity:os2loop_documents_tbl_cont:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.os2loop_documents_document_conte
+        - field.storage.paragraph.os2loop_documents_tbl_cont
+      module:
+        - paragraphs
   processed_answer:
     label: Answer
     datasource_id: 'entity:node'
@@ -322,7 +345,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: text
-    boost: !!float 2
+    boost: 2.0
     dependencies:
       module:
         - node
@@ -373,10 +396,13 @@ processor_settings:
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
       - os2loop_documents_step_text_2
+      - os2loop_documents_step_text_3
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
+      - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
+      - os2loop_documents_title
       - os2loop_external_descripti
       - os2loop_post_comments
       - os2loop_post_content
@@ -384,6 +410,7 @@ processor_settings:
       - os2loop_question_content
       - os2loop_shared_category_name
       - os2loop_shared_subject_name
+      - processed
       - processed_answer
       - processed_comment
       - title
@@ -411,10 +438,13 @@ processor_settings:
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
       - os2loop_documents_step_text_2
+      - os2loop_documents_step_text_3
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
+      - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
+      - os2loop_documents_title
       - os2loop_external_descripti
       - os2loop_post_comments
       - os2loop_post_content
@@ -422,6 +452,7 @@ processor_settings:
       - os2loop_question_content
       - os2loop_shared_category_name
       - os2loop_shared_subject_name
+      - processed
       - processed_answer
       - processed_comment
       - title
@@ -444,15 +475,19 @@ processor_settings:
       - os2loop_documents_step_text
       - os2loop_documents_step_text_1
       - os2loop_documents_step_text_2
+      - os2loop_documents_step_text_3
       - os2loop_documents_step_title
       - os2loop_documents_step_title_1
       - os2loop_documents_step_title_2
+      - os2loop_documents_step_title_3
       - os2loop_documents_tai_text
+      - os2loop_documents_title
       - os2loop_external_descripti
       - os2loop_post_content
       - os2loop_question_content
       - os2loop_shared_category_name
       - os2loop_shared_subject_name
+      - processed
       - processed_answer
       - processed_comment
       - title
@@ -465,10 +500,13 @@ processor_settings:
       preprocess_index: 0
     boosts:
       'entity:node':
-        datasource_boost: !!float 1
+        datasource_boost: 1.0
         bundle_boosts:
-          os2loop_documents_collection: !!float 2
-          os2loop_documents_document: !!float 2
+          os2loop_documents_collection: 2.0
+          os2loop_documents_document: 2.0
+          os2loop_external: 0.0
+          os2loop_post: 0.0
+          os2loop_question: 0.0
 tracker_settings:
   default:
     indexing_order: fifo

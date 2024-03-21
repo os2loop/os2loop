@@ -1,47 +1,56 @@
-uuid: 1fdfb8da-9027-47e8-885a-6ad5cf0669c7
-langcode: en
+uuid: 88510067-7322-4901-a6a4-0623f0409f4a
+langcode: da
 status: true
 dependencies:
   config:
     - filter.format.os2loop_external
   module:
-    - ckeditor
+    - ckeditor5
 format: os2loop_external
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-        -
-          name: Tools
-          items:
-            - Source
+    items:
+      - bold
+      - italic
+      - '|'
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - '|'
+      - blockQuote
+      - '|'
+      - sourceEditing
+      - '|'
+      - code
+      - heading
   plugins:
-    stylescombo:
-      styles: ''
-    language:
-      language_list: un
-    tokenbrowser:
-      token_types: {  }
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_list:
+      reversed: false
+      startIndex: true
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<cite>'
+        - '<dl>'
+        - '<dt>'
+        - '<dd>'
+        - '<h2 id>'
+        - '<h3 id>'
+        - '<h4 id>'
+        - '<h5 id>'
+        - '<h6 id>'
+        - '<a hreflang>'
+        - '<blockquote cite>'
+        - '<ul type>'
+        - '<ol type>'
 image_upload:
   status: false
   scheme: public

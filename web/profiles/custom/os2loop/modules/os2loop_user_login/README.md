@@ -1,6 +1,6 @@
 # OS2Loop user login
 
-Log in via OpenID Connect and SAML.
+Log in via OpenID Connect.
 
 Go to Administration › Configuration › OS2Loop › OS2Loop user login settings
 (`/admin/config/os2loop/os2loop_user_login/settings`) to enable login methods.
@@ -121,27 +121,6 @@ Check your overwrites by running
 
 ```sh
 vendor/bin/drush config:get --include-overridden openid_connect.settings
-```
-
-## SAML
-
-The [SAML Authentication](https://www.drupal.org/project/samlauth) module is
-used for SAML authentication (!).
-
-```php
-// web/sites/*/settings.local.php
-$config['samlauth.authentication']['sp_entity_id'] = 'os2loop;
-$config['samlauth.authentication']['wsp_name_id_format'] = '';
-// Folder containing `certs` folder with files `sp.{crt,key}`.
-$config['samlauth.authentication']['sp_cert_folder'] = __DIR__.'/../../..';
-$config['samlauth.authentication']['idp_entity_id'] = …; // Get this from you IdP metadata.
-$config['samlauth.authentication']['idp_single_sign_on_service'] = …; // Get this from you IdP metadata.
-$config['samlauth.authentication']['idp_x509_certificate'] = …; // Get this from you IdP metadata.
-$config['samlauth.authentication']['unique_id_attribute'] = 'upn';
-$config['samlauth.authentication']['create_users'] = TRUE;
-$config['samlauth.authentication']['user_name_attribute'] = 'name';
-$config['samlauth.authentication']['user_mail_attribute'] = 'mail';
-$config['samlauth.authentication']['sp_name_id_format'] = 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress';
 ```
 
 ### Translations

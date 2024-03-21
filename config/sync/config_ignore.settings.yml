@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 ignored_config_entities:
   - os2loop.settings
   - os2loop_analytics.settings
@@ -15,5 +17,3 @@ ignored_config_entities:
   - samlauth.authentication
   - samlauth_user_roles.mapping
   - system.site
-_core:
-  default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk

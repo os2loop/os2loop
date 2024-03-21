@@ -10,7 +10,7 @@ dependencies:
     - text
 third_party_settings:
   better_formats:
-    allowed_formats_toggle: 1
+    allowed_formats_toggle: true
     allowed_formats:
       os2loop_question_plain_text: os2loop_question_plain_text
       os2loop_question_rich_text: os2loop_question_rich_text
@@ -25,7 +25,7 @@ third_party_settings:
       os2loop_page: 0
       os2loop_post: 0
       os2loop_section_page: 0
-    default_order_toggle: 0
+    default_order_toggle: false
     default_order_wrapper:
       formats:
         os2loop_question_answer_plain_text:
@@ -64,5 +64,6 @@ required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
+settings:
+  allowed_formats: {  }
 field_type: text_long

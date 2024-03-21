@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - media
+    - toc_filter
     - token_filter
 name: 'Section (rich text)'
 format: os2loop_section_page
@@ -15,7 +15,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <ul type> <ol type start> <li> <br> <p>'
+      allowed_html: '<br> <p> <a hreflang href> <ul type> <ol type start> <strong> <em> <li>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
@@ -44,3 +44,13 @@ filters:
     status: true
     weight: 10
     settings: {  }
+  toc_filter:
+    id: toc_filter
+    provider: toc_filter
+    status: false
+    weight: 0
+    settings:
+      type: default
+      auto: ''
+      block: '0'
+      exclude_above: '0'
