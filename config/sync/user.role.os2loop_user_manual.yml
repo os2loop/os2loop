@@ -3,10 +3,12 @@ langcode: en
 status: true
 dependencies:
   module:
+    - entity_usage
     - openid_connect
 id: os2loop_user_manual
 label: Manual
 weight: 11
 is_admin: null
 permissions:
+  - 'access entity usage statistics'
   - 'openid connect set own password'

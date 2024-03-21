@@ -11,6 +11,8 @@ dependencies:
     - filter.format.os2loop_post
     - filter.format.os2loop_section_page
     - filter.format.os2loop_section_page_free_html
+    - media.type.os2loop_media_file
+    - media.type.os2loop_media_image
     - node.type.os2loop_documents_collection
     - node.type.os2loop_documents_document
     - node.type.os2loop_external
@@ -24,6 +26,7 @@ dependencies:
   module:
     - comment
     - contextual
+    - entity_usage
     - filter
     - flag
     - locale
@@ -46,6 +49,7 @@ permissions:
   - 'access administration pages'
   - 'access content overview'
   - 'access contextual links'
+  - 'access entity usage statistics'
   - 'access media overview'
   - 'access toolbar'
   - 'access user profiles'
@@ -64,6 +68,8 @@ permissions:
   - 'delete any os2loop_documents_collection content'
   - 'delete any os2loop_documents_document content'
   - 'delete any os2loop_external content'
+  - 'delete any os2loop_media_file media'
+  - 'delete any os2loop_media_image media'
   - 'delete any os2loop_page content'
   - 'delete any os2loop_post content'
   - 'delete any os2loop_question content'
@@ -80,6 +86,8 @@ permissions:
   - 'edit any os2loop_documents_collection content'
   - 'edit any os2loop_documents_document content'
   - 'edit any os2loop_external content'
+  - 'edit any os2loop_media_file media'
+  - 'edit any os2loop_media_image media'
   - 'edit any os2loop_page content'
   - 'edit any os2loop_post content'
   - 'edit any os2loop_question content'

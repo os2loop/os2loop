@@ -6,12 +6,15 @@ dependencies:
     - filter.format.os2loop_documents_body
     - filter.format.os2loop_documents_rich_text
     - filter.format.os2loop_documents_table
+    - media.type.os2loop_media_file
+    - media.type.os2loop_media_image
     - node.type.os2loop_documents_collection
     - node.type.os2loop_documents_document
     - node.type.os2loop_question
     - taxonomy.vocabulary.os2loop_tag
   module:
     - comment
+    - entity_usage
     - filter
     - flag
     - media
@@ -26,6 +29,7 @@ label: Dokumentationskoordinator
 weight: 3
 is_admin: null
 permissions:
+  - 'access entity usage statistics'
   - 'access media overview'
   - 'access toolbar'
   - 'access user profiles'
@@ -33,9 +37,13 @@ permissions:
   - 'administer nodes'
   - 'create os2loop_documents_collection content'
   - 'create os2loop_documents_document content'
+  - 'delete any os2loop_media_file media'
+  - 'delete any os2loop_media_image media'
   - 'delete any os2loop_question content'
   - 'delete own os2loop_question content'
   - 'delete terms in os2loop_tag'
+  - 'edit any os2loop_media_file media'
+  - 'edit any os2loop_media_image media'
   - 'edit any os2loop_question content'
   - 'edit terms in os2loop_tag'
   - 'flag os2loop_upvote_correct_answer'

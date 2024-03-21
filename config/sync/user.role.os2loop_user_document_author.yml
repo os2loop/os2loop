@@ -6,9 +6,12 @@ dependencies:
     - filter.format.os2loop_documents_body
     - filter.format.os2loop_documents_rich_text
     - filter.format.os2loop_documents_table
+    - media.type.os2loop_media_file
+    - media.type.os2loop_media_image
     - node.type.os2loop_documents_collection
     - node.type.os2loop_documents_document
   module:
+    - entity_usage
     - filter
     - flag
     - media
@@ -24,12 +27,17 @@ weight: 7
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access entity usage statistics'
   - 'access media overview'
   - 'access toolbar'
   - 'create os2loop_documents_collection content'
   - 'create os2loop_documents_document content'
+  - 'delete own os2loop_media_file media'
+  - 'delete own os2loop_media_image media'
   - 'edit any os2loop_documents_collection content'
   - 'edit any os2loop_documents_document content'
+  - 'edit any os2loop_media_file media'
+  - 'edit any os2loop_media_image media'
   - 'edit own os2loop_documents_document content'
   - 'flag os2loop_upvote_correct_answer'
   - 'os2loop send alert'
